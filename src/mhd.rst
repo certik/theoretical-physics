@@ -29,7 +29,7 @@ The magnetohydrodynamics (MHD) equations are:
 
     \nabla\cdot{\bf B} = 0
 
-assuming :math:`\eta` is constant. See the next section for a derivation. We
+assuming :math:`\eta` is constant ($\eta$). See the next section for a derivation. We
 can now apply the following identities (we use the fact that
 :math:`\nabla\cdot{\bf B}=0`):
 
