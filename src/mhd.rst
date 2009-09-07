@@ -4,11 +4,6 @@ MHD Equations
 Introduction
 ------------
 
-Test $f(n) = 0 \text{ if $n$ is prime}$, and also ``\$HOME``.
-Test $f(n) = 0 \text{ if $n$ is prime}$, and also ``\$HOME``.
-Test $f(n) = 0 \text{ if $n$ is prime}$, and also ``\$HOME``.
-Test $f(n) = 0 \text{ if $n$ is prime}$, and also ``\$HOME``.
-
 The magnetohydrodynamics (MHD) equations are:
 
 .. math::
