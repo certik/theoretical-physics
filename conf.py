@@ -25,7 +25,7 @@ sys.path.append(os.path.abspath('exts'))
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['sphinx.ext.pngmath', "math_dollar"]
 
-pngmath_latex_preamble = r"""
+latex_preamble = r"""
 \usepackage{braket}
 \def\degrees{^\circ}
 \def\d{{\rm d}}
@@ -132,6 +132,9 @@ pngmath_latex_preamble = r"""
 
 \def\Tr{\hbox{Tr}\,}
 """
+
+pngmath_latex_preamble = latex_preamble
+latex_elements = {"preamble": latex_preamble}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
