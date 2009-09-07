@@ -26,15 +26,26 @@ def process_dollars(app, docname, source):
         return
     # This searches for "$blah$" inside a pair of curly braces --
     # don't change these, since they're probably coming from a nested
-    # math environment.  So for each match, search to the left of its
-    # start and to the right of its end, but not in between.
-    s = re.sub(r"({[^{}$]*\$[^{}$]*\$[^{}$]*})", "3", s)
+    # math environment.  So for each match, we replace it with a temporary
+    # string, and later on we substitute the original back.
+    global _data
+    _data = {}
+    def repl(matchobj):
+        global _data
+        s = matchobj.group(0)
+        t = "___XXX_REPL_%d___" % len(_data)
+        _data[t] = s
+        return t
+    s = re.sub(r"({[^{}$]*\$[^{}$]*\$[^{}$]*})", repl, s)
     # matches $...$
     dollars = re.compile(r"(?<!\$)(?<!\\)\$([^\$]+?)\$")
     # regular expression for \$
     slashdollar = re.compile(r"\\\$")
     s = dollars.sub(r":math:`\1`", s)
     s = slashdollar.sub(r"$", s)
+    # change the original {...} things in:
+    for r in _data:
+        s = s.replace(r, _data[r])
     # now save results in "source"
     source[:] = [s]
 
