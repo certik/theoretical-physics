@@ -43,12 +43,25 @@ def process_dollars(app, docname, source):
                             .*?)? # non-greedy match any non-newline characters
                             (?<!`|\\)\$(?!`) # $ with negative lookbehind and lookahead
                             """, re.M | re.X)
+    dollar2 = re.compile(r"""\$""")
     # regular expression for \$
     slashdollar = re.compile(r"\\\$")
     for start, end in indices:
-        while dollar.search(s, start, end):
-            m = dollar.search(s, start, end)
-            s = s[:m.end()-1] + "`" + s[m.end():]
+        # find the first dollar:
+        m1 = dollar.search(s, start, end)
+        if m1:
+            # and the second dollar:
+            m2 = dollar2.search(s, m1.end(), end)
+        else:
+            m2 = None
+        while m1 and m2:
+            s = s[:m1.end()-1] + ":math:`" + s[m1.end():m2.end()-1] + "`" + \
+                    s[m2.end():]
+            m1 = dollar.search(s, start, end)
+            if m1:
+                m2 = dollar2.search(s, m1.end(), end)
+            else:
+                m2 = None
         while slashdollar.search(s, start, end):
             m = slashdollar.search(s, start, end)
             s = s[:m.start()] + "$" + s[m.end():]
