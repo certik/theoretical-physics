@@ -1,0 +1,776 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Polar and Spherical Coordinates &mdash; Theoretical Physics Reference v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Mathematics" href="main.html" />
+    <link rel="next" title="Differential Geometry" href="differential-geometry.html" />
+    <link rel="prev" title="Fourier Transform" href="transforms.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="differential-geometry.html" title="Differential Geometry"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="transforms.html" title="Fourier Transform"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="polar-and-spherical-coordinates">
+<h1>Polar and Spherical Coordinates<a class="headerlink" href="#polar-and-spherical-coordinates" title="Permalink to this headline">¶</a></h1>
+<p>Polar coordinates (radial, azimuth) <img class="math" src="../../_images/math/0cc34969521e4bb9913d4e07317af072427dde90.png" alt="(r,\phi)"/> are defined by</p>
+<div class="math">
+<p><img src="../../_images/math/c2b529225f4a60c1c85827efa43df79821a9f9ef.png" alt="\begin{eqnarray*} x&amp;=&amp;r\cos\phi \\ y&amp;=&amp;r\sin\phi \\ \end{eqnarray*}" /></p>
+</div><p>Spherical coordinates (radial, zenith, azimuth) <img class="math" src="../../_images/math/244da803f8ee0ecd7ad5513fe9206b7f5f95c7c8.png" alt="(\rho,\theta,\phi)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/369150e76aa335f444de36af0df609885249a4ef.png" alt="\begin{eqnarray*} x&amp;=&amp;\rho\sin\theta\cos\phi \\ y&amp;=&amp;\rho\sin\theta\sin\phi \\ z&amp;=&amp;\rho\cos\theta \\ \end{eqnarray*}" /></p>
+</div><p>Note: this meaning of <img class="math" src="../../_images/math/977460ae4c3a462a8f1ea3975e6d2d8b3218b20c.png" alt="(\theta,\phi)"/> is mostly used in the USA and in many
+books. In Europe people usually use different symbols, like <img class="math" src="../../_images/math/08f120ef1f9b5ffca7c41f2d3d626d5015602182.png" alt="(\phi,\theta)"/>, <img class="math" src="../../_images/math/5b72e7d02f6fc8bdf33dbbd0b3d35f2a5e0cf501.png" alt="(\vartheta,\varphi)"/> and others.</p>
+</div>
+<div class="section" id="argument-function-atan2">
+<span id="index-29"></span><h1>Argument function, atan2<a class="headerlink" href="#argument-function-atan2" title="Permalink to this headline">¶</a></h1>
+<p>Argument function <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is any <img class="math" src="../../_images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> such that</p>
+<div class="math">
+<p><img src="../../_images/math/12fe07741f4d9e5a210033c5544903cf2dff1bb5.png" alt="z = r e^{i\varphi}" /></p>
+</div><p>Obviously <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> is unique up to any integer multiple of <img class="math" src="../../_images/math/709acef3551b886e6754de72d59a88f00660f0d3.png" alt="2\pi"/>. By taking
+the principal value of the <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> function, e.g. fixing <img class="math" src="../../_images/math/591939135854d44f9c7f8b6bb6008a8a4d0f4236.png" alt="\arg(z)"/> to the
+interval <img class="math" src="../../_images/math/e520a7aeab7e3c5078aebf7d07340c9485d2a110.png" alt="(-\pi, \pi]"/>, we get the <img class="math" src="../../_images/math/ac04fddbd2727efa331c066e1d11c950ae8c1c21.png" alt="\Arg(z)"/> function:</p>
+<div class="math">
+<p><img src="../../_images/math/ac7924a2bb40f53ee9ff1f85c230562c422cc692.png" alt="-\pi &lt; \Arg z \le \pi" /></p>
+</div><p>then <img class="math" src="../../_images/math/b0b9e3e705ff5748913d10bbf3668fe4c612593d.png" alt="\arg z = \Arg z + 2\pi n"/>, where <img class="math" src="../../_images/math/08ff5493a77264faebd1288e3dc3b8255facb66e.png" alt="n=0, \pm 1, \pm 2, \dots"/>. We can then
+use the following formula to easily calculate <img class="math" src="../../_images/math/572146525ff4f2cbe7da7da892634ea6f93e6c98.png" alt="\Arg z"/> for any <img class="math" src="../../_images/math/2a514d19359869e53b6e4be1413344d26ff908ff.png" alt="z=x+iy"/> (except
+<img class="math" src="../../_images/math/08cc55a3a19c9f8cf005f17391db8ed355d2909c.png" alt="x=y=0"/>, i.e. <img class="math" src="../../_images/math/72079803c6fcdcfa95b6d7f383f6ad71f1eb631b.png" alt="z=0"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/ee18b83dfebd12344b4d1cf51888f352fd9d7a01.png" alt="\Arg(x+iy) =\begin{cases}\pi&amp;y=0;x&lt;0;\cr
+    2\,\atan{y\over\sqrt{x^2+y^2}+x}&amp;\rm otherwise\cr\end{cases}" /></p>
+</div><p>Finally we define <img class="math" src="../../_images/math/509ca2700bb284d9b49af7df2ee9d4a24019fb33.png" alt="\atan2(y, x)"/> as:</p>
+<div class="math">
+<p><img src="../../_images/math/da07cf4ef86ec3dbbacef0480cac62b7b4ae7fd5.png" alt="\atan2(y, x) = \Arg(x+iy) =
+    \begin{cases}\pi&amp;y=0;x&lt;0;\cr
+        2\,\atan{y\over\sqrt{x^2+y^2}+x}&amp;\rm otherwise\cr\end{cases}" /></p>
+</div><p>The angle <img class="math" src="../../_images/math/9dca46bc73bf20ff700b40a3561573754e6e84d0.png" alt="\phi=\atan2(y, x)"/> is the angle of the point <img class="math" src="../../_images/math/adfd9ae8a3fac031d3b8b470a52a709a23d4d6d2.png" alt="(x, y)"/> on the unit
+circle (assuming the usual conventions), and it works for all quadrants
+(<img class="math" src="../../_images/math/1282c5a0478576f2819f18629c15293a3cef0f6c.png" alt="\phi=\atan(y, x)"/> only works for the first and fourth quadrant, where
+<img class="math" src="../../_images/math/5c63c3c9919a8e971b2564d5ed80a3fd7a664f89.png" alt="\atan(y, x)=\atan2(y, x)"/>, but in the second and third qudrant, <img class="math" src="../../_images/math/c62d96b41e1f81964b967b897cb220e35763385a.png" alt="\atan(y, x)"/>
+gives the wrong angles, while <img class="math" src="../../_images/math/509ca2700bb284d9b49af7df2ee9d4a24019fb33.png" alt="\atan2(y, x)"/> gives the correct angles). So in
+particular:</p>
+<div class="math">
+<p><img src="../../_images/math/38dbc154fc852666bef962c4cbeba0bb57bb627d.png" alt="\atan2(0, 1) = 2\,\atan{0\over\sqrt{1^2+0^2}+1} = 0
+
+\atan2(0, -1) = \pi
+
+\atan2(1, 0) = 2\,\atan{1\over\sqrt{0^2+1^2}+0} = 2\,\atan 1 =
+    {\pi\over 2}
+
+\atan2(-1, 0) = 2\,\atan{-1\over\sqrt{0^2+1^2}+0} = -2\,\atan 1 =
+    -{\pi\over 2}" /></p>
+</div><p>This convention (<img class="math" src="../../_images/math/509ca2700bb284d9b49af7df2ee9d4a24019fb33.png" alt="\atan2(y, x)"/>) is used for example in Python, C or Fortran.
+Some people might interchange <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> with <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> in the definition (i.e. <img class="math" src="../../_images/math/4921e4c413a17ff4c3d94692165f2fcc565ca915.png" alt="\atan2(x,
+y)= \Arg(y+ix)"/>), but it is not very common.</p>
+<p>The following useful relations hold:</p>
+<div class="math">
+<p><img src="../../_images/math/a541b54b870856b4896e6b043fffd90f7569dc39.png" alt="\sin\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
+    \quad\quad\quad\mbox{except $x=y=0$}
+
+\cos\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
+    \quad\quad\quad\mbox{except $x=y=0$}
+
+\tan\atan2(y, x) = {y\over x}
+    \quad\quad\quad\mbox{for $x\neq 0$}
+
+\atan2(ky, kx) = \atan2(y, x)
+    \quad\quad\quad\mbox{for $k&gt;0$}" /></p>
+</div><p>We now prove them. The following works for all <img class="math" src="../../_images/math/32581661cddf01ad30c1e36efe72f99eb0a0adca.png" alt="x, y"/> except for <img class="math" src="../../_images/math/08cc55a3a19c9f8cf005f17391db8ed355d2909c.png" alt="x=y=0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/708dc04823619641f1026d08832b162bad459691.png" alt="\sin\atan2(y, x)
+    =\begin{cases}\sin\pi&amp;y=0;x&lt;0;\cr
+        \sin\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+            &amp;\rm otherwise\cr\end{cases}
+        =
+
+=\begin{cases}0&amp;y=0;x&lt;0;\cr
+    {y\over \sqrt{x^2+y^2}}&amp;\rm otherwise\cr\end{cases}
+    =
+
+=\begin{cases}{y\over \sqrt{x^2+y^2}}&amp;y=0;x&lt;0;\cr
+    {y\over \sqrt{x^2+y^2}}&amp;\rm otherwise\cr\end{cases}
+    ={y\over \sqrt{x^2+y^2}}
+
+
+
+\cos\atan2(y, x)
+    =\begin{cases}\cos\pi&amp;y=0;x&lt;0;\cr
+        \cos\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+            &amp;\rm otherwise\cr\end{cases}
+        =
+
+=\begin{cases}-1&amp;y=0;x&lt;0;\cr
+    {x\over \sqrt{x^2+y^2}}&amp;\rm otherwise\cr\end{cases}
+    =
+
+=\begin{cases}{x\over \sqrt{x^2+y^2}}&amp;y=0;x&lt;0;\cr
+    {x\over \sqrt{x^2+y^2}}&amp;\rm otherwise\cr\end{cases}
+    ={x\over \sqrt{x^2+y^2}}" /></p>
+</div><p>Tangent is infinite for <img class="math" src="../../_images/math/736d380dcc9f466ff567480f0351e6243df08e72.png" alt="\pm{\pi\over 2}"/>, which corresponds to <img class="math" src="../../_images/math/34ea5b6f6de584d56d19a89cc4923a9d9a5cfa41.png" alt="x=0"/>, so the
+following works for all <img class="math" src="../../_images/math/7470aeade5f47b768b503c1547f7e7cbf4540361.png" alt="x\neq 0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/13f2b57b852f30b4577f8ec052c93e6e73e8eea7.png" alt="\tan\atan2(y, x)
+    =\begin{cases}\tan\pi&amp;y=0;x&lt;0;\cr
+        \tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+            &amp;\rm otherwise\cr\end{cases}
+        =
+
+=\begin{cases}0&amp;y=0;x&lt;0;\cr
+    {y\over x}&amp;\rm otherwise\cr\end{cases}
+    =
+
+=\begin{cases}{y\over x}&amp;y=0;x&lt;0;\cr
+    {y\over x}&amp;\rm otherwise\cr\end{cases}
+    ={y\over x}" /></p>
+</div><p>In the above, we used the following double angle formulas:</p>
+<div class="math">
+<p><img src="../../_images/math/9cfdfdb3bf37e9ea4ed25627e8ce4b5b9d572d24.png" alt="\sin 2x = {2\tan x\over 1+\tan^2 x}
+
+\cos 2x = {1-\tan^2x\over 1+\tan^2 x}
+
+\tan 2x = {2\tan x\over 1-\tan^2 x}" /></p>
+</div><p>to simplify the following expressions:</p>
+<div class="math">
+<p><img src="../../_images/math/58f593e12cc1ff077f482fd844e71589f891d1b0.png" alt="\sin\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+    {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+    =
+
+    =
+    {2{y\over\sqrt{x^2+y^2}+x}\over1
+        +\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+    =
+    {2y\left(\sqrt{x^2+y^2}+x\right)\over
+        \left(\sqrt{x^2+y^2}+x\right)^2+y^2}
+    =
+
+    =
+    {y\left(\sqrt{x^2+y^2}+x\right)\over
+        x^2+y^2+x\sqrt{x^2+y^2}}
+    =
+    {y\left(\sqrt{x^2+y^2}+x\right)\over
+        \sqrt{x^2+y^2}\left(\sqrt{x^2+y^2}+x\right)}
+    =
+
+    =
+    {y\over\sqrt{x^2+y^2}}
+
+
+
+\cos\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+    {1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+    =
+
+    =
+    {1 -\left({y\over\sqrt{x^2+y^2}+x}\right)^2\over
+    1 +\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+    =
+    {\left(\sqrt{x^2+y^2}+x\right)^2-y^2\over
+        \left(\sqrt{x^2+y^2}+x\right)^2+y^2}
+    =
+
+    =
+    {x\left(\sqrt{x^2+y^2}+x\right)\over
+        x^2+y^2+x\sqrt{x^2+y^2}}
+    =
+    {x\left(\sqrt{x^2+y^2}+x\right)\over
+        \sqrt{x^2+y^2}\left(\sqrt{x^2+y^2}+x\right)}
+    =
+
+    =
+    {x\over\sqrt{x^2+y^2}}
+
+
+
+\tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+    {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+    =
+
+    =
+    {2{y\over\sqrt{x^2+y^2}+x}\over1
+        -\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+    =
+    {2y\left(\sqrt{x^2+y^2}+x\right)\over
+        \left(\sqrt{x^2+y^2}+x\right)^2-y^2}
+    =
+
+    =
+    {y\left(\sqrt{x^2+y^2}+x\right)\over
+        x\left(\sqrt{x^2+y^2}+x\right)}
+    = {y\over x}" /></p>
+</div><p>Finally, for all <img class="math" src="../../_images/math/67e6630318d8cb28de2723180b6d359b972489c9.png" alt="k&gt;0"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/8b52e67a8680712a7c693f960f2ba396681bb9be.png" alt="\atan2(ky, kx) = \Arg(kx + iky)
+=\begin{cases}\pi&amp;y=0;x&lt;0;\cr
+    2\,\atan{ky\over\sqrt{(kx)^2+(ky)^2}+kx}&amp;\rm otherwise\cr\end{cases}
+=
+
+=\begin{cases}\pi&amp;y=0;x&lt;0;\cr
+    2\,\atan{y\over\sqrt{x^2+y^2}+x}&amp;\rm otherwise\cr\end{cases}
+= \Arg(x+iy) = \atan2(y, x)" /></p>
+</div><p>An example of an application:</p>
+<div class="math">
+<p><img src="../../_images/math/9ac6e020d27b2d43ca97348676425e2647262e88.png" alt="A\sin x + B\cos x = \sqrt{A^2+B^2}\left(
+    {A\over\sqrt{A^2+B^2}}\sin x + {B\over\sqrt{A^2+B^2}}\cos x\right)
+=
+
+= \sqrt{A^2+B^2}\left( \cos\delta\sin x + \sin\delta\cos x\right)
+= \sqrt{A^2+B^2}\sin(x+\delta)
+=
+
+= \sqrt{A^2+B^2}\sin(x+\atan2(B, A))" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/b0e5f9a6399fb46f25c3f6ddd9f06d7f699a203a.png" alt="\delta = \atan2\left({B\over\sqrt{A^2+B^2}}, {A\over\sqrt{A^2+B^2}}\right)
+=\atan2(B, A)" /></p>
+</div></div>
+<div class="section" id="delta-function">
+<h1>Delta Function<a class="headerlink" href="#delta-function" title="Permalink to this headline">¶</a></h1>
+<p>Delta function <img class="math" src="../../_images/math/06999c5a62eadb46890f6f92bba26bb075f5ac84.png" alt="\delta(x)"/> is defined such that this relation holds:</p>
+<div class="math" id="equation-deltadef">
+<p><span class="eqno">(1)</span><img src="../../_images/math/88e07c667fc82b957c41499d14a8d339d7c42bca.png" alt="\int f(x)\delta(x-t)\d x=f(t)" /></p>
+</div><p>No such function exists, but one can find many sequences &#8220;converging&#8221; to a delta function:</p>
+<div class="math" id="equation-deltalim">
+<p><span class="eqno">(2)</span><img src="../../_images/math/98117427c7e5144a6a9f27837525d6b71e3ec241.png" alt="\lim_{\alpha\to\infty}\delta_\alpha(x) = \delta(x)" /></p>
+</div><p>more precisely:</p>
+<div class="math" id="equation-deltaprec">
+<p><span class="eqno">(3)</span><img src="../../_images/math/79b616650e6483e77aa6d9e66d1ff180460fc7f3.png" alt="\lim_{\alpha\to\infty}\int f(x)\delta_\alpha(x)\d x = \int f(x)\lim_{\alpha\to\infty}\delta_\alpha(x)\d x = f(t)" /></p>
+</div><p>one example of such a sequence is:</p>
+<div class="math">
+<p><img src="../../_images/math/985953302d003ceba1d8875c342e5f0e91a23d5e.png" alt="\delta_\alpha(x) = {1\over\pi x}\sin(\alpha x)" /></p>
+</div><p>It&#8217;s clear that <a href="#equation-deltaprec">(3)</a> holds for any well behaved function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>.
+Some mathematicians like to say that it&#8217;s incorrect to use such a notation when
+in fact the integral <a href="#equation-deltadef">(1)</a> doesn&#8217;t &#8220;exist&#8221;, but we will not follow
+their approach, because it is not important if something &#8220;exists&#8221; or not,
+but rather if it is clear what we mean by our notation: <a href="#equation-deltadef">(1)</a> is a
+shorthand for <a href="#equation-deltaprec">(3)</a> and <a href="#equation-deltalim">(2)</a> gets a mathematically rigorous
+meaning when you integrate both sides and use <a href="#equation-deltadef">(1)</a> to arrive at
+<a href="#equation-deltaprec">(3)</a>.  Thus one uses the relations <a href="#equation-deltadef">(1)</a>, <a href="#equation-deltalim">(2)</a>,
+<a href="#equation-deltaprec">(3)</a> to derive all properties of the delta function.</p>
+<p>Let&#8217;s give an example. Let <img class="math" src="../../_images/math/9d0163998470ab71af420a0588995f79436153d3.png" alt="{\bf\hat r}"/> be the unit vector in 3D and we can label it using spherical coordinates <img class="math" src="../../_images/math/f5e2207b0d151e070173035aa2bed85436574214.png" alt="{\bf\hat r}={\bf\hat r}(\theta,\phi)"/>. We can also express it in cartesian coordinates as <img class="math" src="../../_images/math/bd3398b06f9472480e09ce7db67c655cc83c3d51.png" alt="{\bf\hat r}(\theta,\phi)=(\cos\phi\sin\theta,\sin\phi\sin\theta,\cos\theta)"/>.</p>
+<div class="math" id="equation-deltar">
+<p><span class="eqno">(4)</span><img src="../../_images/math/5c15c46e981e59ee00d587d70467ae1be2635308.png" alt="f({\bf\hat r'})=\int\delta({\bf\hat r}-{\bf\hat r'})f({\bf\hat r})\,\d {\bf\hat r}" /></p>
+</div><p>Expressing <img class="math" src="../../_images/math/d9ac27a474a538a9993248c321a8bf06ef1d35d8.png" alt="f({\bf\hat r})=f(\theta,\phi)"/> as a function of <img class="math" src="../../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> and <img class="math" src="../../_images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/> we have</p>
+<div class="math" id="equation-deltaangles">
+<p><span class="eqno">(5)</span><img src="../../_images/math/2f6317f81bae336bd5129779bb399493e1c86dfb.png" alt="f(\theta',\phi')=\int\delta(\theta-\theta')\delta(\phi-\phi') f(\theta,\phi)\,\d\theta\d\phi" /></p>
+</div><p>Expressing <a href="#equation-deltar">(4)</a> in spherical coordinates we get</p>
+<div class="math">
+<p><img src="../../_images/math/da6f2197ffa093a4c817c4b1d9339bd02756cfbd.png" alt="f(\theta',\phi')=\int\delta({\bf\hat r}-{\bf\hat r'}) f(\theta,\phi)\sin\theta\,\d\theta\d\phi" /></p>
+</div><p>and comparing to <a href="#equation-deltaangles">(5)</a> we finally get</p>
+<div class="math">
+<p><img src="../../_images/math/415d227e629b59900f3a49687f510d03a63f24c9.png" alt="\delta({\bf\hat r}-{\bf\hat r'})={1\over\sin\theta} \delta(\theta-\theta')\delta(\phi-\phi')" /></p>
+</div><p>In exactly the same manner we get</p>
+<div class="math">
+<p><img src="../../_images/math/667f371581c4b47ec593df60da58e49c4cce5302.png" alt="\delta({\bf r}-{\bf r'})=\delta({\bf\hat r}-{\bf\hat r'}) {\delta(\rho-\rho')\over\rho^2}" /></p>
+</div><p>See also <a href="#equation-functionalderdel">(6)</a> for an example of how to deal with more complex expressions involving the delta function like <img class="math" src="../../_images/math/1bec111a10bc85bf078a470cfe949dec671665b9.png" alt="\delta^2(x)"/>.</p>
+</div>
+<div class="section" id="distributions">
+<h1>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h1>
+<p>Some mathematicians like to use distributions and a mathematical notation for
+that, which I think is making things less clear, but nevertheless it&#8217;s
+important to understand it too, so the notation is explained in this section,
+but I discourage to use it &#8211; I suggest to only use the physical notation as
+explained below. The math notation below is put into quotation marks, so that
+it&#8217;s not confused with the physical notation.</p>
+<p>The distribution is a functional and each function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> can be identified
+with a distribution <img class="math" src="../../_images/math/11c3d7e6bc3f6be6dffe91f5326bebda51b2446c.png" alt="\mathnot{T_f}"/> that it generates using this definition (<img class="math" src="../../_images/math/5b6475d5b6b7e8f05c0d5fee775ef5053fe89d79.png" alt="\varphi(x)"/>
+is a test function):</p>
+<div class="math">
+<p><img src="../../_images/math/c004a8ee2c59ea1683df4072bf90043953706bb3.png" alt="\mathnot{T_f(\phi(x))} \equiv \int f(x)\varphi(x) \d x \equiv
+\mathnot{f(\varphi(x))} \equiv \mathnot{(f(x), \varphi(x))}" /></p>
+</div><p>besides that, one can also define distributions that can&#8217;t be identified with
+regular functions, one example is a delta distribution (Dirac delta function):</p>
+<div class="math">
+<p><img src="../../_images/math/bbd3031bec74f1d289f7ff24871aa4df63a4d6f5.png" alt="\mathnot{\delta(\phi(x))} \equiv \phi(0) \equiv \int \delta(x) \phi(x) \d x" /></p>
+</div><p>The last integral is not used in mathematics, in physics on the other hand, the
+first expressions (<img class="math" src="../../_images/math/bde1c6a4847ce7cf07eccbe409240350d8791be1.png" alt="\mathnot{\delta(\phi(x))}"/>) is not used, so <img class="math" src="../../_images/math/06999c5a62eadb46890f6f92bba26bb075f5ac84.png" alt="\delta(x)"/> always means
+that you have to integrate it, as explained in the previous section, so it
+behaves like a regular function (except that such a function doesn&#8217;t exist and
+the precise mathematical meaning is only after you integrate it, or through the
+identification above with distributions).</p>
+<p>One then defines common operations via acting on the generating function, then
+observes the pattern and defines it for all distributions. For example
+differentiation:</p>
+<div class="math">
+<p><img src="../../_images/math/fc34dadc8239b216bbea5b1fb87ce6b1070ae6f1.png" alt="\mathnot{{\d\over\d x}T_f(\varphi)} =
+\mathnot{T_{f'}(\varphi)} =
+\int f'\varphi \d x =
+-\int f\varphi' \d x =
+\mathnot{-T_f(\varphi')}" /></p>
+</div><p>so:</p>
+<div class="math">
+<p><img src="../../_images/math/ab33fd59ec50725c088658b086e0bcbe1d695f2f.png" alt="\mathnot{{\d\over\d x}T(\varphi)} =
+\mathnot{-T(\varphi')}" /></p>
+</div><p>Multiplication:</p>
+<div class="math">
+<p><img src="../../_images/math/9eb87a864479c956630d823915f313d8ec0c8430.png" alt="\mathnot{gT_f(\varphi)} =
+\mathnot{T_{gf}(\varphi)} =
+\int gf\varphi \d x =
+\mathnot{T_f(g\varphi)}" /></p>
+</div><p>so:</p>
+<div class="math">
+<p><img src="../../_images/math/48c4524098e9287cefd6ca4fa19eb8326fb8b6d4.png" alt="\mathnot{gT(\varphi)} =
+\mathnot{T(g\varphi)}" /></p>
+</div><p>Fourier transform:</p>
+<div class="math">
+<p><img src="../../_images/math/99ff14da52d12b993ca97412c35f70755ffe200a.png" alt="\mathnot{FT_f(\varphi)} =
+\mathnot{T_{Ff}(\varphi)} =
+\int F(f)\varphi \d x =
+
+=\int\left[\int e^{-ikx} f(k) \d k\right] \varphi(x) \d x
+=\int f(k)\left[\int e^{-ikx} \varphi(x) \d x\right] \d k
+=\int f(x)\left[\int e^{-ikx} \varphi(k) \d k\right] \d x
+=
+
+=
+\int f F(\varphi) \d x =
+\mathnot{T_f(F\varphi)}" /></p>
+</div><p>so:</p>
+<div class="math">
+<p><img src="../../_images/math/b26339b23a4c54068480bdf92b02ed240944d468.png" alt="\mathnot{FT(\varphi)} =
+\mathnot{T(F\varphi)}" /></p>
+</div><p>But as you can see, the notation is just making things more complex, since it&#8217;s
+enough to just work with the integrals and forget about the rest. One can then
+even omit the integrals, with the understanding that they are implicit.</p>
+<p>Some more examples:</p>
+<div class="math">
+<p><img src="../../_images/math/03bace887aa4b5ff51bf45c4f512329c257fcbc3.png" alt="\int \delta(x-x_0)\varphi(x) \d x = \int \delta(x)\varphi(x+x_0) \d x
+= \varphi(x_0) \equiv \mathnot{\delta(\varphi(x+x_0))}" /></p>
+</div><p>Proof of <img class="math" src="../../_images/math/e6dc32c2daf1fa44e21d510addd420fb05b87f3a.png" alt="\delta(-x) = \delta(x)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/90787a821a5ce9efd49c01bf5463ce1d583f407f.png" alt="\int_{-\infty}^\infty \delta(-x)\varphi(x)\d x =
+-\int_{\infty}^{-\infty} \delta(y)\varphi(-y)\d y =
+\int_{-\infty}^\infty \delta(x)\varphi(-x)\d x
+\equiv \mathnot{\delta(\varphi(-x))} = \varphi(0)
+=\mathnot{\delta(\phi(x))}
+\equiv
+\int_{-\infty}^\infty \delta(x)\varphi(x)\d x" /></p>
+</div><p>Proof of <img class="math" src="../../_images/math/d4277a3e2d730726d62571b5facf73f5e0967b82.png" alt="x\delta(x) = 0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/3745cfe681c1f0931bf44fdb2b8b54ff6896a31c.png" alt="\int x\delta(x)\varphi(x)\d x = \mathnot{\delta(x\varphi(x))}
+= 0 \cdot \varphi(0) = 0" /></p>
+</div><p>Proof of <img class="math" src="../../_images/math/1e832a5b8b59ff02efd92ffba35a365f012ad07b.png" alt="\delta(cx) = {\delta(x)\over |c|}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/b16f879685caddee6740537cf1166a3f8a749229.png" alt="\int \delta(cx)\varphi(x)\d x = {1\over|c|}\int\delta(x)\varphi\left({x\over
+c}\right)\d x
+=\mathnot{\delta\left(\varphi\left({x\over c}\right)\over|c|\right)}
+={\delta(0)\over|c|}
+=\mathnot{{\delta(\varphi(x))\over|c|}}
+=
+\int {\delta(x)\over |c|}\varphi(x)\d x" /></p>
+</div></div>
+<div class="section" id="variations-and-functional-derivatives">
+<span id="index-30"></span><h1>Variations and Functional Derivatives<a class="headerlink" href="#variations-and-functional-derivatives" title="Permalink to this headline">¶</a></h1>
+<p>Functional derivatives are a common source of confusion and especially the
+notation. The reason is similar to the delta function &#8212; the definition is
+operational, i.e. it tells you what operations you need to do to get a
+mathematically precise formula. The notation below is commonly used in physics
+and in our opinion it is perfectly precise and exact, but some mathematicians
+may not like it.</p>
+<p>Let&#8217;s have <img class="math" src="../../_images/math/ab3e643c4d399e6999d2f7b4ce9a2a766eda80bc.png" alt="\x=(x_1,x_2,\dots,x_N)"/>. The function <img class="math" src="../../_images/math/56e8ab6bf81262934ed1d47271d748ca823f8705.png" alt="f(\x)"/> assigns a number to each <img class="math" src="../../_images/math/23a296aacd97e7c94f7dbb18d3b0e24bd474e3f9.png" alt="\x"/>. We define a differential of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> as</p>
+<div class="math">
+<p><img src="../../_images/math/fdb0f085be4892f6326badb3c1023d6d42b53fa9.png" alt="\d f\equiv \left.{\d\over\d\varepsilon}f(\x+\varepsilon\h) \right|_{\varepsilon=0} =\lim_{\varepsilon\to0} {f(\x+\varepsilon\h)-f(\x)\over\varepsilon}=\a\cdot\h" /></p>
+</div><p>The last equality follows from the fact, that <img class="math" src="../../_images/math/6516e75b4b64fe028dba91dd52f1b9c647fc6311.png" alt="\left.{\d\over\d\varepsilon}f(\x+\varepsilon\h) \right|_{\varepsilon=0}"/> is a linear function of <img class="math" src="../../_images/math/077c14927538d8f1a0a52edb45aa52d108bd2359.png" alt="\h"/>. We define <img class="math" src="../../_images/math/1f5cd0fa6802be5440f542dbaa74c462236887ab.png" alt="{\partial f\over\partial x_i}"/> as</p>
+<div class="math">
+<p><img src="../../_images/math/f0ae6346151ee126d1e42ceae02ed38297885559.png" alt="\a\equiv\left({\partial f\over\partial x_1},{\partial f\over\partial x_2}, \dots,{\partial f\over\partial x_N}\right)" /></p>
+</div><p>This also gives a formula for computing <img class="math" src="../../_images/math/1f5cd0fa6802be5440f542dbaa74c462236887ab.png" alt="{\partial f\over\partial x_i}"/>: we set <img class="math" src="../../_images/math/d76e65126033fa334e9f11e8a8522a82e1500019.png" alt="h_j=\delta_{ij}h_i"/> and</p>
+<div class="math">
+<p><img src="../../_images/math/a66f9104584ca47d1aa6ee30e1a755786e136dc8.png" alt="{\partial f\over\partial x_i}=a_i=\a\cdot\h=\left.{\d\over\d\varepsilon} f(\x+\varepsilon(0,0,\dots,1,\dots,0))\right|_{\varepsilon=0}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/9e26e8f96e2104ff48c5979c7ee57b0a95a5ff39.png" alt="=\lim_{\varepsilon\to0} {f(x_1,x_2,\dots,x_i+\varepsilon,\dots,x_N)-f(x_1,x_2,\dots,x_i,\dots,x_N) \over\varepsilon}" /></p>
+</div><p>But this is just the way the partial derivative is usually defined. Every variable can be treated as a function (very simple one):</p>
+<div class="math">
+<p><img src="../../_images/math/b8748530915578741c04d2bb927915bf280bbcff.png" alt="x_i=g(x_1,\dots,x_N)=\delta_{ij}x_j" /></p>
+</div><p>and so we define</p>
+<div class="math">
+<p><img src="../../_images/math/be46039ad27faef134674ae2ccb882902e97d945.png" alt="\d x_i\equiv\d g=\d(\delta_{ij}x_j)=h_i" /></p>
+</div><p>and thus we write <img class="math" src="../../_images/math/265019391ff9de74ec4e9afe3c0ac90757a451bc.png" alt="h_i=\d x_i"/> and <img class="math" src="../../_images/math/2abb7e69c818feff1a52d1f3c2452fc74e173533.png" alt="\h=\d\x"/> and</p>
+<div class="math">
+<p><img src="../../_images/math/90e3d3f50dbf694c1205ad5560bc18ea930d042f.png" alt="\d f={\d f\over\d x_i}\d x_i" /></p>
+</div><p>So <img class="math" src="../../_images/math/770d1acd2d1dfcc880a868666f714e5cd38d7a9c.png" alt="\d\x"/> has two meanings &#8212; it&#8217;s either <img class="math" src="../../_images/math/a2a6a1b476955c28de827c7bf6f241f48fb60652.png" alt="\h=\x-\x_0"/> (a finite change in the independent variable <img class="math" src="../../_images/math/23a296aacd97e7c94f7dbb18d3b0e24bd474e3f9.png" alt="\x"/>) or a differential, depending on the context. Even mathematicians use this notation.</p>
+<p>Functional <img class="math" src="../../_images/math/d5efc0eec270c88592417add1233cfeaa51564e3.png" alt="F[f]"/> assigns a number to each function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. The variation is defined as</p>
+<div class="math">
+<p><img src="../../_images/math/07dd13ee0b73980dd443e90f846d99b53b9b41ea.png" alt="\delta F[f]\equiv\left.{\d\over\d\varepsilon}F[f+\varepsilon h] \right|_{\varepsilon=0}=\lim_{\epsilon\to0}{F[f+\epsilon h]-F[f]\over\epsilon}= \int a(x)h(x)\d x" /></p>
+</div><p>We define <img class="math" src="../../_images/math/ce175f5b25609ca01080967f4d6f7be64dbb2328.png" alt="{\delta F\over\delta f(x)}"/> as</p>
+<div class="math">
+<p><img src="../../_images/math/71c7d3cbbf600ebf38f78d6689eb7304cd92c575.png" alt="a(x)\equiv{\delta F\over\delta f(x)}" /></p>
+</div><p>This also gives a formula for computing <img class="math" src="../../_images/math/ce175f5b25609ca01080967f4d6f7be64dbb2328.png" alt="{\delta F\over\delta f(x)}"/>: we set <img class="math" src="../../_images/math/3e5c24ab82805fe21c0e0fa20da3efd4dcf39972.png" alt="h(y)=\delta(x-y)"/> and</p>
+<div class="math">
+<p><img src="../../_images/math/40341c13ce31d8100306c3056db74b3762a8f1ae.png" alt="{\delta F\over\delta f(x)}=a(x)=\int a(y)\delta(x-y)\d y= \left.{\d\over\d\varepsilon}F[f(y)+\varepsilon\delta(x-y)] \right|_{\varepsilon=0}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0afc916533d2ef2008af1831413045e6a0693131.png" alt="=\lim_{\varepsilon\to0} {F[f(y)+\varepsilon\delta(x-y)]-F[f(y)]\over\varepsilon}" /></p>
+</div><p>Every function can be treated as a functional (although a very simple one):</p>
+<div class="math">
+<p><img src="../../_images/math/387f075e6d71f2a505dac776f7e17e0c76da8f10.png" alt="f(x)=G[f]=\int f(y)\delta(x-y)\d y" /></p>
+</div><p>and so we define</p>
+<div class="math">
+<p><img src="../../_images/math/7dd417d049064080709b9c9c5268279b1530fa30.png" alt="\delta f\equiv\delta G[f]= \left.{\d\over\d\varepsilon}G[f(x)+\varepsilon h(x)] \right|_{\varepsilon=0}= \left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x)) \right|_{\varepsilon=0}= h(x)" /></p>
+</div><p>thus we write <img class="math" src="../../_images/math/241ec7abd4e85fd8418aab4de16cef4b9edd49ae.png" alt="h=\delta f"/> and</p>
+<div class="math">
+<p><img src="../../_images/math/fa073632306ec146fbbaab3afd4d93610653f6e3.png" alt="\delta F[f]=\int {\delta F\over\delta f(x)}\delta f(x)\d x" /></p>
+</div><p>so <img class="math" src="../../_images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> have two meanings &#8212; it&#8217;s either
+<img class="math" src="../../_images/math/d7f9a2f06922cdbc376c69a53a356b660a89d134.png" alt="h(x)=\left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x))
+\right|_{\varepsilon=0}"/> (a finite change in the function <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>) or a variation
+of a functional, depending on the context. Some mathematicians don&#8217;t like to
+write <img class="math" src="../../_images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> in the meaning of <img class="math" src="../../_images/math/1f745cf4286f88b236750e1e9a8abe3dacd9dc39.png" alt="h(x)"/>, they prefer to write the latter, but
+it is in fact perfectly fine to use <img class="math" src="../../_images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/>, because it is completely analogous to <img class="math" src="../../_images/math/770d1acd2d1dfcc880a868666f714e5cd38d7a9c.png" alt="\d\x"/>.</p>
+<p>The correspondence between the finite and infinite dimensional case can be summarized as:</p>
+<div class="math">
+<p><img src="../../_images/math/847f04226ae2cb7a6dd56aee63bc4e3292504c66.png" alt="\begin{eqnarray*} f(x_i) \quad&amp;\Longleftrightarrow&amp;\quad F[f] \\ \d f=0 \quad&amp;\Longleftrightarrow&amp;\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&amp;\Longleftrightarrow&amp;\quad {\delta F\over\delta f(x)}=0 \\ f \quad&amp;\Longleftrightarrow&amp;\quad F \\ x_i \quad&amp;\Longleftrightarrow&amp;\quad f(x) \\ x \quad&amp;\Longleftrightarrow&amp;\quad f \\ i \quad&amp;\Longleftrightarrow&amp;\quad x \\ \end{eqnarray*}" /></p>
+</div><p>More generally, <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/>-variation can by applied to any function <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> which contains the function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> being varied, you just need to replace <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> by <img class="math" src="../../_images/math/c06519738d7b1dca4ef16eaf7c3ceeffdf769812.png" alt="f+\epsilon h"/> and apply <img class="math" src="../../_images/math/9f23bfd30193abbf05a0a4902dd0f07bca098b8a.png" alt="{\d\over\d\epsilon}"/> to the whole <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>, for example (here <img class="math" src="../../_images/math/863c88d6680dd27db9835a147c0ce37233109ee1.png" alt="g=\partial_\mu\phi"/> and <img class="math" src="../../_images/math/173ffb3899170071c1007f633772f81a1d284757.png" alt="f=\phi"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/d7d7c01e227afa7fc82d28451f14c2620f48a8e6.png" alt="\delta\partial_\mu\phi=\left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon h) \right|_{\varepsilon=0}= \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon h) \right|_{\varepsilon=0}=\partial_\mu\delta\phi" /></p>
+</div><p>This notation allows us a very convinient computation, as shown in the following examples. First, when computing a variation of some integral, when can interchange <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> and <img class="math" src="../../_images/math/c059b8f341d53786ae635d963ead37f20eb55b3b.png" alt="\int"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/90c6e5cb0f8047f52f0362c62ae0b152748eab17.png" alt="F[f]=\int K(x) f(x) \d x" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/70ab4de2d38d6c57caa103ccc11b380c68579d56.png" alt="\delta F=\delta \int K(x) f(x) \d x = \left.{\d\over\d\varepsilon}\int K(x) (f+\varepsilon h)\d x\right|_{\varepsilon=0}= \left.\int{\d\over\d\varepsilon} (K(x) (f+\varepsilon h))\d x\right|_{\varepsilon=0}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/fbc410e58805cf509b6ace25b69fd9e9c015f9fa.png" alt="=\int\delta(K(x) f(x))\d x" /></p>
+</div><p>In the expression <img class="math" src="../../_images/math/ed5a5d9abb8c74605f021d6fdb0ff6d83b9b4496.png" alt="\delta(K(x) f(x))"/> we must understand from the context if we are treating it as a functional of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> or <img class="math" src="../../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/>. In our case it&#8217;s a functional of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>, so we have <img class="math" src="../../_images/math/a3023f177197f430d1b04f78ae944c56f37b0ec7.png" alt="\delta(K f)=K\delta f"/>.</p>
+<p>A few more examples:</p>
+<div class="math">
+<p><img src="../../_images/math/3572f4133542eab6b21ea466da64b75902c764d2.png" alt="{\delta\over\delta f(t)}\int\d t'f(t')g(t')= \left.{\d\over\d\varepsilon}\int\d t'(f(t')+\varepsilon\delta(t-t'))g(t') \right|_{\varepsilon=0}=g(t)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/b8636d15e8aa10eb777a1857e0917bb71b1e8431.png" alt="{\delta f(t')\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t')+\varepsilon\delta(t-t')) \right|_{\varepsilon=0}=\delta(t-t')" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/396bfffeee98b01eafa45a0f646a8cafbbe232a4.png" alt="{\delta f(t_1)f(t_2)\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta(t-t_1)) (f(t_2)+\varepsilon\delta(t-t_2)) \right|_{\varepsilon=0}=\delta(t-t_1)f(t_2)+f(t_1)\delta(t-t_2)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/4c824a7f62e33f2ef79116092f13f64123679205.png" alt="{\delta\over\delta f(t)}\half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d t_2K(t_1,t_2){\delta f(t_1)f(t_2)\over\delta f(t)}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8357125b34ce9cacedbeb896051c04f1359a5f20.png" alt="=\half\left(\int\d t_1 K(t_1,t)f(t_1)+\int\d t_2 K(t,t_2)f(t_2)\right) =\int\d t_2 K(t,t_2)f(t_2)" /></p>
+</div><p>The last equality follows from <img class="math" src="../../_images/math/254200367124546e9177667d1eef5980bf070b09.png" alt="K(t_1,t_2)=K(t_2,t_1)"/> (any antisymmetrical part of a <img class="math" src="../../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> would not contribute to the symmetrical integration).</p>
+<p>Another example is the derivation of Euler-Lagrange equations for the
+Lagrangian density <img class="math" src="../../_images/math/5dde232e7d98a7e226092bf4cc8886441e4f0a26.png" alt="\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/ca3df7ea8ec0fdf676a58b601e6200e37f07ab31.png" alt="0 = \delta I = \delta \int \L \,\d^4x^\mu
+= \int \partial \L \,\d^4x^\mu
+= \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+    +
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \delta(\partial_\nu\eta_\rho)
+    \,\d^4x^\mu
+=
+
+= \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+    +
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \partial_\nu(\delta\eta_\rho)
+    \,\d^4x^\mu
+=
+
+= \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+    -
+    \partial_\nu\left(
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \right)
+    \delta\eta_\rho
+    \,\d^4x^\mu
+    +\int \partial_\nu \left(
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \delta\eta_\rho
+    \right)
+    \,\d^4x^\mu
+=
+
+= \int \left[{ \partial \L\over\partial \eta_\rho}
+    -
+    \partial_\nu\left(
+    { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+    \right)
+    \right]
+    \delta\eta_\rho
+    \,\d^4x^\mu" /></p>
+</div><p>Another example:</p>
+<div class="math">
+<p><img src="../../_images/math/7fda5810cd5b225833196609574ddeff17492eb1.png" alt="{\delta\over\delta f(t)}\int f^3(x)\d x= \left.{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta(x-t))^3\d x \right|_{\varepsilon=0}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/577aa4fdba4bbdbfbfb835af2096c522859d5ab7.png" alt="=\left.\int3(f(x)+\varepsilon\delta(x-t))^2\delta(x-t)\d x \right|_{\varepsilon=0}=\int3f^2(x)\delta(x-t)\d x=3f^2(t)" /></p>
+</div><p>Some mathematicians would say the above calculation is incorrect, because
+<img class="math" src="../../_images/math/c955fcd1c55ca1e65d9cf198d394293ad902f46c.png" alt="\delta^2(x-t)"/> is undefined. But that&#8217;s not exactly true, because in case of
+such problems the above notation automatically implies working with some
+sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144dca3e5c08f31.png" alt="\delta_\alpha(x) \to \delta(x)"/> (for example <img class="math" src="../../_images/math/766e2be522002f4a969d89a59aa611633242b363.png" alt="\delta_\alpha(x) =
+{1\over\pi x}\sin(\alpha x)"/>) and taking the limit <img class="math" src="../../_images/math/67d0ab153257a7d8933eaa2870be9bb2aeb55ff6.png" alt="\alpha\to\infty"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/806767d1dc2d63de5be19a2e41aa3846748b2b0a.png" alt="{\delta\over\delta f(t)}\int f^3(x)\d x= \left.\lim_{\alpha\to\infty}{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta_\alpha(x-t))^3\d x \right|_{\varepsilon=0}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/a33e9edff6b8d70831d9d9c5606935f6d4df60eb.png" alt="=\left.\lim_{\alpha\to\infty}\int3(f(x)+\varepsilon\delta_\alpha(x-t))^2\delta_\alpha(x-t)\d x \right|_{\varepsilon=0}=\lim_{\alpha\to\infty}\int3f^2(x)\delta_\alpha(x-t)\d x=" /></p>
+</div><div class="math" id="equation-functionalderdel">
+<p><span class="eqno">(6)</span><img src="../../_images/math/f307d4a8c7baf08d7befd8f6640c6015126d34d0.png" alt="=\int3f^2(x)\lim_{\alpha\to\infty}\delta_\alpha(x-t)\d x= \int3f^2(x)\delta(x-t)\d x=3f^2(t)" /></p>
+</div><p>As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That&#8217;s why such obvious manipulations with <img class="math" src="../../_images/math/3170671d37c1fceae2909ab5428e87ebbf731137.png" alt="\delta_\alpha"/> are tacitly implied.</p>
+</div>
+<div class="section" id="spherical-harmonics">
+<span id="index-31"></span><h1>Spherical Harmonics<a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h1>
+<p>Are defined by</p>
+<div class="math">
+<p><img src="../../_images/math/3ae16017cd5cee19551fc8386a1ca86aaeebd255.png" alt="Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}" /></p>
+</div><p>where <img class="math" src="../../_images/math/d8a3014951eb2ea04abd44b40541cac5a0fa4925.png" alt="P_l^m"/> are associated Legendre polynomials defined by</p>
+<div class="math">
+<p><img src="../../_images/math/649165b371ffd4e944838db3687106b5969d8f94.png" alt="P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)" /></p>
+</div><p>and <img class="math" src="../../_images/math/bbde4a54300f17fd2940693215017cb65f31de5f.png" alt="P_l"/> are Legendre polynomials defined by the formula</p>
+<div class="math">
+<p><img src="../../_images/math/9d4375f23c92f4a73c90f97bbc1430f727daae3a.png" alt="P_l(x)={1\over2^l l!}{\d^l\over\d x^l}[(x^2-1)^l]" /></p>
+</div><p>they also obey the completeness relation</p>
+<div class="math" id="equation-Lorto">
+<p><span class="eqno">(7)</span><img src="../../_images/math/c829f772cce4c848b61833429408d6c7a5ef3359.png" alt="\sum_{l=0}^\infty {2l+1\over2}P_l(x')P_l(x)=\delta(x-x')" /></p>
+</div><p>The spherical harmonics are ortonormal:</p>
+<div class="math" id="equation-Yorto">
+<p><span class="eqno">(8)</span><img src="../../_images/math/7e4a5c14b7cd76e7c02155f0a6de0918d213a839.png" alt="\int Y_{lm}\,Y^*_{l'm'}\,\d\Omega = \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \delta_{mm'}\delta_{ll'}" /></p>
+</div><p>and complete (both in the <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>-subspace and the whole space):</p>
+<div class="math" id="equation-lcomplete">
+<p><span class="eqno">(9)</span><img src="../../_images/math/546edd9f1f4ef8aeaca699bbc3614db02bf7a575.png" alt="\sum_{m=-l}^l|Y_{lm}(\theta,\phi)|^2={2l+1\over4\pi}" /></p>
+</div><div class="math" id="equation-Ycomplete">
+<p><span class="eqno">(10)</span><img src="../../_images/math/d5335d1f04111e2ec289252e4b426c4e955dc665.png" alt="\sum_{l=0}^\infty\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi') ={1\over\sin\theta}\delta(\theta-\theta')\delta(\phi-\phi')= \delta({\bf\hat r}-{\bf\hat r'})" /></p>
+</div><p>The relation <a href="#equation-lcomplete">(9)</a> is a special case of an addition theorem for spherical harmonics</p>
+<div class="math" id="equation-lsum">
+<p><span class="eqno">(11)</span><img src="../../_images/math/8df06dd1a4f29e266ffc250399fa7725d8fc684a.png" alt="\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {4\pi\over 2l+1}P_l(\cos\gamma)" /></p>
+</div><p>where <img class="math" src="../../_images/math/66981fa3920210c6ad8dbe5e968783d5dd7520c3.png" alt="\gamma"/> is the angle between the unit vectors given by <img class="math" src="../../_images/math/1c862146f0f101b924261bb58d0fc29b1b9e46af.png" alt="{\bf\hat r}=(\theta,\phi)"/> and <img class="math" src="../../_images/math/0d0aecb78b70ae3aa399e60b21e36311f861c7aa.png" alt="{\bf\hat r'}=(\theta',\phi')"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6e446a0a516f4f6be137b94a6c4e74f1742f08c6.png" alt="\cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}" /></p>
+</div></div>
+<div class="section" id="dirac-notation">
+<span id="index-32"></span><h1>Dirac Notation<a class="headerlink" href="#dirac-notation" title="Permalink to this headline">¶</a></h1>
+<p>The Dirac notation allows a very compact and powerful way of writing equations that describe a function expansion into a basis, both discrete (e.g. a fourier series expansion) and continuous (e.g. a fourier transform) and related things. The notation is designed so that it is very easy to remember and it just guides you to write the correct equation.</p>
+<p>Let&#8217;s have a function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. We define</p>
+<div class="math">
+<p><img src="../../_images/math/d31064537d0d9fb8a54c3c6455e544ea76d5b175.png" alt="\begin{eqnarray*} \braket{x|f}&amp;\equiv&amp; f(x) \\ \braket{x'|f}&amp;\equiv&amp; f(x') \\ \braket{x'|x}&amp;\equiv&amp;\delta(x'-x) \\ \int\ket{x}\bra{x}\d x&amp;\equiv&amp;\one \\ \end{eqnarray*}" /></p>
+</div><p>The following equation</p>
+<div class="math">
+<p><img src="../../_images/math/9715834cc8ef2f0b4d4acef14b5764688b5ca174.png" alt="f(x')=\int\delta(x'-x)f(x)\d x" /></p>
+</div><p>then becomes</p>
+<div class="math">
+<p><img src="../../_images/math/e43283cc316f6e98880330b93a03418aeb301027.png" alt="\braket{x'|f}=\int\braket{x'|x}\braket{x|f}\d x" /></p>
+</div><p>and thus we can interpret <img class="math" src="../../_images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/> as a vector, <img class="math" src="../../_images/math/72ee4347616aaecffcaa9580998be2662d0783a9.png" alt="\ket{x}"/> as a basis and <img class="math" src="../../_images/math/439e8ac0e147fdd7f1b9ed6f1435792713c15834.png" alt="\braket{x|f}"/> as the coefficients in the basis expansion:</p>
+<div class="math">
+<p><img src="../../_images/math/8fbb4a9da264260bddb4f0c55c213a1f3c8deb93.png" alt="\ket{f}=\one\ket{f}=\int\ket{x}\bra{x}\d x\ket{f}= \int\ket{x}\braket{x|f}\d x" /></p>
+</div><p>That&#8217;s all there is to it. Take the above rules as the operational definition
+of the Dirac notation. It&#8217;s like with the delta function - written alone it
+doesn&#8217;t have any meaning, but there are clear and non-ambiguous rules to
+convert any expression with <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> to an expression which even mathematicians
+understand (i.e. integrating, applying test functions and using other relations
+to get rid of all <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> symbols in the expression &#8211; but the result is
+usually much more complicated than the original formula). It&#8217;s the same with
+the ket <img class="math" src="../../_images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/>: written alone it doesn&#8217;t have any meaning, but you can
+always use the above rules to get an expression that make sense to everyone
+(i.e. attaching any bra to the left and rewriting all brackets <img class="math" src="../../_images/math/4492b4c345f392d6eb9e5a2ad3f73a47bb435ee6.png" alt="\braket{a|b}"/>
+with their equivalent expressions) &#8211; but it will be more complex and harder to
+remember and &#8211; that is important &#8211; less general.</p>
+<p>Now, let&#8217;s look at the spherical harmonics:</p>
+<div class="math">
+<p><img src="../../_images/math/771a6f4775e528c8e3ce75bda7bf22a396304fc0.png" alt="Y_{lm}({\bf\hat r})\equiv\braket{{\bf\hat r}|lm}" /></p>
+</div><p>on the unit sphere, we have</p>
+<div class="math">
+<p><img src="../../_images/math/eb2e0d9f7cea5a8b54d8dd65d3d2b899fe669722.png" alt="\int\ket{\bf\hat r}\bra{\bf\hat r}\d{\bf\hat r}= \int\ket{\bf\hat r}\bra{\bf\hat r}\d\Omega=\one" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/ff668006a86773679adea732d534d9dd6e6952fa.png" alt="\delta({\bf\hat r}-{\bf\hat r'})=\braket{{\bf\hat r}|{\bf\hat r'}}" /></p>
+</div><p>thus</p>
+<div class="math">
+<p><img src="../../_images/math/9bcb4dd1df7a28e404ffd041f71963fb013c9775.png" alt="\int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \int\braket{l'm'|{\bf\hat r}}\braket{{\bf\hat r}|lm}\d\Omega= \braket{l'm'|lm}" /></p>
+</div><p>and from <a href="#equation-Yorto">(8)</a> we get</p>
+<div class="math">
+<p><img src="../../_images/math/bb890851c7504ec411898d2bdf2cf00a5cdf5a10.png" alt="\braket{l'm'|lm}=\delta_{mm'}\delta_{ll'}" /></p>
+</div><p>now</p>
+<div class="math">
+<p><img src="../../_images/math/e2f09e64938f0450ebd1e12b5e93adc544b12738.png" alt="\sum_{lm}Y_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}" /></p>
+</div><p>from <a href="#equation-Ycomplete">(10)</a> we get</p>
+<div class="math">
+<p><img src="../../_images/math/f114dad12a6e05eab7be445dbf858339e3d63eb9.png" alt="\sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= \braket{{\bf\hat r}|{\bf\hat r'}}" /></p>
+</div><p>so we have</p>
+<div class="math">
+<p><img src="../../_images/math/b06a9af7259fca21d77404bbe7b0a2b4dc9dc817.png" alt="\sum_{lm}\ket{lm}\bra{lm}=\one" /></p>
+</div><p>so <img class="math" src="../../_images/math/90e14ae31fbff7b8a91e85f47aaf5418eefb3bc5.png" alt="\ket{lm}"/> forms an orthonormal basis. Any function defined on the sphere <img class="math" src="../../_images/math/f2b5856241db09290eb364ae24b9ce9fe232b0b0.png" alt="f({\bf\hat r})"/> can be written using this basis:</p>
+<div class="math">
+<p><img src="../../_images/math/5cdf00c7c456c1e113555d38ca16fc92d991c5b4.png" alt="f({\bf\hat r}) =\braket{{\bf\hat r}|f} =\sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|f} =\sum_{lm}Y_{lm}({\bf\hat r})f_{lm}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/2663567fb1bd4422a44d67219fc25e79b4d6db79.png" alt="f_{lm}=\braket{lm|f}=\int\braket{lm|{\bf\hat r}}\braket{{\bf\hat r}|f}\d\Omega =\int Y_{lm}^*({\bf\hat r}) f({\bf\hat r})\d\Omega" /></p>
+</div><p>If we have a function <img class="math" src="../../_images/math/bdf9f1fabc228bfe13701a1154db7bef90941da2.png" alt="f({\bf r})"/> in 3D, we can write it as a function of <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> and <img class="math" src="../../_images/math/9d0163998470ab71af420a0588995f79436153d3.png" alt="{\bf\hat r}"/> and expand only with respect to the variable <img class="math" src="../../_images/math/9d0163998470ab71af420a0588995f79436153d3.png" alt="{\bf\hat r}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6d418e02ebae8ee3eb1c97767af6082d02e75124.png" alt="f({\bf r})=f(\rho{\bf\hat r})\equiv g(\rho,{\bf\hat r})= \sum_{lm}Y_{lm}({\bf\hat r})g_{lm}(\rho)" /></p>
+</div><p>In Dirac notation we are doing the following: we decompose the space into the angular and radial part</p>
+<div class="math">
+<p><img src="../../_images/math/97980ab4811ef387e1045b3df4ddae148a57729c.png" alt="\ket{{\bf r}}=\ket{{\bf\hat r}}\otimes\ket{\rho} \equiv\ket{{\bf\hat r}}\ket{\rho}" /></p>
+</div><p>and write</p>
+<div class="math">
+<p><img src="../../_images/math/ab2bea7e6ec8b83af545682f1799a64ac1d6eaf8.png" alt="f({\bf r})=\braket{{\bf r}|f}=\bra{{\bf\hat r}}\braket{\rho|f}= \sum_{lm}Y_{lm}({\bf\hat r})\bra{lm}\braket{\rho|f}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/f571e86e3c16200ae97c5c061ce673d2af34b775.png" alt="\bra{lm}\braket{\rho|f}= \int\braket{lm|{\bf\hat r}}\bra{{\bf\hat r}}\braket{\rho|f}\d\Omega =\int Y_{lm}^*({\bf\hat r}) f({\bf r})\d\Omega" /></p>
+</div><p>Let&#8217;s calculate <img class="math" src="../../_images/math/1f5b14a6f20fbe1d0c007b7f8cdaadde495644e6.png" alt="\braket{\rho|\rho'}"/></p>
+<div class="math">
+<p><img src="../../_images/math/4777f82168dd8d03b55605514912248e6cda74ff.png" alt="\braket{{\bf r}|{\bf r'}}=\bra{\bf\hat r}\braket{\rho|\rho'}\ket{{\bf\hat r'}} =\braket{{\bf\hat r}|{\bf\hat r'}}\braket{\rho|\rho'}" /></p>
+</div><p>so</p>
+<div class="math">
+<p><img src="../../_images/math/f6f3f261f3b06c2403f9b6cf501acb1856cca677.png" alt="\braket{\rho|\rho'} ={\braket{{\bf r}|{\bf r'}}\over\braket{{\bf\hat r}|{\bf\hat r'}}} ={\delta(\rho-\rho')\over\rho^2}" /></p>
+</div><p>We must stress that <img class="math" src="../../_images/math/90e14ae31fbff7b8a91e85f47aaf5418eefb3bc5.png" alt="\ket{lm}"/> only acts in the <img class="math" src="../../_images/math/c8673447ecec4cd5a986df7283ad5fcc2eff68de.png" alt="\ket{{\bf\hat r}}"/> space (not the <img class="math" src="../../_images/math/7262042b48fbe205998f5fcad751caa14b3fc18e.png" alt="\ket\rho"/> space) which means that</p>
+<div class="math">
+<p><img src="../../_images/math/3423f55e0baa499eb4fa5fbff5abb32c72d04cd6.png" alt="\braket{{\bf r}|lm} =\bra{\bf\hat r}\braket{\rho|lm} =\braket{{\bf\hat r}|lm}\bra{\rho} =Y_{lm}({\bf\hat r})\bra{\rho}" /></p>
+</div><p>and <img class="math" src="../../_images/math/312548c890fd5bf5d3fe61caf509f81efa5755dd.png" alt="V\ket{lm}"/> leaves <img class="math" src="../../_images/math/70b1406e8690e7433e7093dcc6e7a370142343be.png" alt="V\ket\rho"/> intact. Similarly,</p>
+<div class="math">
+<p><img src="../../_images/math/70b0ff2a935b1cef935f24c086efbd7ce6e33068.png" alt="\sum_{lm} \ket{lm}\bra{lm}=\one" /></p>
+</div><p>is a unity in the <img class="math" src="../../_images/math/b7f202c9ff14e303c94641201e6eb04c99fbef52.png" alt="\ket{\bf\hat r}"/> space only (i.e. on the unit sphere).</p>
+<p>Let&#8217;s rewrite the equation <a href="#equation-lsum">(11)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/7c280b7751deeb9d4f024315544c4d792a724d00.png" alt="\sum_m\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= {4\pi\over 2l+1} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}" /></p>
+</div><p>Using the completeness relation <a href="#equation-Lorto">(7)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/4816662c168bc68ca33b7978a8b689746ec17e5e.png" alt="\sum_l {2l+1\over2}\braket{x'|P_l}\braket{P_l|x}=\braket{x'|x}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/987a0e6d1da522b3d094029bc6e852f096b054fd.png" alt="\sum_l \ket{P_l}{2l+1\over2}\bra{P_l}=\one" /></p>
+</div><p>we can now derive a very important formula true for every function <img class="math" src="../../_images/math/b7171395e64d9a28d78eaec8e3c35a39a8ae9dae.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/701557869dae8c867cb9535253a88117e2739cf8.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})=\braket{{\bf\hat r}\cdot{\bf\hat r'}|f}= \sum_l \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}{2l+1\over2}\braket{P_l|f}= \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}{(2l+1)^2\over8\pi} \braket{P_l|f}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0e60670a31a656bde260a3cc4015193de3789e32.png" alt="=\sum_{lm}\braket{{\bf\hat r}|lm}f_l \braket{lm|{\bf\hat r'}}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/7e5d47d8dd40bb72107f0063eea69c3a015294ef.png" alt="f_l={(2l+1)^2\over8\pi}\braket{P_l|f} ={(2l+1)^2\over8\pi}\int_{-1}^1 \braket{P_l|x}\braket{x|f}\d x ={(2l+1)^2\over8\pi}\int_{-1}^1 P_l(x)f(x)\d x" /></p>
+</div><p>or written explicitly</p>
+<div class="math" id="equation-fylm">
+<p><span class="eqno">(12)</span><img src="../../_images/math/7bd1af5aa845f0c38ef65e3737f73b62687e6ab5.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})" /></p>
+</div></div>
+<div class="section" id="homogeneous-functions">
+<span id="index-33"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
+<p>A function of several variables <img class="math" src="../../_images/math/83d951deadedf7bc68666c3abe5d13125b1841ca.png" alt="f(x_1, x_2, \dots) \equiv f(x_i)"/> is
+homogeneous of degree <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> if</p>
+<div class="math">
+<p><img src="../../_images/math/0880b4247dc96e2d0f50e57761a0afc72a2b053c.png" alt="f(\lambda x_i) = \lambda^k f(x_i)" /></p>
+</div><p>By differentiating with respect to <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/f906bd193908efd27e40786f0e21bef5465fd4ce.png" alt="x_i {\partial f(\lambda x_i)\over\partial x_i} = k\lambda^{k-1} f(x_i)" /></p>
+</div><p>and setting <img class="math" src="../../_images/math/c932ecfb55276fff7c312aa00a4b564c3ec42fc3.png" alt="\lambda=1"/> we get the so called Euler equation:</p>
+<div class="math">
+<p><img src="../../_images/math/01f2b6dc47cebb2e19300680de9ddfae2701aa5c.png" alt="x_i {\partial f(x_i)\over\partial x_i} = k f(x_i)" /></p>
+</div><p>in 3D this can also be written as:</p>
+<div class="math">
+<p><img src="../../_images/math/1e606c6a951337e852945027d4ade4dabd56bb44.png" alt="{\bf x} \cdot \nabla f({\bf x}) = k f({\bf x})" /></p>
+</div><div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The function <img class="math" src="../../_images/math/25c8930c58dccfbb4c67d058b75092c834bdf1e8.png" alt="f(x, y, z) = {xy\over z}"/> is homogeneous of degree 1, because:</p>
+<div class="math">
+<p><img src="../../_images/math/eced7a878964174f007a4eb9f8be1ffe51386e84.png" alt="f(\lambda x, \lambda y, \lambda z) = {\lambda x\lambda y\over \lambda z}
+= \lambda {xy\over z}
+= \lambda f(x, y, z)" /></p>
+</div><p>and the Euler equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/1becc10b23324dbc7c3d391101d7f07aadf7745b.png" alt="x{\partial f\over\partial x} +
+y{\partial f\over\partial y} +
+z{\partial f\over\partial z}
+=
+f" /></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../_images/math/a05ed5160391eec2b14bfe31a73b8c8822461ef6.png" alt="x{y\over z} +
+y{x\over z} +
+z\left(-{xy\over z^2}\right)
+={xy\over z}" /></p>
+</div><p>Which obviously is true.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Polar and Spherical Coordinates</a></li>
+<li><a class="reference external" href="#argument-function-atan2">Argument function, atan2</a></li>
+<li><a class="reference external" href="#delta-function">Delta Function</a></li>
+<li><a class="reference external" href="#distributions">Distributions</a></li>
+<li><a class="reference external" href="#variations-and-functional-derivatives">Variations and Functional Derivatives</a></li>
+<li><a class="reference external" href="#spherical-harmonics">Spherical Harmonics</a></li>
+<li><a class="reference external" href="#dirac-notation">Dirac Notation</a></li>
+<li><a class="reference external" href="#homogeneous-functions">Homogeneous functions</a><ul>
+<li><a class="reference external" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="transforms.html"
+                                  title="previous chapter">Fourier Transform</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="differential-geometry.html"
+                                  title="next chapter">Differential Geometry</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/src/math/other.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="differential-geometry.html" title="Differential Geometry"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="transforms.html" title="Fourier Transform"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Wigner D Function &mdash; Theoretical Physics Reference 0.5 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference 0.5 documentation" href="../../index.html" />
+    <link rel="up" title="Mathematics" href="main.html" />
+    <link rel="next" title="Ordinary Differential Equations" href="ode.html" />
+    <link rel="prev" title="Groups" href="groups.html" />
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-28893880-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+     
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ode.html" title="Ordinary Differential Equations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="groups.html" title="Groups"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference 0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="wigner-d-function">
+<h1>Wigner D Function<a class="headerlink" href="#wigner-d-function" title="Permalink to this headline">¶</a></h1>
+<p>The Wigner <img class="math" src="../../_images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D"/> function gives the matrix elements of the rotation operator <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>
+in the <img class="math" src="../../_images/math/b411dcb8306f0951dede20bea23ba18cd4485830.png" alt="jm"/>-representation. For the Euler angles <img class="math" src="../../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha"/>, <img class="math" src="../../_images/math/fdb63b9e51abe6bbb16acfb5d7b773ddbb5bf4a8.png" alt="\beta"/>, <img class="math" src="../../_images/math/66981fa3920210c6ad8dbe5e968783d5dd7520c3.png" alt="\gamma"/>,
+the <img class="math" src="../../_images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D"/> function is defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/201ae97419f7fa52badbcc3cf004aa4227b8c702.png" alt="\braket{j,m| R(\alpha, \beta, \gamma) |j',m'} =
+    \delta_{jj'} D(j, m, m', \alpha, \beta, \gamma)"/></p>
+</div><p>Where the rotation operator <img class="math" src="../../_images/math/c4bf533f1735dc509dcd8fd510b8faacb107d12f.png" alt="R(\alpha, \beta, \gamma)"/> is defined using the
+<img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>-<img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/>-<img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> convention:</p>
+<div class="math">
+<p><img src="../../_images/math/1061e68e43fbaecff9a4f9c7c139785c61b3b103.png" alt="R(\alpha, \beta, \gamma) =
+    e^{-i\alpha J_z}
+    e^{-i\beta J_y}
+    e^{-i\gamma J_z}"/></p>
+</div><p>Here <img class="math" src="../../_images/math/8d395d0978e65f55986e368f46b1f784a6ac1dbd.png" alt="J_i"/> is the projection of the total angular momentum on an
+<img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>-axis. The <img class="math" src="../../_images/math/3b69e86926fd5a5d2fa1979d17daa7688d8d97ab.png" alt="\ket{jm}"/> is the eigenstate of the operators <img class="math" src="../../_images/math/51a3b8d94c302388b4ef486839982476de701227.png" alt="J^2"/> and <img class="math" src="../../_images/math/3bbe45fcf0d35e52b37e12313b77f7add19ded1f.png" alt="J_z"/>.
+Using the fact that <img class="math" src="../../_images/math/3a707971131b671187291db3cc96d65648f35de0.png" alt="e^{-i\gamma J_z}\ket{jm}=e^{-im\gamma}\ket{jm}"/>, we can
+see that the Wigner <img class="math" src="../../_images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D"/> function can always be written using the Wigner
+small-<img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> function as:</p>
+<div class="math">
+<p><img src="../../_images/math/9f3b530ad7c2950701864acf5240fb02e1f06b7c.png" alt="D(j, m, m', \alpha, \beta, \gamma)
+    = \braket{j,m| R(\alpha, \beta, \gamma) |j,m'}
+    = \braket{j,m| e^{-i\alpha J_z} e^{-i\beta J_y} e^{-i\gamma J_z} |j,m'}
+    =
+
+    = e^{-i m \alpha}\braket{j,m| e^{-i\beta J_y} |j,m'} e^{-i m' \gamma}
+    = e^{-i m \alpha} d(j, m, m', \beta) e^{-i m' \gamma}"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/f8510910a3d2ffa5cf395bc052bdb32a5aae599c.png" alt="d(j, m, m', \beta) = \braket{j,m| e^{-i\beta J_y} |j,m'}"/></p>
+</div><p>We can use the following relations to evaluate <img class="math" src="../../_images/math/b1b5b72b927371e53b27e76968e445726894906d.png" alt="d(j, m, m', \beta)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/79d07006abacfe9d2bf8af62461f3a9ca709da06.png" alt="d(j, m, m', \beta) = i^{2j-m-m'} (-1)^{2m}\sum_{m''=-j}^j
+    d(j, m, m'', {\pi\over2})
+    e^{-i m'' \beta}
+    d(j, m'', -m', {\pi\over2})
+
+d(j, m, m', {\pi\over2}) = (-1)^{m-m'} {1\over 2^j}
+    \sqrt{(j+m)! (j-m)! \over (j+m')! (j-m')!} \sum_k
+    (-1)^k \binom{j+m'}{k} \binom{j-m'}{k+m-m'}"/></p>
+</div><div class="section" id="derivation">
+<h2>Derivation<a class="headerlink" href="#derivation" title="Permalink to this headline">¶</a></h2>
+<p>The small-<img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> function formula above can be derived from the following formula:</p>
+<div class="math">
+<p><img src="../../_images/math/b7c9a0863056e511922c278c1a022661a9622c03.png" alt="d(j, m, m', \beta) = \sum_k (-1)^k
+    {\sqrt{(j+m)! (j-m)! (j+m')! (j-m')!} \over
+        (j-m'-k)! (j+m-k)! k! (k+m'-m)! }
+    \cos^{2j+m-m'-2k} {\beta\over2}
+    \sin^{2k+m'-m} {\beta\over2}"/></p>
+</div><p>by substituting</p>
+<div class="math">
+<p><img src="../../_images/math/281d4ad6626e31dd8fb0ba2dc854c87e155e1a4a.png" alt="a = +e^{-\half i \alpha} \cos {\beta\over 2} e^{-\half i \gamma}
+
+b = -e^{-\half i \alpha} \sin {\beta\over 2} e^{+\half i \gamma}"/></p>
+</div><p>into</p>
+<div class="math">
+<p><img src="../../_images/math/0731b12d01151e747281e708f3168ddf37cd97ad.png" alt="\sum_k (-1)^k
+    {\sqrt{(j+m)! (j-m)! (j+m')! (j-m')!} \over
+        (j-m'-k)! (j+m-k)! k! (k+m'-m)! }
+    a^{j-m'-k}
+    {a^*}^{j+m-k}
+    b^k
+    {b^*}^{k+m'-m}"/></p>
+</div><p>This follows from:</p>
+<div class="math">
+<p><img src="../../_images/math/fc18af4df2d60727916bf093cbe6ba8640df80a5.png" alt="\epsilon' = a\epsilon + b\zeta
+
+\zeta' = -b^*\epsilon + a^*\zeta"/></p>
+</div><p>let the polynomial be:</p>
+<div class="math">
+<p><img src="../../_images/math/7edd4023c9dc7f29a2d01b9deb8905493311b05b.png" alt="f_m(\epsilon, \zeta) = {\epsilon^{j+m} \zeta^{j-m} \over
+    \sqrt{(j+m)! (j-m)!}}"/></p>
+</div><p>and (using binomial theorem in the process):</p>
+<div class="math">
+<p><img src="../../_images/math/bd8950829b643206f89e7208b0cea965ee16a39d.png" alt="{\bf P_u} f_m(\epsilon, \zeta) = f_m(a^*\epsilon - b\zeta,
+    b^*\epsilon + a\zeta) =
+        {(a^*\epsilon - b\zeta)^{j+m} (b^*\epsilon + a\zeta)^{j-m} \over
+    \sqrt{(j+m)! (j-m)!}}
+    =
+
+=\sum_{k=0}^{j+m} \sum_{k'=0}^{j-m} (-1)^k
+    {\sqrt{(j+m)!(j-m)!}\over k! k'! (j+m-k)! (j-m-k')!}
+    a^{k'}
+    {a^*}^{j+m-k}
+    b^k
+    {b^*}^{j-m-k'}
+    \epsilon^{2j-k-k'} \zeta^{k+k'}
+=
+
+=
+\sum_{m'}
+\sum_k (-1)^k
+    {\sqrt{(j+m)! (j-m)! (j+m')! (j-m')!} \over
+        (j-m'-k)! (j+m-k)! k! (k+m'-m)! }
+    a^{j-m'-k}
+    {a^*}^{j+m-k}
+    b^k
+    {b^*}^{k+m'-m}
+    f_{m'}(\epsilon, \zeta)"/></p>
+</div><p>And it is the coefficient of <img class="math" src="../../_images/math/2cdf043a9be70bbd79abb75d810bfae2c0a14b99.png" alt="f_{m'}"/>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Wigner D Function</a><ul>
+<li><a class="reference internal" href="#derivation">Derivation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="groups.html"
+                        title="previous chapter">Groups</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ode.html"
+                        title="next chapter">Ordinary Differential Equations</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/math/wigner.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ode.html" title="Ordinary Differential Equations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="groups.html" title="Groups"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference 0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2011, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

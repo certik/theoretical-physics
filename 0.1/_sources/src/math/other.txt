@@ -1,0 +1,1046 @@
+Polar and Spherical Coordinates
+-------------------------------
+
+
+Polar coordinates (radial, azimuth) $(r,\phi)$ are defined by
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} x&=&r\cos\phi \\ y&=&r\sin\phi \\ \end{eqnarray*}
+
+Spherical coordinates (radial, zenith, azimuth) $(\rho,\theta,\phi)$:
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} x&=&\rho\sin\theta\cos\phi \\ y&=&\rho\sin\theta\sin\phi \\ z&=&\rho\cos\theta \\ \end{eqnarray*}
+
+Note: this meaning of $(\theta,\phi)$ is mostly used in the USA and in many
+books. In Europe people usually use different symbols, like $(\phi,\theta)$, $(\vartheta,\varphi)$ and others.
+
+.. index:: delta function
+
+Argument function, atan2
+------------------------
+
+Argument function $\arg(z)$ is any $\varphi$ such that
+
+.. math::
+
+    z = r e^{i\varphi}
+
+Obviously $\arg(z)$ is unique up to any integer multiple of $2\pi$. By taking
+the principal value of the $\arg(z)$ function, e.g. fixing $\arg(z)$ to the
+interval $(-\pi, \pi]$, we get the $\Arg(z)$ function:
+
+.. math::
+
+    -\pi < \Arg z \le \pi
+
+then $\arg z = \Arg z + 2\pi n$, where $n=0, \pm 1, \pm 2, \dots$. We can then
+use the following formula to easily calculate $\Arg z$ for any $z=x+iy$ (except
+$x=y=0$, i.e. $z=0$):
+
+.. math::
+
+    \Arg(x+iy) =\begin{cases}\pi&y=0;x<0;\cr
+        2\,\atan{y\over\sqrt{x^2+y^2}+x}&\rm otherwise\cr\end{cases}
+
+Finally we define $\atan2(y, x)$ as:
+
+.. math::
+
+    \atan2(y, x) = \Arg(x+iy) =
+        \begin{cases}\pi&y=0;x<0;\cr
+            2\,\atan{y\over\sqrt{x^2+y^2}+x}&\rm otherwise\cr\end{cases}
+
+The angle $\phi=\atan2(y, x)$ is the angle of the point $(x, y)$ on the unit
+circle (assuming the usual conventions), and it works for all quadrants
+($\phi=\atan(y, x)$ only works for the first and fourth quadrant, where
+$\atan(y, x)=\atan2(y, x)$, but in the second and third qudrant, $\atan(y, x)$
+gives the wrong angles, while $\atan2(y, x)$ gives the correct angles). So in
+particular:
+
+.. math::
+
+    \atan2(0, 1) = 2\,\atan{0\over\sqrt{1^2+0^2}+1} = 0
+
+    \atan2(0, -1) = \pi
+
+    \atan2(1, 0) = 2\,\atan{1\over\sqrt{0^2+1^2}+0} = 2\,\atan 1 =
+        {\pi\over 2}
+
+    \atan2(-1, 0) = 2\,\atan{-1\over\sqrt{0^2+1^2}+0} = -2\,\atan 1 =
+        -{\pi\over 2}
+
+This convention ($\atan2(y, x)$) is used for example in Python, C or Fortran.
+Some people might interchange $x$ with $y$ in the definition (i.e. $\atan2(x,
+y)= \Arg(y+ix)$), but it is not very common.
+
+The following useful relations hold:
+
+.. math::
+
+    \sin\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
+        \quad\quad\quad\mbox{except $x=y=0$}
+
+    \cos\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
+        \quad\quad\quad\mbox{except $x=y=0$}
+
+    \tan\atan2(y, x) = {y\over x}
+        \quad\quad\quad\mbox{for $x\neq 0$}
+
+    \atan2(ky, kx) = \atan2(y, x)
+        \quad\quad\quad\mbox{for $k>0$}
+
+We now prove them. The following works for all $x, y$ except for $x=y=0$:
+
+.. math::
+
+    \sin\atan2(y, x)
+        =\begin{cases}\sin\pi&y=0;x<0;\cr
+            \sin\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+                &\rm otherwise\cr\end{cases}
+            =
+
+    =\begin{cases}0&y=0;x<0;\cr
+        {y\over \sqrt{x^2+y^2}}&\rm otherwise\cr\end{cases}
+        =
+
+    =\begin{cases}{y\over \sqrt{x^2+y^2}}&y=0;x<0;\cr
+        {y\over \sqrt{x^2+y^2}}&\rm otherwise\cr\end{cases}
+        ={y\over \sqrt{x^2+y^2}}
+
+
+
+    \cos\atan2(y, x)
+        =\begin{cases}\cos\pi&y=0;x<0;\cr
+            \cos\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+                &\rm otherwise\cr\end{cases}
+            =
+
+    =\begin{cases}-1&y=0;x<0;\cr
+        {x\over \sqrt{x^2+y^2}}&\rm otherwise\cr\end{cases}
+        =
+
+    =\begin{cases}{x\over \sqrt{x^2+y^2}}&y=0;x<0;\cr
+        {x\over \sqrt{x^2+y^2}}&\rm otherwise\cr\end{cases}
+        ={x\over \sqrt{x^2+y^2}}
+
+
+Tangent is infinite for $\pm{\pi\over 2}$, which corresponds to $x=0$, so the
+following works for all $x\neq 0$:
+
+.. math::
+
+    \tan\atan2(y, x)
+        =\begin{cases}\tan\pi&y=0;x<0;\cr
+            \tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+                &\rm otherwise\cr\end{cases}
+            =
+
+    =\begin{cases}0&y=0;x<0;\cr
+        {y\over x}&\rm otherwise\cr\end{cases}
+        =
+
+    =\begin{cases}{y\over x}&y=0;x<0;\cr
+        {y\over x}&\rm otherwise\cr\end{cases}
+        ={y\over x}
+
+In the above, we used the following double angle formulas:
+
+.. math::
+
+    \sin 2x = {2\tan x\over 1+\tan^2 x}
+
+    \cos 2x = {1-\tan^2x\over 1+\tan^2 x}
+
+    \tan 2x = {2\tan x\over 1-\tan^2 x}
+
+to simplify the following expressions:
+
+.. math::
+
+    \sin\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+        {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+        =
+
+        =
+        {2{y\over\sqrt{x^2+y^2}+x}\over1
+            +\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+        =
+        {2y\left(\sqrt{x^2+y^2}+x\right)\over
+            \left(\sqrt{x^2+y^2}+x\right)^2+y^2}
+        =
+
+        =
+        {y\left(\sqrt{x^2+y^2}+x\right)\over
+            x^2+y^2+x\sqrt{x^2+y^2}}
+        =
+        {y\left(\sqrt{x^2+y^2}+x\right)\over
+            \sqrt{x^2+y^2}\left(\sqrt{x^2+y^2}+x\right)}
+        =
+
+        =
+        {y\over\sqrt{x^2+y^2}}
+
+
+
+    \cos\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+        {1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+        =
+
+        =
+        {1 -\left({y\over\sqrt{x^2+y^2}+x}\right)^2\over
+        1 +\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+        =
+        {\left(\sqrt{x^2+y^2}+x\right)^2-y^2\over
+            \left(\sqrt{x^2+y^2}+x\right)^2+y^2}
+        =
+
+        =
+        {x\left(\sqrt{x^2+y^2}+x\right)\over
+            x^2+y^2+x\sqrt{x^2+y^2}}
+        =
+        {x\left(\sqrt{x^2+y^2}+x\right)\over
+            \sqrt{x^2+y^2}\left(\sqrt{x^2+y^2}+x\right)}
+        =
+
+        =
+        {x\over\sqrt{x^2+y^2}}
+
+
+
+    \tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+        {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+        =
+
+        =
+        {2{y\over\sqrt{x^2+y^2}+x}\over1
+            -\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+        =
+        {2y\left(\sqrt{x^2+y^2}+x\right)\over
+            \left(\sqrt{x^2+y^2}+x\right)^2-y^2}
+        =
+
+        =
+        {y\left(\sqrt{x^2+y^2}+x\right)\over
+            x\left(\sqrt{x^2+y^2}+x\right)}
+        = {y\over x}
+
+Finally, for all $k>0$ we get:
+
+.. math::
+
+    \atan2(ky, kx) = \Arg(kx + iky)
+    =\begin{cases}\pi&y=0;x<0;\cr
+        2\,\atan{ky\over\sqrt{(kx)^2+(ky)^2}+kx}&\rm otherwise\cr\end{cases}
+    =
+
+    =\begin{cases}\pi&y=0;x<0;\cr
+        2\,\atan{y\over\sqrt{x^2+y^2}+x}&\rm otherwise\cr\end{cases}
+    = \Arg(x+iy) = \atan2(y, x)
+
+
+An example of an application:
+
+.. math::
+
+    A\sin x + B\cos x = \sqrt{A^2+B^2}\left(
+        {A\over\sqrt{A^2+B^2}}\sin x + {B\over\sqrt{A^2+B^2}}\cos x\right)
+    =
+
+    = \sqrt{A^2+B^2}\left( \cos\delta\sin x + \sin\delta\cos x\right)
+    = \sqrt{A^2+B^2}\sin(x+\delta)
+    =
+
+    = \sqrt{A^2+B^2}\sin(x+\atan2(B, A))
+
+where
+
+.. math::
+
+    \delta = \atan2\left({B\over\sqrt{A^2+B^2}}, {A\over\sqrt{A^2+B^2}}\right)
+    =\atan2(B, A)
+
+Delta Function
+--------------
+
+
+Delta function $\delta(x)$ is defined such that this relation holds:
+
+.. math::
+    :label: deltadef
+
+       \int f(x)\delta(x-t)\d x=f(t)
+
+No such function exists, but one can find many sequences "converging" to a delta function:
+
+.. math::
+    :label: deltalim
+
+       \lim_{\alpha\to\infty}\delta_\alpha(x) = \delta(x)
+
+more precisely:
+
+.. math::
+    :label: deltaprec
+
+       \lim_{\alpha\to\infty}\int f(x)\delta_\alpha(x)\d x = \int f(x)\lim_{\alpha\to\infty}\delta_\alpha(x)\d x = f(t)
+
+one example of such a sequence is:
+
+.. math::
+
+       \delta_\alpha(x) = {1\over\pi x}\sin(\alpha x)
+
+It's clear that :eq:`deltaprec` holds for any well behaved function $f(x)$.
+Some mathematicians like to say that it's incorrect to use such a notation when
+in fact the integral :eq:`deltadef` doesn't "exist", but we will not follow
+their approach, because it is not important if something "exists" or not,
+but rather if it is clear what we mean by our notation: :eq:`deltadef` is a
+shorthand for :eq:`deltaprec` and :eq:`deltalim` gets a mathematically rigorous
+meaning when you integrate both sides and use :eq:`deltadef` to arrive at
+:eq:`deltaprec`.  Thus one uses the relations :eq:`deltadef`, :eq:`deltalim`,
+:eq:`deltaprec` to derive all properties of the delta function.
+
+Let's give an example. Let ${\bf\hat r}$ be the unit vector in 3D and we can label it using spherical coordinates ${\bf\hat r}={\bf\hat r}(\theta,\phi)$. We can also express it in cartesian coordinates as ${\bf\hat r}(\theta,\phi)=(\cos\phi\sin\theta,\sin\phi\sin\theta,\cos\theta)$.
+
+
+
+.. math::
+    :label: deltar
+
+       f({\bf\hat r'})=\int\delta({\bf\hat r}-{\bf\hat r'})f({\bf\hat r})\,\d {\bf\hat r}
+
+Expressing $f({\bf\hat r})=f(\theta,\phi)$ as a function of $\theta$ and $\phi$ we have
+
+.. math::
+    :label: deltaangles
+
+       f(\theta',\phi')=\int\delta(\theta-\theta')\delta(\phi-\phi') f(\theta,\phi)\,\d\theta\d\phi
+
+Expressing :eq:`deltar` in spherical coordinates we get
+
+.. math::
+
+       f(\theta',\phi')=\int\delta({\bf\hat r}-{\bf\hat r'}) f(\theta,\phi)\sin\theta\,\d\theta\d\phi
+
+and comparing to :eq:`deltaangles` we finally get
+
+.. math::
+
+       \delta({\bf\hat r}-{\bf\hat r'})={1\over\sin\theta} \delta(\theta-\theta')\delta(\phi-\phi')
+
+In exactly the same manner we get
+
+.. math::
+
+       \delta({\bf r}-{\bf r'})=\delta({\bf\hat r}-{\bf\hat r'}) {\delta(\rho-\rho')\over\rho^2}
+
+See also :eq:`functionalderdel` for an example of how to deal with more complex expressions involving the delta function like $\delta^2(x)$.
+
+Distributions
+-------------
+
+Some mathematicians like to use distributions and a mathematical notation for
+that, which I think is making things less clear, but nevertheless it's
+important to understand it too, so the notation is explained in this section,
+but I discourage to use it -- I suggest to only use the physical notation as
+explained below. The math notation below is put into quotation marks, so that
+it's not confused with the physical notation.
+
+The distribution is a functional and each function $f(x)$ can be identified
+with a distribution $\mathnot{T_f}$ that it generates using this definition ($\varphi(x)$
+is a test function):
+
+.. math::
+
+    \mathnot{T_f(\phi(x))} \equiv \int f(x)\varphi(x) \d x \equiv
+    \mathnot{f(\varphi(x))} \equiv \mathnot{(f(x), \varphi(x))}
+
+besides that, one can also define distributions that can't be identified with
+regular functions, one example is a delta distribution (Dirac delta function):
+
+.. math::
+
+    \mathnot{\delta(\phi(x))} \equiv \phi(0) \equiv \int \delta(x) \phi(x) \d x
+
+The last integral is not used in mathematics, in physics on the other hand, the
+first expressions ($\mathnot{\delta(\phi(x))}$) is not used, so $\delta(x)$ always means
+that you have to integrate it, as explained in the previous section, so it
+behaves like a regular function (except that such a function doesn't exist and
+the precise mathematical meaning is only after you integrate it, or through the
+identification above with distributions).
+
+One then defines common operations via acting on the generating function, then
+observes the pattern and defines it for all distributions. For example
+differentiation:
+
+.. math::
+
+    \mathnot{{\d\over\d x}T_f(\varphi)} =
+    \mathnot{T_{f'}(\varphi)} =
+    \int f'\varphi \d x =
+    -\int f\varphi' \d x =
+    \mathnot{-T_f(\varphi')}
+
+so:
+
+.. math::
+
+    \mathnot{{\d\over\d x}T(\varphi)} =
+    \mathnot{-T(\varphi')}
+
+
+Multiplication:
+
+.. math::
+
+    \mathnot{gT_f(\varphi)} =
+    \mathnot{T_{gf}(\varphi)} =
+    \int gf\varphi \d x =
+    \mathnot{T_f(g\varphi)}
+
+so:
+
+.. math::
+
+    \mathnot{gT(\varphi)} =
+    \mathnot{T(g\varphi)}
+
+Fourier transform:
+
+.. math::
+
+    \mathnot{FT_f(\varphi)} =
+    \mathnot{T_{Ff}(\varphi)} =
+    \int F(f)\varphi \d x =
+
+    =\int\left[\int e^{-ikx} f(k) \d k\right] \varphi(x) \d x
+    =\int f(k)\left[\int e^{-ikx} \varphi(x) \d x\right] \d k
+    =\int f(x)\left[\int e^{-ikx} \varphi(k) \d k\right] \d x
+    =
+
+    =
+    \int f F(\varphi) \d x =
+    \mathnot{T_f(F\varphi)}
+
+so:
+
+.. math::
+
+    \mathnot{FT(\varphi)} =
+    \mathnot{T(F\varphi)}
+
+But as you can see, the notation is just making things more complex, since it's
+enough to just work with the integrals and forget about the rest. One can then
+even omit the integrals, with the understanding that they are implicit.
+
+Some more examples:
+
+.. math::
+
+    \int \delta(x-x_0)\varphi(x) \d x = \int \delta(x)\varphi(x+x_0) \d x
+    = \varphi(x_0) \equiv \mathnot{\delta(\varphi(x+x_0))}
+
+Proof of $\delta(-x) = \delta(x)$:
+
+.. math::
+
+    \int_{-\infty}^\infty \delta(-x)\varphi(x)\d x =
+    -\int_{\infty}^{-\infty} \delta(y)\varphi(-y)\d y =
+    \int_{-\infty}^\infty \delta(x)\varphi(-x)\d x
+    \equiv \mathnot{\delta(\varphi(-x))} = \varphi(0)
+    =\mathnot{\delta(\phi(x))}
+    \equiv
+    \int_{-\infty}^\infty \delta(x)\varphi(x)\d x
+
+Proof of $x\delta(x) = 0$:
+
+.. math::
+
+    \int x\delta(x)\varphi(x)\d x = \mathnot{\delta(x\varphi(x))}
+    = 0 \cdot \varphi(0) = 0
+
+Proof of $\delta(cx) = {\delta(x)\over |c|}$:
+
+.. math::
+
+    \int \delta(cx)\varphi(x)\d x = {1\over|c|}\int\delta(x)\varphi\left({x\over
+    c}\right)\d x
+    =\mathnot{\delta\left(\varphi\left({x\over c}\right)\over|c|\right)}
+    ={\delta(0)\over|c|}
+    =\mathnot{{\delta(\varphi(x))\over|c|}}
+    =
+    \int {\delta(x)\over |c|}\varphi(x)\d x
+
+
+.. index:: variation, functional derivative
+
+Variations and Functional Derivatives
+-------------------------------------
+
+
+Functional derivatives are a common source of confusion and especially the
+notation. The reason is similar to the delta function --- the definition is
+operational, i.e. it tells you what operations you need to do to get a
+mathematically precise formula. The notation below is commonly used in physics
+and in our opinion it is perfectly precise and exact, but some mathematicians
+may not like it.
+
+Let's have $\x=(x_1,x_2,\dots,x_N)$. The function $f(\x)$ assigns a number to each $\x$. We define a differential of $f$ as
+
+.. math::
+
+       \d f\equiv \left.{\d\over\d\varepsilon}f(\x+\varepsilon\h) \right|_{\varepsilon=0} =\lim_{\varepsilon\to0} {f(\x+\varepsilon\h)-f(\x)\over\varepsilon}=\a\cdot\h
+
+The last equality follows from the fact, that $\left.{\d\over\d\varepsilon}f(\x+\varepsilon\h) \right|_{\varepsilon=0}$ is a linear function of $\h$. We define ${\partial f\over\partial x_i}$ as
+
+.. math::
+
+       \a\equiv\left({\partial f\over\partial x_1},{\partial f\over\partial x_2}, \dots,{\partial f\over\partial x_N}\right)
+
+This also gives a formula for computing ${\partial f\over\partial x_i}$: we set $h_j=\delta_{ij}h_i$ and
+
+.. math::
+
+       {\partial f\over\partial x_i}=a_i=\a\cdot\h=\left.{\d\over\d\varepsilon} f(\x+\varepsilon(0,0,\dots,1,\dots,0))\right|_{\varepsilon=0}=
+
+
+.. math::
+
+       =\lim_{\varepsilon\to0} {f(x_1,x_2,\dots,x_i+\varepsilon,\dots,x_N)-f(x_1,x_2,\dots,x_i,\dots,x_N) \over\varepsilon}
+
+But this is just the way the partial derivative is usually defined. Every variable can be treated as a function (very simple one):
+
+.. math::
+
+       x_i=g(x_1,\dots,x_N)=\delta_{ij}x_j
+
+and so we define
+
+.. math::
+
+       \d x_i\equiv\d g=\d(\delta_{ij}x_j)=h_i
+
+and thus we write $h_i=\d x_i$ and $\h=\d\x$ and
+
+.. math::
+
+       \d f={\d f\over\d x_i}\d x_i
+
+So $\d\x$ has two meanings --- it's either $\h=\x-\x_0$ (a finite change in the independent variable $\x$) or a differential, depending on the context. Even mathematicians use this notation.
+
+Functional $F[f]$ assigns a number to each function $f(x)$. The variation is defined as
+
+.. math::
+
+       \delta F[f]\equiv\left.{\d\over\d\varepsilon}F[f+\varepsilon h] \right|_{\varepsilon=0}=\lim_{\epsilon\to0}{F[f+\epsilon h]-F[f]\over\epsilon}= \int a(x)h(x)\d x
+
+We define ${\delta F\over\delta f(x)}$ as
+
+.. math::
+
+       a(x)\equiv{\delta F\over\delta f(x)}
+
+This also gives a formula for computing ${\delta F\over\delta f(x)}$: we set $h(y)=\delta(x-y)$ and
+
+.. math::
+
+       {\delta F\over\delta f(x)}=a(x)=\int a(y)\delta(x-y)\d y= \left.{\d\over\d\varepsilon}F[f(y)+\varepsilon\delta(x-y)] \right|_{\varepsilon=0}=
+
+
+.. math::
+
+       =\lim_{\varepsilon\to0} {F[f(y)+\varepsilon\delta(x-y)]-F[f(y)]\over\varepsilon}
+
+Every function can be treated as a functional (although a very simple one):
+
+.. math::
+
+       f(x)=G[f]=\int f(y)\delta(x-y)\d y
+
+and so we define
+
+.. math::
+
+       \delta f\equiv\delta G[f]= \left.{\d\over\d\varepsilon}G[f(x)+\varepsilon h(x)] \right|_{\varepsilon=0}= \left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x)) \right|_{\varepsilon=0}= h(x)
+
+thus we write $h=\delta f$ and
+
+.. math::
+
+       \delta F[f]=\int {\delta F\over\delta f(x)}\delta f(x)\d x
+
+so $\delta f$ have two meanings --- it's either
+$h(x)=\left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x))
+\right|_{\varepsilon=0}$ (a finite change in the function $f$) or a variation
+of a functional, depending on the context. Some mathematicians don't like to
+write $\delta f$ in the meaning of $h(x)$, they prefer to write the latter, but
+it is in fact perfectly fine to use $\delta f$, because it is completely analogous to $\d\x$.
+
+
+The correspondence between the finite and infinite dimensional case can be summarized as:
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} f(x_i) \quad&\Longleftrightarrow&\quad F[f] \\ \d f=0 \quad&\Longleftrightarrow&\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&\Longleftrightarrow&\quad {\delta F\over\delta f(x)}=0 \\ f \quad&\Longleftrightarrow&\quad F \\ x_i \quad&\Longleftrightarrow&\quad f(x) \\ x \quad&\Longleftrightarrow&\quad f \\ i \quad&\Longleftrightarrow&\quad x \\ \end{eqnarray*}
+
+
+More generally, $\delta$-variation can by applied to any function $g$ which contains the function $f(x)$ being varied, you just need to replace $f$ by $f+\epsilon h$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for example (here $g=\partial_\mu\phi$ and $f=\phi$):
+
+.. math::
+
+       \delta\partial_\mu\phi=\left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon h) \right|_{\varepsilon=0}= \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon h) \right|_{\varepsilon=0}=\partial_\mu\delta\phi
+
+
+This notation allows us a very convinient computation, as shown in the following examples. First, when computing a variation of some integral, when can interchange $\delta$ and $\int$:
+
+.. math::
+
+       F[f]=\int K(x) f(x) \d x
+
+
+.. math::
+
+       \delta F=\delta \int K(x) f(x) \d x = \left.{\d\over\d\varepsilon}\int K(x) (f+\varepsilon h)\d x\right|_{\varepsilon=0}= \left.\int{\d\over\d\varepsilon} (K(x) (f+\varepsilon h))\d x\right|_{\varepsilon=0}=
+
+
+.. math::
+
+       =\int\delta(K(x) f(x))\d x
+
+In the expression $\delta(K(x) f(x))$ we must understand from the context if we are treating it as a functional of $f$ or $K$. In our case it's a functional of $f$, so we have $\delta(K f)=K\delta f$.
+
+A few more examples:
+
+.. math::
+
+       {\delta\over\delta f(t)}\int\d t'f(t')g(t')= \left.{\d\over\d\varepsilon}\int\d t'(f(t')+\varepsilon\delta(t-t'))g(t') \right|_{\varepsilon=0}=g(t)
+
+
+.. math::
+
+       {\delta f(t')\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t')+\varepsilon\delta(t-t')) \right|_{\varepsilon=0}=\delta(t-t')
+
+
+.. math::
+
+       {\delta f(t_1)f(t_2)\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta(t-t_1)) (f(t_2)+\varepsilon\delta(t-t_2)) \right|_{\varepsilon=0}=\delta(t-t_1)f(t_2)+f(t_1)\delta(t-t_2)
+
+
+.. math::
+
+       {\delta\over\delta f(t)}\half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d t_2K(t_1,t_2){\delta f(t_1)f(t_2)\over\delta f(t)}=
+
+
+.. math::
+
+       =\half\left(\int\d t_1 K(t_1,t)f(t_1)+\int\d t_2 K(t,t_2)f(t_2)\right) =\int\d t_2 K(t,t_2)f(t_2)
+
+The last equality follows from $K(t_1,t_2)=K(t_2,t_1)$ (any antisymmetrical part of a $K$ would not contribute to the symmetrical integration).
+
+Another example is the derivation of Euler-Lagrange equations for the
+Lagrangian density $\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)$:
+
+.. math::
+
+    0 = \delta I = \delta \int \L \,\d^4x^\mu
+    = \int \partial \L \,\d^4x^\mu
+    = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+        +
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \delta(\partial_\nu\eta_\rho)
+        \,\d^4x^\mu
+    =
+
+    = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+        +
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \partial_\nu(\delta\eta_\rho)
+        \,\d^4x^\mu
+    =
+
+    = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+        -
+        \partial_\nu\left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \right)
+        \delta\eta_\rho
+        \,\d^4x^\mu
+        +\int \partial_\nu \left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \delta\eta_\rho
+        \right)
+        \,\d^4x^\mu
+    =
+
+    = \int \left[{ \partial \L\over\partial \eta_\rho}
+        -
+        \partial_\nu\left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \right)
+        \right]
+        \delta\eta_\rho
+        \,\d^4x^\mu
+
+Another example:
+
+.. math::
+
+       {\delta\over\delta f(t)}\int f^3(x)\d x= \left.{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta(x-t))^3\d x \right|_{\varepsilon=0}=
+
+
+.. math::
+
+       =\left.\int3(f(x)+\varepsilon\delta(x-t))^2\delta(x-t)\d x \right|_{\varepsilon=0}=\int3f^2(x)\delta(x-t)\d x=3f^2(t)
+
+Some mathematicians would say the above calculation is incorrect, because
+$\delta^2(x-t)$ is undefined. But that's not exactly true, because in case of
+such problems the above notation automatically implies working with some
+sequence $\delta_\alpha(x) \to \delta(x)$ (for example $\delta_\alpha(x) =
+{1\over\pi x}\sin(\alpha x)$) and taking the limit $\alpha\to\infty$:
+
+.. math::
+
+       {\delta\over\delta f(t)}\int f^3(x)\d x= \left.\lim_{\alpha\to\infty}{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta_\alpha(x-t))^3\d x \right|_{\varepsilon=0}=
+
+
+.. math::
+
+       =\left.\lim_{\alpha\to\infty}\int3(f(x)+\varepsilon\delta_\alpha(x-t))^2\delta_\alpha(x-t)\d x \right|_{\varepsilon=0}=\lim_{\alpha\to\infty}\int3f^2(x)\delta_\alpha(x-t)\d x=
+
+
+.. math::
+    :label: functionalderdel
+
+       =\int3f^2(x)\lim_{\alpha\to\infty}\delta_\alpha(x-t)\d x= \int3f^2(x)\delta(x-t)\d x=3f^2(t)
+
+As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That's why such obvious manipulations with $\delta_\alpha$ are tacitly implied.
+
+.. index:: spherical harmonics
+
+Spherical Harmonics
+-------------------
+
+
+Are defined by
+
+.. math::
+
+       Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}
+
+where $P_l^m$ are associated Legendre polynomials defined by
+
+.. math::
+
+       P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)
+
+and $P_l$ are Legendre polynomials defined by the formula
+
+.. math::
+
+       P_l(x)={1\over2^l l!}{\d^l\over\d x^l}[(x^2-1)^l]
+
+they also obey the completeness relation
+
+.. math::
+    :label: Lorto
+
+       \sum_{l=0}^\infty {2l+1\over2}P_l(x')P_l(x)=\delta(x-x')
+
+The spherical harmonics are ortonormal:
+
+.. math::
+    :label: Yorto
+
+       \int Y_{lm}\,Y^*_{l'm'}\,\d\Omega = \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \delta_{mm'}\delta_{ll'}
+
+and complete (both in the $l$-subspace and the whole space):
+
+.. math::
+    :label: lcomplete
+
+       \sum_{m=-l}^l|Y_{lm}(\theta,\phi)|^2={2l+1\over4\pi}
+
+
+.. math::
+    :label: Ycomplete
+
+       \sum_{l=0}^\infty\sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi') ={1\over\sin\theta}\delta(\theta-\theta')\delta(\phi-\phi')= \delta({\bf\hat r}-{\bf\hat r'})
+
+The relation :eq:`lcomplete` is a special case of an addition theorem for spherical harmonics
+
+.. math::
+    :label: lsum
+
+       \sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {4\pi\over 2l+1}P_l(\cos\gamma)
+
+where $\gamma$ is the angle between the unit vectors given by ${\bf\hat r}=(\theta,\phi)$ and ${\bf\hat r'}=(\theta',\phi')$:
+
+.. math::
+
+       \cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}
+
+.. index:: dirac notation
+
+Dirac Notation
+--------------
+
+
+The Dirac notation allows a very compact and powerful way of writing equations that describe a function expansion into a basis, both discrete (e.g. a fourier series expansion) and continuous (e.g. a fourier transform) and related things. The notation is designed so that it is very easy to remember and it just guides you to write the correct equation.
+
+Let's have a function $f(x)$. We define
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} \braket{x|f}&\equiv& f(x) \\ \braket{x'|f}&\equiv& f(x') \\ \braket{x'|x}&\equiv&\delta(x'-x) \\ \int\ket{x}\bra{x}\d x&\equiv&\one \\ \end{eqnarray*}
+
+The following equation
+
+.. math::
+
+       f(x')=\int\delta(x'-x)f(x)\d x
+
+then becomes
+
+.. math::
+
+       \braket{x'|f}=\int\braket{x'|x}\braket{x|f}\d x
+
+and thus we can interpret $\ket{f}$ as a vector, $\ket{x}$ as a basis and $\braket{x|f}$ as the coefficients in the basis expansion:
+
+.. math::
+
+       \ket{f}=\one\ket{f}=\int\ket{x}\bra{x}\d x\ket{f}= \int\ket{x}\braket{x|f}\d x
+
+That's all there is to it. Take the above rules as the operational definition
+of the Dirac notation. It's like with the delta function - written alone it
+doesn't have any meaning, but there are clear and non-ambiguous rules to
+convert any expression with $\delta$ to an expression which even mathematicians
+understand (i.e. integrating, applying test functions and using other relations
+to get rid of all $\delta$ symbols in the expression -- but the result is
+usually much more complicated than the original formula). It's the same with
+the ket $\ket{f}$: written alone it doesn't have any meaning, but you can
+always use the above rules to get an expression that make sense to everyone
+(i.e. attaching any bra to the left and rewriting all brackets $\braket{a|b}$
+with their equivalent expressions) -- but it will be more complex and harder to
+remember and -- that is important -- less general.
+
+Now, let's look at the spherical harmonics:
+
+.. math::
+
+       Y_{lm}({\bf\hat r})\equiv\braket{{\bf\hat r}|lm}
+
+on the unit sphere, we have
+
+.. math::
+
+       \int\ket{\bf\hat r}\bra{\bf\hat r}\d{\bf\hat r}= \int\ket{\bf\hat r}\bra{\bf\hat r}\d\Omega=\one
+
+
+.. math::
+
+       \delta({\bf\hat r}-{\bf\hat r'})=\braket{{\bf\hat r}|{\bf\hat r'}}
+
+thus
+
+.. math::
+
+       \int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \int\braket{l'm'|{\bf\hat r}}\braket{{\bf\hat r}|lm}\d\Omega= \braket{l'm'|lm}
+
+and from :eq:`Yorto` we get
+
+.. math::
+
+       \braket{l'm'|lm}=\delta_{mm'}\delta_{ll'}
+
+now
+
+.. math::
+
+       \sum_{lm}Y_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}
+
+from :eq:`Ycomplete` we get
+
+.. math::
+
+       \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= \braket{{\bf\hat r}|{\bf\hat r'}}
+
+so we have
+
+.. math::
+
+       \sum_{lm}\ket{lm}\bra{lm}=\one
+
+so $\ket{lm}$ forms an orthonormal basis. Any function defined on the sphere $f({\bf\hat r})$ can be written using this basis:
+
+.. math::
+
+       f({\bf\hat r}) =\braket{{\bf\hat r}|f} =\sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|f} =\sum_{lm}Y_{lm}({\bf\hat r})f_{lm}
+
+where
+
+.. math::
+
+       f_{lm}=\braket{lm|f}=\int\braket{lm|{\bf\hat r}}\braket{{\bf\hat r}|f}\d\Omega =\int Y_{lm}^*({\bf\hat r}) f({\bf\hat r})\d\Omega
+
+If we have a function $f({\bf r})$ in 3D, we can write it as a function of $\rho$ and ${\bf\hat r}$ and expand only with respect to the variable ${\bf\hat r}$:
+
+.. math::
+
+       f({\bf r})=f(\rho{\bf\hat r})\equiv g(\rho,{\bf\hat r})= \sum_{lm}Y_{lm}({\bf\hat r})g_{lm}(\rho)
+
+In Dirac notation we are doing the following: we decompose the space into the angular and radial part
+
+.. math::
+
+       \ket{{\bf r}}=\ket{{\bf\hat r}}\otimes\ket{\rho} \equiv\ket{{\bf\hat r}}\ket{\rho}
+
+and write
+
+.. math::
+
+       f({\bf r})=\braket{{\bf r}|f}=\bra{{\bf\hat r}}\braket{\rho|f}= \sum_{lm}Y_{lm}({\bf\hat r})\bra{lm}\braket{\rho|f}
+
+where
+
+.. math::
+
+       \bra{lm}\braket{\rho|f}= \int\braket{lm|{\bf\hat r}}\bra{{\bf\hat r}}\braket{\rho|f}\d\Omega =\int Y_{lm}^*({\bf\hat r}) f({\bf r})\d\Omega
+
+Let's calculate $\braket{\rho|\rho'}$
+
+.. math::
+
+       \braket{{\bf r}|{\bf r'}}=\bra{\bf\hat r}\braket{\rho|\rho'}\ket{{\bf\hat r'}} =\braket{{\bf\hat r}|{\bf\hat r'}}\braket{\rho|\rho'}
+
+so
+
+.. math::
+
+       \braket{\rho|\rho'} ={\braket{{\bf r}|{\bf r'}}\over\braket{{\bf\hat r}|{\bf\hat r'}}} ={\delta(\rho-\rho')\over\rho^2}
+
+We must stress that $\ket{lm}$ only acts in the $\ket{{\bf\hat r}}$ space (not the $\ket\rho$ space) which means that
+
+.. math::
+
+       \braket{{\bf r}|lm} =\bra{\bf\hat r}\braket{\rho|lm} =\braket{{\bf\hat r}|lm}\bra{\rho} =Y_{lm}({\bf\hat r})\bra{\rho}
+
+and $V\ket{lm}$ leaves $V\ket\rho$ intact. Similarly,
+
+.. math::
+
+       \sum_{lm} \ket{lm}\bra{lm}=\one
+
+is a unity in the $\ket{\bf\hat r}$ space only (i.e. on the unit sphere).
+
+Let's rewrite the equation :eq:`lsum`:
+
+.. math::
+
+       \sum_m\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= {4\pi\over 2l+1} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}
+
+Using the completeness relation :eq:`Lorto`:
+
+.. math::
+
+       \sum_l {2l+1\over2}\braket{x'|P_l}\braket{P_l|x}=\braket{x'|x}
+
+
+.. math::
+
+       \sum_l \ket{P_l}{2l+1\over2}\bra{P_l}=\one
+
+we can now derive a very important formula true for every function $f({\bf\hat r}\cdot{\bf\hat r'})$:
+
+
+
+.. math::
+
+       f({\bf\hat r}\cdot{\bf\hat r'})=\braket{{\bf\hat r}\cdot{\bf\hat r'}|f}= \sum_l \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}{2l+1\over2}\braket{P_l|f}= \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}{(2l+1)^2\over8\pi} \braket{P_l|f}=
+
+
+.. math::
+
+       =\sum_{lm}\braket{{\bf\hat r}|lm}f_l \braket{lm|{\bf\hat r'}}
+
+where
+
+.. math::
+
+       f_l={(2l+1)^2\over8\pi}\braket{P_l|f} ={(2l+1)^2\over8\pi}\int_{-1}^1 \braket{P_l|x}\braket{x|f}\d x ={(2l+1)^2\over8\pi}\int_{-1}^1 P_l(x)f(x)\d x
+
+or written explicitly
+
+.. math::
+    :label: fylm
+
+       f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})
+
+.. index:: homogeneous functions
+
+Homogeneous functions
+---------------------
+
+A function of several variables $f(x_1, x_2, \dots) \equiv f(x_i)$ is
+homogeneous of degree $k$ if
+
+.. math::
+
+    f(\lambda x_i) = \lambda^k f(x_i)
+
+By differentiating with respect to $\lambda$:
+
+.. math::
+
+    x_i {\partial f(\lambda x_i)\over\partial x_i} = k\lambda^{k-1} f(x_i)
+
+and setting $\lambda=1$ we get the so called Euler equation:
+
+.. math::
+
+    x_i {\partial f(x_i)\over\partial x_i} = k f(x_i)
+
+in 3D this can also be written as:
+
+.. math::
+
+    {\bf x} \cdot \nabla f({\bf x}) = k f({\bf x})
+
+Example
+~~~~~~~
+
+The function $f(x, y, z) = {xy\over z}$ is homogeneous of degree 1, because:
+
+.. math::
+
+    f(\lambda x, \lambda y, \lambda z) = {\lambda x\lambda y\over \lambda z}
+    = \lambda {xy\over z}
+    = \lambda f(x, y, z)
+
+and the Euler equation is:
+
+.. math::
+
+    x{\partial f\over\partial x} +
+    y{\partial f\over\partial y} +
+    z{\partial f\over\partial z}
+    =
+    f
+
+or
+
+.. math::
+
+    x{y\over z} +
+    y{x\over z} +
+    z\left(-{xy\over z^2}\right)
+    ={xy\over z}
+
+Which obviously is true.

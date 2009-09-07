@@ -1,0 +1,1703 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; Theoretical Physics Reference v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Quantum Field Theory and Quantum Mechanics" href="main.html" />
+    <link rel="next" title="Quantum Mechanics" href="qm.html" />
+    <link rel="prev" title="Quantum Field Theory and Quantum Mechanics" href="main.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="qm.html" title="Quantum Mechanics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="Quantum Field Theory and Quantum Mechanics"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The aim of these (work in progress) notes is to use the Standard Model of particle physics to derive all equations in quantum mechanics (and quantum field theory) that we need for our research.</p>
+<p>We start by deriving the electroweak Standard Model from the <img class="math" src="../../_images/math/1c54348296b1081455860a97b4795cf5f1e04680.png" alt="SU(2)\times U(1)"/> symmetry and couple other (standard) assumptions in the quantum field theory. After that, we only want to derive things and make nonrelativistic limits or other approximations in order to derive everything else in quantum mechanics. In particular we show how to derive the Dirac and Schrödinger equations (as a low energy limit). We then show some particular ways to solve those equations, like perturbation theory, scattering theory, ...</p>
+<p>The goal is to have a complete theory on about 30 or 40 pages and then lots of examples (arbitrarily long), that use the theory (but do not develop new ideas), so that one can learn how the theory works from the examples. For instance, one can ask &#8220;why is there the term <img class="math" src="../../_images/math/5af264cca01d18ea92eb60cf1da2dde537696f51.png" alt="({\bf p}-e{\bf A})^2"/> in the Schrödinger equation for electromagnetic field, why this and not something else?&#8221; or &#8220;why is there the <img class="math" src="../../_images/math/8b727006131920317fff8d9bac8ba37071ced67a.png" alt="\boldsymbol\sigma\cdot{\bf B}"/> term in the Pauli equation?&#8221;, to find the answer, one just finds the Pauli equation in the theory and then looks at the derivation, so in this case one quickly finds that it follows from the minimal coupling in QED, e.g. it&#8217;s the easiest way how electron-foton interaction can be coupled, e.g. the <img class="math" src="../../_images/math/1faffe4ef4003e98f64ba8eab51c0afad5da60e0.png" alt="U(1)"/> symmetry. Nice thing about QFT is that one can find really nice geometrical reasons why things are that way and not some other way (just open any advance book on QFT), but the problem is that basically nowhere is some easy (but correct) translation of those results to regular QM, so that everything fits into just couple dozens pages, so that it can serve as a reference.</p>
+<p>The advantage of this top-down approach is that it is easy to see where things come from and also to understand exactly what approximations one is using when dealing with any equation in QM. However, as is well-known in physics, to be a good physicist one has to understand all the approaches, e.g. both top-down and bottom-up and all other approaches to QM and QFT, because there are no two approaches that would be 100% equivalent, so one has to use the right approach for the particular problem. So these notes do not aspire to be the right way to teach QM, but rather to serve as a reference to get quickly oriented and to find the equations to start from.</p>
+</div>
+<div class="section" id="standard-model">
+<span id="index-38"></span><h1>Standard Model<a class="headerlink" href="#standard-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="electroweak-standard-model">
+<span id="index-39"></span><h2>Electroweak Standard Model<a class="headerlink" href="#electroweak-standard-model" title="Permalink to this headline">¶</a></h2>
+<p>Lagrangian with a global <img class="math" src="../../_images/math/1c54348296b1081455860a97b4795cf5f1e04680.png" alt="SU(2)\times U(1)"/> symmetry:</p>
+<div class="math">
+<p><img src="../../_images/math/b67fb533b0fd4ac270635708816cb53e04bdc412.png" alt="\L=i\bar L^{(l)}\gamma_\mu\partial^\mu L^{(l)}+i\bar l_R \gamma_\mu\partial^\mu l_R +\half \partial_\mu\Phi^*\partial^\mu\Phi-m^2\Phi^*\Phi-{1\over4} \lambda(\Phi^*\Phi)^2 -h_e\bar L^{(l)} \Phi e_R - \hbox{h.c.}" /></p>
+</div><p>where <img class="math" src="../../_images/math/7ec61fb1531fab0886e617c371cdca39ab772820.png" alt="l=e,\mu,\tau"/> and <img class="math" src="../../_images/math/cbca750c75f300c10a2ed44373bb688dfe4b64a8.png" alt="a=1,2"/>, <img class="math" src="../../_images/math/c30a80cbf1f8e0da1ce355703ff291d87384283f.png" alt="l_{L,R} = \half (1\mp\gamma_5)l"/> and</p>
+<div class="math">
+<p><img src="../../_images/math/a239d0c7fb60d20d7ad32c8a8b413cc3746b1f93.png" alt="L^{(l)} = \left( \begin{array}{c} \nu_{(l)L} \\ l_L \end{array} \right)" /></p>
+</div><p>Local <img class="math" src="../../_images/math/1c54348296b1081455860a97b4795cf5f1e04680.png" alt="SU(2)\times U(1)"/> symmetry:
+This consists of two things. First changing the partial derivatives to covariant ones:</p>
+<div class="math">
+<p><img src="../../_images/math/7782be76f0d6b458cbf8e06b28bd2411110e0f72.png" alt="\partial^\mu \to D^\mu =\partial^\mu-{i\over2}g\tau_k A_k^\mu - {i\over2}g'YB^\mu" /></p>
+</div><p>and second adding the kinetic terms</p>
+<div class="math">
+<p><img src="../../_images/math/7d030528f9f7541cec0a2e06dc21c24721bcd285.png" alt="-{1\over4}F^a_{\mu\nu}F^{a\mu\nu}-{1\over4}B_{\mu\nu}B^{\mu\nu}" /></p>
+</div><p>of the vector gauge particles to the lagrangian.</p>
+<div class="math">
+<p><img src="../../_images/math/177b11ce76c22b6d88f67b12940fbf285f34cf9f.png" alt="F^a_{\mu\nu} = \partial_\mu A^a_\nu-\partial_\nu A^a_\mu+ g\epsilon^{abc}A^b_\mu A^c_\nu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/003fb912841100042025a9ee448dada48917add2.png" alt="B_{\mu\nu} = \partial_\mu B_\nu-\partial_\nu B_\mu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0e4626b75b71444390c300d64955f08a0a39122b.png" alt="\Phi = e^{{i\over v}\pi^a(x)\tau^a} \left( \begin{array}{c} 0 \\ {1\over\sqrt{2}}(v+H(x)) \end{array} \right)" /></p>
+</div><p>This breaks the gauge invariance. The <img class="math" src="../../_images/math/773b62f10b2536dba4243c4e39f37668e7be9a6a.png" alt="\partial^\mu\pi^a"/> are going to be added to <img class="math" src="../../_images/math/c168d5861f270c1c8675f54318ed8b45230c8482.png" alt="A^a_\mu"/> so we can set <img class="math" src="../../_images/math/631c4a7b54fe4db9570d95a93929ed0b67b83de9.png" alt="\pi_a = 0"/> now.</p>
+<div class="section" id="higgs-terms">
+<span id="index-40"></span><h3>Higgs Terms<a class="headerlink" href="#higgs-terms" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/d2a243171663d082bd58884e330ceb23a25c9818.png" alt="\L_{Higgs}= \half \partial_\mu\Phi^*\partial^\mu\Phi-m^2\Phi^*\Phi-{1\over4} \lambda(\Phi^*\Phi)^2" /></p>
+</div><p>Plugging in the covariant derivatives and <img class="math" src="../../_images/math/b85bbfb165b853d6f5f9734be4cdabbb453f4e43.png" alt="\Phi"/> in U-gauge (symmetry breaking):</p>
+<div class="math">
+<p><img src="../../_images/math/454533a79225f52351d92baa72e68b272df21acf.png" alt="\L_{Higgs} = {1\over2}\Phi^+(\overleftarrow\partial_\mu+igA^a_\mu {\tau^a\over 2} + ig'YB_\mu) (\overrightarrow\partial^\mu+igA^{a\mu} {\tau^a\over 2} + ig'YB^\mu)\Phi -\lambda(\Phi^+\Phi-{v^2\over2})^2=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/108452deb005b62efc24f3fd1b7f59e905998352.png" alt="= \Phi^+_U(\overleftarrow\partial_\mu+igA^a_\mu {\tau^a\over 2} + ig'YB_\mu) (\overrightarrow\partial^\mu+igA^{a\mu} {\tau^a\over 2} + ig'YB\mu)\Phi_U -\lambda(\Phi^+_U\Phi_U-{v^2\over2})^2 =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/2843113d6c68f0490f242d5f8ef42d6babd62495.png" alt="= {1\over2}\partial_\mu H\partial^\mu H - \lambda v^2 H^2 - \lambda v H^3 - {1\over 4}\lambda H^4 +" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/51a0bfe78ea4ee6e5c38ea4a6023dae98fe7fe70.png" alt="+{1\over 8}(v+H)^2 \left(2g^2{A^1_\mu+iA^2_\mu\over\sqrt2}{A^{1\mu}-iA^{2\mu}\over\sqrt2} + (g^2+4Y^2g'^2){gA^3_\mu-2Yg'B_\mu\over\sqrt{g^2+4Y^2g'^2}} {gA^{3\mu}-2Yg'B^\mu\over\sqrt{g^2+4Y^2g'^2}}\right) =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/adcb0efaa6b1550934ea50b90b4c4acdcc512147.png" alt="= {1\over2}\partial_\mu H\partial^\mu H - \lambda v^2 H^2 - \lambda v H^3 - {1\over 4}\lambda H^4 + {1\over 8}(v+H)^2 \left(2g^2W^-_\mu W^{+\mu} + {g^2\over\cos^2\theta_W}Z_\mu Z^\mu\right) =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/b6246b881b7ee4a80cfc095d48974b8dfb622488.png" alt="= {1\over2}\partial_\mu H\partial^\mu H - \lambda v^2 H^2 +{1\over4}g^2v^2W^-_\mu W^{+\mu}+{g^2v^2\over8\cos^2\theta_W}Z_\mu Z^\mu - \lambda v H^3 - {1\over 4}\lambda H^4 +" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/21db6a4ab1fa5d8e6464d7f833fa201611d9388f.png" alt="+{1\over2}vg^2W_\mu^-W^{+\mu}H +{g^2\over4\cos\theta_W}vZ_\mu Z^\mu H +{1\over4}g^2W_\mu^-W^{+\mu}H^2 +{g^2\over8\cos\theta_W}Z_\mu Z^\mu H^2" /></p>
+</div><p>Where we put</p>
+<div class="math">
+<p><img src="../../_images/math/5808b503e3c6b368d42f0812f12a7474c15f004f.png" alt="W^{\pm}_\mu = {1\over\sqrt2}(A^1_\mu \mp iA^2_\mu)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/aa22e4cb8921b8f5afa5e5e34ad3062dc01451c8.png" alt="Z_\mu = {g\over\sqrt{g^2+4Y^2g'^2}}A^3_\mu- {2Yg'\over\sqrt{g^2+4Y^2g'^2}}B_\mu" /></p>
+</div><p>we defined <img class="math" src="../../_images/math/b65be04c312d049b3d94307f9bd5a2adcc4dea38.png" alt="\theta_W"/> by the relation</p>
+<div class="math">
+<p><img src="../../_images/math/80bce9cbad136fb598359ea3201c0f24e16b04c5.png" alt="\cos\theta_W = {g\over\sqrt{g^2+4Y^2g'^2}}" /></p>
+</div><p>so that the expressions simplify a bit, e.g. we now get:</p>
+<div class="math">
+<p><img src="../../_images/math/44795ac1b5224fb9ed8bc7a23777ca13d10a9f78.png" alt="\sin\theta_W = {2Yg'\over\sqrt{g^2+4Y^2g'^2}}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/b41c235dd127c37fa1f5bea911c335b525400ab4.png" alt="Z_\mu= \cos\theta_W A^3_\mu - \sin\theta_W B_\mu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/5ee01b21ebe59eb70c489bb9db816a9863f37d82.png" alt="g^2+4Y^2g'^2 = {g^2\over\cos^2\theta_W}" /></p>
+</div></div>
+<div class="section" id="yukawa-terms">
+<span id="index-41"></span><h3>Yukawa terms<a class="headerlink" href="#yukawa-terms" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/7dcd417ff70f0976f6d4abb8c2cbba7b9f1b8d62.png" alt="\L_{Yukawa} = -h_e \bar L \Phi e_R - \hbox{h.c.}= -h_e \bar L \Phi_U e_R - \hbox{h.c.}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/b1f4b3172a8a93900c73db6039d9fd128c328a55.png" alt="=-{1\over\sqrt2}h_e(v+H)(\bar e_L e_R + \bar e_R e_L)= -{1\over\sqrt2}h_e(v+H)\bar ee=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/08aa66dd1278ec48b60ad752bec29297980d11ad.png" alt="=-{1\over\sqrt2}h_ev\bar ee-{1\over\sqrt2}h_e\bar eeH" /></p>
+</div><p>The term <img class="math" src="../../_images/math/6e64092ae31c5b53bf8ead7c985f81f9241b03ca.png" alt="\bar L \Phi e_R"/> is <img class="math" src="../../_images/math/1faffe4ef4003e98f64ba8eab51c0afad5da60e0.png" alt="U(1)"/> (hypercharge) invariant, so</p>
+<div class="math">
+<p><img src="../../_images/math/f6450502e609980a49abb68ce7f16606a011cba2.png" alt="-Y_L+Y+Y_R=0" /></p>
+</div></div>
+<div class="section" id="leptonic-terms">
+<span id="index-42"></span><h3>Leptonic Terms<a class="headerlink" href="#leptonic-terms" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/ac15b1aa060976ea2377319ce6293cbd5941758f.png" alt="\L=i\bar L\gamma^\mu\partial_\mu L+i\bar e_R \gamma^\mu\partial_\mu e_R \to" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/522710ec5b20c9ee63d55b9d7366bef1365081b0.png" alt="\to i\bar L\gamma^\mu(\partial_\mu-igA^a_\mu{\tau^a\over2}-ig'Y_LB_\mu) L +i\bar e_R \gamma^\mu(\partial_\mu-ig'Y_RB_\mu) e_R =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8c05b1fa5b407558ac9840a8f363d073ce048746.png" alt="= i\bar L\gamma^\mu\partial_\mu L+i\bar e_R \gamma^\mu\partial_\mu e_R +g\bar L\gamma^\mu{\tau^a\over2}LA^a_\mu +g'Y_L\bar L\gamma^\mu LB_\mu +g'Y_R\bar e_R \gamma^\mu e_R B_\mu =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/bb0e60a7b9ab9a12275ba6f7bd22713fb5cdef1f.png" alt="= i\bar L\gamma^\mu\partial_\mu L+i\bar e_R \gamma^\mu\partial_\mu e_R +{g\over\sqrt2}(\bar \nu_L\gamma^\mu e_L W^+_\mu + \hbox{h.c.}) +{1\over2}g\bar L\gamma^\mu\tau^3L A^3_\mu +g'Y_L\bar L\gamma^\mu LB_\mu +g'Y_R\bar e_R \gamma^\mu e_R B_\mu =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/cbf1eadf9ec455e9bd5dda4cd168ff6c5fa5807f.png" alt="= i\bar \nu_L\gamma^\mu\partial_\mu \nu_L+i\bar e \gamma^\mu\partial_\mu e +{g\over\sqrt2}(\bar \nu_L\gamma^\mu e_L W^+_\mu + \hbox{h.c.}) +{1\over2}g\bar\nu_L\gamma^\mu\nu_LA^3_\mu -{1\over2}g\bar e_L\gamma^\mu e_LA^3_\mu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/2deb52dd1554ed1bf0f520a97d2ef224ff6cb1f3.png" alt="+g'Y_L\bar\nu_L\gamma^\mu\nu_LB_\mu +g'Y_L\bar e_L\gamma^\mu e_LB_\mu +g'Y_R\bar e_R \gamma^\mu e_R B_\mu =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/18246bbd2097c4179c6d16127f6a8c7b5da93399.png" alt="= i\bar \nu_L\gamma^\mu\partial_\mu \nu_L+i\bar e \gamma^\mu\partial_\mu e +{g\over\sqrt2}(\bar \nu_L\gamma^\mu e_L W^+_\mu + \hbox{h.c.})" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/a95cc02da4bc545efc0e70174ebfeaacc996a232.png" alt="+\left[ (\half g\sin\theta_W+Y_Lg'\cos\theta_W)\bar\nu_L\gamma^\mu\nu_L +(-\half g\sin\theta_W +Y_Lg'\cos\theta_W)\bar e_L\gamma^\mu e_L +Y_Rg'\cos\theta_W\bar e_R\gamma^\mu e_R \right]A_\mu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/4531f0e5dadcdb54e4cc4911cd6565b08bb2e1a0.png" alt="+\left[ (\half g\cos\theta_W-Y_Lg'\sin\theta_W)\bar\nu_L\gamma^\mu\nu_L +(-\half g\cos\theta_W -Y_Lg'\sin\theta_W)\bar e_L\gamma^\mu e_L -2Y_Lg'\sin\theta_W\bar e_R\gamma^\mu e_R \right]Z_\mu" /></p>
+</div><p>Where we substituted new fields <img class="math" src="../../_images/math/405b43003f346c0f07767ec5af24bd6c61b8b1be.png" alt="Z_\mu"/> and <img class="math" src="../../_images/math/8c9906d93411ec8026702bde26b7f12612fdb54f.png" alt="A_\mu"/> for the old ones <img class="math" src="../../_images/math/291e6af8318af711e2473cf1721ec40a0aa9b567.png" alt="A^3_\mu"/> and <img class="math" src="../../_images/math/037249029a7fd6f658c227f5cef755ba8b14133a.png" alt="B_\mu"/> using the relation:</p>
+<div class="math">
+<p><img src="../../_images/math/b41c235dd127c37fa1f5bea911c335b525400ab4.png" alt="Z_\mu= \cos\theta_W A^3_\mu - \sin\theta_W B_\mu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/3115a17a44cb3158498ef7352e7d7d9d544289a6.png" alt="A_\mu= \sin\theta_W A^3_\mu + \cos\theta_W B_\mu" /></p>
+</div><p>The angle <img class="math" src="../../_images/math/b65be04c312d049b3d94307f9bd5a2adcc4dea38.png" alt="\theta_W"/> must be the same as in the Higgs sector, so that the field <img class="math" src="../../_images/math/405b43003f346c0f07767ec5af24bd6c61b8b1be.png" alt="Z_\mu"/> is the same. We now need to make the following requirement in order to proceed further:</p>
+<div class="math">
+<p><img src="../../_images/math/f59a4ee28e0bf2bb7442541f8b7d6fdd2873219b.png" alt="Y = -Y_L" /></p>
+</div><p>This follows for example by requiring that neutrinos have zero charge, i.e. setting <img class="math" src="../../_images/math/9c49b8b1b95fb839125848b284310e906f169bed.png" alt="\half g\sin\theta_W+Y_Lg'\cos\theta_W = 0"/> and substituting for <img class="math" src="../../_images/math/b65be04c312d049b3d94307f9bd5a2adcc4dea38.png" alt="\theta_W"/> from the definition (see the Higgs terms), from which one gets <img class="math" src="../../_images/math/f94ba4e0ef7df81140351e624ca06cd64bdd06c3.png" alt="Y=-Y_L"/>. From <img class="math" src="../../_images/math/46e25e19be23119b67a20d5b0ceafc82c611759a.png" alt="-Y_L+Y+Y_R=0"/> we now get</p>
+<div class="math">
+<p><img src="../../_images/math/b04566dece1a85f391d96c38ea0d74b8505d926f.png" alt="Y_R = 2Y_L" /></p>
+</div><p>it now follows:</p>
+<div class="math">
+<p><img src="../../_images/math/fd81e7ddc1044108dcbfa8ccc99cbe2bd59a369c.png" alt="\half g\sin\theta_W+Y_Lg'\cos\theta_W = 0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/823450a2c50548c4d2a85969f05e0d184d1b3898.png" alt="-\half g\sin\theta_W +Y_Lg'\cos\theta_W = -g\sin\theta_W" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c4ae474d629eb95dde775b0b5a18860b6005206f.png" alt="Y_Rg'\cos\theta_W = -g\sin\theta_W" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/ee86efefb5d401483e611ffa1ed129a06229307a.png" alt="\tan\theta_W = -2Y_L {g'\over g}" /></p>
+</div><p>and the Lagrangian can be further simplified:</p>
+<div class="math">
+<p><img src="../../_images/math/0199c5b97d0ddee3ccc276690b5334150d0f0f85.png" alt="\L= i\bar\nu_L\gamma^\mu\partial_\mu\nu_L+i\bar e\gamma^\mu\partial_\mu e +{g\over\sqrt2}(\bar \nu_L\gamma^\mu e_L W^+_\mu + \hbox{h.c.})" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/d5aeaa66ece76873134b244ca497be176fc1a1e5.png" alt="-g\sin\theta_W(\bar e_L\gamma^\mu e_L+\bar e_R\gamma^\mu e_R) A_\mu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/cf46681709e2ef6d8d37e65d31c09978c27d7f54.png" alt="+{g\over\cos\theta_W}\left[ \half \bar\nu_L\gamma^\mu\nu_L +(-\half + \sin^2\theta_W)\bar e_L\gamma^\mu e_L +\sin^2\theta_W\bar e_R\gamma^\mu e_R \right]Z_\mu=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/bef8f5ae6e8aefa12d529576139ec15922b7a9f1.png" alt="= i\bar\nu_L\gamma^\mu\partial_\mu\nu_L+i\bar e \gamma^\mu\partial_\mu e +{g\over2\sqrt2}(\bar \nu\gamma^\mu (1-\gamma_5) e W^+_\mu + \hbox{h.c.}) -g\sin\theta_W\bar e\gamma^\mu e A_\mu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c100a14b3094518060c5308d7ed2f5f886f329c1.png" alt="+{g\over2\cos\theta_W}\left[ \bar\nu\gamma^\mu(1-\gamma_5)\nu +\bar e\gamma^\mu (-\half+2\sin^2\theta_W+\half\gamma_5) e \right]Z_\mu" /></p>
+</div><p>Where we used the relations <img class="math" src="../../_images/math/9feaa4206ae36e632e74ec7daee231122d72b514.png" alt="\bar\nu_L\gamma^\mu e_L=\half\bar\nu\gamma^\mu (1-\gamma_5)e"/> and <img class="math" src="../../_images/math/c351b51c4b3b69409404081e055666e46c311ed1.png" alt="\bar\nu_R\gamma^\mu e_R=\half\bar\nu\gamma^\mu (1+\gamma_5)e"/> .</p>
+</div>
+<div class="section" id="gauge-terms">
+<span id="index-43"></span><h3>Gauge terms<a class="headerlink" href="#gauge-terms" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/e09cd0a82bdbc1c1a6fc97ffcfeb8aa09abd2b3b.png" alt="\L_{Gauge} = -{1\over4}F^a_{\mu\nu}F^{a\mu\nu} -{1\over4}B_{\mu\nu}B^{\mu\nu}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c75e010c782c98300b2b2f152be0986d36df707a.png" alt="= -{1\over4}(\partial_\mu A^a_\nu-\partial_\nu A^a_\mu+g\epsilon^{abc} A^b_\mu A^c_\nu)(\partial^\mu A^{a\nu}-\partial^\nu A^{a\mu}+g\epsilon^{ajk} A^{j\mu} A^{k\nu}) -{1\over4}B_{\mu\nu}B^{\mu\nu}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/fed0367b38f0b41b9c7b2ec6369e746b97fa5aea.png" alt="= -{1\over4}\partial_\mu A^a_\nu\partial^\mu A^{a\nu} -{1\over4}B_{\mu\nu}B^{\mu\nu} -{1\over2}(\partial_\mu A^a_\nu-\partial_\nu A^a_\mu)g\epsilon^{abc} A^{b\mu} A^{c\nu} -{1\over4}g^2\epsilon^{abc}\epsilon^{ajk}A^b_\mu A^c_\nu A^{k\mu} A^{l\nu} =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/825302cf7a0d16ff1c5946d45817087714197544.png" alt="= -{1\over2}W^-_{\mu\nu}W^{+\mu\nu} -{1\over4}A_{\mu\nu}A^{\mu\nu} -{1\over4}Z_{\mu\nu}Z^{\mu\nu} -g[(\partial_\mu A^1_\nu-\partial_\nu A^1_\mu)A^{2\mu}A^{3\nu}+ \hbox{cycl. perm. (123)}]" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/5d290c2ce526c7f521beeaf16eb629bf3d47f479.png" alt="-{1\over4}g^2[(A^a_\mu A^{a\mu})(A^b_\nu A^{b\nu})- (A^a_\mu A^a_\nu)(A^{b\mu} A^{b\nu})]=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/620be99cec845dea6cf766fd7455ec1b57fb48cb.png" alt="= -{1\over2}W^-_{\mu\nu}W^{+\mu\nu} -{1\over4}A_{\mu\nu}A^{\mu\nu} -{1\over4}Z_{\mu\nu}Z^{\mu\nu} -g[A^1_\mu A^2_\nu \overleftrightarrow\partial^\mu A^{3\nu}+ \hbox{cycl. perm. (123)}]" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8a11c5d2238716648b28a8915ecad469446fc8af.png" alt="-{1\over4}g^2[(A^a_\mu A^{a\mu})(A^b_\nu A^{b\nu})- (A^a_\mu A^a_\nu)(A^{b\mu} A^{b\nu})] =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/21d6b394ebaf93400592831ab6b04886fd6c24da.png" alt="= -{1\over2}W^-_{\mu\nu}W^{+\mu\nu} -{1\over4}A_{\mu\nu}A^{\mu\nu} -{1\over4}Z_{\mu\nu}Z^{\mu\nu} -ig(W^0_\mu W^-_\nu\overleftrightarrow\partial^\mu W^{+\nu}+ \hbox{cycl. perm. (0-+)})" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/1f74b287a9d98ad7ef4bc7339e65818e8679eaf8.png" alt="-g^2[ \half(W^+_\mu W^{-\mu})^2 -\half(W^+_\mu W^{+\mu})(W^-_\nu W^{-\nu}) +(W^0_\mu W^{0\mu})(W^+_\nu W^{-\nu}) -(W^-_\mu W^+_\nu)(W^{0\mu} W^{0\nu})=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c572a331e37f295a45d8eff3dd6376d9f797db31.png" alt="= -{1\over2}W^-_{\mu\nu}W^{+\mu\nu} -{1\over4}A_{\mu\nu}A^{\mu\nu} -{1\over4}Z_{\mu\nu}Z^{\mu\nu} +\L_{WW\gamma}+L_{WWZ}+L_{WW\gamma\gamma}+L_{WWWW}+L_{WWZZ}+L_{WWZ\gamma}" /></p>
+</div><p>Where <img class="math" src="../../_images/math/f8263647a4133f8d2e52b326b1494872e4872fd5.png" alt="W^0_\mu = A^3_\mu=\cos\theta_W Z_\mu + \sin\theta_W A_\mu"/> and:</p>
+<div class="math">
+<p><img src="../../_images/math/efc79427c73819271802db691b3f40b391083e88.png" alt="\L_{WW\gamma}=-ig\sin\theta_W(A_\mu W^-_\nu\overleftrightarrow\partial^\mu W^{+\nu} + \hbox{cycl. perm. ($A$ $W^-$ $W^+$)})" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/5cd4190a95a4c907b509463ed9d66ed423e9be94.png" alt="\L_{WWZ}=-ig\cos\theta_W(Z_\mu W^-_\nu\overleftrightarrow\partial^\mu W^{+\nu}+\hbox{cycl. perm. ($Z$ $W^-$ $W^+$)})" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/63c7b2f4809c3f1e8f031060cc0aa8120be1c1a2.png" alt="\L_{WW\gamma\gamma}=-g^2\sin^2\theta_W(W^-_\mu W^{+\mu}A_\nu A^\nu- W^-_\mu A^\mu W^+_\nu A^\nu)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/5dd5092f803b1cb2a283eb9f15cce3e21dad0c2c.png" alt="\L_{WWWW}=\half g^2(W^-_\mu W^{-\mu}W^+_\nu W^{+\nu} -W^-_\mu W^{+\mu}W^-_\nu W^{+\nu} )" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0e0374c20cbe31875fce7aa119f54bc153fe6d43.png" alt="\L_{WWZZ}=-g^2\cos^2\theta_W(W^-_\mu W^{+\mu}Z_\nu Z^\nu -W^-_\mu Z^\mu W^+_\nu Z^\nu )" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/ff4f7ee52ecfdf8401377ff395c264263e1df4c9.png" alt="\L_{WWZ\gamma}=g^2\sin\theta_W\cos\theta_W(-2W^-_\mu W^{+\mu}A_\nu Z^\nu+W^-_\mu Z^\mu W^+_\nu A^\nu+W^-_\mu A^\mu W^+_\nu Z^\nu)" /></p>
+</div></div>
+<div class="section" id="gws-lagrangian">
+<span id="index-44"></span><h3>GWS Lagrangian<a class="headerlink" href="#gws-lagrangian" title="Permalink to this headline">¶</a></h3>
+<p>Plugging everything together we get the GWS Lagrangian:</p>
+<div class="math">
+<p><img src="../../_images/math/b99bd345489e18908275412752526873526b39de.png" alt="\L = {1\over2}\partial_\mu H\partial^\mu H - \lambda v^2 H^2 +{1\over4}g^2v^2W^-_\mu W^{+\mu}+{g^2v^2\over8\cos^2\theta_W}Z_\mu Z^\mu - \lambda v H^3 - {1\over 4}\lambda H^4 +" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/21db6a4ab1fa5d8e6464d7f833fa201611d9388f.png" alt="+{1\over2}vg^2W_\mu^-W^{+\mu}H +{g^2\over4\cos\theta_W}vZ_\mu Z^\mu H +{1\over4}g^2W_\mu^-W^{+\mu}H^2 +{g^2\over8\cos\theta_W}Z_\mu Z^\mu H^2" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/088488ca996f1e9fbbb8ddd0e670330d71fa9aa3.png" alt="-{1\over\sqrt2}h_ev\bar ee-{1\over\sqrt2}h_e\bar eeH" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/ebce3f1b80fe259227355de8e0b93ba2cd64d22e.png" alt="-{1\over2}W^-_{\mu\nu}W^{+\mu\nu} -{1\over4}A_{\mu\nu}A^{\mu\nu} -{1\over4}Z_{\mu\nu}Z^{\mu\nu} +\L_{WW\gamma}+L_{WWZ}+L_{WW\gamma\gamma}+L_{WWWW}+L_{WWZZ}+L_{WWZ\gamma}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/6ef2784cbf301f8928f0ce0bf12a1a11eeed5e89.png" alt="+i\bar\nu_L\gamma^\mu\partial_\mu\nu_L+i\bar e \gamma^\mu\partial_\mu e +{g\over2\sqrt2}(\bar \nu\gamma^\mu (1-\gamma_5) e W^+_\mu + \hbox{h.c.}) -g\sin\theta_W\bar e\gamma^\mu e A_\mu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c100a14b3094518060c5308d7ed2f5f886f329c1.png" alt="+{g\over2\cos\theta_W}\left[ \bar\nu\gamma^\mu(1-\gamma_5)\nu +\bar e\gamma^\mu (-\half+2\sin^2\theta_W+\half\gamma_5) e \right]Z_\mu" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0a8b363a0f2d565ffd337b3596e5c2662e746c9b.png" alt="+ (e, \nu_e, h_e \leftrightarrow \mu, \nu_\mu, h_\mu) + (e, \nu_e, h_e \leftrightarrow \tau, \nu_\tau, h_\tau)" /></p>
+</div><p>The free parameters are <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>, <img class="math" src="../../_images/math/b65be04c312d049b3d94307f9bd5a2adcc4dea38.png" alt="\theta_W"/>, <img class="math" src="../../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/>, <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/>, <img class="math" src="../../_images/math/420a58d13243150ca4e55b25f04c9ad2365d1381.png" alt="h_e"/>, <img class="math" src="../../_images/math/8fd5abc2916b8711bd3b3a8e60718224d2a3a571.png" alt="h_\mu"/>,
+<img class="math" src="../../_images/math/462695ffb4426a33407a6e82df892161711a0289.png" alt="h_\tau"/>.</p>
+</div>
+<div class="section" id="particle-masses">
+<span id="index-45"></span><h3>Particle Masses<a class="headerlink" href="#particle-masses" title="Permalink to this headline">¶</a></h3>
+<p>The particle masses are deduced from the terms</p>
+<div class="math">
+<p><img src="../../_images/math/92c94bd4d42668bc9d34b01820775ae69ded0c4b.png" alt="\L = -{1\over2}m_H^2 H^2 +m_W^2 W^-_\mu W^{+\mu} +{1\over2}m_Z^2 Z_\mu Z^\mu -m_e\bar ee +\cdots" /></p>
+</div><p>comparing to the above:</p>
+<div class="math">
+<p><img src="../../_images/math/b682570a6feccf33547d415e3bc531844169c724.png" alt="\L = -\lambda v^2 H^2 +{1\over4}g^2v^2W^-_\mu W^{+\mu} +{g^2v^2\over8\cos^2\theta_W}Z_\mu Z^\mu -{1\over\sqrt2}h_ev\bar ee +\cdots" /></p>
+</div><p>we get</p>
+<div class="math">
+<p><img src="../../_images/math/b996f6c56a35808c3cac047e7e7eb5dc93a1a105.png" alt="m_W = \half g v
+
+m_Z = {gv\over2\cos\theta_W}={m_W\over\cos\theta_W}
+
+m_H = v\sqrt{2\lambda}
+
+m_e = {1\over\sqrt2}h_ev
+
+m_\mu = {1\over\sqrt2}h_\mu v
+
+m_\tau = {1\over\sqrt2}h_\tau v" /></p>
+</div><p>Note that those are the bare masses (e.g. in order to obtain the real mesaured
+masses of the particles, one has to renormalize them by calculating the higher
+order corrections given by the loop diagrams).</p>
+</div>
+<div class="section" id="parameters-of-the-standard-model">
+<span id="index-46"></span><h3>Parameters of the Standard Model<a class="headerlink" href="#parameters-of-the-standard-model" title="Permalink to this headline">¶</a></h3>
+<p>The free parameters are <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>, <img class="math" src="../../_images/math/b65be04c312d049b3d94307f9bd5a2adcc4dea38.png" alt="\theta_W"/>, <img class="math" src="../../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/>, <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/>, then three masses of
+the charged leptons <img class="math" src="../../_images/math/420a58d13243150ca4e55b25f04c9ad2365d1381.png" alt="h_e"/>, <img class="math" src="../../_images/math/8fd5abc2916b8711bd3b3a8e60718224d2a3a571.png" alt="h_\mu"/>, <img class="math" src="../../_images/math/462695ffb4426a33407a6e82df892161711a0289.png" alt="h_\tau"/>, six quark masses and four
+parameters of the CKM mixing matrix, which gives 4 + 3 + 6 + 4 = 17 free
+parameters (if one allows for three neutrino masses and the corresponding four
+mixings parameters, one gets 17 + 3 + 4 = 24 free parameters).</p>
+<p>They can be traded for other physical parameters (see below), but
+their numerical values are not predicted by the theory, so they have to be
+measured and their experimental values are approximately:</p>
+<div class="math">
+<p><img src="../../_images/math/de47bfe468eb4d7f131d5fa7703fc094ad966e19.png" alt="g = 0.631
+
+\theta_W = 28.67^\circ
+
+v = 246.218 {\rm\,GeV}
+
+0.2 &lt; \lambda &lt; 4.0
+
+h_e = 2.929 {\rm\,KeV}
+
+h_\tau = 0.6065 {\rm\,MeV}" /></p>
+</div><p>All the parameters have been measured quite exactly, except <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/>.</p>
+<p>Other physical constants can then be calculated using the formulas:</p>
+<div class="math">
+<p><img src="../../_images/math/5730a422f965769e760fcd08f6202bda916051fa.png" alt="m_W = \half g v = 77.7 {\rm\, GeV}
+
+m_Z = {m_W\over\cos\theta_W} = 88.6 {\rm\, GeV}
+
+m_H = v\sqrt{2\lambda} = \mbox{from }150 {\rm\,GeV}\mbox{ to }700 {\rm\,GeV}
+
+m_e = {1\over\sqrt2}h_ev = 510{\rm\,KeV}
+
+m_\mu= {1\over\sqrt2}h_\mu v = 105.6{\rm\,MeV}
+
+G_F = {1\over\sqrt{2} v^2} = (1.16639 \pm 0.00001) \times 10^{-5}
+    {\rm\, GeV^{-2}}
+
+e = g \sin\theta_W = 0.3
+
+\alpha = {1\over 4\pi} g^2 \sin^2 \theta_W \doteq {1\over 137}" /></p>
+</div></div>
+<div class="section" id="quarks">
+<h3>Quarks<a class="headerlink" href="#quarks" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/af48a0e127847ec010673f09adae525c8f30b90c.png" alt="\L_{fermion}+\!\!= \sum_{q=d,s,b}i\bar L_0^{(q)}\gamma^\mu\partial_\mu L_0^{(q)} +\sum_{q=d,u,s,c,b,t}i\bar q_{0R}\gamma^\mu\partial_\mu q_{0R}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/6288b86d461894b48645732949127d29e1eda5f1.png" alt="\L_{Yukawa}+\!\!= -\sum_{q=d,s,b\atop q'=d,s,b}h_{qq'}i\bar L_0^{(q)}\Phi q_{0R}'+\hbox{h.c.} -\sum_{q=d,s,b\atop q'=u,c,t}\tilde h_{qq'}i\bar L_0^{(q)}\tilde\Phi q_{0R}'+\hbox{h.c.}" /></p>
+</div></div>
+</div>
+<div class="section" id="qft">
+<h2>QFT<a class="headerlink" href="#qft" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="field-operators">
+<h3>Field Operators<a class="headerlink" href="#field-operators" title="Permalink to this headline">¶</a></h3>
+<p>The free (non-interacting) fields in the interaction picture are expressed
+using the creation and anihilation operators below, also the corresponding
+non-interacting Hamiltonian is shown.</p>
+<p>The general idea behind the machinery is that the field operator
+<img class="math" src="../../_images/math/43190d5e1634a00b6637c399dd1a49c6d3248b83.png" alt="\hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k"/> is constructed as a sum (or
+an integral, depending on if the index <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> is discrete or continuous) of
+single-particle wave functions (i.e. solutions of the noninteracting equation
+of motion) multiplied by the creation/anihilation operators (<img class="math" src="../../_images/math/3bd87559f4e4c9af40246a0fdbafe6feab507414.png" alt="c_k"/> or
+<img class="math" src="../../_images/math/17312301048051daa44cf92c45fb3499e2ac2ec3.png" alt="c_k^\dag"/>) that create/destroy
+the particle in the given single-particle state. Note that the noninteracting
+equation of motion usually means that we set all potentials (interactions) as
+zero, but in principle it can be any equation that we can solve exactly.</p>
+<p>The coefficients <img class="math" src="../../_images/math/80cb14c42e41f5351259d4666aab325f8ecb7e71.png" alt="\psi_k({\bf x})"/> don&#8217;t depend on time (so neither the field
+operators in the Schrödinger picture), but we work in the interaction picture,
+where the creation/anihilation operators depend on time, and the time
+dependence is put into the exponentials below (but the integration is still
+done over the spatial components of <img class="math" src="../../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> only).</p>
+<p>Scalar bosons:</p>
+<div class="math">
+<p><img src="../../_images/math/e20e97ef75db46a43fa1478b62d54ef455bcaa30.png" alt="\phi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+    \left(a_{\bf p} e^{-ip\cdot x} + a_{\bf p}^\dag e^{ip\cdot x}\right)
+
+\pi_I(x) = {\partial_t}\phi_I(x)
+    = \int {\d^3 p\over (2\pi)^3}(-i) {\sqrt{E_{\bf p}\over2}}
+    \left(a_{\bf p} e^{-ip\cdot x} - a_{\bf p}^\dag e^{ip\cdot x}\right)" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/43e9b9082d9fee9ef7e996153815ae6acaa4c3c8.png" alt="\left[a_{\bf p}, a_{\bf q}^{\dag}\right] =
+    (2\pi)^3\delta^{(3)}({\bf p} - {\bf q})" /></p>
+</div><p>(all other commutators are equal to zero).
+The equal-time commutation relations for <img class="math" src="../../_images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/> and <img class="math" src="../../_images/math/f2ca003a7da0de4994b4733e203b74ff52d42553.png" alt="\pi"/> are then:</p>
+<div class="math">
+<p><img src="../../_images/math/aea53e366502fd30fed361893ffcaad0d8a8f547.png" alt="\left[\phi({\bf x}), \pi({\bf y})\right] =
+    i\delta^{(3)}({\bf x} - {\bf y})" /></p>
+</div><p>(all other commutators are equal to zero).</p>
+<p>The Hamiltonian is</p>
+<div class="math">
+<p><img src="../../_images/math/f89b4dc5220728f2c7dfd625fce83e6a4e6cdaa7.png" alt="H = \int{\d^3p\over(2\pi)^3} E_{\bf p}
+    a_{\bf p}^\dag a_{\bf p}" /></p>
+</div><p>Fermions:</p>
+<div class="math">
+<p><img src="../../_images/math/3f92da693e9c0e391a9836e82221a7b6e65dacc4.png" alt="\psi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+    \sum_{s=1}^2
+    \left(b_{\bf p}^s u^s({\bf p}) e^{-ip\cdot x}
+    + d_{\bf p}^{s\dag} v^s({\bf p}) e^{ip\cdot x}\right)
+
+\bar\psi_I(x) = \psi_I^\dag(x)\gamma^0 =
+\int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+    \sum_{s=1}^2
+    \left(d_{\bf p}^s \bar v^s({\bf p}) e^{-ip\cdot x}
+    + b_{\bf p}^{s\dag} \bar u^s({\bf p}) e^{ip\cdot x}\right)" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/ec8caee7b38775c02990152d20149512ff0f5e7a.png" alt="u^s({\bf p}) = \mat{\sqrt{{\bf p}\cdot\sigma}\xi^s\cr
+    \sqrt{{\bf p}\cdot\bar\sigma}\xi^s\cr}
+
+v^s({\bf p}) = \mat{\sqrt{{\bf p}\cdot\sigma}\eta^s\cr
+    -\sqrt{{\bf p}\cdot\bar\sigma}\eta^s\cr}
+
+\sum_{s=1}^2 u^s({\bf p})\bar u^s({\bf p}) = \slashed{p} + m
+
+\sum_{s=1}^2 v^s({\bf p})\bar v^s({\bf p}) = \slashed{p} - m
+
+\left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
+\left\{d_{\bf p}^r, d_{\bf q}^{s\dag}\right\} =
+    (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}" /></p>
+</div><p>(all other anticommutators are equal to zero).
+The equal-time anticommutation relations for <img class="math" src="../../_images/math/8ada738001410f131563551fb68731e4f302048d.png" alt="\psi"/> and <img class="math" src="../../_images/math/c2b707ed9d197d1ffb289de31ea937e49152e1f0.png" alt="\psi^\dag"/> are then:</p>
+<div class="math">
+<p><img src="../../_images/math/6bcf90e6126e12011c296aa9da29c1a722e9245b.png" alt="\left\{\psi_a({\bf x}), \psi_b^\dag({\bf y})\right\} =
+    \delta^{(3)}({\bf x} - {\bf y}) \delta_{ab}
+
+\left\{\psi_a({\bf x}), \psi_b({\bf y})\right\} =
+\left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
+0" /></p>
+</div><p>The Hamiltonian is</p>
+<div class="math">
+<p><img src="../../_images/math/46165a534aed9d056721bd5de0c27907c810e53e.png" alt="H = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2 E_{\bf p}
+    \left(b_{\bf p}^{s\dag}b_{\bf p}^{s}
+    +d_{\bf p}^{s\dag}d_{\bf p}^{s}\right)" /></p>
+</div><p>and the total charge:</p>
+<div class="math">
+<p><img src="../../_images/math/3c9669d1a6ad04072488f54c30033314535c0dd0.png" alt="Q = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2
+    \left(b_{\bf p}^{s\dag}b_{\bf p}^{s}
+    -d_{\bf p}^{s\dag}d_{\bf p}^{s}\right)" /></p>
+</div><p>So the <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/>-type particles and <img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/>-type particles are identical except the
+charge. In QED, we identify the <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/>-type particles as electrons and the
+<img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/>-type particles as positrons.</p>
+<p>Vector bosons:</p>
+<div class="math">
+<p><img src="../../_images/math/dbbe8540c405088c20659ab1d24a6f11b3f8b2ab.png" alt="A_\mu(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+    \sum_{r=0}^3
+    \left(a_{\bf p}^r\epsilon_\mu^r({\bf p}) e^{-ip\cdot x}
+    + a_{\bf p}^{r\dag}\epsilon_\mu^{r*}({\bf p}) e^{ip\cdot x}\right)" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/9c851836c9f476f03ff359dd9778c8ca85151e9d.png" alt="\left[a_{\bf p}^r, a_{\bf q}^{s\dag}\right] =
+    (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}" /></p>
+</div><p>The equal-time commutation relations for <img class="math" src="../../_images/math/8c9906d93411ec8026702bde26b7f12612fdb54f.png" alt="A_\mu"/> are then:</p>
+<div class="math">
+<p><img src="../../_images/math/763f5145f329f00e9f6ab94a3f1e5cc2fb05a160.png" alt="\left[A_\mu({\bf x}), A_\nu^\dag({\bf y})\right] =
+    \delta^{(3)}({\bf x} - {\bf y}) \delta_{\mu\nu}" /></p>
+</div></div>
+<div class="section" id="calculating-scattering-amplitudes-using-green-functions">
+<h3>Calculating Scattering Amplitudes using Green Functions<a class="headerlink" href="#calculating-scattering-amplitudes-using-green-functions" title="Permalink to this headline">¶</a></h3>
+<p>We are interested in calculating the following scattering amplitudes:</p>
+<div class="math">
+<p><img src="../../_images/math/017acd5f648404bed2658e04727fa9bdbac82b39.png" alt="\braket{f|i}" /></p>
+</div><p>where the initial <img class="math" src="../../_images/math/5861cbe652445add30a118f6151c776de33242c4.png" alt="\ket{i}"/> and final <img class="math" src="../../_images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/> states are created by creation
+operators of the fields from the previous section. For example</p>
+<div class="math">
+<p><img src="../../_images/math/a08fd59ecd9aab3427b486b5ecc88c9f8e50e8a2.png" alt="\ket{i} = b_1^\dag b_2^\dag\ket{\Omega}
+
+\ket{f} = b_{1'}^\dag b_{2'}^\dag\ket{\Omega}" /></p>
+</div><p>Depending on the particular creation and anihilation operators, it can be shown
+that they can be replaced by:</p>
+<div class="math">
+<p><img src="../../_images/math/f028bd555933e8179d4aed798d456a9c2b2c06ec.png" alt="a^\dag_{\bf k}\,{}_\text{in} \to
+    i\int\d^4 x e^{ikx}\left(\partial^2+m^2\right)\phi(x)
+    ={k^2-m^2\over i}\tilde\phi(-k)
+    ={1\over\tilde D(k)}\tilde\phi(-k)
+
+a_{\bf k}\,{}_\text{out} \to
+    i\int\d^4 x e^{-ikx}\left(\partial^2+m^2\right)\phi(x)
+    ={k^2-m^2\over i}\tilde\phi(k)
+    ={1\over\tilde D(k)}\tilde\phi(k)
+
+b^{s\dag}_{\bf k}\,{}_\text{in} \to
+    i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)u^s({\bf k})e^{ikx}
+    =\tilde{\bar\psi}(-k){-\fslash k - m\over i}u^s({\bf k})
+    =\tilde{\bar\psi}(-k){1\over\tilde S(-k)}u^s({\bf k})
+
+b^s_{\bf k}\,{}_\text{out} \to
+    i\int\d^4 x e^{-ikx}\bar u^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
+    =\bar u^s({\bf k}){\fslash k - m\over i}\psi(k)
+    =\bar u^s({\bf k}){1\over\tilde S(k)}\psi(k)
+
+d^{s\dag}_{\bf k}\,{}_\text{in} \to
+    -i\int\d^4 x e^{ikx}\bar v^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
+    =-\bar v^s({\bf k}){\fslash k - m\over i}\psi(-k)
+    =-\bar v^s({\bf k}){1\over\tilde S(k)}\psi(-k)
+
+d^s_{\bf k}\,{}_\text{out} \to
+    -i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)v^s({\bf k})e^{-ikx}
+    =-\tilde{\bar\psi}(k){-\fslash k - m\over i}v^s({\bf k})
+    =-\tilde{\bar\psi}(k){1\over\tilde S(-k)}v^s({\bf k})
+
+a^{r\dag}_{\bf k}\,{}_\text{in} \to
+    i\epsilon_\mu^{r*}({\bf k})
+        \int\d^4 x e^{ikx} \partial^2 A^\mu(x)
+    =
+    \epsilon_\mu^{r*}({\bf k}){k^2\over i}
+        \tilde A^\mu(-k)
+
+a^r_{\bf k}\,{}_\text{out} \to
+    i\epsilon_\mu^r({\bf k})
+        \int\d^4 x e^{-ikx} \partial^2 A^\mu(x)
+    =
+    \epsilon_\mu^r({\bf k}){k^2\over i}
+        \tilde A^\mu(k)" /></p>
+</div><p>where the &#8220;in&#8221; is the operator for <img class="math" src="../../_images/math/068ffbdcd571d0d79b97e1ce23a4cfdeb3fe8cdf.png" alt="t\to -\infty"/> and &#8220;out&#8221; for <img class="math" src="../../_images/math/fd7d6ca5a22104478b8b84221c9cf84df7503b4a.png" alt="t\to\infty"/>.
+The fields <img class="math" src="../../_images/math/498681ebcd10be30a37589089f47f85391879e66.png" alt="\phi(x)"/>, <img class="math" src="../../_images/math/ca96e7be1ff9c623cb753279095f227af9f18318.png" alt="\psi(x)"/>, <img class="math" src="../../_images/math/682cbcbc060975853e031eb6801084123105b056.png" alt="\bar\psi(x)"/> and <img class="math" src="../../_images/math/99fa5ed03c8a60a0d7506e88ca0e8f30473371aa.png" alt="A^\mu(x)"/> have to be time
+ordered. On the left hand side is a position space representation, the two
+expressions on the right hand side are the momentum representation (the last
+expression is written using the propagators), e.g. a Fourier transform, which
+is essentially just the following substitutions:</p>
+<div class="math">
+<p><img src="../../_images/math/936b9273dd72bf808b15a5170db47a60561b714f.png" alt="\partial^2\to -k^2
+
+i\fslash\partial\to\fslash k
+
+e^{\pm ikx}\phi(x) \to \tilde\phi(\mp k)
+
+{k^2 - m^2\over i} \to {1\over\tilde D(k)}
+
+{\pm\fslash k - m\over i} \to {1\over\tilde S(\pm k)}" /></p>
+</div><p>both representations are of course equivalent (but the momentum one is easier
+to use, since the formulas are shorter).</p>
+<p>For our example we get in the position space:</p>
+<div class="math">
+<p><img src="../../_images/math/6ac8c5747d5073546fcb64cc9fe39e996f27a8ac.png" alt="\braket{f|i} = \braket{\Omega|
+    b_{{\bf p}_{2'}}
+    b_{{\bf p}_{1'}}
+    b_{{\bf p}_{1}}^\dag
+    b_{{\bf p}_{2}}^\dag
+    |\Omega}
+= \braket{\Omega|T\,
+    b_{{\bf p}_{2'}}
+    b_{{\bf p}_{1'}}
+    b_{{\bf p}_{1}}^\dag
+    b_{{\bf p}_{2}}^\dag
+    |\Omega}=
+
+= i^4 \int \d^4 x_1\d^4 x_2\d^4 x_{1'}\d^4 x_{2'}
+
+e^{-ip_{1'}x_{1'}}\left[\bar u^{s_{1'}}({\bf k}_{1'})
+    \left(-i\fslash\partial_{1'} +m\right)\right]_{\alpha_{1'}}
+
+e^{-ip_{2'}x_{2'}}\left[\bar u^{s_{2'}}({\bf k}_{2'})
+    \left(-i\fslash\partial_{2'} +m\right)\right]_{\alpha_{2'}}
+
+\braket{\Omega|T\,
+    \psi_{\alpha_{2'}}(x_{2'})
+    \psi_{\alpha_{1'}}(x_{1'})
+    \bar\psi_{\alpha_1}(x_1)
+    \bar\psi_{\alpha_2}(x_2)
+    |\Omega}
+
+\left[\left(i\overleftarrow{\fslash\partial_1}+m\right)
+    u^{s_1}({\bf p}_1)\right]_{\alpha_1} \,e^{ip_1x_1}
+
+\left[\left(i\overleftarrow{\fslash\partial_2}+m\right)
+    u^{s_2}({\bf p}_2)\right]_{\alpha_2} \,e^{ip_2x_2}" /></p>
+</div><p>where the <img class="math" src="../../_images/math/cc6884a0da7478819612e0f7dab7a2f493884ef8.png" alt="\alpha_1"/>, <img class="math" src="../../_images/math/8fcdd27c8c8d3d90409dcb7b1e7ea7052c6b899b.png" alt="\alpha_2"/>, <img class="math" src="../../_images/math/fd6dab4bfb345c89b92c8b221bab460ef64fecb7.png" alt="\alpha_{1'}"/> and <img class="math" src="../../_images/math/14e442adc89e00d34fb67e5f69002c0ffef4d71d.png" alt="\alpha_{2'}"/> spinor
+indices were introduced to show how the matrices should be multiplied.
+The vacuum amplitude is called a 4 point interacting Green function in position
+space:</p>
+<div class="math">
+<p><img src="../../_images/math/68e7dfdfea9ed61384cd89576cde0e3d7b4e5f86.png" alt="G^{(4)}_{\alpha_{1'} \alpha_{2'} \alpha_1 \alpha_2}
+    (x_{1'}, x_{2'}, x_1, x_2) =
+\braket{\Omega|T\,
+    \psi_{\alpha_{2'}}(x_{2'})
+    \psi_{\alpha_{1'}}(x_{1'})
+    \bar\psi_{\alpha_1}(x_1)
+    \bar\psi_{\alpha_2}(x_2)
+    |\Omega}" /></p>
+</div><p>we can also take a Fourier transform to get the Green function in momentum
+space:</p>
+<div class="math">
+<p><img src="../../_images/math/f4f4b5740f64b4ea7cae2a5a845b4ebc07583648.png" alt="\tilde G^{(n)}(p_1,\dots, p_n) =
+\int\prod_{i=1}^n \d^4 x_i e^{-i p_i x_i}\,
+G^{(n)}(x_1, \dots, x_n)" /></p>
+</div><p>then the scattering amplitude becomes (resuming the previous calculation):</p>
+<div class="math">
+<p><img src="../../_images/math/a4a43f9e73c2532b394b598d8d484788425be246.png" alt="\braket{f|i} = \cdots =
+    i^4
+
+\left[\bar u^{s_{1'}}({\bf k}_{1'})
+    \left(-\fslash p_{1'} +m\right)\right]_{\alpha_{1'}}
+
+\left[\bar u^{s_{2'}}({\bf k}_{2'})
+    \left(-\fslash p_{2'} +m\right)\right]_{\alpha_{2'}}
+
+\tilde G^{(4)}_{\alpha_{1'} \alpha_{2'} \alpha_1 \alpha_2}
+    (p_{1'}, p_{2'}, -p_1, -p_2)
+
+\left[\left({\fslash p_1}+m\right)
+    u^{s_1}({\bf p}_1)\right]_{\alpha_1}
+
+\left[\left({\fslash p_2}+m\right)
+    u^{s_2}({\bf p}_2)\right]_{\alpha_2}" /></p>
+</div><p>We can get the same result much faster if we use the momentum space from the
+beginning:</p>
+<div class="math">
+<p><img src="../../_images/math/fce23a06d84f4e289de0e2a963a6196541dc0d23.png" alt="\braket{f|i} = \braket{\Omega|
+    b_{{\bf p}_{2'}}
+    b_{{\bf p}_{1'}}
+    b_{{\bf p}_{1}}^\dag
+    b_{{\bf p}_{2}}^\dag
+    |\Omega}
+= \braket{\Omega|T\,
+    b_{{\bf p}_{2'}}
+    b_{{\bf p}_{1'}}
+    b_{{\bf p}_{1}}^\dag
+    b_{{\bf p}_{2}}^\dag
+    |\Omega}=
+
+= \braket{\Omega|T\,
+    \bar u^{s_{2'}}({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
+            \tilde\psi({\bf p}_{2'})
+    \bar u^{s_{1'}}({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
+            \tilde\psi({\bf p}_{1'})
+    \tilde{\bar\psi}(-{\bf p}_1){1\over\tilde S(-{\bf p}_1)}
+            u^{s_1}({\bf p}_1)
+    \tilde{\bar\psi}(-{\bf p}_2){1\over\tilde S(-{\bf p}_2)}
+            u^{s_2}({\bf p}_2)
+    |\Omega}=
+
+    =
+    \left[\bar u^{s_{2'}}({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
+        \right]_{\alpha_{2'}}
+    \left[\bar u^{s_{1'}}({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
+        \right]_{\alpha_{1'}}
+
+    \braket{\Omega|T\,
+        \tilde\psi_{\alpha_{2'}}({\bf p}_{2'})
+        \tilde\psi_{\alpha_{1'}}({\bf p}_{1'})
+        \tilde{\bar\psi}_{\alpha_1}(-{\bf p}_1)
+        \tilde{\bar\psi}_{\alpha_2}(-{\bf p}_2)
+    |\Omega}
+
+    \left[{1\over\tilde S(-{\bf p}_1)} u^{s_1}({\bf p}_1)
+        \right]_{\alpha_1}
+    \left[{1\over\tilde S(-{\bf p}_2)} u^{s_2}({\bf p}_2)
+        \right]_{\alpha_1}" /></p>
+</div><p>This is called Lehmann-Symanzik-Zimmermann (LSZ) reduction formula.  One
+obtains similar expressions for other fields as well (if there were different
+creation operators between the initial and final states). All that remains is
+to calculate the interacting Green functions (for which we need to know the
+interaction Lagrangian). But first couple more examples:</p>
+<div class="section" id="example-1">
+<h4>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h4>
+<p><img class="math" src="../../_images/math/caf7f10458f07868db7caa72f33247a06830decd.png" alt="\nu_e"/> - <img class="math" src="../../_images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/> elastic scattering:</p>
+<div class="math">
+<p><img src="../../_images/math/7f674d44520fd6b55360ffda36acc7ee266783f2.png" alt="\nu_e(k) + e(p) \to \nu_e(k') + e(p')" /></p>
+</div><p>So the initial and final states are:</p>
+<div class="math">
+<p><img src="../../_images/math/139db702c10f428ae51e105a761beb8188313fb0.png" alt="\ket{i} = b_{\bf k}^\dag b_{\bf p}^\dag\ket{\Omega}
+
+\ket{f} = b_{\bf k'}^\dag b_{\bf p'}^\dag\ket{\Omega}" /></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/a458de65ed07b9abd7d9361e5d0f50584a514b4c.png" alt="\braket{f|i} = \braket{\Omega|
+    b_{{\bf p'}}
+    b_{{\bf k'}}
+    b_{{\bf k}}^\dag
+    b_{{\bf p}}^\dag
+    |\Omega}
+=\braket{\Omega|T\,
+    b_{\bf p'}
+    b_{\bf k'}
+    b_{\bf k}^\dag
+    b_{\bf p}^\dag
+    |\Omega}=
+
+=
+\left[\bar u({\bf p'}){1\over\tilde S({\bf p'})}
+    \right]
+\left[\bar u({\bf k'}){1\over\tilde S({\bf k'})}
+    \right]
+
+\braket{\Omega|T\,
+    \tilde\psi({\bf p'})
+    \tilde\psi({\bf k'})
+    \tilde{\bar\psi}(-{\bf k})
+    \tilde{\bar\psi}(-{\bf p})
+|\Omega}
+
+\left[{1\over\tilde S(-{\bf k})} u({\bf k})
+    \right]
+\left[{1\over\tilde S(-{\bf p})} u({\bf p})
+    \right]" /></p>
+</div><p>We only multiply the matrices with the same momentum, i.e.
+<img class="math" src="../../_images/math/cfbb88861364a7a90ff91a7aea0f59ffa1428256.png" alt="\left[\bar u^s({\bf p'}){1\over\tilde S({\bf p'})}\right]"/> with
+<img class="math" src="../../_images/math/501bd613a3a8bd633b536944fa2cd0ebb93832bd.png" alt="\tilde\psi({\bf p'})"/>,
+<img class="math" src="../../_images/math/18a82e1d5e41102225f470f01eba19555c618e7f.png" alt="\left[\bar u^s({\bf k'}){1\over\tilde S({\bf k'})}\right]"/> with
+<img class="math" src="../../_images/math/23cd6070ce07f161e92401a54a489a441da1a8b7.png" alt="\tilde\psi({\bf k'})"/> and so on. Also we don&#8217;t write the spin anymore, e.g.
+<img class="math" src="../../_images/math/72eabe176311967f4a51bd5be74b81d7e057cc04.png" alt="u({\bf k})"/> should in fact be <img class="math" src="../../_images/math/ba27ec22de3e141e3c757bfba1182c9bea10736f.png" alt="u^{s_k}({\bf k})"/> and so on.</p>
+</div>
+<div class="section" id="example-2">
+<h4>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
+<p>Muon decay:</p>
+<div class="math">
+<p><img src="../../_images/math/fce7ed4d0f5b8e1ba7e3fd95610396c509d3d6ba.png" alt="\mu(P) \to e(p) + \bar\nu_e(k') + \nu_\mu(k)" /></p>
+</div><p>So the initial and final states are:</p>
+<div class="math">
+<p><img src="../../_images/math/457ead4cab0913aad308ac4f0ba10f429c9a027c.png" alt="\ket{i} = b_{\bf P}^\dag\ket{\Omega}
+
+\ket{f} = b_{\bf p}^\dag d_{\bf k'}^\dag b_{\bf k}^\dag\ket{\Omega}" /></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/23092761ea185d149f6a095ab19c25a5588c84ed.png" alt="\braket{f|i} = \braket{\Omega|
+    b_{{\bf k}}
+    d_{{\bf k'}}
+    b_{{\bf p}}
+    b_{{\bf P}}^\dag
+    |\Omega}
+
+=
+\left[\bar u({\bf k}){1\over\tilde S({\bf k})} \right]
+\left[\bar u({\bf p}){1\over\tilde S({\bf p})} \right]
+
+\braket{\Omega|T\,
+    \tilde\psi({\bf k})
+    \tilde\psi({\bf p})
+    \tilde{\bar\psi}({\bf k'})
+    \tilde{\bar\psi}(-{\bf P})
+|\Omega}
+
+\left[-{1\over\tilde S(-{\bf k'})} v({\bf k'}) \right]
+\left[{1\over\tilde S(-{\bf P})} u({\bf P}) \right]" /></p>
+</div></div>
+<div class="section" id="example-3">
+<h4>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h4>
+<p><img class="math" src="../../_images/math/3c124a6bee132d60b5651d94c89a420d222dbdd4.png" alt="e^+ + e^-"/> scattering:</p>
+<div class="math">
+<p><img src="../../_images/math/046f10fde5c553832e9515db86f1a5b8a07c3fd4.png" alt="e^-(p_1)+e^+(p_2) \to e^-(k_1)+e^+(k_2)" /></p>
+</div><p>Initial and final states:</p>
+<div class="math">
+<p><img src="../../_images/math/1d0030fc603cb744437f36394ad1bd2b3cc7ad6b.png" alt="\ket{i} = b_{{\bf p}_1}^{t\dag} d_{{\bf p}_2}^{u\dag}\ket{\Omega}
+
+\ket{f} = b_{{\bf k}_1}^{r\dag} d_{{\bf k}_2}^{s\dag}\ket{\Omega}" /></p>
+</div><p>And we get:</p>
+<div class="math">
+<p><img src="../../_images/math/48b28a30e94c56e7eaa6b077be20ef85c041cc20.png" alt="\braket{f|i}=
+\braket{\Omega|
+    b^r_{{\bf k}_1}
+    d^s_{{\bf k}_2}
+    b^{t\dag}_{{\bf p}_1}
+    d^{u\dag}_{{\bf p}_2}
+    |\Omega} =
+
+=\braket{\Omega|T
+    b^r_{{\bf k}_1}
+    d^s_{{\bf k}_2}
+    b^{t\dag}_{{\bf p}_1}
+    d^{u\dag}_{{\bf p}_2}
+    |\Omega} =
+
+=\braket{\Omega|T
+    \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\tilde \psi(k_1)\right]
+    \left[-\tilde{\bar\psi}(k_2){1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+    \left[\tilde{\bar\psi}(-p_1){1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+    \left[-\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\tilde \psi(-p_2)\right]
+    |\Omega} =
+
+=
+\left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\right]
+\left[\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\right]
+
+\braket{\Omega|T
+    \tilde \psi(k_1)
+    \tilde{\bar\psi}(k_2)
+    \tilde{\bar\psi}(-p_1)
+    \tilde \psi(-p_2)
+    |\Omega}
+
+\left[{1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+\left[{1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]" /></p>
+</div></div>
+<div class="section" id="example-4">
+<h4>Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h4>
+<p><img class="math" src="../../_images/math/32978a5f10d49f986ac0d671bf396258dbe83fb6.png" alt="H(p)\to Z(k)+Z(l)"/> decay. Initial and final states:</p>
+<div class="math">
+<p><img src="../../_images/math/7d40d80f296501eacc239fb7d0c62f19a4f7ae34.png" alt="\ket{i} = a^\dag_{\bf p}\ket{\Omega}
+
+\ket{f} = a^{r\dag}_{\bf k}a^{s\dag}_{\bf l}\ket{\Omega}" /></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/9becd1998a4ebd7a9892884188846e534f8b8090.png" alt="\braket{f|i}=
+\braket{\Omega|a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+\braket{\Omega|T a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+
+=
+\braket{\Omega|T
+    \epsilon^{r*}_\mu({\bf k}){k^2\over i} \tilde A^\mu(k)
+    \epsilon^{s*}_\nu({\bf l}){l^2\over i} \tilde A^\nu(l)
+    {1\over\tilde D(p)}\tilde\phi(-p)
+    |\Omega} =
+
+= {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+\over {i\over k^2}{i\over l^2}\tilde D(p)}
+\braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}" /></p>
+</div></div>
+<div class="section" id="example-5">
+<h4>Example 5<a class="headerlink" href="#example-5" title="Permalink to this headline">¶</a></h4>
+<p><img class="math" src="../../_images/math/c5f1dc30c9d2d709e17ce5bdb0837cfb493275a1.png" alt="e^+ e^- \to W^+ W^-"/> scattering:</p>
+<div class="math">
+<p><img src="../../_images/math/823d41aa466b5cf151a4d0a8d761d85ae0b86d86.png" alt="e^-(k) + e^+(-l) \to W^-(p) + W^+(r)" /></p>
+</div><p>So the initial and final states are:</p>
+<div class="math">
+<p><img src="../../_images/math/232eff466c899961ba662a6714b09db38b8ab7af.png" alt="\ket{i} = b_{\bf k}^\dag d_{-{\bf l}}^\dag\ket{\Omega}
+
+\ket{f} = a_{\bf p}^{\lambda \dag} a_{\bf r}^{\mu \dag}\ket{\Omega}" /></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/106f4286ded9c26e3e6fe2f9eab2e7bb5b6fb87a.png" alt="\braket{f|i} = \braket{\Omega|
+    a_{\bf r}^\mu
+    a_{\bf p}^\lambda
+    b_{\bf k}^\dag d_{-{\bf l}}^\dag
+    |\Omega}
+
+=
+\epsilon^\mu_\alpha({\bf r}) {r^2\over i}
+\epsilon^\lambda_\beta({\bf p}) {p^2\over i}
+\left[-\bar v(-{\bf l}){1\over\tilde S(-{\bf l})} \right]
+
+\braket{\Omega|T\,
+    \tilde A^\alpha({\bf r})
+    \tilde A^\beta({\bf p})
+    \tilde{\bar\psi}(-{\bf k})
+    \tilde\psi({\bf l})
+|\Omega}
+
+\left[{1\over\tilde S(-{\bf k})} u({\bf k}) \right]" /></p>
+</div></div>
+<div class="section" id="example-6">
+<h4>Example 6<a class="headerlink" href="#example-6" title="Permalink to this headline">¶</a></h4>
+<p><img class="math" src="../../_images/math/f8f4cf2a6fa485f8fea6730999bb217f627915f7.png" alt="W^+ W^- \to W^+ W^-"/> scattering:</p>
+<div class="math">
+<p><img src="../../_images/math/b9fa7cfabd140eec97e9708fb02766bb974cb8be.png" alt="W^-(k) + W^+(p) \to W^-(r) + W^+(l)" /></p>
+</div><p>So the initial and final states are:</p>
+<div class="math">
+<p><img src="../../_images/math/4e6ae80a93dea3b0547a735a89c7eed82964ac75.png" alt="\ket{i} = a_{\bf k}^{\mu \dag} a_{\bf p}^{\nu \dag}\ket{\Omega}
+
+\ket{f} = a_{\bf r}^{\alpha \dag} a_{\bf l}^{\beta \dag}\ket{\Omega}" /></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/014d4afc696e3eea38abf37e48e3c4e658073991.png" alt="\braket{f|i} = \braket{\Omega|
+    a_{\bf l}^\beta
+    a_{\bf r}^\alpha
+    a_{\bf k}^{\mu \dag} a_{\bf p}^{\nu \dag}
+    |\Omega}
+
+=
+\epsilon^{\mu*}_\rho({\bf k}) {k^2\over i}
+\epsilon^{\nu*}_\sigma({\bf p}) {p^2\over i}
+\braket{\Omega|T\,
+    \tilde A^\kappa({\bf r})
+    \tilde A^\lambda({\bf l})
+    \tilde A^\sigma(-{\bf p})
+    \tilde A^\rho(-{\bf k})
+|\Omega}
+\epsilon^\alpha_\kappa({\bf r}) {r^2\over i}
+\epsilon^\beta_\lambda({\bf l}) {l^2\over i}" /></p>
+</div></div>
+</div>
+<div class="section" id="evaluation-of-the-interacting-green-functions">
+<h3>Evaluation of the Interacting Green Functions<a class="headerlink" href="#evaluation-of-the-interacting-green-functions" title="Permalink to this headline">¶</a></h3>
+<p>The interacting Green functions can be evaluated using the formula:</p>
+<div class="math">
+<p><img src="../../_images/math/e749909573e48dcb26bae0af850240e019ea040d.png" alt="G^{(n)}(x_1, \dots, x_n) =
+    \braket{\Omega|T\, \phi_H(x_1) \dots \phi_H(x_n) |\Omega}
+=
+
+={\braket{0|T\, \phi_I(x_1) \dots \phi_I(x_n) S|0}\over
+\braket{0|S|0}}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/5afcaa97dae09bb6fb63020dc1cbf84a6f2c8a04.png" alt="S=U_I(\infty, -\infty) =
+T\exp\left(-{i\over\hbar}\int_{-\infty}^{\infty}H_1(t)\d t \right) =
+T\exp\left(-{i\over\hbar}\int\d^4 x \H_1(x) \right)" /></p>
+</div><p><img class="math" src="../../_images/math/1812c14676baf3eecdce85e8222036d274bf4116.png" alt="\phi_H"/> is a field in the Heisenberg picture
+(<img class="math" src="../../_images/math/6e360bbee7fdfda46c075be9c2ea698b03b1faa1.png" alt="\phi({\bf x}, t)=e^{iHt}\phi({\bf x}, 0)e^{-iHt}"/>) and <img class="math" src="../../_images/math/8e0e78e1179c30d347529bdf21a44635cf0f228d.png" alt="\phi_I"/> is a field in
+the interaction picture (<img class="math" src="../../_images/math/9ae51c6d7c1fbe97fa24f81b52d6150a271539de.png" alt="\phi({\bf x}, t)=e^{iH_0t}\phi({\bf x},
+0)e^{-iH_0t}"/>), where the Hamiltonian is <img class="math" src="../../_images/math/ac1e26e4aaeb871390ee3b249dcf02de1e70311c.png" alt="H=H_0 + H_1"/> and the vacua (ground
+states) are <img class="math" src="../../_images/math/c63cd156e203ccd96c1b01891f128d5b1d5221b0.png" alt="H_0\ket{0} = 0"/> and <img class="math" src="../../_images/math/355185d0a9a97e1416691b338610c436105418aa.png" alt="H\ket{\Omega} = 0"/>.</p>
+<p>This can be proven by evaluating the right hand side:</p>
+<div class="math">
+<p><img src="../../_images/math/dcc9f9027a6fe3fa6294c9c164ea6f1bd7c3cf18.png" alt="{\braket{0|T\, \phi_I(x_1) \dots \phi_I(x_n) S|0}\over
+\braket{0|S|0}}
+=
+{\braket{0|T\, \phi_I(x_1) \dots \phi_I(x_n) U_I(\infty, -\infty)|0}\over
+\braket{0|U_I(\infty, 0)U_I(0, -\infty)|0}}
+
+=
+{\braket{0|U_I(\infty, t_1) \phi_I(x_1) U_I(t_1, t_2) \dots
+    U_I(t_{n-1}, t_n)\phi_I(x_n) U_I(t_n, -\infty)|0}\over
+\braket{0|U_I(\infty, 0)U_I(0, -\infty)|0}}
+
+=
+{\braket{0|U_I(\infty, 0) \phi_H(x_1) \dots \phi_H(x_n) U_I(0, -\infty)|0}\over
+\braket{0|U_I(\infty, 0)U_I(0, -\infty)|0}}=
+
+=
+{\braket{0|\Omega}\braket{\Omega|T \phi_H(x_1) \dots \phi_H(x_n)
+    |\Omega}\braket{\Omega|0}\over
+\braket{0|\Omega}\braket{\Omega|\Omega}\braket{\Omega|0}}=
+
+=
+{\braket{\Omega|T \phi_H(x_1) \dots \phi_H(x_n) |\Omega}\over
+\braket{\Omega|\Omega}}=
+
+=
+\braket{\Omega|T \phi_H(x_1) \dots \phi_H(x_n) |\Omega}" /></p>
+</div><p>where we used the following relations:</p>
+<div class="math">
+<p><img src="../../_images/math/6a91e07c3e44588b47024b5a6ec26c5c6f5a25cd.png" alt="U_I(t_{k-1}, t_k) \phi_I(x_k) U_I(t_k, t_{k+1})=
+U_I(t_{k-1}, 0) U_I^\dag(t_k, 0) \phi_I(x_k) U_I(t_k, 0) U_I(0, t_{k+1})=
+U_I(t_{k-1}, 0) \phi_H(x_k) U_I(0, t_{k+1})
+
+U_I(0, -\infty)\ket{0}=
+U_I(0, -\infty)\left[\ket{\Omega}\bra{\Omega}+\sum_{n\neq0}\ket{n}\bra{n}
+    \right]\ket{0} =
+\ket{\Omega}\braket{\Omega|0}+\lim_{t\to-\infty}
+    \sum_{n\neq0}e^{i E_n t}\ket{n}\braket{n|0}
+=
+\ket{\Omega}\braket{\Omega|0}
+
+\braket{\Omega|\Omega}=1" /></p>
+</div></div>
+<div class="section" id="evolution-operator-s-matrix-elements">
+<span id="index-47"></span><h3>Evolution Operator, S-Matrix Elements<a class="headerlink" href="#evolution-operator-s-matrix-elements" title="Permalink to this headline">¶</a></h3>
+<p>The evolution operator <img class="math" src="../../_images/math/e2bbebb3bd73f1ae5c64098ab0244f739abf7ca4.png" alt="U"/> is defined by the equations:</p>
+<div class="math">
+<p><img src="../../_images/math/62e8ca44dcf577aa6d31888503e8d52ddfee8ced.png" alt="\ket{\phi(t_2)}=U(t_2, t_1)\ket{\phi(t_1)}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8165dcc4ce4708edf7768cecfaf6fbdad05465a3.png" alt="i\hbar{\partial U(t, t_1)\over\partial t} = H(t)U(t, t_1)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/5f2f1701c11eddc4aecc91e6d2b39ccbab41c1bf.png" alt="U(t_1, t_1) = 1" /></p>
+</div><p>We are interested in calculating the S matrix elements:</p>
+<div class="math">
+<p><img src="../../_images/math/b8325ae334607161f8701b7f621e05f98bc391d3.png" alt="\braket{f|U(\infty, -\infty)|i}=\braket{f|S|i}=S_{fi}" /></p>
+</div><p>so we first calculate <img class="math" src="../../_images/math/1dd4ffc8e14c93a796b5401a3de58158aaac2f31.png" alt="U(\infty, -\infty)"/>. Integrating the equation for the
+evolution operator:</p>
+<div class="math">
+<p><img src="../../_images/math/da34d21f05008e59e13f2da41532664a28b67c5e.png" alt="U(t_2, t_1)=U(t_1, t_1)-{i\over\hbar}\int_{t_1}^{t_2} H(t)U(t, t_1)\d t =1-{i\over\hbar}\int_{t_1}^{t_2} H(t)U(t, t_1)\d t" /></p>
+</div><p>Now:</p>
+<div class="math">
+<p><img src="../../_images/math/3cc25ab6100fb5f16bc88135cd1f89e960af2165.png" alt="S=U(\infty, -\infty) =1-{i\over\hbar} \int_{-\infty}^{\infty} H(t')U(t', -\infty)\d t'=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/56ec1c428c138367dacfc4f6656ce060549dd76d.png" alt="=1+\left(-{i\over\hbar}\right)\int_{-\infty}^{\infty} H(t')U(t', -\infty)\d t' +\left(-{i\over\hbar}\right)^2\int_{-\infty}^{\infty} \int_{-\infty}^{t'} H(t')H(t'')U(t'', -\infty)\d t'\d t''=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/48772494ad0e0a46c48d961dbb141ae82334db13.png" alt="=\cdots= \sum_{n=0}^\infty \left(-{i\over\hbar}\right)^n {1\over n!} \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\cdots T\{H(t_1)H(t_2)\cdots\}\d t_1\d t_2\cdots=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/4920afaa9154029f94247354ae7d359491528673.png" alt="= T\exp\left(-{i\over\hbar}\int_{-\infty}^{\infty}H(t)\d t \right) = T\exp\left(-{i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \H(x) \right)" /></p>
+</div><p>If <img class="math" src="../../_images/math/e5cf142f9d76c7a8a1d6ec7345badcc09ac61990.png" alt="\L"/> doesn&#8217;t contain derivatives of the fields, then <img class="math" src="../../_images/math/17e4ea4d738a799e9fef4d64cccb6b3c75bcd444.png" alt="\H = -\L"/> so:</p>
+<div class="math">
+<p><img src="../../_images/math/782061ae6fc5fdae4f815d07783ecb57f9443eb4.png" alt="U(\infty, -\infty) = T\exp\left({i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \L(x) \right)" /></p>
+</div><p>Let&#8217;s write <img class="math" src="../../_images/math/3707a7d51ae0434510c8ec69f72af933cd98b8b8.png" alt="S=1+iT"/> and <img class="math" src="../../_images/math/19a024e8fb80c2aa3344858941535106e34f10c4.png" alt="\ket{i}=\ket{k_1\cdots k_m}"/>, <img class="math" src="../../_images/math/fe03ea2de93cfb76fb674738384a4f7e7ee0b887.png" alt="\ket{f}=\ket{p_1\cdots p_n}"/>. As a first step now, let&#8217;s investigate a scalar field, e.g. <img class="math" src="../../_images/math/b4795f0f3ec255896eeda445bbb49f96d661af4a.png" alt="\L=-{\lambda\over4}\phi^4"/> (e.g. a Higgs self interaction term above), we&#8217;ll look at other fields later:</p>
+<div class="math">
+<p><img src="../../_images/math/24c667438d67b1a9724836dafa42218c5480dc99.png" alt="\braket{f|S|i}= \braket{f|iT|i}= \braket{p_1\cdots p_n|iT|k_1\cdots k_m}= {1\over\tilde D(k_1)\cdots\tilde D(k_m)} {1\over\tilde D(p_1)\cdots\tilde D(p_n)}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/bac16325406725f9e5c769a92df56c072c32bc97.png" alt="\int\d^4 x_1\cdots \d^4 x_m e^{-i(k_1 x_1+\cdots + k_m x_m)} \int\d^4 y_1\cdots \d^4 y_n e^{+i(p_1 y_1+\cdots + p_n y_n)} G(x_1, \cdots, x_m, y_1, \cdots, y_m)" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/febfc07da23ec0b81ffe025fe1f6139b4a12654a.png" alt="G(x_1, \cdots, x_n)= \braket{\Omega|T\{\phi(x_1)\cdots\phi(x_n)\}|\Omega} =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/acd8924569d1e30fa6a75e62200c652b6df94888.png" alt="{\braket{0|T\{\phi_I(x_1)\cdots\phi_I(x_n)\exp\left({i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \L(x) \right)\}|0} \over \braket{0|T\exp\left({i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \L(x) \right)|0} }" /></p>
+</div><p>This is called the LSZ formula. Now we use the Wick contraction, get some terms like <img class="math" src="../../_images/math/6ef92327e88c5a18fd17b8bfd06d1cabb5781dd5.png" alt="D_{23}D_{34}"/> integrate things out, this will give the delta function and <img class="math" src="../../_images/math/4c37e8d20aa702ae85f0783d912f369e15b10168.png" alt="\tilde D(p)"/>&#8216;s and that&#8217;s it.</p>
+<p>Let&#8217;s see how it goes for <img class="math" src="../../_images/math/b4795f0f3ec255896eeda445bbb49f96d661af4a.png" alt="\L=-{\lambda\over4}\phi^4"/> for the process
+<img class="math" src="../../_images/math/ce3d63097f23c899da2ed4d69f8af67a71def782.png" alt="k_1+k_2\to p_1+p_2"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/cc9185750049d2bfd4c6b5d16d4f5c504d1174f2.png" alt="\braket{p_1 p_2|S|k_1 k_2} = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/bdb44bc5b0f68fdcacc096e14e451b87226e2dde.png" alt="{\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(y_1)\phi_I(y_2)\exp\left( -{i\lambda\over4\hbar} \int\d^4 x \phi_I^4(x) \right)\}|0} \over \braket{0|T\exp\left(-{i\lambda\over4\hbar}\int\d^4 x \phi_I^4(x) \right)|0} }=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8597fdc2bcbd1857dfffd4955bc625cd6289e1b5.png" alt="= {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0b1f187d31fdd6526f0726ac6f3ff639f79f34ff.png" alt="\left[ { \braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(y_1)\phi_I(y_2)\}|0} \over \braket{0|T\exp\left(-{i\lambda\over4\hbar}\int\d^4 x \phi_I^4(x) \right)|0} }\right. +" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/fec0b7ade7cf15727d89152a5d37fe22367237b8.png" alt="+{ \left(-{i\lambda\over4\hbar}\right)\int\d^4 x \braket{0|T\{\phi_I(x_1)\phi_I(x_2) \phi_I(y_1)\phi_I(y_2) \phi_I^4(x)\}|0} \over \braket{0|T\exp\left(-{i\lambda\over4\hbar}\int\d^4 x \phi_I^4(x) \right)|0} } +" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/7c2fe43cb1ac648ba19f352e13ad904604fa40db.png" alt="\left. +{ \left(-{i\lambda\over4\hbar}\right)^2\int\d^4 x\,\d^4 y \braket{0|T\{\phi_I(x_1)\phi_I(x_2) \phi_I(y_1)\phi_I(y_2) \phi_I^4(x)\phi_I^4(y)\}|0} \over \braket{0|T\exp\left(-{i\lambda\over4\hbar}\int\d^4 x \phi_I^4(x) \right)|0} } +\cdots\right]=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/ddabd24ab2acb7569c543ea5aa1cf376a85c3cff.png" alt="= { 1 \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/9a446bd964d0e0e5bd5229026ff9bf99aec4de2c.png" alt="\left[ (2\pi)^4 \delta^{(4)}(p_1+p_2)(2\pi)^4 \delta^{(4)}(k_1+k_2)\tilde D(p_1) \tilde D(k_1)+\right." /></p>
+</div><div class="math">
+<p><img src="../../_images/math/9ec85851393ca63ed6ffe2262c2ad4dff61756f0.png" alt="(-i\lambda)6(2\pi)^4\delta^{(4)}(p_1+p_2-k_1-k_2)\tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)+" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/2a9f3aed63f88b94329a0f4edf8e2a293178b58f.png" alt="\left. (-i\lambda)(\hbox{disconnected terms with not enough $\tilde D(\cdots)$s})+(-i\lambda)^2(\cdots)+\cdots\right]=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/ff7a11e9940cc1f2dfdc34abeedb476ee2ab3366.png" alt="= (2\pi)^4\delta^{(4)}(p_1+p_2-k_1-k_2)\left[6(-i\lambda)+ 3(-i\lambda)^2\int{\d^4 k\over (2\pi)^4}\tilde D(k)\tilde D(p1+p2-k) +(-i\lambda)^3(\cdots)+\cdots\right]" /></p>
+</div><p>The denominator cancels with the disconnected terms. We used the Wick contractions (see below for a thorough explanation+derivation):</p>
+<div class="math">
+<p><img src="../../_images/math/3461dd3860c6a1eb2f355f8664148c933439cfe0.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(y_1)\phi_I(y_2)\}|0}= D(x_1-x_2)D(y_1-y_2)+D(x_2-y_1)D(x_1-y_2)+D(x_2-y_2)D(x_1-y_1)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/f6b13cf733fbf0e6fb6169d32335c7a98c491f09.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2) \phi_I(y_1)\phi_I(y_2) \phi_I^4(x)\}|0}= D(x_1-x)D(x_2-x)D(y_1-x)D(y_2-x)+\hbox{disconnected}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/bfc2e11fe31573351130d7c00537236c1a53d156.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2) \phi_I(y_1)\phi_I(y_2) \phi_I^4(x)\phi_I^4(y)\}|0}= D(x_1-x)D(x_2-x)D(y_1-y)D(y_2-y)D(x-y)D(x-y)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/285f0b6c6a698eb133d4e363fa819476ffae7be6.png" alt="+\hbox{disconnected}" /></p>
+</div><p>Where the &#8220;disconnected&#8221; terms are <img class="math" src="../../_images/math/96a247e08a6d9da37feae39404f9e6e2fce532b3.png" alt="D(x_1-y_1)D(x_2-y_2)D(x-x)D(x-x)"/> and similar. When they are integrated over, they do not generate enough <img class="math" src="../../_images/math/cdaf807464a1c0b7bf298090415aae3e6e581da5.png" alt="\tilde D(p_1)"/> propagators to cancel the propagators from the LSZ formula, which will cause the terms to vanish.</p>
+<p>For the <img class="math" src="../../_images/math/faf5b3cfbcfe52c1fb0c3383e1336b212c9d0b00.png" alt="\L=\phi^3(x)"/> theory, one also needs the following contractions:</p>
+<div class="math">
+<p><img src="../../_images/math/1fbdeb1131bf822718cbe05cbbea34ffd26d7303.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2) \phi_I(y_1)\phi_I(y_2) \phi_I^3(x)\}|0} = 0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/269591040bd74d65e22296c7970984f0f55fd3c8.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2) \phi_I(y_1)\phi_I(y_2) \phi_I^3(x)\phi_I^3(y)\}|0} = D(x_1-x)D(x_2-x)D(x-y)D(y_1-y)D(y_2-y)" /></p>
+</div><p>Thus it is clear that the only difference from the above is the factor <img class="math" src="../../_images/math/a3b76d90234981742e54505854322dfc49a08f90.png" alt="D(x-y)"/> which after integrating changes to <img class="math" src="../../_images/math/f9b1d0c885d8fedb4c07106f64ecda0d122083d8.png" alt="\tilde D(p_1+p_2)"/> and this ends up in the final result.</p>
+<p>One always gets the delta function in the result, so we define the matrix element <img class="math" src="../../_images/math/ad512d66aa32048d76696b6b167cd25270b80e95.png" alt="\M_{fi}"/> by:</p>
+<div class="math">
+<p><img src="../../_images/math/66f15ddd3cbb92e6ca9164e299fe6c600b76bfe1.png" alt="S_{fi} = (2\pi)^4\delta^{(4)}(p_1+p_2+\cdots - k_1 - k_2 - \cdots) i \M_{fi}" /></p>
+</div></div>
+<div class="section" id="propagators-for-scalar-bosons-fermions-and-vector-bosons">
+<span id="index-48"></span><h3>Propagators for Scalar Bosons, Fermions and Vector Bosons<a class="headerlink" href="#propagators-for-scalar-bosons-fermions-and-vector-bosons" title="Permalink to this headline">¶</a></h3>
+<p>The only nonzero contractions that can occur are the propagators below. All
+other contractions are zero.</p>
+<p>Propagator for a scalar boson is:</p>
+<div class="math">
+<p><img src="../../_images/math/f92ca70d5b457c5d5329622b01198e6830e3c58a.png" alt="\braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../../_images/math/6f771d7a5cccb2ad024a69482f4a21da8e64dd9f.png" alt="\tilde D(p) = {i\over p^2-m^2+i\epsilon}" /></p>
+</div><p>For fermions (Feynman propagator):</p>
+<div class="math">
+<p><img src="../../_images/math/7e91be87d2f93fb34185f25c2f85c5815796f169.png" alt="\braket{0|T\{\psi_I(x)\bar\psi_I(y)\}|0}\equiv S(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde S(p) e^{-ip(x-y)}" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../../_images/math/e8f318c07711247a567ec45a7862244f233e9d6c.png" alt="\tilde S(p) = {i\over \fslash{p} - m +i\epsilon}= {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}" /></p>
+</div><p>For vector bosons:</p>
+<div class="math">
+<p><img src="../../_images/math/1308176c8354539d17a96fc99b042d1de85a94ae.png" alt="\braket{0|T\{A_\mu(x)A_\nu(y)\}|0}\equiv D_{\mu\nu}(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D_{\mu\nu}(p) e^{-ip(x-y)}" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../../_images/math/a5741747f976d7a991b42e29faae7675b1f9213a.png" alt="\tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}+{p_\mu p_\nu\over m^2}\over p^2-m^2+i\epsilon}" /></p>
+</div><p>For massless bosons:</p>
+<div class="math">
+<p><img src="../../_images/math/429f1c0f5316ae42238fcae1aabc987dd67f847d.png" alt="\tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}" /></p>
+</div></div>
+<div class="section" id="wick-theorem">
+<span id="index-49"></span><h3>Wick Theorem<a class="headerlink" href="#wick-theorem" title="Permalink to this headline">¶</a></h3>
+<p>As seen above, we need to be able to calculate</p>
+<div class="math">
+<p><img src="../../_images/math/b77dc4a3b03d817e82d8afb064fa9208b777b2d6.png" alt="\braket{0|T\{\phi_I(x_1)\cdots\phi_I(x_n)\}|0}" /></p>
+</div><p>The Wick theorem says, that this is equal to all possible contractions of fields (all fields need to be contracted), where a contraction is defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/f92ca70d5b457c5d5329622b01198e6830e3c58a.png" alt="\braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../../_images/math/6f771d7a5cccb2ad024a69482f4a21da8e64dd9f.png" alt="\tilde D(p) = {i\over p^2-m^2+i\epsilon}" /></p>
+</div><p>A few lowest possibilities:</p>
+<div class="math">
+<p><img src="../../_images/math/065d1ec59bcb4a6e076f0b5cc212137f6d822377.png" alt="\braket{0|T\{\phi_I(x_1)\}|0}= 0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c8ee734d0697fb23f27fe29bfe73bf440e3b07f1.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\}|0}= D_{12}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/fcc5fbd7238ce35ea5c186552d47c8d7ff4e7017.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(x_3)\}|0}= 0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/36dd008b7cef053706eda70703d102dd208c0c9d.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(x_3)\phi_I(x_4)\}|0}= \hbox{disconnected}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/5d178bf4035eeafb1150aa6aef8c8a796a499e62.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(x_3)\phi_I(x_4)\phi_I(x)\}|0}= 0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/53e31385c5fe11ba35a065f33b7bffc1f4d6c951.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(x_3)\phi_I(x_4)\phi_I^2(x)\}|0}= \hbox{disconnected}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8505ce5939674ea08b0f10d899325a4478688302.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(x_3)\phi_I(x_4)\phi_I^3(x)\}|0}= 0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/6d007757c59d3ab05bf83a1532c438ac7b49ddef.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(x_3)\phi_I(x_4)\phi_I^4(x)\}|0}= 4!\,D(x_1-x)D(x_2-x)D(x_3-x)D(x_4-x)+\hbox{disconnected}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/65c243c409d45402b11b8b2ffb68500753eaa337.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(x_3)\phi_I(x_4)\phi_I^3(x)\phi_I^3(y)\}|0}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/e187d4b58f8d16f802f1e345741095ca0d9db73d.png" alt="=D(x_1-x)D(x_2-x)D(x-y)D(x_3-y)D(x_4-y) + \hbox{disconnected}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8277c556d3e3b5c59581ce040ddfceed0162fb30.png" alt="\braket{0|T\{\phi_I(x_1)\phi_I(x_2)\phi_I(x_3)\phi_I(x_4)\phi_I^4(x)\phi_I^4(y)\}|0}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/6984465c0e67371b9865d878ff7d9508b8946b5e.png" alt="=D(x_1-x)D(x_2-x)D(x-y)D(x-y)D(x_3-y)D(x_4-y) + \hbox{disconnected}" /></p>
+</div><p>For the last two equations, not all possibilities of the connected graphs are listed (and also the combinatorial factor is omitted).</p>
+</div>
+<div class="section" id="nonrelativistic-field-operators">
+<h3>Nonrelativistic Field Operators<a class="headerlink" href="#nonrelativistic-field-operators" title="Permalink to this headline">¶</a></h3>
+<p>One difference in nonrelativistic quantum mechanics is that the noninteracting
+solutions to the equation of motion (Schrödinger equation in this case) can be
+numbered using a discrete index, so for example the momentum <img class="math" src="../../_images/math/869ee25a97311754fac81b9d932fc29bef39ba08.png" alt="\bf q"/> is not
+continuous, thus the (anti)commutation relations for creation and anihilation
+operators contain the Kronecker delta (instead of a delta function) and
+integrals over the index are replaced by sums. The reason for that is that we
+usually employ boundary conditions (like a lattice, or one particle potential
+due to nuclei, etc.) that make the spectrum discrete.</p>
+<p>For bosons the field operators are given by:</p>
+<div class="math">
+<p><img src="../../_images/math/d7107297b7ed892d7812fcc1e8d9b610eb6fe6d5.png" alt="\hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k
+
+\hat\psi^\dag({\bf x}) = \sum_k \psi_k^*({\bf x}) c_k^\dag" /></p>
+</div><p>where the coefficients are the single-particle wave functions.</p>
+<div class="math">
+<p><img src="../../_images/math/b6779e367178f2f302bb1a8cca8829f57b83fa7f.png" alt="[c_k, c_l^\dag] = \delta_{kl}
+
+[c_k, c_l] = [c_k^\dag, c_l^\dag] = 0" /></p>
+</div><p>so the commutation relations for <img class="math" src="../../_images/math/b05b06272aea6a94638c3308318f14b1d0f9e55c.png" alt="\hat\psi"/> and <img class="math" src="../../_images/math/9754d54ba26a4dccc53d0eb66343b7d47175423c.png" alt="\hat\psi^\dag"/> are:</p>
+<div class="math">
+<p><img src="../../_images/math/18e58d6b17c6a16e8c849f86e0e90deb4f1dcfc1.png" alt="[\hat\psi({\bf x}), \hat\psi^\dag({\bf y})] = \delta^{(3)}({\bf x}-{\bf y})
+
+[\hat\psi({\bf x}), \hat\psi({\bf y})] =
+[\hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y})] = 0" /></p>
+</div><p>For fermions:</p>
+<div class="math">
+<p><img src="../../_images/math/58b36b56037d63577a814abffc662312fb35eaf4.png" alt="\hat\psi({\bf x}) = \sum_k\sum_{s=1}^2 \psi_k^s({\bf x}) c_k
+
+\hat\psi^\dag({\bf x}) = \sum_k\sum_{s=1}^2 \psi_k^{s*}({\bf x}) c_k^\dag" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/a4a99dc66f133a49f533799fba3c7781beec2062.png" alt="\{c_k, c_l^\dag\} = \delta_{kl}
+
+\{c_k, c_l\} = \{c_k^\dag, c_l^\dag\} = 0" /></p>
+</div><p>so the commutation relations for <img class="math" src="../../_images/math/b05b06272aea6a94638c3308318f14b1d0f9e55c.png" alt="\hat\psi"/> and <img class="math" src="../../_images/math/9754d54ba26a4dccc53d0eb66343b7d47175423c.png" alt="\hat\psi^\dag"/> are:</p>
+<div class="math">
+<p><img src="../../_images/math/7d87b20fa57bf70f0378af0ddadbfcd9514e3c13.png" alt="\{\hat\psi({\bf x}), \hat\psi^\dag({\bf y})\} =\delta^{(3)}({\bf x}-{\bf y})
+
+\{\hat\psi({\bf x}), \hat\psi({\bf y})\} =
+\{\hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y})\} = 0" /></p>
+</div><p>The (interacting) Hamiltonian for both bosons and fermions is</p>
+<div class="math">
+<p><img src="../../_images/math/eb749ec01c1ec41d6a9cae52c70704d38a764254.png" alt="i\hbar\partial_t\ket{\Psi(t)} = \hat H\ket{\Psi(t)}
+
+\hat H = \hat T + \hat V = \sum_{ij} c_i^\dag\braket{i|T|j}c_j +
+    \half \sum_{ijkl} c_i^\dag c_j^\dag\braket{ij|V|kl}c_l c_k" /></p>
+</div><p>Note the ordering of the final two destruction operators <img class="math" src="../../_images/math/40240ae7d006daeef0b9d81aff314ff9076cb477.png" alt="c_l c_k"/>, which is
+opposite that of the last two single-particle wave functions in the matrix
+elements of the potential <img class="math" src="../../_images/math/f5fcbda321ad03821c1f03a6e3a65a30a7fa5612.png" alt="\braket{ij|V|kl}"/> (for bosons it doesn&#8217;t matter, for
+fermions it changes a sign).</p>
+</div>
+<div class="section" id="nonrelativistic-propagator">
+<h3>Nonrelativistic Propagator<a class="headerlink" href="#nonrelativistic-propagator" title="Permalink to this headline">¶</a></h3>
+<p>Nonrelativistic limits of the propagators are obtained by assuming <img class="math" src="../../_images/math/13b5bfd24ec78ae336a2f7f84c29575fcdcb64a7.png" alt="|{\bf p}|/m
+\ll 1"/> (we substitute <img class="math" src="../../_images/math/bbb402a3f830bed447157864a7db74e559fa9c86.png" alt="\omega=p_0-m"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/572a44d3508c7db93a057cdc2e52125422a0585e.png" alt="\tilde D(p) = {i\over p^2-m^2+i\epsilon}
+= {i\over p_0^2-{\bf p}^2-m^2+i\epsilon}
+= {i\over \left(p_0-\sqrt{{\bf p}^2+m^2}\right)\left(p_0
+    +\sqrt{{\bf p}^2+m^2}\right)+i\epsilon}
+\approx
+
+\approx
+{i\over \left(p_0-m-{{\bf p}^2\over 2m}\right)
+    \left(p_0+m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+=
+{i\over \left(\omega-{{\bf p}^2\over 2m}\right)
+    \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}" /></p>
+</div><p>the behavior of the propagator in the vicinity of its positive frequency pole
+<img class="math" src="../../_images/math/7c981951d53010347ca35b894217d2c5442d2e77.png" alt="\omega\approx{{\bf p}^2\over 2m}"/> is (remember <img class="math" src="../../_images/math/4c62ff09a515d51089d69e33fc40a776bc1a9bf5.png" alt="\omega \to 0"/> in the
+nonrelativistic limit):</p>
+<div class="math">
+<p><img src="../../_images/math/f1b90baf0c8276e2a10de42a8151d3382b283a72.png" alt="\tilde D(p) \approx
+{i\over \left(\omega-{{\bf p}^2\over 2m}\right)
+    \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+\approx
+{i\over \left(\omega-{{\bf p}^2\over 2m}\right) 2m + i\epsilon}
+=
+{1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i\epsilon'}" /></p>
+</div><p>Similarly for fermions:</p>
+<div class="math">
+<p><img src="../../_images/math/186a0c4f92ac67b351fe245db17f612e43571fcc.png" alt="\tilde S(p) = {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
+= {i(p^0\gamma_0 - p^j\gamma_j+m)\over p^2-m^2+i\epsilon}
+\approx
+{1\over2m}{i(p^0\gamma_0 - p^j\gamma_j+m)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+=
+
+= {1\over2m}{i((\omega+m)\gamma_0 - p^j\gamma_j+m)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+\approx
+{1\over2m}{i(m\gamma_0 - p^j\gamma_j+m)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+=" /></p>
+</div><div class="math" id="equation-fermion-propagator-approx">
+<p><span class="eqno">(1)</span><img src="../../_images/math/3c78724d6230adb86d6925e5d359889bd1e7a0db.png" alt="=
+{i\left(\half(\gamma_0+1) - {p^j\gamma_j\over2m}\right)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon'}" /></p>
+</div><p>The first term</p>
+<div class="math">
+<p><img src="../../_images/math/1f442bcfea8e0954ba8b4246d4721f84a42d6199.png" alt="\half(\gamma_0+1) = \mat{
+    1 &amp; 0 &amp; 0 &amp; 0\cr
+    0 &amp; 1 &amp; 0 &amp; 0\cr
+    0 &amp; 0 &amp; 0 &amp; 0\cr
+    0 &amp; 0 &amp; 0 &amp; 0\cr
+    }" /></p>
+</div><p>selects the two upper components of a given bispinor. The second term</p>
+<div class="math">
+<p><img src="../../_images/math/fdde7f23208cbc58fbc53170bc98afe36c877f62.png" alt="- {p^j\gamma_j\over2m} = \mat{
+    0 &amp; -{p^j\sigma_j\over2m} \cr
+    {p^j\sigma_j\over2m} &amp; 0 \cr
+    }" /></p>
+</div><p>mixes the upper and lower components of the bispinor and the contribution of
+this term is quadratic in <img class="math" src="../../_images/math/fd5c868762caf473502faee60cc3df8c0e161257.png" alt="{\bf p}\over m"/> so it can be neglected. The
+numerator of <a href="#equation-fermion-propagator-approx">(1)</a> reduces to a unit matrix (in spin
+space):</p>
+<div class="math">
+<p><img src="../../_images/math/484ac824cc00ff4e469c03f40eacdf3fae0cb44f.png" alt="\tilde S(p) \approx
+{i\left(\half(\gamma_0+1) - {p^j\gamma_j\over2m}\right)\over
+    \omega-{{\bf p}^2\over 2m} + i\epsilon}
+\approx
+{i\one\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+=\one G_0^+({\bf p}, \omega)" /></p>
+</div><p>where <img class="math" src="../../_images/math/3d8aaa4e5f7d24cc021922cb667eeb7afc548d9f.png" alt="G_0^+({\bf p}, \omega)"/> is the nonrelativistic retarded propagator
+defined by:</p>
+<div class="math">
+<p><img src="../../_images/math/ebd83918ba20e0cd38eb7bdf8a60980779ade54c.png" alt="G_0^+(x-y) =
+i \int {\d^3 p\over (2\pi)^3}
+\int {\d \omega\over 2\pi}
+G_0^+({\bf p}, \omega)
+    e^{i{\bf p}\cdot({\bf x-y})}
+    e^{-i\omega(t_x - t_y)}" /></p>
+</div><p>(For the other pole <img class="math" src="../../_images/math/d9114c2a122675b296c5de2d6ea5e8c21e230901.png" alt="p_0 = -\sqrt{{\bf p}^2+m^2}"/>, we define <img class="math" src="../../_images/math/18eaa56ffeb49f62d2fb0eb3dcf2789f628abe00.png" alt="\omega=-p_0-m"/> and
+we would see that the antiparticles&#8217; propagator reduces to the advanced
+Green&#8217;s function in the nonrelativistic limit.)</p>
+<p>As shown above, the nonrelativistic free propagator is defined by:</p>
+<div class="math">
+<p><img src="../../_images/math/ebd83918ba20e0cd38eb7bdf8a60980779ade54c.png" alt="G_0^+(x-y) =
+i \int {\d^3 p\over (2\pi)^3}
+\int {\d \omega\over 2\pi}
+G_0^+({\bf p}, \omega)
+    e^{i{\bf p}\cdot({\bf x-y})}
+    e^{-i\omega(t_x - t_y)}" /></p>
+</div><p>with:</p>
+<div class="math">
+<p><img src="../../_images/math/63f6c6aa44e61a3f4511b63f49e36722f5f92cd6.png" alt="G_0^+({\bf p}, \omega)=
+{i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}" /></p>
+</div><p>If we use the energies of the nonineracting particles
+<img class="math" src="../../_images/math/0dde017afa3ddfdb6b6c70c89f2eb931f81a3e1f.png" alt="E_k \equiv \epsilon_k = {\hbar^2k^2\over 2m} = {k^2\over 2m}"/>, we can write it
+as:</p>
+<div class="math">
+<p><img src="../../_images/math/b81c7b1a493e2c3b07e0312beb4b4c0543cbd611.png" alt="G_0^+({\bf p}, \omega)=
+{i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+=
+{i\over \omega-E_k + i\epsilon}" /></p>
+</div><p>so</p>
+<div class="math">
+<p><img src="../../_images/math/2f43b09a142dd6410a385c5fc2f8194f8998ec2b.png" alt="G_0^+(k, \omega) = {i\over \omega-E_k + i\epsilon}" /></p>
+</div><p>using <img class="math" src="../../_images/math/363d47cf098f01ae1d797e996ebce6dcaa91b38a.png" alt="E = \hbar\omega"/> we can also write:</p>
+<div class="math">
+<p><img src="../../_images/math/e5fd91d62e6181a36e64d7df00e7658feb07e336.png" alt="G_0^+(k, E) = {i\over E-E_k + i\epsilon}" /></p>
+</div><p>Other equivalent ways of representing the propagator:</p>
+<div class="math">
+<p><img src="../../_images/math/37deabbf4de5e27bb07201ed51b2a9b2a2c0e0f5.png" alt="G_0^+(x-y)
+=
+G_0^+({\bf x}, t_x, {\bf y}, t_y)
+=
+i \int {\d^3 p\d E\over (2\pi\hbar)^4}
+G_0^+({\bf p}, E)
+    e^{{i\over\hbar}{\bf p}\cdot({\bf x-y})}
+    e^{-{i\over\hbar}E(t_x - t_y)}
+=
+
+=
+i \int {\d^3 k\d \omega\over (2\pi)^4}
+G_0^+(k, \omega)
+    e^{i {\bf k}\cdot({\bf x-y})}
+    e^{-i\omega(t_x - t_y)}" /></p>
+</div><p>Sometimes it&#8217;s useful to calculate the mixed representation <img class="math" src="../../_images/math/d60d13f221f274836e252319654c23302bccedf0.png" alt="G_0^+(k, t)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/ee1733358ec4138396f24777c163a427a7c9bd8e.png" alt="G_0^+(k, t) = \int {\d\omega\over2\pi}e^{-i\omega t}G_0^+(k, \omega)
+= \int {\d\omega\over2\pi}e^{-i\omega t}
+{i\over \omega-E_k + i\epsilon}
+=
+\cdots
+=\theta_t e^{-i (E_k-i\epsilon)t}" /></p>
+</div><p>(The &#8220;<img class="math" src="../../_images/math/087594ea26fa196b8e61bc20a36228270dc695f8.png" alt="\cdots"/>&#8221; means to use the Residue Theorem and distinguish two cases <img class="math" src="../../_images/math/b55115d5a845eca2547765e5b1f7bc58fbd07229.png" alt="t &lt;
+0"/> and <img class="math" src="../../_images/math/d968aec052b8a8f2736faf02fd8fb120489b7cff.png" alt="t &gt; 0"/>, thus getting the Heaviside step function <img class="math" src="../../_images/math/096330ee02ca23affd776c49940e69ec22c46e21.png" alt="\theta_t"/> in the
+result.)</p>
+<p>Very often, in practice, one just needs to work with <img class="math" src="../../_images/math/d60d13f221f274836e252319654c23302bccedf0.png" alt="G_0^+(k, t)"/> and
+<img class="math" src="../../_images/math/7fa748141af6c2ec5bef323938dedd64b35424b2.png" alt="G_0^+(k, \omega)"/>, here is how to convert between those:</p>
+<div class="math">
+<p><img src="../../_images/math/410fbfd3608f36a9a0447a5bf701498159d4a342.png" alt="G_0^+(k, t) = \int_{-\infty}^\infty
+    {\d\omega\over2\pi}e^{-i\omega t}G_0^+(k, \omega)
+
+G_0^+(k, \omega) = \int_{-\infty}^\infty \d t\, e^{i\omega t}G_0^+(k, t)" /></p>
+</div><p>The relation to the contraction of operators is:</p>
+<div class="math">
+<p><img src="../../_images/math/5827d842bec1274265eeef414296c6acd9aa6f4c.png" alt="G_0^+({\bf k}, t_2 - t_1) = -i \theta_{t_2-t_1} \braket{\Psi_0|
+    c_{\bf k}(t_2) c_{\bf k}^\dag(t_1)|\Psi_0}" /></p>
+</div><p>where <img class="math" src="../../_images/math/809d81bc366fe8cd680ea9a7e70d38ea75d0b155.png" alt="\ket{\Psi_0}"/> is the ground state wavefunction and:</p>
+<div class="math">
+<p><img src="../../_images/math/ebd7dbfc794615d913aeaa4da140848629132938.png" alt="c_{\bf k}(t) = e^{i H_0 t} c_{\bf k} e^{-i H_0 t}" /></p>
+</div><p>so to understand the meaning of <img class="math" src="../../_images/math/53c49ddd3f7daca6dd1653addbae61710322d261.png" alt="G_0^+({\bf k}, t_2 - t_1)"/>, we write it as:</p>
+<div class="math">
+<p><img src="../../_images/math/afb63b2f79c781050748451f7c858ff98cd131e5.png" alt="G_0^+({\bf k}, t_2 - t_1) = -i \theta_{t_2-t_1} \braket{\Psi_0|
+    c_{\bf k}(t_2) c_{\bf k}^\dag(t_1)|\Psi_0}
+= -i \theta_{t_2-t_1} \braket{\Psi_0|e^{i H_0 t_2}
+    c_{\bf k}e^{-i H_0 (t_2-t_1)}c_{\bf k}^\dag e^{-i H_0 t_1}|\Psi_0}
+=
+
+= -i \theta_{t_2-t_1} \left(e^{-i H_0 t_2}\ket{\Psi_0}\right)^\dag
+    \left(
+    c_{\bf k}e^{-i H_0 (t_2-t_1)}c_{\bf k}^\dag e^{-i H_0 t_1}\ket{\Psi_0}
+    \right)" /></p>
+</div><p>which describes the probability amplitude of adding a bare particle at time
+<img class="math" src="../../_images/math/8b91b7245b0dd42b4f5585b97e323a8cfaa064a8.png" alt="t_1"/>, removing at time <img class="math" src="../../_images/math/a40dccc3bb61d55c03b7dafe15707eeef43885ab.png" alt="t_2"/> and regaining the original many-body system (that
+in the meantime evolved into <img class="math" src="../../_images/math/6c5d547980a961d61296e0d4a4fe9ee216ba7573.png" alt="e^{-i H_0 t_2}\ket{\Psi_0}"/>).</p>
+</div>
+<div class="section" id="evaluating-the-interacting-green-functions">
+<span id="index-50"></span><h3>Evaluating the Interacting Green Functions<a class="headerlink" href="#evaluating-the-interacting-green-functions" title="Permalink to this headline">¶</a></h3>
+<p>The Green functions below can either be evaluated using the Wick theorem, or
+using Feynman diagrams and the corresponding Feynman rules.</p>
+<div class="section" id="id1">
+<h4>Example 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><img class="math" src="../../_images/math/911c6875c9be86679771f2067a9d6237e51207ec.png" alt="\L_{ZZH} = \lambda Z_\mu Z^\mu H"/>, in the first order:</p>
+<div class="math">
+<p><img src="../../_images/math/8aa56876683c536923acd460a2fbbe807210cddb.png" alt="\braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+=i\lambda (2\pi)^4 \delta(k+l-p) \tilde D^\mu{}_\alpha(k)
+    \tilde D^{\nu\alpha}(l)\tilde D(p)" /></p>
+</div></div>
+<div class="section" id="id2">
+<h4>Example 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p><img class="math" src="../../_images/math/4c1d77d61b98af440ec7db79c4a42057f04c49c0.png" alt="\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu"/>, in the second order:</p>
+<div class="math">
+<p><img src="../../_images/math/584dc23d9bb6aea233250d5e8d1f44181c977ac4.png" alt="\braket{\Omega|T\tilde\psi(k_1)\tilde{\bar\psi}(k_2)\tilde{\bar\psi}(-p_1)
+    \tilde\psi(-p_2) |\Omega}
+=
+
+=(-i\lambda)^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+    \tilde S(k_1)\gamma^\mu\tilde S(-k_2)
+    D_{\mu\nu}(k_1+k_2)
+    \tilde S(p_2)\gamma^\nu\tilde S(-p_1)
+    +\right.
+
+    \left. +
+    \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
+    D_{\mu\nu}(k_1-p_1)
+    \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]" /></p>
+</div></div>
+<div class="section" id="id3">
+<h4>Example 3<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p><img class="math" src="../../_images/math/3dc7cfdb373616d3a89190ccfb97e64d760a700b.png" alt="\L_{\rm int}={g\over 2 \sqrt 2} \bar\nu_e \gamma^\mu (1-\gamma_5) e
+W_\mu^+ + \hbox{h.c.}"/>, in the second order:</p>
+<div class="math">
+<p><img src="../../_images/math/b0fc7d49ec7fd9027fbb443f24d94a4431163db4.png" alt="\braket{\Omega|T\tilde A^\alpha(r) \tilde A^\beta(p)
+    \tilde{\bar\psi}(-k)\tilde{\psi}(-l)
+    |\Omega}
+    =
+
+=\int \d^4x\,\d^4 y
+\bra{0}T\tilde A^\alpha(r) \tilde A^\beta(p)
+    \tilde{\bar\psi}(-k)\tilde{\psi}(-l)
+
+    i{g\over 2 \sqrt 2}\bar\nu_e(x) \gamma^\mu (1-\gamma_5) e(x) W_\mu^+(x)
+
+    i{g\over 2 \sqrt 2}\bar\nu_e(y) \gamma^\nu (1-\gamma_5) e(y) W_\nu^+(y)
+
+    \ket{0}
+    =
+
+=\left(i{g\over 2 \sqrt 2}\right)^2
+\int \d^4x\,\d^4 y \,\d\hat r\,\d\hat p\,\d\hat k\,\d\hat l\,
+e^{i(\hat rr + \hat pp - \hat kk - \hat ll)}
+
+\bra{0}T A^\alpha(\hat r) A^\beta(\hat p)
+    {\bar\psi}(\hat k){\psi}(\hat l)
+
+    \bar\nu_e(x) \gamma^\mu (1-\gamma_5) e(x) W_\mu^+(x)
+
+    \bar\nu_e(y) \gamma^\nu (1-\gamma_5) e(y) W_\nu^+(y)
+
+    \ket{0}
+    =
+
+=\left(i{g\over 2 \sqrt 2}\right)^2
+\int \d^4x\,\d^4 y \,\d\hat r\,\d\hat p\,\d\hat k\,\d\hat l\,
+e^{i(\hat rr + \hat pp - \hat kk - \hat ll)}
+
+D^\alpha{}_\mu(\hat r - x) D^\mu{}_\nu(\hat p - y)
+S(\hat l - x) \gamma^\mu (1-\gamma_5)S(x-y)\gamma^\nu(1-\gamma_5)
+S(\hat k - y)
+    =
+
+=\left(i{g\over 2 \sqrt 2}\right)^2
+\int \d^4x\,\d^4 y \,\d\hat r\,\d\hat p\,\d\hat k\,\d\hat l\,
+e^{i((\hat r+x)r + (\hat p+y)p - (\hat k+y)k - (\hat l+x)l)}
+
+D^\alpha{}_\mu(\hat r) D^\mu{}_\nu(\hat p)
+S(\hat l) \gamma^\mu (1-\gamma_5)S(x-y)\gamma^\nu(1-\gamma_5)
+S(\hat k)
+    =
+
+=\left(i{g\over 2 \sqrt 2}\right)^2
+\int \d^4x\,\d^4 y \,
+e^{i(xr + yp - yk - xl)}
+
+\tilde D^\alpha{}_\mu(r) \tilde D^\mu{}_\nu(p)
+\tilde S(l) \gamma^\mu (1-\gamma_5)S(x-y)\gamma^\nu(1-\gamma_5)
+\tilde S(k)
+    =
+
+=\left(i{g\over 2 \sqrt 2}\right)^2
+\int \d^4x\,\d^4 y \,
+e^{i((x+y)r + yp - yk - (x+y)l)}
+
+\tilde D^\alpha{}_\mu(r) \tilde D^\mu{}_\nu(p)
+\tilde S(l) \gamma^\mu (1-\gamma_5)S(x)\gamma^\nu(1-\gamma_5)
+\tilde S(k)
+    =
+
+=\left(i{g\over 2 \sqrt 2}\right)^2
+\int \d^4 y \,
+e^{i(yr + yp - yk - yl)}
+
+\tilde D^\alpha{}_\mu(r) \tilde D^\mu{}_\nu(p)
+\tilde S(l) \gamma^\mu (1-\gamma_5)\tilde S(r-l)\gamma^\nu(1-\gamma_5)
+\tilde S(k)
+    =
+
+= \left(i{g\over 2 \sqrt 2}\right)^2
+    (2\pi)^4\delta(r+p-k-l)
+    \tilde D^\alpha{}_\mu(r) \tilde D^\beta{}_\nu(p)\tilde S(l)
+    \gamma^\mu(1-\gamma_5) \tilde S(r-l) \gamma^\nu(1-\gamma_5)\tilde S(k)" /></p>
+</div></div>
+</div>
+<div class="section" id="zzh-interaction">
+<h3>ZZH interaction<a class="headerlink" href="#zzh-interaction" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s calculate the <img class="math" src="../../_images/math/1793665ed5e090614aeca6173b9a6f562e11cdcb.png" alt="\L_{ZZH}=\lambda Z_\mu Z^\mu H"/> interaction in the SM,
+where <img class="math" src="../../_images/math/18dd6b96f7cca8837b1def60971c7d1c57a01718.png" alt="\lambda={g^2\over4\cos\theta_W}"/>. Consider <img class="math" src="../../_images/math/32978a5f10d49f986ac0d671bf396258dbe83fb6.png" alt="H(p)\to Z(k)+Z(l)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/baccd7c5d885acf16e7fb4df8460b9b594b58a66.png" alt="\braket{f|S|i}= \braket{f|iT|i}= \braket{k l|iT|p}=
+\braket{\Omega|a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+\braket{\Omega|T a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+
+=
+\braket{\Omega|T
+    \epsilon^{r*}_\mu({\bf k}){k^2\over i} \tilde A^\mu(k)
+    \epsilon^{s*}_\nu({\bf l}){l^2\over i} \tilde A^\nu(l)
+    {1\over\tilde D(p)}\tilde\phi(-p)
+    |\Omega} =
+
+= {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+\over {i\over k^2}{i\over l^2}\tilde D(p)}
+\braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+
+= {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+\over {i\over k^2}{i\over l^2}\tilde D(p)}
+i\lambda (2\pi)^4 \delta(k+l-p) \tilde D^\mu{}_\alpha(k)
+    \tilde D^{\nu\alpha}(l)\tilde D(p)
+
+= {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+\over {i\over k^2}{i\over l^2}\tilde D(p)}
+i\lambda (2\pi)^4 \delta(k+l-p)
+    {-ig^\mu{}_\alpha\over k^2}
+    {-ig^{\nu\alpha}\over l^2}
+    \tilde D(p)
+
+= \epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+i\lambda (2\pi)^4 \delta(k+l-p)
+    g^\mu{}_\alpha
+    g^{\nu\alpha}
+
+= \epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+i\lambda (2\pi)^4 \delta(k+l-p) g^{\mu\nu}
+
+= i\lambda (2\pi)^4 \delta(k+l-p)
+    \epsilon^{r*}_\mu({\bf k})\epsilon^{s\mu*}({\bf l})" /></p>
+</div><p>where we used the fact, that the first order contribution of the <img class="math" src="../../_images/math/462bbcf683e788afbf34b283e5ac3cc734e68155.png" alt="\lambda Z_\mu
+Z^\mu H"/> interaction to the interacting Green function is:</p>
+<div class="math">
+<p><img src="../../_images/math/8aa56876683c536923acd460a2fbbe807210cddb.png" alt="\braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+=i\lambda (2\pi)^4 \delta(k+l-p) \tilde D^\mu{}_\alpha(k)
+    \tilde D^{\nu\alpha}(l)\tilde D(p)" /></p>
+</div></div>
+<div class="section" id="eeh-interaction">
+<h3>eeH interaction<a class="headerlink" href="#eeh-interaction" title="Permalink to this headline">¶</a></h3>
+<p>This is only approximate, it will be fixed soon.</p>
+<p>Let&#8217;s calculate the <img class="math" src="../../_images/math/aef840344cfd05ea7998cae370328d54c1274504.png" alt="\L_{eeH}=-\lambda \bar ee H"/> interaction in the SM, where <img class="math" src="../../_images/math/135e9aeffbdcdd4ecc5e26f8aec1b16d157e3ec9.png" alt="\lambda={h_e\over\sqrt2}"/>. Consider <img class="math" src="../../_images/math/ee8162aa02d2c619bd90b912b8259046fcf11ab3.png" alt="H(p)\to e^-(k)+e^+(l)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/e21562bc9fa8b59abf9c5bab7a89eed9f08c8949.png" alt="\braket{f|S|i}= \braket{f|iT|i}= \braket{k l|iT|p}= {\bar u(k) v(l)\over\tilde S(k)\tilde S(l)} {1\over\tilde D(p)}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/20caed5e3df9a265cf1288b3221ed4ac8d009521.png" alt="\int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{\bar e(y_1) e(y_2) H(x_1)\}|0} =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c008eb2f5855d6c01c4dbeedf960665ec2a899b2.png" alt="= {\bar u(k) v(l)\over\tilde S(k)\tilde S(l)} {1\over\tilde D(p)}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/62122cf940aad6843d4806d8e73052d2153d19ce.png" alt="\int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)}\int\d^4 x (-i\lambda) S(y_1-x)S(y_2-x)D(x_1-x) =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/765633530a642e3315aef7eff3ab926b64549cae.png" alt="=(-i\lambda)(2\pi)^4\delta^{(4)}(p-k-l)\bar u(k) v(l)" /></p>
+</div><p>where we used the fact, that the only nonzero element of the Green function is</p>
+<div class="math">
+<p><img src="../../_images/math/0c17059e7183b9e2695bbe149e3c53dadbd11574.png" alt="\int\d^4 x \braket{0|T\{\bar e(y_1) e(y_2) H(x_1)\bar e(x)e(x) H(x)\}|0}" /></p>
+</div></div>
+<div class="section" id="ee-gamma-interaction">
+<h3>ee gamma interaction<a class="headerlink" href="#ee-gamma-interaction" title="Permalink to this headline">¶</a></h3>
+<p>This is only approximate, it will be fixed soon.</p>
+<p>Let&#8217;s calculate the <img class="math" src="../../_images/math/4c1d77d61b98af440ec7db79c4a42057f04c49c0.png" alt="\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu"/> interaction in the SM, where <img class="math" src="../../_images/math/dce82bb36b4e38b3d8dbf135d408c96adcff3c31.png" alt="\lambda=g\sin\theta_W"/>. Consider <img class="math" src="../../_images/math/e4807caae24327a10c25e00fd6c2d6bc549a7ce0.png" alt="\gamma(p)\to e^-(k)+e^+(l)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/22e327a937131ea30278b879efdc9f940fecb7b9.png" alt="\braket{f|S|i}= \braket{f|iT|i}= \braket{k l|iT|p}= {\bar u(k) v(l)\over\tilde S(k)\tilde S(l)} {\varepsilon_\mu(p)\over\tilde D_{\alpha\beta}(p)}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0df44fc228c3946d049688067e8b1b12ab3bd864.png" alt="\int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{\bar e(y_1) e(y_2) A^\mu(x_1)\}|0} =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/003ebd959381e5be1ea4dde45e8325cc84df3653.png" alt="= {\bar u(k) v(l)\over\tilde S(k)\tilde S(l)} {\varepsilon_\mu(p)\over\tilde D_{\alpha\beta}(p)}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/9a79994c81e1c10dd69e9cb1f24282568df35849.png" alt="\int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)}\int\d^4 x (-i\lambda) S(y_2-x) \gamma^\mu S(y_1-x) D^\alpha_\mu(x_1-x) =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/826be88043b67c9303da9674e7d64ea8255c5bc8.png" alt="=(2\pi)^4\delta^{(4)}(p-k-l)\bar u(k)(-i\lambda)\gamma^\mu v(l)\varepsilon_\mu(p)" /></p>
+</div><p>where we used the fact, that the only nonzero element of the Green function is</p>
+<div class="math">
+<p><img src="../../_images/math/7c663e5da33df53d406d69075df63e3950fab553.png" alt="\int\d^4 x \braket{0|T\{\bar e(y_1) e(y_2) A^\alpha(x_1)\bar e(x)\gamma^\mu e(x) A_\mu(x)\}|0} =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/67d3bdb5b22ada9cd5821129a96c3eef94d6a4aa.png" alt="=\pm S(y_2-x) \gamma^\mu S(y_1-x) D^\alpha_\mu(x_1-x)" /></p>
+</div></div>
+<div class="section" id="eeee-interaction">
+<h3>eeee interaction<a class="headerlink" href="#eeee-interaction" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s calculate the <img class="math" src="../../_images/math/4c1d77d61b98af440ec7db79c4a42057f04c49c0.png" alt="\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu"/>
+interaction in the SM, where <img class="math" src="../../_images/math/dce82bb36b4e38b3d8dbf135d408c96adcff3c31.png" alt="\lambda=g\sin\theta_W"/>. Consider
+<img class="math" src="../../_images/math/7d2db34b846e9ebd6343833af8d5a828d9c9cf25.png" alt="e^-(p_1)+e^+(p_2)\to\gamma(q)\to e^-(k_1)+e^+(k_2)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/c79b2064f3a4f6171bcbab6686c226bb75740cd5.png" alt="\braket{f|S|i}= \braket{f|iT|i}= \braket{k_1 k_2|iT|p_1p_2}=
+\braket{\Omega|
+    b^r_{{\bf k}_1}
+    d^s_{{\bf k}_2}
+    b^{t\dag}_{{\bf p}_1}
+    d^{u\dag}_{{\bf p}_2}
+    |\Omega} =
+
+=\braket{\Omega|T
+    b^r_{{\bf k}_1}
+    d^s_{{\bf k}_2}
+    b^{t\dag}_{{\bf p}_1}
+    d^{u\dag}_{{\bf p}_2}
+    |\Omega} =
+
+=\braket{\Omega|T
+    \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\tilde \psi(k_1)\right]
+    \left[-\tilde{\bar\psi}(k_2){1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+    \left[\tilde{\bar\psi}(-p_1){1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+    \left[-\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\tilde \psi(-p_2)\right]
+    |\Omega} =
+
+=
+\left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\right]
+\left[\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\right]
+
+\braket{\Omega|T
+    \tilde \psi(k_1)
+    \tilde{\bar\psi}(k_2)
+    \tilde{\bar\psi}(-p_1)
+    \tilde \psi(-p_2)
+    |\Omega}
+
+\left[{1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+\left[{1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+=
+
+=
+\left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\right]
+\left[\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\right]
+
+(-i\lambda)^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+    \tilde S(k_1)\gamma^\mu\tilde S(-k_2)
+    D_{\mu\nu}(k_1+k_2)
+    \tilde S(p_2)\gamma^\nu\tilde S(-p_1)
+    +\right.
+
+    \left. +
+    \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
+    D_{\mu\nu}(k_1-p_1)
+    \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
+
+\left[{1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+\left[{1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+=
+
+=
+-\lambda^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+    \bar u^r({\bf k}_1)\gamma^\mu v^s({\bf k}_2)
+    {1\over (k_1+k_2)^2}
+    \bar v^u({\bf p}_2)\gamma_\mu u^t({\bf p}_1)
+    +\right.
+
+    \left. +
+    \bar u^r({\bf k}_1)\gamma^\mu u^t({\bf p}_1)
+    {1\over (k_1-p_1)^2}
+    \bar v^u({\bf p}_2)\gamma_\mu v^s({\bf k}_2)
+    \right]" /></p>
+</div><p>where we used the fact, that the interacting Green function is in the lowest
+nonzero order equal to:</p>
+<div class="math">
+<p><img src="../../_images/math/584dc23d9bb6aea233250d5e8d1f44181c977ac4.png" alt="\braket{\Omega|T\tilde\psi(k_1)\tilde{\bar\psi}(k_2)\tilde{\bar\psi}(-p_1)
+    \tilde\psi(-p_2) |\Omega}
+=
+
+=(-i\lambda)^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+    \tilde S(k_1)\gamma^\mu\tilde S(-k_2)
+    D_{\mu\nu}(k_1+k_2)
+    \tilde S(p_2)\gamma^\nu\tilde S(-p_1)
+    +\right.
+
+    \left. +
+    \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
+    D_{\mu\nu}(k_1-p_1)
+    \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]" /></p>
+</div></div>
+</div>
+<div class="section" id="low-energy-theories">
+<span id="index-51"></span><h2>Low energy theories<a class="headerlink" href="#low-energy-theories" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fermi-type-theory">
+<h3>Fermi-type theory<a class="headerlink" href="#fermi-type-theory" title="Permalink to this headline">¶</a></h3>
+<p>This is a low energy (<img class="math" src="../../_images/math/33fe6b0c46755635f804dc343fc14455d3a67077.png" alt="m_W^2 \gg m_\mu m_e"/>) model for the EW interactions, that can be derived for example from the muon decay:</p>
+<div class="math">
+<p><img src="../../_images/math/cad5bf4f6853079cda4a22632fe319f731b33ac0.png" alt="\mu^- \to e^- +\nu_\mu + \bar \nu_e" /></p>
+</div><p>From the SM the relevant Lagrangian is</p>
+<div class="math">
+<p><img src="../../_images/math/97dbc14137d3847cbb4aa77a742156629b9bfdfb.png" alt="\L = {g\over2\sqrt2}(\bar e \gamma^\mu (1-\gamma_5) \nu_e W^-_\mu) + {g\over2\sqrt2}(\bar \mu \gamma^\mu (1-\gamma_5) \nu_\mu W^-_\mu)" /></p>
+</div><p>and one gets the diagram <img class="math" src="../../_images/math/afc2375f6218dac57812d4b3596e10c9a698ad9b.png" alt="\mu^- +\bar\nu_\mu+ \to e^- + \bar \nu_e"/> and the corresponding matrix element:</p>
+<div class="math">
+<p><img src="../../_images/math/feea5ed095035575e63438add3363d66de69b636.png" alt="iM = -i{g^2\over8}[\bar u\gamma_\mu (1-\gamma_5) u] {-g^{\mu\nu}+{q^\mu q^\nu\over m_W^2}\over q^2 - m_W^2} [\bar u\gamma_\nu (1-\gamma_5) v]" /></p>
+</div><p>which when the momentum transfer <img class="math" src="../../_images/math/0615acc3725de21025457e7d6f7694dab8e2f758.png" alt="q"/> is much less than <img class="math" src="../../_images/math/9c207c6090f2a136acec0f19c4c8c7d2debf388e.png" alt="m_w"/> becomes</p>
+<div class="math">
+<p><img src="../../_images/math/e64b3e55a0fab2c2c93d2c9fddf2c2c962dc15dd.png" alt="iM = -i{g^2\over8m_W^2}[\bar u\gamma^\mu (1-\gamma_5) u] [\bar u\gamma_\mu (1-\gamma_5) v]" /></p>
+</div><p>but this matrix element can be derived directly from the Lagrangian:</p>
+<div class="math">
+<p><img src="../../_images/math/9b0d1db58342501f7ddecedcdd35bc33899fc53d.png" alt="\L = -{G_\mu\over\sqrt2} [\bar \psi_{\nu_\mu}\gamma^\mu (1-\gamma_5) \psi_\mu] [\bar \psi_e\gamma^\mu (1-\gamma_5) \psi_{\nu_e}]" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../../_images/math/30874f837bf5b473d41f78b87a62ae2aa0b6f125.png" alt="{G_\mu\over\sqrt2} = {g^2\over8m_W^2}" /></p>
+</div><p>This is the universal V-A theory Lagrangian (after adding the h.c. term). Note
+that the Fermi constant <img class="math" src="../../_images/math/d5e764aac648e436f50c1bb7c4a2500fb41bb801.png" alt="G_F"/> is equal to <img class="math" src="../../_images/math/561ddb38c1bf520a4f8fb4c7d3636ab1955cdd73.png" alt="G_\mu"/>.</p>
+<p>For the beta decay we get:</p>
+<div class="math">
+<p><img src="../../_images/math/a0a6a783b6803185f85463bd063d3970e9c3cd79.png" alt="\L = -{G_\beta\over\sqrt2} [\bar \psi_p\gamma^\mu (1-f\gamma_5) \psi_n] [\bar \psi_e\gamma^\mu (1-\gamma_5) \psi_{\nu_e}]" /></p>
+</div><p>where <img class="math" src="../../_images/math/68ef3cfa2f07ae427f195c94cbddee6420d18ddb.png" alt="G_\beta = G_F \cos\theta_C"/>, <img class="math" src="../../_images/math/f253a95823efd0695b2201c73f6a4e0260b5edbf.png" alt="\theta_C=13^\circ"/> is the Cabibbo
+angle and <img class="math" src="../../_images/math/a9b459f3abdb307b7101f5dc067af48ca8394627.png" alt="f\doteq 1.26"/>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Introduction</a></li>
+<li><a class="reference external" href="#standard-model">Standard Model</a><ul>
+<li><a class="reference external" href="#electroweak-standard-model">Electroweak Standard Model</a><ul>
+<li><a class="reference external" href="#higgs-terms">Higgs Terms</a></li>
+<li><a class="reference external" href="#yukawa-terms">Yukawa terms</a></li>
+<li><a class="reference external" href="#leptonic-terms">Leptonic Terms</a></li>
+<li><a class="reference external" href="#gauge-terms">Gauge terms</a></li>
+<li><a class="reference external" href="#gws-lagrangian">GWS Lagrangian</a></li>
+<li><a class="reference external" href="#particle-masses">Particle Masses</a></li>
+<li><a class="reference external" href="#parameters-of-the-standard-model">Parameters of the Standard Model</a></li>
+<li><a class="reference external" href="#quarks">Quarks</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#qft">QFT</a><ul>
+<li><a class="reference external" href="#field-operators">Field Operators</a></li>
+<li><a class="reference external" href="#calculating-scattering-amplitudes-using-green-functions">Calculating Scattering Amplitudes using Green Functions</a><ul>
+<li><a class="reference external" href="#example-1">Example 1</a></li>
+<li><a class="reference external" href="#example-2">Example 2</a></li>
+<li><a class="reference external" href="#example-3">Example 3</a></li>
+<li><a class="reference external" href="#example-4">Example 4</a></li>
+<li><a class="reference external" href="#example-5">Example 5</a></li>
+<li><a class="reference external" href="#example-6">Example 6</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#evaluation-of-the-interacting-green-functions">Evaluation of the Interacting Green Functions</a></li>
+<li><a class="reference external" href="#evolution-operator-s-matrix-elements">Evolution Operator, S-Matrix Elements</a></li>
+<li><a class="reference external" href="#propagators-for-scalar-bosons-fermions-and-vector-bosons">Propagators for Scalar Bosons, Fermions and Vector Bosons</a></li>
+<li><a class="reference external" href="#wick-theorem">Wick Theorem</a></li>
+<li><a class="reference external" href="#nonrelativistic-field-operators">Nonrelativistic Field Operators</a></li>
+<li><a class="reference external" href="#nonrelativistic-propagator">Nonrelativistic Propagator</a></li>
+<li><a class="reference external" href="#evaluating-the-interacting-green-functions">Evaluating the Interacting Green Functions</a><ul>
+<li><a class="reference external" href="#id1">Example 1</a></li>
+<li><a class="reference external" href="#id2">Example 2</a></li>
+<li><a class="reference external" href="#id3">Example 3</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#zzh-interaction">ZZH interaction</a></li>
+<li><a class="reference external" href="#eeh-interaction">eeH interaction</a></li>
+<li><a class="reference external" href="#ee-gamma-interaction">ee gamma interaction</a></li>
+<li><a class="reference external" href="#eeee-interaction">eeee interaction</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#low-energy-theories">Low energy theories</a><ul>
+<li><a class="reference external" href="#fermi-type-theory">Fermi-type theory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="main.html"
+                                  title="previous chapter">Quantum Field Theory and Quantum Mechanics</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="qm.html"
+                                  title="next chapter">Quantum Mechanics</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/src/quantum/qft.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="qm.html" title="Quantum Mechanics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="Quantum Field Theory and Quantum Mechanics"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>

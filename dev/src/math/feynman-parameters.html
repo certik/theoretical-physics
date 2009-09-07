@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Feynman Parameters &mdash; Theoretical Physics Reference 0.5 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference 0.5 documentation" href="../../index.html" />
+    <link rel="up" title="Mathematics" href="main.html" />
+    <link rel="next" title="Groups" href="groups.html" />
+    <link rel="prev" title="Legendre Polynomials" href="spherical-harmonics.html" />
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-28893880-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+     
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="groups.html" title="Groups"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="spherical-harmonics.html" title="Legendre Polynomials"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference 0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="feynman-parameters">
+<h1>Feynman Parameters<a class="headerlink" href="#feynman-parameters" title="Permalink to this headline">¶</a></h1>
+<p>When integrating a denominator like <img class="math" src="../../_images/math/48df92967878b9af7e51a6cb9b86bee3378f5281.png" alt="{1\over AB}"/>, the idea is to introduce
+auxiliary parameters in order to make the denominator simpler. We start with
+the identity:</p>
+<div class="math" id="equation-feynpar-2">
+<p><span class="eqno">(1)</span><img src="../../_images/math/e0b2db332d5ecfeec64a16d6c35fe09275483df8.png" alt="{1\over AB} = \int_0^1 \d x {1\over \left(xA + (1-x)B\right)^2}
+=
+\int_0^1 \d x \int_0^1 \d y {\delta(x+y-1)
+    \over \left(xA + yB\right)^2}"/></p>
+</div><p>which can be proven easily:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;A B&quot;</span><span class="p">)</span>
+<span class="go">(A, B)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">integrate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">B</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">1/(A*B - A**2) - 1/(-A*B + B**2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">simplify</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+<span class="go">1/(A*B)</span>
+</pre></div>
+</div>
+<p>By repeatedly differentiating with respect to B:</p>
+<div class="math" id="equation-feynpar-abn">
+<p><span class="eqno">(2)</span><img src="../../_images/math/1ad0e0b09b9f5782c515a9555642752cf676baaa.png" alt="{1\over AB^2} = \int_0^1 \d x \int_0^1 \d y {2 y \delta(x+y-1)
+    \over \left(xA + yB\right)^3}
+
+{1\over AB^3} = \int_0^1 \d x \int_0^1 \d y {3 y^2 \delta(x+y-1)
+    \over \left(xA + yB\right)^4}
+
+{1\over AB^n} = \int_0^1 \d x \int_0^1 \d y {n y^{n-1} \delta(x+y-1)
+    \over \left(xA + yB\right)^{n+1}}"/></p>
+</div><p>Then we prove:</p>
+<div class="math" id="equation-feynpar-n">
+<p><span class="eqno">(3)</span><img src="../../_images/math/a74b8bde5cb7f8a4e161ea5ab0751686719792aa.png" alt="{1\over A_1A_2\cdots A_n} =
+    \int_0^1 \d x_1\cdots\int_0^1 \d x_n {(n-1)!\,
+        \delta(x_1 + \cdots + x_n-1)
+        \over \left(x_1A_1 + \cdots + x_nA_n\right)^n}"/></p>
+</div><p>For <img class="math" src="../../_images/math/6cb7ae00764b56ee2adf59e78a1ffde9685b80db.png" alt="n=2"/> we get <a href="#equation-feynpar-2">(1)</a> and if it holds for <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> it also holds for
+<img class="math" src="../../_images/math/0e3efd9b14723a92c2ae891fe27780d5f8e2b215.png" alt="n+1"/>, because we multiply <a href="#equation-feynpar-n">(3)</a> by <img class="math" src="../../_images/math/0b9a78dcb691f561942d487a2e1ecc80342f3d98.png" alt="{1\over A_{n+1}}"/> and get:</p>
+<div class="math">
+<p><img src="../../_images/math/cf70bb93f43f798bd83db65c66d857408addd8b2.png" alt="{1\over A_1A_2\cdots A_n}{1\over A_{n+1}} =
+
+= \int_0^1 \d x_1\cdots\int_0^1 \d x_n (n-1)!\,\delta(x_1 + \cdots +x_n-1)
+{1 \over \left(x_1A_1 + \cdots + x_nA_n\right)^n A_{n+1}} =
+
+= \int_0^1 \d x_1\cdots\int_0^1 \d x_n (n-1)!\,\delta(x_1 + \cdots +x_n-1)
+    \int_0^1 \d x \int_0^1 \d y {n y^{n-1} \delta(x+y-1)
+            \over \left(xA_{n+1} +
+            y\left(x_1A_1 + \cdots + x_nA_n\right)\right)^{n+1}}
+
+= \int_0^1 \d x_1\cdots\int_0^1 \d x_n
+    \int_0^1 \d y {n!\,\delta(x_1 + \cdots +x_n-1) y^{n-1}
+            \over \left((1-y)A_{n+1} +
+            y\left(x_1A_1 + \cdots + x_nA_n\right)\right)^{n+1}}=
+
+= \int_0^{1\over y} \d x_1\cdots\int_0^{1\over y} \d x_n
+    \int_0^1 \d y {n!\,\delta(yx_1 + \cdots +yx_n-y) y^n
+            \over \left((1-y)A_{n+1} +
+            y\left(x_1A_1 + \cdots + x_nA_n\right)\right)^{n+1}}=
+
+= \int_0^{1\over y} y\d x_1\cdots\int_0^{1\over y} y\d x_n
+    \int_0^1 \d y {n!\,\delta(yx_1 + \cdots +yx_n-y)
+            \over \left((1-y)A_{n+1} +
+            \left(yx_1A_1 + \cdots + yx_nA_n\right)\right)^{n+1}}=
+
+= \int_0^1 \d z_1\cdots\int_0^1 \d z_n
+    \int_0^1 \d y {n!\,\delta(z_1 + \cdots +z_n-y)
+            \over \left((1-y)A_{n+1} +
+            \left(z_1A_1 + \cdots + z_nA_n\right)\right)^{n+1}}=
+
+= -\int_0^1 \d z_1\cdots\int_0^1 \d z_n
+    \int_1^0 \d y' {n!\,\delta(z_1 + \cdots +z_n+y'-1)
+            \over \left(y'A_{n+1} +
+            \left(z_1A_1 + \cdots + z_nA_n\right)\right)^{n+1}}=
+
+=
+    \int_0^1 \d x_1\cdots\int_0^1 \d x_{n+1} {n!\,
+        \delta(x_1 + \cdots + x_{n+1}-1)
+        \over \left(x_1A_1 + \cdots + x_{n+1}A_{n+1}\right)^{n+1}}"/></p>
+</div><p>Where we used <a href="#equation-feynpar-abn">(2)</a> and the fact, that <img class="math" src="../../_images/math/760f6cfd6bcb223b3e42d612949f30cb585edde9.png" alt="\delta(x_1 + \cdots
++x_n-1)=y\,\delta(yx_1 + \cdots +yx_n-y)"/>, after the substituation we also
+restricted the limits of integration from 1 to <img class="math" src="../../_images/math/88c0cec591016ad53431d73753673947c0f91eec.png" alt="1\over y"/>, since <img class="math" src="../../_images/math/ccada11db7b2b90693e2fac4f887a57fce6f96bf.png" alt="x_1"/>, <img class="math" src="../../_images/math/6a7d010bbff66a0c41e43310a51efbaa6bf63396.png" alt="x_2"/>,
+... are all positive.</p>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/2b6b4dacc13df546a755cbbc8045c8b8a45403fd.png" alt="\int {\d^4 k\over (k-p)^2 (k^2 - m^2)}
+    = \int d^4 k \int_0^1\d x \d y {\delta(x+y-1)\over D^2}"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/8244c0ddf4ca15bd947c5bfe0de04aee672e112d.png" alt="D = x (k-p)^2 + y(k^2 - m^2) = (x+y)k^2 - 2xk\cdot p +xp^2-ym^2
+  = k^2 - 2xk\cdot p +xp^2-ym^2"/></p>
+</div><p>In the last part we used <img class="math" src="../../_images/math/476aee07c9af5110b8769e3534ef896fab9368ab.png" alt="x+y=1"/>. We now shift <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> by introducing:</p>
+<div class="math">
+<p><img src="../../_images/math/894f989a468e29850212169747144f621c4ca5eb.png" alt="l = k - xp
+
+\d^4k = \d^4 l"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/0a87c335f1eb3c6caa01cf5c195f56dae8ddb735.png" alt="D = k^2 - 2xk\cdot p +xp^2-ym^2 = l^2 - x^2p^2 + xp^2 - ym^2"/></p>
+</div><p>thus:</p>
+<div class="math">
+<p><img src="../../_images/math/7fa39a0c9f14fbbcdd44d015529675b97e19e1b0.png" alt="\int d^4 k \int_0^1\d x \d y {\delta(x+y-1)\over D^2} =
+
+= \int l^4 k \int_0^1\d x \d y {\delta(x+y-1)\over
+    (l^2 - x^2p^2 + xp^2 - ym^2)^2}"/></p>
+</div></div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+<p><img src="../../_images/math/dbb3fd697c8f94453aa9a8dca9a22cbd1bf9fa65.png" alt="\int {\d^4 k\over (k^2-m^2+i\epsilon)((k+p)^2 - m^2 + i\epsilon)
+    ((k-p)^2+i\epsilon)}
+    = \int d^4 k \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over D^3}"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/84d477534b7887bc61bd1fb8ef326f0d8352def3.png" alt="D = x (k^2-m^2+i\epsilon) + y((k+p)^2 - m^2 + i\epsilon) +
+    z((k-p)^2+i\epsilon) =
+
+  = (x+y+z)k^2 + 2k\cdot(yq-zp) + yq^2 + zp^2 - (x+y)m^2 +
+    (x+y+z)i\epsilon =
+
+  = k^2 + 2k\cdot(yq-zp) + yq^2 + zp^2 - (x+y)m^2 + i\epsilon"/></p>
+</div><p>In the last part we used <img class="math" src="../../_images/math/0fce09322356796e6adce205b1e7d6d0b7d7e5ac.png" alt="x+y+z=1"/>. We now shift <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> by introducing:</p>
+<div class="math">
+<p><img src="../../_images/math/f8d52afd223fd918673efb58c50f5ad7cef505c4.png" alt="l = k + yq - zp
+
+\d^4k = \d^4 l"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/6f801b1aada787aee1b4c0fa204846450aa7b045.png" alt="D = k^2 + 2k\cdot(yq-zp) + yq^2 + zp^2 - (x+y)m^2 + i\epsilon =
+
+= l^2 - \Delta + i\epsilon"/></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/a35408efc2a1b165a161401eddebd4cfe23b6e7d.png" alt="\Delta = -xyq^2 + (1-z)^2m^2"/></p>
+</div><p>thus:</p>
+<div class="math">
+<p><img src="../../_images/math/11a517272a10785e80a19f2d83fb2f219a30bc8f.png" alt="\int d^4 k \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over D^3} =
+
+= \int \d^4 l \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over
+(l^2 - \Delta + i\epsilon)^3 } =
+
+= (-i)\int \d^4 l_E \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over
+(l_E^2 + \Delta)^3 } =
+
+= (-i)\int \d\Omega_4 \int_0^\infty \d l_E \int_0^1\d x \d y\d z
+{2\delta(x+y+z-1)l_E^3\over (l_E^2 + \Delta)^3 } =
+
+= (-i4\pi^2)\int_0^1\d x \d y\d z \delta(x+y+z-1) \int_0^\infty \d l_E
+    {l_E^3\over (l_E^2 + \Delta)^3 } =
+
+= (-i4\pi^2)\int_0^1\d x \d y\d z \delta(x+y+z-1) \int_\Delta^\infty \d h
+    {h-\Delta \over 2 h^3 } =
+
+= (-i4\pi^2)\int_0^1\d x \d y\d z \delta(x+y+z-1) {1\over 4\Delta} =
+
+= (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over \Delta} =
+
+= (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+     (1-z)^2m^2 - xyq^2}"/></p>
+</div><p>This integral has an infrared divergence. We can cure this by pretending that
+the photon has a small nonzero mass <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/>, then in the denominator of the
+photon propagator we need to change:</p>
+<div class="math">
+<p><img src="../../_images/math/08da03b2e002883780fd4d5c849591b74d06156d.png" alt="(k-p)^2 \to (k-p)^2 - \mu^2"/></p>
+</div><p>This denominator is multiplied by <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> later on, so at the end we need to do the
+change:</p>
+<div class="math">
+<p><img src="../../_images/math/480a81a884cf3139e217509882eebce14f554112.png" alt="\Delta \to \Delta + z\mu^2"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/824fdf02dfd470e781214f5c4904847f74cce2af.png" alt="(-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+     (1-z)^2m^2 - xyq^2} \to
+
+\to (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+     (1-z)^2m^2 - xyq^2 + z\mu^2}"/></p>
+</div><p>for <img class="math" src="../../_images/math/158c4c6279dc0719c93b4646a2ef4662992fd01b.png" alt="q^2=0"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/0c06b495d9a53a9d7b0ed22af697255fb36da9bd.png" alt="(-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+     (1-z)^2m^2 - xyq^2 + z\mu^2} \to
+
+\to (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+     (1-z)^2m^2 + z\mu^2} =
+
+= (-i\pi^2)\int_0^1\d z\int_0^{1-z} \d y{1 \over
+     (1-z)^2m^2 + z\mu^2} =
+
+= (-i\pi^2)\int_0^1\d z {1-z \over (1-z)^2m^2 + z\mu^2}"/></p>
+</div><p>We can use the following integral:</p>
+<div class="math">
+<p><img src="../../_images/math/d50d8a619cf52d5e3c6a0ab4262e19779637490a.png" alt="\int_{0}^{1} \frac{1 - z}{1 - 2 z + z^{2} + z \mu^{2}}\,dz = \frac{1}{2}
+\operatorname{log}\left(\mu^{-2}\right) +
+\frac{\operatorname{atan}\left(\frac{1}{\sqrt{-1 +
+\frac{4}{\mu^{2}}}}\right)}{\sqrt{-1 + \frac{4}{\mu^{2}}}} -
+\frac{\operatorname{atan}\left(\frac{1 - \frac{2}{\mu^{2}}}{\sqrt{-1 +
+\frac{4}{\mu^{2}}}}\right)}{\sqrt{-1 + \frac{4}{\mu^{2}}}}"/></p>
+</div><p>that is equal to <img class="math" src="../../_images/math/d348aa487fcbcba8a0340b43c2a8762e68813427.png" alt="\half\log({1\over\mu^2})"/> in the limit <img class="math" src="../../_images/math/cb5d4576f1ebf4925bebfb4136767333a194bce9.png" alt="\mu\to0"/>.</p>
+<p>here are a few special cases for <img class="math" src="../../_images/math/db4dacea0c8b2eaae7cddb05307e49487e762db0.png" alt="\mu = 1"/>, <img class="math" src="../../_images/math/052df59e077e7a9552d3e11a64fae4fd8a4f2362.png" alt="\mu=1/2"/> and <img class="math" src="../../_images/math/a7e19b8ada5e9c78746bbdcb909db6dd882143d8.png" alt="\mu=1/3"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/e2c94314ea995dd284ab081705772d94574d269d.png" alt="\int_{0}^{1} \frac{1 - z}{1 - z + z^{2}}\,dz = \frac{1}{9} \pi \sqrt{3}
+
+\int_{0}^{1} \frac{1 - z}{1 - \frac{7}{4} z + z^{2}}\,dz = \frac{1}{2} \operatorname{log}\left(4\right) + \frac{1}{15} \sqrt{15} \operatorname{atan}\left(\frac{1}{15} \sqrt{15}\right) + \frac{1}{15} \sqrt{15} \operatorname{atan}\left(\frac{7}{15} \sqrt{15}\right)
+
+\int_{0}^{1} \frac{1 - z}{1 - \frac{17}{9} z + z^{2}}\,dz = \frac{1}{2} \operatorname{log}\left(9\right) + \frac{1}{35} \sqrt{35} \operatorname{atan}\left(\frac{1}{35} \sqrt{35}\right) + \frac{1}{35} \sqrt{35} \operatorname{atan}\left(\frac{17}{35} \sqrt{35}\right)"/></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span> <span class="n">atan</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">Integral</span><span class="p">,</span> <span class="n">S</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;z m mu&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">m</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> \
+<span class="go">        atan((1 - 2/m + 2*z/m)/sqrt(-1 + 4/m))/sqrt(-1 + 4/m)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">f</span>
+<span class="go">(1 - z)/(1 - 2*z + m*z + z**2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">integ_f_0_1</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">Integral</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">mu</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">integ_f_0_1</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">mu</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">e</span>
+<span class="go">Integral((1 - z)/(1 - 2*z + z**2 + z*mu**2), (z, 0, 1)) == log(mu**(-2))/2 + atan((-1 + 4/mu**2)**(-1/2))/(-1 + 4/mu**2)**(1/2) - atan((1 - 2/mu**2)/(-1 + 4/mu**2)**(1/2))/(-1 + 4/mu**2)**(1/2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">Integral((1 - z)/(1 - z + z**2), (z, 0, 1)) == pi*3**(1/2)/9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">Integral((1 - z)/(1 - 7*z/4 + z**2), (z, 0, 1)) == log(4)/2 + 15**(1/2)*atan(15**(1/2)/15)/15 + 15**(1/2)*atan(7*15**(1/2)/15)/15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">Integral((1 - z)/(1 - 17*z/9 + z**2), (z, 0, 1)) == log(9)/2 + 35**(1/2)*atan(35**(1/2)/35)/35 + 35**(1/2)*atan(17*35**(1/2)/35)/35</span>
+</pre></div>
+</div>
+<p>Then for <img class="math" src="../../_images/math/a4b5800f5ad040d308609190ef18a9e0ca08a9b0.png" alt="m=1"/> and small <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/1b1495aed47bdb51a42a8d912ebbb9020741b12c.png" alt="(-i\pi^2)\int_0^1\d z {1-z \over (1-z)^2m^2 + z\mu^2} =
+
+= (-i\pi^2)\half\log{1\over\mu^2}"/></p>
+</div></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Feynman Parameters</a><ul>
+<li><a class="reference internal" href="#example-1">Example 1</a></li>
+<li><a class="reference internal" href="#example-2">Example 2</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="spherical-harmonics.html"
+                        title="previous chapter">Legendre Polynomials</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="groups.html"
+                        title="next chapter">Groups</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/math/feynman-parameters.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="groups.html" title="Groups"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="spherical-harmonics.html" title="Legendre Polynomials"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference 0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2011, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

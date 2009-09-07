@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MHD Equations &mdash; Theoretical Physics Reference v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Fluid Dynamics" href="main.html" />
+    <link rel="next" title="Compressible Euler Equations" href="euler.html" />
+    <link rel="prev" title="Fluid Dynamics" href="general.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="euler.html" title="Compressible Euler Equations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="general.html" title="Fluid Dynamics"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Fluid Dynamics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mhd-equations">
+<span id="index-4"></span><h1>MHD Equations<a class="headerlink" href="#mhd-equations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The magnetohydrodynamics (MHD) equations are:</p>
+<div class="math" id="equation-MHD1">
+<p><span class="eqno">(1)</span><img src="../../_images/math/dde2135ec49c7cd0eabc50e9c3c5253ec242582e.png" alt="\frac{\partial \rho}{\partial t} + \nabla\cdot(\rho {\bf v}) = 0" /></p>
+</div><div class="math" id="equation-MHD2">
+<p><span class="eqno">(2)</span><img src="../../_images/math/beb619e9aa467beaaafa21cfb4bc3869f98cd9a5.png" alt="\rho\left(\frac{\partial {\bf v}}{\partial t} + ({\bf v} \cdot \nabla)
+ {\bf v} \right) = -\nabla p +
+ {1\over\mu}(\nabla\times{\bf B}) \times {\bf B} + \rho {\bf g}" /></p>
+</div><div class="math" id="equation-MHD3">
+<p><span class="eqno">(3)</span><img src="../../_images/math/43aa2bbbde6120810f7c9d650c164a37248fa2de.png" alt="{\partial {\bf B}\over\partial t}
+        = \nabla\times({\bf v}\times{\bf B}) + \eta\nabla^2{\bf B}" /></p>
+</div><div class="math" id="equation-MHD4">
+<p><span class="eqno">(4)</span><img src="../../_images/math/5d8fcf1dc62cd0ee87f05c4da8be245cd9d631b6.png" alt="\nabla\cdot{\bf B} = 0" /></p>
+</div><p>assuming <img class="math" src="../../_images/math/03a45952f8115322d2879f7d090126f059757ba0.png" alt="\eta"/> is constant. See the next section for a derivation. We can now
+apply the following identities (we use the fact that <img class="math" src="../../_images/math/9f0c605c7281eeb1ca869693f78b9c32956b6573.png" alt="\nabla\cdot{\bf
+B}=0"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/16cce62f3e1051af600aee5e8570ed1b52bd6f60.png" alt="\left[(\nabla\times{\bf B}) \times {\bf B}\right]_i =
+    \varepsilon_{ijk}(\nabla\times{\bf B})_j B_k =
+    \varepsilon_{ijk}\varepsilon_{jlm}(\partial_l B_m)B_k =
+    (\delta_{kl}\delta_{im}-\delta_{km}\delta_{il})(\partial_l B_m)B_k =
+
+=(\partial_k B_i)B_k - (\partial_i B_k)B_k
+    =\left[({\bf B}\cdot\nabla){\bf B} -
+    {1\over2}\nabla|{\bf B}|^2\right]_i
+
+(\nabla\times{\bf B}) \times {\bf B} &amp;=
+    ({\bf B}\cdot\nabla){\bf B} - {1\over2}\nabla|{\bf B}|^2=
+    ({\bf B}\cdot\nabla){\bf B} + {\bf B}(\nabla\cdot{\bf B})
+        - {1\over2}\nabla|{\bf B}|^2
+    =\nabla\cdot({\bf B}{\bf B}^T) - {1\over2}\nabla|{\bf B}|^2\\
+\nabla\times({\bf v} \times {\bf B}) &amp;=
+    ({\bf B}\cdot\nabla){\bf v} - {\bf B}(\nabla\cdot{\bf v})
+    +{\bf v}(\nabla\cdot {\bf B}) - ({\bf v}\cdot\nabla) {\bf B}
+    =
+    \nabla\cdot({\bf B}{\bf v}^T - {\bf v}{\bf B}^T)\\
+\nabla\cdot(\rho{\bf v}{\bf v}^T) &amp;=
+    \left(\nabla\cdot(\rho{\bf v})\right){\bf v}
+    + \rho({\bf v}\cdot\nabla){\bf v}=
+    -{\bf v}\frac{\partial \rho}{\partial t}
+    + \rho({\bf v}\cdot\nabla){\bf v}" /></p>
+</div><p>So the MHD equations can alternatively be written as:</p>
+<div class="math" id="equation-MHD1b">
+<p><span class="eqno">(5)</span><img src="../../_images/math/dde2135ec49c7cd0eabc50e9c3c5253ec242582e.png" alt="\frac{\partial \rho}{\partial t} + \nabla\cdot(\rho {\bf v}) = 0" /></p>
+</div><div class="math" id="equation-MHD2b">
+<p><span class="eqno">(6)</span><img src="../../_images/math/1435997b7a0744ee4361255cf4f7a9ebd44ebeb7.png" alt="\frac{\partial \rho{\bf v}}{\partial t} + \nabla\cdot(\rho{\bf v}{\bf v}^T)
+    = -\nabla p +
+    {1\over\mu}\left(\nabla\cdot({\bf B}{\bf B}^T)
+        - {1\over2}\nabla|{\bf B}|^2\right) + \rho {\bf g}" /></p>
+</div><div class="math" id="equation-MHD3b">
+<p><span class="eqno">(7)</span><img src="../../_images/math/554ee848d32239e3197678c4b887df0cc84968f5.png" alt="{\partial {\bf B}\over\partial t}
+        = \nabla\cdot({\bf B}{\bf v}^T - {\bf v}{\bf B}^T) + \eta\nabla^2{\bf B}" /></p>
+</div><div class="math" id="equation-MHD4b">
+<p><span class="eqno">(8)</span><img src="../../_images/math/5d8fcf1dc62cd0ee87f05c4da8be245cd9d631b6.png" alt="\nabla\cdot{\bf B} = 0" /></p>
+</div><p>One can also introduce a new variable <img class="math" src="../../_images/math/8b9684ca9fab311de3acfaaa8e3b1d1c52eae9da.png" alt="p^* = p + {1\over2}\nabla|{\bf B}|^2"/>, that simplifies <a href="#equation-MHD2b">(6)</a> a bit.</p>
+</div>
+<div class="section" id="derivation">
+<span id="index-5"></span><h2>Derivation<a class="headerlink" href="#derivation" title="Permalink to this headline">¶</a></h2>
+<p>The above equations can easily be derived. We have the continuity equation:</p>
+<div class="math">
+<p><img src="../../_images/math/dde2135ec49c7cd0eabc50e9c3c5253ec242582e.png" alt="\frac{\partial \rho}{\partial t} + \nabla\cdot(\rho {\bf v}) = 0" /></p>
+</div><p>Navier-Stokes equations (momentum equation) with the Lorentz force on the
+right-hand side:</p>
+<div class="math">
+<p><img src="../../_images/math/71a126ac1c9c5de85353d04e62ede324f93ca6ee.png" alt="\rho\left(\frac{\partial {\bf v}}{\partial t} + ({\bf v} \cdot \nabla)
+ {\bf v} \right) = -\nabla p + {\bf j} \times {\bf B} + \rho {\bf g}" /></p>
+</div><p>where the current density <img class="math" src="../../_images/math/2f03ee335cd302ac22c46cb21d5f9c5ddaf9090b.png" alt="{\bf j}"/> is given by the Maxwell equation (we
+neglect the displacement current <img class="math" src="../../_images/math/67be5222797abe86920a57d59d81c8983771699c.png" alt="{\partial{\bf E}\over\partial t}"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/bdce22228f4c3d79f0779cadd4fef7f986c57759.png" alt="{\bf j} = {1\over\mu}\nabla\times{\bf B}" /></p>
+</div><p>and the Lorentz force:</p>
+<div class="math">
+<p><img src="../../_images/math/7e07ea3b681e8c20423090355d8ed5a5e7b1a1ec.png" alt="{1\over\sigma}{\bf j} = {\bf E} + {\bf v}\times{\bf B}" /></p>
+</div><p>from which we eliminate <img class="math" src="../../_images/math/99ee03f3854092e4a9bc48ff28bab3ffcb9d66b7.png" alt="{\bf E}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/59485b0482fea8fb9c5e332f8c9f4fafdfa4d134.png" alt="{\bf E} = - {\bf v}\times{\bf B} + {1\over\sigma}{\bf j} =
+          - {\bf v}\times{\bf B} + {1\over\sigma\mu}\nabla\times{\bf B}" /></p>
+</div><p>and put it into the Maxwell equation:</p>
+<div class="math">
+<p><img src="../../_images/math/bd29cb84885da5204d57a2fe1e3f8ef4edc78dad.png" alt="{\partial {\bf B}\over\partial t} = -\nabla\times{\bf E}" /></p>
+</div><p>so we get:</p>
+<div class="math">
+<p><img src="../../_images/math/3f8f4d5763be1b37470dd7e044cdbe4b67b0b626.png" alt="{\partial {\bf B}\over\partial t} = \nabla\times({\bf v}\times{\bf B})
+            - \nabla\times\left({1\over\sigma\mu}\nabla\times{\bf B}\right)" /></p>
+</div><p>assuming the magnetic diffusivity <img class="math" src="../../_images/math/11fd67b21bd6593278428d7356faaafe7c9dca08.png" alt="\eta={1\over\sigma\mu}"/> is constant, we
+get:</p>
+<div class="math">
+<p><img src="../../_images/math/d6f8d5b7ca35193e8d4a5d5c4ccab274fa9f2eba.png" alt="{\partial {\bf B}\over\partial t} = \nabla\times({\bf v}\times{\bf B})
+            - \eta\nabla\times\left(\nabla\times{\bf B}\right)
+        = \nabla\times({\bf v}\times{\bf B})
+            + \eta\left(\nabla^2{\bf B}-\nabla(\nabla\cdot{\bf B})\right)
+        = \nabla\times({\bf v}\times{\bf B}) + \eta\nabla^2{\bf B}" /></p>
+</div><p>where we used the Maxwell equation:</p>
+<div class="math">
+<p><img src="../../_images/math/5d8fcf1dc62cd0ee87f05c4da8be245cd9d631b6.png" alt="\nabla\cdot{\bf B} = 0" /></p>
+</div></div>
+<div class="section" id="finite-element-formulation">
+<span id="index-6"></span><h2>Finite Element Formulation<a class="headerlink" href="#finite-element-formulation" title="Permalink to this headline">¶</a></h2>
+<p>We solve the following ideal MHD equations (we use
+<img class="math" src="../../_images/math/8b9684ca9fab311de3acfaaa8e3b1d1c52eae9da.png" alt="p^* = p + {1\over2}\nabla|{\bf B}|^2"/>, but we drop the star):</p>
+<div class="math" id="equation-FEM1a">
+<p><span class="eqno">(9)</span><img src="../../_images/math/64f19e19b04253232220fd2cbc5dd2bdd2a22132.png" alt="\frac{\partial {\bf u}}{\partial t} + ({\bf u} \cdot \nabla)
+ {\bf u} - ({\bf B}\cdot\nabla){\bf B} + \nabla p = 0" /></p>
+</div><div class="math" id="equation-FEM2a">
+<p><span class="eqno">(10)</span><img src="../../_images/math/a9fbdd2091a716dcdedfe70d3ee662fba6f42df4.png" alt="{\partial {\bf B}\over\partial t} + ({\bf u}\cdot\nabla){\bf B}
+    - ({\bf B}\cdot\nabla){\bf u} = 0" /></p>
+</div><div class="math" id="equation-FEM3a">
+<p><span class="eqno">(11)</span><img src="../../_images/math/3b6b9a4b404cb6fec2748abc3fa28026ff12f37f.png" alt="\nabla\cdot{\bf u} = 0" /></p>
+</div><div class="math" id="equation-FEM4a">
+<p><span class="eqno">(12)</span><img src="../../_images/math/5d8fcf1dc62cd0ee87f05c4da8be245cd9d631b6.png" alt="\nabla\cdot{\bf B} = 0" /></p>
+</div><p>If the equation <a href="#equation-FEM4a">(12)</a> is satisfied initially, then it is
+satisfied all the time, as can be easily proved by applying a divergence to
+the Maxwell equation
+<img class="math" src="../../_images/math/2d7cb3d2c0457ea3cfdf4593b5a67f3c58bf5a00.png" alt="{\partial {\bf B}\over\partial t} = -\nabla\times{\bf E}"/> (or the
+equation <a href="#equation-FEM2a">(10)</a>, resp. <a href="#equation-MHD3">(3)</a>) and we get
+<img class="math" src="../../_images/math/49a43725b59971c96a8fde5f4a1424e649812632.png" alt="{\partial \over\partial t}(\nabla\cdot{\bf B}) = 0"/>, so
+<img class="math" src="../../_images/math/bf8e0413b3109db05e46509b60a0fa2c6edb7a98.png" alt="\nabla\cdot{\bf B}"/> is constant, independent of time. As a consequence,
+we are essentially only solving equations <a href="#equation-FEM1a">(9)</a>, <a href="#equation-FEM2a">(10)</a> and
+<a href="#equation-FEM3a">(11)</a>, which consist of 5 equations for 5 unknowns
+(components of <img class="math" src="../../_images/math/ba6a7d441154872144d12f6d6b2e84cbe2d98832.png" alt="{\bf u}"/>, <img class="math" src="../../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> and <img class="math" src="../../_images/math/e9ba51970da63dba1d7d83e26da50e420ca64544.png" alt="{\bf B}"/>).</p>
+<p>We discretize in time by introducing a small time step <img class="math" src="../../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> and we also
+linearize the convective terms:</p>
+<div class="math" id="equation-FEM1b">
+<p><span class="eqno">(13)</span><img src="../../_images/math/97324e8b48988929bb840c84fb66befa6e697475.png" alt="\frac{{\bf u}^n-{\bf u}^{n-1}}{\tau} + ({\bf u}^{n-1} \cdot \nabla)
+ {\bf u}^n - ({\bf B}^{n-1}\cdot\nabla){\bf B}^n + \nabla p = 0" /></p>
+</div><div class="math" id="equation-FEM2b">
+<p><span class="eqno">(14)</span><img src="../../_images/math/a7fd943d109fb2bd7e517a08e17e9eb76bdc2d1d.png" alt="{{\bf B}^n-{\bf B}^{n-1}\over\tau} + ({\bf u}^{n-1}\cdot\nabla){\bf B}^n
+    - ({\bf B}^{n-1}\cdot\nabla){\bf u}^n = 0" /></p>
+</div><div class="math" id="equation-FEM3b">
+<p><span class="eqno">(15)</span><img src="../../_images/math/10a27c5192ee1434c09e7698073417453c98b827.png" alt="\nabla\cdot{\bf u}^n = 0" /></p>
+</div><p>Testing <a href="#equation-FEM1b">(13)</a> by the test functions <img class="math" src="../../_images/math/58f832350c3f1c11eb2f11c94b65e206af154ca8.png" alt="(v_1, v_2)"/>, <a href="#equation-FEM2b">(14)</a> by
+the functions <img class="math" src="../../_images/math/516ce07b5264da9eab122a11ae418cd42633749b.png" alt="(C_1, C_2)"/> and <a href="#equation-FEM3b">(15)</a> by the test function
+<img class="math" src="../../_images/math/0615acc3725de21025457e7d6f7694dab8e2f758.png" alt="q"/>, we obtain the following weak formulation:</p>
+<div class="math" id="equation-FEM1c">
+<p><span class="eqno">(16)</span><img src="../../_images/math/f2a09f65e555da9ec2ed25678227c3fe281c8064.png" alt="\int_\Omega {u_1 v_1\over\tau} + ({\bf u}^{n-1}\cdot\nabla)u_1 v_1
+    - ({\bf B}^{n-1}\cdot\nabla)B_1 v_1
+    -p {\partial v_1\over\partial x} \,{\rm d}{\bf x} =
+    \int_\Omega {u_1^{n-1} v_1\over\tau}\,{\rm d}{\bf x}
+
+\int_\Omega {u_2 v_2\over\tau} + ({\bf u}^{n-1}\cdot\nabla)u_2 v_2
+    - ({\bf B}^{n-1}\cdot\nabla)B_2 v_2
+    -p {\partial v_2\over\partial y} \,{\rm d}{\bf x} =
+    \int_\Omega {u_2^{n-1} v_2\over\tau}\,{\rm d}{\bf x}" /></p>
+</div><div class="math" id="equation-FEM2c">
+<p><span class="eqno">(17)</span><img src="../../_images/math/02de452f7dfdbadccc24c34b2599aaaa3205776a.png" alt="\int_\Omega {B_1 C_1\over\tau} + ({\bf u}^{n-1}\cdot\nabla)B_1 C_1
+    - ({\bf B}^{n-1}\cdot\nabla)u_1 C_1 \,{\rm d}{\bf x} =
+    \int_\Omega {B_1^{n-1} C_1\over\tau}\,{\rm d}{\bf x}
+
+\int_\Omega {B_2 C_2\over\tau} + ({\bf u}^{n-1}\cdot\nabla)B_2 C_2
+    - ({\bf B}^{n-1}\cdot\nabla)u_2 C_2 \,{\rm d}{\bf x} =
+    \int_\Omega {B_2^{n-1} C_2\over\tau}\,{\rm d}{\bf x}" /></p>
+</div><div class="math" id="equation-FEM3c">
+<p><span class="eqno">(18)</span><img src="../../_images/math/1ddfe4639b99d67e72b34afc6664dd0a7f79de1d.png" alt="\int_\Omega {\partial u_1\over\partial x}q + {\partial u_2\over\partial y}q
+    \,{\rm d}{\bf x} = 0" /></p>
+</div><p>To better understand the structure of these equations, we write it using
+bilinear and linear forms, as well as take into account the symmetries of
+the forms. Then we get a particularly simple structure:</p>
+<div class="math">
+<p><img src="../../_images/math/a243af3dfcbef478f30250d45060d94555a75289.png" alt="$$\begin{array}{lclclclclcl}
++A(u_1, v_1) &amp;&amp;  &amp;&amp; -X(p, v_1) &amp;&amp; -B(B_1, v_1) &amp;&amp;  &amp;=&amp; l_1(v_1)\\
+  &amp;&amp; +A(u_2, v_2) &amp;&amp; -Y(p, v_2) &amp;&amp;  &amp;&amp; -B(B_2, v_2) &amp;=&amp; l_2(v_2)\\
++X(q, u_1) &amp;&amp; +Y(q, u_2) &amp;&amp;  &amp;&amp;  &amp;&amp;  &amp;=&amp; 0\\
+-B(u_1, C_1) &amp;&amp;  &amp;&amp;  &amp;&amp; +A(B_1, C_1) &amp;&amp;  &amp;=&amp; l_4(C_1)\\
+ &amp;&amp; -B(u_2, C_2) &amp;&amp;  &amp;&amp;  &amp;&amp; +A(B_2, C_2) &amp;=&amp; l_5(C_2)
+\end{array}$$" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/dd195e0d44b81d421dd6743ba461d4e158a9bf3a.png" alt="A(u, v) &amp;= \int_\Omega {u v\over\tau} +
+    ({\bf u}^{n-1}\cdot\nabla)u v\,{\rm d}{\bf x}\\
+B(u, v) &amp;= \int_\Omega ({\bf B}^{n-1}\cdot\nabla)uv\,{\rm d}{\bf x}\\
+X(u, v) &amp;= \int_\Omega u {\partial v\over\partial x} \,{\rm d}{\bf x}\\
+Y(u, v) &amp;= \int_\Omega u {\partial v\over\partial y} \,{\rm d}{\bf x}\\
+l_1(v) &amp;= \int_\Omega {u_1^{n-1} v\over\tau} \,{\rm d}{\bf x}\\
+l_2(v) &amp;= \int_\Omega {u_2^{n-1} v\over\tau} \,{\rm d}{\bf x}\\
+l_4(v) &amp;= \int_\Omega {B_1^{n-1} v\over\tau} \,{\rm d}{\bf x}\\
+l_5(v) &amp;= \int_\Omega {B_2^{n-1} v\over\tau} \,{\rm d}{\bf x}" /></p>
+</div><p>E.g. there are only 4 distinct bilinear forms. Schematically we can visualize
+the structure by:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>A</td>
+<td>&nbsp;</td>
+<td>-X</td>
+<td>-B</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>A</td>
+<td>-Y</td>
+<td>&nbsp;</td>
+<td>-B</td>
+</tr>
+<tr><td>X</td>
+<td>Y</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>-B</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>A</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>&nbsp;</td>
+<td>-B</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+<p>In order to solve it with Hermes, we first need to write it in the block form:</p>
+<div class="math">
+<p><img src="../../_images/math/041457aa48a4b795c24fe930ad277c70ba4a61e3.png" alt="$$\begin{array}{lclclclclcl}
+a_{11}(u_1, v_1) &amp;+&amp; a_{12}(u_2, v_1) &amp;+&amp; a_{13}(p, v_1) &amp;+&amp;
+    a_{14}(B_1, v_1) &amp;+&amp; a_{15}(B_2, v_1) &amp;=&amp; l_1(v_1)\\
+a_{21}(u_1, v_2) &amp;+&amp; a_{22}(u_2, v_2) &amp;+&amp; a_{23}(p, v_2) &amp;+&amp;
+    a_{24}(B_1, v_2) &amp;+&amp; a_{25}(B_2, v_2) &amp;=&amp; l_2(v_2)\\
+a_{31}(u_1, q) &amp;+&amp; a_{32}(u_2, q) &amp;+&amp; a_{33}(p, q) &amp;+&amp;
+    a_{34}(B_1, q) &amp;+&amp; a_{35}(B_2, q) &amp;=&amp; l_3(q)\\
+a_{41}(u_1, C_1) &amp;+&amp; a_{42}(u_2, C_1) &amp;+&amp; a_{43}(p, C_1) &amp;+&amp;
+    a_{44}(B_1, C_1) &amp;+&amp; a_{45}(B_2, C_1) &amp;=&amp; l_4(C_1)\\
+a_{51}(u_1, C_2) &amp;+&amp; a_{52}(u_2, C_2) &amp;+&amp; a_{53}(p, C_2) &amp;+&amp;
+    a_{54}(B_1, C_2) &amp;+&amp; a_{55}(B_2, C_2) &amp;=&amp; l_5(C_2)
+\end{array}$$" /></p>
+</div><p>comparing to the above, we get the following nonzero forms:</p>
+<div class="math">
+<p><img src="../../_images/math/244fb6f9e617b67065999e040cb4818de8bb75fa.png" alt="$$\begin{array}{lclclclclcl}
+a_{11}(u_1, v_1) &amp;+&amp; 0 &amp;+&amp; a_{13}(p, v_1) &amp;+&amp;
+    a_{14}(B_1, v_1) &amp;+&amp; 0 &amp;=&amp; l_1(v_1)\\
+0 &amp;+&amp; a_{22}(u_2, v_2) &amp;+&amp; a_{23}(p, v_2) &amp;+&amp;
+    0 &amp;+&amp; a_{25}(B_2, v_2) &amp;=&amp; l_2(v_2)\\
+a_{31}(u_1, q) &amp;+&amp; a_{32}(u_2, q) &amp;+&amp; 0 &amp;+&amp;
+    0 &amp;+&amp; 0 &amp;=&amp; 0\\
+a_{41}(u_1, C_1) &amp;+&amp; 0 &amp;+&amp; 0 &amp;+&amp;
+    a_{44}(B_1, C_1) &amp;+&amp; 0 &amp;=&amp; l_4(C_1)\\
+0 &amp;+&amp; a_{52}(u_2, C_2) &amp;+&amp; 0 &amp;+&amp;
+    0 &amp;+&amp; a_{55}(B_2, C_2) &amp;=&amp; l_5(C_2)
+\end{array}$$" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/3559944c4dfccaca1b4281509acb497cb1fc42b4.png" alt="a_{11}(u_1, v_1) &amp;= A(u_1, v_1)\\
+a_{22}(u_2, v_2) &amp;= A(u_2, v_2)\\
+a_{44}(B_1, C_1) &amp;= A(B_1, C_1)\\
+a_{55}(B_2, C_1) &amp;= A(B_2, C_2)\\
+a_{13}(p, v_1) &amp;= -X(p, v_1)\\
+a_{31}(u_1, q) &amp;= X(q, u_1)\\
+a_{23}(p, v_2) &amp;= -Y(p, v_2)\\
+a_{32}(u_2, q) &amp;= Y(q, u_2)\\
+a_{14}(B_1, v_1) &amp;= -B(B_1, v_1)\\
+a_{41}(u_1, C_1) &amp;= -B(u_1, C_1)\\
+a_{25}(B_2, v_2) &amp;= -B(B_2, v_2)\\
+a_{52}(u_2, C_2) &amp;= -B(u_2, C_2)" /></p>
+</div><p>and <img class="math" src="../../_images/math/d89a5fe07fe3854a174b684785a2d0eb36f2b232.png" alt="l1"/>, ..., <img class="math" src="../../_images/math/b12b902c1edf1e9142cc8d1ff7193f43540b47d0.png" alt="l5"/> are the same as above.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">MHD Equations</a><ul>
+<li><a class="reference external" href="#introduction">Introduction</a></li>
+<li><a class="reference external" href="#derivation">Derivation</a></li>
+<li><a class="reference external" href="#finite-element-formulation">Finite Element Formulation</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="general.html"
+                                  title="previous chapter">Fluid Dynamics</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="euler.html"
+                                  title="next chapter">Compressible Euler Equations</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/src/fluid-dynamics/mhd.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="euler.html" title="Compressible Euler Equations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="general.html" title="Fluid Dynamics"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Fluid Dynamics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>

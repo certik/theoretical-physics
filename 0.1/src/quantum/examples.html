@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Examples &mdash; Theoretical Physics Reference v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Quantum Field Theory and Quantum Mechanics" href="main.html" />
+    <link rel="next" title="Radial Schrödinger and Dirac Equations" href="radial.html" />
+    <link rel="prev" title="Quantum Mechanics" href="qm.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="radial.html" title="Radial Schrödinger and Dirac Equations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="qm.html" title="Quantum Mechanics"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="two-particles-in-harmonic-potential">
+<h2>Two Particles in Harmonic Potential<a class="headerlink" href="#two-particles-in-harmonic-potential" title="Permalink to this headline">¶</a></h2>
+<p>It is a 1D, two-body problem with an interacting Hamiltonian</p>
+<div class="math">
+<p><img src="../../_images/math/b726318562d3dc49302cc55dbb3b8d8f1e555164.png" alt="H(x_1, x_2) = -\half{\partial^2\over\partial x_1^2}
+-\half{\partial^2\over\partial x_2^2}
+    +{1\over|x_1 - x_2|} + \half\omega^2 x_1^2 + \half\omega^2 x_2^2" /></p>
+</div><p>and it can be solved analytically. The Schrödinger equation is</p>
+<div class="math">
+<p><img src="../../_images/math/62ac5bdf2217b86aee67c2c9a68433cca856733f.png" alt="\left(-\half{\partial^2\over\partial x_1^2} -\half{\partial^2\over\partial x_2^2}
+    +{1\over|x_1 - x_2|} + \half\omega^2 x_1^2 + \half\omega^2 x_2^2
+\right)\Psi(x_1, x_2) = E \Psi(x_1, x_2)" /></p>
+</div><p>we use the substitution:</p>
+<div class="math">
+<p><img src="../../_images/math/3d1207a75f0fd78bbf3506e8a22b43dde4bc2917.png" alt="u = {1\over\sqrt2}(x_1 - x_2)
+
+v = {1\over\sqrt2}(x_1 + x_2)" /></p>
+</div><p>then</p>
+<div class="math">
+<p><img src="../../_images/math/ad55211d46eba508cc49298827f9a0f768b970d4.png" alt="{\partial^2\over\partial x_1^2} + {\partial^2\over\partial x_2^2}=
+{\partial^2\over\partial u^2} + {\partial^2\over\partial v^2}
+
+|x_1 - x_2| = \sqrt2|u|
+
+x_1^2 + x_2^2 = u^2 + v^2" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/b473514c4086ab0ba1014033f3f09a646fea8b5c.png" alt="\left(-\half{\partial^2\over\partial u^2} -\half{\partial^2\over\partial v^2}
+    +{1\over\sqrt2 |u|} + \half\omega^2 u^2 + \half\omega^2 v^2
+\right)\Psi(u, v) = E \Psi(u, v)" /></p>
+</div><p>Note also the symmetry of the Hamiltonian <img class="math" src="../../_images/math/29fe5f925ecda5913b0fe919a8a4c58bc05615f8.png" alt="H(x_1, x_2) = H(x_2, x_1)"/> which
+after substitution is equivalent to <img class="math" src="../../_images/math/87f4ebf250bc9408b89199b1ebc2c71c2795d9fd.png" alt="H(u, v) = H(-u, v)"/>.
+Now we can separate the equation:</p>
+<div class="math">
+<p><img src="../../_images/math/67e4f7704542011899b7e06cc1ca100df16ce778.png" alt="\Psi(u, v) = f(u)g(v)
+
+\left(-\half{\d^2\over\d u^2} +{1\over\sqrt2 |u|} + \half\omega^2 u^2
+\right)f_k(u) = \epsilon_k f_k(u)
+
+\left(-\half{\d^2\over\d v^2} + \half\omega^2 v^2
+\right)g_l(v) = \epsilon_l g_l(v)
+
+E_{kl} = \epsilon_k + \epsilon_l" /></p>
+</div><p>the solution of the second equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/993eb69064e674401a0e1fc2680a94e35e11b09c.png" alt="g_l(v) = {1\over\sqrt{2^l l!}} \left(\omega\over\pi\right)^{1\over4}
+    e^{-{\omega v^2\over2}} H_l(\sqrt\omega v)
+
+\epsilon_l = \omega(l+\half)\quad\mbox{for $l=0, 1, 2, \dots$}" /></p>
+</div><p>where <img class="math" src="../../_images/math/862488aede24b053b92009162bdf6d8a1f48f5d5.png" alt="H_n(x)"/> are the Hermite polynomials:</p>
+<div class="math">
+<p><img src="../../_images/math/12e500ccb10108bfc0c14261d2247e68cbcb1991.png" alt="H_n(x) = (-1)^n e^{x^2} {\d^n\over\d x^n} e^{-x^2}" /></p>
+</div><p>The solution to the first equation can be approximated around the minimum of
+the potential, which occurs at point <img class="math" src="../../_images/math/661705d340f5c316df85406e69fea40e3d3f1db0.png" alt="u=u_0"/> (since the potential is symmetric
+with respect to <img class="math" src="../../_images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u"/>, we only treat the branch <img class="math" src="../../_images/math/b9d967db647ded0a16fb16f5ed82e75660884b46.png" alt="u&gt;0"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/7675607828fb78d7903b09870e7547141304a9df.png" alt="V(u) = {1\over\sqrt2 |u|} + \half\omega^2 u^2 =
+    \left(2^{-{1\over 3}} + 2^{-{4\over3}}\right) \omega^{2\over3}
+    +{3\over 2}\omega^2(u-u_0)^2
+    +O\left((u-u_0)^3\right)
+
+u_0 = 2^{-{1\over6}}\omega^{-{2\over3}}" /></p>
+</div><p>So the first few states can be approximated by the harmonic oscillator
+solution with frequency <img class="math" src="../../_images/math/df77aebaeebd761804074deeb31b65ae00fb783e.png" alt="\sqrt3\omega"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/ed7aecbb624274c55924919a950d5ccfadeeaccd.png" alt="f_k(u) = {1\over\sqrt{2^k k!}} \left(\sqrt3\omega\over\pi\right)^{1\over4}
+    e^{-{\sqrt3\omega (u-u_0)^2\over2}} H_k(3^{1\over4}\sqrt\omega (u-u_0))
+
+\epsilon_k =
+    \left(2^{-{1\over 3}} + 2^{-{4\over3}}\right) \omega^{2\over3}
+    +
+    \sqrt3\omega(k+\half)\quad\mbox{for $k=0, 1, 2, \dots$}" /></p>
+</div><p>The final solution is then:</p>
+<div class="math">
+<p><img src="../../_images/math/44c56d237de904822a3449aa0471cfbb91fb3827.png" alt="\Psi_{kl}(u, v) = f_k(u) g_l(v) =
+
+    =
+    {1\over\sqrt{2^k k!}} \left(\sqrt3\omega\over\pi\right)^{1\over4}
+    e^{-{\sqrt3\omega (u-u_0)^2\over2}} H_k(3^{1\over4}\sqrt\omega (u-u_0))
+    {1\over\sqrt{2^l l!}} \left(\omega\over\pi\right)^{1\over4}
+    e^{-{\omega v^2\over2}} H_l(\sqrt\omega v)
+
+E_{kl} = \epsilon_k + \epsilon_l =
+    \left(2^{-{1\over 3}} + 2^{-{4\over3}}\right) \omega^{2\over3}
+    +
+    \sqrt3\omega(k+\half)
+    +
+    \omega(l+\half)" /></p>
+</div></div>
+<div class="section" id="quantum-harmonic-oscillator">
+<h2>Quantum Harmonic Oscillator<a class="headerlink" href="#quantum-harmonic-oscillator" title="Permalink to this headline">¶</a></h2>
+<p>The quantum
+harmonic oscillator for one particle in 1D is:</p>
+<div class="math">
+<p><img src="../../_images/math/60924544981f3af6ef35075ac96e88e34af79ef2.png" alt="i\hbar{\partial\over\partial t}\psi(x, t)= -{\hbar^2\over2m}{\partial^2\over\partial x^2}\psi(x,t)+V(x)\psi(x,t)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8ec307ac733b7327501ec2c731e6ca9e61e5f9ff.png" alt="V(x)={1\over2}m\omega^2x^2" /></p>
+</div><p>This is a partial differential equation for the time evolution of the wave
+function <img class="math" src="../../_images/math/a69c53056d6edbf605d7a3032b5d4e0ba33220a1.png" alt="\psi(x, t)"/>, but one method to solve it is the
+eigenvalues expansion:</p>
+<div class="math">
+<p><img src="../../_images/math/cde527f7250c9730703f77813b9528e2297f6906.png" alt="\psi(x,t) = \sum_E c_E\psi_E(x)e^{-{i\over\hbar}Et}" /></p>
+</div><p>where the sum goes over the whole spectrum (for continuous spectrum the sum
+turns into an integral), the <img class="math" src="../../_images/math/c0f812778fbc19f14006a7a020ed65658420b771.png" alt="c_E"/> coefficients are determined from the initial condition
+and <img class="math" src="../../_images/math/86cbd3066f443cb01c1ec62c9250f33f40b1ce8c.png" alt="\psi_E(x)"/> satisfies the one dimensional one particle time independent
+Schrödinger equation:</p>
+<div class="math">
+<p><img src="../../_images/math/a42a3a32efb278832317dbebe242689af3da4d02.png" alt="-{\hbar^2\over2m}{\d^2\over\d x^2}\psi_E(x)+V(x)\psi_E(x)=E\psi_E(x)" /></p>
+</div><p>and this is just an ODE and thus can be solved with Hermes1D. There can be many
+types of boundary conditions for this equation, depending on the physical
+problem, but in our case we simply have <img class="math" src="../../_images/math/9de66db442fe02766d40229edc912c7907fb3ef1.png" alt="\lim_{x\to\pm\infty}\psi_E(x)=0"/> and
+the normalization condition <img class="math" src="../../_images/math/0bd38c87d1e94d255d06a42004f5db5046bbe5fe.png" alt="\int_{-\infty}^\infty|\psi_E(x)|^2\d x=1"/>.</p>
+<p>We can set <img class="math" src="../../_images/math/00f19124dd5ca0dce207888d26865a9b93ba2af2.png" alt="m=\hbar=1"/> and from now on we&#8217;ll just write <img class="math" src="../../_images/math/ca96e7be1ff9c623cb753279095f227af9f18318.png" alt="\psi(x)"/> instead of
+<img class="math" src="../../_images/math/86cbd3066f443cb01c1ec62c9250f33f40b1ce8c.png" alt="\psi_E(x)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/004373ec1f10abfcd44fd7926ab503c5b22570cb.png" alt="-{1\over2}{\d^2\over\d x^2}\psi(x)+V(x)\psi(x)=E\psi(x)" /></p>
+</div><p>and we will solve it on the interval <img class="math" src="../../_images/math/28e24c43456d95b5ab8d4f2f8f85a644e98b7ed3.png" alt="(a, b)"/> with the boundary condition
+<img class="math" src="../../_images/math/d6f430117f4c372d6e92a518716c3db10d9919f4.png" alt="\psi(a)=\psi(b)=0"/>. The weak formulation is</p>
+<div class="math">
+<p><img src="../../_images/math/7024f5d45139cb3d9b2cf1604836db9a48b77f7e.png" alt="\int_a^b{1\over2}{\d\psi(x)\over\d x}{\d v(x)\over\d x}+V(x)\psi(x)v(x)\,\d x -\left[{\d\psi(x)\over\d x}v(x)\right]^a_b =E\int_a^b\psi(x)v(x)\,\d x" /></p>
+</div><p>but due to the boundary condition <img class="math" src="../../_images/math/1de0beded57349a3693b4501be862344c5bbe3ea.png" alt="v(a)=v(b)=0"/> so
+<img class="math" src="../../_images/math/47545b981ba9cf5570fee0f85e6f2acaa4a62908.png" alt="\left[\psi'(x)v(x)\right]^a_b=0"/> and we get</p>
+<div class="math">
+<p><img src="../../_images/math/0d57c8fe0c97e18187149aadf0d526d00d8b64c1.png" alt="\int_a^b{1\over2}{\d\psi(x)\over\d x}{\d v(x)\over\d x}+V(x)\psi(x)v(x)\,\d x =E\int_a^b\psi(x)v(x)\,\d x" /></p>
+</div><p>And the finite element formulation is then <img class="math" src="../../_images/math/302a2192236f63451e891cb0134b00e6cf95901a.png" alt="\psi(x)=\sum_j y_j\phi_j(x)"/> and
+<img class="math" src="../../_images/math/5c75ef78f5ce4140305fd2f4626d38e881a9841d.png" alt="v=\phi_i(x)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6df4ba3effbc10463aaad0aafa970e6cfb42d099.png" alt="\left(\int_a^b{1\over2}\phi_i'(x)\phi_j'(x)+V(x)\phi_i(x)\phi_j(x)\,\d x\right) y_j =E\int_a^b\phi_i(x)\phi_j(x)\,\d x\ y_j" /></p>
+</div><p>which is a generalized eigenvalue problem:</p>
+<div class="math">
+<p><img src="../../_images/math/7904b3000bbbbdcc5bd4d4d113c2c764d7addc6f.png" alt="A_{ij}y_j=EB_{ij}y_j" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../../_images/math/6239a97a6b33074d1051b54e3a505ca216309cb4.png" alt="A_{ij}=\int_a^b{1\over2}\phi_i'(x)\phi_j'(x)+V(x)\phi_i(x)\phi_j(x)\,\d x" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/7cdaa2d587fdc4536894f81f5e9530cd43e61491.png" alt="B_{ij}=\int_a^b\phi_i(x)\phi_j(x)\,\d x" /></p>
+</div></div>
+<div class="section" id="radial-schrodinger-equation">
+<h2>Radial Schrödinger Equation<a class="headerlink" href="#radial-schrodinger-equation" title="Permalink to this headline">¶</a></h2>
+<p>Another important example is the three dimensional one particle time
+independent Schrödinger equation for a spherically symmetric potential:</p>
+<div class="math">
+<p><img src="../../_images/math/9a99e5785941127e99898b6510f3babc287a260a.png" alt="-{1\over2}\nabla^2\psi({\bf x})+V(r)\psi({\bf x})=E\psi({\bf x})" /></p>
+</div><p>The way to solve it is to separate the equation into radial and angular parts
+by writing the Laplace operator in spherical coordinates as:</p>
+<div class="math">
+<p><img src="../../_images/math/fc59d72946f5722afa6c2b03ffad05acc3eed275.png" alt="\nabla^2f =  {\partial^2 f\over\partial\rho^2} +{2\over \rho}{\partial^2 f\over\partial\rho^2} -{L^2\over \rho^2}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/a5ead01bd35d37b86a9ee338b719e0a51a24d2b8.png" alt="L^2= -{\partial^2 f\over\partial\theta^2} -{1\over\sin^2\theta}{\partial^2 f\over\partial\phi^2} -{1\over\tan\theta}{\partial f\over\partial\theta}" /></p>
+</div><p>Substituting <img class="math" src="../../_images/math/847f4d3192a254337910997c4f8b79ba9a3bee83.png" alt="\psi({\bf x})=R(\rho)Y(\theta,\phi)"/> into the Schrödinger equation
+yields:</p>
+<div class="math">
+<p><img src="../../_images/math/c07df1421aaac2e00f2f103ce5d654cd5daaee06.png" alt="-{1\over2}\nabla^2(RY)+VRY=ERY" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0209ce7d90e4cc3254b790d9027f046fff25fce5.png" alt="-{1\over2}R''Y-{1\over\rho}R'Y+{L^2RY\over2\rho^2}+VRY=ERY" /></p>
+</div><p>Using the fact that <img class="math" src="../../_images/math/2ee2007d23bca231e88ad0a053ee9e679add787f.png" alt="L^2Y=l(l+1)Y"/> we can cancel <img class="math" src="../../_images/math/ce58e4af225c93d08606c26554caaa5ae32edeba.png" alt="Y"/> and we get the radial
+Schrödinger equation:</p>
+<div class="math">
+<p><img src="../../_images/math/996c94b9ddfc634fcea0c2c1650f72c97f1efca5.png" alt="-{1\over2}R''-{1\over\rho}R'+{l(l+1)R\over2\rho^2}+VR=ER" /></p>
+</div><p>The solution is then:</p>
+<div class="math">
+<p><img src="../../_images/math/d29ea3977107b092fb269eeccb735f2390055459.png" alt="\psi({\bf x})=\sum_{nlm}c_{nlm}R_{nl}(r)Y_{lm}\left({\bf x}\over r\right)" /></p>
+</div><p>where <img class="math" src="../../_images/math/37755a19eaa6dd2322ef32a86593f686c7fc8acd.png" alt="R_{nl}(r)"/> satisfies the radial Schrödinger equation (from now on we
+just write <img class="math" src="../../_images/math/5008d5e9ed2bf1425a6a7f6887d680067bea9739.png" alt="R(r)"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/c908f4552dbe43655d97fe3719d516de3ff1bd74.png" alt="-{1\over2}R''(r)-{1\over r}R'(r)+\left(V+{l(l+1)\over2r^2}\right)R(r)=ER(r)" /></p>
+</div><p>Again there are many types of boundary conditions, but the most common case is
+<img class="math" src="../../_images/math/864259d149c795048258af70f30284373140a62b.png" alt="\lim_{r\to\infty}R(r)=0"/> and <img class="math" src="../../_images/math/9a21b9a57c6accb56aea2c1b46b49ae2ce9e53f9.png" alt="R(0)=1"/> or <img class="math" src="../../_images/math/c40a788a4890ae483b6f70e051da0303b41d0fb5.png" alt="R(0)=0"/>. One solves this equation on
+the interval <img class="math" src="../../_images/math/ca04d59256eaa98dc1ffbb93c7893262de8ba1ea.png" alt="(0, a)"/> for large enough <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>.</p>
+<p>The procedure is similar to the previous example, only we need to remember that
+we always have to use covariant integration (in the previous example the
+covariant integration was the same as the coordinate integration),
+in this case <img class="math" src="../../_images/math/9d39f8aa87e7d9d6993c8c0ba0447586cc6e9fe0.png" alt="r^2\sin\theta \d
+r\d\theta\d\phi"/>, so the weak formulation is:</p>
+<div class="math">
+<p><img src="../../_images/math/3cae12018bce2b4a0539ee7af57457e98882c5ad.png" alt="\int \left(-{1\over2}R''(r)-{1\over r}R'(r)+\left(V+{l(l+1)\over2r^2}\right)R(r)\right)v(r)r^2\sin\theta \d r\d\theta\d\phi=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c4532ea92ea34e63b59f0945a67a8abe36208f6b.png" alt="=\int ER(r) v(r)r^2\sin\theta \d r\d\theta\d\phi" /></p>
+</div><p>Integrating over the angles gives <img class="math" src="../../_images/math/a72a1caa0cb9e0f72f414ebd8180ea676808568f.png" alt="4\pi"/> which we cancel out at both sides and
+we get:</p>
+<div class="math">
+<p><img src="../../_images/math/27109079ecca12c115316b666c281da52df43d28.png" alt="\int_0^a \left(-{1\over2}R''(r)-{1\over r}R'(r)+\left(V+{l(l+1)\over2r^2}\right)R(r)\right)v(r)r^2 \d r=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/865c1f102a1145c69542213ee9142fdf67b776da.png" alt="=E\int_0^a R(r) v(r)r^2 \d r" /></p>
+</div><p>We apply per partes to the first two terms on the left hand side:</p>
+<div class="math">
+<p><img src="../../_images/math/e72a4c9d64f6eb39f717b6e001a834e6e3db65b8.png" alt="\int_0^a \left(-{1\over2}R''(r)-{1\over r}R'(r)\right)v(r)r^2 \d r =\int_0^a -{1\over2r^2}\left(r^2 R'(r)\right)'v(r)r^2 \d r=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/65d82bbcaed56876233ed2060281bf1a8e94f00a.png" alt="=\int_0^a -{1\over2}\left(r^2 R'(r)\right)'v(r) \d r =\int_0^a {1\over2}r^2 R'(r)v'(r) \d r-{1\over2} [r^2R'(r)v(r)]_0^a=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/77cc04f92b980e28797dcbda69c709e8b8acc2f6.png" alt="=\int_0^a {1\over2} R'(r)v'(r) r^2\d r -{1\over2} a^2R'(a)v(a)" /></p>
+</div><p>We used the fact that <img class="math" src="../../_images/math/16a86920e52e3f77377205cf833293d5dea74985.png" alt="\lim_{r\to0} r^2 R'(r) = 0"/>. If we also prescribe the
+boundary condition <img class="math" src="../../_images/math/214a0897311ce98e3677ac98b798941a867bf648.png" alt="R'(a)=0"/>, then the boundary term vanishes completely. The
+weak formulation is then:</p>
+<div class="math">
+<p><img src="../../_images/math/4ed20aadeee6981f8723fbd27b66c07504319d93.png" alt="\int_0^a {1\over2}R'(r)v'(r)r^2+ \left(V+{l(l+1)\over2r^2}\right)R(r)v(r)r^2\,\d r = E\int_0^aR(r)v(r)r^2\,\d r" /></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../_images/math/ba390037d5cbd41e652c880855a58c089c88afff.png" alt="\int_0^a {1\over2}R'(r)v'(r)r^2+ V(r)R(r)v(r)r^2+{l(l+1)\over2} R(r)v(r)\,\d r = E\int_0^aR(r)v(r)r^2\,\d r" /></p>
+</div><div class="section" id="another-approach">
+<h3>Another approach<a class="headerlink" href="#another-approach" title="Permalink to this headline">¶</a></h3>
+<p>Another (equivalent) approach is to write a weak formulation for
+the 3D problem in cartesian coordinates:</p>
+<div class="math">
+<p><img src="../../_images/math/7f7fd2bae7b0e68844d075770bd56fc57cfd4aeb.png" alt="\int_\Omega{1\over2}\nabla\psi({\bf x})\nabla v({\bf x})+V(r)\psi({\bf x})v({\bf x})\,\d^3 x =E\int_\Omega\psi({\bf x})v({\bf x})\,\d^3 x" /></p>
+</div><p>and only then transform to spherical coordinates:</p>
+<div class="math">
+<p><img src="../../_images/math/d8364b1a25edb11e5b250f04b2997ce132c9f3f7.png" alt="\int_0^{2\pi}\d\varphi\int_0^\pi\d\theta\int_0^a\d r \left({1\over2}\nabla\psi({\bf x})\nabla v({\bf x})+V(r)\psi({\bf x})v({\bf x})\right)r^2\sin\theta=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/fbe24cbd2b2dd2b6ba1d1059a9331cbc6bf8c3fb.png" alt="= E\int_0^{2\pi}\d\varphi\int_0^\pi\d\theta\int_0^a\d r\, \psi({\bf x})v({\bf x})r^2\sin\theta" /></p>
+</div><p>The 3d eigenvectors <img class="math" src="../../_images/math/39427b0232c536b6c58b81b3207f800361ece869.png" alt="\psi({\bf x})"/> however are not spherically symmetric.
+Nevertheless we can still proceed by choosing our basis as</p>
+<div class="math">
+<p><img src="../../_images/math/a421d7bb0d0194e622c64a7c07f23181fb9a2c99.png" alt="v_{ilm}({\bf x})=\phi_{il}(r)Y_{lm}(\theta, \varphi)" /></p>
+</div><p>and seek our solution as</p>
+<div class="math">
+<p><img src="../../_images/math/6d71a294edb4dd0ea19a42cae9edf1284b228ddb.png" alt="\psi({\bf x})=\sum_{jlm}y_{jlm}\phi_{jl}(r)Y_{lm}(\theta, \varphi)" /></p>
+</div><p>Using the properties of spherical harmonics and the gradient:</p>
+<div class="math">
+<p><img src="../../_images/math/49591e6f231b59a1233fdbe0929c9f86208fc7dd.png" alt="\int Y_{lm} Y_{l'm'} \sin\theta\,\d\theta\,\d\varphi= \delta_{ll'}\delta_{mm'}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/3b0adfca9dab32f798e335920993f5522fedd41f.png" alt="\int r^2\nabla Y_{lm} \nabla Y_{l'm'} \sin\theta\,\d\theta\,\d\varphi= l(l+1)\delta_{ll'}\delta_{mm'}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/dd737c60ab3b6eeed99b469a5d15d2fa302c39e2.png" alt="\nabla f = {\partial f\over \partial r}\boldsymbol{\hat r} + {1\over r} {\partial f\over\partial\theta}\boldsymbol{\hat\theta}+{1\over r\sin\theta} {\partial f\over\partial\phi}\boldsymbol{\hat\phi}" /></p>
+</div><p>the weak formulation becomes:</p>
+<div class="math">
+<p><img src="../../_images/math/07a16d477e5f4f6353937185c6ded60749cb3c55.png" alt="\left(\int_0^a {1\over2}r^2\phi_{il}'(r)\phi_{jl}'(r)+ {1\over2}X+ {l(l+1)\over2}\phi_{il}(r)\phi_{jl}(r)+ r^2V(r)\phi_{il}(r)\phi_{jl}(r)\,\d r\right)y_{jlm}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/25d11159ae7c90e36bc67673213f93174b78562f.png" alt="= E\int_0^ar^2 \phi_{il}(r)\phi_{jl}(r)\,\d r\ y_{jlm}" /></p>
+</div><p>where both <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> and <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> indices are given by the indices of the particular base
+function <img class="math" src="../../_images/math/4afc1bdcce2ed02d004a333ac9c98d1a80ef12e4.png" alt="v_{ilm}"/>. The <img class="math" src="../../_images/math/6a47ca0fe7cb276abc022af6ac88ddae1a9d6894.png" alt="X"/> term is (schematically):</p>
+<div class="math">
+<p><img src="../../_images/math/0c411d72d2162026130dbf8d4e3b28a584085cda.png" alt="X=\int r^2\sin\theta(r)Y_{lm}(\theta,\varphi) (\phi_{il}\nabla\phi_{jl}+\nabla\phi_{il}\phi_{jl}) \nabla Y_{lm}" /></p>
+</div><p>There is an interesting identity:</p>
+<div class="math">
+<p><img src="../../_images/math/03242e91900c64a0b09738ab8eaa9136208b33a7.png" alt="\int r{\bf \hat r} Y_{lm} \nabla Y_{l'm'} \sin\theta\,\d\theta\,\d\varphi= 0" /></p>
+</div><p>But it cannot be applied, because we have one more <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> in the expression.
+Nevertheless the term is probably zero, as can be seen when we compare the weak
+formulation to the one we got directly from the radial equation.</p>
+</div>
+<div class="section" id="how-not-to-derive-the-weak-formulation">
+<h3>How Not To Derive The Weak Formulation<a class="headerlink" href="#how-not-to-derive-the-weak-formulation" title="Permalink to this headline">¶</a></h3>
+<p>If we forgot that we have to integrate covariantly, this section is devoted
+to what happens if we integrate using the coordinate integration. We would get:</p>
+<div class="math">
+<p><img src="../../_images/math/4ff74d94d459d48841d4dbcbbd6228ecd69c8f5b.png" alt="\int_0^a {1\over2}R'(x)v'(x)-{1\over r}R'(x)v(x)+ \left(V+{l(l+1)\over2r^2}\right)R(x)v(x)\,\d x = E\int_0^aR(x)v(x)\,\d x" /></p>
+</div><p>Notice the matrix on the left hand side is not symmetric. There is another way
+of writing the weak formulation by applying per-partes to the <img class="math" src="../../_images/math/9618dbc8949da41eef1859312ef97f2c6226f206.png" alt="R'(r)v(r)"/> term:</p>
+<div class="math">
+<p><img src="../../_images/math/55aaea3aaddebd07e0a39b4dd0230032e9986b15.png" alt="-\int_0^a{1\over r}R'(x)v(x)\d x=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/6ab2bc7fa0e332dddc45cd8a37a580e1ccda4355.png" alt="=\int_0^a{1\over r}R(x)v'(x)\d x -\int_0^a{1\over r^2}R(x)v(x)\d x -\left[{1\over r}R'(x)v'(x)\right]_0^a +\left[{1\over r^2}R'(x)v(x)\right]_0^a" /></p>
+</div><p>We can use <img class="math" src="../../_images/math/90524d29f191af7e44387ce6d2ea691fcad406f8.png" alt="v(a)=0"/> and <img class="math" src="../../_images/math/214a0897311ce98e3677ac98b798941a867bf648.png" alt="R'(a)=0"/> to simplify a bit:</p>
+<div class="math">
+<p><img src="../../_images/math/55aaea3aaddebd07e0a39b4dd0230032e9986b15.png" alt="-\int_0^a{1\over r}R'(x)v(x)\d x=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/852447d7800663de7d8fc6dbcdc9826ac433984c.png" alt="=\int_0^a{1\over r}R(x)v'(x)\d x -\int_0^a{1\over r^2}R(x)v(x)\d x +\lim_{r\to0}\left({R'(x)v'(x)\over r}-{R'(x)v(x)\over r^2}\right)" /></p>
+</div><p>Since <img class="math" src="../../_images/math/b46a79218c1a9c310a97d85d1b290abe2c0c195f.png" alt="R(x)\sim r^l"/> near <img class="math" src="../../_images/math/400365c088499af977542271fc6363b086a63499.png" alt="r=0"/>, we can see that for <img class="math" src="../../_images/math/1d75710ac9a96ebe47e18481e05c21b11b20cda3.png" alt="l\ge3"/> the limits
+on the right hand side are zero, but for <img class="math" src="../../_images/math/ba7de5c9838cd02feb999adaa6643f3ae4303b7e.png" alt="l=0, 1, 2"/> they are not zero and need
+to be taken into account. Let&#8217;s assume <img class="math" src="../../_images/math/1d75710ac9a96ebe47e18481e05c21b11b20cda3.png" alt="l\ge3"/> for now, then our weak formulation looks like:</p>
+<div class="math">
+<p><img src="../../_images/math/ae7a67e3e84d801fc2fe8485720e1eb818e9239d.png" alt="\int_0^a {1\over2}R'(x)v'(x)+{1\over r}R(x)v'(x)+ \left(V+{l(l+1)\over2r^2}-{1\over r^2}\right)R(x)v(x)\,\d x = E\int_0^aR(x)v(x)\,\d x" /></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../_images/math/95d65aedadccf6dcae31c245552b59ecf7847474.png" alt="\int_0^a {1\over2}R'(x)v'(x)+{1\over r}R(x)v'(x)+ \left(V+{(l-2)(l+1)\over2r^2}\right)R(x)v(x)\,\d x = E\int_0^aR(x)v(x)\,\d x" /></p>
+</div><p>The left hand side is also not symmetric, however we can now take an average of
+our both weak formulations to get a symmetric weak formulation:</p>
+<div class="math">
+<p><img src="../../_images/math/3b4228b93e7da2d2ed718f1f40fcfa7253c8f6d2.png" alt="\int_0^a {1\over2}R'(x)v'(x)+{R(x)v'(x)-R'(x)v(x)\over 2r}+ \left(V+{l(l+1)-1\over2r^2}\right)R(x)v(x)\,\d x =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/afb88b263717c00b0479ceae5ec3a6a950c283ef.png" alt="= E\int_0^aR(x)v(x)\,\d x" /></p>
+</div><p>Keep in mind, that this symmetric version is only correct for <img class="math" src="../../_images/math/1d75710ac9a96ebe47e18481e05c21b11b20cda3.png" alt="l\ge3"/>. For
+<img class="math" src="../../_images/math/03982b637b637bfdd3496cbe39deee5169a10077.png" alt="l&lt;3"/> we need to use our first nonsymmetric version.</p>
+<p>As you can see, this is something very different to what we got in the previous
+section. First there were lots of technical difficulties and second the final
+result is wrong, since it doesn&#8217;t correspond to the 3D Schrödinger equation.</p>
+</div>
+<div class="section" id="scattering-in-radial-potential">
+<h3>Scattering in radial potential<a class="headerlink" href="#scattering-in-radial-potential" title="Permalink to this headline">¶</a></h3>
+<p>If <img class="math" src="../../_images/math/c16a277f21eab912af3b32d23e641e18398a6477.png" alt="V=0"/>, the radial equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/8d4b27b504ea151a042271eda5b97df11fa17317.png" alt="-{1\over2}R''(r)-{1\over r}R'(r)+{l(l+1)\over2r^2} R(r)=ER(r)" /></p>
+</div><p>The general solution is a linear combination of the spherical Bessel functions
+<img class="math" src="../../_images/math/ac9305860d2b8bcf7c26a97395f47874fc8d8052.png" alt="j_l(kr)"/> and <img class="math" src="../../_images/math/7a23588aee20988e52ab3f97047e3b70cc9e61c1.png" alt="n_l(kr)"/>, whose asymptotic expansion for <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/> is:</p>
+<div class="math">
+<p><img src="../../_images/math/756afa9acb92822a887eb824423a97869ffc9da8.png" alt="j_l(kr)\to{1\over kr}\sin\left(kr-{l\pi\over 2}\right)
+
+n_l(kr)\to{1\over kr}\cos\left(kr-{l\pi\over 2}\right)" /></p>
+</div><p>so we get for large <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/b28c1cb44be451d16f295aede858d6310e0518a2.png" alt="R_l(kr) = A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
+    + B_l{1\over kr}\cos\left(kr-{l\pi\over 2}\right) =
+
+= \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
+= C_l {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/1430744b8393bbcf90b831609baa6fa29e9af8a3.png" alt="\delta_l = \atan2(B_l, A_l)
+
+C_l = \sqrt{A_l^2 + B_l^2}" /></p>
+</div><p>We can then compare this to <img class="math" src="../../_images/math/a234d128ca652ba34fb3857f8296b39f6c08d56e.png" alt="\phi \approx e^{ikz} + f(\theta, \phi)
+{e^{ikr}\over r}"/>, by expanding <img class="math" src="../../_images/math/2b95b34ccbfbf178baf85e95aa62c502533803a5.png" alt="e^{ikz} = e^{ikr\cos\theta}=
+\sum (2l+1) i^l j_l(kr)P_l(\cos\theta)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/cc158e18f4545e5e7b95aa40e43d8d50505e3040.png" alt="C_l = {e^{i\delta_l}\over k}
+
+f(\theta, \phi) = {1\over 2ik} \sum (2l+1)(e^{2i\delta_l}-1)P_l(\cos\theta)" /></p>
+</div><p>Since <img class="math" src="../../_images/math/97c26ede8c2d616787aa5e6c5a74322c36417542.png" alt="\sigma(\theta) = |f(\theta)|^2"/> and integrating over <img class="math" src="../../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/> we get the
+total cross section:</p>
+<div class="math">
+<p><img src="../../_images/math/acf86b18e5b2731a6be439b8efa7e57f7ce73b29.png" alt="\sigma = {4\pi\over k}\sum (2l+1)\sin^2\delta_l" /></p>
+</div><p>In order to find the phase shifts <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/>, we solve the radial equation for
+the full potential</p>
+<div class="math">
+<p><img src="../../_images/math/c908f4552dbe43655d97fe3719d516de3ff1bd74.png" alt="-{1\over2}R''(r)-{1\over r}R'(r)+\left(V+{l(l+1)\over2r^2}\right)R(r)=ER(r)" /></p>
+</div><p>and then fit it to the above asymptotic solution for V=0. We require that the
+value and the slope must be continuous. In particular, we take the logarithmic
+derivative (<img class="math" src="../../_images/math/e4044014c380157ef0a37f66ab407974a07a167a.png" alt="(\log u)'={u'\over u}"/>) at the point <img class="math" src="../../_images/math/0d29ba05fb7937308e298672ed6a611d46835e44.png" alt="r=a"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/c724fe6c3d8cf555d890f7e58db62c6cd0539e11.png" alt="\gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a} =
+\left.{\d\over\d r} \log R_l(kr)\right|_{r=a}" /></p>
+</div><p>expressing <img class="math" src="../../_images/math/89fe326bc3164420d0f8d0273d99ff6bda5b56d4.png" alt="R_l(kr)"/> using <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> and solving for it we get:</p>
+<div class="math">
+<p><img src="../../_images/math/281404456c38ba10980cd795116915e67df8c5c2.png" alt="\tan\delta_l = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l
+    n_l(ka)}" /></p>
+</div><p>Now we can use these <img class="math" src="../../_images/math/b72a91780b3db1cee1bd0d385cdc4fbfad2bda64.png" alt="\delta_l"/> in the formula for the total cross section.</p>
+<p>The problem can now be formulated in two ways. Either to solve the radial
+equation for a potential with finite reach and then &#8220;measure&#8221; those phase
+shifts in the solution. Or by prescribing those phase shifts and we now need to
+calculate the solutions (e.g. the energies) from the radial equation.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Examples</a><ul>
+<li><a class="reference external" href="#two-particles-in-harmonic-potential">Two Particles in Harmonic Potential</a></li>
+<li><a class="reference external" href="#quantum-harmonic-oscillator">Quantum Harmonic Oscillator</a></li>
+<li><a class="reference external" href="#radial-schrodinger-equation">Radial Schrödinger Equation</a><ul>
+<li><a class="reference external" href="#another-approach">Another approach</a></li>
+<li><a class="reference external" href="#how-not-to-derive-the-weak-formulation">How Not To Derive The Weak Formulation</a></li>
+<li><a class="reference external" href="#scattering-in-radial-potential">Scattering in radial potential</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="qm.html"
+                                  title="previous chapter">Quantum Mechanics</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="radial.html"
+                                  title="next chapter">Radial Schrödinger and Dirac Equations</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/src/quantum/examples.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="radial.html" title="Radial Schrödinger and Dirac Equations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="qm.html" title="Quantum Mechanics"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>

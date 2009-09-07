@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Radial Schrödinger and Dirac Equations &mdash; Theoretical Physics Reference v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Quantum Field Theory and Quantum Mechanics" href="main.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="Examples"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="radial-schrodinger-and-dirac-equations">
+<h1>Radial Schrödinger and Dirac Equations<a class="headerlink" href="#radial-schrodinger-and-dirac-equations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="variational-formulation-of-the-schrodinger-equation">
+<h2>Variational Formulation of the Schrödinger equation<a class="headerlink" href="#variational-formulation-of-the-schrodinger-equation" title="Permalink to this headline">¶</a></h2>
+<p>Lagrangian is:</p>
+<div class="math">
+<p><img src="../../_images/math/721d1cd40f6ef736d824d19308343fbdef42166d.png" alt="\L(\psi) = \half (\nabla \psi)^2 + V(x) \psi^2(x)" /></p>
+</div><p>Subject to the normalization constrain:</p>
+<div class="math">
+<p><img src="../../_images/math/8a57e44499a920eaeda62ef856431a780208a469.png" alt="N[\psi] = \int|\psi(x)|^2 \d^3 x - 1 = 0" /></p>
+</div><p>The action is:</p>
+<div class="math">
+<p><img src="../../_images/math/dfb60cb45cbd9d3188b8a89723b2a08584df6635.png" alt="S[\psi] = \int \L \d^3 x" /></p>
+</div><p>Variating it (subject to the normalization condition) we get:</p>
+<div class="math">
+<p><img src="../../_images/math/614af278f06146d976e78d2d7502b99e92be0f94.png" alt="0 = \delta (S - \epsilon N) =
+\delta\int\half (\nabla \psi)^2 + V(x) \psi^2(x) \d^3x
+ - \epsilon \left(\int|\psi(x)|^2 \d^3 x - 1\right)
+=
+
+= \int (\nabla \psi)\cdot(\nabla\delta\psi) + 2 V \psi \delta \psi
+        -2\epsilon\psi\delta\psi\d^3 x
+
+= 2\int \left(-\half\nabla^2 \psi + V \psi - \epsilon\psi\right) \delta \psi
+        \d^3 x + \int ({\bf n}\cdot\nabla\psi) \delta \psi\, \d^2 x" /></p>
+</div><p>Which gives the Schrödinger equation assuming the surface integral vanishes.</p>
+<p>Note: to apply the variation <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> correctly, one uses the definition:</p>
+<div class="math">
+<p><img src="../../_images/math/5811514056d66a702a585488c2c4b37f0a0508a8.png" alt="\delta F[\psi] \equiv \left.{\d\over\d\epsilon}F[\psi + \epsilon \delta\psi]
+    \right|_{\epsilon=0}" /></p>
+</div><div class="section" id="weak-formulation">
+<h3>Weak Formulation<a class="headerlink" href="#weak-formulation" title="Permalink to this headline">¶</a></h3>
+<p>The weak formulation is obtained from the above by substituting <img class="math" src="../../_images/math/d77d09b10e93fc3a5764ac81658b777b3980e2d6.png" alt="\delta\psi
+\to v"/> (the test function) so we get:</p>
+<div class="math">
+<p><img src="../../_images/math/f15a801bc363c9112995b83b0f591a19b34e483e.png" alt="\int \half(\nabla \psi)\cdot(\nabla v) + V \psi v - \epsilon\psi v\,\d^3 x" /></p>
+</div></div>
+</div>
+<div class="section" id="radial-schrodinger-equation">
+<h2>Radial Schrödinger equation<a class="headerlink" href="#radial-schrodinger-equation" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways to obtain the radial Schrödinger equation. Either from the
+Lagrangian, or from the equation itself.</p>
+<div class="section" id="from-the-equation">
+<h3>From the Equation<a class="headerlink" href="#from-the-equation" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/9a99e5785941127e99898b6510f3babc287a260a.png" alt="-{1\over2}\nabla^2\psi({\bf x})+V(r)\psi({\bf x})=E\psi({\bf x})" /></p>
+</div><p>The way to solve it is to separate the equation into radial and angular parts
+by writing the Laplace operator in spherical coordinates as:</p>
+<div class="math">
+<p><img src="../../_images/math/36462eaf2e26a2615f8aa6ae0da6bde8479882aa.png" alt="\nabla^2f =  {\partial^2 f\over\partial\rho^2} +{2\over \rho}{\partial^2 f\over\partial\rho^2} -{L^2 f\over \rho^2}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/22488f3355ae5d94741f4f3820b52f779caa6076.png" alt="L^2= -{\partial^2\over\partial\theta^2} -{1\over\sin^2\theta}{\partial^2\over\partial\phi^2} -{1\over\tan\theta}{\partial\over\partial\theta}" /></p>
+</div><p>Substituting <img class="math" src="../../_images/math/847f4d3192a254337910997c4f8b79ba9a3bee83.png" alt="\psi({\bf x})=R(\rho)Y(\theta,\phi)"/> into the Schrödinger equation
+yields:</p>
+<div class="math">
+<p><img src="../../_images/math/c07df1421aaac2e00f2f103ce5d654cd5daaee06.png" alt="-{1\over2}\nabla^2(RY)+VRY=ERY" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0209ce7d90e4cc3254b790d9027f046fff25fce5.png" alt="-{1\over2}R''Y-{1\over\rho}R'Y+{L^2RY\over2\rho^2}+VRY=ERY" /></p>
+</div><p>Using the fact that <img class="math" src="../../_images/math/2ee2007d23bca231e88ad0a053ee9e679add787f.png" alt="L^2Y=l(l+1)Y"/> we can cancel <img class="math" src="../../_images/math/ce58e4af225c93d08606c26554caaa5ae32edeba.png" alt="Y"/> and we get the radial
+Schrödinger equation:</p>
+<div class="math">
+<p><img src="../../_images/math/996c94b9ddfc634fcea0c2c1650f72c97f1efca5.png" alt="-{1\over2}R''-{1\over\rho}R'+{l(l+1)R\over2\rho^2}+VR=ER" /></p>
+</div></div>
+<div class="section" id="from-the-lagrangian">
+<h3>From the Lagrangian<a class="headerlink" href="#from-the-lagrangian" title="Permalink to this headline">¶</a></h3>
+<p>We need to convert the Lagrangian to spherical coordinates. In order to easily
+make sure we do things covariantly, we start from the action (which is a
+scalar):</p>
+<div class="math">
+<p><img src="../../_images/math/313dd6c0804c009ed082fe9f1e1cd7c155e76404.png" alt="S[\psi] = \int \half (\nabla \psi)^2 + V(x) \psi^2(x) \, \d^3 x =
+
+= \int (\half (\nabla (RY))^2 + V (RY)^2  )\rho^2\d \rho \d\Omega =
+
+= \int (\half (R'^2Y^2 + R^2(\nabla Y)^2 + 2RR'({\bf\hat\rho}Y)\cdot\nabla Y) + V (RY)^2  )\rho^2\d \rho \d\Omega =
+
+= \int \left(\half \left(R'^2 + R^2{l(l+1)\over\rho^2}\right) + V R^2\right)\rho^2\d \rho =
+
+= \int \half \rho^2 R'^2 + (\rho^2 V + \half l(l+1)) R^2\,\d \rho =" /></p>
+</div><p>where we used the following properties of spherical harmonics:</p>
+<div class="math">
+<p><img src="../../_images/math/acba9632431c467b3d08af77aeeeb7d51c50683d.png" alt="\int Y^2\d\Omega = 1
+
+\int \rho^2 (\nabla Y)^2\d\Omega = l(l+1)
+
+(Y{\bf \hat \rho})\cdot(\rho \nabla Y) = 0" /></p>
+</div><p>We now minimize the action (subject to the normalization <img class="math" src="../../_images/math/7b13ac9bd85debff44e5761b2c57647ae05099d6.png" alt="\int \rho^2 R^2\d\rho
+= 1"/>) to obtain the radial equation:</p>
+<div class="math">
+<p><img src="../../_images/math/e049d62930ffc8cffadaf2015a7e7637bc050fd1.png" alt="0 = \delta (S - \epsilon N) = \delta
+\int \half \rho^2 R'^2 + (\rho^2 V + \half l(l+1)) R^2 - \epsilon \rho^2R^2
+    \,\d \rho =
+
+= 2\int \half \rho^2 R'(\delta R)' + (\rho^2 V + \half l(l+1)) R\delta R -
+\epsilon \rho^2 R\delta R \,\d \rho =
+
+= 2\int \left( (-\half \rho^2 R')' + (\rho^2 V + \half l(l+1)) R - \epsilon \rho^2
+R\right)\delta R \,\d \rho + [\rho^2 R' \delta R]^a_b" /></p>
+</div><p>So the radial equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/b08af844fbe7ddf20ed3a58e626a4d55c9cd1a1c.png" alt="(-\half \rho^2 R')' + (\rho^2 V + \half l(l+1)) R = \epsilon \rho^2 R" /></p>
+</div><p>In agreement with the previous result.</p>
+</div>
+<div class="section" id="id1">
+<h3>Weak Formulation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The weak formulation is obtained from the action above by substituting <img class="math" src="../../_images/math/6f7d7b3a5fbc8830bc982fe3af75c3ccc3da5659.png" alt="\delta R
+\to v"/> (the test function) so we get:</p>
+<div class="math">
+<p><img src="../../_images/math/606b4ddbae6045717140426f789e490196729b53.png" alt="\int \half \rho^2 R'v' + (\rho^2 V + \half l(l+1)) Rv\,\d\rho =
+\epsilon \int \rho^2 Rv \,\d \rho" /></p>
+</div><p>We can also start from the equation itself, multiply by a test function <img class="math" src="../../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/00f1d774d7276b98bdffc5dfbecca2aa19a42513.png" alt="(-\half \rho^2 R')'v + (\rho^2 V + \half l(l+1)) Rv = \epsilon \rho^2 Rv" /></p>
+</div><p>We integrate it. Normally we need to be using <img class="math" src="../../_images/math/2dd5025c5c8d6835b72a73acaaec0cfdbdfcdad3.png" alt="\rho^2\d\rho"/> in order to
+integrate covariantly, but the above equation was already multiplied by
+<img class="math" src="../../_images/math/0a7307d7d5c75d4169687d4b9849e4643a5857ab.png" alt="\rho^2"/> (i.e. strictly speaking, it is not coordinate independent anymore), so
+we only integrate by <img class="math" src="../../_images/math/8e096181b736016970f1c68075402cc14f9cb20c.png" alt="\d\rho"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/361724714e4fe956518357deac21e9c614665b97.png" alt="\int (-\half \rho^2 R')'v + (\rho^2 V + \half l(l+1)) Rv \d\rho =
+    \epsilon \int \rho^2 Rv \d\rho" /></p>
+</div><p>After integration by parts:</p>
+<div class="math">
+<p><img src="../../_images/math/deee3e64e8d3e4288999a133ac30498203aace43.png" alt="\int \half \rho^2 R'v' + (\rho^2 V + \half l(l+1)) Rv \d\rho
+    -\half[\rho^2R'v]_0^a
+=
+    \epsilon \int \rho^2 Rv \d\rho" /></p>
+</div><p>Where <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/> is the end of the domain (the origin is at <img class="math" src="../../_images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/>).
+The boundary term is zero at the origin, so we get:</p>
+<div class="math">
+<p><img src="../../_images/math/f77540044c808f8cfd4101e025cef9f31b8125c2.png" alt="\int \half \rho^2 R'v' + (\rho^2 V + \half l(l+1)) Rv \d\rho
+    +\half\rho^2R'(a)v(a)
+=
+    \epsilon \int \rho^2 Rv \d\rho" /></p>
+</div><p>We usually want to have the boundary term <img class="math" src="../../_images/math/0bf5200cea387740fdd88ee4703ff62312841989.png" alt="\half\rho^2R'(a)v(a)"/> equal to zero.
+This is equivalent to either letting <img class="math" src="../../_images/math/db588480c15ab9b5c6714760a82bf96c3d0ee8b6.png" alt="R'(a) = 0"/> (we prescribe the zero
+derivative of the radial wave function at <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>) or we set <img class="math" src="../../_images/math/90524d29f191af7e44387ce6d2ea691fcad406f8.png" alt="v(a)=0"/> (which
+corresponds to zero Dirichlet condition for <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, i.e. setting <img class="math" src="../../_images/math/66663210d163676bfca995aac78bea49667b05a6.png" alt="R(a)=0"/>).</p>
+<p>We can also write all the formulas using the Dirac notation:</p>
+<div class="math">
+<p><img src="../../_images/math/d34883587d27665162591f8691dcbfef719a27b4.png" alt="\one = \int \d\rho \rho^2 \ket{\rho}\bra{\rho}
+
+\braket{\rho|\rho'} = {\delta(\rho-\rho')\over \rho^2}
+
+\braket{\rho|R} = R(\rho)
+
+\braket{\rho|\hat H|R} =
+    {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
+
+\hat H \ket{R} = E\ket{R}" /></p>
+</div><p>Then normalization is:</p>
+<div class="math">
+<p><img src="../../_images/math/b50348bf5b8b7df38505c5de3afe7aa2c092588c.png" alt="\braket{R|R} = \int \d\rho \rho^2 \braket{R|\rho}\braket{\rho|R} =
+    \int \d\rho \rho^2 R^2(\rho)" /></p>
+</div><p>The operator <img class="math" src="../../_images/math/473482876719b62a988901b692323627454218bc.png" alt="\hat H"/> can be written as:</p>
+<div class="math">
+<p><img src="../../_images/math/8fd40b975c7fd21a66f4054ebfe2944b56be00e5.png" alt="\braket{\rho|\hat H|\rho'} = \braket{\rho|\rho'}\left(
+    -\half{1\over\rho^2}{\d\over\d\rho}\left(\rho^2{\d\over\d\rho}\right)
+    + (V + \half {l(l+1)\over\rho^2})
+    \right)" /></p>
+</div><p>so to recover the above formula, we do:</p>
+<div class="math">
+<p><img src="../../_images/math/8f07ce29f02dcf72823882c54a87f9eb3e5a5cc7.png" alt="\braket{\rho|\hat H| R} = \int\d\rho'\rho'^2\braket{\rho|\hat H|\rho'}
+    \braket{\rho'|R}=
+
+=\int\d\rho'\rho'^2
+{\delta(\rho-\rho')\over \rho^2}
+\left(
+    -\half{1\over\rho^2}{\d\over\d\rho}\left(\rho^2{\d\over\d\rho}\right)
+    + (V + \half {l(l+1)\over\rho^2})
+    \right)
+R(\rho')
+=
+    {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R" /></p>
+</div><p>Operator <img class="math" src="../../_images/math/473482876719b62a988901b692323627454218bc.png" alt="\hat H"/> is symmetric, because:</p>
+<div class="math">
+<p><img src="../../_images/math/28f2c0ab7d9f2435760f3041fcb14fb9709fb5c8.png" alt="\int f{1\over\rho^2}(\rho^2 g')' \rho^2\d\rho =
+\int {1\over\rho^2}(\rho^2 f')'g \rho^2\d\rho" /></p>
+</div><p>The weak formulation is:</p>
+<div class="math">
+<p><img src="../../_images/math/e0847633b9fa612c977a937c31beec4db9c994f2.png" alt="\braket{v|H|R} = E\braket{v|R}
+
+\int\d\rho\rho^2 \braket{v|\rho}\braket{\rho|H|R} = E
+    \int\d\rho\rho^2\braket{v|\rho}\braket{\rho|R}
+
+\int\d\rho\rho^2 v(\rho)\left(
+    {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
+\right) = E
+    \int\d\rho\rho^2v(\rho)R(\rho)" /></p>
+</div><p>and we obtain the FE formulation by expanding <img class="math" src="../../_images/math/05925298173fdc213b2408fe2cd306815c311152.png" alt="\ket{R} =\sum_j R_j \ket{j}"/>
+(note that the basis <img class="math" src="../../_images/math/99c55d53dd40342bc9ec3f8b7db188b299a4a682.png" alt="\ket{j}"/> is not orthogonal, so in particular <img class="math" src="../../_images/math/b49a670b187c03e94c975c72b681feb3dcd24b49.png" alt="\sum_j
+\ket{j}\bra{j} \neq 1"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/608f958dbce29bc0699e366bb0cdf409fc7fd1d6.png" alt="\sum_j\braket{i|H|j}R_j = E\sum_j\braket{i|j}R_j" /></p>
+</div><p>This is a generalized eigenvalue problem.
+In the special case of an orthonormal basis, <img class="math" src="../../_images/math/4d2f0be0becced525df6ebe6b1054830f852dc03.png" alt="\braket{i|j} = \delta_{ij}"/>
+(which FE is not), we get:</p>
+<div class="math">
+<p><img src="../../_images/math/3bfe99a87c385b0b73e80d16a69b718001bdef73.png" alt="\sum_j\braket{i|H|j}R_j = R_i
+
+R_i = \braket{i|R}" /></p>
+</div><p>Which is an eigenvalue problem.</p>
+</div>
+</div>
+<div class="section" id="variational-formulation-of-the-dirac-equation">
+<h2>Variational Formulation of the Dirac equation<a class="headerlink" href="#variational-formulation-of-the-dirac-equation" title="Permalink to this headline">¶</a></h2>
+<p>The QED Lagrangian density is</p>
+<div class="math">
+<p><img src="../../_images/math/bf3d7b68f0b9796871d4447ba7b0e61c501b0d0d.png" alt="\L=\bar\psi(i\hbar c\gamma^\mu D_\mu-mc^2)\psi-{1\over4}F_{\mu\nu}F^{\mu\nu}" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/3b352ffe6b9ba8d2035d7576ad14b596de0f7677.png" alt="D_\mu=\partial_\mu+{i\over \hbar}eA_\mu
+
+F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu" /></p>
+</div><p>We will treat the fields as classical fields, so we get the classical wave
+Dirac equation, after plugging this Lagrangian into the Euler-Lagrange equation
+of motion:</p>
+<div class="math">
+<p><img src="../../_images/math/506f1170782c05203b1db5ce4f309f3cb30c3ce2.png" alt="(i\hbar c\gamma^\mu D_\mu-mc^2)\psi=0
+
+\partial_\nu F^{\nu\mu}=-ec\bar\psi\gamma^\mu\psi" /></p>
+</div><p>Notice that the Lagrangian happens to be zero for the solution of Dirac
+equation (e.g. the extremum of the action). This has nothing to do with the
+variational principle itself, it&#8217;s just a coincindence.</p>
+<p>In this section we are only interested in the Dirac equation, so we write the
+Lagrangian as:</p>
+<div class="math">
+<p><img src="../../_images/math/86d1ae9da996a1ff93873dd5c09260a355cca7f9.png" alt="\L=\bar\psi(i\hbar c\gamma^\mu D_\mu-mc^2)\psi =
+
+=\psi^\dag\gamma^0(i\hbar c\gamma^\mu D_\mu-mc^2)\psi=
+
+=\psi^\dag\gamma^0(i\hbar c\gamma^0(\partial_0+{i\over\hbar}eA_0)+ic\gamma^i (\partial_i+{i\over\hbar}eA_i)-mc^2)\psi=
+
+=\psi^\dag(i\hbar c\partial_0+i\hbar c\gamma^0\gamma^i\partial_i-\gamma^0mc^2-ceA_0 -ce\gamma^0\gamma^iA_i)\psi=
+
+=\psi^\dag(i\hbar{\partial\over\partial t}+c\alpha^i p_i-\beta mc^2-ceA_0-ce\alpha^iA_i)\psi=
+
+=-\psi^\dag(-i\hbar{\partial\over\partial t}+c\alpha^i (-p_i+eA_i)+\beta mc^2+ceA_0)\psi=
+
+=-\psi^\dag(-i\hbar{\partial\over\partial t}+c{\boldsymbol\alpha}\cdot({\bf p}-e{\bf A})+\beta mc^2+V)\psi" /></p>
+</div><p>where we introduced the potential by <img class="math" src="../../_images/math/a82d1625ae72d93406d3dcdd9130515eab375a95.png" alt="V = c e A_0"/>. We also could have done the
+same manipulation to the dirac equation itself and we would get the same
+expression:</p>
+<div class="math">
+<p><img src="../../_images/math/7872aedd5afb8d14e06c6cd2b34207f77a9ee494.png" alt="(-i\hbar{\partial\over\partial t}+c{\boldsymbol\alpha}\cdot({\bf p}-e{\bf A})+\beta mc^2+V)\psi = 0" /></p>
+</div><p>The corresponding eigenvalue problem is:</p>
+<div class="math">
+<p><img src="../../_images/math/78096d53b8a13b6b0b9af82e6c6fcbd50fa3bd38.png" alt="(c{\boldsymbol\alpha}\cdot({\bf p}-e{\bf A})+\beta mc^2+V)\psi = W\psi" /></p>
+</div></div>
+<div class="section" id="radial-dirac-equation">
+<h2>Radial Dirac equation<a class="headerlink" href="#radial-dirac-equation" title="Permalink to this headline">¶</a></h2>
+<p>As for the Schrödinger equation, there are two ways to obtain the radial Dirac
+equation. Either from the Lagrangian, or from the equation itself.</p>
+<div class="section" id="id2">
+<h3>From the Equation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The manipulations are well known, one starts by writing the Dirac spinors using
+the spin angular functions and radial components <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> and <img class="math" src="../../_images/math/9866e3a998d628ba0941eb4fea0666ac391d149a.png" alt="Q"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/ae5a331bfe0f514f6fb6e1b88b1f065a36665472.png" alt="\psi = \left(\begin{array}{c}{P\over\rho}\chi^{j_3}_\kappa\\
+    i{Q\over\rho}\chi^{j_3}_{-\kappa}\end{array}\right)
+
+\psi^\dag = \left(\begin{array}{cc}{P\over\rho}\chi^{j_3}_\kappa &amp;
+    -i{Q\over\rho}\chi^{j_3}_{-\kappa}\end{array}\right)" /></p>
+</div><p>and putting this into the Dirac equation one obtains:</p>
+<div class="math">
+<p><img src="../../_images/math/404b0e1a961c2e58ea9575538e2e6aa409d27138.png" alt="\left(\begin{array}{cc}
+    \left(-\hbar c \left({\d\over\d\rho} - {\kappa\over\rho}\right)Q + (V+mc^2-W)P\right)  &amp; 0\\
+    0 &amp; \left(\hbar c \left({\d\over\d\rho} + {\kappa\over\rho}\right)P + (V-mc^2-W)Q\right)
+    \end{array}\right)
+    \left(
+    \begin{array}{c}
+    {1\over \rho}\chi^{j_3}_\kappa \\
+    i{1\over\rho}\chi^{j_3}_{-\kappa}
+    \end{array}
+    \right)
+    =0" /></p>
+</div><p>So one obtains the following radial equations:</p>
+<div class="math">
+<p><img src="../../_images/math/26e1285c494c343d2a39d1dccbb91896b6462563.png" alt="-\hbar c \left({\d\over\d\rho} - {\kappa\over\rho}\right)Q + (V+mc^2-W)P=0
+
+\hbar c \left({\d\over\d\rho} + {\kappa\over\rho}\right)P + (V-mc^2-W)Q=0" /></p>
+</div></div>
+<div class="section" id="id3">
+<h3>From the Lagrangian<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>We can reuse the calculations from the previous sections, because the Lagrangian
+happens to be zero for the solution of the Dirac equation:</p>
+<div class="math">
+<p><img src="../../_images/math/042fb9d61ef26a98be386b7fa81ec9d5b51def8f.png" alt="\L=\bar\psi(i\hbar c\gamma^\mu D_\mu-mc^2)\psi =
+
+=-\psi^\dag(-i\hbar{\partial\over\partial t}+c{\boldsymbol\alpha}\cdot({\bf
+    p}-e{\bf A})+\beta mc^2+V)\psi=
+
+=
+\left(\begin{array}{cc}{P\over\rho}\chi^{j_3}_\kappa &amp;
+    -i{Q\over\rho}\chi^{j_3}_{-\kappa}\end{array}\right)
+\left(\begin{array}{cc}
+    \left(-\hbar c \left({\d\over\d\rho} - {\kappa\over\rho}\right)Q + (V+mc^2)P\right)  &amp; 0\\
+    0 &amp; \left(\hbar c \left({\d\over\d\rho} + {\kappa\over\rho}\right)P + (V-mc^2)Q\right)
+    \end{array}\right)
+    \left(
+    \begin{array}{c}
+    {1\over \rho}\chi^{j_3}_\kappa \\
+    i{1\over\rho}\chi^{j_3}_{-\kappa}
+    \end{array}
+    \right)
+=
+
+=
+{1\over\rho^2}
+P
+\left(-\hbar c \left({\d\over\d\rho} - {\kappa\over\rho}\right)Q + (V+mc^2)P\right)
+\chi^{j_3}_\kappa\chi^{j_3}_\kappa
++
+{1\over\rho^2}
+Q
+\left(\hbar c \left({\d\over\d\rho} + {\kappa\over\rho}\right)P + (V-mc^2)Q\right)
+\chi^{j_3}_{-\kappa}\chi^{j_3}_{-\kappa}" /></p>
+</div><p>We can now write the action:</p>
+<div class="math">
+<p><img src="../../_images/math/52a54cf264c6e4b7f60ee8ecba7eac503eea2acd.png" alt="S = \int \L \,\rho^2 \,\d\rho\d\Omega" /></p>
+</div><p>the spin angular functions integrate to <img class="math" src="../../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/923b1dd6ffeab054c784cd167679149a637dacfb.png" alt="\int \chi^{j_3}_\kappa\chi^{j_3}_\kappa \d\Omega = 1
+
+\int \chi^{j_3}_{-\kappa}\chi^{j_3}_{-\kappa} \d\Omega = 1" /></p>
+</div><p>the <img class="math" src="../../_images/math/0a7307d7d5c75d4169687d4b9849e4643a5857ab.png" alt="\rho^2"/> cancels out and we
+get:</p>
+<div class="math">
+<p><img src="../../_images/math/93c146a46c042138a3c8f166f2c5f056b646fa01.png" alt="S[P, Q] = \int
+P
+\left(-\hbar c \left({\d\over\d\rho} - {\kappa\over\rho}\right)Q + (V+mc^2)P\right)
++
+Q
+\left(\hbar c \left({\d\over\d\rho} + {\kappa\over\rho}\right)P + (V-mc^2)Q\right)
+\,\d\rho=
+
+=\int -\hbar c(PQ' - QP') + \hbar c {2\kappa\over\rho} PQ +
+    V(P^2+Q^2) + m c^2 (P^2 - Q^2) \d\rho" /></p>
+</div><p>the normalization condition is:</p>
+<div class="math">
+<p><img src="../../_images/math/e44821cc984d21d6d636c5e3bcf3cdc5865af849.png" alt="N = \int P^2 + Q^2 \d\rho - 1 = 0" /></p>
+</div><p>and we can variate the action, we also shift the energy <img class="math" src="../../_images/math/8b3dfc24e5b0ae37bf98acaf8cca576b754e8bb5.png" alt="W=\epsilon + mc^2"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/64bc383d2101baf6f72b80fc95c781836ec1b621.png" alt="0 = \delta (S - W N) = \delta (S - \epsilon N - mc^2N)" /></p>
+</div><p>which effectively adds <img class="math" src="../../_images/math/19b667d822147aadb5a805a7cd9f285a101228f6.png" alt="-mc^2(P^2+Q^2)"/> into the Lagrangian, which changes the
+term <img class="math" src="../../_images/math/fcb7b110a5737cf75152c4ebb9fa17dc760bc358.png" alt="mc^2(P^2 - Q^2)"/> into <img class="math" src="../../_images/math/6c300a32befaaf16f856e6336b9e124ea386758e.png" alt="-2mc^2 Q^2"/>.
+We can now variate the (constrained) action:</p>
+<div class="math">
+<p><img src="../../_images/math/0b084b7de32de995180e2583b0801a5a710e5b7e.png" alt="0=\delta\int -\hbar c(PQ' - QP') + \hbar c {2\kappa\over\rho} PQ +
+    V(P^2+Q^2) - 2m c^2 Q^2 \d\rho=
+
+= 2\int \left(-\hbar c((\delta P)Q' - P'\delta Q) + \hbar c{\kappa\over\rho}
+    ((\delta P)Q + P\delta Q)) + (P\delta P + Q\delta Q)V
+    -2mc^2Q\delta Q - \epsilon(P\delta P + Q\delta Q)\right)\d\rho
+
+    +[P\delta Q - Q\delta P]^R_0 =
+
+= 2\int
+\delta P \left(-\hbar c Q' + \hbar c{\kappa\over\rho}Q + PV -          \epsilon P
+\right)+
+\delta Q \left(\hbar c P' + \hbar c{\kappa\over\rho}P + QV - 2mc^2Q - \epsilon Q
+\right)\d\rho
+    +[P\delta Q - Q\delta P]^R_0 =" /></p>
+</div><p>which gives the two radial equations:</p>
+<div class="math">
+<p><img src="../../_images/math/205a88f8ff5230f99bd1f1a4792a84fdb4d4de84.png" alt="-\hbar c Q' + \hbar c{\kappa\over\rho}Q + PV          = \epsilon P
+
+ \hbar c P' + \hbar c{\kappa\over\rho}P + QV - 2mc^2Q = \epsilon Q" /></p>
+</div></div>
+<div class="section" id="id4">
+<h3>Weak Formulation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The weak formulation can be obtained by substituting <img class="math" src="../../_images/math/04fad0fb03232fed28d0c5ff69a32c14a82fc94b.png" alt="\delta P \to v_1"/> and
+<img class="math" src="../../_images/math/aff400d8852f34b2e4104283a7bde23d77c12987.png" alt="\delta Q\to v_2"/> into the action above (and separating the integrals) and
+omitting the the boundary term:</p>
+<div class="math">
+<p><img src="../../_images/math/7801106eeb2e5440c51a131e74e783daf7b3ffcf.png" alt="\int -\hbar c Q'v_1 + \hbar c{\kappa\over\rho}Qv_1 + PVv_1\d\rho =
+\epsilon \int Pv_1 \d\rho
+
+\int \hbar c P'v_2 + \hbar c{\kappa\over\rho}Pv_2 + QVv_2 -2mc^2Qv_2\d\rho =
+    \epsilon \int Q v_2 \d\rho" /></p>
+</div><p>We can also start from the radial equations themselves to get the same result.
+If we start from the equations themselves (which is the most elementary
+approach), there are no boundary terms (because we didn&#8217;t integrate by parts).
+We can separate the integrals according to the matrix elements that they
+contribute to:</p>
+<div class="math">
+<p><img src="../../_images/math/a1f3e5fbd91805acb3926a8a0b3743a24da53c33.png" alt="\int PVv_1 \d\rho + \int -\hbar c Q'v_1 +
+    \hbar c{\kappa\over\rho}Qv_1 \d\rho =
+\epsilon \int Pv_1 \d\rho
+
+\int \hbar c P'v_2 + \hbar c{\kappa\over\rho}Pv_2 +
+    \int (V -2mc^2)Qv_2 \d\rho =
+    \epsilon \int Q v_2 \d\rho" /></p>
+</div><p>To show that this problem generates a symmetric matrix, it is helpful to write
+the radial equations in the following form:</p>
+<div class="math">
+<p><img src="../../_images/math/2952befd08ad0bf4a8ab7dd1f65174d5054620e3.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}" /></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/e851a803c3a123349baa563eda416f58386ee409.png" alt="\ket{P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
+
+\hat H = \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div><p>the operator <img class="math" src="../../_images/math/473482876719b62a988901b692323627454218bc.png" alt="\hat H"/> is Hermitean (<img class="math" src="../../_images/math/e5237b942cf710284a4dde70c861b1be8d290262.png" alt="\hat H^\dag = \hat H"/>), because
+<img class="math" src="../../_images/math/4f537de82af06aa8dadf4b4a83415f04b15ec04c.png" alt="\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/211db3254de4a5fcb5318ce70fb6e1c354be1cc5.png" alt="\int f{\d\over\d\rho}g \d\rho =
+\int \left(-{\d\over\d\rho}\right)f g \d\rho" /></p>
+</div><p>and all the other
+quantities are just scalars.</p>
+<p>Stricly speaking, the exact Dirac notation (that is coordinate/representation
+independent) would be the following (notice the missing <img class="math" src="../../_images/math/0a7307d7d5c75d4169687d4b9849e4643a5857ab.png" alt="\rho^2"/> in the
+completeness relation, which is different to the radial Schrödinger equation):</p>
+<div class="math">
+<p><img src="../../_images/math/9af14053a1c0129be733a70953e97c4d147f8613.png" alt="\hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
+\one = \int \d\rho \ket{\rho}\bra{\rho}
+
+\braket{\rho|\rho'} = \delta(\rho-\rho')
+
+\int
+\braket{\rho|\hat H|\rho'}\braket{\rho'|P, Q}\d\rho'
+    = \epsilon \braket{\rho|P, Q}
+
+\braket{\rho|P, Q} =
+    \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
+
+\braket{\rho|\hat H|\rho'} = \delta(\rho-\rho')
+    \left(\begin{array}{cc}
+    V(\rho) &amp; \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+    \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) &amp; V(\rho) - 2mc^2 \\
+    \end{array}\right)" /></p>
+</div><p>The normalization is:</p>
+<div class="math">
+<p><img src="../../_images/math/8c5e512742f84f7225f0f3f3d0f1a82be27d2b28.png" alt="\braket{P, Q| P, Q} = \int \d\rho \braket{P, Q|\rho}\braket{\rho|P, Q} =
+    \int \d\rho (P^2+Q^2) = 1" /></p>
+</div><p>The weak formulation is:</p>
+<div class="math">
+<p><img src="../../_images/math/e22d84ab648a4a0ec9a61ac9e538be40049ec576.png" alt="\braket{v|\hat H|P, Q} =
+    \epsilon \braket{v|P, Q}" /></p>
+</div><p>where the test function <img class="math" src="../../_images/math/8f8349fbe2590ef7d06bc8710640b0200cf5effc.png" alt="\ket{v}"/> is one of:</p>
+<div class="math">
+<p><img src="../../_images/math/3f0252aa5c8f7b3e69c7fb00450cb151bba2099c.png" alt="\ket{v} = \begin{cases}
+    \ket{v_1}\left(\begin{array}{c}1\\0\\\end{array}\right) \cr
+    \ket{v_2}\left(\begin{array}{c}0\\1\\\end{array}\right) \cr
+    \end{cases}" /></p>
+</div><p>The FE formulation is then obtained by expanding <img class="math" src="../../_images/math/249b20ffb164f50d639ba5ae70825c4eb6c96515.png" alt="\ket{P, Q} = \sum_k q_k \ket{k}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6893ccffd312f7814c738d515d995a0323d92be4.png" alt="\sum_l \braket{k|\hat H|l}q_l =
+    \epsilon \sum_l\braket{k|l}q_l" /></p>
+</div><p>The basis <img class="math" src="../../_images/math/e887edec7a4633a122d23577eeea9f7bf89300e5.png" alt="\ket{k}"/> can be for example the FE basis, some spline basis set, or
+gaussians. The basis has actually <img class="math" src="../../_images/math/f93f5c51ea4b04b4992b003b39479f29018f6bda.png" alt="2n"/> base functions and it enumerates each
+equation like this:</p>
+<div class="math">
+<p><img src="../../_images/math/eeb0e245d4a763cb2540751f19efe05b0d9def42.png" alt="\ket{k} = \begin{cases}
+    \ket{i}\left(\begin{array}{c}1\\0\\\end{array}\right) &amp;
+        \mbox{for } i=k &lt; n\cr
+    \ket{i}\left(\begin{array}{c}0\\1\\\end{array}\right) &amp;
+        \mbox{for } i=k &gt;= n\cr
+    \end{cases}" /></p>
+</div><p>So at the end of the day, the <img class="math" src="../../_images/math/7e95fccdb3c16fcb3c5c3441dbdefe50dcdbf498.png" alt="\braket{k|\hat H|l}"/> matrix looks like this:</p>
+<div class="math">
+<p><img src="../../_images/math/93eedc3c082fff82fc36569e5c4e2ec726679f25.png" alt="\braket{k|\hat H|l} = \left(\begin{array}{cc}
+    \braket{i|V(r)|j} &amp; \hbar c \braket{i|-{\d\over\d\rho}+{\kappa\over\rho}|j} \\
+    \hbar c \braket{i|{\d\over\d\rho}+{\kappa\over\rho}|j} &amp; \braket{i|V(r) - 2mc^2|j} \\
+    \end{array}\right)" /></p>
+</div><p>The matrix is <img class="math" src="../../_images/math/12fc2c579d6302d826e12b8b996f27c03480e07b.png" alt="2n \times 2n"/>, composed of those 4 matrices <img class="math" src="../../_images/math/c3d38f82f48ef9e81c04d49354293305b0067afc.png" alt="n \times n"/>. The
+<img class="math" src="../../_images/math/369c5c2a91858fb147df64c88551e505b97d1e69.png" alt="\braket{k|l}"/> matrix looks like this:</p>
+<div class="math">
+<p><img src="../../_images/math/2008de1cc1db44f5d93a483de09b1fba83f924d5.png" alt="\braket{k|l} = \left(\begin{array}{cc}
+    \braket{i|j} &amp; 0 \\
+    0            &amp; \braket{i|j} \\
+    \end{array}\right)" /></p>
+</div><p>We can also write the matrix elements explicitly. Let <img class="math" src="../../_images/math/81ed9099724895ea4a0f38957f573ff45eb32625.png" alt="\ket{i} = B_i(\rho)"/>,
+then:</p>
+<div class="math">
+<p><img src="../../_images/math/a86363fdd8137165a3cf489457bbde4d571043db.png" alt="\braket{i|j} = \int B_i B_j \,\d\rho
+
+\braket{i|V|j} = \int B_i V B_j \,\d\rho
+
+\braket{i|V-2mc^2|j} = \int B_i (V-2mc^2) B_j \,\d\rho
+
+\hbar c \braket{i|{\d\over\d\rho}+{\kappa\over\rho}|j} =
+    \hbar c\int B_i B_j' + B_i {\kappa\over\rho} B_j \,\d\rho
+
+\hbar c \braket{i|-{\d\over\d\rho}+{\kappa\over\rho}|j} =
+    \hbar c\int -B_i B_j' + B_i {\kappa\over\rho} B_j \,\d\rho" /></p>
+</div></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Radial Schrödinger and Dirac Equations</a><ul>
+<li><a class="reference external" href="#variational-formulation-of-the-schrodinger-equation">Variational Formulation of the Schrödinger equation</a><ul>
+<li><a class="reference external" href="#weak-formulation">Weak Formulation</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#radial-schrodinger-equation">Radial Schrödinger equation</a><ul>
+<li><a class="reference external" href="#from-the-equation">From the Equation</a></li>
+<li><a class="reference external" href="#from-the-lagrangian">From the Lagrangian</a></li>
+<li><a class="reference external" href="#id1">Weak Formulation</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#variational-formulation-of-the-dirac-equation">Variational Formulation of the Dirac equation</a></li>
+<li><a class="reference external" href="#radial-dirac-equation">Radial Dirac equation</a><ul>
+<li><a class="reference external" href="#id2">From the Equation</a></li>
+<li><a class="reference external" href="#id3">From the Lagrangian</a></li>
+<li><a class="reference external" href="#id4">Weak Formulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="examples.html"
+                                  title="previous chapter">Examples</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/src/quantum/radial.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="Examples"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Quantum Field Theory and Quantum Mechanics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1190 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Groups &mdash; Theoretical Physics Reference 0.5 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference 0.5 documentation" href="../../index.html" />
+    <link rel="up" title="Mathematics" href="main.html" />
+    <link rel="next" title="Wigner D Function" href="wigner.html" />
+    <link rel="prev" title="Feynman Parameters" href="feynman-parameters.html" />
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-28893880-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+     
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="wigner.html" title="Wigner D Function"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="feynman-parameters.html" title="Feynman Parameters"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference 0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="groups">
+<h1>Groups<a class="headerlink" href="#groups" title="Permalink to this headline">¶</a></h1>
+<p>These are notes of Karel Výborný and Ondřej Čertík on the group theory as a
+result of the first VDNK (Výprava do neznámých krajů) held between October 30
+and November 2, 2006 in Prague.  So that the next time we look at it we should
+be able to quickly recover our forgotten ideas.</p>
+<div class="section" id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<p>Definition of a group:</p>
+<blockquote>
+<div><ul class="simple">
+<li>I1: <img class="math" src="../../_images/math/cfe6683dee4b2dee89d86d975cb5704121a3beb1.png" alt="x,y \in G  \Rightarrow  xy \in G"/></li>
+<li>I2: there exist <img class="math" src="../../_images/math/a3a59bb1293ee3f6dec19de4019a7178874219ae.png" alt="e"/> such that <img class="math" src="../../_images/math/172eb210eb49e3121588e58a5cb474b99eda50d1.png" alt="ex=xe=x"/> for each <img class="math" src="../../_images/math/6fb325b4d90705f80f3fd0f5eca5be3538bf4fcb.png" alt="x\in G"/></li>
+<li>I3: there exist <img class="math" src="../../_images/math/158ff9beaae8886323fb0e77e0fc77484b2a0dd2.png" alt="x^{-1}"/> such that <img class="math" src="../../_images/math/fed014adc134054a25c3833dfe3edd1c8c2dfef7.png" alt="xx^{-1}=x^{-1}x=e"/> for each <img class="math" src="../../_images/math/6fb325b4d90705f80f3fd0f5eca5be3538bf4fcb.png" alt="x\in G"/></li>
+<li>I4: <img class="math" src="../../_images/math/0c54e1033ee5cb48f4ab5f6064c04fc7c9decc4d.png" alt="(xy)z=x(yz)"/> for each <img class="math" src="../../_images/math/6df59dd203170b238ad494c6d729a93dcffe5075.png" alt="x,y,z\in G"/></li>
+</ul>
+</div></blockquote>
+<p>Every finite group is isomorphic to a subgroup of <img class="math" src="../../_images/math/c74a070eea97d9363f58a257e05e75fc69efa753.png" alt="S_n"/> (permutations).</p>
+<div class="section" id="representation">
+<h3>Representation<a class="headerlink" href="#representation" title="Permalink to this headline">¶</a></h3>
+<p>Set of linear operators <img class="math" src="../../_images/math/c38da9daed5d383f5d93251d18f4f182f79d571a.png" alt="T(x)"/> (for each <img class="math" src="../../_images/math/6fb325b4d90705f80f3fd0f5eca5be3538bf4fcb.png" alt="x\in G"/> there is one <img class="math" src="../../_images/math/c38da9daed5d383f5d93251d18f4f182f79d571a.png" alt="T(x)"/>)</p>
+<div class="math">
+<p><img src="../../_images/math/243e42980b7dd03924ae76b6d5f11455806eaa65.png" alt="T(x)T(y)=T(xy),\quad T(e)={\hbox{\dsrom 1}}\,."/></p>
+</div><p><img class="math" src="../../_images/math/c38da9daed5d383f5d93251d18f4f182f79d571a.png" alt="T(x)"/> fulfills all the group axioms I1, I2, I3, I4. The requirement <img class="math" src="../../_images/math/cff369d81e16a48f884a2969cc45cce5a3d4be72.png" alt="T(e)=1"/> is
+non-trivial, consider for example the following 4 matrices</p>
+<div class="math">
+<p><img src="../../_images/math/e22d3f01d275c4537acf1fe59fb8805fe4e4ad95.png" alt="T(\bsigma)=\begin{pmatrix}
+    \bsigma &amp; 0 \\
+    0       &amp; 0 \\
+            \end{pmatrix}, \quad T(e)=\begin{pmatrix}
+                \hbox{\dsrom 1} &amp; 0 \\
+                0               &amp; 0 \\
+                            \end{pmatrix}\,,"/></p>
+</div><p>that fulfill <img class="math" src="../../_images/math/02bfbe4e6610745cb42296db50c0338d0998d48f.png" alt="T(x)T(y)=T(xy)"/> but not <img class="math" src="../../_images/math/aa62d7ef54c59ff62f954f04a236c977112ba8b1.png" alt="T(e)={\hbox{\dsrom 1}}"/>.</p>
+<p>The representation <img class="math" src="../../_images/math/c38da9daed5d383f5d93251d18f4f182f79d571a.png" alt="T(x)"/> is said to be <em>faithful</em> if there is a one-to-one
+relationship between <img class="math" src="../../_images/math/c38da9daed5d383f5d93251d18f4f182f79d571a.png" alt="T(x)"/> and <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> (an isomorphism).</p>
+<p>Equivalent representations <img class="math" src="../../_images/math/c073f8a05257a19c2dacc368858763bb44fa3747.png" alt="T_1"/> and <img class="math" src="../../_images/math/40db9b6f10ff583906d78a06a76e08e04381bc1a.png" alt="T_2"/>: there exist <img class="math" src="../../_images/math/ad28c83c99a8fd0dd2e2e594c9d02ee532765a0a.png" alt="S"/> such that
+<img class="math" src="../../_images/math/e03a797ae0b77e44204f1bb69be65e9f664b74e8.png" alt="T_2=ST_1(x)S^{-1}"/> for each <img class="math" src="../../_images/math/6fb325b4d90705f80f3fd0f5eca5be3538bf4fcb.png" alt="x\in G"/>.</p>
+<p>Reducible representation <img class="math" src="../../_images/math/c38da9daed5d383f5d93251d18f4f182f79d571a.png" alt="T(x)"/>: there exist an equivalent representation that
+is diagonal:</p>
+<div class="math" id="equation-eq-1-1">
+<p><span class="eqno">(1)</span><img src="../../_images/math/f92186dd379d16b34d04350b9e388dd4849e7c26.png" alt="T'(x)=ST(x)S^{-1}=\begin{pmatrix}
+    T_1' &amp; 0 \\
+    0    &amp; T_2' \\
+    \end{pmatrix}\,, \qquad \forall x\in G\,."/></p>
+</div><p>We say that <img class="math" src="../../_images/math/81366638e694deb1959c886bb89a07f71eff44a5.png" alt="T'"/> is a direct sum of <img class="math" src="../../_images/math/930cbf44344324ad2dcdb7386f840e00c304a360.png" alt="T_1'"/> and <img class="math" src="../../_images/math/5068f41d99feb7b8e29358e98a1c21054ddc61d8.png" alt="T_2'"/>: <img class="math" src="../../_images/math/ce20359d00208ac372477be1b9f101c6ce101646.png" alt="T'=T_1'\oplus T_2'"/>.</p>
+<p>Irreducible representation: is not reducible.</p>
+<p>Conjugate element: <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> is conjugate to <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> (<img class="math" src="../../_images/math/5c86e87a11063b03387014d17a2a2f01e081d723.png" alt="x\sim y"/>) if there exist <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> such that:</p>
+<div class="math">
+<p><img src="../../_images/math/b9cacc9ce24eb86fd9a5f431a9e0b9572f4a45b1.png" alt="x=cyc^{-1}"/></p>
+</div><p>if <img class="math" src="../../_images/math/5c86e87a11063b03387014d17a2a2f01e081d723.png" alt="x\sim y"/> and <img class="math" src="../../_images/math/2404410e779df5d866ec30cbbdbb0497c67c27d3.png" alt="y\sim z"/> then <img class="math" src="../../_images/math/72df5267d01de6c09bf5ae6235e6ba3eaf0d7703.png" alt="x\sim z"/>.</p>
+<p>Conjugate class: elements which are all conjugate to each other</p>
+<p>No element may belong to more than one class <img class="math" src="../../_images/math/843622567e12d686e4e2f94ddfcb444e8ecde0d2.png" alt="\Rightarrow"/> every group may be
+broken up into separate classes.</p>
+<p>Character <img class="math" src="../../_images/math/6dcb9b88aaa5f14312835145edf06fb2d0823c29.png" alt="\chi"/> of the representation <img class="math" src="../../_images/math/c38da9daed5d383f5d93251d18f4f182f79d571a.png" alt="T(x)"/>: set of numbers <img class="math" src="../../_images/math/ef0fcf18fba96846994b87dea0d1f4bdae360b64.png" alt="\chi(x)=\Tr
+T(x)"/> as the group element <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> runs through the group.</p>
+<p>Equivalent representations have the same character:</p>
+<div class="math">
+<p><img src="../../_images/math/a7af4144267f6dbd177c534995a16f44d584a43f.png" alt="\chi'(x)=\Tr T'(x)=\Tr ST(x)S^{-1}=\Tr T(x)=\chi(x)"/></p>
+</div><p>Representations having the same character are equivalent.</p>
+<p>Proof: Characters can be thought of as elements of a q-dimensional vector space
+where q is the number of conjugacy classes. Using the orthogonality relations
+derived above, we find that the q characters for the q inequivalent irreducible
+representations forms a basis set. Also, according to Maschke&#8217;s theorem, both
+representations can be expressed as the direct sum of irreducible
+representations. Since the character of the direct sum of representations is
+the sum of their characters, from linear algebra, we see they are equivalent.</p>
+<p>All the elements in the same class have the same character.</p>
+<p>Maschke&#8217;s theorem: for finite groups, every class of equivalent representations
+contains unitary representations. The theorem is also true for most infinite
+groups of interest in physics.</p>
+<p>Let <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> be a reducible representation, then:</p>
+<div class="math">
+<p><img src="../../_images/math/6d66d4a3bd111fc1b61121ba48e285b8fc017968.png" alt="T=m_1T^{(1)} \oplus m_2T^{(2)} \oplus m_3T^{(3)}\oplus \cdots"/></p>
+</div><p>where <img class="math" src="../../_images/math/573917e9d9ffe66d0921152864096104ab6ee104.png" alt="T^{(1)}"/>, <img class="math" src="../../_images/math/b42e4a0405d8667ef1fdc6afe6450692c7ff520b.png" alt="T^{(2)}"/>, <img class="math" src="../../_images/math/5179759b85e75cdc10b9f1759258d87c983d1d1b.png" alt="T^{(3)}"/> dots are all the inequivalent
+irreducible representations and <img class="math" src="../../_images/math/9e9606dc0c87ebf5b1a5759d019062ef69e48323.png" alt="m_\alpha"/> (<img class="math" src="../../_images/math/d478c593f0bdf18e1d420c6b3e674d943f42ca3d.png" alt="\alpha=1,2,3,\dots"/>) gives the
+number of times that the irreducible representation <img class="math" src="../../_images/math/8a26769a24f6cb388de166978a5f3cf8d5186f99.png" alt="T^{(\alpha)}"/> occurs in
+the reduction.</p>
+<p>Similar relation holds for group characters:</p>
+<div class="math">
+<p><img src="../../_images/math/08ca27b48b98bc1863cffc036180d6c465580f0c.png" alt="\chi=m_1\chi^{(1)} + m_2\chi^{(2)} + m_3\chi^{(3)} + \cdots"/></p>
+</div><p>and it can be shown <a class="reference internal" href="#elliott">[Elliott]</a> (eq. 4.28, page 63):</p>
+<div class="math">
+<p><img src="../../_images/math/4d8d8570833069a39c77335863b9f611bb533045.png" alt="m_\alpha={1\over g}\sum_{x\in G} \chi^{(\alpha)*}(x)\chi(x)=
+
+= {1\over g}\sum_{p} c_p\chi^{(\alpha)*}_p\chi_p"/></p>
+</div><p>where <img class="math" src="../../_images/math/7e07132757b7e92c50f7311f096eabc544018293.png" alt="c_p"/> is the number of elements in the class <img class="math" src="../../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/>, <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> is the number of
+elements in <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/> (the order of the group).</p>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Consider the <img class="math" src="../../_images/math/54147dbf4167d407147e92a3439b0d168c96bee8.png" alt="S_3"/> permutation group. The character table is:</p>
+<div class="math">
+<p><img src="../../_images/math/3e9a872496eba29ef33d1acc0eba20a697ba45e1.png" alt="\begin{array}{c|ccc}
+S_3    &amp; e &amp; 3 (1 2) &amp; 2 (1 2 3) \\
+\hline
+ A_1   &amp; 1 &amp;   1     &amp;  1 \\
+ A_2   &amp; 1 &amp;  -1     &amp;  1 \\
+  E    &amp; 2 &amp;   0     &amp; -1 \\
+\end{array}"/></p>
+</div><p>From the table we read <img class="math" src="../../_images/math/e50622a437ed869fea40aa757e2fea9fca7cf8c4.png" alt="c_1 = 1"/>, <img class="math" src="../../_images/math/c87f62fb68bfbcf1350290313a27cf81550dcf31.png" alt="c_2 = 3"/>, <img class="math" src="../../_images/math/72dd2434f5251b689b324cb0ee570a9f15cf8523.png" alt="c_3 = 2"/> and
+<img class="math" src="../../_images/math/af4ee6e12f66d86567b43f7876f72660e06c17c3.png" alt="g = c_1 + c_2 + c_3 = 1 + 3 + 2 = 6"/>. There are 3 classes and 3 irreducible
+representations.</p>
+<dl class="docutils">
+<dt>Case I</dt>
+<dd><p class="first">We are given a representation given by the following matrices:</p>
+<div class="math">
+<p><img src="../../_images/math/49e3720e4641c1fbe6bc00fa27435148ed3ba60e.png" alt="e = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix},\quad\quad
+a = \half\begin{pmatrix} 1 &amp; -\sqrt{3} \\ -\sqrt{3} &amp; -1 \end{pmatrix},
+    \quad\quad
+b = \half\begin{pmatrix} 1 &amp; \sqrt{3} \\ \sqrt{3} &amp; -1 \end{pmatrix},
+
+c = \begin{pmatrix} -1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix},\quad\quad
+d = \half\begin{pmatrix} -1 &amp; \sqrt{3} \\ -\sqrt{3} &amp; -1 \end{pmatrix},
+    \quad\quad
+f = \half\begin{pmatrix} -1 &amp; -\sqrt{3} \\ \sqrt{3} &amp; -1 \end{pmatrix}."/></p>
+</div><p>These 6 matrices belong to the following three classes
+<img class="math" src="../../_images/math/b39dac17bdaf7a0ac21ea00e626f53f4990df24c.png" alt="\{e\}"/>, <img class="math" src="../../_images/math/7af56e439a2c6e0a48f8f7d071e008e58e734f78.png" alt="\{a, b, c\}"/>, <img class="math" src="../../_images/math/e29280b5425de1d60bb1b493f2eb9d696b6f8f40.png" alt="\{d, f\}"/> and the corresponding characters for
+each class are:</p>
+<div class="math">
+<p><img src="../../_images/math/01e73d5cb3fe98c7a425ded1d0b8d6dfc289010c.png" alt="\chi_1 &amp;= 2 \\
+\chi_2 &amp;= 0 \\
+\chi_3 &amp;= -1"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/8d5d8672b3793e4376e29ced59fc3b3f29ee03c3.png" alt="m_1 &amp;= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot1\cdot 0
+    + 2\cdot1\cdot (-1)) = 0 \\
+m_2 &amp;= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot(-1)\cdot 0
+    + 2\cdot1\cdot (-1)) = 0\\
+m_3 &amp;= {1\over 6} (1\cdot 2\cdot 2 + 3\cdot 0\cdot 0
+    + 2\cdot(-1)\cdot (-1)) = 1\\"/></p>
+</div><p class="last">So this representation is irreducible and it is equivalent to
+<img class="math" src="../../_images/math/44f6c04f266eff50a70b4e54beabf0435bd34b3c.png" alt="m_1 A_1 \oplus m_2 A_2 \oplus m_3 E = E"/>.</p>
+</dd>
+<dt>Case II</dt>
+<dd><p class="first">We are given a representation given by the following matrices:</p>
+<div class="math">
+<p><img src="../../_images/math/77377c24fbbfc47808d7434885c6d61aea00beda.png" alt="e = d = f = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix},\quad\quad
+a = b = c = \half\begin{pmatrix} -1 &amp; -\sqrt{3} \\ -\sqrt{3} &amp; 1
+    \end{pmatrix}."/></p>
+</div><p>These 6 matrices belong to the following three classes
+<img class="math" src="../../_images/math/b39dac17bdaf7a0ac21ea00e626f53f4990df24c.png" alt="\{e\}"/>, <img class="math" src="../../_images/math/7af56e439a2c6e0a48f8f7d071e008e58e734f78.png" alt="\{a, b, c\}"/>, <img class="math" src="../../_images/math/e29280b5425de1d60bb1b493f2eb9d696b6f8f40.png" alt="\{d, f\}"/> and the corresponding characters for
+each class are:</p>
+<div class="math">
+<p><img src="../../_images/math/c65fc696f437f7a2632cd090f23c5457f5087c1c.png" alt="\chi_1 &amp;= 2 \\
+\chi_2 &amp;= 0 \\
+\chi_3 &amp;= 2"/></p>
+</div><p>and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/674480d823c5c7a8b874f12eb046228e266999e8.png" alt="m_1 &amp;= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot1\cdot 0
+    + 2\cdot1\cdot 2) = 1 \\
+m_2 &amp;= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot(-1)\cdot 0
+    + 2\cdot1\cdot 2) = 1\\
+m_3 &amp;= {1\over 6} (1\cdot 2\cdot 2 + 3\cdot 0\cdot 0
+    + 2\cdot(-1)\cdot 2) = 0\\"/></p>
+</div><p>So this representation is reducible and it is equivalent to
+<img class="math" src="../../_images/math/604d58b5ebe30b40589d556bb0b9102357baa484.png" alt="m_1 A_1 \oplus m_2 A_2 \oplus m_3 E = A_1 \oplus A_2"/>.
+The matrices are equivalent to:</p>
+<div class="last math">
+<p><img src="../../_images/math/5e74737ded3f054010e244c29be6711cdd1509b5.png" alt="e = d = f = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix},\quad\quad
+a = b = c = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix}."/></p>
+</div></dd>
+</dl>
+</div>
+</div>
+<div class="section" id="other-facts">
+<h3>Other facts<a class="headerlink" href="#other-facts" title="Permalink to this headline">¶</a></h3>
+<p>Number of irreducible representations <img class="math" src="../../_images/math/d5eb8726a34932d28103ce7ce17456421222603f.png" alt="="/> the number of classes.</p>
+<dl class="docutils">
+<dt>Regular representation of <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/>:</dt>
+<dd><p class="first">Take <img class="math" src="../../_images/math/68138c4eccafc022ada2a0cda6cbf45815cd56dd.png" alt="R^n"/> with <img class="math" src="../../_images/math/a6eff892cc415a29f0865abcfe4a096c9421ebde.png" alt="n=\# G"/> and assign a canonical basis to the elements <img class="math" src="../../_images/math/a19cce4fbe92afdfac314bb1f9762a3846ddf4e0.png" alt="g_i"/>
+of <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/>. A matrix <img class="math" src="../../_images/math/ec1db3450358419d5bd2baa97c680308ee7f00bd.png" alt="A_a"/> assigned to <img class="math" src="../../_images/math/73c92ab56e5b018dc6d772a586fefe0af968f1a9.png" alt="a\in G"/> now describes the mapping
+<img class="math" src="../../_images/math/9c6290048cda03db54fa92d6c1b7ec7198488a47.png" alt="(g_1,g_2,\ldots)\mapsto (ag_1,ag_2,\ldots)"/>, i.e. in if <img class="math" src="../../_images/math/b79a20a4ccd11385d7d8dbf7d575a0ac5caa925b.png" alt="ag_1=g_5"/>, then
+the fifth element of the first row is one and others of that row are zero
+in <img class="math" src="../../_images/math/ec1db3450358419d5bd2baa97c680308ee7f00bd.png" alt="A_a"/>. Each IR of the reg. rep. occurs in its decomposition with the
+multiplicity equal to its dimension. Thus (p. 65, <a class="reference internal" href="#sternberg">[Sternberg]</a>)</p>
+<blockquote class="last">
+<div><div class="math">
+<p><img src="../../_images/math/19b28ce42efc0e0ea5324217f41c9feebcc4b547.png" alt="\# G = \sum p_i^2\,."/></p>
+</div></div></blockquote>
+</dd>
+<dt>Element Order</dt>
+<dd>The order <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> of an element <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> is the least integer for which <img class="math" src="../../_images/math/f6acb679e3a3f51161624f629d28729bb35cb4fd.png" alt="g^n=e"/>.
+The order <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> can be determined from the group multiplication table for
+example.
+Theorem: <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> must divide the size (order) of the group (for finite groups).
+Example: For a group of six elements, the only possible orders are 1, 2, 3
+and 6.
+Note: the element order is the same for the whole conjugacy class because:
+<img class="math" src="../../_images/math/3ca255314f6bead1e988c0f5c2dc204b6842e9c2.png" alt="x^n = \left(c y c^{-1}\right)^n = c y^n c^{-1} = c e c^{-1} = e"/>.</dd>
+<dt>Schur&#8217;s lemma</dt>
+<dd><p class="first">(a) Be <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> an IR of <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/>. If <img class="math" src="../../_images/math/61a97b21285c3c1046773be75ac91f8930bc44a7.png" alt="[r(a),T]=0"/>, <img class="math" src="../../_images/math/d58ccc38b999cdcb0cd1bc7762ffebcc2609e6e7.png" alt="\forall a\in G"/>, then
+<img class="math" src="../../_images/math/1d22a6cbe93c67b67c0e658ba53d73174e173ccf.png" alt="T=cI"/>.</p>
+<p class="last">(b) Be <img class="math" src="../../_images/math/adc143c3f887fa7e92fd80d91bb22af51b4abd77.png" alt="r_1"/>, <img class="math" src="../../_images/math/0b4f3f4b698ce35667432041e168f7653533fa7b.png" alt="r_2"/> two inequivalent IRs of <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/>. Then
+<img class="math" src="../../_images/math/998381b4a3c0cb1dc79193900a81564f7967911f.png" alt="r_1(a)T=Tr_2(a)"/> valid <img class="math" src="../../_images/math/d58ccc38b999cdcb0cd1bc7762ffebcc2609e6e7.png" alt="\forall a\in G"/> implies <img class="math" src="../../_images/math/caa786a1615e0e7e6b6770c530359a8b4863822a.png" alt="T=0"/>. See p. 55 in
+<a class="reference internal" href="#sternberg">[Sternberg]</a>. This can be used to derive the orthogonality relations for
+characters.</p>
+</dd>
+<dt>Complete reducibility</dt>
+<dd>Every rep can be decomposed into IRs: true for finite
+(p. 52) and compact (p. 179 in <a class="reference internal" href="#sternberg">[Sternberg]</a>) groups. Counterexample for
+larger groups, p. 53.</dd>
+<dt>Sum of reps.</dt>
+<dd>Opposite process to reduction, <img class="math" src="../../_images/math/7c78f0ea710e26e4227ca46d3cd5452d1d1e2ebc.png" alt="\rho\oplus\sigma"/>, it
+lives on the direct sum of the two vector spaces of <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> and <img class="math" src="../../_images/math/fa35d9fc104207e09a712110ac81612c5b279a6c.png" alt="\sigma"/>.</dd>
+</dl>
+<p>Take an IR <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> of <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/>. Then <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> will also be a rep. of any subgroup
+<img class="math" src="../../_images/math/85b6d5d1d4a31379af1a20b936a4fcbdc3e8cd5e.png" alt="H\subset G"/>, but it need not be an IR, because the condition for
+reducibility, Eq. <a href="#equation-eq-1-1">(1)</a>, is less strict: it suffices if the matrices
+<img class="math" src="../../_images/math/d09022a2f65ad30166daeee24840a250eca6dcbd.png" alt="T(g)"/> are simultaneously block diagonal only for <img class="math" src="../../_images/math/94521b27aeab295e21243d42c5ae9efc02b5e0f7.png" alt="g\in H"/>, not for all <img class="math" src="../../_images/math/38af1501efcff97f02bcac9049e146e184b52dfd.png" alt="g\in
+G"/>. This is called <em>restriction</em> and it is denoted by <img class="math" src="../../_images/math/d95bdb4067e8005d19d15bfbd4e83d8980336c65.png" alt="\downarrow"/>.</p>
+<p><em>Induced representation</em>, denoted by <img class="math" src="../../_images/math/d39cad522ccbe5a31209793365754665a4d65556.png" alt="\uparrow"/>, is an opposite of the
+restriction. It works as follows: if <img class="math" src="../../_images/math/4abd67a42f0727a1f54618d4463baebfe8371be2.png" alt="F=G\otimes H"/>, then
+<img class="math" src="../../_images/math/2c11a43b0633917668fd5b13b817b5bb23841a0f.png" alt="\rho(f)=\rho(g)"/>, when <img class="math" src="../../_images/math/8dfffea61a08fcf63cf102f70a61c20958f48895.png" alt="f=g\otimes h"/>.</p>
+<p><em>Product of representations</em>, <img class="math" src="../../_images/math/3dd97b9f75997d1240f4be87390d87c1a1920ba1.png" alt="\rho\otimes\sigma"/> lives on the direct product
+of the two vector spaces. Product of IRs need not be an IR. Most prominent
+example: adding of angular momenta.</p>
+</div>
+<div class="section" id="interesting-examples">
+<h3>Interesting examples<a class="headerlink" href="#interesting-examples" title="Permalink to this headline">¶</a></h3>
+<p><img class="math" src="../../_images/math/51da37d984564162c87710ca27bea422f657fb73.png" alt="O"/> and <img class="math" src="../../_images/math/e2eaa5f8a20092f6206c749a8385c75d9fa89f98.png" alt="T_d"/> (see <a class="reference internal" href="#point-groups"><em>Crystallographic Point Groups</em></a>) are isomorphic to <img class="math" src="../../_images/math/927ca6f264730b7f22ea5e06ee7ac6872819f94e.png" alt="S_4"/> (p. 35
+in <a class="reference internal" href="#sternberg">[Sternberg]</a>). Written as matrices in 3D,
+they are 3D representations. Since <img class="math" src="../../_images/math/51da37d984564162c87710ca27bea422f657fb73.png" alt="O"/> has only <img class="math" src="../../_images/math/6dbc7e84e7183fbf59c747daf5606f0c58033bbc.png" alt="\det A=1"/> matrices unlike
+<img class="math" src="../../_images/math/e2eaa5f8a20092f6206c749a8385c75d9fa89f98.png" alt="T_d"/>, they are inequivalent.</p>
+<p>Homeomorphism of <img class="math" src="../../_images/math/7ecf8f536b7a1c9af74c0d0c70165891a54d6319.png" alt="SL(2,C)"/> into the Lorentz group [or <img class="math" src="../../_images/math/6d3cdd01ef4a93453c2a837aa2f3d60290e2083e.png" alt="SU(2)"/> into <img class="math" src="../../_images/math/7960fd7dddccbf2c57fa2ddb6b4ba455958c2e5b.png" alt="SO(3)"/>],
+p. 7 <a class="reference internal" href="#sternberg">[Sternberg]</a>}. Start with the following <img class="math" src="../../_images/math/ffc09db48c542f0dd179146152fac5e866d05467.png" alt="1-1"/> correspondence between
+<img class="math" src="../../_images/math/f5ec636e755349d4409f910e27d381c6da764230.png" alt="\vec{x}"/> and <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/ec997da6697c8592e738a46c3646f4f91ba3fc27.png" alt="\vec{x}=(x_0,x_1,x_2,x_3)^T\,,\qquad
+x=\begin{pmatrix}
+  x_0+x_3  &amp; x_1-ix_2 \\
+  x_1+ix_2 &amp; x_0-x_3
+  \end{pmatrix}\,."/></p>
+</div><p>For any matrix of <img class="math" src="../../_images/math/18d0a82dcedf68eff04534c45b3df329df4f602c.png" alt="A\in SL(2,C)"/> take <img class="math" src="../../_images/math/f0c2263095a34cf3ff03d1262581289d46a84856.png" alt="AxA^*=x'"/>. Decode <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/> into <img class="math" src="../../_images/math/8f479e183b77963c732df0f0a403ef0bb68c1cae.png" alt="\vec{x}'"/>
+and the relation between <img class="math" src="../../_images/math/f5ec636e755349d4409f910e27d381c6da764230.png" alt="\vec{x}"/> and <img class="math" src="../../_images/math/8f479e183b77963c732df0f0a403ef0bb68c1cae.png" alt="\vec{x}'"/> defines uniquely a Lorentz
+transformation; thus <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/> was mapped into some Lorentz group element. If
+<img class="math" src="../../_images/math/ce5ecb16cc84187bc12033307375ad5504cc813d.png" alt="x_0=0"/> this gives a mapping from <img class="math" src="../../_images/math/6d3cdd01ef4a93453c2a837aa2f3d60290e2083e.png" alt="SU(2)"/> into <img class="math" src="../../_images/math/7960fd7dddccbf2c57fa2ddb6b4ba455958c2e5b.png" alt="SO(3)"/>. The mapping is <img class="math" src="../../_images/math/fd0ad50ae57b1fbcee9eeb920ebc727055ac1fc6.png" alt="2-1"/>
+because <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/> and <img class="math" src="../../_images/math/07feac6c5248cc61f0c0946e1adb2dead26ba296.png" alt="-A"/> give the same <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/>.</p>
+<p><img class="math" src="../../_images/math/7960fd7dddccbf2c57fa2ddb6b4ba455958c2e5b.png" alt="SO(3)"/> is not simply connected. Consider matrices
+<img class="math" src="../../_images/math/a9a64f9edba94e43bca418b33691bdd538fc502a.png" alt="U_{\theta}=diag(e^{-i\theta}, e^{i\theta})\in SU(2)"/>, <img class="math" src="../../_images/math/cdcbe4ab5362510433fa4572e09a7146deddd47c.png" alt="\theta\in[0,\pi]"/>.
+These map into <img class="math" src="../../_images/math/7960fd7dddccbf2c57fa2ddb6b4ba455958c2e5b.png" alt="SO(3)"/> rotations by <img class="math" src="../../_images/math/08221292fc5357dd032d4c088bd58915c3707f08.png" alt="2\theta"/> around the <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>&#8211;axis. These
+matrices <img class="math" src="../../_images/math/e816ffa0101aa139c52bbacfb3a055a0c4f72281.png" alt="A_\theta=R_{z,2\theta}"/> in <img class="math" src="../../_images/math/7960fd7dddccbf2c57fa2ddb6b4ba455958c2e5b.png" alt="SO(3)"/> form a closed loop,
+<img class="math" src="../../_images/math/c2b6b6e341f4c7f4468dea1d6af0b0b03cec070f.png" alt="R_{z,0}=R_{z,2\pi}"/>. If <img class="math" src="../../_images/math/7960fd7dddccbf2c57fa2ddb6b4ba455958c2e5b.png" alt="SO(3)"/> were simply connected it would be possible to
+contract this loop into a point while keeping <img class="math" src="../../_images/math/7cce761941ab4b57ae903d05b8fa0568ebbdd98f.png" alt="A_0"/> and <img class="math" src="../../_images/math/75e6c9d6473a7fa0e1089717992c0e244ae2fef0.png" alt="A_\pi"/> unchanged. But
+then the same would have to happen with the original curve of matrices
+<img class="math" src="../../_images/math/095127d6b815965dcbbf29b534791fd4619574dc.png" alt="U_\theta"/> while keeping <img class="math" src="../../_images/math/f674a4eca0d821abf2f2bd50d2be5bae082ccb81.png" alt="U_0"/> and <img class="math" src="../../_images/math/ff0a167f916b4a450a3625ba4bd62a8c1ba82d68.png" alt="U_\pi"/> at their place. Since
+<img class="math" src="../../_images/math/01cd1474a76a6646ef4a8847618b65b09b0f4246.png" alt="U_{\pi}=-I\not= U_0=I"/>, this curve is not closed and such a contraction is
+not possible.</p>
+<p>All IRs of <img class="math" src="../../_images/math/54147dbf4167d407147e92a3439b0d168c96bee8.png" alt="S_3"/> are in <a class="reference internal" href="#sternberg">[Sternberg]</a>, p. 57.</p>
+</div>
+</div>
+<div class="section" id="crystallographic-point-groups">
+<span id="point-groups"></span><h2>Crystallographic Point Groups<a class="headerlink" href="#crystallographic-point-groups" title="Permalink to this headline">¶</a></h2>
+<p>Point group is a subgroup of O(3).</p>
+<p>Crystallographic point groups are all subgroups of <img class="math" src="../../_images/math/ad4f880fe66463ec950b1b25a0c8de608b0141a4.png" alt="O(3)"/>, which leave a
+monoatomic crystal lattice invariant. Those can be symmetries of an infinite
+crystal (e.g. <img class="math" src="../../_images/math/f8171ec678a4f97d470526ff9a2be2689b0c6f75.png" alt="C_5"/> is excluded since pentagons cannot cover the plane).</p>
+<p>There are only 7 crystallographic point groups: <img class="math" src="../../_images/math/7f4caea56d945d0b6e49701b42ce06e0fb92e663.png" alt="S_2"/> (triclinic),
+<img class="math" src="../../_images/math/ce05ff6f627b4ce21c6542194ef09e4858698c07.png" alt="C_{2h}"/> (monoclinic), <img class="math" src="../../_images/math/e31911778ea202b962c6d919d57a3d4a7fa44865.png" alt="D_{2h}"/> (orthorhombic), <img class="math" src="../../_images/math/ad6e6ddaed10dd95fe5ccf274c43cc4f85813c05.png" alt="D_{3d}"/> (rhombohedral),
+<img class="math" src="../../_images/math/4750964dd1291476a0d2a2a34dbe4e5ac314b55c.png" alt="D_{4h}"/> (tetragonal), <img class="math" src="../../_images/math/8e12ff9a0eddba3bb7f77e832d160ef92d172ac1.png" alt="D_{6h}"/> (hexagonal) and <img class="math" src="../../_images/math/68b7adc9984a1190b1cf2b19ae4f9039a8e59cbc.png" alt="O_{h}"/> (cubic).</p>
+<p>For simple monoatomic crystals with one atom per unit cell these seven are the
+only possible crystallographic point groups. For more complicated crystals
+with a molecule or an arrangement of atoms in the unit cell, the symmetry will
+be reduced to the subgroup which leaves not only the lattice but also the unit
+cell invariant.</p>
+<p>The complete list of all possible crystallographic point groups will therefore
+be given by the above seven together with all their subgroups
+(Tab. 3 in <a class="reference internal" href="#birss">[Birss]</a> or Tab. 4 in <a class="reference internal" href="#sternberg">[Sternberg]</a>):</p>
+<div class="math">
+<p><img src="../../_images/math/4a1a970fa3cdeead805228d081a2006b2c89ca65.png" alt="\begin{array}{cc}
+S_2    &amp; C_{1h}, S_2 \\
+C_{2h} &amp; C_2, C_{1h}, C_{2h} \\
+D_{2h} &amp; D_2, C_{2v}, D_{2h} \\
+D_{3d} &amp; C_3, S_6, D_3, C_{3v}, D_{3d} \\
+D_{4h} &amp; C_4, S_4, C_{4h}, D_4, C_{4v}, D_{2d}, D_{4h} \\
+D_{6h} &amp; C_3, S_6, D_3, C_{3v}, D_{3d}, C_6, C_{3h}, C_{6h}, D_6, C_{6v},
+    D_{3h}, D_{6h} \\
+O_h    &amp; T, T_h, O, T_d, O_h \\
+\end{array}"/></p>
+</div><p>There are 37 subgroups together. <img class="math" src="../../_images/math/ad6e6ddaed10dd95fe5ccf274c43cc4f85813c05.png" alt="D_{3d}"/> is a subgroup of <img class="math" src="../../_images/math/8e12ff9a0eddba3bb7f77e832d160ef92d172ac1.png" alt="D_{6h}"/> (so all
+5 subgroups of <img class="math" src="../../_images/math/ad6e6ddaed10dd95fe5ccf274c43cc4f85813c05.png" alt="D_{3d}"/> are also subgroups of <img class="math" src="../../_images/math/8e12ff9a0eddba3bb7f77e832d160ef92d172ac1.png" alt="D_{6h}"/>).
+Together we get 37-5 = 32
+distinct subgroups. Groups, which might at first sight appear to be missing
+from the list are <img class="math" src="../../_images/math/521f28967e7f3952a08243313ded9bed2ec4f0c9.png" alt="C_{1v}"/>, <img class="math" src="../../_images/math/88c7f79185a0b48d33454e85f44b4bfdf81d2420.png" alt="D_1"/>, <img class="math" src="../../_images/math/42a528f5fce35bf94fab9978a6a36e57452b75ae.png" alt="D_{1h}"/>, <img class="math" src="../../_images/math/b10d5ee88ffc7d59f9c282b366953fb4fa4051f6.png" alt="S_1"/>, and <img class="math" src="../../_images/math/54147dbf4167d407147e92a3439b0d168c96bee8.png" alt="S_3"/>, but these are
+the same as <img class="math" src="../../_images/math/bfb54ff01e7597bf05ceef679d2585a54ed3720e.png" alt="C_{1h}"/>, <img class="math" src="../../_images/math/b65e6facfe122c182fe14d503aeace2c52a9739d.png" alt="C_2"/>, <img class="math" src="../../_images/math/24ba218ac02f2682546d4cd0cf94054133642258.png" alt="C_{2v}"/>, <img class="math" src="../../_images/math/bfb54ff01e7597bf05ceef679d2585a54ed3720e.png" alt="C_{1h}"/> and <img class="math" src="../../_images/math/da682f5843e5557ca8c6f1a1c16353995ec7dccf.png" alt="C_{3h}"/> respectively.</p>
+<p>The following groups are isomorphic:</p>
+<p><img class="math" src="../../_images/math/bfb54ff01e7597bf05ceef679d2585a54ed3720e.png" alt="C_{1h}"/>, <img class="math" src="../../_images/math/7f4caea56d945d0b6e49701b42ce06e0fb92e663.png" alt="S_2"/>, <img class="math" src="../../_images/math/b65e6facfe122c182fe14d503aeace2c52a9739d.png" alt="C_2"/></p>
+<p><img class="math" src="../../_images/math/927ca6f264730b7f22ea5e06ee7ac6872819f94e.png" alt="S_4"/>, <img class="math" src="../../_images/math/7b365f2f71f295f0b06474f993d9ee1563053efc.png" alt="C_4"/></p>
+<p><img class="math" src="../../_images/math/d8a2a778e42b55a533d1aa6910ccb7bdfc29a790.png" alt="S_6"/>, <img class="math" src="../../_images/math/da682f5843e5557ca8c6f1a1c16353995ec7dccf.png" alt="C_{3h}"/>, <img class="math" src="../../_images/math/6d7224eb09d9655d0d96a43dcf188ea599482b4c.png" alt="C_6"/></p>
+<p><img class="math" src="../../_images/math/ce05ff6f627b4ce21c6542194ef09e4858698c07.png" alt="C_{2h}"/>, <img class="math" src="../../_images/math/24ba218ac02f2682546d4cd0cf94054133642258.png" alt="C_{2v}"/>, <img class="math" src="../../_images/math/4d01cc94a123a0c2b5239d4342be2e6ce7f3fc53.png" alt="D_2"/></p>
+<p><img class="math" src="../../_images/math/ebb2d996de6d651003a897d063c285a1ef9cbea7.png" alt="C_{3v}"/>, <img class="math" src="../../_images/math/9dc1e74e6b3f0fac5b041f22732b163dbf57eaea.png" alt="D_3"/></p>
+<p><img class="math" src="../../_images/math/e06b121ba162523c32a4378a249fd9e936e7d145.png" alt="D_{2d}"/>, <img class="math" src="../../_images/math/f29e615f2e443800178c8598e2acf5c3bc0d0554.png" alt="C_{4v}"/>, <img class="math" src="../../_images/math/6b2aba3578a29213b83b730ed97754d984dc7d64.png" alt="D_4"/></p>
+<p><img class="math" src="../../_images/math/ad6e6ddaed10dd95fe5ccf274c43cc4f85813c05.png" alt="D_{3d}"/>, <img class="math" src="../../_images/math/c2c833a6593e46bac5cadf2489066f4b6e5de0a2.png" alt="D_{3h}"/>, <img class="math" src="../../_images/math/b2899ef1d9a98e9ea8e8aa5eaec3d818f264ee36.png" alt="C_{6v}"/>, <img class="math" src="../../_images/math/0cf1efc40f04fc1fe0f65023b2811cbb1470851f.png" alt="D_6"/></p>
+<p><img class="math" src="../../_images/math/52b66b31f0749acea6298300f8ec5b15a926a833.png" alt="T_d, O"/></p>
+<p>The way to derive the above lists is the following.</p>
+<p>Procedure:</p>
+<ol class="arabic simple">
+<li>Find all finite crystallographic subgroups of <img class="math" src="../../_images/math/7960fd7dddccbf2c57fa2ddb6b4ba455958c2e5b.png" alt="SO(3)"/> called
+<em>rotation subgroups</em></li>
+<li>Take each subgroup from 1) and add <img class="math" src="../../_images/math/d37e0ec4ba4961903921054720a32bea535ece98.png" alt="-I"/> and
+close the subgroup (&#8216;non-rot containing <img class="math" src="../../_images/math/d37e0ec4ba4961903921054720a32bea535ece98.png" alt="-I"/>&#8216;)</li>
+<li>for each subgroup <img class="math" src="../../_images/math/cd6b41e151b41ef6c8094888cffbfd28f1596794.png" alt="G^\wedge"/> in 1), find whether it has some normal
+subgroups <img class="math" src="../../_images/math/41953a6ac455a86ccce2766ee266277b7e1573b8.png" alt="G^+"/> of index 2 (half a size of <img class="math" src="../../_images/math/cd6b41e151b41ef6c8094888cffbfd28f1596794.png" alt="G^\wedge"/>) and construct
+<img class="math" src="../../_images/math/8efc70c9dfd25c6839791f796aa8041bf5a6c6f4.png" alt="G^+\cup (-I)aG^+"/>, where <img class="math" src="../../_images/math/1e5b110bb867618fe75a25b7139a30e50db8e73b.png" alt="a\notin G^+"/> and <img class="math" src="../../_images/math/615ca928d08bb7da12f955c12ef73c4436d78d44.png" alt="a\in G^\wedge"/>; this will be a
+&#8216;non-rot not containing <img class="math" src="../../_images/math/d37e0ec4ba4961903921054720a32bea535ece98.png" alt="-I"/>&#8216; (for each <img class="math" src="../../_images/math/cd6b41e151b41ef6c8094888cffbfd28f1596794.png" alt="G^\wedge"/> there can be zero, one or
+more such <img class="math" src="../../_images/math/41953a6ac455a86ccce2766ee266277b7e1573b8.png" alt="G^+"/>).</li>
+</ol>
+<p>The sum of 1.,2.,3. are all finite crystallographic groups
+of <img class="math" src="../../_images/math/ad4f880fe66463ec950b1b25a0c8de608b0141a4.png" alt="O(3)"/>.  The procedure is described in <a class="reference internal" href="#sternberg">[Sternberg]</a>, p. 28-40.</p>
+<p>An example: <img class="math" src="../../_images/math/51da37d984564162c87710ca27bea422f657fb73.png" alt="O"/> (all rot. symm. of a cube, i.e. no mirroring) is 1), <img class="math" src="../../_images/math/3761c6ec84ebac8b263c00c4c48a9500dcfd4aab.png" alt="O^h"/>
+(all symm. of a cube) is 2) made of <img class="math" src="../../_images/math/51da37d984564162c87710ca27bea422f657fb73.png" alt="O"/> and <img class="math" src="../../_images/math/e2eaa5f8a20092f6206c749a8385c75d9fa89f98.png" alt="T_d"/> (all symm. of a tetrahedron)
+is 3) made of 1).</p>
+<div class="section" id="zoology">
+<h3>Zoology<a class="headerlink" href="#zoology" title="Permalink to this headline">¶</a></h3>
+<p>Schönflies notation: <img class="math" src="../../_images/math/4e173907ca992482385a50c6f62ede920362b1bf.png" alt="C_n"/> is an <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>&#8211;fold rotation (<img class="math" src="../../_images/math/7e7ccd9a813d58634476611c20ad5a5f043fa9e7.png" alt="2_z"/>, <img class="math" src="../../_images/math/5975807944db320fbc6a8b35f477fdf9c3156941.png" alt="3_z"/> ...)
+group (planar polygon), <img class="math" src="../../_images/math/2eacbcb991af87d495f8689ac0e952b51317dbaa.png" alt="D_n"/> is a diedric group, i.e. <img class="math" src="../../_images/math/4e173907ca992482385a50c6f62ede920362b1bf.png" alt="C_n"/> plus
+turn-the-page two-fold rotations (e.g. <img class="math" src="../../_images/math/e0dfb65f355b73cbc9c52e844c17843409f6f177.png" alt="2_x"/>, <img class="math" src="../../_images/math/3afb1c77fb5f190c37324783e2ff224fc5798dc4.png" alt="2_\perp"/>), <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/>, <img class="math" src="../../_images/math/51da37d984564162c87710ca27bea422f657fb73.png" alt="O"/> and <img class="math" src="../../_images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I"/>
+(= <img class="math" src="../../_images/math/ce58e4af225c93d08606c26554caaa5ae32edeba.png" alt="Y"/>) are the rotational symmetries of a tetrahedron, octahedron (identical
+to those of a cube) and icosahedron (identical to those of a dodecahedron),
+respectively. Additional indexes mean reflection planes, horizontal, vertical,
+diagonal (h,v,d) or <img class="math" src="../../_images/math/d37e0ec4ba4961903921054720a32bea535ece98.png" alt="-I"/> (i). Some atypical notation: <img class="math" src="../../_images/math/6db3037bbdaf99c1f629eeafa2695d676741cf84.png" alt="S_2=C_i"/>,
+<img class="math" src="../../_images/math/ddfe7681b625defa2cad1d8150453812f5a9deeb.png" alt="S_6=C_{3i}"/>, <img class="math" src="../../_images/math/528bc3cc79f5ebf6cd8978703ae874194d144407.png" alt="S_4=C_{2i}"/>, <img class="math" src="../../_images/math/8fc9cecfb720e28d8910843bed58971ae7543d89.png" alt="C_s=C_{1h}"/>.</p>
+<p>Hermann&#8211;Mauguin (HM, international) notation: 2,3,4 means <img class="math" src="../../_images/math/4e173907ca992482385a50c6f62ede920362b1bf.png" alt="C_n"/>, <img class="math" src="../../_images/math/374712de017c36a3fb3308c305656bf11898d565.png" alt="\bar{4}"/>
+means rotation-inversion axis (rotation followed by <img class="math" src="../../_images/math/d37e0ec4ba4961903921054720a32bea535ece98.png" alt="-I"/>), <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> is a vertical
+mirror plane, <img class="math" src="../../_images/math/79203fbb630637fb4da45e694810019a64b3f194.png" alt="/m"/> is a horizontal mirror plane.</p>
+<p>Symmetry operations (in Table 3 of <a class="reference internal" href="#birss">[Birss]</a>): like HM, <img class="math" src="../../_images/math/e0dfb65f355b73cbc9c52e844c17843409f6f177.png" alt="2_x"/> means a
+two-fold rotation around <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>&#8211;axis, <img class="math" src="../../_images/math/3afb1c77fb5f190c37324783e2ff224fc5798dc4.png" alt="2_\perp"/> means some other axis in the
+<img class="math" src="../../_images/math/3f79c3676b62fb47243e0d357c87115b6f3395e4.png" alt="xy"/> plane than <img class="math" src="../../_images/math/b6400c6fe3f1ed70e5afd387a9686cdc3fa09531.png" alt="x,y"/> or <img class="math" src="../../_images/math/3f79c3676b62fb47243e0d357c87115b6f3395e4.png" alt="xy"/> (diagonal), <img class="math" src="../../_images/math/dfb2b6f4199debdb80840411f5f79920bf904d61.png" alt="\bar{3}_z"/> is a rotation followed
+by <img class="math" src="../../_images/math/d37e0ec4ba4961903921054720a32bea535ece98.png" alt="-I"/>. <img class="math" src="../../_images/math/4b54187dd07ed9329f0aba13fe71232a406408ea.png" alt="3(2_\perp)"/> means three different two-fold axes <img class="math" src="../../_images/math/3afb1c77fb5f190c37324783e2ff224fc5798dc4.png" alt="2_\perp"/>.</p>
+</div>
+<div class="section" id="construction-and-usage-of-the-character-table">
+<h3>Construction and usage of the character table<a class="headerlink" href="#construction-and-usage-of-the-character-table" title="Permalink to this headline">¶</a></h3>
+<p>For simpler groups the character tables can be fully constructed by the
+following rules:</p>
+<ol class="arabic">
+<li><p class="first">The sum of the squares of the dimensions <img class="math" src="../../_images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i"/> of the irreducible
+representations is equal to the order <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> of the point group:</p>
+<blockquote>
+<div><div class="math">
+<p><img src="../../_images/math/08799344ddbaf62202994151c1701872cb3c6626.png" alt="\sum_{\mu=1}^k n_\mu^2 = g"/></p>
+</div></div></blockquote>
+<p>The dimension <img class="math" src="../../_images/math/8a058b707d3bbff6059f47de67b523366de8ac10.png" alt="n_\mu"/> is given by the character of the identity matrix
+(first column) <img class="math" src="../../_images/math/28588edfae986e6821a4662ffea4475610505b73.png" alt="n_\mu = \chi^\mu(E)"/>, so the sum of squares of the first
+column is <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>. It is customary to put the characters of the one dimensional
+representation (<img class="math" src="../../_images/math/9b47bb85f08ee150b4fb7cdc3bf5ca6e8731e3e0.png" alt="\chi^1(C_i)=1"/>) into the first row, so the first row
+is filled with 1s. Also, <img class="math" src="../../_images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i"/> must divide <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>.</p>
+</li>
+<li><p class="first">The number of irreducible representations <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> (rows) is equal to the number
+of classes <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> (columns)</p>
+</li>
+<li><p class="first">The rows must satisfy</p>
+<blockquote>
+<div><div class="math">
+<p><img src="../../_images/math/0b6866514f4195df312f9cc886af78642ede4a8f.png" alt="\sum_{i=1}^k g_i \chi^\mu(C_i) \chi^\nu(C_i)^* = g \delta_{\mu\nu}"/></p>
+</div></div></blockquote>
+</li>
+<li><p class="first">The columns must satisfy</p>
+<blockquote>
+<div><div class="math">
+<p><img src="../../_images/math/5bc9e8eadbe48450ffb6d47208d5e7e5c4867c5d.png" alt="\sum_{\nu=1}^k \chi^\nu(C_i) \chi^\nu(C_j)^* = {g\over g_i}
+    \delta_{ij}"/></p>
+</div></div></blockquote>
+</li>
+<li><p class="first">Characters of all one-dimensional representation must be roots of unity,
+equal to <img class="math" src="../../_images/math/5cc63d2260c6542e93f7d86202b925c4452210ef.png" alt="\chi = e^{2\pi i k\over n}"/>, where <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> is the element order, which
+must divide the group size <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> (and it is the same for the whole conjugacy
+class). In general, <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> is any integer (for faithful representation it would
+be <img class="math" src="../../_images/math/5ed8470bc717a49aafe4556c7e2c2e11ddc7b687.png" alt="k=1"/>).
+This follows from the fact, that the character is also the one-dimensional
+representation matrix and they all commute, thus the group is Abelian.
+Also, the characters (=representation matrices) must respect the group
+operations, so for example if for two group elements <img class="math" src="../../_images/math/11f89c6a139415152ddd9043b817073ed1f835ad.png" alt="g_1^2=g_2"/>, then their
+characters must also obey <img class="math" src="../../_images/math/a838c605dc3a71a6d6ea9844917b7a3afa12899f.png" alt="\chi_1^2 = \chi_2"/>.</p>
+</li>
+<li><p class="first">Character of an element is the complex conjugate of its inverse. If they
+both belong to the same conjugacy class, the character must be real. If the
+character is complex, it means that its inverse is not from the same
+conjugacy class and then there must be a complex conjugate for another
+conjugacy class from the same irreducible representation.</p>
+</li>
+<li><p class="first">Characters come in complex conjugate pairs, since complex conjugate of a
+representation is also a representation. If there is only one representation
+of the dimension <img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/>, then it must be real (since it is its own conjugate).
+If there are two representations of dimension <img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> and one is complex, then
+the other one must be its complex conjugate. Another way to look at this is
+that if we conjugate each entry of the character table, then we must get the
+same character table (up to a possible reordering of rows within the same
+dimension).</p>
+</li>
+<li><p class="first">If there is one dimensional representation <img class="math" src="../../_images/math/36c7f3f828cf12ab9cafeffad282468a95219600.png" alt="A_1"/> (with characters <img class="math" src="../../_images/math/44b4db2333025207d1afa64600b249279c32bfcd.png" alt="\chi_1"/>)
+and any other representation <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> of dimension <img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> (with characters <img class="math" src="../../_images/math/6dcb9b88aaa5f14312835145edf06fb2d0823c29.png" alt="\chi"/>),
+then there must be a representation of dimension <img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> with characters
+<img class="math" src="../../_images/math/5d2c8f758df215eb0cc3da1f908046b833d24ba2.png" alt="\chi_1\chi"/> (corresponding to the tensor product <img class="math" src="../../_images/math/eb9704ec6c74199d7440a612d161811e5220aed4.png" alt="A_1 \otimes T"/>).</p>
+</li>
+</ol>
+<p>There exists a systematic approach that works for any group, but it is
+complicated (see for example <a class="reference internal" href="#dixon67">[Dixon67]</a>, <a class="reference internal" href="#blokker72">[Blokker72]</a>, <a class="reference internal" href="#cannon69">[Cannon69]</a>
+and <a class="reference internal" href="#chillag86">[Chillag86]</a>).</p>
+<p>The notation for irreducible representation:
+One-dimensional irreducible representations are labeled either <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/> or <img class="math" src="../../_images/math/ff5fb3d775862e2123b007eb4373ff6cc1a34d4e.png" alt="B"/>
+according to whether the character of a <img class="math" src="../../_images/math/35e4c7b3270bd0452fccfc8dfbb5ace48de99ec6.png" alt="2\pi\over n"/> (proper or improper)
+rotation about the symmetry axis of highest order <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> is <img class="math" src="../../_images/math/1178af8fcc5f3f3acb9f151f7dcc2c4eefe88fd9.png" alt="+1"/> or <img class="math" src="../../_images/math/bae5aba07d37ff6ff813107e76260fb31ad5794e.png" alt="-1"/>. If there
+is no symmetry axis, all one-dimensional representations are labeled <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/>.</p>
+<p>For general information, see <a class="reference internal" href="#elliott">[Elliott]</a> (sec. 4.15, page 67) and <a class="reference internal" href="#bishop">[Bishop]</a>, page
+128.</p>
+<div class="section" id="example-i">
+<h4>Example I<a class="headerlink" href="#example-i" title="Permalink to this headline">¶</a></h4>
+<p>Let&#8217;s take the group <img class="math" src="../../_images/math/ebb2d996de6d651003a897d063c285a1ef9cbea7.png" alt="C_{3v}"/>, which has three classes <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> (1 element),
+<img class="math" src="../../_images/math/85160260d550bf33be28c0a722237c3bc60e8c02.png" alt="C_3"/> (2 elements) and <img class="math" src="../../_images/math/cae19494e6870cf30f7925ae2af4bee16bf95fbe.png" alt="\sigma_v"/> (3 elements).</p>
+<p>So <img class="math" src="../../_images/math/ad5f7c6419ccec8d290ef7931e4c4b3c35f90f8c.png" alt="g_1=1"/>, <img class="math" src="../../_images/math/9008f43f48611aad6e3e9be24712a1320c809670.png" alt="g_2=2"/> and <img class="math" src="../../_images/math/d3c02a51e12beadce0c05f4cc0a873789d09573f.png" alt="g_3=3"/> and the order is
+<img class="math" src="../../_images/math/8d705669f5ab27f96735f3398716eff9ad772863.png" alt="g=g_1+g_2+g_3=6"/>. Therefore it has three irreducible representations, whose
+dimensions must satisfy:</p>
+<div class="math">
+<p><img src="../../_images/math/d60759d14d08a25e8f9c6b72f9fdc37f188f0899.png" alt="n_1^2 + n_2^2 + n_3^2 = 6"/></p>
+</div><p>The only integer solution (up to a permutation) is <img class="math" src="../../_images/math/05e252cad83d6d874127f35370172e55a78e1c4b.png" alt="n_1=n_2=1"/> and <img class="math" src="../../_images/math/5229f978eba89a62b6ba8744b86d17b582031562.png" alt="n_3=2"/>. So
+we immediately have:</p>
+<div class="math">
+<p><img src="../../_images/math/874ece6301e29f282c50465eeab6efbee258c7cb.png" alt="\begin{array}{c|ccc}
+C_{3v} &amp; E &amp; 2 C_3 &amp; 3 \sigma_v \\
+\hline
+       &amp; 1 &amp;   1   &amp; 1 \\
+       &amp; 1 &amp;   a   &amp; b \\
+       &amp; 2 &amp;   c   &amp; d \\
+\end{array}"/></p>
+</div><p>The rule 3. generates the following equations for all <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> and <img class="math" src="../../_images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/399b55fbc610467be9185847d0433b5038c9b814.png" alt="\begin{array}{cc|c}
+\mu &amp; \nu &amp; \sum_{i=1}^k g_i \chi^\mu(C_i) \chi^\nu(C_i)^* = g \delta_{\mu\nu} \\
+\hline
+1 &amp; 1 &amp;     6 = 6 \\
+1 &amp; 2 &amp;     1 + 2a + 3b = 0 \\
+1 &amp; 3 &amp;     2 + 2c + 3d = 0 \\
+2 &amp; 2 &amp;     1 + 2a^2 + 3b^2 = 6 \\
+2 &amp; 3 &amp;     2 + 2ac + 3bd = 0 \\
+3 &amp; 3 &amp;     4 + 2c^2 + 3d^2 = 6
+\end{array}"/></p>
+</div><p>Solving all these equations simultaneously, we
+get two independent solutions. One is:</p>
+<div class="math">
+<p><img src="../../_images/math/9d6dd3f8ff1b2cff2e95ed17634e9125e2713d99.png" alt="a &amp;= 1 \\
+b &amp;= -1 \\
+c &amp;= -1 \\
+d &amp;= 0"/></p>
+</div><p>and the other is:</p>
+<div class="math">
+<p><img src="../../_images/math/6b93f774d442134cfc04886ba4f80ac2acf0fe9a.png" alt="a &amp;= -{7\over 5} \\
+b &amp;= {3\over 5} \\
+c &amp;= {1\over 5} \\
+d &amp;= -{4\over 5}"/></p>
+</div><p>The rule 4. generates the following equations for all <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> and <img class="math" src="../../_images/math/8122aa89ea6e80784c6513d22787ad86e36ad0cc.png" alt="j"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/20154cc0a3a337673507061c3449aa2fdc822523.png" alt="\begin{array}{cc|c}
+i &amp; j &amp; \sum_{\nu=1}^k \chi^\nu(C_i) \chi^\nu(C_j)^* = {g\over g_i} \delta_{ij} \\
+\hline
+1 &amp; 1 &amp;     6 = 6 \\
+1 &amp; 2 &amp;     1 + a + 2c = 0 \\
+1 &amp; 3 &amp;     1 + b + 2d = 0 \\
+2 &amp; 2 &amp;     1 + a^2 + c^2 = 3 \\
+2 &amp; 3 &amp;     1 + ab + cd = 0 \\
+3 &amp; 3 &amp;     1 + b^2 + d^2 = 2
+\end{array}"/></p>
+</div><p>Both of the above solutions for <img class="math" src="../../_images/math/eb8c31b328eb3b0252134a4720e161c0fdf641e2.png" alt="(a, b, c, d)"/> satisfy all of these equations,
+so the column equations are redundant.</p>
+<p>Now we use the rule 5. and see that the second solution is not a root of unity,
+so we discard it. The final character table is:</p>
+<div class="math">
+<p><img src="../../_images/math/e0bbece680d9c73bb2809d2b38d90aa8aa83ffec.png" alt="\begin{array}{c|ccc}
+C_{3v} &amp; E &amp; 2 C_3 &amp; 3 \sigma_v \\
+\hline
+ A_1   &amp; 1 &amp;   1   &amp;  1 \\
+ A_2   &amp; 1 &amp;   1   &amp; -1 \\
+  E    &amp; 2 &amp;  -1   &amp;  0 \\
+\end{array}"/></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">solve</span><span class="p">,</span> <span class="n">Matrix</span>
+<span class="n">var</span><span class="p">(</span><span class="s">&quot;a, b, c, d&quot;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">]])</span>
+
+<span class="k">def</span> <span class="nf">rows</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+    <span class="n">eq</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)):</span>
+        <span class="n">eq</span> <span class="o">+=</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="n">mu</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="n">nu</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">mu</span> <span class="o">==</span> <span class="n">nu</span><span class="p">:</span>
+        <span class="n">eq</span> <span class="o">-=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">eq</span>
+
+<span class="k">def</span> <span class="nf">cols</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+    <span class="n">eq</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">nu</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)):</span>
+        <span class="n">eq</span> <span class="o">+=</span> <span class="n">M</span><span class="p">[</span><span class="n">nu</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span><span class="p">[</span><span class="n">nu</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+        <span class="n">eq</span> <span class="o">-=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">/</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">eq</span>
+
+<span class="k">print</span> <span class="s">&quot;Character table:&quot;</span>
+<span class="k">print</span> <span class="n">M</span>
+<span class="k">print</span> <span class="s">&quot;Rows conditions:&quot;</span>
+<span class="n">eqs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">mu</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">nu</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="n">eq</span> <span class="o">=</span> <span class="n">rows</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+        <span class="n">eqs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">mu</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nu</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;:    &quot;</span><span class="p">,</span> <span class="n">eq</span>
+<span class="k">print</span> <span class="s">&quot;-&quot;</span><span class="o">*</span><span class="mi">40</span>
+<span class="k">print</span> <span class="s">&quot;Columns conditions:&quot;</span>
+<span class="n">eqs2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="n">eq</span> <span class="o">=</span> <span class="n">cols</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+        <span class="n">eqs2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;:    &quot;</span><span class="p">,</span> <span class="n">eq</span>
+<span class="k">print</span> <span class="s">&quot;-&quot;</span><span class="o">*</span><span class="mi">40</span>
+<span class="k">print</span> <span class="s">&quot;Solving the 1, 2, 4, 5 equations out of 0..5 from the rows conditions&quot;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">eqs</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="n">eqs</span><span class="p">[</span><span class="mi">4</span><span class="p">:],</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">s</span>
+<span class="k">print</span> <span class="s">&quot;Test that all the solutions satisfy the rest of the equations:&quot;</span>
+<span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+    <span class="k">print</span>
+    <span class="k">print</span> <span class="s">&quot;Solution:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">eqs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span>
+        <span class="s">&quot;a&quot;</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span>
+        <span class="s">&quot;b&quot;</span><span class="p">:</span> <span class="n">b</span><span class="p">,</span>
+        <span class="s">&quot;c&quot;</span><span class="p">:</span> <span class="n">c</span><span class="p">,</span>
+        <span class="s">&quot;d&quot;</span><span class="p">:</span> <span class="n">d</span><span class="p">,</span>
+        <span class="p">})</span>
+    <span class="k">print</span> <span class="s">&quot;Equation 3 from rows conditions, result: &quot;</span><span class="p">,</span> <span class="n">r</span>
+    <span class="k">assert</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="k">print</span> <span class="s">&quot;Columns conditions:&quot;</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">eq</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">eqs2</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span>
+                <span class="s">&quot;a&quot;</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span>
+                <span class="s">&quot;b&quot;</span><span class="p">:</span> <span class="n">b</span><span class="p">,</span>
+                <span class="s">&quot;c&quot;</span><span class="p">:</span> <span class="n">c</span><span class="p">,</span>
+                <span class="s">&quot;d&quot;</span><span class="p">:</span> <span class="n">d</span><span class="p">,</span>
+                <span class="p">})</span>
+        <span class="k">print</span> <span class="s">&quot;Equation </span><span class="si">%i</span><span class="s"> from columns conditions, result: </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>This prints:</p>
+<div class="highlight-python"><pre>Character table:
+[1, 1, 1]
+[1, a, b]
+[2, c, d]
+Rows conditions:
+1 1 :     0
+1 2 :     2*a + 3*b + 1
+1 3 :     2*c + 3*d + 2
+2 2 :     2*a**2 + 3*b**2 - 5
+2 3 :     2*a*c + 3*b*d + 2
+3 3 :     2*c**2 + 3*d**2 - 2
+----------------------------------------
+Columns conditions:
+1 1 :     0
+1 2 :     a + 2*c + 1
+1 3 :     b + 2*d + 1
+2 2 :     a**2 + c**2 - 2
+2 3 :     a*b + c*d + 1
+3 3 :     b**2 + d**2 - 1
+----------------------------------------
+Solving the 1, 2, 4, 5 equations out of 0..5 from the rows conditions
+[(-7/5, 3/5, 1/5, -4/5), (1, -1, -1, 0)]
+Test that all the solutions satisfy the rest of the equations:
+
+Solution: -7/5 3/5 1/5 -4/5
+Equation 3 from rows conditions, result:  0
+Columns conditions:
+Equation 0 from columns conditions, result: 0
+Equation 1 from columns conditions, result: 0
+Equation 2 from columns conditions, result: 0
+Equation 3 from columns conditions, result: 0
+Equation 4 from columns conditions, result: 0
+Equation 5 from columns conditions, result: 0
+
+Solution: 1 -1 -1 0
+Equation 3 from rows conditions, result:  0
+Columns conditions:
+Equation 0 from columns conditions, result: 0
+Equation 1 from columns conditions, result: 0
+Equation 2 from columns conditions, result: 0
+Equation 3 from columns conditions, result: 0
+Equation 4 from columns conditions, result: 0
+Equation 5 from columns conditions, result: 0</pre>
+</div>
+</div>
+<div class="section" id="example-ii">
+<h4>Example II<a class="headerlink" href="#example-ii" title="Permalink to this headline">¶</a></h4>
+<p>We derive the character table for <img class="math" src="../../_images/math/ebb2d996de6d651003a897d063c285a1ef9cbea7.png" alt="C_{3v}"/> again, using another approach.
+First we determine the element orders, that must divide the size of the group
+(possible values are 1, 2, 3, 6). Element order of the class <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> is 1, because
+<img class="math" src="../../_images/math/0fdb381d00c5952e776985ee1b61ce085ad45be3.png" alt="E^2=1"/>. The element order of <img class="math" src="../../_images/math/85160260d550bf33be28c0a722237c3bc60e8c02.png" alt="C_3"/> is 3, because <img class="math" src="../../_images/math/1353c46cfa12848d5c042549f2b2b65b0f592fea.png" alt="C_3^3 = 1"/>. Finally, the
+element order of <img class="math" src="../../_images/math/cae19494e6870cf30f7925ae2af4bee16bf95fbe.png" alt="\sigma_v"/> is 2, because <img class="math" src="../../_images/math/5ff0896d604ba9e3b52122f57d7153c2d119d902.png" alt="\sigma_v^2=1"/>.</p>
+<div class="math">
+<p><img src="../../_images/math/40559cfa2dccacb3a06c3bd81ffcea29861562b0.png" alt="\begin{array}{c|ccc}
+C_{3v} &amp; E &amp; 2 C_3 &amp; 3 \sigma_v \\
+\mbox{class sizes} &amp; 1 &amp; 2 &amp; 3 \\
+\mbox{element orders} &amp; 1 &amp; 3 &amp; 2 \\
+\hline
+ A_1      &amp; 1 &amp;   1   &amp; 1 \\
+ A_2      &amp; 1 &amp;   a   &amp; b \\
+  E       &amp; 2 &amp;   c   &amp; d \\
+\end{array}"/></p>
+</div><p>Rule 7: The characters of the representation <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/> must be real, because
+otherwise <img class="math" src="../../_images/math/36c7f3f828cf12ab9cafeffad282468a95219600.png" alt="A_1"/> would have to be a complex conjugate. <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> is the only
+representation of dimension 2, so it must be real as well.</p>
+<p>Rule 5: <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/> is Abelian, with element orders 1, 3 and 2. As such, we must
+have:</p>
+<div class="math">
+<p><img src="../../_images/math/8b0f39aaa4bcc9aebe8e904b2680ac4638141c3f.png" alt="a = e^{2\pi i k\over 3} \\
+b = e^{2\pi i l\over 2} \\"/></p>
+</div><p>Where <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> and <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> are unknown integers.
+However, since both <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/> and <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/> is real, the only solution is <img class="math" src="../../_images/math/badf0ecd1ef8289387d8462393438c6e2710ff28.png" alt="k=0"/>
+(corresponding to <img class="math" src="../../_images/math/502e059d1a020b368aee3a99c5669d88331d321f.png" alt="a=1"/>) and <img class="math" src="../../_images/math/da45892655494d9c21cc8290baff2126eceea1e1.png" alt="l=0, 1"/> (corresponding to <img class="math" src="../../_images/math/6de50d96d4cadb0f8c94f70578ba610546f57d23.png" alt="b=\pm 1"/>).</p>
+<p>Rule 3 gives:</p>
+<div class="math">
+<p><img src="../../_images/math/4fd8b55f59bd8da7bb5350d9d6244b6bfb797d12.png" alt="1 + 2a + 3b = 0"/></p>
+</div><p>And plugging in <img class="math" src="../../_images/math/502e059d1a020b368aee3a99c5669d88331d321f.png" alt="a=1"/> this implies <img class="math" src="../../_images/math/35936109f5553f9d3a884aba528e07ec8408c187.png" alt="b=-1"/>, consistent with the previous
+paragraph.</p>
+<p>Rule 8: multiplying <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/> by <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> must give characters of dimension 2, which is
+<img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/>, so we get:</p>
+<div class="math">
+<p><img src="../../_images/math/669d851c009f8678435a3cd21fe583fc304d2881.png" alt="+1 \cdot c &amp;= c \\
+-1 \cdot d &amp;= d \\"/></p>
+</div><p>From which <img class="math" src="../../_images/math/791662898215b138613f4dada0a3ce54193d735f.png" alt="d=0"/>. Rule 3 gives:</p>
+<div class="math">
+<p><img src="../../_images/math/6d69208f80d7244c92cac6cc34b676804503ecd0.png" alt="2 + 2c + 3d = 0"/></p>
+</div><p>Where we use <img class="math" src="../../_images/math/791662898215b138613f4dada0a3ce54193d735f.png" alt="d=0"/> and we get <img class="math" src="../../_images/math/a4a81f7c43bff36bd696d8bcde52b26bdf4a4faf.png" alt="c=-1"/>. The final character table is:</p>
+<div class="math">
+<p><img src="../../_images/math/37cff21cc7ab880d6b24ff7de49c1465ad2bcbf0.png" alt="\begin{array}{c|ccc}
+C_{3v} &amp; E &amp; 2 C_3 &amp; 3 \sigma_v \\
+\hline
+ A_1      &amp; 1 &amp;   1   &amp; 1 \\
+ A_2      &amp; 1 &amp;   1   &amp; -1 \\
+  E       &amp; 2 &amp;   -1   &amp; 0 \\
+\end{array}"/></p>
+</div></div>
+<div class="section" id="example-iii">
+<h4>Example III<a class="headerlink" href="#example-iii" title="Permalink to this headline">¶</a></h4>
+<p>We derive the character table for <img class="math" src="../../_images/math/b65e6facfe122c182fe14d503aeace2c52a9739d.png" alt="C_2"/>.</p>
+<div class="math">
+<p><img src="../../_images/math/083b1f3a3d0108e253ab879b3d29fdf6a2658ff8.png" alt="\begin{array}{c|ccc}
+C_2 &amp; E &amp; C_2 \\
+\mbox{class sizes} &amp; 1 &amp; 1 \\
+\mbox{element orders} &amp; 1 &amp; 2 \\
+\hline
+ A_1      &amp; 1 &amp;   1 \\
+ A_2      &amp; 1 &amp;   a \\
+\end{array}"/></p>
+</div><p>We have two classes, group order is 2, so we must have two representations of
+dimension 1. Using the rule 3. we get:</p>
+<div class="math">
+<p><img src="../../_images/math/3cc44c1c6ccf11fd47298cd78e6e4fc450316f26.png" alt="1 + a = 0"/></p>
+</div><p>so <img class="math" src="../../_images/math/817555099cf3c1ef68bd2e5b1f4bd27d48cbbb6c.png" alt="a=-1"/> and the final character table is:</p>
+<div class="math">
+<p><img src="../../_images/math/999ecf1c95ea298e627be0976f600e933b0b4a87.png" alt="\begin{array}{c|ccc}
+C_2 &amp; E &amp; C_2 \\
+\hline
+ A_1      &amp; 1 &amp;   1 \\
+ A_2      &amp; 1 &amp;   -1 \\
+\end{array}"/></p>
+</div></div>
+<div class="section" id="example-iv">
+<h4>Example IV<a class="headerlink" href="#example-iv" title="Permalink to this headline">¶</a></h4>
+<p>We derive the character table for <img class="math" src="../../_images/math/85160260d550bf33be28c0a722237c3bc60e8c02.png" alt="C_3"/>.</p>
+<div class="math">
+<p><img src="../../_images/math/434b37cad2ab8ee6ad7b5e152f65e88fca82b778.png" alt="\begin{array}{c|ccc}
+C_3 &amp; E &amp; C_3 &amp; C_3^2 \\
+\mbox{class sizes} &amp; 1 &amp; 1 &amp; 1 \\
+\mbox{element orders} &amp; 1 &amp; 3 &amp; 3 \\
+\hline
+\end{array}"/></p>
+</div><p>We have 3 classes and representations, group order is 3, so they must be one
+dimensional:</p>
+<div class="math">
+<p><img src="../../_images/math/91333d33fb9c6807e56d31987eaf0f4d2ac1e3fa.png" alt="\begin{array}{c|ccc}
+C_3 &amp; E &amp; C_3 &amp; C_3^2 \\
+\mbox{class sizes} &amp; 1 &amp; 1 &amp; 1 \\
+\mbox{element orders} &amp; 1 &amp; 3 &amp; 3 \\
+\hline
+ A_1      &amp; 1 &amp;   1   &amp; 1 \\
+ A_2      &amp; 1 &amp;   a   &amp; b \\
+ A_3      &amp; 1 &amp;   c   &amp; d \\
+\end{array}"/></p>
+</div><p>Rule 3 says:</p>
+<div class="math">
+<p><img src="../../_images/math/7ed3531c1cd62dd8ccf2ab36cb14d2d9f8daf924.png" alt="1 + a + b = 0"/></p>
+</div><p>Rule 5 says:</p>
+<div class="math">
+<p><img src="../../_images/math/3f54c436d514e6426b9dec0e4e2732d9202feae8.png" alt="a &amp;= \omega^k \\
+b &amp;= \omega^l \\"/></p>
+</div><p>where <img class="math" src="../../_images/math/b70cfc19a1055c4a11631e1c86bebcd7e0378317.png" alt="\omega = e^{2\pi i \over 3}"/>, so:</p>
+<div class="math">
+<p><img src="../../_images/math/d7d52aa13564ecb9c0c1f78b034e9c253d519950.png" alt="1 + \omega^k + \omega^l = 0"/></p>
+</div><p>Which has only two solutions: <img class="math" src="../../_images/math/5ed8470bc717a49aafe4556c7e2c2e11ddc7b687.png" alt="k=1"/>, <img class="math" src="../../_images/math/e6fbb515c22e2b4d5f4b9a2b164b626a4e3e2a72.png" alt="l=2"/> and <img class="math" src="../../_images/math/4f681bd84648c174d45eed0037702cae77ed0686.png" alt="k=2"/>, <img class="math" src="../../_images/math/bf7d802f36cb7350777c714781c597141d2d6796.png" alt="l=1"/>. If we choose the
+first solution, we get <img class="math" src="../../_images/math/a4e16ff7a47d5442cef5619fc7aec49093cd115e.png" alt="a=\omega"/> and <img class="math" src="../../_images/math/68ee4ded34889aba0bd6760248a9217a9ea6ebd3.png" alt="b=\omega^2=\bar\omega"/>. Using the rule
+7. it follows that <img class="math" src="../../_images/math/551a2195574972f534159070d2738c2a42e53423.png" alt="c=\bar a = \bar\omega=\omega^2"/> and <img class="math" src="../../_images/math/145bbe569119b7ac2db3f6bd790164e3ae93c659.png" alt="d=\bar b = \omega"/>.
+If we choose the second solution, we get the pairs <img class="math" src="../../_images/math/3834f0cef2a1f4d8524aa5bc8e3faca298550862.png" alt="a, b"/> and <img class="math" src="../../_images/math/645be08e4819218ce9af911a12d44623643dcf77.png" alt="c, d"/>
+interchanged, however, we can reorder the rows, so these two options are
+equivalent. The final character table is:</p>
+<div class="math">
+<p><img src="../../_images/math/e630bed69142250b380ad17bd670b9814151ff63.png" alt="\begin{array}{c|ccc}
+C_3 &amp; E &amp; C_3 &amp; C_3^2 \\
+\hline
+ A_1      &amp; 1 &amp;   1   &amp; 1 \\
+ A_2      &amp; 1 &amp;   \omega   &amp; \omega^2 \\
+ A_3      &amp; 1 &amp;   \omega^2   &amp; \omega \\
+\end{array}
+
+\omega = e^{2\pi i \over 3} = {-1+i\sqrt 3 \over 2}"/></p>
+</div></div>
+<div class="section" id="example-v">
+<h4>Example V<a class="headerlink" href="#example-v" title="Permalink to this headline">¶</a></h4>
+<p>Group <img class="math" src="../../_images/math/7b365f2f71f295f0b06474f993d9ee1563053efc.png" alt="C_4"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/ff1ee852f3e26dc4a1d986c72e13ba5475264ab4.png" alt="\begin{array}{c|cccc}
+C_4 &amp; E &amp; C_4 &amp; C_4^2 &amp; C_4^3 \\
+\mbox{class sizes} &amp; 1 &amp; 1 &amp; 1 &amp; 1\\
+\mbox{element orders} &amp; 1 &amp; 4 &amp; 2 &amp; 4 \\
+\hline
+ A_1      &amp; 1 &amp;   1   &amp; 1 &amp; 1 \\
+ A_2      &amp; 1 &amp;   a   &amp; b &amp; c \\
+ A_3      &amp; 1 &amp;       &amp;   &amp;   \\
+ A_4      &amp; 1 &amp;       &amp;   &amp;   \\
+\end{array}"/></p>
+</div><p>Rule 5 gives:</p>
+<div class="math">
+<p><img src="../../_images/math/1c3cbc91dbd50acf378002484fe9297b7d514cef.png" alt="a &amp;= i^k    \\
+b &amp;= (-1)^l \\
+c &amp;= i^m    \\"/></p>
+</div><p>Rule 3 gives:</p>
+<div class="math" id="equation-xxy">
+<p><span class="eqno">(2)</span><img src="../../_images/math/de73dd38a3cba8d181fad88fdced66932c4278bb.png" alt="1 + a + b + c = 0"/></p>
+</div><p>Using the rule 7. we know that at least one of <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/>, <img class="math" src="../../_images/math/791fe65c9d1ed7d8ed33a5025f40c5c7f9e476af.png" alt="A_3"/> and <img class="math" src="../../_images/math/3b6f936abe426272c6ed7300a218f88be89175a4.png" alt="A_4"/> must be
+real, so let it be <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/>.
+The only real solutions of the equation <a href="#equation-xxy">(2)</a> are <img class="math" src="../../_images/math/502e059d1a020b368aee3a99c5669d88331d321f.png" alt="a=1"/>, <img class="math" src="../../_images/math/35936109f5553f9d3a884aba528e07ec8408c187.png" alt="b=-1"/>, <img class="math" src="../../_images/math/a4a81f7c43bff36bd696d8bcde52b26bdf4a4faf.png" alt="c=-1"/>
+and permutations. The representation however must be isomorphic to the <img class="math" src="../../_images/math/7b365f2f71f295f0b06474f993d9ee1563053efc.png" alt="C_4"/>
+group, so in particular <img class="math" src="../../_images/math/847f72d21fab1cfcdd3fbeaf9b64e438bb952c24.png" alt="a^2 = b"/>, from which <img class="math" src="../../_images/math/cf590e9abb33aa9776ddc386b1ba6ee7b43fa413.png" alt="b=1"/> and then
+<img class="math" src="../../_images/math/817555099cf3c1ef68bd2e5b1f4bd27d48cbbb6c.png" alt="a=-1"/> and <img class="math" src="../../_images/math/a4a81f7c43bff36bd696d8bcde52b26bdf4a4faf.png" alt="c=-1"/>.</p>
+<p>The group operations give:</p>
+<div class="math">
+<p><img src="../../_images/math/9b2c03b0f5832a8446e21b141deae8907e7da4bc.png" alt="a^2 &amp;= b \\
+a b &amp;= c \\
+a c &amp;= 1 \\"/></p>
+</div><p>which gives:</p>
+<div class="math">
+<p><img src="../../_images/math/4dc1a4c28b3f67c0d19285c2f21202f17883cd57.png" alt="2k &amp;= l \\
+k +l &amp;= m \\
+k + m &amp;= 0, 4, 8, 12, ... \\"/></p>
+</div><p>The possible solutions are:</p>
+<div class="math">
+<p><img src="../../_images/math/bdf78847f13dacf62395019ce5bb208a420a65a4.png" alt="\begin{array}{ccc}
+k &amp; l &amp; m \\
+\hline
+2 &amp; 0 &amp; 2 \\
+1 &amp; 2 &amp; 3 \\
+3 &amp; 2 &amp; 1 \\
+\end{array}"/></p>
+</div><p>The first solution is real and it is equal to <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/>. The other two solutions
+are complex conjugate and they must be solutions of <img class="math" src="../../_images/math/791fe65c9d1ed7d8ed33a5025f40c5c7f9e476af.png" alt="A_3"/> and <img class="math" src="../../_images/math/3b6f936abe426272c6ed7300a218f88be89175a4.png" alt="A_4"/>,
+because <img class="math" src="../../_images/math/791fe65c9d1ed7d8ed33a5025f40c5c7f9e476af.png" alt="A_3"/> and <img class="math" src="../../_images/math/3b6f936abe426272c6ed7300a218f88be89175a4.png" alt="A_4"/> cannot be real (otherwise they would have to be equal
+to <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/> and the orthogonality relation for columns would not hold). The final
+character table is:</p>
+<div class="math">
+<p><img src="../../_images/math/0ef9ffdaa23e9e771231750335e2859812792d41.png" alt="\begin{array}{c|cccc}
+C_4 &amp; E &amp; C_4 &amp; C_4^2 &amp; C_4^3 \\
+\hline
+ A_1      &amp; 1 &amp;   1   &amp;  1   &amp;  1 \\
+ A_2      &amp; 1 &amp;  -1   &amp;  1   &amp; -1 \\
+ A_3      &amp; 1 &amp;   i   &amp; -1   &amp; -i \\
+ A_4      &amp; 1 &amp;  -i   &amp; -1   &amp;  i \\
+\end{array}"/></p>
+</div></div>
+<div class="section" id="example-vi">
+<h4>Example VI<a class="headerlink" href="#example-vi" title="Permalink to this headline">¶</a></h4>
+<p>Group <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/cb8430ed847ae7822b9ffec77ffe3b6be9d634a5.png" alt="\begin{array}{c|cccc}
+T &amp; E &amp; 4 C_3 &amp; 4 C_3^2 &amp; 3 C_2 \\
+\mbox{class sizes} &amp; 1 &amp; 4 &amp; 4 &amp; 3\\
+\mbox{element orders} &amp; 1 &amp; 3 &amp; 3 &amp; 2 \\
+\hline
+ A_1      &amp; 1 &amp;   1   &amp; 1 &amp; 1 \\
+ A_2      &amp; 1 &amp;   a   &amp; b &amp; c \\
+ A_3      &amp; 1 &amp;       &amp;   &amp;   \\
+ T        &amp; 3 &amp;   d   &amp; e &amp; f \\
+\end{array}"/></p>
+</div><p>The group size is 1 + 4 + 4 + 3 = 12, so the only possible option
+for dimensions of the 4 representations is 1, 1, 1 and 3.</p>
+<p>Rule 5 gives:</p>
+<div class="math">
+<p><img src="../../_images/math/57b34180df2c59b682b66530ad1b01130b4c950c.png" alt="a &amp;= \omega^k    \\
+b &amp;= \omega^l \\
+c &amp;= (-1)^m    \\"/></p>
+</div><p>where <img class="math" src="../../_images/math/b70cfc19a1055c4a11631e1c86bebcd7e0378317.png" alt="\omega = e^{2\pi i \over 3}"/>.
+Rule 3 gives:</p>
+<div class="math">
+<p><img src="../../_images/math/f7d39e5b63a291704afae32a1ca8a7d7954bacd2.png" alt="1 + 4 \omega^k + 4 \omega^l + 3 (-1)^m = 0"/></p>
+</div><p>The only solution is <img class="math" src="../../_images/math/2e275495e7e44d279fb3e5051b3a63115e79ead5.png" alt="m=0"/>, <img class="math" src="../../_images/math/5ed8470bc717a49aafe4556c7e2c2e11ddc7b687.png" alt="k=1"/> and <img class="math" src="../../_images/math/e6fbb515c22e2b4d5f4b9a2b164b626a4e3e2a72.png" alt="l=2"/> (and <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> with <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/> interchanged).
+This fully determines <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/> and <img class="math" src="../../_images/math/791fe65c9d1ed7d8ed33a5025f40c5c7f9e476af.png" alt="A_3"/>. The last row is determined from column
+orthogonality conditions (we compare the given column with the first column):</p>
+<div class="math">
+<p><img src="../../_images/math/9a6cc84f13c2b529f42a4d4a2915554e49eef59b.png" alt="1 + \omega + \omega^2 + 3 d &amp; = 0 \\
+1 + \omega^2 + \omega + 3 e &amp; = 0 \\
+1 + 1 + 1 + 3 f &amp; = 0 \\"/></p>
+</div><p>Using the relation <img class="math" src="../../_images/math/28a1e70388e2fefc681a55bebf9c99c14e83a3b1.png" alt="1 + \omega + \omega^2=0"/> we get <img class="math" src="../../_images/math/8d11b91838a9adac177547470960b694316d1a91.png" alt="d = 0"/>, <img class="math" src="../../_images/math/9dca5d0b18e4816fd1e21c6b8db716cdf4ff1260.png" alt="e=0"/>
+and <img class="math" src="../../_images/math/5d2d137005a2cfeaab7e92ec47aa38d2a6b5ad5b.png" alt="f=-1"/>.</p>
+<p>The final character table is:</p>
+<div class="math">
+<p><img src="../../_images/math/d50b54e1f971db7735b24c044ae7231aacb3f13d.png" alt="\begin{array}{c|cccc}
+T &amp; E &amp; 4 C_3 &amp; 4 C_3^2 &amp; 3 C_2 \\
+\hline
+ A_1      &amp; 1 &amp;   1   &amp; 1 &amp; 1 \\
+ A_2      &amp; 1 &amp;   \omega   &amp; \omega^2 &amp; 1 \\
+ A_3      &amp; 1 &amp;   \omega^2 &amp; \omega  &amp;  1  \\
+ T        &amp; 3 &amp;    0   &amp;  0  &amp;  -1  \\
+\end{array}"/></p>
+</div></div>
+</div>
+</div>
+<div class="section" id="applications-of-finite-groups">
+<h2>Applications of finite groups<a class="headerlink" href="#applications-of-finite-groups" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="distinct-energy-levels-vibrations">
+<h3>Distinct energy levels (&#8216;vibrations&#8217;)<a class="headerlink" href="#distinct-energy-levels-vibrations" title="Permalink to this headline">¶</a></h3>
+<p>Assume that we know number of atoms in a molecule and measure the number of
+its distinct vibrational modes (frequencies) in a multiplet. We want to know
+its symmetry.</p>
+<p>We go through the list of all possible (point) symmetries <img class="math" src="../../_images/math/ad28c83c99a8fd0dd2e2e594c9d02ee532765a0a.png" alt="S"/> of such a
+molecule and look at what all reps. <img class="math" src="../../_images/math/ad28c83c99a8fd0dd2e2e594c9d02ee532765a0a.png" alt="S"/> has. If an <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>&#8211;tuplet was observed
+among the vibrational modes and there is no <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>-dimensional IR of <img class="math" src="../../_images/math/ad28c83c99a8fd0dd2e2e594c9d02ee532765a0a.png" alt="S"/>, then
+can be excluded.</p>
+<p>This procedure assumes that (a) the original symmetry <img class="math" src="../../_images/math/ad28c83c99a8fd0dd2e2e594c9d02ee532765a0a.png" alt="S"/> is slightly disturbed
+because of something and (b) two multiplets (<img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> and <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> dimensional) do not
+accidentally happen to have the same frequencies (&#8216;accidental degeneracy&#8217;).</p>
+</div>
+<div class="section" id="selection-rules-transitions">
+<h3>Selection rules (&#8216;transitions&#8217;)<a class="headerlink" href="#selection-rules-transitions" title="Permalink to this headline">¶</a></h3>
+<p>According to <a class="reference internal" href="#pilar">[Pilar]</a>, p. 572.</p>
+<p>Probability of an optical transition is proportional to</p>
+<div class="math" id="equation-eq-1-2">
+<p><span class="eqno">(3)</span><img src="../../_images/math/37a897ec1535ca0ae0cd5019ca91fe8ca5ba6ad6.png" alt="\braket{i| H_1 |f}\,,"/></p>
+</div><p>where <img class="math" src="../../_images/math/5861cbe652445add30a118f6151c776de33242c4.png" alt="\ket{i}"/>, <img class="math" src="../../_images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/> are the initial and final states and <img class="math" src="../../_images/math/d307bbd1badc9884ef8f01724a6e1cbf9e173a8b.png" alt="H_1"/> is
+the operator of the interaction causing the transition. This is the
+Fermi golden rule (first order time dep. perturbation theory).</p>
+<p>The integral (<a href="#equation-eq-1-2">(3)</a>) may vanish because of the symmetry. A simple 1D
+example is that <img class="math" src="../../_images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/> is an even function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>, <img class="math" src="../../_images/math/5861cbe652445add30a118f6151c776de33242c4.png" alt="\ket{i}"/> is an odd
+function <img class="math" src="../../_images/math/8f10bff99cfa601cefd3819c4bfc6ad834063d7c.png" alt="i(x)"/> and <img class="math" src="../../_images/math/d307bbd1badc9884ef8f01724a6e1cbf9e173a8b.png" alt="H_1"/> is an even function <img class="math" src="../../_images/math/8fea77f751d8481a71f528a0c0a0f9aafa92059a.png" alt="h_1(x)"/>. Then
+<img class="math" src="../../_images/math/3dc4eb1ef2b8ac861105cb4c65390f5eebd8d65a.png" alt="i^*(x)h_1(x)f(x)"/> is odd and thus the integral over <img class="math" src="../../_images/math/cac5eb39191d267a109cd1678e13110bfa467e84.png" alt="(-\infty,\infty)"/>
+vanishes. The group theory only generalizes this observation.</p>
+<p>The procedure is: find the IRs <img class="math" src="../../_images/math/f9198622b8855b209d5a50c3d3d22ea82eb0189b.png" alt="\rho_i"/>, <img class="math" src="../../_images/math/852d21309d977e5e7a7213643b8372e8e9be6abf.png" alt="\rho_f"/> to which <img class="math" src="../../_images/math/5861cbe652445add30a118f6151c776de33242c4.png" alt="\ket{i}"/>,
+<img class="math" src="../../_images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/> belong and also <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>, the regular rep of <img class="math" src="../../_images/math/d307bbd1badc9884ef8f01724a6e1cbf9e173a8b.png" alt="H_1"/> in order to catch
+all IRs of <img class="math" src="../../_images/math/d307bbd1badc9884ef8f01724a6e1cbf9e173a8b.png" alt="H_1"/> (is this procedure correct?). Then construct
+<img class="math" src="../../_images/math/7a86c03aa88d8d165415bbf30a65735e9908f199.png" alt="\rho_i\otimes\rho\otimes\rho_f"/>, decompose it into IRs and see if the trivial
+rep is present. If not, the integral (<a href="#equation-eq-1-2">(3)</a>) vanishes. This procedure
+is claimed to be equivalent to checking whether <img class="math" src="../../_images/math/3741d4778e424d4063a42d62795af91bb5e6189c.png" alt="\rho_i\otimes \rho_f"/> and
+<img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> contain at least one common IR.</p>
+<p>The infrared absorption (IRa) is described by <img class="math" src="../../_images/math/fe5545716c235ea3641483d65d56d9622159fd1d.png" alt="H_1\propto x"/> (or <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/>, <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>,
+depending probably on the polarization of light), the Raman scattering has
+<img class="math" src="../../_images/math/73256ef6a08767fd78ce4b2c13e8740a4605f585.png" alt="H_1\propto x^2"/> (it comes from the second order perturbation theory?).</p>
+</div>
+<div class="section" id="id19">
+<h3>Zoology<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>Todo:</p>
+<ul class="simple">
+<li>Describe the representations <img class="math" src="../../_images/math/36c7f3f828cf12ab9cafeffad282468a95219600.png" alt="A_1"/>, <img class="math" src="../../_images/math/e3a8ae66ded7f33f9385a37c9cadfb82720013d8.png" alt="A_2"/>, <img class="math" src="../../_images/math/243af6fad28c15abb3e11996374ba60e745bf543.png" alt="B_1"/>, <img class="math" src="../../_images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> etc.</li>
+<li>Reps are specified
+by the generating functions <img class="math" src="../../_images/math/84e54f95933186f54643a5cdfcf3ba5bbeb15cbe.png" alt="f(x,y,z)"/> and the symmetry operations <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> acting
+on these functions <img class="math" src="../../_images/math/bfaabe9c7c3e504d3c37a170946288af7d7e4eb6.png" alt="f(x,y,z)\mapsto f(x',y',z')"/>  then transform the
+arguments, <img class="math" src="../../_images/math/6245d794d26cd2ef55ca8f081b7a597058e416d6.png" alt="(x,y,z)\mapsto (x',y',z')=T(x,y,z)"/>. Explain what functions are
+commonly used (<img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>, <img class="math" src="../../_images/math/fa1294254f45429464b6f247c6c6f29b6ed34e0b.png" alt="R_x,\ldots"/>) and give maybe some examples.</li>
+<li>Further reading: Davydov, p. 318, 195. Joe Penrose: Symmetry in Science.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="continuous-groups">
+<h2>Continuous Groups<a class="headerlink" href="#continuous-groups" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lie-groups-algebras">
+<h3>Lie groups+algebras<a class="headerlink" href="#lie-groups-algebras" title="Permalink to this headline">¶</a></h3>
+<p>A continuous group with metrics is a Lie group (more exactly a differentiable
+manifold and <img class="math" src="../../_images/math/740cdd79ca30f0c0605ca0a0da3157dd187eda50.png" alt="a\mapsto ag"/> and <img class="math" src="../../_images/math/3d858d18b4d9fffb07b4eba16f8f34d298ef1866.png" alt="a\mapsto a^{-1}"/> are differentiable <img class="math" src="../../_images/math/c44794e8d09c7336a0b0ae8e32249a4da0c5e47c.png" alt="\forall
+g"/>, p. 172 in <a class="reference internal" href="#sternberg">[Sternberg]</a>) usually a subgroup of <img class="math" src="../../_images/math/7576fce402c39f8f554138e5db8da0a237e00f1c.png" alt="GL(n)"/> is meant, a
+linear Lie group (i.e. matrices). Peter&#8211;Weyl theorem (p. 179
+in <a class="reference internal" href="#sternberg">[Sternberg]</a>) looks like that compact Lie groups are practically as
+nice as finite groups.</p>
+<p>Consider <img class="math" src="../../_images/math/069b683d00326f883d31b5ed887d6de9e0d2b4e9.png" alt="G=O(n)"/>, p. 234 in <a class="reference internal" href="#sternberg">[Sternberg]</a>. If <img class="math" src="../../_images/math/39948a88ffc93efb69f98f4bb9879039ea781df7.png" alt="A\in G"/> then
+<img class="math" src="../../_images/math/d1cac6e7159996b45cf1375765f1464aef29ff0a.png" alt="\exp(-tA)\subset G"/> where <img class="math" src="../../_images/math/440c9621f98568f82e840a912a292be2032becee.png" alt="t\in R"/>. At least in <img class="math" src="../../_images/math/ad4f880fe66463ec950b1b25a0c8de608b0141a4.png" alt="O(3)"/> and probably in any
+<img class="math" src="../../_images/math/6c57aa00a4239462db1583967b78dccfa03de09a.png" alt="O(n)"/>, any element of <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/> can be written as <img class="math" src="../../_images/math/f77721312fd805c0c52ce89dab1e3156cc451713.png" alt="\exp(-tA)"/> where <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/> is a
+<img class="math" src="../../_images/math/039bf945c704ff98e6f81626bbad32550cc37193.png" alt="\pi/2"/> rotation around some axis. These <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/>&#8216;s are the generators of <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/>.</p>
+<p>Typical example: for
+<img class="math" src="../../_images/math/79b7199fec9469a52d22d5db83dfccc64459d80b.png" alt="G=SO(3)"/> there are three generators, <img class="math" src="../../_images/math/4d225ae93b532d5c40fb9b0231798164711435b0.png" alt="iA_x"/>, <img class="math" src="../../_images/math/6bb50bd0f48a19c0f673d12f07eb45a51b35bc80.png" alt="iA_y"/>, <img class="math" src="../../_images/math/1aa70f2bbcb177ade1cf7b40ae461432f868e5a7.png" alt="iA_z"/>, where <img class="math" src="../../_images/math/f894538898de931390d7742272be03b04449f4ed.png" alt="A_x"/> is
+the rotation by <img class="math" src="../../_images/math/039bf945c704ff98e6f81626bbad32550cc37193.png" alt="\pi/2"/> around <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>&#8211;axis in <img class="math" src="../../_images/math/2b61524f97db58f2e9333c29e76bb5b8d33e981c.png" alt="R^3"/>. The generators form a
+vector space (here the linear span of <img class="math" src="../../_images/math/4d225ae93b532d5c40fb9b0231798164711435b0.png" alt="iA_x"/>, <img class="math" src="../../_images/math/6bb50bd0f48a19c0f673d12f07eb45a51b35bc80.png" alt="iA_y"/>, <img class="math" src="../../_images/math/1aa70f2bbcb177ade1cf7b40ae461432f868e5a7.png" alt="iA_z"/>) with an
+additional operation of commutation. This structure is closed and it is called
+the Lie algebra of the group <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/>. The commutation relations between the
+generators fully specify the Lie algebra. E.g. <img class="math" src="../../_images/math/4d728cb1365b6b3efa171554d987017699e204e2.png" alt="[iA_x,iA_y]=iA_z"/>
+and the two other ones.</p>
+<p>This is a great simplification because a continuous (infinite) group was thus
+mapped on a vector space, the algebra, where it suffices to look at the basis
+elements, the generator. The net effect is that we have to watch only three
+objects instead of infinitely many in the example above.</p>
+<p>Todo: weights, roots and Dynkin diagrams. Octets and decuplets. Classification
+of IRs of <img class="math" src="../../_images/math/eb340f607355e52b1df16c5f0173e284ebcfecf6.png" alt="SU(n)"/>. From <a class="reference internal" href="#georgi">[Georgi]</a>.</p>
+<div class="section" id="irs-of-su-2">
+<h4>IRs of SU(2)<a class="headerlink" href="#irs-of-su-2" title="Permalink to this headline">¶</a></h4>
+<ol class="loweralpha simple" start="16">
+<li>181 in <a class="reference internal" href="#sternberg">[Sternberg]</a>; alternative somewhere in <a class="reference internal" href="#georgi">[Georgi]</a>.</li>
+</ol>
+<p>The Peter-Weyl theorem concerns also the orthogonality of characters and that
+in turn strongly restricts any possible characters of <img class="math" src="../../_images/math/6d3cdd01ef4a93453c2a837aa2f3d60290e2083e.png" alt="SU(2)"/>. The conjugacy
+classes of <img class="math" src="../../_images/math/6d3cdd01ef4a93453c2a837aa2f3d60290e2083e.png" alt="SU(2)"/> are exemplified by matrices
+<img class="math" src="../../_images/math/eae2df460d1a60d423510383165c1d955ff3125c.png" alt="U_\theta=\diag(e^{i\theta},e^{-i\theta})"/> and their possible characters can
+only be</p>
+<div class="math">
+<p><img src="../../_images/math/757c6d9684d9937145b161df435f1664a4852856.png" alt="\chi(\theta)=\sum_{k=-s}^{s} \exp(-i2k\theta)"/></p>
+</div><p>with <img class="math" src="../../_images/math/a89afb1b1bb51fd672b9d42d7e94b39a8f110f59.png" alt="2s"/> integer.</p>
+<p>All the corresponding reps exist, they are defined on the space
+<img class="math" src="../../_images/math/feed02682789cd9f9edc5ce1b5a54c760c323d11.png" alt="z_1^{2s},z_1^{2s-1}z_2,\ldots, z_2^{2s}"/> by
+<img class="math" src="../../_images/math/ac5d04b97bce101a8f1cec2ac71487bfece8ce43.png" alt="U_{-\theta}z_1^{2s-k}z_2^k\mapsto [\exp i(2s-2k)\theta]z_1^{2s-k}z_2^k"/>.</p>
+<p>For an IR of <img class="math" src="../../_images/math/6d3cdd01ef4a93453c2a837aa2f3d60290e2083e.png" alt="SU(2)"/> the complex conjugate is just the original. For other
+<img class="math" src="../../_images/math/eb340f607355e52b1df16c5f0173e284ebcfecf6.png" alt="SU(n)"/> it is not necessarily the case, p. 182 in <a class="reference internal" href="#sternberg">[Sternberg]</a>.</p>
+<p>IRs of <img class="math" src="../../_images/math/7960fd7dddccbf2c57fa2ddb6b4ba455958c2e5b.png" alt="SO(3)"/> are just those of <img class="math" src="../../_images/math/6d3cdd01ef4a93453c2a837aa2f3d60290e2083e.png" alt="SU(2)"/> but <img class="math" src="../../_images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/> must be an integer.</p>
+</div>
+</div>
+<div class="section" id="young-diagrams">
+<h3>Young diagrams<a class="headerlink" href="#young-diagrams" title="Permalink to this headline">¶</a></h3>
+<p>YD is a systematic method to find all IRs of any symmetric group <img class="math" src="../../_images/math/c74a070eea97d9363f58a257e05e75fc69efa753.png" alt="S_n"/>
+(permutations of an <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>-element set). The idea:</p>
+<ul class="simple">
+<li>find all conjugacy classes of <img class="math" src="../../_images/math/c74a070eea97d9363f58a257e05e75fc69efa753.png" alt="S_n"/></li>
+<li>assign an IR to each of them</li>
+</ul>
+<p>Char&#8217;n of the conjugacy classes: each permutation can be decomposed into
+cycles. This cycle structure (i.e. how many cycles of length 1, how many of
+length 2, etc. <img class="math" src="../../_images/math/57c953bca8e8aad9cacebc9f642b9f63cb0f634d.png" alt="=[\nu_1,\nu_2\,\ldots,\nu_n]"/>) is a unique mark of each
+conjugation class. The Young diagram is written by rows, each row has
+<img class="math" src="../../_images/math/f9092807df2606b64909623baacf32bf722daff7.png" alt="\lambda_i"/> empty boxes and <img class="math" src="../../_images/math/34004e976fe1ed142bc0a6e893c433ae2f340e9c.png" alt="\lambda_i-\lambda_{i+i}=\nu_i\ge 0"/>. Each
+conjugacy class has one YD. An YD of <img class="math" src="../../_images/math/c74a070eea97d9363f58a257e05e75fc69efa753.png" alt="S_n"/> has <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> boxes.</p>
+<p>A Young tabloid (YTd) is obtained by filling an YD with numbers <img class="math" src="../../_images/math/0bdf3e831482778f82d5fc97a0c847722929ea10.png" alt="1,\ldots,n"/> where
+ordering in each row does not matter. A Young tableau is an YTd where all
+orderings (thus also in rows) matter.</p>
+<p>The IRs of <img class="math" src="../../_images/math/c74a070eea97d9363f58a257e05e75fc69efa753.png" alt="S_n"/>. Take an YD <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/>. On the space of all corresponding
+YTd&#8217;s (<img class="math" src="../../_images/math/06568088d28972caa2ea4faf1e62bde2b5038563.png" alt="M_\lambda"/>) a rep. of the <img class="math" src="../../_images/math/c74a070eea97d9363f58a257e05e75fc69efa753.png" alt="S_n"/> is created. It is decomposed into IRs
+and shown to have some &#8216;new&#8217; IR compared to <img class="math" src="../../_images/math/ae14d9dda749842d9574b7226409f8e136bb3b82.png" alt="\mu&gt;\lambda"/>.</p>
+<p>Details are explained in <a class="reference internal" href="#sternberg">[Sternberg]</a>, p. 76 or in the lecture notes of
+J. Niederle.</p>
+<p>Comments from p. 82 of <a class="reference internal" href="#sternberg">[Sternberg]</a>:
+Basis of <img class="math" src="../../_images/math/06568088d28972caa2ea4faf1e62bde2b5038563.png" alt="M_\lambda"/> is defined (<img class="math" src="../../_images/math/c96f07b01141531638ceca6032d9412d02eb0db6.png" alt="e_t"/>; <img class="math" src="../../_images/math/8b10bb8bf71f1d9cf33a9360f0b3ea2212647555.png" alt="\delta_{\{t\}}"/> means probably a function on
+<img class="math" src="../../_images/math/06568088d28972caa2ea4faf1e62bde2b5038563.png" alt="M_\lambda"/> which is zero for all <img class="math" src="../../_images/math/9585cd455f2890c37725fc3a8d1241330c75255c.png" alt="\{y\}"/> unless <img class="math" src="../../_images/math/6bd069d32b2365e906a91df5c0a0ae42fb5bbabe.png" alt="\{y\}=\{t\}"/>). The action of
+<img class="math" src="../../_images/math/0c35f9f88faeccc3e36ed6b6b20a5a873c70022a.png" alt="a\in S_n"/> on this basis functions is described.</p>
+</div>
+</div>
+<div class="section" id="literature">
+<h2>Literature<a class="headerlink" href="#literature" title="Permalink to this headline">¶</a></h2>
+<p>Books:</p>
+<table class="docutils citation" frame="void" id="birss" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Birss]</td><td><em>(<a class="fn-backref" href="#id8">1</a>, <a class="fn-backref" href="#id11">2</a>)</em> Birss, R.R. (1961). Symmetry and Magnetism. Volume III.  North-Holland Publishing Company.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="bishop" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id17">[Bishop]</a></td><td>Bishop D.M. (1993). Group theory and chemistry. Courier Dover Publications.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="elliott" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Elliott]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id16">2</a>)</em> Elliott, J.P. and Dawber, P.G. (1979). Symmetry in Physics. The Macmillan Press Ltd.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="georgi" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Georgi]</td><td><em>(<a class="fn-backref" href="#id23">1</a>, <a class="fn-backref" href="#id25">2</a>)</em> Georgi, H. (1990). Lie Algebras in Particle Physics. Addison-Wesley.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="pilar" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id18">[Pilar]</a></td><td>Pilar, F.L. (1990). Elementary Quantum Chemistry, McGraw&#8211;Hill.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="sternberg" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Sternberg]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>, <a class="fn-backref" href="#id5">4</a>, <a class="fn-backref" href="#id6">5</a>, <a class="fn-backref" href="#id7">6</a>, <a class="fn-backref" href="#id9">7</a>, <a class="fn-backref" href="#id10">8</a>, <a class="fn-backref" href="#id20">9</a>, <a class="fn-backref" href="#id21">10</a>, <a class="fn-backref" href="#id22">11</a>, <a class="fn-backref" href="#id24">12</a>, <a class="fn-backref" href="#id26">13</a>, <a class="fn-backref" href="#id27">14</a>, <a class="fn-backref" href="#id28">15</a>)</em> Sternberg, S. (1994). Group theory and physics. Cambridge University Press</td></tr>
+</tbody>
+</table>
+<p>Articles:</p>
+<table class="docutils citation" frame="void" id="blokker72" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id13">[Blokker72]</a></td><td>Blokker, E. International journal of quantum chemistry VI, 925, (1972)</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="cannon69" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id14">[Cannon69]</a></td><td>Cannon, J.J. Communications of the association for computing machinery, <strong>12</strong>, 3 (1969)</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="chillag86" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id15">[Chillag86]</a></td><td>Chillag, D. (1986). Character Values of Finite Groups as Eigenvalues Of Nonnegative Integer Matrices. Proceedings of the American Mathematical Society, 97(3), 565-567.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="dixon67" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[Dixon67]</a></td><td>Dixon, J.D. Numerische Mathematik <strong>10</strong>, 446 (1967)</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Groups</a><ul>
+<li><a class="reference internal" href="#theory">Theory</a><ul>
+<li><a class="reference internal" href="#representation">Representation</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-facts">Other facts</a></li>
+<li><a class="reference internal" href="#interesting-examples">Interesting examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#crystallographic-point-groups">Crystallographic Point Groups</a><ul>
+<li><a class="reference internal" href="#zoology">Zoology</a></li>
+<li><a class="reference internal" href="#construction-and-usage-of-the-character-table">Construction and usage of the character table</a><ul>
+<li><a class="reference internal" href="#example-i">Example I</a></li>
+<li><a class="reference internal" href="#example-ii">Example II</a></li>
+<li><a class="reference internal" href="#example-iii">Example III</a></li>
+<li><a class="reference internal" href="#example-iv">Example IV</a></li>
+<li><a class="reference internal" href="#example-v">Example V</a></li>
+<li><a class="reference internal" href="#example-vi">Example VI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#applications-of-finite-groups">Applications of finite groups</a><ul>
+<li><a class="reference internal" href="#distinct-energy-levels-vibrations">Distinct energy levels (&#8216;vibrations&#8217;)</a></li>
+<li><a class="reference internal" href="#selection-rules-transitions">Selection rules (&#8216;transitions&#8217;)</a></li>
+<li><a class="reference internal" href="#id19">Zoology</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#continuous-groups">Continuous Groups</a><ul>
+<li><a class="reference internal" href="#lie-groups-algebras">Lie groups+algebras</a><ul>
+<li><a class="reference internal" href="#irs-of-su-2">IRs of SU(2)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#young-diagrams">Young diagrams</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#literature">Literature</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="feynman-parameters.html"
+                        title="previous chapter">Feynman Parameters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="wigner.html"
+                        title="next chapter">Wigner D Function</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/math/groups.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="wigner.html" title="Wigner D Function"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="feynman-parameters.html" title="Feynman Parameters"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference 0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2011, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

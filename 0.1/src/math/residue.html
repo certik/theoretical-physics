@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Residue Theorem &mdash; Theoretical Physics Reference v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Mathematics" href="main.html" />
+    <link rel="next" title="Fourier Transform" href="transforms.html" />
+    <link rel="prev" title="Integration" href="integration.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="transforms.html" title="Fourier Transform"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="integration.html" title="Integration"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="residue-theorem">
+<span id="index-34"></span><h1>Residue Theorem<a class="headerlink" href="#residue-theorem" title="Permalink to this headline">¶</a></h1>
+<p>The Residue Theorem says that a contour integral of an analytic function <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>
+over a closed curve <img class="math" src="../../_images/math/66981fa3920210c6ad8dbe5e968783d5dd7520c3.png" alt="\gamma"/> (loop) is equal to the sum of residues
+<img class="math" src="../../_images/math/dca6ec78e1465d5cef00d77e5458eca5757b3b77.png" alt="\res_{z_k}f(z)"/> of the function at all singularities <img class="math" src="../../_images/math/f756c0f47c2c000ff11cc29f13381232ff401aeb.png" alt="z_k"/> inside the loop:</p>
+<div class="math">
+<p><img src="../../_images/math/34f0c0e4b78a2aa829b461c1e4de313231e77a9c.png" alt="\int_\gamma f(z) \d z = 2\pi i \sum_{z_k} \res_{z=z_k} f(z)" /></p>
+</div><p>Residue <img class="math" src="../../_images/math/bff128d407929349e2c97e98e020dbbf19afbf40.png" alt="\res_{z_0}f(z)"/> is defined as the contour integral around <img class="math" src="../../_images/math/bab9abe98679312d2a3308c76188cf2cbc492f68.png" alt="z_0"/>
+divided by <img class="math" src="../../_images/math/7c3179b109458327321af8c44c7e362e0bf28b3a.png" alt="2\pi i"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/edbc997da7a552cff6a0da637f659bc1ebc14bdc.png" alt="\res_{z=z_0} f(z) = {1\over 2\pi i}\int_{|z - z_0| = \epsilon} f(z) \d z" /></p>
+</div><p>and it is equal to the coefficient of <img class="math" src="../../_images/math/76b6494c31b992a760407ccaa6819b54ccf71da6.png" alt="1\over z-z_0"/> in the
+Laurent series of <img class="math" src="../../_images/math/301469a1d6b6bd4ddb15b26b27e22c03d5611b2e.png" alt="f(z)"/> around the point <img class="math" src="../../_images/math/bab9abe98679312d2a3308c76188cf2cbc492f68.png" alt="z_0"/>, as can be easily calculated:</p>
+<div class="math">
+<p><img src="../../_images/math/ee6cbe709f20ab47ec996d31f74d4bfb568197ac.png" alt="\res_{z=z_0} f(z) = {1\over 2\pi i}\int\limits_{|z - z_0| = \epsilon} f(z) \d z
+= {1\over 2\pi i}\int\limits_{|z - z_0| = \epsilon} \sum_{n=-\infty}^\infty c_n
+(z-z_0)^n \d z
+=
+
+= \sum_{n=-\infty}^\infty c_n {1\over 2\pi i}\int\limits_{|z - z_0| = \epsilon}
+(z-z_0)^n \d z
+= \sum_{n=-\infty}^\infty c_n \delta_{n, -1} = c_{-1}" /></p>
+</div><p>where we used the result of the following integral (we integrate over the curve
+<img class="math" src="../../_images/math/f3989701349f11fec48971d0afa228c5b94c08c6.png" alt="z = z_0 + \epsilon e^{i\varphi}"/>, <img class="math" src="../../_images/math/0e4dc31b62be2249bc6c65d341f4647918e2d008.png" alt="0\le\varphi&lt;2\pi"/>, so <img class="math" src="../../_images/math/90ca0b4554797d9067583237225e7ef79350cb5d.png" alt="\d z = i\epsilon
+e^{i\varphi}\d\varphi"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/d2a85722e935e543024cf973c7dfbeb9576e45cd.png" alt="{1\over 2\pi i}\int\limits_{|z - z_0| = \epsilon} (z-z_0)^n \d z
+=
+{1\over 2\pi i}\int\limits_0^{2\pi} (z_0+\epsilon e^{i\varphi}-z_0)^n
+i\epsilon e^{i\varphi}\d\varphi
+=
+{\epsilon^{n+1}\over 2\pi}\int\limits_0^{2\pi} e^{i\varphi (n + 1)}
+\d\varphi
+=
+
+=\begin{cases}{
+\epsilon^{n+1}\over 2\pi} \left[ {e^{i\varphi (n + 1)}\over i(n+1)}
+\right]_0^{2\pi}=0\quad\text{for $n\neq-1$}\cr
+{1\over 2\pi}\int\limits_0^{2\pi} \d\varphi=1\quad\text{for $n=-1$}\cr
+\end{cases}
+=\delta_{n, -1}" /></p>
+</div><div class="section" id="computation-of-residues">
+<span id="index-35"></span><h2>Computation of Residues<a class="headerlink" href="#computation-of-residues" title="Permalink to this headline">¶</a></h2>
+<p>One has to calculate the <img class="math" src="../../_images/math/5f0ea967fd4ffc34a2de65a10fd23dd841cb07c8.png" alt="c_{-1}"/> coefficient in the Laurent series. One way to
+do that is to write <img class="math" src="../../_images/math/301469a1d6b6bd4ddb15b26b27e22c03d5611b2e.png" alt="f(z)"/> as:</p>
+<div class="math">
+<p><img src="../../_images/math/149c324fb1aa34d4f096c8cdd0ee925d9ca604b9.png" alt="f(z) = {H(z)\over (z-z_0)^m}" /></p>
+</div><p>where <img class="math" src="../../_images/math/0578bdeec36f75d67437cbfead740e053e148db8.png" alt="H(z)"/> is analytic in the vicinity of <img class="math" src="../../_images/math/bab9abe98679312d2a3308c76188cf2cbc492f68.png" alt="z_0"/>, e.g. <img class="math" src="../../_images/math/301469a1d6b6bd4ddb15b26b27e22c03d5611b2e.png" alt="f(z)"/> has a pole of
+order <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> at <img class="math" src="../../_images/math/bab9abe98679312d2a3308c76188cf2cbc492f68.png" alt="z_0"/>. Then:</p>
+<div class="math">
+<p><img src="../../_images/math/fe932eccf570d5d9954145426046146f7cb7f742.png" alt="\res_{z=z_0} f(z) = c_{-1} = {1\over(m-1)!}
+\left.{\d^m H(z)\over\d z^m}\right|_{z = z_0}" /></p>
+</div><p>in particular for <img class="math" src="../../_images/math/a4b5800f5ad040d308609190ef18a9e0ca08a9b0.png" alt="m=1"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/e85a7fd3969d85ce5c983eb3511b50e541c175c9.png" alt="\res_{z=z_0} f(z) = H(z_0) = \lim_{z\to z_0}(z-z_0) f(z)" /></p>
+</div><p>for <img class="math" src="../../_images/math/6f3eaf8047a3f5bebfc5c43e27123a15a44d7540.png" alt="m=2"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/4284315f5fbf7b0a978c76a3282a769f4f856a54.png" alt="\res_{z=z_0} f(z) = H'(z_0) = \lim_{z\to z_0}{\d\over\d z}[(z-z_0)^2 f(z)]" /></p>
+</div><p><img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> has a pole of order 1 at <img class="math" src="../../_images/math/bab9abe98679312d2a3308c76188cf2cbc492f68.png" alt="z_0"/>, <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> is analytic at <img class="math" src="../../_images/math/bab9abe98679312d2a3308c76188cf2cbc492f68.png" alt="z_0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/0ec3de8994da5c63710f409d5876b7f95b625851.png" alt="\res_{z=z_0} f(z)g(z) = \lim_{z\to z_0}(z-z_0) f(z)g(z)
+= g(z_0)\lim_{z\to z_0}(z-z_0) f(z) = g(z_0)\res_{z=z_0}f(z)" /></p>
+</div><p><img class="math" src="../../_images/math/d5e903fcac753d060d62bdc31c9095ab50cdb15f.png" alt="f(z_0) = 0"/>, but <img class="math" src="../../_images/math/9a2c070f20de9f16df41fe67f5998374d80c75a3.png" alt="f'(z_0) \neq 0"/> and <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> is analytic at <img class="math" src="../../_images/math/bab9abe98679312d2a3308c76188cf2cbc492f68.png" alt="z_0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/ae44bf5b4e8b361f3433bd47d25a0d017f2de8ac.png" alt="\res_{z=z_0} {g(z)\over f(z)} = g(z_0)\lim_{z\to z_0}{z-z_0\over f(z)}
+= g(z_0)\lim_{z\to z_0}{z-z_0\over f(z)-f(z_0)}
+= {g(z_0)\over f'(z_0)}" /></p>
+</div></div>
+<div class="section" id="useful-formulas">
+<h2>Useful Formulas<a class="headerlink" href="#useful-formulas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jordan-s-lemma">
+<span id="index-36"></span><h3>Jordan&#8217;s Lemma<a class="headerlink" href="#jordan-s-lemma" title="Permalink to this headline">¶</a></h3>
+<p>For estimating integrals over semicircles <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/> (<img class="math" src="../../_images/math/f26390f1bb7a03f9abccd340eb9b8f67a850b736.png" alt="z = Re^{i\varphi}"/>,
+<img class="math" src="../../_images/math/0ba519fe4851421edfccf055fbd790f7042ae084.png" alt="0\le\varphi\le\pi"/>), we can use the following estimates:</p>
+<div class="math">
+<p><img src="../../_images/math/3415a8cfb8d98f45ef5e0811924c6cc97f47cf86.png" alt="\left|\int_\Omega g(z) \d z \right| \le \pi R \max_\Omega |g(z)|
+
+\left|\int_\Omega e^{i\alpha z}g(z) \d z \right| \le {\pi\over\alpha}
+\max_\Omega |g(z)|\quad\text{for $\alpha&gt;0$}" /></p>
+</div><p>(In the first case the integration path can be extended to the full circle if
+needed (<img class="math" src="../../_images/math/4d0b1541de4a9e5e456313e2a214c3f59cab5b77.png" alt="0\le\varphi\le2\pi"/>), in the second case the semicircle is the maximum
+path. Also if <img class="math" src="../../_images/math/b7818e59db2424e5021da3361c879e64a4223f1e.png" alt="\alpha&lt;0"/>, we need to integrate over the lower semicircle.)
+These formulas can be used to make sure the integral over the semicircle goes to
+zero as <img class="math" src="../../_images/math/8809b97cde1fc588884fce15479e5342e7eda367.png" alt="R\to\infty"/>. Intuitively speaking, in the first case <img class="math" src="../../_images/math/25644550d7cac6c96494ec66376348d1a1f431f6.png" alt="g(z)"/> must
+vanish faster than <img class="math" src="../../_images/math/95fd3db42c5ea441de11854e7bc350638a619442.png" alt="1\over R"/> (e.g. <img class="math" src="../../_images/math/bcea182800e7d7070a62d46b6a1c95d4a6ee00af.png" alt="1\over R^2"/> is ok), in the second case
+it&#8217;s enough if <img class="math" src="../../_images/math/25644550d7cac6c96494ec66376348d1a1f431f6.png" alt="g(z)"/> just goes to 0 (no matter how fast).</p>
+<p>The estimates can be proved easily:</p>
+<div class="math">
+<p><img src="../../_images/math/5dc603cbe2985a538a6658f57efef16a0353509a.png" alt="\left|\int_\Omega g(z) \d z \right|
+= \left|\int_0^\pi g(Re^{i\varphi})iRe^{i\varphi} \d\varphi \right|
+\le \int_0^\pi \left|g(Re^{i\varphi})\right|R \d\varphi
+\le R\max_\Omega |g(z)| \int_0^\pi \d\varphi
+= \pi R \max_\Omega |g(z)|" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/ef20048f913788b5367e29fbe1eee252ae4f264c.png" alt="\left|\int_\Omega e^{i\alpha z}g(z) \d z \right|
+=\left|\int_0^\pi e^{i\alpha
+Re^{i\varphi}}g(Re^{i\varphi})iRe^{i\varphi}\d\varphi\right|
+\le
+
+\le\int_0^\pi e^{-\alpha R\sin\varphi}\left|g(Re^{i\varphi})\right| R \d\varphi
+\le R \max_\Omega |g(z)| \int_0^\pi e^{-\alpha R\sin\varphi}\d\varphi
+&lt;
+
+&lt; {\pi\over\alpha} \max_\Omega |g(z)|" /></p>
+</div><p>where we use the following useful estimate for the integral
+(valid for <img class="math" src="../../_images/math/467910c14895b2f594062db33a44906d9ef8bda8.png" alt="\alpha&gt;0"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/fc064ba19d01ebbf67e77c0c5a5e3f0eaed04d08.png" alt="\int_0^\pi e^{-\alpha R\sin\varphi}\d\varphi
+&lt; 2\int_0^{\pi\over2} e^{-\alpha R{2\over\pi}\varphi}\d\varphi
+= 2 \left[e^{-\alpha R{2\over\pi}\varphi}\over
+    -\alpha R {2\over\pi}\right]_0^{\pi/2}
+=
+
+= {2\over-\alpha R {2\over\pi}}
+    \left[e^{-\alpha R} - 1\right]
+= {\pi\over\alpha R} (1-e^{-\alpha R}) &lt; {\pi\over\alpha R}" /></p>
+</div></div>
+<div class="section" id="other">
+<h3>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes it is useful to integrate over the arc <img class="math" src="../../_images/math/900b4a59ffdfc5070fbf978e21a3b59a4cb4da4d.png" alt="z = z_0 + \epsilon
+e^{i\varphi}"/>, <img class="math" src="../../_images/math/980e010e551f9d7885fd409a7bf787c0ad449fc4.png" alt="\varphi_0 \le \varphi \le \varphi_0 + \alpha"/>, and let
+<img class="math" src="../../_images/math/0b3a2c7e36de8e5dd39ae46b23847603d1dd351e.png" alt="\epsilon\to0"/> at the end. If the function is analytic, the result is <img class="math" src="../../_images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/>. If the
+function has a pole of order <img class="math" src="../../_images/math/49d98ffe996c0f0d3b82b284cba2113439fefea9.png" alt="n &gt; 1"/>, the result is infinity, unless it&#8217;s a full
+circle (in which case the result is 0). The remaining case is if the function
+has a pole of order one, e.g. it can be written (<img class="math" src="../../_images/math/0578bdeec36f75d67437cbfead740e053e148db8.png" alt="H(z)"/> is analytic at <img class="math" src="../../_images/math/bab9abe98679312d2a3308c76188cf2cbc492f68.png" alt="z_0"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/79ef480bb9f7c693f88da343501243ca4c70c648.png" alt="f(z) = {H(z)\over z - z_0}" /></p>
+</div><p>Then:</p>
+<div class="math">
+<p><img src="../../_images/math/94be2d84ad0665112ffafa2b9264cdbbdc02ad44.png" alt="\int_\Omega f(z) \d z =
+\int_\Omega {H(z)\over z - z_0} \d z = \int_{\varphi_0}^{\varphi_0+\alpha}{H(z_0 +
+\epsilon e^{i\varphi})\over z_0 + \epsilon e^{i\varphi} - z_0}\epsilon i
+e^{i\varphi} \d \varphi
+=
+
+=\int_{\varphi_0}^{\varphi_0+\alpha}H(z_0 + \epsilon e^{i\varphi}) i \d \varphi
+\to\int_{\varphi_0}^{\varphi_0+\alpha}H(z_0) i \d \varphi = i\alpha H(z_0)
+= i\alpha \res_{z = z_0}f(z)" /></p>
+</div></div>
+</div>
+<div class="section" id="complex-substitution">
+<h2>Complex Substitution<a class="headerlink" href="#complex-substitution" title="Permalink to this headline">¶</a></h2>
+<p>When substituting in integrals, as long as we just substitute for real
+functions, we use the regular substitution theorem, e.g. <img class="math" src="../../_images/math/f764becaa307de9e6536ed38ada323fa843561b8.png" alt="x = y+1"/> (<img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> can
+be a complex function):</p>
+<div class="math">
+<p><img src="../../_images/math/dfa572ca3916c104e3a7ad21240da6cc18954828.png" alt="\int_{-\infty}^\infty f(x) \d x = \int_{-\infty}^\infty f(y+1) \d y" /></p>
+</div><p>if, on the other hand, we substitute for complex functions, e.g. <img class="math" src="../../_images/math/7e4e78c3b67c89761f95d025e63f0cb164cfa323.png" alt="x = iy"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/ac7432fc9c32296efaa766ea8900bc9376c8ae45.png" alt="\int_{-\infty}^\infty f(x) \d x = \int_{i\infty}^{-i\infty} f(iy) i\d y
+\to \int_{\infty}^{-\infty} f(iy) i\d y" /></p>
+</div><p>then the first two integrals in the left hand side are equal, however the
+integral on the right hand side is over a different integration path and we
+need to use the Residue Theorem to relate those integrals, e.g. in general the
+two integrals on the LHS and the integral on the RHS are not equal. However the
+idea is that the integral after the substitution (and changing the limits, e.g.
+the integration path) is easier to evaluate, so the substitution guides us
+which integration path to choose for the Residue Theorem.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Residue Theorem</a><ul>
+<li><a class="reference external" href="#computation-of-residues">Computation of Residues</a></li>
+<li><a class="reference external" href="#useful-formulas">Useful Formulas</a><ul>
+<li><a class="reference external" href="#jordan-s-lemma">Jordan&#8217;s Lemma</a></li>
+<li><a class="reference external" href="#other">Other</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#complex-substitution">Complex Substitution</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="integration.html"
+                                  title="previous chapter">Integration</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="transforms.html"
+                                  title="next chapter">Fourier Transform</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/src/math/residue.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="transforms.html" title="Fourier Transform"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="integration.html" title="Integration"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Mathematics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Newtonian Physics &mdash; Theoretical Physics Reference v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Classical Mechanics, Special and General Relativity" href="main.html" />
+    <link rel="next" title="Classical Electromagnetism" href="../elmag/main.html" />
+    <link rel="prev" title="Classical Mechanics, Special and General Relativity" href="main.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../elmag/main.html" title="Classical Electromagnetism"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="Classical Mechanics, Special and General Relativity"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Classical Mechanics, Special and General Relativity</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="newtonian-physics">
+<span id="index-60"></span><h1>Newtonian Physics<a class="headerlink" href="#newtonian-physics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-why-tensors">
+<h2>Introduction: Why Tensors<a class="headerlink" href="#introduction-why-tensors" title="Permalink to this headline">¶</a></h2>
+<p>This section gives a brief introduction, and in the next sections we derive
+everything in detail. The Newton law is:</p>
+<div class="math">
+<p><img src="../../_images/math/804ef9077b2454ee7bd1791194c1dc1ec4f69c04.png" alt="m {\d^2 {\bf x}\over\d t^2} = {\bf F}" /></p>
+</div><p>and using a potential for <img class="math" src="../../_images/math/cc09df8f8309f44eb202cea5f25919220401e438.png" alt="{\bf F}"/>, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/d1a13d62e79c4ce3a8b7ab18fdadde07862d0041.png" alt="{\d^2 {\bf x}\over\d t^2} = -\nabla \phi
+
+{\d^2 x^i\over\d t^2} = -\partial^i \phi" /></p>
+</div><p>the last two equations are two different equivalent ways to write a tensor
+equation in 3D, which means that this equation has the exact same form (is
+valid) in any (spatial) coordinate system (rotated, translated, in cartesian
+coordinates, spherical coordinates, ...). Each coordinate system has a
+different metric, but we can always locally transform into
+<img class="math" src="../../_images/math/578f7c2acbe0d0bffe492e93a2ff61c6be26644b.png" alt="g_{ij}=\diag(1, 1, 1)"/>.</p>
+<p>However, if our coordinate transformation depends on time (e.g. a rotating
+disk), then the above tensor equation changes (e.g. for the rotating disk, we
+get the Coriolis acceleration term), that&#8217;s because time is treated as a
+parameter, not as a coordinate.</p>
+<p>To fix this, we need to work in 4D and treat time as a coordinate, so we
+introduce <img class="math" src="../../_images/math/38972decef7deba9de15b58afe1049ad8e9fa9f0.png" alt="x^0 = ct"/> where <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is any constant speed (it can be any speed,
+doesn&#8217;t have to be the speed of light). Then in 4D, the above equations are not
+tensor equations anymore, because the operator <img class="math" src="../../_images/math/95113aef12b2e714e2230b1e1f01e2dbc02d02ab.png" alt="{\d\over \d t} = c \partial_0"/>
+is not a tensor. The 4D tensor formulation happens to be the geodesic equation:</p>
+<div class="math">
+<p><img src="../../_images/math/7766d9ebbd87879eaf4ba74379ae52e665a7edd5.png" alt="{\d x^\beta\over\d\lambda}\nabla_\beta {\d x^\alpha\over\d\lambda} = 0
+
+R_{00} = 4\pi G\rho
+
+R_{ij} = 0" /></p>
+</div><p>Which (given that we know how to calculate the Ricci tensor in our coordinates)
+is valid in any coordinates, not only rotated, translated, cartesian,
+spherical, ..., but also with arbitrary time dependence, e.g. a rotating disk,
+accelerating disk, ...</p>
+<p>After suitable local coordinate transformation, we can only get two possible
+metrics (that connect the time and spatial coordinates): <img class="math" src="../../_images/math/bc075bb2c35e291fec83ae96fe363655c597b95f.png" alt="\diag(-1, 1, 1, 1)"/>
+and <img class="math" src="../../_images/math/3a55575f4b7efaf0b450587d92f37612c71347f3.png" alt="\diag(1, 1, 1, 1)"/>. Inertial systems have no fictitious forces, so the
+metrics is one of the two above (possibly with <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>). Transformation
+between inertial systems is such a coordinate transformation that leaves the
+metric intact, e.g.:</p>
+<div class="math">
+<p><img src="../../_images/math/1c6cfd2378ff8babc9859c8c51a87c3fe07543fb.png" alt="g' = \Lambda^T g \Lambda" /></p>
+</div><p>There is no coordinate transformation that turns the metric <img class="math" src="../../_images/math/29c45dbcf9f4386d3beb05e43722a343d993f0d9.png" alt="\diag(-1, 1, 1,
+1)"/> into <img class="math" src="../../_images/math/3a55575f4b7efaf0b450587d92f37612c71347f3.png" alt="\diag(1, 1, 1, 1)"/>, so we need to choose either one to describe one
+inertial system and then all other inertial systems will automatically have a
+metric with the same signature.</p>
+<p>The Newton law is valid for small speeds compared to the speed of light, so
+when we want to extend the theory for all speeds, we only have 4 options: O(3,
+1) with either <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> or <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> finite and O(4) with either <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> or
+<img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> finite. If <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is finite, it has to be large enough, so that we still
+recover the Newton law for small speeds with the given experimental precision.
+All 4 cases give the correct Newton law, but give different predictions for
+large speeds. All we need to do to decide which one is correct is to perform
+such large speeds (relativistic) experiments. It turns out that all such
+relativistic experiments are in agreement with the O(3, 1) case where <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is
+the (finite) speed of light and with disagreement with the 3 other cases. For
+small speeds however (i.e. Newtonean physics), all 4 cases will work, as long
+as <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is chosen large enough.</p>
+<p>Given a tensor equation, we can easily determine, if it transforms correctly
+under the Galilean (<img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>) or Lorentz transformations (<img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is finite).
+All we have to do is to perform the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>. For example the Newton
+second law is recovered if we do the <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> limit, but Maxwell equations
+are only recovered if we choose <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> to be exactly the speed of light in the
+Maxwell equations.</p>
+<p>The reason why we write equations as tensor equations in 4D is that we can then
+use any coordinates (including any time dependence), i.e. any observer, and the
+equations still have the exact same form. So specifying the metrics is enough
+to define the coordinates (observer) and since the equations has only one form,
+that is all we need. If we write equations only as tensors in 3D, we not only
+need to specify the (3D) metrics, but also how the observer accelerates with
+respect to some (usually inertial) frame where the equations (let&#8217;s say Newton
+law) is defined and we then need to transform all the time derivatives
+correctly. By using tensors in 4D, all those transformations are taken care of
+by the standard tensor machinery and all we need to care about is exactly one
+observer, defined by its metric tensor.</p>
+<p>By choosing the correct metrics and <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> (i.e. <img class="math" src="../../_images/math/bc075bb2c35e291fec83ae96fe363655c597b95f.png" alt="\diag(-1, 1, 1, 1)"/> and <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> the
+speed of light), all equations are then automatically Lorentz invariant. If we
+choose <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> (and any metric), we automatically get all equations
+Galilean invariant.</p>
+</div>
+<div class="section" id="high-school-formulation">
+<h2>High School Formulation<a class="headerlink" href="#high-school-formulation" title="Permalink to this headline">¶</a></h2>
+<p>The usual (high school) formulation is the second Newton&#8217;s law:</p>
+<div class="math">
+<p><img src="../../_images/math/804ef9077b2454ee7bd1791194c1dc1ec4f69c04.png" alt="m {\d^2 {\bf x}\over\d t^2} = {\bf F}" /></p>
+</div><p>for some particle of the mass <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> and position <img class="math" src="../../_images/math/81be9c56d3b198d87b4049cff4e32bb5c187c52d.png" alt="{\bf x}"/>. To determine the
+force <img class="math" src="../../_images/math/9294696d531a3925311b449bf660a0ff00752179.png" alt="\bf F"/>, we have at hand the Newton&#8217;s law of
+gravitation:</p>
+<div class="math">
+<p><img src="../../_images/math/be40f2b5df55b3732b5712b20a4e57062e233451.png" alt="|{\bf F}| = G {m_1 m_2\over r^2}" /></p>
+</div><p>that expresses the magnitude <img class="math" src="../../_images/math/369cdba9d4261d4275dd66bb52fa2263c13f882e.png" alt="|\bf F|"/> of the force between two particles with
+masses <img class="math" src="../../_images/math/25d659c8074c617549d61db9db0773e0fccad7b3.png" alt="m_1"/> and <img class="math" src="../../_images/math/ee54e8432d4a60984309e86f32931b04c8e2f1da.png" alt="m_2"/> and we also know that the direction of the force is
+directly towards the other particle.
+We need to take into account all particles in the system, determine the
+direction and magnitude of the force due to each of them and sum it up.</p>
+</div>
+<div class="section" id="college-formulation">
+<h2>College Formulation<a class="headerlink" href="#college-formulation" title="Permalink to this headline">¶</a></h2>
+<p>Unfortunately, it is quite messy to keep track of the direction of the forces
+and all the masses involved, it quickly becomes cumbersome for more than 2
+particles. For this reason, the better approach is to calculate the force
+(field) from the mass density function <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/9030f49279f36229bd08b4fda312bda58bcc0283.png" alt="\nabla\cdot{\bf F} = -4\pi Gm\,\rho(t, x, y, z)" /></p>
+</div><p>To see that both formulations are equivalent,
+integrate both sides inside some sphere:</p>
+<div class="math">
+<p><img src="../../_images/math/05a4c52b29af69dfa952746abf1b83518fc45158.png" alt="\int\nabla\cdot{\bf F}\,\d x\d y\d z = -4\pi Gm_2\int\rho\,\d x\d y\d z" /></p>
+</div><p>apply the Gauss theorem to the left hand side:</p>
+<div class="math">
+<p><img src="../../_images/math/279a1bd814fd5105a3fe65e7f4f0c1a188725489.png" alt="\int\nabla\cdot{\bf F}\,\d x\d y\d z = \int{\bf F}\cdot{\bf n}\,\d S= 4\pi r^2\,{\bf F}\cdot{\bf n}" /></p>
+</div><p>where <img class="math" src="../../_images/math/26de684432d8e0d5553da04e5c1ac5d514f5ed59.png" alt="{\bf n}={{\bf r}\over |{\bf r}|}"/> and
+the right hand side is equal to <img class="math" src="../../_images/math/7a0c337d04fb87ecd2506d74dc37fb6ac6f9dd54.png" alt="-4\pi G m_1m_2"/> and we get:</p>
+<div class="math">
+<p><img src="../../_images/math/2015d34b00f0c11fd1cc09e4e306d2a25b3a54da.png" alt="{\bf F}\cdot{\bf n} = -G{m_1m_2\over r^2}" /></p>
+</div><p>now we multiply both sides with <img class="math" src="../../_images/math/7167e63ccb518e7049027f1ab62f768759b9f97c.png" alt="{\bf n}"/>, use the fact that
+<img class="math" src="../../_images/math/77dfc0df0216fda3996f0fd8b9c299ce4e581863.png" alt="({\bf F}\cdot{\bf n}){\bf n} ={\bf F}"/> (because <img class="math" src="../../_images/math/cc09df8f8309f44eb202cea5f25919220401e438.png" alt="{\bf F}"/> is spherically
+symmetric), and we get the traditional Newton&#8217;s
+law of gravitation:</p>
+<div class="math">
+<p><img src="../../_images/math/9485621145550fa2986d205667c4ea02cfeb2b3e.png" alt="{\bf F} = -G{m_1m_2\over r^2}{\bf n}" /></p>
+</div><p>It is useful to deal with a scalar field instead of a vector field (and also
+not to have the mass <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> of the test particle in our equations explicitly), so we
+define a gravitational potential by:</p>
+<div class="math">
+<p><img src="../../_images/math/9ec714684fa8b9145690711bafb3b276e6709b8b.png" alt="{\bf F} = -m\nabla\phi(t, x, y, z)" /></p>
+</div><p>then the law of gravitation is</p>
+<div class="math" id="equation-grav">
+<p><span class="eqno">(1)</span><img src="../../_images/math/9de8e7a082ac321a413131a88d600172791e100b.png" alt="\nabla^2\phi = 4\pi G\rho" /></p>
+</div><p>and the second law is:</p>
+<div class="math">
+<p><img src="../../_images/math/2768b8e85275caf615ebe3ee2730f24d34ea5085.png" alt="m{\d^2 {\bf x}\over\d t^2} = -m\nabla\phi(t, x, y, z)" /></p>
+</div><p>Note about units:</p>
+<div class="math">
+<p><img src="../../_images/math/22b9c6fec5cb4c0bd4ad12eb6dcd4d733a4dda81.png" alt="[r] = [{\bf x}] = \rm m" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/6b8e3dbe5aabd29f1c9d9f1bd66afc77c1c314f2.png" alt="[m] = \rm kg" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/b2e89118ff5c0378b0208da95e781215131cc26e.png" alt="[\rho] = \rm kg\,m^{-3}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/d2b95d5bd0c33f3051dea4aa00777a677ecb4575.png" alt="[F] = \rm kg\,m\,s^{-2}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/d566403f7a8e81a616d586a3645866072ddd3c33.png" alt="[G] = \rm kg^{-1}\,m^3\,s^{-2}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/e76997e56cdb4414b1f199e7323ce4f8ec81731f.png" alt="[\phi] = \rm m^2\,s^{-2}" /></p>
+</div></div>
+<div class="section" id="differential-geometry-formulation">
+<h2>Differential Geometry Formulation<a class="headerlink" href="#differential-geometry-formulation" title="Permalink to this headline">¶</a></h2>
+<p>There are still problems with this formulation, because it is not immediatelly
+clear how to write those laws in other frames, for example rotating, or
+accelerating &#8211; one needs to employ nontrivial assumptions about the systems,
+space, relativity principle and it is often a source confusion.
+Fortunately there is a way out &#8212; differential geometry. By reformulating the
+above laws in the language of the differential geometry, everything will
+suddenly be very explicit and clear. As an added bonus, because the special and
+general relativity uses the same language, the real differences between all
+these three theories will become clear.</p>
+<p>We write <img class="math" src="../../_images/math/d20258310be3455daf8318274224a9d1d28fb6a3.png" alt="x, y, z"/> and <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> as components of one 4-vector</p>
+<div class="math">
+<p><img src="../../_images/math/a86fa4e6fcf7805909719811ec96e94cdf9e1a99.png" alt="x^\mu = \mat{t\cr x\cr y\cr z\cr}" /></p>
+</div><p>Now we need to connect the Newtonian equations to geometry. To do that, we
+reformulate the Newton&#8217;s second law:</p>
+<div class="math">
+<p><img src="../../_images/math/d705a4c0b8ff2c7c881943a4b63cf7bfc265a781.png" alt="{\d^2 x^i\over\d t^2} + \delta^{ij}\partial_j\phi =0" /></p>
+</div><p>by choosing a parameter <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/> such, that <img class="math" src="../../_images/math/8092fe8237e4766153084136137a28cec877296a.png" alt="{\d^2 \lambda\over\d t^2}=0"/>,
+so in general</p>
+<div class="math">
+<p><img src="../../_images/math/af8003202da17976aa7b4776eee342170c1b6f9a.png" alt="\lambda = at+b" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/ddbb15085199b2223011a93259916ec12d9b134d.png" alt="{\d^2\over\d t^2} = a^2{\d^2\over\d \lambda^2}" /></p>
+</div><p>so</p>
+<div class="math">
+<p><img src="../../_images/math/1313f1c3ca0d30240a5ba330bf3b09c01402cfee.png" alt="{\d^2 x^i\over\d\lambda^2} + {1\over a^2}\delta^{ij}\partial_j\phi =0" /></p>
+</div><p>and using the relation <img class="math" src="../../_images/math/7fd2163dd2b4e14fa42513e0ff0851de52dbe026.png" alt="{\d \lambda\over\d a}=a"/> we get</p>
+<div class="math">
+<p><img src="../../_images/math/131751c809e4905fa1d00d0672da8c2b2dd4fbc2.png" alt="{\d^2 x^i\over\d\lambda^2} + \delta^{ij}\partial_j\phi \left({\d t\over\d\lambda}\right)^2 =0" /></p>
+</div><p>So using <img class="math" src="../../_images/math/eda9cb06647e9f40c563a46b475f4ae23decad20.png" alt="x^0"/> instead of <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/>, we endup with the following equations:</p>
+<div class="math">
+<p><img src="../../_images/math/213cdbfec4010a1221dbf7ed33d248d2f819e3d6.png" alt="{\d^2x^0\over\d\lambda^2}=0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/5b8df2878d97c7c6ec6decd45801db2738a50459.png" alt="{\d^2 x^i\over\d\lambda^2} + \delta^{ij}\partial_j\phi \left({\d x^0\over\d\lambda}\right)^2 =0" /></p>
+</div><p>But this is exactly the geodesic equation for the following Christoffel symbols:</p>
+<div class="math" id="equation-Chris-newton">
+<p><span class="eqno">(2)</span><img src="../../_images/math/6ed1dac04c45075a07b3a40a9c01de75276bad14.png" alt="\Gamma^i_{00} = \delta^{ij}\partial_j\phi" /></p>
+</div><p>and all other components are zero.</p>
+<p>In order to formulate the gravitation law, we now need to express
+<img class="math" src="../../_images/math/9c2815688dd93c48c9557d27a1bbef576e86777e.png" alt="\nabla^2\phi"/> in terms of geometric quantities like
+<img class="math" src="../../_images/math/0638c6ded5ed4b88248d330ecd52a693104cdaaf.png" alt="\Gamma^\alpha_{\beta\gamma}"/> or <img class="math" src="../../_images/math/89d41c0e13efa858e22e3dfcd1204f0d568f72c0.png" alt="R^\alpha{}_{\beta\gamma\delta}"/>.
+We get the only nonzero components of
+the Riemann tensor:</p>
+<div class="math">
+<p><img src="../../_images/math/835df6508bca0b5a1be446bdd66c20e4df4514d3.png" alt="R^j{}_{0k0} = -R^j{}_{00k} = \delta^{ji}\partial_i\partial_k\phi" /></p>
+</div><p>we calculate the <img class="math" src="../../_images/math/5d1b37c10edb161c8ca96a218e451b628d245cf8.png" alt="R_{\alpha\beta}"/> by contracting:</p>
+<div class="math">
+<p><img src="../../_images/math/a3c5429deccd8f7e1632233f9d79de1d6a762959.png" alt="R_{00} = R^\mu{}_{0\mu0} = R^i{}_{0i0} = \delta^{ij}\partial_i\partial_j\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/97112779b0de895a293289f50b31393a08b4d36b.png" alt="R_{ij} = 0" /></p>
+</div><p>and we see that the Newton gravitation law is</p>
+<div class="math">
+<p><img src="../../_images/math/9fd03bf33cfd30423bac17fdf1eaf59e01b3deef.png" alt="R_{00} = 4\pi G\rho" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/97112779b0de895a293289f50b31393a08b4d36b.png" alt="R_{ij} = 0" /></p>
+</div><p>Thus we have reformulated the Newton&#8217;s laws in a frame invariant way &#8212; the
+matter curves the geometry using the equations:</p>
+<div class="math">
+<p><img src="../../_images/math/9fd03bf33cfd30423bac17fdf1eaf59e01b3deef.png" alt="R_{00} = 4\pi G\rho" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/97112779b0de895a293289f50b31393a08b4d36b.png" alt="R_{ij} = 0" /></p>
+</div><p>from which one can (for example) calculate the Christoffel symbols and other
+things. The particles then move on the geodesics:</p>
+<div class="math">
+<p><img src="../../_images/math/e0b19f978f97ec57dec87f7e196acdf0fffec209.png" alt="{\d^2 x^\alpha\over\d\lambda^2} + \Gamma^\alpha_{\beta\gamma} {\d x^\beta\over\d\lambda}{\d x^\gamma\over\d\lambda} = 0" /></p>
+</div><p>Both equations now have the same form in all coordinate systems (inertial or
+not) and it is clear how to transform them &#8212; only the Christoffel symbols
+(and Ricci tensor) change and we have a formula for their transformation.</p>
+</div>
+<div class="section" id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<p>There is a slight problem with the metrics &#8212; it can be proven that there is
+no metrics, that generates the Christoffel symbols above. However, it turns out
+that if we introduce an invariant speed <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> in the metrics, then calculate the
+Christoffel symbols (thus they depend on <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>) and then do the limit
+<img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>, we can get the Christoffel symbols above.</p>
+<p>In fact, it turns out that there are many such metrics that generate the right
+Christoffel symbols. Below we list several similar metrics and the
+corresponding Christoffel symbols (in the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>), so that we can
+get a better feeling what metrics work and what don&#8217;t and why:</p>
+<div class="math">
+<p><img src="../../_images/math/68be41080abfb312abab72154d9f60da311ea796.png" alt="g_{\mu\nu} = \mat{-c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; -1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8a2b6872a1a83334d9295207ee78b2ac10946be3.png" alt="\Gamma^2_{00}=-\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/de46855c9e080e9750ac5a814b78acc3f3fc33d5.png" alt="g_{\mu\nu} = \mat{-c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; -1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; -1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8a2b6872a1a83334d9295207ee78b2ac10946be3.png" alt="\Gamma^2_{00}=-\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/f16e12870290fc5bea6b3f079ec75906abd429c9.png" alt="\Gamma^3_{00}=-\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/d175ec2f9fac3dacf7127b98b8de579a62a5ab99.png" alt="g_{\mu\nu} = \mat{-c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; -1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; -1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; -1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c8e6f06820f4fd7d56f0a476b974fe4ad43c5ca4.png" alt="\Gamma^1_{00}=-\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8a2b6872a1a83334d9295207ee78b2ac10946be3.png" alt="\Gamma^2_{00}=-\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/f16e12870290fc5bea6b3f079ec75906abd429c9.png" alt="\Gamma^3_{00}=-\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/3ea5e869f6eac5c54acf7790bb0c2e274f46ea63.png" alt="g_{\mu\nu} = \mat{-c^2+45-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/b7762d2e49fa7906d3d76db89e27bd5a0daec708.png" alt="g_{\mu\nu} = \mat{-c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1-{2\phi\over c^2} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1-{2\phi\over c^2} &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1-{2\phi\over c^2}\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/1dae9ef03b3def46d3154a7b780617be7863ca71.png" alt="g_{\mu\nu} = \mat{-c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/f124e5adc48a866eb994515ce95ee20b07fab81c.png" alt="g_{\mu\nu} = \mat{c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/d6df425690c707cdad278ca236858c15e594d3ea.png" alt="g_{\mu\nu} = \mat{c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; c^2 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/e2182254caa4db030f94767d0a09f2428f7b9bc2.png" alt="g_{\mu\nu} = \mat{c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; {2\phi\over c^2}\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/9193b2cc5a36cff7e3e7f36c5a645e550a916e24.png" alt="g_{\mu\nu} = \mat{c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; c^2\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/4d3f9999ef1ab17adb01bbb4ae0c00cbe24e76e0.png" alt="\Gamma^1_{00}=-\infty" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/dabfc26d956b33cea956e65d140e7e19dc8d2612.png" alt="g_{\mu\nu} = \mat{c^2-2\phi &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 5\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/5cb3a713090e47afae9052501390d63ddbd734c4.png" alt="\Gamma^1_{00}=\partial_x\phi-5\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/3aaeb1fb7fb5c57b785f2622fb6eb39a955d53da.png" alt="g_{\mu\nu} = \mat{c^2-2\phi &amp; 0 &amp; 5 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><p>If we do the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> in the metrics itself, all the working metrics
+degenerate to:</p>
+<div class="math">
+<p><img src="../../_images/math/985d6fba87540be80bdafc8da5aa1f631a4c777f.png" alt="g_{\mu\nu} = \mat{\pm\infty &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>(possibly with nonzero but finite elements <img class="math" src="../../_images/math/43771ac217cc026363f611c4ee6a049a4007ab3d.png" alt="g_{0i}=g_{i0}\neq0"/>).
+So it seems like any metrics whose limit is
+<img class="math" src="../../_images/math/9734b3d5181e206eccb28b556faa9818d5668f20.png" alt="\diag(\pm\infty, 1, 1, 1)"/>, generates the correct Christoffel symbols:</p>
+<div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><p>but this would have to be investigated further.</p>
+<p>Let&#8217;s take the metrics
+<img class="math" src="../../_images/math/8a795d10df99376197a48e23132a52b787ccf038.png" alt="\diag(-c^2-2\phi, 1-{2\phi\over c^2}, 1-{2\phi\over c^2}, 1-{2\phi\over c^2})"/>
+and calculate the Christoffel symbols (without the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/cdf3390b3880ab08bb04ec3b8fe6c88c11609a75.png" alt="\Gamma^0_{\mu\nu}=\begin{pmatrix}- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}}\\- \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} &amp; \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(- 2 \phi\left(t,x,y,z\right) - {c}^{2}\right)} &amp; 0 &amp; 0\\- \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} &amp; 0 &amp; \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(- 2 \phi\left(t,x,y,z\right) - {c}^{2}\right)} &amp; 0\\- \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} &amp; 0 &amp; 0 &amp; \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(- 2 \phi\left(t,x,y,z\right) - {c}^{2}\right)}\end{pmatrix}
+
+\Gamma^1_{\mu\nu}=\begin{pmatrix}\frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}} &amp; - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; 0 &amp; 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; 0\\0 &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; 0 &amp; \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\end{pmatrix}
+
+\Gamma^2_{\mu\nu}=\begin{pmatrix}\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}} &amp; 0 &amp; - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; 0\\0 &amp; \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 &amp; 0 &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\end{pmatrix}
+
+\Gamma^3_{\mu\nu}=\begin{pmatrix}\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}} &amp; 0 &amp; 0 &amp; - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 &amp; \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; 0 &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 &amp; 0 &amp; \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\end{pmatrix}" /></p>
+</div><p>By taking the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>, the only nonzero Christoffel symbols are:</p>
+<div class="math">
+<p><img src="../../_images/math/15bb295beac274f9b0702714012c9a69c08da86f.png" alt="\Gamma^1_{00}=\partial_x\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0dd8ddd85ee99d7e3d3679b29866e22db607133.png" alt="\Gamma^2_{00}=\partial_y\phi" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/31c3c71c08b260bb27e8b359461a6a0d8f0e361b.png" alt="\Gamma^3_{00}=\partial_z\phi" /></p>
+</div><p>or written compactly:</p>
+<div class="math">
+<p><img src="../../_images/math/b807573f4ae50f765e3e1653d70de5968a5593f4.png" alt="\Gamma^i_{00}=\delta^{ij}\partial_j\phi" /></p>
+</div><p>So the geodesics equation</p>
+<div class="math">
+<p><img src="../../_images/math/e0b19f978f97ec57dec87f7e196acdf0fffec209.png" alt="{\d^2 x^\alpha\over\d\lambda^2} + \Gamma^\alpha_{\beta\gamma} {\d x^\beta\over\d\lambda}{\d x^\gamma\over\d\lambda} = 0" /></p>
+</div><p>becomes</p>
+<div class="math">
+<p><img src="../../_images/math/0a1e30fc925da6a1476983893cf1cc710f9da8ed.png" alt="{\d^2 x^0\over\d\lambda^2}=0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/865f6fc35b24efa184d4650731884f9357969107.png" alt="{\d^2 x^i\over\d\lambda^2} + \delta^{ij}\partial_j\phi \left({\d x^0\over\d\lambda}\right)^2 = 0" /></p>
+</div><p>From the first equation we get <img class="math" src="../../_images/math/19a180d751da19cf27c008780a69eb4c7ab25dfd.png" alt="x^0 = a\lambda+b"/>, we substitute to the second
+equation:</p>
+<div class="math">
+<p><img src="../../_images/math/73a83dc797ab057e362399b8f88d10c79a538ba7.png" alt="{1\over a^2}{\d^2 x^i\over\d\lambda^2} + \delta^{ij}\partial_j\phi = 0" /></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../_images/math/ce694e7c70322d56a9ce5003b79d0723309d302e.png" alt="{\d^2 x^i\over\d (x^0)^2} + \delta^{ij}\partial_j\phi = 0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/066d280682f840d4e691faec4830ccccb8707fe9.png" alt="{\d^2 x^i\over\d t^2}=-\delta^{ij}\partial_j\phi" /></p>
+</div><p>So the Newton&#8217;s second law <em>is</em> the equation of geodesics.</p>
+</div>
+<div class="section" id="obsolete-section">
+<h2>Obsolete section<a class="headerlink" href="#obsolete-section" title="Permalink to this headline">¶</a></h2>
+<p>This section is obsolete, ideas from it should be polished (sometimes
+corrected) and put to other sections.</p>
+<p>The problem is, that in general, Christoffel symbols have 40 components and
+metrics only 10 and in our case, we cannot find such a metrics, that generates
+the Christoffel symbols above. In other words, the spacetime that describes
+the Newtonian theory is affine, but not a metric space. The metrics is singular,
+and we have one metrics <img class="math" src="../../_images/math/4d5c0816f6b5dde3ac43cf15a4cfd743ab1febe2.png" alt="\diag(-1, 0, 0, 0)"/> that describes the time coordinate
+and another metrics <img class="math" src="../../_images/math/d87db9f36afcd57746b65a64ebe510e30afc3217.png" alt="\diag(0, 1, 1, 1)"/> that describes the spatial coordinates.
+We know the affine connection coefficients <img class="math" src="../../_images/math/0638c6ded5ed4b88248d330ecd52a693104cdaaf.png" alt="\Gamma^\alpha_{\beta\gamma}"/>, so
+that is enough to calculate geodesics and to differentiate vectors and do
+everything we need.</p>
+<p>However, for me it is still not satisfactory, because I really want to have a
+metrics tensor, so that I can easily derive things in exactly the same way as
+in general relativity. To do that, we will have to work in the regime <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is
+finite and only at the end do the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>.</p>
+<p>We start with Einstein equations:</p>
+<div class="math">
+<p><img src="../../_images/math/5fbb72b5e0f9599075a58d3ebb623ecb283ccce9.png" alt="R_{\alpha\beta}-\half Rg_{\alpha\beta}={8\pi G\over c^4}T_{\alpha\beta}" /></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../_images/math/65ee8c535e90f5b231ae7efdfc21658ca69e5752.png" alt="R_{\alpha\beta}={8\pi G\over c^4}(T_{\alpha\beta}-\half Tg_{\alpha\beta})" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/7e02a4e872cf047338ec4bc9b63e5c36a2858ba4.png" alt="R^\alpha{}_\beta={8\pi G\over c^4}(T^\alpha{}_\beta-\half T)" /></p>
+</div><p>The energy-momentum tensor is</p>
+<div class="math">
+<p><img src="../../_images/math/2f76a06e5e0e9e10b436e5584a079bf365189f4d.png" alt="T^{\alpha\beta} = \rho U^\alpha U^\beta" /></p>
+</div><p>in our approximation <img class="math" src="../../_images/math/0e92594f71907ad08e028e30536f48451dfa58c0.png" alt="U^i \sim0"/> and <img class="math" src="../../_images/math/f9a6fda8352372e14cd4e28d16687dcdbe9e1406.png" alt="U^0 \sim c"/>, so the only nonzero component
+is:</p>
+<div class="math">
+<p><img src="../../_images/math/3025d64f74bcd3a59c12220735aa27d4b51b3e1c.png" alt="T^{00} = \rho c^2" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/a0b292778cc71fb86375b96ff2881e7a38d70e03.png" alt="T = \rho c^2" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/3f5c9743252c1d36cdb5e8922f93aff276e0fd1b.png" alt="R^i{}_j={8\pi G\over c^4}(-\half \rho c^2)=-{4\pi G\over c^2}\rho" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/7f5c2f09174af1d5f3aa33bd5c9f2ab6fb0aa5f2.png" alt="R^0{}_0={8\pi G\over c^4}(\half \rho c^2)={4\pi G\over c^2}\rho" /></p>
+</div><p>We need to find such a metric tensor, that</p>
+<div class="math">
+<p><img src="../../_images/math/bc05c2665120f7de19711df0cd610d8d01cce0a3.png" alt="R^0{}_0={1\over c^2}\nabla^2\phi" /></p>
+</div><p>then we get <a href="#equation-grav">(1)</a>.</p>
+<p>There are several ways to choose the metrics tensor. We
+start
+We can always find a coordinate transformation, that converts the metrics to a
+diagonal form with only <img class="math" src="../../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1"/>, <img class="math" src="../../_images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/> and <img class="math" src="../../_images/math/bae5aba07d37ff6ff813107e76260fb31ad5794e.png" alt="-1"/> on the diagonal. If we want
+nondegenerate metrics, we do not accept <img class="math" src="../../_images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/> (but as it turns out, the metrics
+for the Newtonian mechanics <em>is</em> degenerated).
+Also, it is equivalent if we add a minus to all diagonal elements, e.g. <img class="math" src="../../_images/math/46b7c94bd319fd01b0515183a6242167e5cfaad5.png" alt="\diag(1,
+1, 1, 1)"/> and <img class="math" src="../../_images/math/053bff23a4f2f53e07f25238c0210673ffbed372.png" alt="\diag(-1, -1, -1, -1)"/> are equivalent, so
+we are left
+with these options only:
+signature 4:</p>
+<div class="math">
+<p><img src="../../_images/math/5d8f76e2bd3a0abcc48c053b0d3f67593b03fade.png" alt="g_{\mu\nu}=\diag(1, 1, 1, 1)" /></p>
+</div><p>signature 2:</p>
+<div class="math">
+<p><img src="../../_images/math/6cb22309521a2e0741ec81e8db2cfb1e31ea8594.png" alt="g_{\mu\nu}=\diag(-1, 1, 1, 1)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/a3ab11e48639b7b7e97810637858b63f346c46fa.png" alt="g_{\mu\nu}=\diag(1, -1, 1, 1)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/48de235a4a7fa390e15f7a8d341192c2e65483b5.png" alt="g_{\mu\nu}=\diag(1, 1, -1, 1)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/d95ddcc6510f6c3262e74d2ac08fde9e5f16ce38.png" alt="g_{\mu\nu}=\diag(1, 1, 1, -1)" /></p>
+</div><p>signature 0:</p>
+<div class="math">
+<p><img src="../../_images/math/31ca1d63e49fd3297da20c0a4cf00b4da69e6401.png" alt="g_{\mu\nu}=\diag(-1, -1, 1, 1)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/18416ae447ac3f62ca346185aa0ab388211531ae.png" alt="g_{\mu\nu}=\diag(-1, 1, -1, 1)" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/02129d5daa696419c74210861b7d554179f4af61.png" alt="g_{\mu\nu}=\diag(-1, 1, 1, -1)" /></p>
+</div><p>No other possibility exists (up to adding a minus to all elements). We can also
+quite easily find coordinate transformations that swap coordinates, i.e. we can
+always find a transformation so that we first have only <img class="math" src="../../_images/math/bae5aba07d37ff6ff813107e76260fb31ad5794e.png" alt="-1"/> and then only <img class="math" src="../../_images/math/dce34f4dfb2406144304ad0d6106c5382ddd1446.png" alt="1"/>
+on the diagonal, so we are left with:
+signature 4:</p>
+<div class="math">
+<p><img src="../../_images/math/5d8f76e2bd3a0abcc48c053b0d3f67593b03fade.png" alt="g_{\mu\nu}=\diag(1, 1, 1, 1)" /></p>
+</div><p>signature 2:</p>
+<div class="math">
+<p><img src="../../_images/math/6cb22309521a2e0741ec81e8db2cfb1e31ea8594.png" alt="g_{\mu\nu}=\diag(-1, 1, 1, 1)" /></p>
+</div><p>signature 0:</p>
+<div class="math">
+<p><img src="../../_images/math/31ca1d63e49fd3297da20c0a4cf00b4da69e6401.png" alt="g_{\mu\nu}=\diag(-1, -1, 1, 1)" /></p>
+</div><p>One possible physical interpretation of the signature 0 metrics is
+that we have 2 time coordinates and 2 spatial coordinates. In any case, this
+metrics doesn&#8217;t describe our space (neither Newtonian nor general relativity),
+because we really need the spatial coordinates to have the metrics either
+<img class="math" src="../../_images/math/863d142f2d108d4e71d667030886c25029e1615f.png" alt="\diag(1, 1, 1)"/> or <img class="math" src="../../_images/math/ec41547e3d818f987df6c61f742134e43d491867.png" alt="\diag(-1, -1, -1)"/>.</p>
+<p>So we are left with either (this case will probably not work, but I want to
+have an
+explicit reason why it doesn&#8217;t work):</p>
+<div class="math">
+<p><img src="../../_images/math/9511e2386f499bafe8ce7ebd2afb9d64b84c8d18.png" alt="g_{\mu\nu} = \mat{1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>or (this is the usual special relativity)</p>
+<div class="math">
+<p><img src="../../_images/math/35edb8745c5f31e118b5b69ed1d5bfb13821f22d.png" alt="g_{\mu\nu} = \mat{-1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>It turns out, that one option to turn on gravitation is to add the term <img class="math" src="../../_images/math/45957371d75a8ff6276af3c261291105ec8c9957.png" alt="-{2\phi\over c^2}\one"/> to the
+metric tensor, in the first
+case:</p>
+<div class="math">
+<p><img src="../../_images/math/8466ac0c2287b1de890321e2e5a874e22de8494f.png" alt="g_{\mu\nu} = \mat{1-{2\phi\over c^2} &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1-{2\phi\over c^2} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1-{2\phi\over c^2} &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1-{2\phi\over c^2}\cr}" /></p>
+</div><p>and second case:</p>
+<div class="math">
+<p><img src="../../_images/math/d9217d05601147cb4790e9218966144b727fded1.png" alt="g_{\mu\nu} = \mat{-1-{2\phi\over c^2} &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1-{2\phi\over c^2} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1-{2\phi\over c^2} &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1-{2\phi\over c^2}\cr}" /></p>
+</div><p>The second law is derived from the
+equation of geodesic:</p>
+<div class="math">
+<p><img src="../../_images/math/e0b19f978f97ec57dec87f7e196acdf0fffec209.png" alt="{\d^2 x^\alpha\over\d\lambda^2} + \Gamma^\alpha_{\beta\gamma} {\d x^\beta\over\d\lambda}{\d x^\gamma\over\d\lambda} = 0" /></p>
+</div><p>in an equivalent form</p>
+<div class="math">
+<p><img src="../../_images/math/4c1f88d39e853e187efbfdb4537c1fa1b3f63aab.png" alt="{\d U^\alpha\over\d\tau} + \Gamma^\alpha_{\beta\gamma}U^\beta U^\gamma = 0" /></p>
+</div><p>The only nonzero Christoffel symbols in the first case are (in the expressions
+for the Christoffel symbols below, we set <img class="math" src="../../_images/math/0e4cc644ec8a1c3623c13ed3d14904096a0d87b9.png" alt="c=1"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/671442107e74730dbf632307e3526098914dc3a6.png" alt="\Gamma^0_{\mu\nu}= \begin{pmatrix}- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\- \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; 0\\- \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0\\- \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; 0 &amp; \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\end{pmatrix}
+
+\Gamma^1_{\mu\nu}= \begin{pmatrix}\frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0\\0 &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\end{pmatrix}
+
+\Gamma^2_{\mu\nu}= \begin{pmatrix}\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0\\0 &amp; \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 &amp; 0 &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\end{pmatrix}
+
+\Gamma^3_{\mu\nu}= \begin{pmatrix}\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; 0 &amp; - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 &amp; \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 &amp; 0 &amp; \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\end{pmatrix}" /></p>
+</div><p>and in the second case, only <img class="math" src="../../_images/math/0eadbf6d1a47a1b3aa1e47bf2be6c19920cd1a5a.png" alt="\Gamma^0_{\mu\nu}"/> is different:</p>
+<div class="math">
+<p><img src="../../_images/math/55312378d8fb6ce34576de57297660064d63730b.png" alt="\Gamma^0_{\mu\nu}= \begin{pmatrix}\frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} &amp; \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} &amp; \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} &amp; \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)}\\\frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} &amp; - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; 0\\\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} &amp; 0\\\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} &amp; 0 &amp; 0 &amp; - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)}\end{pmatrix}" /></p>
+</div><p>Now we assume that <img class="math" src="../../_images/math/8b787f5463cdb7071be8a01c40547c56c02e6334.png" alt="\partial_\mu\phi \sim \phi \ll c^2"/>, so all <img class="math" src="../../_images/math/ea769e2bdc3d4dc2fdc8d47968d32f75e25dbd00.png" alt="\Gamma^\alpha_{\beta
+\gamma}"/> are of the same order. Also <img class="math" src="../../_images/math/8b93f44177385abadb52082513a9ecbabc1f48d8.png" alt="|U^i| \ll |U^0|"/> and <img class="math" src="../../_images/math/24cf41a61920416465a921481f1c5b1d4b334847.png" alt="U^0 = c"/>, so the only
+nonnegligible term is</p>
+<div class="math">
+<p><img src="../../_images/math/ea4e3e904ab243e1058e53ec209c3c7ba8864609.png" alt="{\d U^\alpha\over\d\tau} + \Gamma^\alpha_{00}(U^0)^2 = 0" /></p>
+</div><p>Substituting for the Christoffel symbol we get</p>
+<div class="math">
+<p><img src="../../_images/math/5b55a9c8a1e31d0e41f9b98af1fb24e8e9502a7d.png" alt="{\d U^i\over\d\tau} =-{\delta^{ij}\partial_j{\phi\over c^2}\over1-{2\phi\over c^2}} \, c^2 =-\delta^{ij}(\partial_j\phi)\ \left(1+O\left({\phi\over c^2}\right)\right) =-\delta^{ij}\partial_j\phi  + O\left(\left({\phi\over c^2}\right)^2\right)" /></p>
+</div><p>and multiplying both sides with <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/fc09ae0798db35a59e4dcaaf526d8b2d53d853d6.png" alt="m{\d U^i\over\d\tau} =-m\partial_j\phi\ \delta^{ij}" /></p>
+</div><p>which is the second Newton&#8217;s law. For the zeroth component we get (first case
+metric)</p>
+<div class="math">
+<p><img src="../../_images/math/9e72016343945e6c873ae35cb3b99b6e27bb17e5.png" alt="m{\d U^0\over\d\tau} =m{\d\phi\over\d\tau}" /></p>
+</div><p>second case:</p>
+<div class="math">
+<p><img src="../../_images/math/aac3a5274685be40052b7f978927f52e76f50c0c.png" alt="m{\d U^0\over\d\tau} =-m{\d\phi\over\d\tau}" /></p>
+</div><p>Where <img class="math" src="../../_images/math/a9ade2c73be5bdc53891351c6b37d02645de906c.png" alt="mU^0 = p^0"/> is the energy of the particle (with respect to this frame
+only), this means the energy is conserved unless the gravitational field
+depends on time.</p>
+<p>To summarize: the Christoffel symbols <a href="#equation-Chris-newton">(2)</a> that we get from the
+Newtonian theory contain <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>, which up to this point can be any speed, for
+example we can set <img class="math" src="../../_images/math/a14612169f97df0a0e5609caa140241bcd89f886.png" alt="c=1\rm\,ms^{-1}"/>. However, in order to have some metrics
+tensor that generates those Christoffel symbols, the only way to do that is by
+the metrics</p>
+<div class="math">
+<p><img src="../../_images/math/f64f2988a718ac74ff434a9fdfffa02ccbfa350d.png" alt="\diag(-1, 1, 1, 1)-{2\phi\over c^2}\one" /></p>
+</div><p>then calculating the Christoffel symbols. If we neglect the terms of the order
+<img class="math" src="../../_images/math/4742da62c99782b0583ec0e95803804a9f5ee717.png" alt="O\left(\left(\phi\over c^2\right)^2\right)"/> and higher, we get the Newtonian
+Christoffel symbols <a href="#equation-Chris-newton">(2)</a> that we want. It&#8217;s clear that in order
+to neglect the terms, we must have <img class="math" src="../../_images/math/2048933fe75a9412f8250cb789e5b250b5955ecc.png" alt="|\phi| \ll c^2"/>, so we must choose <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>
+large enough for this to work. To put it plainly, unless <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is large, there is
+no metrics in our Newtonian spacetime. However for <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> large, everything is
+fine.</p>
+</div>
+<div class="section" id="intertial-frames">
+<h2>Intertial frames<a class="headerlink" href="#intertial-frames" title="Permalink to this headline">¶</a></h2>
+<p>What is an inertial frame? Inertial frame is such a frame
+that doesn&#8217;t have any fictitious forces. What is a fictitious force?
+If we take covariant time derivative of any vector, then fictitious forces are all
+the terms with nonzero Christoffel symbols. In other words, nonzero Christoffel symbols
+mean that by (partially) differentiating with respect to time, we need to add
+additional terms in order to get a proper vector again &#8211; and those terms are
+called fictitious forces if we are differentiating the velocity vector.</p>
+<p>Inertial frame is a frame without fictitious forces, i.e. with all Christoffel
+symbols zero in the whole frame.  This is equivalent to all components of the
+Riemann tensor being zero:</p>
+<div class="math">
+<p><img src="../../_images/math/764e2f1f6121d04c8dad51b6fd191ef41f88989a.png" alt="R^\alpha{}_{\beta\gamma\delta} = 0" /></p>
+</div><p>In general, if <img class="math" src="../../_images/math/b770fc6d355d132380e44caccd76d47c4c17f943.png" alt="R^\alpha{}_{\beta\gamma\delta} \neq 0"/> in the whole universe,
+then no such frame exists, but one can always achieve that locally, because
+one can always find a coordinate transformation so that the Christoffel
+symbols are zero locally (e.g. at one point), but unless
+<img class="math" src="../../_images/math/9c44d25d4045374c29571b22c2dd7109f1f479c8.png" alt="R^\alpha{}_{\beta\gamma\delta} = 0"/>, the Christoffel symbols will <em>not</em>
+be zero in the whole frame. So the (local) inertial frame is such a frame that
+has zero Christoffel symbols (locally).</p>
+<p>What is the metrics of the inertial frame? It is such a metrics, that
+<img class="math" src="../../_images/math/e94a5efac69eb0b86941e222feff079b2bbc2dd7.png" alt="\Gamma^\alpha{}_{\beta\gamma} = 0"/>. The derivatives
+<img class="math" src="../../_images/math/f5d65b7540f8fc3987639abbe28872f4c7d15ae8.png" alt="\partial_\mu\Gamma^\alpha{}_{\beta\gamma}"/> however doesn&#8217;t have to be zero. We
+know that taking any of the metrics listed above with <img class="math" src="../../_images/math/32c9f9078bdedfda9f7658409d01023ed965ee30.png" alt="\phi=const"/> we get all
+the Christoffel symbols zero. So for example these two metrics (one with a plus
+sign, the other with a minus sign) have all the Christoffel symbols zero:</p>
+<div class="math">
+<p><img src="../../_images/math/0ce1523f8296a7c43352bfcccbce73a07147d88e.png" alt="g_{\mu\nu} = \mat{\pm c^2 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>Such a metrics corresponds to an inertial frame then.</p>
+<p>What are the (coordinate) transformations, that transform from one
+intertial frame to another? Those are all transformations that start with an
+inertial frame metrics (an example of such a metrics is given above), transform
+it using the transformation matrix and the resulting metrics is also inertial.
+In particular, let <img class="math" src="../../_images/math/722f3b6277a446e566f96e31afbf7deab71d4a58.png" alt="x^\mu"/> be inertial, thus <img class="math" src="../../_images/math/511870f41283ed33b3ddd7e04955a757aeedde4f.png" alt="g_{\mu\nu}"/> is an inertial
+metrics, then transform to <img class="math" src="../../_images/math/0fc741b4f9e6f273947e4928947058a2f7919c05.png" alt="x'^\mu"/> and <img class="math" src="../../_images/math/c38477dc7fbec122368a1f9cbebeeffabd50cdc3.png" alt="g'"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/08099ac757e99a42f1c35f3c4ab05223307467b9.png" alt="g'_{\alpha\beta} = {\partial x^\mu\over\partial x'^\alpha} {\partial x^\nu\over\partial x'^\beta} g_{\mu\nu} = \left({\partial x\over\partial x'}\right)^T g \left({\partial x\over\partial x'}\right)" /></p>
+</div><p>if we denote the transformation matrix by <img class="math" src="../../_images/math/2d295c3b71504a216422e5fffdfbad742c7add64.png" alt="\Lambda"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/f6a4268745a0ee2fe2788044eb732b00611f0953.png" alt="\Lambda^\mu{}_\alpha= {\partial x^\mu\over\partial x'^\alpha}" /></p>
+</div><p>then the transformation law is:</p>
+<div class="math">
+<p><img src="../../_images/math/1c6cfd2378ff8babc9859c8c51a87c3fe07543fb.png" alt="g' = \Lambda^T g \Lambda" /></p>
+</div><p>Now let&#8217;s assume that <img class="math" src="../../_images/math/710c6ce2cafb20d13ad9031534df049d14ff2017.png" alt="g'=g"/>, i.e. both inertial systems are given by the same
+matrix and let&#8217;s assume this particular form:</p>
+<div class="math">
+<p><img src="../../_images/math/f0abdb131afcd587a2aadd9c585c0909bdfa8f5c.png" alt="g'_{\mu\nu}=g_{\mu\nu} = \mat{\pm c^2 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>(e.g. this covers almost all possible Newtonian metrics tensors).</p>
+</div>
+<div class="section" id="lorentz-group">
+<span id="index-61"></span><h2>Lorentz Group<a class="headerlink" href="#lorentz-group" title="Permalink to this headline">¶</a></h2>
+<p>The Lorentz group is O(3,1), e.g. all matrices satisfying:</p>
+<div class="math" id="equation-ortho">
+<p><span class="eqno">(3)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
+\Lambda^T
+g
+\Lambda" /></p>
+</div><p>with <img class="math" src="../../_images/math/c27cfed7cbf71a7dcdd9be880b9baa9e4ce5341f.png" alt="g=\diag(-c^2, 1, 1, 1)"/>.
+Taking the determinant of <a href="#equation-ortho">(3)</a> we get <img class="math" src="../../_images/math/e5bd007d63d4f5763da58249a3c4d063fe6d7edc.png" alt="(\det\Lambda)^2=1"/> or
+<img class="math" src="../../_images/math/094bfadf66a3768020bb7eb6153fa141cac07fb8.png" alt="\det\Lambda=\pm1"/>. Writing the 00 component of <a href="#equation-ortho">(3)</a> we get</p>
+<div class="math">
+<p><img src="../../_images/math/7b2796f3e3ab8dc715e334c70b4389771f84bd8a.png" alt="-c^2 = -c^2(A^0{}_0)^2+(A^0{}_1)^2+(A^0{}_2)^2+(A^0{}_3)^2" /></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../_images/math/201e8fc9fa1bd439b192ac549dd5975d296c0c52.png" alt="(A^0{}_0)^2 = 1 + {1\over c^2}\left((A^0{}_1)^2+(A^0{}_2)^2+(A^0{}_3)^2\right)" /></p>
+</div><p>Thus we can see that either <img class="math" src="../../_images/math/f245a6f2a7744ff893cd9156930ebeeb57ce3828.png" alt="A^0{}_0\ge1"/> (the transformation preserves the
+direction of time, orthochronous) or <img class="math" src="../../_images/math/25cbbabddc97aaabd57002ddf570d7d31f842d88.png" alt="A^0{}_0\le-1"/> (not orthochronous).
+Thus we can see that the O(3, 1) group consists of 4 continuous parts, that
+are not connected.</p>
+<p>First case: elements with <img class="math" src="../../_images/math/10cf5ec84b506d67777c696f6f0a081da68df3fe.png" alt="\det\Lambda=1"/> and <img class="math" src="../../_images/math/f245a6f2a7744ff893cd9156930ebeeb57ce3828.png" alt="A^0{}_0\ge1"/>. Transformations
+with <img class="math" src="../../_images/math/10cf5ec84b506d67777c696f6f0a081da68df3fe.png" alt="\det\Lambda=1"/> form a subgroup and are called SO(3, 1), if they also have
+<img class="math" src="../../_images/math/f245a6f2a7744ff893cd9156930ebeeb57ce3828.png" alt="A^0{}_0\ge1"/> (orthochronous), then they also form a subgroup and are called
+the proper Lorentz transformations and denoted by <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/>. They
+consists of Lorentz boosts, example in the <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-direction:</p>
+<div class="math">
+<p><img src="../../_images/math/75df05a9751c0d4c1bc1033dc3168032313ab0c5.png" alt="\Lambda^\mu{}_\nu= \mat{ {1\over\sqrt{1-{v^2\over c^2}}}&amp; -{{v\over c^2}\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr -{v\over\sqrt{1-{v^2\over c^2}}} &amp; {1\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>which in the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/> gives</p>
+<div class="math">
+<p><img src="../../_images/math/0e1cef09cde8cf1027b766f59e57e094640ddf6d.png" alt="\Lambda^\mu{}_\nu= \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr -v &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>and spatial rotations:</p>
+<div class="math">
+<p><img src="../../_images/math/fb43969254af9e2c1d6ddd9154280cd6ac789338.png" alt="R_1(\phi)= \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; \cos\phi &amp; \sin\phi\cr 0 &amp; 0 &amp; -\sin\phi &amp; \cos\phi\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/665da2aee512aee55924b71bd572f8e872d6c7bc.png" alt="R_2(\phi)= \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; \cos\phi &amp; 0 &amp; \sin\phi\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; -\sin\phi &amp; 0  &amp; \cos\phi\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/504e8fe0bdd06c012ce8512525aefc809ffc6028.png" alt="R_3(\phi)= \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; \cos\phi &amp; \sin\phi &amp; 0\cr 0 &amp; -\sin\phi &amp; \cos\phi &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>(More rigorous derivation will be given in a moment.)
+It can be shown (see below), that all other elements (improper
+Lorentz transformations) of the O(3, 1)
+group can be written as products of an element from <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/> and an
+element of the discrete group:</p>
+<div class="math">
+<p><img src="../../_images/math/3eaebdafa91f8ab8ddf475594626fce3af8789fe.png" alt="\{\one,\ P,\ T,\ PT\}" /></p>
+</div><p>where <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> is space inversion (also called space reflection or parity
+transformation):</p>
+<div class="math">
+<p><img src="../../_images/math/4112b2c05a1409614c865e7c9a0bcccf00daeb0e.png" alt="P= \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; -1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; -1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; -1\cr}" /></p>
+</div><p>and <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> is time reversal (also called time inversion):</p>
+<div class="math">
+<p><img src="../../_images/math/45693d9522e9a83b1b27372717cabd8af6d16e50.png" alt="T= \mat{ -1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>Second case: elements with <img class="math" src="../../_images/math/10cf5ec84b506d67777c696f6f0a081da68df3fe.png" alt="\det\Lambda=1"/> and <img class="math" src="../../_images/math/25cbbabddc97aaabd57002ddf570d7d31f842d88.png" alt="A^0{}_0\le-1"/>. An example of
+such an element is <img class="math" src="../../_images/math/2ebdc03b4e24dbee7b5747d6a0aa2def18f5541d.png" alt="PT"/>. In general, any product from <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/> and
+<img class="math" src="../../_images/math/2ebdc03b4e24dbee7b5747d6a0aa2def18f5541d.png" alt="PT"/> belongs here.</p>
+<p>Third case: elements with <img class="math" src="../../_images/math/fc03dcb072bde0bcc95524915c99767f8476ff9d.png" alt="\det\Lambda=-1"/> and <img class="math" src="../../_images/math/f245a6f2a7744ff893cd9156930ebeeb57ce3828.png" alt="A^0{}_0\ge1"/>. An example of
+such an element is <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/>. In general, any product from <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/> and
+<img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> belongs here.</p>
+<p>Fourth case: elements with <img class="math" src="../../_images/math/fc03dcb072bde0bcc95524915c99767f8476ff9d.png" alt="\det\Lambda=-1"/> and <img class="math" src="../../_images/math/25cbbabddc97aaabd57002ddf570d7d31f842d88.png" alt="A^0{}_0\le-1"/>. An example of
+such an element is <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/>. In general, any product from <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/> and
+<img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> belongs here.</p>
+<p>Example: where does the reflection around a
+single spatial axis <img class="math" src="../../_images/math/d120cafe88b96c76e8f9bdcc7d713dbfc00ff27f.png" alt="(t, x, y, z)\to(t, -x, y, z)"/> belong to? It is the third
+case, because the determinant is <img class="math" src="../../_images/math/fc03dcb072bde0bcc95524915c99767f8476ff9d.png" alt="\det\Lambda=-1"/> and the 00 element is 1.
+Written in the matrix form:</p>
+<div class="math">
+<p><img src="../../_images/math/ccc2e0b4ecd070e39b0e8934ed9bce8db513c6f3.png" alt="\Lambda =
+ \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; -1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp;
+ 1\cr} =
+ \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; -1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; -1 &amp; 0\cr 0 &amp; 0 &amp;
+ 0 &amp; -1\cr}
+ \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; -1 &amp;
+ 0\cr 0 &amp; 0 &amp; 0 &amp; -1\cr}
+ =
+
+ =
+ \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; -1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; -1 &amp; 0\cr 0 &amp; 0 &amp;
+ 0 &amp; -1\cr}
+ \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; \cos\pi &amp;
+ \sin\pi\cr 0 &amp; 0 &amp; -\sin\pi &amp; \cos\pi\cr}
+ =PR_1(\pi)" /></p>
+</div><p>So it is constructed using the <img class="math" src="../../_images/math/77cbbeb5834997d74dbc44264f04660c2bf84077.png" alt="R_1"/> element from <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/> and P
+from the discrete group above.</p>
+<p>We can now show why the decomposition
+<img class="math" src="../../_images/math/f0e36314788bafb77e3c896c9aca15b7ebc27587.png" alt="{\rm O}(3,1)={\rm SO}^+(3, 1)\times\{\one,\ P,\ T,\ PT\}"/> works. Note that
+<img class="math" src="../../_images/math/7ec41073b7c83c7e6ce802e4b3f7e1244d54f71b.png" alt="PT=-\one"/>. First we show that <img class="math" src="../../_images/math/5747b6d5064532d47b7d6379e98bea869b4745cc.png" alt="{\rm SO}(3,1)={\rm SO}^+(3, 1)\times\{\one,
+-\one\}"/>. This follows from the fact, that all matrices with
+<img class="math" src="../../_images/math/bc863f0bf0bae6d9301a2793a4e5e2665b40f757.png" alt="\Lambda^0{}_0\le-1"/> can be written using <img class="math" src="../../_images/math/8e28b9e074ee1940717cd428d3e844668c7444a9.png" alt="-\one"/> and a matrix with
+<img class="math" src="../../_images/math/f453a6d4df412a737eb5b04d727b44e24df76c4e.png" alt="\Lambda^0{}_0\ge1"/>.  All matrices
+with <img class="math" src="../../_images/math/03e1f8f4057d467f63986a2bffb746b83cf7f9d7.png" alt="\det \Lambda=-1"/> can be constructed from a matrix with <img class="math" src="../../_images/math/10cf5ec84b506d67777c696f6f0a081da68df3fe.png" alt="\det\Lambda=1"/>
+(i.e. SO(3, 1)) and
+a diagonal matrix with odd number of -1, below we list all of them together
+with their construction using time reversal, parity and spatial rotations:</p>
+<div class="math">
+<p><img src="../../_images/math/8bd29740018c2ba177ffebb7f25e99edfb40153f.png" alt="\begin{align*}
+\diag(-1, 0, 0, 0) &amp;= T\\
+\diag(0, -1, 0, 0) &amp;= PR_1(\pi)\\
+\diag(0, 0, -1, 0) &amp;= PR_2(\pi)\\
+\diag(0, 0, 0, -1) &amp;= PR_3(\pi)\\
+\diag(0, -1, -1, -1) &amp;= P\\
+\diag(-1, 0, -1, -1) &amp;= TR_1(\pi)\\
+\diag(-1, -1, 0, -1) &amp;= TR_2(\pi)\\
+\diag(-1, -1, -1, 0) &amp;= TR_3(\pi)\\
+\end{align*}" /></p>
+</div><p>But <img class="math" src="../../_images/math/48ef1cdbc0ae5bb4190bf74d5a07d919231189af.png" alt="R_i(\pi)"/> belongs to <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/>, so we just need two extra
+elements, <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> and <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> to construct all matrices with <img class="math" src="../../_images/math/fc03dcb072bde0bcc95524915c99767f8476ff9d.png" alt="\det\Lambda=-1"/> using
+matrices from SO(3, 1). So to recapitulate, if we start with <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/>
+we need to add the element <img class="math" src="../../_images/math/7ec41073b7c83c7e6ce802e4b3f7e1244d54f71b.png" alt="PT=-\one"/> to construct SO(3, 1) and then we need to
+add <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> and <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> to construct O(3, 1). Because all other combinations like
+<img class="math" src="../../_images/math/454258588b969e69abdc5e0dd8dcf74c20866b1f.png" alt="PPT=T"/> reduce to just one of <img class="math" src="../../_images/math/1aa223ab99e26b366ed46f93bbd7f00f72741492.png" alt="\{\one, P, T, -\one\}"/>, we are done.</p>
+<p>The elements from <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/> are proper Lorentz transformations, all
+other elements are improper. Now we&#8217;d like to construct the proper
+Lorentz transformation matrix <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/> explicitly. As said above, all improper
+transformations are just proper transformations multiplied by either <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/>, <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/>
+or <img class="math" src="../../_images/math/2ebdc03b4e24dbee7b5747d6a0aa2def18f5541d.png" alt="PT"/>, so it is sufficient to construct <img class="math" src="../../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/>.</p>
+<p>We can always write <img class="math" src="../../_images/math/bdd664c31d5a0eafee694ec8054f8a4292d63007.png" alt="A=e^L"/>, then:</p>
+<div class="math">
+<p><img src="../../_images/math/2e70261c4662c57b405b436a8ac163172af34b7b.png" alt="\det A = \det e^L = e^{{\rm Tr}\,L} = 1" /></p>
+</div><p>so <img class="math" src="../../_images/math/526edf286328303d74dfcd800873856cd8399b24.png" alt="\Tr L = 0"/> and <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is a real, traceless matrix. Rewriting <a href="#equation-ortho">(3)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/33df1522b3c52b49b2507e6d9de490fb66d6f658.png" alt="g = A^T g A" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/25150502672ca22c1f1301967731192c588804ba.png" alt="A^{-1} = g^{-1} A^T g" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/d472f811ca5c3972b2f68091a2de94414737c730.png" alt="e^{-L} = g^{-1} e^{L^T}g = e^{g^{-1}L^Tg}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/fc50d125b5d575908b05e84925cf98dc02e282d5.png" alt="-L = g^{-1}L^Tg" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/ddefc7abcd6d6f40fe35687a62f1835311ff386b.png" alt="-gL = (gL)^T" /></p>
+</div><p>The matrix <img class="math" src="../../_images/math/afeb23e33a7f9fc7dd56db3b3e8a071c4b928e69.png" alt="gL"/> is thus antisymmetric and the general form of <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is then:</p>
+<div class="math">
+<p><img src="../../_images/math/32420203bb1d19c5d1b8cda599dbbbbb980e227f.png" alt="L= \mat{ 0 &amp; {L_{01}\over c^2} &amp; {L_{02}\over c^2} &amp; {L_{03}\over c^2}\cr L_{01} &amp; 0 &amp; L_{12} &amp; L_{13}\cr L_{02} &amp; -L_{12} &amp; 0 &amp; L_{23}\cr L_{03} &amp; -L_{13} &amp; -L_{23} &amp; 0\cr}" /></p>
+</div><p>One can check, that <img class="math" src="../../_images/math/afeb23e33a7f9fc7dd56db3b3e8a071c4b928e69.png" alt="gL"/> is indeed antisymmetric. However, for a better
+parametrization, it&#8217;s better to work with a metric <img class="math" src="../../_images/math/bc075bb2c35e291fec83ae96fe363655c597b95f.png" alt="\diag(-1, 1, 1, 1)"/>, which
+can be achieved by putting <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> into <img class="math" src="../../_images/math/04b56a29aed89242e55fe5861bfc2629002a3dcb.png" alt="(ct, x, y, z)"/>, or equivalently, to work
+with <img class="math" src="../../_images/math/98a588c18a2fa1e7c2804d1d8e30609538a64982.png" alt="x^\mu=(t, x, y, z)"/> and multiply this by a matrix <img class="math" src="../../_images/math/c87ec4c4fc7dcbde15e0e9dd99438da11246b66f.png" alt="C=\diag(c, 1, 1, 1)"/>
+to get <img class="math" src="../../_images/math/04b56a29aed89242e55fe5861bfc2629002a3dcb.png" alt="(ct, x, y, z)"/>. To get a symmetric <img class="math" src="../../_images/math/0a00e8e0fe04cc1a6d91def99e28eb62bab4a366.png" alt="\tilde L"/>, we just have to do
+<img class="math" src="../../_images/math/ba097210928231d0185084143c24b55e1ab5ba0e.png" alt="Cx' = \tilde LCx"/>,
+so to get an unsymmetric <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> from the symmetric one, we need to do
+<img class="math" src="../../_images/math/1d3d8a9bed59a3957c131ad1eed3b6023545c21a.png" alt="C^{-1} \tilde L C"/>, so we get:</p>
+<div class="math">
+<p><img src="../../_images/math/5a2c300fceeceff396f557a3fbd6be4eee035974.png" alt="L = C^{-1} \mat{ 0 &amp; \zeta_1 &amp; \zeta_2 &amp; \zeta_3\cr \zeta_1 &amp; 0 &amp; -\varphi_3 &amp; \varphi_2\cr \zeta_2 &amp; \varphi_3 &amp; 0 &amp; -\varphi_1\cr \zeta_3 &amp; -\varphi_2 &amp; \varphi_1 &amp; 0\cr} C = -i\boldsymbol\varphi\cdot{\bf L}-i\boldsymbol\zeta\cdot C^{-1}{\bf M}C" /></p>
+</div><p>We have parametrized all the proper Lorentz transformations with just 6
+parameters
+<img class="math" src="../../_images/math/6ef6b2a29c2175e9f3ce8eab33d36393f5649e95.png" alt="\zeta_1"/>,
+<img class="math" src="../../_images/math/660b92641a552c658dcf9b78bca8fee71064bdc3.png" alt="\zeta_2"/>,
+<img class="math" src="../../_images/math/5d29fea9e49cbef023695f7744db1942861f97ef.png" alt="\zeta_3"/>,
+<img class="math" src="../../_images/math/8d21596a3df46ae2e8b66e5549eeaf3d34f663b8.png" alt="\varphi_1"/>,
+<img class="math" src="../../_images/math/39f267913db90a1788d6adbf5c815a0df075358f.png" alt="\varphi_2"/> and
+<img class="math" src="../../_images/math/ed3b02a219e093cabff59d924442927bbf565ffa.png" alt="\varphi_3"/>. The matrices <img class="math" src="../../_images/math/863bb95f198b32a7d29ed351c4a3b3b0c7831a45.png" alt="{\bf L}"/> and <img class="math" src="../../_images/math/4cb0afea6523dfb8e31e7d72f09b41938f26d8b3.png" alt="{\bf M}"/> are defined as:</p>
+<div class="math">
+<p><img src="../../_images/math/cfebf7f15747ea5beb2405d91bee693dd5dcac7d.png" alt="L_1=-i\mat{ 0 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr 0 &amp; 0 &amp; -1 &amp; 0\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/491a17f8ac491df0b9fa0cf06836a88f6daa6aaa.png" alt="L_2=-i\mat{ 0 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; -1\cr 0 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 1 &amp; 0 &amp; 0\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/3a5820f278a719e2810db3b0677f2a72df000521.png" alt="L_3=-i\mat{ 0 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; -1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 0\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/4d5add22e4830069541b3a0aca99f0eda65da3c1.png" alt="M_1=i\mat{ 0 &amp; 1 &amp; 0 &amp; 0\cr 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 0\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/64dc01b433d334d09211f68aa950ddf901f003bd.png" alt="M_2=i\mat{ 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 0\cr 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 0\cr}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/383e178c995c3f898db074ac792143a4974827a9.png" alt="M_3=i\mat{ 0 &amp; 0 &amp; 0 &amp; 1\cr 0 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 0\cr 1 &amp; 0 &amp; 0 &amp; 0\cr}" /></p>
+</div><p>Straightforward calculation shows:</p>
+<div class="math">
+<p><img src="../../_images/math/aaac333280aa89361e3b142a0cabb961dd2ce405.png" alt="[L_i, L_j] = i\epsilon_{ijk}L_k" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/86d97a1e5ace0e81cb31be4b00400405386ef403.png" alt="[L_i, M_j] = i\epsilon_{ijk}M_k" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/de99ee54aa16e84fdab97f8b492ff97161414f7a.png" alt="[M_i, M_j] = -i\epsilon_{ijk}L_k" /></p>
+</div><p>The first relation corresponds to the commutation relations for angular
+momentum, second relation shows that <img class="math" src="../../_images/math/5d1e4485dc90c450e8c76826516c1b2ccb8fce16.png" alt="M"/> transforms as a vector under rotations
+and the final relation shows that boosts do not in general commute.</p>
+<p>We get:</p>
+<div class="math">
+<p><img src="../../_images/math/3190edbf1ee21f1c3ee4f9dbab8d1a2c58af1c1d.png" alt="A = e^{-i\boldsymbol\varphi\cdot{\bf L}-i\boldsymbol\zeta\cdot C^{-1}{\bf M}C} = C^{-1}\,e^{-i\boldsymbol\varphi\cdot{\bf L}-i\boldsymbol\zeta\cdot{\bf M}}\,C" /></p>
+</div><p>As a special case, the rotation around the <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>-axis is given by
+<img class="math" src="../../_images/math/85b4c6e74b0264aae3b745951cc748e35c75e044.png" alt="\boldsymbol\varphi=(0, 0, \varphi)"/> and <img class="math" src="../../_images/math/2ae6a7a0b0d46b91f1e1baf3a55e058bf03ce629.png" alt="\boldsymbol\zeta=0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/21adb526286ee9f20d44b082a25162046772f649.png" alt="A= e^{-i\varphi L_3} = \one-L_3^2+iL_3\sin\varphi+L_3^2\cos\varphi= \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; \cos\varphi &amp; \sin\varphi &amp; 0\cr 0 &amp; -\sin\varphi &amp; \cos\varphi &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>The boost in the <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-direction is <img class="math" src="../../_images/math/1a6fffd34c1d58206980981a407378440be892c3.png" alt="\boldsymbol\varphi=0"/> and
+<img class="math" src="../../_images/math/a74a2939860eef8d71ebfb3fbee7b955afe9b98b.png" alt="\boldsymbol\zeta=(\zeta, 0, 0)"/>, e.g.:</p>
+<div class="math">
+<p><img src="../../_images/math/b6ffa3ab9c917d80df9aa2a962b092aee27dd3a2.png" alt="A= C^{-1}e^{-i\zeta M_1}C = C^{-1}\left( \one-M_1^2+iM_1\sinh\zeta+ M_1^2\cosh\zeta\right)C=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c0c972efc6bc5395d4a783c5e38c46231b58e04e.png" alt="= C^{-1} \mat{ \cosh\zeta &amp; -\sinh\zeta &amp; 0 &amp; 0\cr -\sinh\zeta &amp; \cosh\zeta &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} C = \mat{ \cosh\zeta &amp; -{1\over c}\sinh\zeta &amp; 0 &amp; 0\cr -c\sinh\zeta &amp; \cosh\zeta &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>from the construction, <img class="math" src="../../_images/math/9c030edf99ca031880768a9d5897a0169a012325.png" alt="-\infty&lt;\zeta&lt;\infty"/>, so we may do the
+substitution <img class="math" src="../../_images/math/db1406080e883dec5d0f64bc4bac2d42a5a981bd.png" alt="\zeta={v\over c}\,{\rm atanh}\left({v\over c}\right)"/>, where
+<img class="math" src="../../_images/math/621099444a1ef72afab92ee1137787ff664bfc28.png" alt="-c&lt;v&lt;c"/>. The inverse transformation is:</p>
+<div class="math">
+<p><img src="../../_images/math/8f0fcc3c70fdabbca38da5d801114eea1d0b924f.png" alt="\cosh\zeta={1\over\sqrt{1-{v^2\over c^2}}}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/f5ba3018933ccb06e8fd27eb240a23738de4690d.png" alt="\sinh\zeta={{v\over c}\over\sqrt{1-{v^2\over c^2}}}" /></p>
+</div><p>and we get the boost given above:</p>
+<div class="math">
+<p><img src="../../_images/math/d5598bdbf0e5d01a636a23f35d2593c5428d2218.png" alt="A= \mat{ \cosh\zeta &amp; -{1\over c}\sinh\zeta &amp; 0 &amp; 0\cr -c\sinh\zeta &amp; \cosh\zeta &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} = \mat{ {1\over\sqrt{1-{v^2\over c^2}}}&amp; -{{v\over c^2}\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr -{v\over\sqrt{1-{v^2\over c^2}}} &amp; {1\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>Adding two boosts together:</p>
+<div class="math">
+<p><img src="../../_images/math/03ee847bc41135c99c6ea4f053b3d1267ef2be93.png" alt="A(u)A(v) = \mat{ {1\over\sqrt{1-{u^2\over c^2}}}&amp; -{{u\over c^2}\over\sqrt{1-{u^2\over c^2}}} &amp; 0 &amp; 0\cr -{u\over\sqrt{1-{u^2\over c^2}}} &amp; {1\over\sqrt{1-{u^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} \mat{ {1\over\sqrt{1-{v^2\over c^2}}}&amp; -{{v\over c^2}\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr -{v\over\sqrt{1-{v^2\over c^2}}} &amp; {1\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/043d2a863821a7c3c528ef6e87cab04f2ee02228.png" alt="= \mat{ {1\over\sqrt{1-{w^2\over c^2}}}&amp; -{{w\over c^2}\over\sqrt{1-{w^2\over c^2}}} &amp; 0 &amp; 0\cr -{w\over\sqrt{1-{w^2\over c^2}}} &amp; {1\over\sqrt{1-{w^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../../_images/math/84ef1f03fee421e7a1ec6af7f75bfce949591c43.png" alt="w = {u+v\over1+{uv\over c^2}}" /></p>
+</div></div>
+<div class="section" id="o-4-group">
+<span id="index-62"></span><h2>O(4) Group<a class="headerlink" href="#o-4-group" title="Permalink to this headline">¶</a></h2>
+<p>The group of rotations in 4 dimensions is O(4), e.g. all matrices satisfying:</p>
+<div class="math" id="equation-ortho2">
+<p><span class="eqno">(4)</span><img src="../../_images/math/16cfe1227b6e82597ecfbc127a071feb14589180.png" alt="g =
+\Lambda^T
+g
+\Lambda" /></p>
+</div><p>with <img class="math" src="../../_images/math/d34a50128d50569399c7e8573378443c8af98451.png" alt="g=\diag(c^2, 1, 1, 1)"/>.
+Taking the determinant of <a href="#equation-ortho2">(4)</a> we get <img class="math" src="../../_images/math/e5bd007d63d4f5763da58249a3c4d063fe6d7edc.png" alt="(\det\Lambda)^2=1"/> or
+<img class="math" src="../../_images/math/094bfadf66a3768020bb7eb6153fa141cac07fb8.png" alt="\det\Lambda=\pm1"/>. Writing the 00 component of <a href="#equation-ortho2">(4)</a> we get</p>
+<div class="math">
+<p><img src="../../_images/math/60fde7eef5fc291a6bc82fbf465a18007b778d3f.png" alt="c^2 = c^2(A^0{}_0)^2+(A^0{}_1)^2+(A^0{}_2)^2+(A^0{}_3)^2" /></p>
+</div><p>or</p>
+<div class="math">
+<p><img src="../../_images/math/2f11f2f45ca3f04391577736db82d0d98ef751d4.png" alt="(A^0{}_0)^2 = 1 - {1\over c^2}\left((A^0{}_1)^2+(A^0{}_2)^2+(A^0{}_3)^2\right)" /></p>
+</div><p>Thus we always have <img class="math" src="../../_images/math/0232000416d660031ff788b5550a2524cc0a0d9f.png" alt="-1\le A^0{}_0\le1"/>. That is different to the O(3, 1)
+group: the O(4) group consists of only 2 continuous parts, that are not
+connected. (The SO(4) part  contains the element <img class="math" src="../../_images/math/8e28b9e074ee1940717cd428d3e844668c7444a9.png" alt="-\one"/> though, but one can get
+to it continuously, so the group is doubly connected.)</p>
+<p>Everything proceeds much like for the O(3, 1) group, so <img class="math" src="../../_images/math/afeb23e33a7f9fc7dd56db3b3e8a071c4b928e69.png" alt="gL"/> is antisymmetric,
+but this time <img class="math" src="../../_images/math/d34a50128d50569399c7e8573378443c8af98451.png" alt="g=\diag(c^2, 1, 1, 1)"/>, so we get:</p>
+<div class="math">
+<p><img src="../../_images/math/7be79a4248c43ac7040ffd8d40f04425ae156256.png" alt="L= \mat{ 0 &amp; -{L_{01}\over c^2} &amp; -{L_{02}\over c^2} &amp; -{L_{03}\over c^2}\cr L_{01} &amp; 0 &amp; L_{12} &amp; L_{13}\cr L_{02} &amp; -L_{12} &amp; 0 &amp; L_{23}\cr L_{03} &amp; -L_{13} &amp; -L_{23} &amp; 0\cr}" /></p>
+</div><p>and so we also have 6 generators, but this time all of them are rotations:</p>
+<div class="math">
+<p><img src="../../_images/math/eb6a554c1b6a2e9ce16fbe72c1f608287b30ab7a.png" alt="A = C^{-1}\,e^{-i\varphi_a L_a}\,C" /></p>
+</div><p>with <img class="math" src="../../_images/math/bb7026a8e1a702f651a039a23d6d00682d9dcddd.png" alt="a=1, 2, 3, 4, 5, 6"/>. The spatial rotations are the same as for O(3, 1)
+and the remaining 3 rotations are <img class="math" src="../../_images/math/16ed68dacd8108616951d067f5bdf21ff867574a.png" alt="(t,x)"/>, <img class="math" src="../../_images/math/f529f1ec25f8294f000275a3634a36a6015c36a3.png" alt="(t,y)"/> and <img class="math" src="../../_images/math/d053b7e036d53209eaf06aa7308aa9b8f1269bc9.png" alt="(t,z)"/> plane rotations.
+So for example the <img class="math" src="../../_images/math/16ed68dacd8108616951d067f5bdf21ff867574a.png" alt="(t,x)"/> rotation is:</p>
+<div class="math">
+<p><img src="../../_images/math/47c19bd89a2a5fbfd22b85c9172d1959f7cf3fbb.png" alt="A= C^{-1} \mat{ \cos\varphi_4 &amp; \sin\varphi_4 &amp; 0 &amp; 0\cr -\sin\varphi_4 &amp; \cos\varphi_4 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} C = \mat{ \cos\varphi_4 &amp; {1\over c}\sin\varphi_4 &amp; 0 &amp; 0\cr -c\sin\varphi_4 &amp; \cos\varphi_4 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>Now we can do this identification:</p>
+<div class="math">
+<p><img src="../../_images/math/db4cb3d498d1c2e4c2b103e0e861deb521565b5c.png" alt="\sin\phi_4 = {{v\over c}\over\sqrt{1+({v\over c})^2}}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/413a014d1e1c4675c717d8c5b44c5823e09e72dc.png" alt="\cos\phi_4 = {1\over\sqrt{1+({v\over c})^2}}" /></p>
+</div><p>so we get the Galilean transformation in the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/0acf5cd1c49669622b10db93dfe3dedebd505b64.png" alt="A= \mat{ {1\over\sqrt{1+({v\over c})^2}} &amp; {{v\over c^2}\over\sqrt{1+({v\over c})^2}} &amp; 0 &amp; 0\cr -{v\over\sqrt{1+({v\over c})^2}} &amp; {1\over\sqrt{1+({v\over c})^2}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} \to \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr -v &amp; 1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>Adding two boosts together:</p>
+<div class="math">
+<p><img src="../../_images/math/99b943113d3b3f2a520384fc93d9f22539b7e8e6.png" alt="A(u)A(v) = \mat{ {1\over\sqrt{1+{u^2\over c^2}}}&amp; {{u\over c^2}\over\sqrt{1+{u^2\over c^2}}} &amp; 0 &amp; 0\cr -{u\over\sqrt{1+{u^2\over c^2}}} &amp; {1\over\sqrt{1+{u^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} \mat{ {1\over\sqrt{1+{v^2\over c^2}}}&amp; {{v\over c^2}\over\sqrt{1+{v^2\over c^2}}} &amp; 0 &amp; 0\cr -{v\over\sqrt{1+{v^2\over c^2}}} &amp; {1\over\sqrt{1+{v^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/00ed2800ac59a7b45b85bc1f58f5efc27ad7aa70.png" alt="= \mat{ {1\over\sqrt{1+{w^2\over c^2}}}&amp; {{w\over c^2}\over\sqrt{1+{w^2\over c^2}}} &amp; 0 &amp; 0\cr -{w\over\sqrt{1+{w^2\over c^2}}} &amp; {1\over\sqrt{1+{w^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}" /></p>
+</div><p>with</p>
+<div class="math">
+<p><img src="../../_images/math/25863d06e8b97947c1fb6de3fb985204dd3eeba6.png" alt="w = {u+v\over1-{uv\over c^2}}" /></p>
+</div><p>However, there is one peculiar thing here that didn&#8217;t exist in the O(3, 1)
+case: by adding two velocities less than <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>, for example <img class="math" src="../../_images/math/0b69e6781bb04de186f0d323b63bb827d6ea152d.png" alt="u=v=c/2"/>, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/d0ff52d95d059ac231bb654ef9fd614fc5b78748.png" alt="w = {c\over 1-{1\over 4}}={4c\over3}&gt;c" /></p>
+</div><p>(as opposed to <img class="math" src="../../_images/math/6f2ecdb10e0a8c6d4ae68eb9224f6fc7fe47e87b.png" alt="w = {c\over 1+{1\over 4}}={4c\over5}&lt;c"/> in the O(3, 1) case).
+So one can get over <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> easily. By adding <img class="math" src="../../_images/math/5e9dccd50346d0dfe95d464b71a5aa75e6247a12.png" alt="u=v={4c\over3}"/> together:</p>
+<div class="math">
+<p><img src="../../_images/math/19517af9d2f6e848b475ec1140ce1a57c85d50bf.png" alt="w = {{8c\over 3}\over 1-{16\over 9}}=-{24c\over7}&lt;0" /></p>
+</div><p>(as opposed to <img class="math" src="../../_images/math/32f99a29d0b6f7fff798edb644a6cd6c90e5b697.png" alt="w = {{8c\over 3}\over 1+{16\over 9}}={24c\over25}&gt;0"/> in the
+O(3, 1) case). So we can also get to negative speeds easily. One also needs to
+be careful with identifying <img class="math" src="../../_images/math/ee3fa6c5d230cc43e4326fde89565ebe7bfa8c5b.png" alt="\cos\phi_4 = {1\over\sqrt{1+({v\over c})^2}}"/>,
+because for <img class="math" src="../../_images/math/7ec1ba115dbf94008631f41560c0c451a1be143b.png" alt="\varphi_4&gt;\pi/2"/> we should probably set <img class="math" src="../../_images/math/b6d7296e985057df29d3df156b425d2273fbcc77.png" alt="\cos\varphi_4 =
+-{1\over\sqrt{1+({v\over c})^2}}"/>. All of this follows directly from the
+structure of SO(4), because one can get from <img class="math" src="../../_images/math/011f884fcaa89701b37523289f3ec10b4b1c60b1.png" alt="\Lambda^0{}_0&gt;0"/> to
+<img class="math" src="../../_images/math/481c4f8069f4571e69ab06aaa8018cf34280b067.png" alt="\Lambda^0{}_0&lt;0"/> continuously (this corresponds to increasing <img class="math" src="../../_images/math/6c720e40fb15652c613207116242bb9aa9f4fc5e.png" alt="\varphi_4"/> over
+<img class="math" src="../../_images/math/039bf945c704ff98e6f81626bbad32550cc37193.png" alt="\pi/2"/>). In fact, by adding two speeds <img class="math" src="../../_images/math/e17a2647efeba7e00be133fe6f049aa22f8e12fa.png" alt="u=v&gt;c(\sqrt 2 - 1)"/>, one always gets
+<img class="math" src="../../_images/math/fd66d429b04ec856ce83741bf1af2f958a60ee5d.png" alt="w&gt;c"/>. But if <img class="math" src="../../_images/math/8a7ee4a8b42b287e1a4ad165abd304e2a36fc877.png" alt="c(\sqrt 2 - 1)\doteq0.414c"/> is larger than any speed that we are
+concerned about, we are fine.</p>
+</div>
+<div class="section" id="proper-time">
+<span id="index-63"></span><h2>Proper Time<a class="headerlink" href="#proper-time" title="Permalink to this headline">¶</a></h2>
+<p>Proper time <img class="math" src="../../_images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> is a time elapsed by (physical) clocks along some (4D)
+trajectory.  Coordinate time <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is just some time coordinate assigned to each
+point in the space and usually one can find some real clocks, that would
+measure such a time (many times they are in the infinity). To find a formula
+for a proper time (in terms of the coordinate time), we introduce a local
+inertial frame at each point of the trajectory &#8211; in this frame, the clocks do
+not move, e.g. <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>, <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/>, <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> is
+constant (zero) and there is no gravity (this follows from the definition of
+the local inertial frame), so the metric is just a Minkowski metric.</p>
+<p>For any metrics, <img class="math" src="../../_images/math/3b24e800cdd613e46f03e52b7f46c68de36cefae.png" alt="\d s^2"/> is invariant:</p>
+<div class="math">
+<p><img src="../../_images/math/5038eb9c6334cf12089f27de328b8a864bb6c8b1.png" alt="\d s^2 = g_{\mu\nu} \d x^\mu\d x^\nu" /></p>
+</div><p>so coming to the local inertial frame, we have <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>, <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/>, <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> constant and we
+get:</p>
+<div class="math">
+<p><img src="../../_images/math/56602ac45619aecdd138435b70a21fd89966d207.png" alt="\d s^2 = g_{00} \d\tau^2" /></p>
+</div><p>so:</p>
+<div class="math">
+<p><img src="../../_images/math/d58693c2d1c4c9977869b64fd46cf8c521db0b02.png" alt="\d\tau=\sqrt{\d s^2\over g_{00}}" /></p>
+</div><p>since we are still in the local inertial frame (e.g. no gravity), we have
+<img class="math" src="../../_images/math/ccc71e682625658facaf78eb535f52c3ca47d2f1.png" alt="g_{00}=-c^2"/> (depending on which metrics we take it could also be <img class="math" src="../../_images/math/0a82dddc87b29840e587cfacba6fe2b57e05b2d9.png" alt="+c^2"/>), so:</p>
+<div class="math">
+<p><img src="../../_images/math/e6777286dc1c4230633b45fd4bc998686ab7dbec.png" alt="\d\tau=\sqrt{-{\d s^2\over c^2}}" /></p>
+</div><p>This formula was derived in the local inertial frame, but the right hand side
+is the same in any inertial frame, because <img class="math" src="../../_images/math/3b24e800cdd613e46f03e52b7f46c68de36cefae.png" alt="\d s^2"/> is invariant and <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> too.
+So in any frame we have:</p>
+<div class="math">
+<p><img src="../../_images/math/6c3ed98aeb3072faf80f0c88c8f0543c9c255ea2.png" alt="\d\tau=\sqrt{-{\d s^2\over c^2}} =\sqrt{-{g_{\mu\nu} \d x^\mu\d x^\nu\over c^2}}" /></p>
+</div><p>We&#8217;ll explain how to calculate the proper time on the 1971 Hafele and Keating
+experiment. They transported cesium-beam atomic clocks around the Earth on
+scheduled commercial flights (once flying eastward, once westward) and compared
+their reading on return to that of a standard clock at rest on the Earth&#8217;s
+surface.</p>
+<p>We&#8217;ll calculate it with all the metrics discussed above, to see the difference.</p>
+<div class="section" id="weak-field-metric">
+<h3>Weak Field Metric<a class="headerlink" href="#weak-field-metric" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s start with the metrics:</p>
+<div class="math">
+<p><img src="../../_images/math/571799f4412f2bc1b62d230a8210633c8c4767b0.png" alt="\d s^2=-\left(1+{2\phi\over c^2}\right)c^2 \d t^2 +\left(1-{2\phi\over c^2}\right)(\d x^2 +\d y^2 +\d z^2)" /></p>
+</div><p>Then:</p>
+<div class="math">
+<p><img src="../../_images/math/6f0f9c57e951b4e2b2653e52c6599eacbebf3361.png" alt="\tau_{AB} =\int_A^B\d\tau =\int_A^B\sqrt{-{\d s^2\over c^2}} =\int_A^B\sqrt{\left(1+{2\phi\over c^2}\right)\d t^2 -{1\over c^2}\left(1-{2\phi\over c^2}\right)(\d x^2 +\d y^2 +\d z^2)}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c5d4c186e790d44d9ae78b69183dde3bbe29f3d1.png" alt="=\int_A^B\d t\sqrt{\left(1+{2\phi\over c^2}\right) -{1\over c^2}\left(1-{2\phi\over c^2}\right)\left( \left(\d x\over\d t\right)^2 + \left(\d y\over\d t\right)^2 + \left(\d z\over\d t\right)^2\right)}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0d6f24017639d176a42e15ac6acc341d97fd393e.png" alt="=\int_A^B\d t\sqrt{\left(1+{2\phi\over c^2}\right) -{1\over c^2}\left(1-{2\phi\over c^2}\right)|{\bf V}|^2}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/ab37915be3196ddaad750580a6a0d0e15556516a.png" alt="|{\bf V}|^2= \left(\d x\over\d t\right)^2 + \left(\d y\over\d t\right)^2 + \left(\d z\over\d t\right)^2" /></p>
+</div><p>is the nonrelativistic velocity. Then we expand the square root into power
+series and only keep terms with low powers of <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/c9c604c328f7d4ea9e8b634ad40d7a68ee98e8a5.png" alt="\tau_{AB} =\int_A^B\d t\sqrt{\left(1+{2\phi\over c^2}\right) -{1\over c^2}\left(1-{2\phi\over c^2}\right)|{\bf V}|^2} =\int_A^B\d t\left(1+{\phi\over c^2}-{1\over 2c^2}|{\bf V}|^2\right)" /></p>
+</div><p>so</p>
+<div class="math">
+<p><img src="../../_images/math/2c16f1fc899144a3fefc0d3f485708941eaa470b.png" alt="\tau_{AB} =\int_A^B\d t\left(1-{1\over c^2}\left({1\over2}|{\bf V}|^2-\phi\right)\right)" /></p>
+</div><p>Now let <img class="math" src="../../_images/math/de42afa55606fc0d2a23fb07a3a94f57f960bc90.png" alt="V_g=V_g(t)"/> be the speed of the plane relative to the (rotating) Earth
+(positive for the eastbound flights, negative for the westbound ones),
+<img class="math" src="../../_images/math/8e76d553f20b593a2c77c7631c668c3e15efb247.png" alt="V_\oplus={2\pi R_\oplus\over24}\,{\rm1\over h}"/> the surface speed of the
+Earth, then the proper time for the clocks on the surface is:</p>
+<div class="math">
+<p><img src="../../_images/math/e7cbc89e883800f7d42f9342fd92b85184f49b4f.png" alt="\tau_\oplus =\int_A^B\d t\left(1-{1\over c^2}\left({1\over2}V_\oplus^2-\phi_\oplus\right) \right)" /></p>
+</div><p>and for the clocks in the plane</p>
+<div class="math">
+<p><img src="../../_images/math/42322ca7136366a9c89d23b2bef9b57d736a1d61.png" alt="\tau =\int_A^B\d t\left(1-{1\over c^2}\left({1\over2}(V_g+V_\oplus)^2-\phi\right) \right)" /></p>
+</div><p>then the difference between the proper times is:</p>
+<div class="math">
+<p><img src="../../_images/math/d50121cf4278056a8506e0aae839815e679c773c.png" alt="\tau-\tau_\oplus=\Delta\tau ={1\over c^2}\int_A^B\d t\left(-{1\over2}(V_g+V_\oplus)^2+\phi +{1\over2}V_\oplus^2-\phi_\oplus\right) ={1\over c^2}\int_A^B\d t\left( \phi-\phi_\oplus-{1\over2}V_g(V_g+2V_\oplus) \right)" /></p>
+</div><p>but <img class="math" src="../../_images/math/11bb7e1d38dc6a1f0d31a97c79b3aa5f9d139317.png" alt="\phi-\phi_\oplus=g h"/>, where <img class="math" src="../../_images/math/2c0f760d75a2944bb9c05c5dee541564e61197df.png" alt="h=h(t)"/> is the altitude of the plane, so
+the final formula is:</p>
+<div class="math">
+<p><img src="../../_images/math/0e97d03a0aa515f90e6cebc2540f1a6c1c299cfb.png" alt="\Delta\tau ={1\over c^2}\int_A^B\d t\left( gh-{1\over2}V_g(V_g+2V_\oplus) \right)" /></p>
+</div><p>Let&#8217;s evaluate it for typical altitudes and speeds of commercial aircrafts:</p>
+<div class="math">
+<p><img src="../../_images/math/b834d92c6cbf99794200badbabf990454439aa5b.png" alt="R_\oplus=6 378.1{\rm\,km}=6.3781\cdot10^6{\rm\,m}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/03b2bec42737ed06aa754b899edb5edb51fad885.png" alt="V_\oplus={2\pi R_\oplus\over24}\,{\rm1\over h} ={2\pi R_\oplus\over24\cdot3600}\,{\rm1\over s} ={2\pi\,6.3781\cdot10^6\over24\cdot3600}{\rm m\over s}=463.83\rm\,{m\over s}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/ed4f2974d6e3b551f8f5d89f76ca0afa2b2241c4.png" alt="V_g = 870\,{\rm km\over h}=241.67\rm\,{m\over s}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/4509f2e7420d00acfe1394883bd2aafa62ea8b05.png" alt="h = 12{\rm\,km}=12000\rm\,m" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/d21559c8d5050faf91100d3c765812685493d54f.png" alt="t = {2\pi R_\oplus\over V_g} = {2\pi\,6.3781\cdot10^6\over 241.67}{\rm\,s} =165824.41{\rm\,s}\approx 46{\rm\,h}" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/680f98dca8d77a8241eb5f3352dc652d1cb502da.png" alt="c = 3\cdot10^8\rm\,{m\over s}" /></p>
+</div><p>For
+eastbound flights we get:</p>
+<div class="math">
+<p><img src="../../_images/math/0f97497d721432e51cac4ea95bbed2bae3345c6b.png" alt="\Delta\tau ={t\over c^2} \left( gh-{1\over2}V_g(V_g+2V_\oplus) \right) =-4.344\cdot10^{-8}{\rm\,s}=-43.44{\rm\,ns}" /></p>
+</div><p>and for westbound flights we get:</p>
+<div class="math">
+<p><img src="../../_images/math/b5918698c826c73308eb402068eaf5685eea15b2.png" alt="\Delta\tau ={t\over c^2} \left( gh-{1\over2}V_g(V_g-2V_\oplus) \right) =3.6964\cdot10^{-7}{\rm\,s}=369.63{\rm\,ns}" /></p>
+</div><p>By neglecting gravity, one would get:
+eastbound flights:</p>
+<div class="math">
+<p><img src="../../_images/math/8662ef65d58c0881dc246d26c77e8c14391782be.png" alt="\Delta\tau ={t\over c^2} \left(-{1\over2}V_g(V_g+2V_\oplus) \right) =-260.34{\rm\,ns}" /></p>
+</div><p>and for westbound flights:</p>
+<div class="math">
+<p><img src="../../_images/math/563e2a58fbcd9b270588830fbcfc79709b4e6130.png" alt="\Delta\tau ={t\over c^2} \left(-{1\over2}V_g(V_g-2V_\oplus) \right) =152.73{\rm\,ns}" /></p>
+</div><p>By just taking the clocks to the altitude <img class="math" src="../../_images/math/1522a1cd062a08c09c0c2c03e06df13dcd78e6bc.png" alt="12\rm\,km"/> and staying there for 46
+hours (without moving with respect to the inertial frame, e.g. far galaxies), one gets:</p>
+<div class="math">
+<p><img src="../../_images/math/95bafbee3351b6752bff74322460a46519891ff1.png" alt="\Delta\tau ={ght\over c^2}=216.90{\rm\,ns}" /></p>
+</div></div>
+<div class="section" id="rotating-disk-metric">
+<h3>Rotating Disk Metric<a class="headerlink" href="#rotating-disk-metric" title="Permalink to this headline">¶</a></h3>
+<p>The rotating disk metrics is (taking weak field gravitation into account):</p>
+<div class="math">
+<p><img src="../../_images/math/b1d72f59163d562a9596b19ea963d24a30a8a830.png" alt="\d s^2=-\left(1+{2\phi\over c^2}-{\omega^2\over c^2}(x^2+y^2)\right)c^2 \d t^2 +(\d x^2 +\d y^2 +\d z^2)-2\omega y\,\d x\d t + 2\omega x\,\d y\d t" /></p>
+</div><p>Then:</p>
+<div class="math">
+<p><img src="../../_images/math/22e9e374c87478c4362cdcea61c9cc822835a1d3.png" alt="\tau_{AB} =\int_A^B\d\tau =\int_A^B\sqrt{-{\d s^2\over c^2}}=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/007d36d7b0de71615b4bd9d50c78f78fb9358f8d.png" alt="=\int_A^B\sqrt{\left(1+{2\phi\over c^2}-{\omega^2\over c^2}(x^2+y^2)\right) \d t^2 -{1\over c^2}(\d x^2 +\d y^2 +\d z^2) +{2\omega y\over c^2}\,\d x\d t - {2\omega x\over c^2}\,\d y\d t }=" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/76def279e31e07a8a2ed19386ca7bc58b9eafaa7.png" alt="=\int_A^B\d t\sqrt{\left(1+{2\phi\over c^2}-{\omega^2\over c^2}(x^2+y^2)\right) -{1\over c^2}|{\bf V}|^2 +{2\omega y\over c^2}\,{\d x\over\d t} - {2\omega x\over c^2}\,{\d y\over\d t}}" /></p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/ab37915be3196ddaad750580a6a0d0e15556516a.png" alt="|{\bf V}|^2= \left(\d x\over\d t\right)^2 + \left(\d y\over\d t\right)^2 + \left(\d z\over\d t\right)^2" /></p>
+</div><p>is the nonrelativistic velocity. Then we expand the square root into power
+series and only keep terms with low powers of <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/2ce39b872438b65191535393f1ad0f101ded3720.png" alt="\tau_{AB} =\int_A^B\d t\left(1+{\phi\over c^2}-{1\over 2c^2}|{\bf V}|^2 +{\omega y\over c^2}\,{\d x\over\d t} - {\omega x\over c^2}\,{\d y\over\d t} \right)" /></p>
+</div><p>so</p>
+<div class="math">
+<p><img src="../../_images/math/bf86aa041190e6a550747f539596ffecb5925812.png" alt="\tau_{AB} =\int_A^B\d t\left(1-{1\over c^2}\left({1\over2}|{\bf V}|^2-\phi -{\omega y}\,{\d x\over\d t} + {\omega x}\,{\d y\over\d t} \right)\right)" /></p>
+</div><p>Now as before let <img class="math" src="../../_images/math/de42afa55606fc0d2a23fb07a3a94f57f960bc90.png" alt="V_g=V_g(t)"/> be the speed of the plane (relative to the
+rotating Earth, e.g. relative to our frame), <img class="math" src="../../_images/math/e6539b2ab877fd27b41eadfa16004a261fc99251.png" alt="V_\oplus={2\pi
+R_\oplus\over24}\,{\rm1\over h}"/> the surface speed of the Earth, so <img class="math" src="../../_images/math/619ed662a4414c0e02ffe7d85e4bc6b0f505222c.png" alt="\omega
+R_\oplus=V_\oplus"/>. For the clocks on the surface, we have:</p>
+<div class="math">
+<p><img src="../../_images/math/9e2404fb8f307e1af6b57b173eb1361aabc6f3c1.png" alt="x = R_\oplus" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c4d9940abacd24f08fae942552ac7815da886e20.png" alt="y = 0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8be626d8879a4d3f779a015eecf2435b4d59ceb3.png" alt="z = 0" /></p>
+</div><p>so</p>
+<div class="math">
+<p><img src="../../_images/math/1e74f26737ce1e36a35e9244d23eca3c41ba21b4.png" alt="{\d x\over\d t}={\d y\over\d t}={\d z\over\d t}=0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/3587b7d2ef038b4c85b3406b5a35a3538864893e.png" alt="|{\bf V}|^2=0" /></p>
+</div><p>then the proper time for the clocks on the surface is:</p>
+<div class="math">
+<p><img src="../../_images/math/63b974c4d9b41e0f5f0fa6fd0e6bf42ca55e22d2.png" alt="\tau_\oplus =\int_A^B\d t\left(1-{1\over c^2}\left(-\phi_\oplus\right) \right)" /></p>
+</div><p>and for the clocks in the plane we have:</p>
+<div class="math">
+<p><img src="../../_images/math/0e587c5802cb74f411b593b70f8fc17f7ce79ded.png" alt="x = (R_\oplus+h)\cos\Omega t" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/11ee3c94eda80bf6243554b8e84814a9a3726cc8.png" alt="y = (R_\oplus+h)\sin\Omega t" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/8be626d8879a4d3f779a015eecf2435b4d59ceb3.png" alt="z = 0" /></p>
+</div><p>where <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/> is defined by <img class="math" src="../../_images/math/dfc432b370cdfc5e595c79c46d0581aebcff49fa.png" alt="\Omega (R_\oplus+h)=V_g"/>, so</p>
+<div class="math">
+<p><img src="../../_images/math/0cb9e3704987581c53d2a083377d222ae2d918cc.png" alt="{\d x\over\d t}=-(R_\oplus+h)\Omega\sin\Omega t" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/55671180fa67a69cfc473eb5b3638e914d2fb684.png" alt="{\d y\over\d t}=(R_\oplus+h)\Omega\cos\Omega t" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/de2c738a7d1d0d5ddf038ca50b0b68c0405b7464.png" alt="{\d z\over\d t}=0" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/e85d53737de1a5c8a41765f63696461d541bf9a6.png" alt="|{\bf V}|^2=\Omega^2(R_\oplus+h)^2" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c40e8e1a3c43cc56bb2f5ff8a11c9534d787e409.png" alt="\omega y {\d x\over\d t}=-\omega\Omega(R_\oplus+h)^2\sin^2\Omega t" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/409c00acf0cfcf700455237b5cde6f569d431d4e.png" alt="\omega x {\d y\over\d t}=\omega\Omega(R_\oplus+h)^2\cos^2\Omega t" /></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/9a25034b37576d8a4cca3be00d5ce2e4cfad63f5.png" alt="\tau =\int_A^B\d t\left(1-{1\over c^2}\left({1\over2} \Omega^2(R_\oplus+h)^2 - \phi +\omega\Omega(R_\oplus+h)^2\right) \right)" /></p>
+</div><p>then the difference between the proper times is:</p>
+<div class="math">
+<p><img src="../../_images/math/c1f56d1bf2b4a4ecf603244b7b3dd1dfe96838a5.png" alt="\tau-\tau_\oplus=\Delta\tau ={1\over c^2}\int_A^B\d t\left(-{1\over2}\Omega^2(R_\oplus+h)^2 -\omega\Omega(R_\oplus+h)^2 +\phi-\phi_\oplus\right) =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/c58ef30448f686850ab58744fa4165d73443bd20.png" alt="={1\over c^2}\int_A^B\d t\left( -{1\over2}V_g^2 -V_\oplus V_g \left(1+{h\over R_\oplus}\right) +\phi-\phi_\oplus \right) =" /></p>
+</div><div class="math">
+<p><img src="../../_images/math/0003cfabb483b33812e2d5e454ee46df11274cd2.png" alt="={1\over c^2}\int_A^B\d t\left( \phi-\phi_\oplus -{1\over2}V_g\left(V_g+2V_\oplus\left(1+{h\over R_\oplus}\right)\right) \right)" /></p>
+</div><p>but <img class="math" src="../../_images/math/11bb7e1d38dc6a1f0d31a97c79b3aa5f9d139317.png" alt="\phi-\phi_\oplus=g h"/>, where <img class="math" src="../../_images/math/2c0f760d75a2944bb9c05c5dee541564e61197df.png" alt="h=h(t)"/> is the altitude of the plane and we
+approximate</p>
+<div class="math">
+<p><img src="../../_images/math/60145400427bed03e71a2f4be9372d5ddebb7ce0.png" alt="\left(1+{h\over R_\oplus}\right)\approx 1 \,," /></p>
+</div><p>so
+the final formula is the same as before:</p>
+<div class="math">
+<p><img src="../../_images/math/0e97d03a0aa515f90e6cebc2540f1a6c1c299cfb.png" alt="\Delta\tau ={1\over c^2}\int_A^B\d t\left( gh-{1\over2}V_g(V_g+2V_\oplus) \right)" /></p>
+</div><p>Note: for the values above, the bracket <img class="math" src="../../_images/math/7e0f6977f045b32709d843de1cc61922c251d474.png" alt="\left(1+{h\over
+R_\oplus}\right)^2\doteq1.00377"/>, so it&#8217;s effect on the final difference of the
+proper times is negligible (e.g. less than <img class="math" src="../../_images/math/1b4c6be4ac1fe4c15fef9e49f1580f12148fabc4.png" alt="1 \rm\,ns"/>). The difference is
+caused by a slightly vague definition of the speed of the plane, e.g. the
+ground speed is a bit different to the speed relative to the rotating Earth
+(this depends on how much the atmosphere rotates with the Earth).</p>
+</div>
+<div class="section" id="concluding-remarks">
+<h3>Concluding Remarks<a class="headerlink" href="#concluding-remarks" title="Permalink to this headline">¶</a></h3>
+<p>The coordinate time <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> in both cases above is totally different. One can find
+some physical clocks in both cases that measure (e.g. whose proper time is) the
+particular coordinate time, but the beauty of the differential geometry
+approach is that we don&#8217;t have to care about this. <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is just a coordinate,
+that we use to calculate something physical, like a proper time along some
+trajectory, which is a frame invariant quantity. In both cases above, we got a
+different formulas for the proper time of the surface clocks (and the clocks in
+the plane) in terms of the coordinate time (because the coordinate time is
+different in both cases), however the difference of the proper times is the
+same in both cases:</p>
+<div class="math">
+<p><img src="../../_images/math/0e97d03a0aa515f90e6cebc2540f1a6c1c299cfb.png" alt="\Delta\tau ={1\over c^2}\int_A^B\d t\left( gh-{1\over2}V_g(V_g+2V_\oplus) \right)" /></p>
+</div><p>There is still a slight difference though &#8211; the <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> here used to evaluate the
+integral is different in both cases. To do it correctly, one should take the
+total time as measured by any of the clocks and then use the right formula for
+the proper time of the particular clock to convert to the particular coordinate
+time. However, the difference is small, of the order of nanoseconds, so it&#8217;s
+negligible compared to the total flying time of 46 hours.</p>
+</div>
+</div>
+<div class="section" id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
+<p><strong>How does one incorporate the fact, that there are only two possible
+transformations, into all of this?</strong>
+For more info, see: <a class="reference external" href="http://arxiv.org/abs/0710.3398">http://arxiv.org/abs/0710.3398</a>.
+Answer: in that article there are
+actually three possible transformations, <img class="math" src="../../_images/math/802996bf7e3d6beea31787c6b0f55d2f600a9ebf.png" alt="K&lt;0"/> corresponds to O(4), <img class="math" src="../../_images/math/c5673497d64eb7c295704ca45a13891c483096c2.png" alt="K&gt;0"/> to
+O(3, 1) and <img class="math" src="../../_images/math/1ef32f667131f22b1534bebff300b9d27b7d7574.png" alt="K=0"/> to either of them in the limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>.</p>
+<p><strong>What is the real difference between the Newtonian physics and special
+relativity?</strong> E.g. how do we derive the Minkowski metrics, how do we know we
+need to set <img class="math" src="../../_images/math/e93506ab334cf194875271c34e39fdfdd51a1018.png" alt="c=const"/> and how do we incorporate gravity in it?
+Answer:
+there are only three possible groups of transformations: O(4), O(3, 1) and a
+limit of either for <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>. All three provide inequivalent predictions
+for high speeds, so we just choose the right one by experiment. It happens to
+be the O(3, 1). As to gravity, that can be incorporated in either of them.</p>
+</div>
+<div class="section" id="questions-without-answers-yet">
+<h2>Questions Without Answers (Yet)<a class="headerlink" href="#questions-without-answers-yet" title="Permalink to this headline">¶</a></h2>
+<p>How can one reformulate the article <a class="reference external" href="http://arxiv.org/abs/0710.3398">http://arxiv.org/abs/0710.3398</a> into the
+language of the O(4) and O(3, 1) groups above? Basically each assumption and
+equation must have some counterpart in what we have said above. I&#8217;d like to
+identify those explicitely.</p>
+<p>What are all the possible metrics, that generate the Newtonian Christoffel
+symbols?
+(Several such are given above, but I want to know all of them) Probable answer:
+all metrics, whose inverse reduces to <img class="math" src="../../_images/math/5f214647ac7ea927b16738cf56c170891a0188d1.png" alt="g^{\mu\nu}=\diag(0, 1, 1, 1)"/> in the
+limit <img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>. I would like to have an explicit proof of this though.</p>
+<p>What is the role of the different metrics, that generate the same Christoffel
+symbols in the limit (<img class="math" src="../../_images/math/5aed179f587c3ac274cb5c3135b4ec6a8a3e9c80.png" alt="c\to\infty"/>)? Can one inertial frame be given with one
+and another frame with a different form of the metrics (e.g. one with
+<img class="math" src="../../_images/math/2d7c2f610d183821677635b7c87d4ff4bd2c25ea.png" alt="g_{00}=c^2"/> and the other one with <img class="math" src="../../_images/math/ccc71e682625658facaf78eb535f52c3ca47d2f1.png" alt="g_{00}=-c^2"/>?) Possible answer: there is
+no transformation to convert a metrics with signature +4 to signature +2, so
+one has to choose one and then all other inertial frames have the same one.</p>
+<p>What are all the allowed transformations between intertial frames? If we assume
+that the inertial frames are given with one given metrics (see the previous
+question), then the answer is: representation of the O(3, 1) group if
+<img class="math" src="../../_images/math/ccc71e682625658facaf78eb535f52c3ca47d2f1.png" alt="g_{00}=-c^2"/> or O(4) group if <img class="math" src="../../_images/math/2d7c2f610d183821677635b7c87d4ff4bd2c25ea.png" alt="g_{00}=c^2"/>. But if one frame is <img class="math" src="../../_images/math/ccc71e682625658facaf78eb535f52c3ca47d2f1.png" alt="g_{00}=-c^2"/>
+and we transform to another frame with <img class="math" src="../../_images/math/2d7c2f610d183821677635b7c87d4ff4bd2c25ea.png" alt="g_{00}=c^2"/>, then it is not clear what
+happens. Possible answer: one has to choose some signature and stick to it,
+see also the previous question.</p>
+<p>What is the real difference between Newtonian physics and general relativity?
+Given our formulation of Newtonian physics using the differential geometry, I
+want to know what the physical differences are between all the three theories
+are.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Newtonian Physics</a><ul>
+<li><a class="reference external" href="#introduction-why-tensors">Introduction: Why Tensors</a></li>
+<li><a class="reference external" href="#high-school-formulation">High School Formulation</a></li>
+<li><a class="reference external" href="#college-formulation">College Formulation</a></li>
+<li><a class="reference external" href="#differential-geometry-formulation">Differential Geometry Formulation</a></li>
+<li><a class="reference external" href="#metrics">Metrics</a></li>
+<li><a class="reference external" href="#obsolete-section">Obsolete section</a></li>
+<li><a class="reference external" href="#intertial-frames">Intertial frames</a></li>
+<li><a class="reference external" href="#lorentz-group">Lorentz Group</a></li>
+<li><a class="reference external" href="#o-4-group">O(4) Group</a></li>
+<li><a class="reference external" href="#proper-time">Proper Time</a><ul>
+<li><a class="reference external" href="#weak-field-metric">Weak Field Metric</a></li>
+<li><a class="reference external" href="#rotating-disk-metric">Rotating Disk Metric</a></li>
+<li><a class="reference external" href="#concluding-remarks">Concluding Remarks</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#faq">FAQ</a></li>
+<li><a class="reference external" href="#questions-without-answers-yet">Questions Without Answers (Yet)</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="main.html"
+                                  title="previous chapter">Classical Mechanics, Special and General Relativity</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../elmag/main.html"
+                                  title="next chapter">Classical Electromagnetism</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/src/relativity/chaptertwo.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../elmag/main.html" title="Classical Electromagnetism"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="Classical Mechanics, Special and General Relativity"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference v0.1 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Classical Mechanics, Special and General Relativity</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>

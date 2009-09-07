@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Classical Mechanics &mdash; Theoretical Physics Reference 0.5 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Theoretical Physics Reference 0.5 documentation" href="../../index.html" />
+    <link rel="up" title="Classical Mechanics, Special and General Relativity" href="main.html" />
+    <link rel="next" title="Relativity" href="relativity.html" />
+    <link rel="prev" title="Gravitation and Electromagnetism as a Field Theory" href="fields.html" />
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-28893880-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+     
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="relativity.html" title="Relativity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fields.html" title="Gravitation and Electromagnetism as a Field Theory"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference 0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" accesskey="U">Classical Mechanics, Special and General Relativity</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="classical-mechanics">
+<span id="index-0"></span><h1>Classical Mechanics<a class="headerlink" href="#classical-mechanics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rigid-body-rotation">
+<h2>Rigid Body Rotation<a class="headerlink" href="#rigid-body-rotation" title="Permalink to this headline">¶</a></h2>
+<p>In all the sections below, the rigid body is rotating around
+the <img class="math" src="../../_images/math/3d60306d6601bee96e70de9d22d49cc5d09e76e0.png" alt="\bomega"/> axis, so:</p>
+<div class="math">
+<p><img src="../../_images/math/0c397d33fc5d6b621a65f7beed733075ca8f2108.png" alt="{\bf v} = \bomega \times {\bf r}"/></p>
+</div><div class="section" id="kinetic-energy">
+<h3>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Permalink to this headline">¶</a></h3>
+<p>The kinetic energy is:</p>
+<div class="math">
+<p><img src="../../_images/math/5241845ccc9f07acb5b3efc121ecad40d038829d.png" alt="T = \int \half\rho({\bf r}) v^2 \d^3 r =
+
+  = \int \half\rho({\bf r}) {\bf v}\cdot{\bf v} \d^3 r =
+
+  = \int \half\rho({\bf r}) {\bf v}\cdot(\bomega \times {\bf r}) \d^3 r =
+
+  = \int \half\rho({\bf r}) \bomega\cdot({\bf r}\times {\bf v}) \d^3 r =
+
+  = \half \bomega \cdot \int\rho({\bf r}) ({\bf r}\times {\bf v}) \d^3 r =
+
+  = \half \bomega \cdot {\bf L}"/></p>
+</div><p>where <img class="math" src="../../_images/math/863bb95f198b32a7d29ed351c4a3b3b0c7831a45.png" alt="{\bf L}"/> is the total angular momentum:</p>
+<div class="math">
+<p><img src="../../_images/math/350c38d9f80a57a370aff11217a01bc826c15850.png" alt="{\bf L} = \int\rho({\bf r}) ({\bf r}\times {\bf v}) \d^3 r"/></p>
+</div></div>
+<div class="section" id="angular-momentum">
+<h3>Angular Momentum<a class="headerlink" href="#angular-momentum" title="Permalink to this headline">¶</a></h3>
+<p>Total angular momentum is:</p>
+<div class="math">
+<p><img src="../../_images/math/879528765473edb032b12da1f900f5a256779cf7.png" alt="{\bf L}
+    = \int \rho({\bf r}) ({\bf r} \times {\bf v}) \d^3 r =
+
+    = \int \rho({\bf r}) ({\bf r} \times (\bomega \times {\bf r}))
+            \d^3 r=
+
+    = \int \rho({\bf r}) (\bomega r^2 - {\bf r} ({\bf r}
+            \cdot \bomega)) \d^3 r =
+
+    = \int \rho({\bf r}) (\one r^2 - {\bf r} {\bf r})
+            \d^3 r \cdot \bomega =
+
+    = {\bf I} \cdot \bomega"/></p>
+</div><p>Where <img class="math" src="../../_images/math/d1142d920fef37d7ccc2c79337cff25ed997ce61.png" alt="{\bf I}"/> is the moment of inertia tensor:</p>
+<div class="math">
+<p><img src="../../_images/math/b23944c45bbbb0d1b9d84099df078ca3412c0287.png" alt="{\bf I} = \int \rho({\bf r}) (\one r^2 - {\bf r} {\bf r}) \d^3 r"/></p>
+</div></div>
+<div class="section" id="moment-of-inertia">
+<h3>Moment of Inertia<a class="headerlink" href="#moment-of-inertia" title="Permalink to this headline">¶</a></h3>
+<p>The moment of inertia tensor and its components are:</p>
+<div class="math">
+<p><img src="../../_images/math/53600c4f662ab927e6389302611b4d4a6ceb7bd9.png" alt="{\bf I} = \int \rho({\bf r}) (\one r^2 - {\bf r} {\bf r}) \d^3 r
+
+I^{ij} = \int \rho({\bf r}) (\delta^{ij} r_k r^k - r^i r^j) \d^3 r"/></p>
+</div><p>Let&#8217;s write <img class="math" src="../../_images/math/239230d5c5ac424bbd6d68747e87f74830ec3fdc.png" alt="\bomega=\omega {\bf n}"/> (where <img class="math" src="../../_images/math/7167e63ccb518e7049027f1ab62f768759b9f97c.png" alt="{\bf n}"/> is a unit vector),
+then the kinetic energy is:</p>
+<div class="math">
+<p><img src="../../_images/math/14de670b40bdeb2292766783cf2b0de78cdce5d2.png" alt="T = \half \bomega \cdot {\bf L}
+  = \half \bomega \cdot {\bf I} \cdot \bomega
+  = \half {\bf n} \cdot {\bf I} \cdot {\bf n}\, \omega^2
+  = \half I \omega^2"/></p>
+</div><p>where <img class="math" src="../../_images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I"/> is the moment of inertia about the axis of rotation:</p>
+<div class="math">
+<p><img src="../../_images/math/528b34adfb321634766c5a17302ab94633009457.png" alt="I = {\bf n} \cdot {\bf I} \cdot {\bf n} =
+
+  = {\bf n} \cdot \int \rho({\bf r}) (\one r^2 - {\bf r} {\bf r}) \d^3 r
+    \cdot {\bf n} =
+
+  = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r"/></p>
+</div><div class="section" id="cylinder">
+<h4>Cylinder<a class="headerlink" href="#cylinder" title="Permalink to this headline">¶</a></h4>
+<p>Solid cylinder of radius <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, height <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/> and mass <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>. We&#8217;ll use cylindrical
+coordinates. First for rotation about the <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> axis:</p>
+<div class="math">
+<p><img src="../../_images/math/637f67cfeca350e87422371441bafbae7a988d92.png" alt="V = \pi R^2 h
+
+{\bf n} = (0, 0, 1)
+
+{\bf r} = (\rho\cos\phi, \rho\sin\phi, z)
+
+{\bf r} \cdot {\bf n} = z
+
+r^2 = \rho^2 + z^2
+
+
+I = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
+  = \int {m\over V} (\rho^2+z^2 - z^2) \d^3 r =
+
+  = \int {m\over V} \rho^2 \d^3 r
+  = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_{-{h\over2}}^{h\over2}
+    \d z
+     \rho^2 \rho =
+
+  = {m\over V} 2\pi {R^4\over 4} h
+  = {m\over \pi R^2 h} 2\pi {R^4\over 4} h
+  = \half m R^2"/></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;m V R rho z phi h&quot;</span><span class="p">)</span>
+<span class="go">(m, V, R, rho, z, phi, h)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span> <span class="o">=</span> <span class="n">m</span><span class="o">/</span><span class="n">V</span> <span class="o">*</span> <span class="n">integrate</span><span class="p">(</span><span class="n">rho</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">rho</span><span class="p">,</span> <span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">R</span><span class="p">),</span> <span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="o">-</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+<span class="go">R**2*m/2</span>
+</pre></div>
+</div>
+<p>And about the <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> axis:</p>
+<div class="math">
+<p><img src="../../_images/math/a16a3ab201bb08465323703865bd9c51da2fd90a.png" alt="{\bf n} = (1, 0, 0)
+
+{\bf r} = (\rho\cos\phi, \rho\sin\phi, z)
+
+{\bf r} \cdot {\bf n} = \rho\cos\phi
+
+r^2 = \rho^2 + z^2
+
+
+I = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
+  = \int {m\over V} (\rho^2+z^2 - \rho^2\cos^2\phi) \d^3 r =
+
+  = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_{-{h\over2}}^{h\over2}
+    \d z (\rho^2+z^2 - \rho^2\cos^2\phi)\rho =
+
+  = {m\over V}\left({\pi R^4 h\over 2}+{\pi R^2 h^3\over 12}
+                -{\pi R^4 h\over 4}\right) =
+
+  = {m\over \pi R^2 h}\left({\pi R^4 h\over 2}+{\pi R^2 h^3\over 12}
+                -{\pi R^4 h\over 4}\right) =
+
+  = {m\over 12} (6R^2 + h^2 - 3R^2) =
+
+  = {m\over 12} (3R^2 + h^2)"/></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">cos</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;m V R rho z phi h&quot;</span><span class="p">)</span>
+<span class="go">(m, V, R, rho, z, phi, h)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span> <span class="o">=</span> <span class="n">m</span><span class="o">/</span><span class="n">V</span> <span class="o">*</span> <span class="n">integrate</span><span class="p">((</span><span class="n">rho</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">rho</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">rho</span><span class="p">,</span> <span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">R</span><span class="p">),</span> <span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="o">-</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
+<span class="go">m*(3*R**2 + h**2)/12</span>
+</pre></div>
+</div>
+<p>Special cases are a rod of length <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/> (set <img class="math" src="../../_images/math/7cabdac25e931867e38c2efc2e553e258984119e.png" alt="R=0"/> above) and a thin solid disk
+of radius <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/> and mass <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> (set <img class="math" src="../../_images/math/af7e5b7d062655d4be01f4d56b203954a93cf7eb.png" alt="h=0"/> above).</p>
+</div>
+<div class="section" id="sphere">
+<h4>Sphere<a class="headerlink" href="#sphere" title="Permalink to this headline">¶</a></h4>
+<p>Solid sphere of radius <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/> and mass <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>. We&#8217;ll use spherical
+coordinates. All axes are equivalent, so we use
+rotation about the <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> axis:</p>
+<div class="math">
+<p><img src="../../_images/math/700b4d4cb711d42480b5668818e8edbf9c998d63.png" alt="V = {4\over3} \pi R^3
+
+{\bf n} = (0, 0, 1)
+
+{\bf r} = (\rho\cos\phi\sin\theta, \rho\sin\phi\sin\theta, \rho\cos\theta)
+
+{\bf r} \cdot {\bf n} = \rho\cos\theta
+
+r^2 = \rho^2
+
+
+I = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
+  = \int {m\over V} (\rho^2 - \rho^2\cos^2\theta) \d^3 r =
+
+  = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_0^\pi
+    \d \theta
+     \rho^2(1-\cos^2\theta) \rho^2\sin\theta =
+
+  = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_0^\pi
+    \d \theta
+     \rho^4\sin^3\theta =
+
+  = {m\over V} 2\pi {R^5\over 5} {4\over 3} =
+
+  = {m\over V} {8\over 15}\pi R^5
+  = {m\over {4\over 3}\pi R^3} {8\over 15}\pi R^5
+  = {2\over 5} m R^2"/></p>
+</div><p>Code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">var</span><span class="p">,</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span><span class="p">(</span><span class="s">&quot;m V R rho theta phi&quot;</span><span class="p">)</span>
+<span class="go">(m, V, R, rho, theta, phi)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span> <span class="o">=</span> <span class="n">m</span><span class="o">/</span><span class="n">V</span> <span class="o">*</span> <span class="n">integrate</span><span class="p">(</span><span class="n">rho</span><span class="o">**</span><span class="mi">4</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">R</span><span class="p">),</span> <span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span>
+<span class="go">8*pi*R**5*m/(15*V)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">I</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">R</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">2*R**2*m/5</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Classical Mechanics</a><ul>
+<li><a class="reference internal" href="#rigid-body-rotation">Rigid Body Rotation</a><ul>
+<li><a class="reference internal" href="#kinetic-energy">Kinetic Energy</a></li>
+<li><a class="reference internal" href="#angular-momentum">Angular Momentum</a></li>
+<li><a class="reference internal" href="#moment-of-inertia">Moment of Inertia</a><ul>
+<li><a class="reference internal" href="#cylinder">Cylinder</a></li>
+<li><a class="reference internal" href="#sphere">Sphere</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fields.html"
+                        title="previous chapter">Gravitation and Electromagnetism as a Field Theory</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="relativity.html"
+                        title="next chapter">Relativity</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/src/relativity/classical.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="relativity.html" title="Relativity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fields.html" title="Gravitation and Electromagnetism as a Field Theory"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Theoretical Physics Reference 0.5 documentation</a> &raquo;</li>
+          <li><a href="main.html" >Classical Mechanics, Special and General Relativity</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2011, Ondřej Čertík.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1837 @@
+.. index::
+    triple: compressible; Euler; equations
+    single: fluid dynamics
+
+.. TODO
+    * Use kappa all over (as other texts), instead of R/c_v
+    * in 2D, use x, y (or 0, 1, 2, 3), instead of x, z (or 0, 1, 3, 4). Also
+      show, that it doesn't matter, if you reduce A_x, A_y into 2D, or A_x,
+      A_z into 2D, it gives the same matrices.
+    * fix the thing with Riemann solver -- A^+, A^-. Show that it is in fact
+      equal to A^+q_l + A^-q_r, so it will be more intuitive
+
+Compressible Euler Equations
+============================
+
+Introduction
+------------
+
+The compressible Euler equations are equations for perfect fluid.
+Perfect fluids have no heat conduction ($T^{i0} = T^{0i} = 0$) and no
+viscosity ($T^{ij} = p\one$), so in the comoving frame the stress energy tensor
+is:
+
+.. math::
+
+    T^{\alpha\beta} = \diag(\rho c^2, p, p, p) =
+    \left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}
+
+(we use $g^{\mu\nu} = \diag(-1, 1, 1, 1)$). Relativistic Euler equations are
+given by the conservation of the stress energy tensor and the particle number
+conservation:
+
+.. math::
+
+    \partial_\nu T^{\mu\nu} = 0
+
+    \partial_\mu(nu^\mu) = 0
+
+By doing the nonrelativistic limit (see :ref:`perfect-fluids` for a detailed
+derivation), we get the following Euler equations:
+
+.. math::
+
+    {\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
+
+    {\partial(\rho{\bf u})\over\partial t} + \nabla\cdot(\rho{\bf u}{\bf u}^T)
+        + \nabla p - {\bf f} = 0
+
+    {\partial E\over\partial t} + \nabla\cdot({\bf u}(E+p)) = 0
+
+where
+
+.. math::
+
+    E = \rho e + \half \rho u^2
+
+is the total energy per unit volume, composed of the kinetic energy per unit
+volume ($\half \rho u^2$) and the internal energy per unit volume ($\rho e$),
+where $e$ is the internal energy per unit mass ($e={U\over nM}$). The energy
+$E$ doesn't contain the rest mass energy, but all other energies are hidden in
+the internal energy.
+
+We use the
+ideal gas equations, so:
+
+.. math::
+
+    e = T c_v
+
+    p = {n\over V} \bar RT =
+    {n M\over V} {\bar R\over M}T =
+    \rho RT = \rho R {e\over c_v} =
+        {R\over c_v} (E-\half \rho u^2)
+
+where
+$n$ is the number of moles of gas,
+$M$ is the molar mass of the gas (i.e. a mass of one mole of the gas, e.g. for
+dry air we get $M=28.956\rm\,g/mol$, as it is mainly composed of 20% of oxygen
+with atomic mass 16 and 78% of nitrogen with atomic mass $14$, both form
+diatomic molecules, so the molecular mass is twice the atomic mass
+giving the total of $0.2\cdot2\cdot16+0.78\cdot2\cdot14 = 28.24$, the rest is
+given by the other components and one also has to average over all isotopes),
+$\bar R=N_A k_B\doteq8.3145\rm\,{J\over K\, mol}$ is the ideal gas constant
+($N_A$ is the Avogadro constant and $k_B$ is the Boltzmann constant),
+$R={\bar R\over M}$ is the specific ideal gas constant (e.g. for dry air we get
+$R = {8.3145\over 28.956}\rm\,{J\over g\,K}\doteq 287.14\rm\,{J\over kg\,K}$),
+$\rho={n M\over V}={p\over RT}$ is the density of the gas (e.g. for dry air at
+the pressure $10^5\rm\,Pa$ and temperature $22\rm\,^\circ C$ we get
+$\rho = {10^5\over 287.14 \cdot (22+273.15)}\rm\,{kg\over m^3}
+=1.18\,{kg\over m^3}$),
+$c_v$ is the specific heat capacity at constant volume (i.e. the amount of
+energy needed to heat one kg by one Kelvin at constant volume, e.g. for dry air
+the experimental value is about $c_v = 717.5\rm\,{J\over kg\,K}$),
+$V$ is the volume
+and $T$ is the temperature of the gas.
+Of those, $V$, $n$, $M$, $R$, $\bar R$ are constants, $\rho$, $e$, $E$ and $T$ are
+functions of $(t, x, y, z)$.
+
+Here are the SI units of the various terms in the Euler equations:
+
+.. math::
+
+    [u] = \rm m\,s^{-1}
+
+    [\rho] = \rm kg\,m^{-3}
+
+    \rm N = kg \, m \, s^{-2}
+
+    \rm J = N\, m = kg \, m^2 \, s^{-2}
+
+    [p] = \rm N\, m^{-2} = kg\, m^{-1}\,s^{-2}
+
+    [\half \rho u^2] = [\rho][u]^2 = \rm kg\,m^{-3}\,m^2\,s^{-2} = kg\, m^{-1}\,s^{-2}
+
+    [E] = \rm J\,m^{-3} = kg\, m^{-1}\,s^{-2}
+
+    [R] = \rm J\,kg^{-1}\,K^{-1} = m^2\,s^{-2}\,K^{-1}
+
+    [c_v] = \rm J\,kg^{-1}\,K^{-1} = m^2\,s^{-2}\,K^{-1}
+
+    [e] = {[E]\over[\rho]} = \rm {kg\,m^{-1}\,s^{-2}\over kg\,m^{-3}} =
+        m^2\,s^{-2}
+
+In order to calculate the specific heat ratio $\kappa$, we use $R=c_p-c_v$:
+
+.. math::
+
+    \kappa = {c_p\over c_v} = {c_v+R\over c_v} = 1 + {R\over c_v}
+
+and the speed of sound is:
+
+.. math::
+
+    c = \sqrt{\kappa {p \over \rho}}
+
+
+Dimensionless Euler Equations
+-----------------------------
+
+We choose 3 constants $l_r$, $u_r$ and $\rho_r$ - characteristic length of the
+domain, velocity and density. Now we multiply the Euler equations with proper
+combinations of these constants as follows:
+
+.. math::
+
+    \left[{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u})\right]
+    {l_r\over\rho_r u_r}
+    = 0
+
+    \left[{\partial(\rho{\bf u})\over\partial t} + \nabla\cdot(\rho{\bf u}{\bf u}^T)
+        + \nabla p - {\bf f}\right]
+    {l_r\over\rho_r u_r^2}
+    = 0
+
+    \left[{\partial E\over\partial t} + \nabla\cdot({\bf u}(E+p))\right]
+    {l_r\over\rho_r u_r^3}
+    = 0
+
+This is equal to:
+
+.. math::
+
+    {\partial\tilde\rho\over\partial \tilde t} + \tilde\nabla\cdot(\tilde\rho
+    \tilde{\bf u}) = 0
+
+    {\partial(\tilde \rho\tilde{\bf u})\over\partial \tilde t} +
+        \tilde\nabla\cdot(\tilde\rho\tilde{\bf u}\tilde{\bf u}^T)
+        + \tilde\nabla\tilde p - \tilde{\bf f} = 0
+
+    {\partial\tilde E\over\partial\tilde t} + \tilde\nabla\cdot(
+    \tilde{\bf u}(\tilde E+\tilde p)) = 0
+
+where:
+
+.. math::
+
+    t_r = {l_r\over u_r}
+
+    \tilde t = {t\over t_r}
+
+    \tilde \rho = {\rho\over\rho_r}
+
+    \tilde{\bf u} = {{\bf u}\over u_r}
+
+    \tilde\nabla = l_r\nabla
+
+    \tilde E = {E\over \rho_r u^2_r}
+
+    \tilde p = {p\over \rho_r u^2_r}
+
+    \tilde {\bf f} = {\bf f}{l_r\over\rho_r u^2_r}
+
+In particular, if ${\bf f}=(0, 0, -\rho g)$, then
+
+.. math::
+
+    \tilde{\bf f}=(0, 0, -\tilde\rho \tilde g)
+
+    \tilde g = g{l_r\over u^2_r} = g{t_r^2\over l_r}
+
+So the dimensionless Euler equations look exactly the same as the original
+ones, we just need to rescale all the quantities using the relations above.
+
+
+Conservative Form of the Euler Equations
+----------------------------------------
+
+We can write the Euler equations as:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\partial{\bf f}_z\over \partial z} +
+    {\bf g}= 0
+
+where:
+
+.. math::
+
+    {\bf w} =
+       \left( \begin{array}{c}
+           \varrho\\ \rho u_1\\ \rho u_2\\ \rho u_3\\ E
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_0 \\
+           w_1 \\
+           w_2 \\
+           w_3 \\
+           w_4 \\
+       \end{array} \right)
+
+    {\bf f}_x =
+       \left( \begin{array}{c}
+           \rho u_1\\
+           \rho u_1^2 + p\\
+           \rho u_1 u_2\\
+           \rho u_1 u_3\\
+           u_1(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_1\\
+           \frac{w_1^2}{w_0} + p\\
+           \frac{w_1w_2}{w_0}\\
+           \frac{w_1w_3}{w_0}\\
+           \frac{w_1}{w_0}(w_4+p)
+       \end{array} \right)
+
+    {\bf f}_y =
+       \left( \begin{array}{c}
+           \rho u_2\\
+           \rho u_2 u_1\\
+           \rho u_2^2 + p\\
+           \rho u_2 u_3\\
+           u_2(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_2\\
+           \frac{w_2w_1}{w_0}\\
+           \frac{w_2^2}{w_0} + p\\
+           \frac{w_2w_3}{w_0}\\
+           \frac{w_2}{w_0}(w_4+p)
+       \end{array} \right)
+
+    {\bf f}_z =
+       \left( \begin{array}{c}
+           \rho u_3\\
+           \rho u_3 u_1\\
+           \rho u_3 u_2\\
+           \rho u_3^2 + p\\
+           u_3(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_3\\
+           \frac{w_3w_1}{w_0}\\
+           \frac{w_3w_2}{w_0}\\
+           \frac{w_3^2}{w_0} + p\\
+           \frac{w_3}{w_0}(w_4+p)
+       \end{array} \right)
+
+    {\bf g} =
+       \left( \begin{array}{c}
+           0\\
+           -f_x\\
+           -f_y\\
+           -f_z\\
+           0\\
+       \end{array} \right)
+
+    p = {R\over c_v} \left(E-\half \rho\left(u_1^2 + u_2^2 + u_3^3\right)\right)
+    = {R\over c_v} \left(w_4-{w_1^2+w_2^2+w_3^2\over2w_0}\right)
+
+
+We solve for the unknowns $w_0$, $w_1$, $w_2$, $w_3$ and $w_4$ as functions of
+$(t, x, y, z)$, the rest ($R$, $c_v$, $f_x$, $f_y$, $f_z$) are either constants
+or depend on the unknowns. In order to convert from the physical quantities
+$\rho$, $u_1$, $u_2$, $u_3$, $E$ and $p$ to $w_0$, ..., $w_4$, we use:
+
+.. math::
+
+    w_0 = \rho
+
+    w_1 = \rho u_1
+
+    w_2 = \rho u_2
+
+    w_3 = \rho u_3
+
+    w_4 = E = p {c_v \over R} + \half \rho \left(u_1^2 + u_2^2 + u_3^2\right)
+
+the opposite conversion is:
+
+.. math::
+
+    \rho = w_0
+
+    u_1 = {w_1\over w_0}
+
+    u_2 = {w_2\over w_0}
+
+    u_3 = {w_3\over w_0}
+
+    E = w_4
+
+    p = {R\over c_v} \left(w_4-{w_1^2+w_2^2+w_3^2\over2w_0}\right)
+
+Sometimes people also use $u$, $v$ and $w$ instead of $u_1$, $u_2$ and $u_3$.
+
+Note: $\rho {\bf u}\equiv{\bf j}$, where ${\bf j}$ is the fluid density current
+(it's a 3-vector) and also $w^\mu \equiv j^\mu$ (here $w^\mu$ is the same as
+$w_\mu$, e.g. we are a bit sloppy about the notation), where $j^\mu$ is the
+density 4-current (e.g. the first 4 components of ${\bf w}$ are exactly the
+components of the 4-current $j^\mu$):
+
+.. math::
+
+    j^\mu =\rho v^\mu = \rho\gamma (c, {\bf u}) =
+        \gamma
+        \left( \begin{array}{c}
+            c\rho\\
+            \rho u_1\\
+            \rho u_2\\
+            \rho u_3\\
+        \end{array} \right)
+
+where as usual $\mu = 0, 1, 2, 3$ is the relativistic index, $c$ is the speed
+of light, and in the nonrelativistic limit ($c\to\infty$) we get $\gamma\to1$
+and the remaining $c$ in $j^0$ will cancel with $c$ in
+$\partial_0 = {1\over c}{\partial\over\partial t}$,
+so it will not be present in the final equations (that involve terms like
+$\partial_\mu j^\mu$). We can also just set $c=1$ as usual in relativistic
+physics.
+
+
+
+
+Weak Formulation
+----------------
+
+The Euler equations:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\partial{\bf f}_z\over \partial z} +
+    {\bf g}= 0
+
+are nonlinear. The time-derivative is approximated using the implicit Euler
+method
+
+.. math::
+
+    {{\bf w}^{n+1}-{\bf w}^n\over \tau} +
+    {\partial{\bf f}_x({\bf w}^{n+1})\over \partial x} +
+    {\partial{\bf f}_y({\bf w}^{n+1})\over \partial y} +
+    {\partial{\bf f}_z({\bf w}^{n+1})\over \partial z} +
+    {\bf g}= 0
+
+The vector-valued test functions for the above system of equations have the
+form:
+
+.. math::
+
+    \left( \begin{array}{c}
+        \varphi^0 \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        \varphi^1 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        \varphi^2 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        \varphi^3 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        \varphi^4 \\
+    \end{array} \right)
+
+After multiplying the equation system with the test functions and integrating
+over the domain $\Omega$, we obtain (here the index $i=0, 1, 2, 3, 4$ is
+numbering the 5 equations, so we are *not* summing over it):
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        +{\partial\left({\bf f}_x({\bf w}^{n+1})\right)_i\over \partial x}\varphi^i
+        +{\partial\left({\bf f}_y({\bf w}^{n+1})\right)_i\over \partial y}\varphi^i
+        +{\partial\left({\bf f}_z({\bf w}^{n+1})\right)_i\over \partial z}\varphi^i
+        + g_i \varphi^i
+        \ \d^3 x
+        =0
+
+Now we integrate by parts:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial y}
+        - \left({\bf f}_z({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial z}
+        + g_i \varphi^i
+        \ \d^3 x
+        +
+
+    +\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_y
+    + \left({\bf f}_z({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_z
+    \ \d^2 x
+    =0
+
+where ${\bf n} = (n_x, n_y, n_z)$ is the outward surface normal to
+$\partial\Omega$. Rearranging:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
+        - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial y}
+        - \left({\bf f}_z({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial z}
+        \ \d^3 x
+        +
+
+    +\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_y
+    + \left({\bf f}_z({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_z
+    \ \d^2 x
+    =
+    \int_{\Omega} {w_i^n\over\tau}\varphi^i
+        - g_i\varphi^i
+        \ \d^3 x
+
+We can then linearize this for example by taking the flux jacobians
+${\bf A}_x({\bf w}^{n+1})$ on the previous time level
+${\bf A}_x({\bf w}^n)$.
+
+The finite element formulation is obtained from here by replacing in the
+standard way the unknown solution $w^{n+1}$ by a piecewise-polynomial unknown
+function
+
+.. math::
+
+    w_h^{n+1} = \sum_{k=1}^N y_k \psi_k,
+
+where $\psi_k$ are the basis functions of the piecewise-polynomial finite
+element space.  This turns the above weak formulation into a finite number of
+nonlinear algebraic equations of the form $F(Y) = 0$ that will be solved using
+the Newton's method.
+
+
+Explicit Method
+~~~~~~~~~~~~~~~
+
+We also derive the weak formulation for the explicit method.
+Euler equations:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\partial{\bf f}_z\over \partial z} +
+    {\bf g}= 0
+
+The time-derivative is approximated using the explicit Euler
+method
+
+.. math::
+
+    {{\bf w}^{n+1}-{\bf w}^n\over \tau} +
+    {\partial{\bf f}_x({\bf w}^{n})\over \partial x} +
+    {\partial{\bf f}_y({\bf w}^{n})\over \partial y} +
+    {\partial{\bf f}_z({\bf w}^{n})\over \partial z} +
+    {\bf g}= 0
+
+The vector-valued test functions for the above system of equations have the
+form:
+
+.. math::
+
+    \left( \begin{array}{c}
+        \varphi^0 \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        \varphi^1 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        \varphi^2 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        \varphi^3 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        \varphi^4 \\
+    \end{array} \right)
+
+After multiplying the equation system with the test functions and integrating
+over the domain $\Omega$, we obtain (here the index $i=0, 1, 2, 3, 4$ is
+numbering the 5 equations, so we are *not* summing over it):
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        +{\partial\left({\bf f}_x({\bf w}^{n})\right)_i\over \partial x}\varphi^i
+        +{\partial\left({\bf f}_y({\bf w}^{n})\right)_i\over \partial y}\varphi^i
+        +{\partial\left({\bf f}_z({\bf w}^{n})\right)_i\over \partial z}\varphi^i
+        + g_i \varphi^i
+        \ \d^3 x
+        =0
+
+Now we integrate by parts:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        - \left({\bf f}_x({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial y}
+        - \left({\bf f}_z({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial z}
+        + g_i \varphi^i
+        \ \d^3 x
+        +
+
+    +\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^{n})\right)_i
+        \varphi^i\, n_y
+    + \left({\bf f}_z({\bf w}^{n})\right)_i
+        \varphi^i\, n_z
+    \ \d^2 x
+    =0
+
+where ${\bf n} = (n_x, n_y, n_z)$ is the outward surface normal to
+$\partial\Omega$. Rearranging:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
+        \ \d^3 x
+    =
+    \int_{\Omega}{w_i^n\over\tau}\varphi^i
+        + \left({\bf f}_x({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial x}
+        + \left({\bf f}_y({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial y}
+        + \left({\bf f}_z({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial z}
+        - g_i\varphi^i
+        \ \d^3 x
+        +
+
+    -\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^{n})\right)_i
+        \varphi^i\, n_y
+    + \left({\bf f}_z({\bf w}^{n})\right)_i
+        \varphi^i\, n_z
+    \ \d^2 x
+
+
+Flux Jacobians
+--------------
+
+Now we write the spatial derivatives using the so called flux Jacobians
+${\bf A}_x$,
+${\bf A}_y$
+and
+${\bf A}_z$:
+
+.. math::
+
+    {\partial{\bf f}_x\over \partial x} =
+    {\partial{\bf f}_x\over \partial {\bf w}}
+    {\partial{\bf w}\over \partial x} \equiv
+    {\bf A}_x
+    {\partial{\bf w}\over \partial x}
+
+    {\bf A}_x={\bf A}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}
+
+Similarly for $y$ and $z$, so we get:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\bf A}_x
+    {\partial{\bf w}\over \partial x} +
+    {\bf A}_y
+    {\partial{\bf w}\over \partial y} +
+    {\bf A}_z
+    {\partial{\bf w}\over \partial z} +
+    {\bf g}= 0
+
+One nice thing about these particular
+${\bf f}_x$,
+${\bf f}_y$ and
+${\bf f}_z$ functions is that they are homogeneous of degree 1:
+
+.. math::
+
+    {\bf f}_x(\lambda{\bf w})
+    =\lambda\,{\bf f}_x({\bf w})
+
+so the Euler equation/formula for the homogeneous function is:
+
+.. math::
+
+    {\bf w}\cdot {\partial {\bf f}_x({\bf w})\over\partial {\bf w}}
+    ={\bf f}_x({\bf w})
+
+    {\bf w}\cdot {\bf A}_x ={\bf f}_x({\bf w})
+
+So both the ${\bf f}_x$ and it's derivative can be nicely factored out using
+the flux Jacobian:
+
+.. math::
+
+    {\bf f}_x = {\bf A}_x\, {\bf w}
+
+    {\partial{\bf f}_x\over \partial x} =
+        {\bf A}_x {\partial{\bf w}\over \partial x}
+
+by differentiating the first equation and substracting the second, we get:
+
+.. math::
+
+    {\partial {\bf A}_x\over\partial x}\, {\bf w} = 0
+
+similarly for $y$ and $z$.
+To calculate the Jacobians, we'll need:
+
+.. math::
+
+    {\partial p\over \partial {\bf w}}=
+        {R\over c_v}
+        \left( \begin{array}{ccccc}
+            {w_1^2+w_2^2+w_3^2\over 2w_0^2} & -{w_1\over w_0} & -{w_2\over w_0}
+                & -{w_3\over w_0} & 1\\
+        \end{array} \right)
+
+then we can calculate the Jacobians (and we substitute for $p$):
+
+.. math::
+
+    {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 1 & 0 & 0 & 0\\
+            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+                {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
+                -{R\over c_v}{w_2\over w_0} &
+                -{R\over c_v}{w_3\over w_0} &
+                {R\over c_v}\\
+            -{w_1w_2\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 & 0\\
+            -{w_1w_3\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
+                -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_1^2\over w_0^2} &
+                -{R\over c_v}{w_1w_2\over w_0^2} &
+                -{R\over c_v}{w_1w_3\over w_0^2} &
+                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
+       \end{array} \right)
+
+    {\bf A}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 0 & 1 & 0 & 0\\
+            -{w_2w_1\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 & 0\\
+            -{w_2^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+                -{R\over c_v}{w_1\over w_0} &
+                {2w_2\over w_0}-{R\over c_v}{w_2\over w_0} &
+                -{R\over c_v}{w_3\over w_0} &
+                {R\over c_v}\\
+            -{w_2w_3\over w_0^2} & 0 & {w_3\over w_0} & {w_2\over w_0} & 0 \\
+                -{w_2w_4\over w_0^2}-{w_2\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    +{w_2\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
+                -{R\over c_v}{w_2w_1\over w_0^2} &
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_2^2\over w_0^2} &
+                -{R\over c_v}{w_2w_3\over w_0^2} &
+                {w_2\over w_0}+{R\over c_v}{w_2\over w_0} \\
+       \end{array} \right)
+
+    {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 0 & 0 & 1 & 0\\
+            -{w_3w_1\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
+            -{w_3w_2\over w_0^2} & 0 & {w_3\over w_0} & {w_2\over w_0} & 0 \\
+            -{w_3^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+                -{R\over c_v}{w_1\over w_0} &
+                -{R\over c_v}{w_2\over w_0} &
+                {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &
+                {R\over c_v}\\
+                -{w_3w_4\over w_0^2}-{w_3\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    +{w_3\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
+                -{R\over c_v}{w_3w_1\over w_0^2} &
+                -{R\over c_v}{w_3w_2\over w_0^2} &
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_3^2\over w_0^2} &
+                {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
+       \end{array} \right)
+
+2D Version of the Equations
+---------------------------
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\bf g}= 0
+
+where:
+
+.. math::
+
+    {\bf w} =
+       \left( \begin{array}{c}
+           \varrho\\ \rho u_1\\ \rho u_2\\ E
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_0 \\
+           w_1 \\
+           w_2 \\
+           w_3 \\
+       \end{array} \right)
+
+    {\bf f}_x =
+       \left( \begin{array}{c}
+           \rho u_1\\
+           \rho u_1^2 + p\\
+           \rho u_1 u_2\\
+           u_1(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_1\\
+           \frac{w_1^2}{w_0} + p\\
+           \frac{w_1w_2}{w_0}\\
+           \frac{w_1}{w_0}(w_3+p)
+       \end{array} \right)
+
+    {\bf f}_y =
+       \left( \begin{array}{c}
+           \rho u_2\\
+           \rho u_2 u_1\\
+           \rho u_2^2 + p\\
+           u_2(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_2\\
+           \frac{w_2w_1}{w_0}\\
+           \frac{w_2^2}{w_0} + p\\
+           \frac{w_2}{w_0}(w_3+p)
+       \end{array} \right)
+
+    {\bf g} =
+       \left( \begin{array}{c}
+           0\\
+           -f_x\\
+           -f_y\\
+           0\\
+       \end{array} \right)
+
+    p = {R\over c_v} \left(E-\half \rho\left(u_1^2 + u_2^2\right)\right)
+    = {R\over c_v} \left(w_3-{w_1^2+w_2^2\over2w_0}\right)
+
+Discretizing the time derivative:
+
+.. math::
+
+    {{\bf w}^{n+1}-{\bf w}^n\over \tau} +
+    {\partial{\bf f}_x({\bf w}^{n+1})\over \partial x} +
+    {\partial{\bf f}_y({\bf w}^{n+1})\over \partial y} +
+    {\bf g}= 0
+
+The vector-valued test functions for the above system of equations have the
+form:
+
+.. math::
+
+    \left( \begin{array}{c}
+        \varphi^0 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        \varphi^1 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        \varphi^2 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        \varphi^3 \\
+    \end{array} \right)
+
+After multiplying the equation system with the test functions and integrating
+over the domain $\Omega$, we obtain:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        +{\partial\left({\bf f}_x({\bf w}^{n+1})\right)_i\over \partial x}\varphi^i
+        +{\partial\left({\bf f}_y({\bf w}^{n+1})\right)_i\over \partial y}\varphi^i
+        + g_i \varphi^i
+        \ \d^2 x
+        =0
+
+Now we integrate by parts:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial y}
+        + g_i \varphi^i
+        \ \d^2 x
+        +
+
+    +\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_y
+    \ \d x
+    =0
+
+where ${\bf n} = (n_x, n_y)$ is the outward surface normal to
+$\partial\Omega$. Rearranging:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
+        - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial y}
+        \ \d^2 x
+        +
+
+    +\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_y
+    \ \d x
+    =
+    \int_{\Omega} {w_i^n\over\tau}\varphi^i
+        - g_i\varphi^i
+        \ \d^2 x
+
+The 2D flux Jacobians are:
+
+.. math::
+
+    {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+        \left( \begin{array}{cccc}
+            0 & 1 & 0 & 0\\
+            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2\over 2 w_0^2} &
+                {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
+                -{R\over c_v}{w_2\over w_0} &
+                {R\over c_v}\\
+            -{w_1w_2\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 \\
+                -{w_1w_3\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
+                    \left(w_3-{w_1^2+w_2^2\over 2 w_0}\right)
+                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2\over 2 w_0^2} &
+                {w_3\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_3-{w_1^2+w_2^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_1^2\over w_0^2} &
+                -{R\over c_v}{w_1w_2\over w_0^2} &
+                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
+       \end{array} \right)
+
+    {\bf A}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
+        \left( \begin{array}{cccc}
+            0 & 0 & 1 & 0\\
+            -{w_2w_1\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 \\
+            -{w_2^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2\over 2 w_0^2} &
+                -{R\over c_v}{w_1\over w_0} &
+                {2w_2\over w_0} -{R\over c_v}{w_2\over w_0} &
+                {R\over c_v}\\
+            -{w_2w_3\over w_0^2}-{w_2\over w_0^2}{R\over c_v}
+                    \left(w_3-{w_1^2+w_2^2\over 2 w_0}\right)
+                    +{w_2\over w_0}{R\over c_v}{w_1^2+w_2^2\over 2 w_0^2}&
+                -{R\over c_v}{w_2w_1\over w_0^2} &
+                {w_3\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_3-{w_1^2+w_2^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_2^2\over w_0^2} &
+                {w_2\over w_0}+{R\over c_v}{w_2\over w_0} \\
+       \end{array} \right)
+
+Sea Breeze Modeling
+-------------------
+
+In our 2D model we make the following assumptions:
+
+.. math::
+
+    f_x = 0
+
+    f_y = -\rho g = -w_0 g
+
+and the boundary condition is as follows:
+
+.. math::
+
+    T'(x, t) = \left(A\over2\right) \sin \left(\pi (t-t_0)\over 24\right)
+        \left(1+\tanh\left(S(x)\over L\right)\right)
+
+    T(x) = T_0 + T'(x, t)
+
+The weak formulation in 2D is (here $i = 0, 1, 2, 3$):
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
+        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi^i\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi^i\over\partial z}
+        \ \d^2 x
+        +
+
+    +\int_{\partial\Omega}
+    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi^i\, n_x
+    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi^i\, n_z
+    \ \d x
+    =
+    \int_{\Omega} {w_i^n\over\tau}\varphi^i
+        - g_i \varphi^i
+        \ \d^2 x
+
+In order to specify the input forms for Hermes, we'll write the weak
+formulation as:
+
+.. math::
+
+    B_{00}(w_0, \varphi^0) + B_{01}(w_1, \varphi^0) +
+        B_{02}(w_2, \varphi^0)+ B_{03}(w_3, \varphi^0) = l_0(\varphi^0)
+
+    B_{10}(w_0, \varphi^1) + B_{11}(w_1, \varphi^1) +
+        B_{12}(w_2, \varphi^1)+ B_{13}(w_3, \varphi^1) = l_1(\varphi^1)
+
+    B_{20}(w_0, \varphi^2) + B_{21}(w_1, \varphi^2) +
+        B_{22}(w_2, \varphi^2)+ B_{23}(w_3, \varphi^2) = l_2(\varphi^2)
+
+    B_{30}(w_0, \varphi^3) + B_{31}(w_1, \varphi^3) +
+        B_{32}(w_2, \varphi^3)+ B_{33}(w_3, \varphi^3) = l_3(\varphi^3)
+
+where the forms are (we write $w_i$ instead of $w_i^{n+1}$):
+
+.. math::
+
+    l_0(\varphi^0) = \int_\Omega {w_0^n\varphi^0\over\tau} \,\d^2 x
+
+    l_1(\varphi^1) = \int_\Omega {w_1^n\varphi^1\over\tau} \,\d^2 x
+
+    l_2(\varphi^2) = \int_\Omega {w_2^n\varphi^2\over\tau} + \rho g \varphi^2
+        \,\d^2 x
+
+    l_3(\varphi^3) = \int_\Omega {w_3^n\varphi^3\over\tau} \,\d^2 x
+
+    B_{ij}(w_j, \varphi^i) = \int_{\Omega} {w_i\over\tau}\varphi^i
+        \delta_{ij}
+        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          w_j {\partial \varphi^i\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          w_j {\partial \varphi^i\over\partial z}
+        \ \d^2 x
+
+In the last expression we do *not* sum over $i$ nor $j$.
+In particular:
+
+.. math::
+
+    B_{00}(w_0, \varphi^0) = \int_{\Omega} {w_0\over\tau}\varphi^0
+        - \left({\bf A}_x({\bf w}^n)\right)_{00}
+          w_0 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{00}
+          w_0 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega} {w_0\over\tau}\varphi^0
+        \ \d^2 x
+
+    B_{01}(w_1, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{01}
+          w_1 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{01}
+          w_1 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{01}
+          w_1 {\partial \varphi^0\over\partial x}
+        \ \d^2 x
+
+    B_{02}(w_2, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{02}
+          w_2 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{02}
+          w_2 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega}
+        - \left({\bf A}_z({\bf w}^n)\right)_{02}
+          w_2 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+
+    B_{03}(w_3, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{03}
+          w_3 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{03}
+          w_3 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =0
+
+    B_{10}(w_0, \varphi^1) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{10}
+          w_0 {\partial \varphi^1\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{10}
+          w_0 {\partial \varphi^1\over\partial z}
+        \ \d^2 x
+
+    B_{11}(w_1, \varphi^1) = \int_{\Omega} {w_1\over\tau}\varphi^1
+        - \left({\bf A}_x({\bf w}^n)\right)_{11}
+          w_1 {\partial \varphi^1\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{11}
+          w_1 {\partial \varphi^1\over\partial z}
+        \ \d^2 x
+
+    \cdots
+
+
+Boundary Conditions
+-------------------
+
+We rewrite the boundary integral by rotating coordinates, so that
+the flow is only in the $x$ direction (thus we only have ${\bf f}_x$):
+
+.. math::
+
+    \int_{\partial\Omega}
+    \left({\bf f}_x({\bf w})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w})\right)_i
+        \varphi^i\, n_y
+    + \left({\bf f}_z({\bf w})\right)_i
+        \varphi^i\, n_z
+    \ \d^2 x
+    =
+
+    =
+    \int_{\partial\Omega}
+    T^{-1} {\bf f}_x(T {\bf w}) \varphi^i
+    \ \d^2 x
+
+Now we need to approximate ${\bf f}_x(T {\bf w})$ somehow.
+We do that by solving the following 1D problem (Riemann problem):
+
+.. math::
+
+    {\partial {\bf w}\over\partial t} + {\partial\over\partial x}
+        {\bf f}({\bf w}) = 0
+
+or:
+
+.. math::
+    :label: riemann2
+
+    {\partial {\bf w}\over\partial t} + {\bf A}({\bf w})
+        {\partial{\bf w}\over\partial x} = 0
+
+
+.. math::
+
+    {\bf w}(x, t) = \left( \begin{array}{c}
+        w_0 \\
+        w_1 \\
+        w_2 \\
+        w_3 \\
+        w_4 \\
+    \end{array} \right)
+
+And we approximate ${\bf f}_x({\bf w})={\bf f}({\bf w}(0, t))$. The initial
+condition is:
+
+.. math::
+
+    {\bf w}(x, 0) = \begin{cases}{\bf w}_L&x<0\cr {\bf w}_R & x > 0\cr
+        \end{cases}
+    = {\bf w}_L(1-H(x)) + {\bf w}_R H(x)
+
+Now we write:
+
+.. math::
+
+    {\bf w}(x, t) = \sum_i \xi^i(x, t) {\bf r}_i
+
+    {\bf w}_L = \sum_i \alpha_i {\bf r}_i
+
+    {\bf w}_R = \sum_i \beta_i {\bf r}_i
+
+    \xi^i(x, 0) = \begin{cases}
+    \alpha_i & x < 0\cr
+    \beta_i & x > 0\cr
+    \end{cases}
+
+and substitute into :eq:`riemann2`:
+
+.. math::
+
+    \sum_i\left(
+    {\partial \xi^i\over\partial t} + {\bf A}({\bf w})
+        {\partial \xi^i\over\partial x} \right) {\bf r}_i = 0
+
+    \sum_i\left(
+    {\partial \xi^i\over\partial t} + \lambda_i({\bf w})
+        {\partial \xi^i\over\partial x} \right) {\bf r}_i = 0
+
+so we get:
+
+.. math::
+
+    {\partial \xi^i\over\partial t} + \lambda_i({\bf w})
+        {\partial \xi^i\over\partial x} = 0
+
+This is a nonlinear problem, that cannot be solved exactly. First,
+let ${\bf A}$ doesn't depend on ${\bf w}$. Then also $\lambda_i$
+are a constants:
+
+.. math::
+
+    {\partial \xi^i\over\partial t} + \lambda_i
+        {\partial \xi^i\over\partial x} = 0
+
+and the solution is constant along the characteristic $x(t) = \lambda_i t + c$
+for $t>0$ and we get:
+
+.. math::
+
+    \xi_i(x, t) = \xi^i(x-\lambda_i t, 0) =
+    \begin{cases}
+    \alpha_i & x-\lambda_i t < 0\cr
+    \beta_i & x-\lambda_i t > 0\cr
+    \end{cases}
+    =\alpha_i (1-H(x-\lambda_i t)) + \beta_i H(x-\lambda_i t)
+
+and
+
+.. math::
+
+    {\bf w}(x, t)
+    = \sum_i \xi^i(x, t) {\bf r}_i
+    = \sum_i \left(
+    \alpha_i (1-H(x-\lambda_i t)) + \beta_i H(x-\lambda_i t)
+    \right){\bf r}_i
+
+    {\bf w}(0, t)
+    = \sum_i \left(
+    \alpha_i (1-H(-\lambda_i t)) + \beta_i H(-\lambda_i t)
+    \right){\bf r}_i
+    =
+
+    = \sum_i \left(
+    \alpha_i H(\lambda_i t) + \beta_i H(-\lambda_i t)
+    \right){\bf r}_i=
+
+    = \sum_i \left(
+    \alpha_i H(\lambda_i) + \beta_i H(-\lambda_i)
+    \right){\bf r}_i=
+
+    = \sum_{i=k+1}^n \alpha_i {\bf r}_i
+    + \sum_{i=1}^k \beta_i {\bf r}_i
+
+so:
+
+.. math::
+
+    {\bf f}({\bf w}(0, t)) = {\bf A}{\bf w}(0, t)
+    = \sum_{i=k+1}^n {\bf A}\alpha_i {\bf r}_i
+    + \sum_{i=1}^k {\bf A}\beta_i {\bf r}_i
+
+    = \sum_{i=k+1}^n \lambda_i\alpha_i {\bf r}_i
+    + \sum_{i=1}^k \lambda_i\beta_i {\bf r}_i=
+
+    = {\bf A}^+\sum_{i=1}^n \alpha_i {\bf r}_i
+    + {\bf A}^-\sum_{i=1}^n \beta_i {\bf r}_i=
+
+    = {\bf A}^+{\bf w}_L
+    + {\bf A}^-{\bf w}_R
+
+
+In the nonlinear case we cannot solve it exactly, but we can approximate the
+solution by:
+
+.. math::
+
+    {\bf f}({\bf w}(0, t)) = {\bf f}^+({\bf w}_L) + {\bf f}^-({\bf w}_R) =
+
+    = {\bf f}({\bf w}_R) - \int_{{\bf w}_L}^{{\bf w}_R}
+        {\bf A}^+({\bf w}) \d {\bf w} =
+
+    = {\bf f}({\bf w}_L) + \int_{{\bf w}_L}^{{\bf w}_R}
+        {\bf A}^-({\bf w}) \d {\bf w} \approx
+
+.. math::
+    :label: riemann_sol
+
+    \approx {\bf f}({\bf w}_L) + {\bf A}^-({\bf w}_R) {\bf w}_R -
+        {\bf A}^-({\bf w}_L) {\bf w}_L
+
+Let's say the domain is for $x<0$ and we are applying the BC condition from
+$x>0$. Then ${\bf w}_L$ is taken from the solution and ${\bf w}_R$ is
+prescribed, for example at the bottom it could be:
+
+.. math::
+
+    {\bf w}_R = \left( \begin{array}{c}
+        \rho \\
+        \rho u_1 \\
+        0 \\
+        0 \\
+        E \\
+    \end{array} \right)
+
+Now we need to calculate ${\bf A}^-$. First we write:
+
+.. math::
+
+    {\bf A}_x = {\bf R}{\bf D}_x{\bf R}^{-1}
+
+    {\bf A}_x^- = {\bf R}{\bf D}_x^-{\bf R}^{-1}
+
+    {\bf D}_x({\bf w}) = {w_1\over w_0}\one +
+    \diag(-c, 0, 0, 0, c)
+    =
+    \left( \begin{array}{ccccc}
+        u_1-c & 0 & 0 & 0 & 0 \\
+        0 & u_1 & 0 & 0 & 0 \\
+        0 & 0 & u_1 & 0 & 0 \\
+        0 & 0 & 0 & u_1 & 0 \\
+        0 & 0 & 0 & 0 & u_1 + c \\
+    \end{array} \right)
+
+    {\bf D}_x({\bf w})^- =\begin{cases}
+    \diag({w_1\over w_0}-c, {w_1\over w_0}, {w_1\over w_0}, {w_1\over w_0}, 0)
+        & w_1 < 0\cr
+    \diag({w_1\over w_0}-c, 0, 0, 0, 0) & w_1 > 0\cr
+    \end{cases}
+
+
+.. ####### beginning of autogenerated text #######
+
+Explicit forms of the matrices:
+
+.. math::
+
+    {\bf R} = \left(\begin{smallmatrix}1 & 1 & 1 & 1 & 1\\u - c & u & u & u & c + u\\v & v & v - c & v & v\\w & w & w & w - c & w\\- c u - \frac{c^{2}}{1 - \kappa} + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} & \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} & - c v + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} & - c w + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} & c u - \frac{c^{2}}{1 - \kappa} + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2}\end{smallmatrix}\right)
+
+    {\bf R}^{-1} = {1\over c^2} \left(\begin{smallmatrix}\frac{1}{2} c u - \frac{1}{4} u^{2} - \frac{1}{4} v^{2} - \frac{1}{4} w^{2} + \frac{1}{4} \kappa u^{2} + \frac{1}{4} \kappa v^{2} + \frac{1}{4} \kappa w^{2} & \frac{1}{2} u - \frac{1}{2} c - \frac{1}{2} \kappa u & \frac{1}{2} v - \frac{1}{2} \kappa v & \frac{1}{2} w - \frac{1}{2} \kappa w & - \frac{1}{2} + \frac{1}{2} \kappa\\- c v - c w + c^{2} + \frac{1}{2} u^{2} + \frac{1}{2} v^{2} + \frac{1}{2} w^{2} - \frac{1}{2} \kappa u^{2} - \frac{1}{2} \kappa v^{2} - \frac{1}{2} \kappa w^{2} & - u + \kappa u & c - v + \kappa v & c - w + \kappa w & 1 - \kappa\\c v & 0 & - c & 0 & 0\\c w & 0 & 0 & - c & 0\\- \frac{1}{2} c u - \frac{1}{4} u^{2} - \frac{1}{4} v^{2} - \frac{1}{4} w^{2} + \frac{1}{4} \kappa u^{2} + \frac{1}{4} \kappa v^{2} + \frac{1}{4} \kappa w^{2} & \frac{1}{2} c + \frac{1}{2} u - \frac{1}{2} \kappa u & \frac{1}{2} v - \frac{1}{2} \kappa v & \frac{1}{2} w - \frac{1}{2} \kappa w & - \frac{1}{2} + \frac{1}{2} \kappa\end{smallmatrix}\right)
+
+    {\bf D}_x = \left(\begin{smallmatrix}u - c & 0 & 0 & 0 & 0\\0 & u & 0 & 0 & 0\\0 & 0 & u & 0 & 0\\0 & 0 & 0 & u & 0\\0 & 0 & 0 & 0 & c + u\end{smallmatrix}\right)
+
+    {\bf A}_x = \left(\begin{smallmatrix}0 & 1 & 0 & 0 & 0\\- \frac{3}{2} u^{2} - \frac{1}{2} v^{2} - \frac{1}{2} w^{2} + \frac{1}{2} \kappa u^{2} + \frac{1}{2} \kappa v^{2} + \frac{1}{2} \kappa w^{2} & 3 u - \kappa u & v - \kappa v & w - \kappa w & -1 + \kappa\\- u v & v & u & 0 & 0\\- u w & w & 0 & u & 0\\\frac{- 2 u v^{2} - 2 u w^{2} + 2 u c^{2} - u \kappa^{2} v^{2} - u \kappa^{2} w^{2} + 3 \kappa u v^{2} + 3 \kappa u w^{2} - 2 u^{3} - \kappa^{2} u^{3} + 3 \kappa u^{3}}{2 - 2 \kappa} & \frac{v^{2} + w^{2} - 2 c^{2} + 3 u^{2} - \kappa v^{2} - \kappa w^{2} - 5 \kappa u^{2} + 2 \kappa^{2} u^{2}}{2 - 2 \kappa} & u v - \kappa u v & u w - \kappa u w & \kappa u\end{smallmatrix}\right)
+
+For $u_1<0$:
+
+.. math::
+
+    {\bf D}_x^- = \left(\begin{smallmatrix}u - c & 0 & 0 & 0 & 0\\0 & u & 0 & 0 & 0\\0 & 0 & u & 0 & 0\\0 & 0 & 0 & u & 0\\0 & 0 & 0 & 0 & 0\end{smallmatrix}\right)
+
+    {\bf A}_x^- = \left(\begin{smallmatrix}\frac{2 c v^{2} + 2 c w^{2} + 2 u v^{2} + 2 u w^{2} + 4 u c^{2} + 6 c u^{2} - 2 c \kappa u^{2} - 2 c \kappa v^{2} - 2 c \kappa w^{2} - 2 \kappa u v^{2} - 2 \kappa u w^{2} + 2 u^{3} - 2 \kappa u^{3}}{8 c^{2}} & \frac{- 2 c u + c \kappa u + c^{2} - u^{2} + \kappa u^{2}}{2 c^{2}} & \frac{- c v - u v + c \kappa v + \kappa u v}{2 c^{2}} & \frac{- c w - u w + c \kappa w + \kappa u w}{2 c^{2}} & \frac{c + u - c \kappa - \kappa u}{2 c^{2}}\\\frac{- 2 c^{2} u^{2} - 2 c^{2} v^{2} - 2 c^{2} w^{2} + 2 u^{2} v^{2} + 2 u^{2} w^{2} - 2 \kappa u^{2} v^{2} - 2 \kappa u^{2} w^{2} + 2 \kappa c^{2} u^{2} + 2 \kappa c^{2} v^{2} + 2 \kappa c^{2} w^{2} + 4 c u v^{2} + 4 c u w^{2} - 4 c \kappa u v^{2} - 4 c \kappa u w^{2} + 4 u c^{3} + 8 c u^{3} - 4 c \kappa u^{3} + 2 u^{4} - 2 \kappa u^{4}}{8 c^{2}} & \frac{- 3 c u^{2} + 3 u c^{2} - \kappa u c^{2} + 2 c \kappa u^{2} - c^{3} - u^{3} + \kappa u^{3}}{2 c^{2}} & \frac{- 2 c u v + 2 c \kappa u v + v c^{2} - v u^{2} + \kappa v u^{2} - \kappa v c^{2}}{2 c^{2}} & \frac{- 2 c u w + 2 c \kappa u w + w c^{2} - w u^{2} + \kappa w u^{2} - \kappa w c^{2}}{2 c^{2}} & \frac{2 c u - 2 c \kappa u + u^{2} - c^{2} + \kappa c^{2} - \kappa u^{2}}{2 c^{2}}\\\frac{- 4 u v c^{2} + 2 c v w^{2} + 2 u v w^{2} + 6 c v u^{2} - 2 c \kappa v u^{2} - 2 c \kappa v w^{2} - 2 \kappa u v w^{2} + 2 c v^{3} + 2 u v^{3} + 2 v u^{3} - 2 c \kappa v^{3} - 2 \kappa u v^{3} - 2 \kappa v u^{3}}{8 c^{2}} & \frac{- 2 c u v + c \kappa u v + v c^{2} - v u^{2} + \kappa v u^{2}}{2 c^{2}} & \frac{- c v^{2} - u v^{2} + 2 u c^{2} + c \kappa v^{2} + \kappa u v^{2}}{2 c^{2}} & \frac{- c v w - u v w + c \kappa v w + \kappa u v w}{2 c^{2}} & \frac{c v + u v - c \kappa v - \kappa u v}{2 c^{2}}\\\frac{- 4 u w c^{2} + 2 c w v^{2} + 2 u w v^{2} + 6 c w u^{2} - 2 c \kappa w u^{2} - 2 c \kappa w v^{2} - 2 \kappa u w v^{2} + 2 c w^{3} + 2 u w^{3} + 2 w u^{3} - 2 c \kappa w^{3} - 2 \kappa u w^{3} - 2 \kappa w u^{3}}{8 c^{2}} & \frac{- 2 c u w + c \kappa u w + w c^{2} - w u^{2} + \kappa w u^{2}}{2 c^{2}} & \frac{- c v w - u v w + c \kappa v w + \kappa u v w}{2 c^{2}} & \frac{- c w^{2} - u w^{2} + 2 u c^{2} + c \kappa w^{2} + \kappa u w^{2}}{2 c^{2}} & \frac{c w + u w - c \kappa w - \kappa u w}{2 c^{2}}\\\frac{- 2 c^{3} u^{2} - 2 c^{3} v^{2} - 2 c^{3} w^{2} + 2 u^{3} v^{2} + 2 u^{3} w^{2} - 6 u c^{2} v^{2} - 6 u c^{2} w^{2} - 4 \kappa u^{3} v^{2} - 4 \kappa u^{3} w^{2} - 2 \kappa c^{3} u^{2} + 2 c v^{2} w^{2} + 2 \kappa c^{3} v^{2} + 2 \kappa c^{3} w^{2} + 2 u v^{2} w^{2} + 2 \kappa^{2} u^{3} v^{2} + 2 \kappa^{2} u^{3} w^{2} + 6 c u^{2} v^{2} + 6 c u^{2} w^{2} - 10 c \kappa u^{2} v^{2} - 10 c \kappa u^{2} w^{2} - 4 c \kappa v^{2} w^{2} - 4 \kappa u v^{2} w^{2} - 2 u c^{2} \kappa^{2} v^{2} - 2 u c^{2} \kappa^{2} w^{2} + 2 c \kappa^{2} v^{2} w^{2} + 2 u \kappa^{2} v^{2} w^{2} + 4 c \kappa^{2} u^{2} v^{2} + 4 c \kappa^{2} u^{2} w^{2} + 8 \kappa u c^{2} v^{2} + 8 \kappa u c^{2} w^{2} - 2 c^{2} u^{3} - 2 c^{2} \kappa^{2} u^{3} + 4 \kappa c^{2} u^{3} + c v^{4} + c w^{4} + u v^{4} + u w^{4} + 4 u c^{4} + 5 c u^{4} + c \kappa^{2} v^{4} + c \kappa^{2} w^{4} + u \kappa^{2} v^{4} + u \kappa^{2} w^{4} - 8 c \kappa u^{4} - 2 c \kappa v^{4} - 2 c \kappa w^{4} - 2 \kappa u v^{4} - 2 \kappa u w^{4} + 3 c \kappa^{2} u^{4} + u^{5} + \kappa^{2} u^{5} - 2 \kappa u^{5}}{8 c^{2} - 8 \kappa c^{2}} & \frac{c^{2} v^{2} + c^{2} w^{2} - u^{2} v^{2} - u^{2} w^{2} + 3 c^{2} u^{2} - \kappa c^{2} v^{2} - \kappa c^{2} w^{2} - \kappa^{2} u^{2} v^{2} - \kappa^{2} u^{2} w^{2} - 5 \kappa c^{2} u^{2} - 2 c u v^{2} - 2 c u w^{2} + 2 \kappa u^{2} v^{2} + 2 \kappa u^{2} w^{2} + 2 c^{2} \kappa^{2} u^{2} - c u \kappa^{2} v^{2} - c u \kappa^{2} w^{2} + 3 c \kappa u v^{2} + 3 c \kappa u w^{2} - 4 c u^{3} + 2 u c^{3} - 3 c \kappa^{2} u^{3} + 7 c \kappa u^{3} - u^{4} - 2 c^{4} - \kappa^{2} u^{4} + 2 \kappa u^{4}}{4 c^{2} - 4 \kappa c^{2}} & \frac{- 6 c v u^{2} - 2 c v w^{2} - 2 u v w^{2} + 8 u v c^{2} - 4 \kappa u v c^{2} + 2 c \kappa v w^{2} + 2 \kappa u v w^{2} + 6 c \kappa v u^{2} - 2 c v^{3} - 2 u v^{3} - 2 v u^{3} + 4 v c^{3} + 2 c \kappa v^{3} + 2 \kappa u v^{3} + 2 \kappa v u^{3}}{8 c^{2}} & \frac{- 6 c w u^{2} - 2 c w v^{2} - 2 u w v^{2} + 8 u w c^{2} - 4 \kappa u w c^{2} + 2 c \kappa w v^{2} + 2 \kappa u w v^{2} + 6 c \kappa w u^{2} - 2 c w^{3} - 2 u w^{3} - 2 w u^{3} + 4 w c^{3} + 2 c \kappa w^{3} + 2 \kappa u w^{3} + 2 \kappa w u^{3}}{8 c^{2}} & \frac{2 c v^{2} + 2 c w^{2} + 2 u v^{2} + 2 u w^{2} + 6 c u^{2} - 6 c \kappa u^{2} - 2 c \kappa v^{2} - 2 c \kappa w^{2} - 2 \kappa u v^{2} - 2 \kappa u w^{2} + 4 \kappa u c^{2} - 4 c^{3} + 2 u^{3} - 2 \kappa u^{3}}{8 c^{2}}\end{smallmatrix}\right)
+
+For $u_1>0$:
+
+.. math::
+
+    {\bf D}_x^- = \left(\begin{smallmatrix}u - c & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0\end{smallmatrix}\right)
+
+    {\bf A}_x^- = \left(\begin{smallmatrix}\frac{- 4 u c^{2} - 2 u v^{2} - 2 u w^{2} + 2 c v^{2} + 2 c w^{2} + 6 c u^{2} - 2 c \kappa u^{2} - 2 c \kappa v^{2} - 2 c \kappa w^{2} + 2 \kappa u v^{2} + 2 \kappa u w^{2} - 2 u^{3} + 2 \kappa u^{3}}{8 c^{2}} & \frac{- 2 c u + c \kappa u + c^{2} + u^{2} - \kappa u^{2}}{2 c^{2}} & \frac{u v - c v + c \kappa v - \kappa u v}{2 c^{2}} & \frac{u w - c w + c \kappa w - \kappa u w}{2 c^{2}} & \frac{c - u + \kappa u - c \kappa}{2 c^{2}}\\\frac{- 10 c^{2} u^{2} - 2 c^{2} v^{2} - 2 c^{2} w^{2} - 2 u^{2} v^{2} - 2 u^{2} w^{2} + 2 \kappa c^{2} u^{2} + 2 \kappa c^{2} v^{2} + 2 \kappa c^{2} w^{2} + 2 \kappa u^{2} v^{2} + 2 \kappa u^{2} w^{2} + 4 c u v^{2} + 4 c u w^{2} - 4 c \kappa u v^{2} - 4 c \kappa u w^{2} + 4 u c^{3} + 8 c u^{3} - 4 c \kappa u^{3} - 2 u^{4} + 2 \kappa u^{4}}{8 c^{2}} & \frac{- 3 c u^{2} + 3 u c^{2} - \kappa u c^{2} + 2 c \kappa u^{2} + u^{3} - c^{3} - \kappa u^{3}}{2 c^{2}} & \frac{- 2 c u v + 2 c \kappa u v + v c^{2} + v u^{2} - \kappa v c^{2} - \kappa v u^{2}}{2 c^{2}} & \frac{- 2 c u w + 2 c \kappa u w + w c^{2} + w u^{2} - \kappa w c^{2} - \kappa w u^{2}}{2 c^{2}} & \frac{2 c u - 2 c \kappa u - c^{2} - u^{2} + \kappa c^{2} + \kappa u^{2}}{2 c^{2}}\\\frac{- 4 u v c^{2} - 2 u v w^{2} + 2 c v w^{2} + 6 c v u^{2} - 2 c \kappa v u^{2} - 2 c \kappa v w^{2} + 2 \kappa u v w^{2} - 2 u v^{3} - 2 v u^{3} + 2 c v^{3} - 2 c \kappa v^{3} + 2 \kappa u v^{3} + 2 \kappa v u^{3}}{8 c^{2}} & \frac{- 2 c u v + c \kappa u v + v c^{2} + v u^{2} - \kappa v u^{2}}{2 c^{2}} & \frac{u v^{2} - c v^{2} + c \kappa v^{2} - \kappa u v^{2}}{2 c^{2}} & \frac{u v w - c v w + c \kappa v w - \kappa u v w}{2 c^{2}} & \frac{c v - u v + \kappa u v - c \kappa v}{2 c^{2}}\\\frac{- 4 u w c^{2} - 2 u w v^{2} + 2 c w v^{2} + 6 c w u^{2} - 2 c \kappa w u^{2} - 2 c \kappa w v^{2} + 2 \kappa u w v^{2} - 2 u w^{3} - 2 w u^{3} + 2 c w^{3} - 2 c \kappa w^{3} + 2 \kappa u w^{3} + 2 \kappa w u^{3}}{8 c^{2}} & \frac{- 2 c u w + c \kappa u w + w c^{2} + w u^{2} - \kappa w u^{2}}{2 c^{2}} & \frac{u v w - c v w + c \kappa v w - \kappa u v w}{2 c^{2}} & \frac{u w^{2} - c w^{2} + c \kappa w^{2} - \kappa u w^{2}}{2 c^{2}} & \frac{c w - u w + \kappa u w - c \kappa w}{2 c^{2}}\\\frac{- 2 c^{3} u^{2} - 2 c^{3} v^{2} - 2 c^{3} w^{2} - 2 u^{3} v^{2} - 2 u^{3} w^{2} - 2 \kappa c^{3} u^{2} - 2 u c^{2} v^{2} - 2 u c^{2} w^{2} - 2 u v^{2} w^{2} - 2 \kappa^{2} u^{3} v^{2} - 2 \kappa^{2} u^{3} w^{2} + 2 c v^{2} w^{2} + 2 \kappa c^{3} v^{2} + 2 \kappa c^{3} w^{2} + 4 \kappa u^{3} v^{2} + 4 \kappa u^{3} w^{2} + 6 c u^{2} v^{2} + 6 c u^{2} w^{2} - 10 c \kappa u^{2} v^{2} - 10 c \kappa u^{2} w^{2} - 4 c \kappa v^{2} w^{2} - 2 u c^{2} \kappa^{2} v^{2} - 2 u c^{2} \kappa^{2} w^{2} - 2 u \kappa^{2} v^{2} w^{2} + 2 c \kappa^{2} v^{2} w^{2} + 4 c \kappa^{2} u^{2} v^{2} + 4 c \kappa^{2} u^{2} w^{2} + 4 \kappa u c^{2} v^{2} + 4 \kappa u c^{2} w^{2} + 4 \kappa u v^{2} w^{2} - 6 c^{2} u^{3} - 2 c^{2} \kappa^{2} u^{3} + 8 \kappa c^{2} u^{3} + c v^{4} + c w^{4} - u v^{4} - u w^{4} + 4 u c^{4} + 5 c u^{4} + c \kappa^{2} v^{4} + c \kappa^{2} w^{4} - u \kappa^{2} v^{4} - u \kappa^{2} w^{4} - 8 c \kappa u^{4} - 2 c \kappa v^{4} - 2 c \kappa w^{4} + 2 \kappa u v^{4} + 2 \kappa u w^{4} + 3 c \kappa^{2} u^{4} - u^{5} - \kappa^{2} u^{5} + 2 \kappa u^{5}}{8 c^{2} - 8 \kappa c^{2}} & \frac{c^{2} v^{2} + c^{2} w^{2} + u^{2} v^{2} + u^{2} w^{2} + 3 c^{2} u^{2} + \kappa^{2} u^{2} v^{2} + \kappa^{2} u^{2} w^{2} - \kappa c^{2} v^{2} - \kappa c^{2} w^{2} - 5 \kappa c^{2} u^{2} - 2 c u v^{2} - 2 c u w^{2} - 2 \kappa u^{2} v^{2} - 2 \kappa u^{2} w^{2} + 2 c^{2} \kappa^{2} u^{2} - c u \kappa^{2} v^{2} - c u \kappa^{2} w^{2} + 3 c \kappa u v^{2} + 3 c \kappa u w^{2} - 4 c u^{3} + 2 u c^{3} - 3 c \kappa^{2} u^{3} + 7 c \kappa u^{3} + u^{4} - 2 c^{4} + \kappa^{2} u^{4} - 2 \kappa u^{4}}{4 c^{2} - 4 \kappa c^{2}} & \frac{- 6 c v u^{2} - 2 c v w^{2} + 2 u v w^{2} - 4 \kappa u v c^{2} - 2 \kappa u v w^{2} + 2 c \kappa v w^{2} + 6 c \kappa v u^{2} - 2 c v^{3} + 2 u v^{3} + 2 v u^{3} + 4 v c^{3} - 2 \kappa u v^{3} - 2 \kappa v u^{3} + 2 c \kappa v^{3}}{8 c^{2}} & \frac{- 6 c w u^{2} - 2 c w v^{2} + 2 u w v^{2} - 4 \kappa u w c^{2} - 2 \kappa u w v^{2} + 2 c \kappa w v^{2} + 6 c \kappa w u^{2} - 2 c w^{3} + 2 u w^{3} + 2 w u^{3} + 4 w c^{3} - 2 \kappa u w^{3} - 2 \kappa w u^{3} + 2 c \kappa w^{3}}{8 c^{2}} & \frac{- 2 u v^{2} - 2 u w^{2} + 2 c v^{2} + 2 c w^{2} + 6 c u^{2} - 6 c \kappa u^{2} - 2 c \kappa v^{2} - 2 c \kappa w^{2} + 2 \kappa u v^{2} + 2 \kappa u w^{2} + 4 \kappa u c^{2} - 4 c^{3} - 2 u^{3} + 2 \kappa u^{3}}{8 c^{2}}\end{smallmatrix}\right)
+
+.. ####### end of autogenerated text #######
+
+
+
+
+Boundary Conditions for the Sea Breeze Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the boundary (line) integral we prescribe $w_3^{n+1}$ using a Dirichlet
+condition and calculate it at each iteration using:
+
+.. math::
+
+    w_3^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
+        {w_1^2+w_2^2\over 2w_0}
+
+where $T(t)$ is a known function of time (it changes with the day and night)
+and also prescribe $w_1^{n+1}=0$ on the left and right end of the domain and
+$w_2^{n+1}=0$ at the top and bottom.
+
+All the surface integrals turn out to be zero. On the top and bottom edges we
+have ${\bf n} = (n_x, n_y) = (0, \pm 1)$ respectively and we prescribe $w_2=0$,
+so we get (remember we do not sum over $i$):
+
+.. math::
+
+    \int_{\partial\Omega}
+    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j
+        \varphi^i\, n_x
+    + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j
+        \varphi^i\, n_y
+    \ \d x
+    =
+
+    =
+    \int_{\partial\Omega}
+    \left({\bf f}_x({\bf w}^n)\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^n)\right)_i
+        \varphi^i\, n_y
+    \ \d x
+    =
+
+    =
+    \pm\int_{\partial\Omega}
+    \left({\bf f}_y({\bf w}^n)\right)_i
+        \varphi^i
+    \ \d x
+
+where:
+
+.. math::
+
+    {\bf f}_y =
+       \left( \begin{array}{c}
+           w_2\\
+           \frac{w_2w_1}{w_0}\\
+           \frac{w_2^2}{w_0} + p\\
+           \frac{w_2}{w_0}(w_3+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           0\\
+           0\\
+           p\\
+           0
+       \end{array} \right)
+
+So all the components $i\neq 3$ of the surface integral are zero, and for $i=3$
+the test function $\varphi^3$ is not there, because we prescribe the Dirichlet
+BC $w^3=0$, so the surface integral vanishes for all $i$.
+
+Similarly on the left and right edges we
+have ${\bf n} = (n_x, n_y) = (\pm1, 0)$ respectively and we prescribe $w_1=0$,
+so we get (remember we do not sum over $i$):
+
+.. math::
+
+    \int_{\partial\Omega}
+    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j
+        \varphi^i\, n_x
+    + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j
+        \varphi^i\, n_y
+    \ \d x
+    =
+
+    =
+    \int_{\partial\Omega}
+    \left({\bf f}_x({\bf w}^n)\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^n)\right)_i
+        \varphi^i\, n_y
+    \ \d x
+    =
+
+    =
+    \pm\int_{\partial\Omega}
+    \left({\bf f}_x({\bf w}^n)\right)_i
+        \varphi^i
+    \ \d x
+
+where:
+
+.. math::
+
+    {\bf f}_x =
+       \left( \begin{array}{c}
+           w_1\\
+           \frac{w_1^2}{w_0} + p\\
+           \frac{w_1w_2}{w_0}\\
+           \frac{w_1}{w_0}(w_3+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           0\\
+           p\\
+           0\\
+           0
+       \end{array} \right)
+
+So all the components $i\neq 1$ of the surface integral are zero, and for $i=1$
+the test function $\varphi^1$ is not there, because we prescribe the Dirichlet
+BC $w^1=0$, so the surface integral vanishes for all $i$.
+
+Newton Method
+-------------
+
+The residual is:
+
+.. math::
+
+    F_{i,m}(Y^{n+1}) = \int_\Omega {w_{i,m}(y_m^{n+1}) - w_{i,m}(y^n)\over\tau}
+        \varphi_{i, m}
+        -f_{x,m}(w(y^n)){\partial \varphi_{i, m}\over\partial x}
+        -f_{y,m}(w(y^n)){\partial \varphi_{i, m}\over\partial y}
+        +\delta_{3, m} g \varphi_{i, m} \,\d x\, \d y
+        +
+
+    - \int_{\partial\Omega}
+        f_{x,m}(w(y^n))\varphi_{i, m}\nu_x
+        +f_{y,m}(w(y^n))\varphi_{i, m}\nu_y
+        \,
+        \d S = 0
+
+where $m = 0, 1, 2, 4$ numbers the equations, $i = 1, 2, ..., M$ numbers the
+finite element basis functions, $N = 4M$,
+$Y = (y_0^1, y_1^1, y_2^1, y_3^1, y_0^2, y_1^2, ...)$.
+The Jacobian is:
+
+.. math::
+
+    J(Y^n) = {\partial F_{i, m}\over\partial y_{r, s}} (Y^n) =
+        \int_\Omega {\varphi_{r, s}\over\tau} \varphi_{i, m}
+        -A_{x, m, s}(w(y^n)) \varphi_{r, s} {\partial\varphi_{i,
+        m}\over\partial x}
+        -A_{y, m, s}(w(y^n)) \varphi_{r, s} {\partial\varphi_{i,
+        m}\over\partial y}
+        \,\d x\,\d y
+
+        +
+        \int_{\partial\Omega}
+        A_{x, m, s}(w(y^n)) \varphi_{r, s} \varphi_{i, m}\nu_x
+        +
+        A_{y, m, s}(w(y^n)) \varphi_{r, s} \varphi_{i, m}\nu_y
+        \,\d S
+
+And the Newton method then is:
+
+.. math::
+
+    J(Y^n) \delta Y^{n+1} = -F(Y^n)
+
+
+Older notes
+-----------
+
+Author: Pavel Solin
+
+Governing Equations and Boundary Conditions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. math::
+    :label: one
+
+       \frac{\partial}{\partial t} \left( \begin{array}{c} \varrho\\ U\\ W\\
+       \theta \end{array} \right) + \frac{\partial}{\partial x} \left(
+       \begin{array}{c} U\\ \frac{U^2}{\varrho} + R\theta\\
+       \frac{UW}{\varrho}\\ \frac{\theta U}{\varrho} \end{array} \right) +
+       \frac{\partial}{\partial z} \left( \begin{array}{c} W\\
+       \frac{UW}{\varrho}\\ \frac{W^2}{\varrho} + R\theta\\ \frac{\theta
+       W}{\varrho} \end{array} \right) + \left( \begin{array}{c} 0\\ 0\\
+       \varrho g\\ \frac{R\theta}{c_v}\mbox{div}{\bf v} \end{array} \right) =
+       \left( \begin{array}{c} 0\\ 0\\ 0\\ 0 \end{array} \right),
+
+
+where $\varrho$ is the air density, ${\bf v} = (u,w)$ is the velocity, $U =
+\varrho u$, $W = \varrho w$, $T$ is the temperature, $\theta = \varrho T$, and
+$g$ is the gravitational acceleration constant.  We use the perfect gas state
+equation $p = \varrho R T = R \theta$ for the pressure.
+
+Boundary conditions are prescribed as follows:
+
+* edge $a$: $\partial \varrho / \partial \nu = 0$, $\partial U / \partial \nu = 0$, $W = 0$, $\theta = \mbox{tanh}(x)*\mbox{sin}(\pi t /86400)$
+* edges $b, c$: $\partial \varrho / \partial \nu = 0$, $U = 0$, $\partial W / \partial \nu = 0$, $\partial \theta/ \partial \nu = 0$
+* edge $d$: $\partial \varrho / \partial \nu = 0$, $\partial U / \partial \nu = 0$, $W = 0$, $\partial \theta/ \partial \nu = 0$
+
+Initial conditions have the form
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} p(z) &=& p_0 - 11476\frac{z}{1000}  + 529.54 \left(\frac{z}{1000} \right)^2 - 9.38 \left(\frac{z}{1000} \right)^3,\\ T(z) &=& T_0 - 8.3194 \frac{z}{1000} + 0.2932 \left(\frac{z}{1000} \right)^2 - 0.0109 \left(\frac{z}{1000} \right)^3,\\ \varrho(z) &=& \frac{p(z)}{R T(z)},\\ \theta(z) &=& \varrho(z)T(z),\\ U(z) &=& 0, \\  W(z) &=& 0. \end{eqnarray*}
+
+
+Discretization and the Newton's Method
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+We will use the implicit Euler method in time, i.e.,
+
+
+.. math::
+
+     \frac{\partial \varrho}{\partial t} \approx \frac{\varrho^{n+1} - \varrho^n}{\tau}
+
+etc. Let's discuss one equation of :eq:`one` at a time:
+
+`Continuity equation`:
+The weak formulation of
+
+.. math::
+
+     \frac{\varrho^{n+1} - \varrho^n}{\tau} + \frac{\partial U^{n+1}}{\partial x} + \frac{\partial W^{n+1}}{\partial z} = 0
+
+reads
+
+
+.. math::
+    :label: cont
+
+    F_i^{\varrho}(Y^{n+1}) = \int_{\Omega} \frac{\varrho^{n+1}}{\tau}
+    \varphi^{\varrho}_i
+    - \int_{\Omega} \frac{\varrho^{n}}{\tau} \varphi^{\varrho}_i
+      + \int_{\Omega} \frac{\partial U^{n+1}}{\partial x} \varphi^{\varrho}_i
+        + \int_{\Omega} \frac{\partial W^{n+1}}{\partial z} \varphi^{\varrho}_i = 0
+
+
+The global coefficient vector $Y^{n+1}$ consists of four parts $Y^{\varrho}$, $Y^{U}$, $Y^{W}$
+and $Y^{\theta}$ corresponding to the fields $\varrho$, $U$, $W$ and $\theta$, respectively.
+The same holds for the vector function $F$ which consists of four parts $F^{\varrho}$, $F^{U}$, $F^{W}$
+and $F^{\theta}$. Thus the global Jacobi matrix will have a four-by-four block structure. We
+denote
+
+
+.. math::
+    :label: two
+
+    \varrho^{n+1} = \sum_{k=1}^{N^{\varrho}} y^{\varrho}_k \varphi^{\varrho}_k, \ \
+    \
+    U^{n+1} = \sum_{k=1}^{N^{U}} y^{U}_k \varphi^{U}_k, \ \ \
+    W^{n+1} = \sum_{k=1}^{N^{W}} y^{W}_k \varphi^{W}_k, \ \ \
+    \theta^{n+1} = \sum_{k=1}^{N^{\theta}} y^{\theta}_k \varphi^{\theta}_k.
+
+
+It follows from :eq:`cont` and :eq:`two` that
+
+
+.. math::
+
+     \frac{\partial F^{\varrho}_i}{\partial y^{\varrho}_j} = \int_{\Omega} \frac{\varphi^{\varrho}_j}{\tau} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{U}_j} = \int_{\Omega} \frac{\partial \varphi^{U}_j}{\partial x} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{W}_j} = \int_{\Omega} \frac{\partial \varphi^{W}_j}{\partial z} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{W}_j} = 0.
+
+`First momentum equation`: The second equation of :eq:`one` has the form
+
+
+.. math::
+
+     \frac{\partial U}{\partial t} + \frac{2U}{\varrho}\frac{\partial U}{\partial x}  - \frac{U^2}{\varrho^2} \frac{\partial \varrho}{\partial x} + R\frac{\partial \theta}{\partial x} + \frac{W}{\varrho}\frac{\partial U}{\partial z} + \frac{U}{\varrho}\frac{\partial W}{\partial z} - \frac{UW}{\varrho^2}\frac{\partial \varrho}{\partial z} = 0.
+
+After applying the implicit Euler method, we obtain
+
+
+.. math::
+
+     \frac{\partial U^{n+1}}{\tau} - \frac{\partial U^{n}}{\tau} + \frac{2U^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial x}  - \frac{(U^{n+1})^2}{(\varrho^{n+1})^2} \frac{\partial \varrho^{n+1}}{\partial x} + R\frac{\partial \theta^{n+1}}{\partial x}
+
+
+.. math::
+
+     + \frac{W^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial z} + \frac{U^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial z} - \frac{U^{n+1}W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial z} = 0.
+
+Thus we obtain
+
+.. math::
+
+     \frac{\partial F^{U}_i}{\partial y^{\varrho}_j} =  - \int_{\Omega}\frac{2U}{\varrho^2}\frac{\partial U}{\partial x} \varphi^{\varrho}_j \varphi^{U}_i  -  \int_{\Omega} U^2 \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial x} \varphi^{\varrho}_j  + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial x}\right] \varphi^U_i
+
+
+.. math::
+
+     + \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial U}{\partial z}(-1)\varphi^{\varrho}_j \varphi^U_i + \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial W}{\partial z}(-1)\varphi^{\varrho}_j \varphi^U_i - \int_{\Omega} UW \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial z} \varphi^{\varrho}_j + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial z} \right] \varphi^{U}_i.
+
+Analogously,
+
+.. math::
+
+     \frac{\partial F^{U}_i}{\partial y^{U}_j} =  \int_{\Omega}\frac{\varphi^U_j}{\tau}\varphi^U_i + \int_{\Omega}\frac{2}{\varrho} \left[ \frac{\partial U}{\partial x}\varphi^U_j + U \frac{\partial \varphi^U_j}{\partial x} \right] \varphi^U_i - \int_{\Omega} \frac{2U}{\varrho^2}\frac{\partial \varrho}{\partial x} \varphi^U_j \varphi^U_i
+
+
+.. math::
+
+     + \int_{\Omega} \frac{W}{\varrho}\frac{\partial \varphi^U_j}{\partial z} \varphi^U_i  + \int_{\Omega} \frac{1}{\varrho}\frac{\partial W}{\partial z} \varphi^U_j \varphi^U_i  - \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial \varrho}{\partial z} \varphi^U_j \varphi^U_i,
+
+
+.. math::
+
+     \frac{\partial F^{U}_i}{\partial y^{W}_j} =  \int_{\Omega} \frac{1}{\varrho}\frac{\partial U}{\partial z} \varphi^W_j \varphi^U_i + \int_{\Omega} \frac{U}{\varrho}\frac{\partial \varphi^W_j}{\partial z} \varphi^U_i - \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial \varrho}{\partial z} \varphi^W_j \varphi^U_i,
+
+
+.. math::
+
+     \frac{\partial F^{U}_i}{\partial y^{\theta}_j} =  \int_{\Omega} R \frac{\partial \varphi^{\theta}_j}{\partial x} \varphi^U_i.
+
+
+`Second momentum equation`: The third equation of :eq:`one` reads
+
+
+.. math::
+
+     \frac{\partial W}{\partial t}  + \frac{W}{\varrho}\frac{\partial U}{\partial x} + \frac{U}{\varrho}\frac{\partial W}{\partial x} - \frac{UW}{\varrho^2}\frac{\partial \varrho}{\partial x}  + \frac{2W}{\varrho}\frac{\partial W}{\partial z}  - \frac{W^2}{\varrho^2} \frac{\partial \varrho}{\partial x} + R\frac{\partial \theta}{\partial z} + \varrho g= 0.
+
+After applying the implicit Euler method, we obtain
+
+
+.. math::
+
+     \frac{\partial W^{n+1}}{\tau} - \frac{\partial W^{n}}{\tau}  + \frac{W^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial x} + \frac{U^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial x} - \frac{U^{n+1}W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial x}
+
+
+.. math::
+
+     + \frac{2W^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial z}  - \frac{(W^{n+1})^2}{(\varrho^{n+1})^2} \frac{\partial \varrho^{n+1}}{\partial x} + R\frac{\partial \theta^{n+1}}{\partial z} + \varrho^{n+1} g= 0.
+
+Thus we obtain
+
+.. math::
+
+     \frac{\partial F^{W}_i}{\partial y^{\varrho}_j} =  + \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial U}{\partial x}(-1)\varphi^{\varrho}_j \varphi^W_i + \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial W}{\partial x}(-1)\varphi^{\varrho}_j \varphi^W_i - \int_{\Omega}\frac{2W}{\varrho^2}\frac{\partial W}{\partial x} \varphi^{\varrho}_j \varphi^{W}_i
+
+
+.. math::
+
+     - \int_{\Omega} UW \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial x} \varphi^{\varrho}_j  + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial x} \right] \varphi^{W}_i -  \int_{\Omega} W^2 \left[(-2)\frac{1}{\varrho^3}\frac{\partial \varrho}{\partial z} \varphi^{\varrho}_j  + \frac{1}{\varrho^2}\frac{\partial \varphi^{\varrho}_j}{\partial z}\right] \varphi^W_i  + \int_{\Omega}g \varphi^{\varrho}_j \varphi^{W}_i.
+
+Analogously,
+
+.. math::
+
+     \frac{\partial F^{W}_i}{\partial y^{U}_j} =  \int_{\Omega} \frac{W}{\varrho}\frac{\partial \varphi^U_j}{\partial x} \varphi^W_i + \int_{\Omega} \frac{1}{\varrho}\frac{\partial W}{\partial x} \varphi^U_j \varphi^W_i - \int_{\Omega} \frac{W}{\varrho^2}\frac{\partial \varrho}{\partial x} \varphi^U_j \varphi^W_i,
+
+
+.. math::
+
+     \frac{\partial F^{W}_i}{\partial y^{W}_j} =  \int_{\Omega}\frac{\varphi^W_j}{\tau}\varphi^W_i + \int_{\Omega} \frac{1}{\varrho}\frac{\partial U}{\partial x} \varphi^W_j \varphi^W_i  + \int_{\Omega} \frac{U}{\varrho}\frac{\partial \varphi^W_j}{\partial x} \varphi^W_i  - \int_{\Omega} \frac{U}{\varrho^2}\frac{\partial \varrho}{\partial x} \varphi^W_j \varphi^W_i
+
+
+.. math::
+
+     + \int_{\Omega}\frac{2}{\varrho} \left[ \frac{\partial W}{\partial z}\varphi^W_j + W \frac{\partial \varphi^W_j}{\partial z} \right] \varphi^W_i  - \int_{\Omega} \frac{2W}{\varrho^2}\frac{\partial \varrho}{\partial z} \varphi^W_j \varphi^W_i,
+
+
+.. math::
+
+     \frac{\partial F^{W}_i}{\partial y^{\theta}_j} =  \int_{\Omega} R \frac{\partial \varphi^{\theta}_j}{\partial z} \varphi^W_i.
+
+
+`Internal energy equation`: The last equation of :eq:`one` has the form
+
+
+.. math::
+
+     \frac{\partial \theta}{\partial t} + \mbox{div}(\theta {\bf v}) + \frac{R
+     \theta}{c_v} \mbox{div}{\bf v} = 0
+
+where $\theta = \varrho T$. This can be written equivalently as
+
+
+.. math::
+
+     \frac{\partial \theta}{\partial t} + \nabla \theta \cdot {\bf v} + \gamma
+     \theta \mbox{div} {\bf v} = 0.
+
+Written in terms of single derivatives, this is
+
+.. math::
+
+     \frac{\partial \theta}{\partial t} + \frac{\partial \theta}{\partial x} \frac{U}{\varrho} + \frac{\partial \theta}{\partial z} \frac{W}{\varrho}  + \gamma \theta \frac{\partial}{\partial x}\left(\frac{U}{\varrho}  \right) + \gamma \theta \frac{\partial}{\partial z}\left(\frac{W}{\varrho}  \right) = 0,
+
+i.e.,
+
+.. math::
+
+     \frac{\partial \theta}{\partial t}  + \frac{\partial \theta}{\partial x} \frac{U}{\varrho} + \frac{\partial \theta}{\partial z} \frac{W}{\varrho}  + \gamma \frac{\theta}{\varrho} \frac{\partial U}{\partial x} - \gamma \frac{\theta U}{\varrho^2}\frac{\partial \varrho}{\partial x} + \gamma \frac{\theta}{\varrho} \frac{\partial W}{\partial z} - \gamma \frac{\theta W}{\varrho^2}\frac{\partial \varrho}{\partial z} = 0.
+
+
+
+
+
+
+`Weak formulation`:
+
+
+.. math::
+
+     F^{\theta}_i(Y) =  \int_{\Omega} \frac{\theta^{n+1}}{\tau} \varphi^{\theta}_i - \int_{\Omega} \frac{\theta^{n}}{\tau} \varphi^{\theta}_i + \int_{\Omega} \frac{\partial \theta^{n+1}}{\partial x} \frac{U^{n+1}}{\varrho^{n+1}}\varphi^{\theta}_i + \int_{\Omega} \frac{\partial \theta^{n+1}}{\partial z} \frac{W^{n+1}}{\varrho^{n+1}} \varphi^{\theta}_i
+
+
+.. math::
+
+     + \int_{\Omega} \gamma \frac{\theta^{n+1}}{\varrho^{n+1}} \frac{\partial U^{n+1}}{\partial x}\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta^{n+1} U^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial x}\varphi^{\theta}_i + \int_{\Omega} \gamma \frac{\theta^{n+1}}{\varrho^{n+1}} \frac{\partial W^{n+1}}{\partial z}\varphi^{\theta}_i -\int_{\Omega}  \gamma \frac{\theta^{n+1} W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial z} \varphi^{\theta}_i= 0.
+
+For the derivatives of the weak form we obtain:
+
+.. math::
+
+     \frac{\partial F^{\theta}_i}{\partial y^{\varrho}_j} =  - \int_{\Omega} \frac{\partial \theta}{\partial x} \frac{U}{\varrho^2}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\partial \theta}{\partial z} \frac{W}{\varrho^2}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2} \frac{\partial U}{\partial x}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2} \frac{\partial W}{\partial z}\varphi^{\varrho}_j\varphi^{\theta}_i
+
+
+.. math::
+
+     + \int_{\Omega} 2\gamma \frac{\theta U}{\varrho^3}\frac{\partial \varrho}{\partial x}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta U}{\varrho^2}\frac{\varphi^{\varrho}_j}{\partial x}\varphi^{\theta}_i + \int_{\Omega} 2\gamma \frac{\theta W}{\varrho^3}\frac{\partial \varrho}{\partial z}\varphi^{\varrho}_j\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta W}{\varrho^2}\frac{\varphi^{\varrho}_j}{\partial z}\varphi^{\theta}_i.
+
+
+.. math::
+
+     \frac{\partial F^{\theta}_i}{\partial y^{U}_j} =  \int_{\Omega} \frac{\partial \theta}{\partial x} \frac{1}{\varrho} \varphi^{U}_j\varphi^{\theta}_i + \int_{\Omega} \gamma \frac{\theta}{\varrho}\frac{\varphi^{U}_j}{\partial x}\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2}\frac{\partial \varrho}{\partial x}\varphi^{U}_j\varphi^{\theta}_i.
+
+
+.. math::
+
+     \frac{\partial F^{\theta}_i}{\partial y^{W}_j} =  \int_{\Omega} \frac{\partial \theta}{\partial z} \frac{1}{\varrho} \varphi^{W}_j\varphi^{\theta}_i + \int_{\Omega} \gamma \frac{\theta}{\varrho}\frac{\varphi^{W}_j}{\partial z}\varphi^{\theta}_i - \int_{\Omega} \gamma \frac{\theta}{\varrho^2}\frac{\partial \varrho}{\partial z}\varphi^{W}_j\varphi^{\theta}_i.
+
+
+.. math::
+
+     \frac{\partial F^{\theta}_i}{\partial y^{\theta}_j} =  \int_{\Omega} \frac{1}{\tau} \varphi^{\theta}_j\varphi^{\theta}_i + \int_{\Omega} \frac{U}{\varrho}\frac{\varphi^{\theta}_j}{\partial x}\varphi^{\theta}_i + \int_{\Omega} \frac{W}{\varrho}\frac{\varphi^{\theta}_j}{\partial z}\varphi^{\theta}_i
+
+
+.. math::
+
+     + \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial U}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i + \int_{\Omega} \frac{\gamma}{\varrho} \frac{\partial W}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma U}{\varrho^2} \frac{\partial \varrho}{\partial x} \varphi^{\theta}_j\varphi^{\theta}_i - \int_{\Omega} \frac{\gamma W}{\varrho^2} \frac{\partial \varrho}{\partial z} \varphi^{\theta}_j\varphi^{\theta}_i.
