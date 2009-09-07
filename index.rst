@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    src/mhd.rst
+   src/qft.rst
 
 Indices and tables
 ==================
