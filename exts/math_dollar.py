@@ -24,32 +24,17 @@ def process_dollars(app, docname, source):
     s = "\n".join(source)
     if s.find("$") == -1:
         return
-    # Indices will be a list of pairs of positions in s, to search between.
-    # If the following search has no matches, then indices will be (0, len(s)).
-    indices = [0]
     # This searches for "$blah$" inside a pair of curly braces --
     # don't change these, since they're probably coming from a nested
     # math environment.  So for each match, search to the left of its
     # start and to the right of its end, but not in between.
-    for m in re.finditer(r"{[^{}$]*\$([^{}$]*)\$[^{}$]*}", s):
-        indices[-1] = (indices[-1], m.start())
-        indices.append(m.end())
-    indices[-1] = (indices[-1], len(s))
-
-    # regular expression for $ (not \$, `$, $`, and only on a line
-    # with no leading whitespace).
-    dollar = re.compile(r"""^ # beginning of line
-                            ([^\s] # non whitespace
-                            .*?)? # non-greedy match any non-newline characters
-                            (?<!`|\\)\$(?!`) # $ with negative lookbehind and lookahead
-                            """, re.M | re.X)
-    dollar2 = re.compile(r"""\$""")
+    s = re.sub(r"({[^{}$]*\$[^{}$]*\$[^{}$]*})", "3", s)
+    # matches $...$
+    dollars = re.compile(r"(?<!\$)(?<!\\)\$([^\$]+?)\$")
     # regular expression for \$
-    dollars = re.compile(r"(?<!\$)\$([^\$]+?)\$")
     slashdollar = re.compile(r"\\\$")
-    for start, end in indices:
-        s = s[:start] + dollars.sub(r":math:`\1`", s[start: end]) + s[end:]
-        s = s[:start] + slashdollar.sub(r"$", s[start: end]) + s[end:]
+    s = dollars.sub(r":math:`\1`", s)
+    s = slashdollar.sub(r"$", s)
     # now save results in "source"
     source[:] = [s]
 
