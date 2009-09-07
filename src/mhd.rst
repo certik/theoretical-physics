@@ -29,9 +29,9 @@ The magnetohydrodynamics (MHD) equations are:
 
     \nabla\cdot{\bf B} = 0
 
-assuming :math:`\eta` is constant ($\eta$). See the next section for a derivation. We
-can now apply the following identities (we use the fact that
-:math:`\nabla\cdot{\bf B}=0`):
+assuming $\eta$ is constant. See the next section for a derivation. We can now
+apply the following identities (we use the fact that $\nabla\cdot{\bf
+B}=0$):
 
 .. math::
 
@@ -86,7 +86,7 @@ So the MHD equations can alternatively be written as:
 
     \nabla\cdot{\bf B} = 0
 
-One can also introduce a new variable :math:`p^* = p + {1\over2}\nabla|{\bf B}|^2`, that simplifies :eq:`MHD2b` a bit.
+One can also introduce a new variable $p^* = p + {1\over2}\nabla|{\bf B}|^2$, that simplifies :eq:`MHD2b` a bit.
 
 Derivation
 ----------
@@ -105,8 +105,8 @@ right-hand side:
     \rho\left(\frac{\partial {\bf v}}{\partial t} + ({\bf v} \cdot \nabla)
      {\bf v} \right) = -\nabla p + {\bf j} \times {\bf B} + \rho {\bf g}
 
-where the current density :math:`{\bf j}` is given by the Maxwell equation (we
-neglect the displacement current :math:`{\partial{\bf E}\over\partial t}`):
+where the current density ${\bf j}$ is given by the Maxwell equation (we
+neglect the displacement current ${\partial{\bf E}\over\partial t}$):
 
 .. math::
 
@@ -118,7 +118,7 @@ and the Lorentz force:
 
     {1\over\sigma}{\bf j} = {\bf E} + {\bf v}\times{\bf B}
 
-from which we eliminate :math:`{\bf E}`:
+from which we eliminate ${\bf E}$:
 
 .. math::
 
@@ -138,7 +138,7 @@ so we get:
     {\partial {\bf B}\over\partial t} = \nabla\times({\bf v}\times{\bf B})
                 - \nabla\times\left({1\over\sigma\mu}\nabla\times{\bf B}\right)
 
-assuming the magnetic diffusivity :math:`\eta={1\over\sigma\mu}` is constant, we
+assuming the magnetic diffusivity $\eta={1\over\sigma\mu}$ is constant, we
 get:
 
 .. math::
@@ -159,7 +159,7 @@ Finite Element Formulation
 --------------------------
 
 We solve the following ideal MHD equations (we use
-:math:`p^* = p + {1\over2}\nabla|{\bf B}|^2`, but we drop the star):
+$p^* = p + {1\over2}\nabla|{\bf B}|^2$, but we drop the star):
 
 .. math::
     :label: FEM1a
@@ -186,15 +186,15 @@ We solve the following ideal MHD equations (we use
 If the equation :eq:`FEM4a` is satisfied initially, then it is
 satisfied all the time, as can be easily proved by applying a divergence to
 the Maxwell equation
-:math:`{\partial {\bf B}\over\partial t} = -\nabla\times{\bf E}` (or the
+${\partial {\bf B}\over\partial t} = -\nabla\times{\bf E}$ (or the
 equation :eq:`FEM2a`, resp. :eq:`MHD3`) and we get
-:math:`{\partial \over\partial t}(\nabla\cdot{\bf B}) = 0`, so
-:math:`\nabla\cdot{\bf B}` is constant, independent of time. As a consequence,
+${\partial \over\partial t}(\nabla\cdot{\bf B}) = 0$, so
+$\nabla\cdot{\bf B}$ is constant, independent of time. As a consequence,
 we are essentially only solving equations :eq:`FEM1a`, :eq:`FEM2a` and
 :eq:`FEM3a`, which consist of 5 equations for 5 unknowns
-(components of :math:`{\bf u}`, :math:`p` and :math:`{\bf B}`).
+(components of ${\bf u}$, $p$ and ${\bf B}$).
 
-We discretize in time by introducing a small time step :math:`\tau` and we also
+We discretize in time by introducing a small time step $\tau$ and we also
 linearize the convective terms:
 
 .. math::
@@ -214,9 +214,9 @@ linearize the convective terms:
 
     \nabla\cdot{\bf u}^n = 0
 
-Testing :eq:`FEM1b` by the test functions :math:`(v_1, v_2)`, :eq:`FEM2b` by
-the functions :math:`(C_1, C_2)` and :eq:`FEM3b` by the test function
-:math:`q`, we obtain the following weak formulation:
+Testing :eq:`FEM1b` by the test functions $(v_1, v_2)$, :eq:`FEM2b` by
+the functions $(C_1, C_2)$ and :eq:`FEM3b` by the test function
+$q$, we obtain the following weak formulation:
 
 .. math::
     :label: FEM1c
@@ -345,4 +345,4 @@ where:
     a_{25}(B_2, v_2) &= -B(B_2, v_2)\\
     a_{52}(u_2, C_2) &= -B(u_2, C_2)
 
-and :math:`l1`, ..., :math:`l5` are the same as above.
+and $l1$, ..., $l5$ are the same as above.
