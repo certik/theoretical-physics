@@ -149,7 +149,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'theoretical-physics'
+project = u'Theoretical Physics Reference'
 copyright = u'2009, Ondřej Čertík'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -290,7 +290,7 @@ htmlhelp_basename = 'theoretical-physicsdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'theoretical-physics.tex', u'theoretical-physics Documentation',
+  ('index', 'theoretical-physics.tex', u'Theoretical Physics Reference',
    u'Ondřej Čertík', 'manual'),
 ]
 
