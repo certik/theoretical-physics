@@ -45,12 +45,11 @@ def process_dollars(app, docname, source):
                             """, re.M | re.X)
     dollar2 = re.compile(r"""\$""")
     # regular expression for \$
+    dollars = re.compile(r"(?<!\$)\$([^\$]+?)\$")
     slashdollar = re.compile(r"\\\$")
     for start, end in indices:
-        while slashdollar.search(s, start, end):
-            m = slashdollar.search(s, start, end)
-            s = s[:m.start()] + "$" + s[m.end():]
-    s = re.sub(r"(?<!\$)\$([^\$]+?)\$", r":math:`\1`", s)
+        s = s[:start] + dollars.sub(r":math:`\1`", s[start: end]) + s[end:]
+        s = s[:start] + slashdollar.sub(r"$", s[start: end]) + s[end:]
     # now save results in "source"
     source[:] = [s]
 
