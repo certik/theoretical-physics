@@ -595,6 +595,46 @@ normal vector to this surface.
 Examples
 ========
 
+Weak Formulation of Laplace Equation
+------------------------------------
+
+As an example, we write the weak formulation of the Laplace equation in
+arbitrary coordintes:
+
+.. math::
+
+    \nabla^2\varphi - f = 0
+
+    \int \left(\nabla^2\varphi v - f v\right)  \sqrt{|g|}d^3 x = 0
+
+    \int \left(
+    {1\over\sqrt{|g|}}\partial_i\left(\sqrt{|g|}g^{ij}\partial_j\varphi\right)
+    v - f v\right)  \sqrt{|g|}d^3 x = 0
+
+    \int \left(
+    \partial_i\left(\sqrt{|g|}g^{ij}\partial_j\varphi\right)
+    v - f v\sqrt{|g|}\right)  d^3 x = 0
+
+Now we apply per-partes (assuming the boundary integral vanishes):
+
+.. math::
+
+    \int \left(
+    -\sqrt{|g|}g^{ij}\partial_j\varphi
+    \partial_i v - f v\sqrt{|g|}\right)  d^3 x = 0
+
+    \int \left(
+    -g^{ij}\partial_j\varphi
+    \partial_i v - f v\right) \sqrt{|g|} d^3 x = 0
+
+For diagonal metric this evaluates to:
+
+.. math::
+
+    \int \left(
+    -\sum_i {1\over h_i^2}\partial_i\varphi \partial_i v
+    - f v\right) h_1 h_2 h_3 d^3 x = 0
+
 
 Cylindrical Coordinates
 -----------------------
