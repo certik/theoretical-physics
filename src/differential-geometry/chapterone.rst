@@ -419,14 +419,20 @@ As a special case:
 
 .. math::
 
-     =\half \Tr g^{-1}\partial_\beta g =\half \Tr\partial_\beta\log g =\half \partial_\beta\Tr\log g =\half \partial_\beta\log|\det g| =\partial_\beta\log\sqrt{|\det g|} ={1\over2\det g}\partial_\beta\det g
+     =\half \Tr g^{-1}\partial_\beta g =\half \Tr\partial_\beta\log g =\half \partial_\beta\Tr\log g =\half \partial_\beta\log|\det g| =\partial_\beta\log\sqrt{|\det g|} =
 
-Both last expressions are used. $g$ is the matrix of coefficients $g_{\mu\nu}$.
-At the beginning we used the usual trick that $g^{\mu\sigma}$ is symmetric but
-$\partial_\mu g_{\sigma\beta}- \partial_\sigma g_{\mu\beta}$ is unsymmetric.
-Later we used the identity $\Tr\log g = \log|\det g|$, which follows from the
-well-known identity $\det\exp A = \exp\Tr A$ by the substitution $A=\log g$ and
-taking the logarithm of both sides.
+.. math::
+
+    ={1\over2\det g}\partial_\beta\det g
+    ={1\over\sqrt{|\det g|}}\partial_\beta\sqrt{|\det g|}
+
+All last 3 expressions are used (but the last one is probably the most common).
+$g$ is the matrix of coefficients $g_{\mu\nu}$.  At the beginning we used the
+usual trick that $g^{\mu\sigma}$ is symmetric but $\partial_\mu
+g_{\sigma\beta}- \partial_\sigma g_{\mu\beta}$ is unsymmetric.  Later we used
+the identity $\Tr\log g = \log|\det g|$, which follows from the well-known
+identity $\det\exp A = \exp\Tr A$ by substituting $A=\log g$ and taking the
+logarithm of both sides.
 
 
 Symmetries, Killing vectors
