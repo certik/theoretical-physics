@@ -78,10 +78,12 @@ define a gravitational potential by:
     {\bf F} = -m\nabla\phi(t, x, y, z)
 
 then the law of gravitation is
-\begin{equation}
-\nabla^2\phi = 4\pi G\rho
-\label{grav}
-\end{equation}
+
+.. math::
+    :label: grav
+
+    \nabla^2\phi = 4\pi G\rho
+
 and the second law is:
 
 .. math::
@@ -185,10 +187,12 @@ So using $x^0$ instead of $t$, we endup with the following equations:
      {\d^2 x^i\over\d\lambda^2} + \delta^{ij}\partial_j\phi \left({\d x^0\over\d\lambda}\right)^2 =0
 
 But this is exactly the geodesic equation for the following Christoffel symbols:
-\begin{equation}
-\Gamma^i_{00} = \delta^{ij}\partial_j\phi
-\label{Chris-newton}
-\end{equation}
+
+.. math::
+    :label: Chris-newton
+
+    \Gamma^i_{00} = \delta^{ij}\partial_j\phi
+
 and all other components are zero.
 
 In order to formulate the gravitation law, we now need to express
@@ -526,10 +530,17 @@ but this would have to be investigated further.
 Let's take the metrics
 $\diag(-c^2-2\phi, 1-{2\phi\over c^2}, 1-{2\phi\over c^2}, 1-{2\phi\over c^2})$
 and calculate the Christoffel symbols (without the limit $c\to\infty$):
-\begin{equation*}\Gamma^0_{\mu\nu}=\begin{pmatrix}- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}}\\- \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(- 2 \phi\left(t,x,y,z\right) - {c}^{2}\right)} & 0 & 0\\- \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & 0 & \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(- 2 \phi\left(t,x,y,z\right) - {c}^{2}\right)} & 0\\- \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & 0 & 0 & \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(- 2 \phi\left(t,x,y,z\right) - {c}^{2}\right)}\end{pmatrix}\end{equation*}
-\begin{equation*}\Gamma^1_{\mu\nu}=\begin{pmatrix}\frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}} & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0 & 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0\\0 & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0 & \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\end{pmatrix}\end{equation*}
-\begin{equation*}\Gamma^2_{\mu\nu}=\begin{pmatrix}\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}} & 0 & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0\\0 & \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 & 0 & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\end{pmatrix}\end{equation*}
-\begin{equation*}\Gamma^3_{\mu\nu}=\begin{pmatrix}\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}} & 0 & 0 & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 & \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0 & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 & 0 & \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\end{pmatrix}\end{equation*}
+
+.. math::
+
+    \Gamma^0_{\mu\nu}=\begin{pmatrix}- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}}\\- \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(- 2 \phi\left(t,x,y,z\right) - {c}^{2}\right)} & 0 & 0\\- \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & 0 & \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(- 2 \phi\left(t,x,y,z\right) - {c}^{2}\right)} & 0\\- \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{- 2 \phi\left(t,x,y,z\right) - {c}^{2}} & 0 & 0 & \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(- 2 \phi\left(t,x,y,z\right) - {c}^{2}\right)}\end{pmatrix}
+
+    \Gamma^1_{\mu\nu}=\begin{pmatrix}\frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}} & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0 & 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0\\0 & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0 & \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\end{pmatrix}
+
+    \Gamma^2_{\mu\nu}=\begin{pmatrix}\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}} & 0 & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0\\0 & \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 & 0 & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\end{pmatrix}
+
+    \Gamma^3_{\mu\nu}=\begin{pmatrix}\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}} & 0 & 0 & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 & \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & 0 & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\0 & 0 & \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{{c}^{2} \left(1 - 2 \frac{\phi\left(t,x,y,z\right)}{{c}^{2}}\right)}\end{pmatrix}
+
 By taking the limit $c\to\infty$, the only nonzero Christoffel symbols are:
 
 .. math::
@@ -790,96 +801,22 @@ in an equivalent form
 
 The only nonzero Christoffel symbols in the first case are (in the expressions
 for the Christoffel symbols below, we set $c=1$):
-\begin{equation*}\Gamma^0_{\mu\nu}=
-\begin{pmatrix}- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1
-- 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & -
-\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial z}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\-
-\frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial t}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & 0\\-
-\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & 0 & \frac{\frac{\partial}{\partial t}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0\\-
-\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & 0 & 0 & \frac{\frac{\partial}{\partial t}
-\phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)}\end{pmatrix}\end{equation*}
 
-\begin{equation*}\Gamma^1_{\mu\nu}=
-\begin{pmatrix}\frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 -
-2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial t}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & 0\\-
-\frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & -
-\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial z}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 & -
-\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0\\0 & -
-\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & 0 & \frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)}\end{pmatrix}\end{equation*}
+.. math::
 
-\begin{equation*}\Gamma^2_{\mu\nu}=
-\begin{pmatrix}\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 -
-2 \phi\left(t,x,y,z\right)} & 0 & - \frac{\frac{\partial}{\partial t}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0\\0 &
-\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0\\-
-\frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & -
-\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial z}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 & 0 & -
-\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial y}
-\phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)}\end{pmatrix}\end{equation*}
+    \Gamma^0_{\mu\nu}= \begin{pmatrix}- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\- \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & 0\\- \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0\\- \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & 0 & \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\end{pmatrix}
 
-\begin{equation*}\Gamma^3_{\mu\nu}=
-\begin{pmatrix}\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 -
-2 \phi\left(t,x,y,z\right)} & 0 & 0 & - \frac{\frac{\partial}{\partial t}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 &
-\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & 0 & - \frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 & 0 &
-\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial y}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\-
-\frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & -
-\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial z}
-\phi\left(t,x,y,z\right)}{1 - 2
-\phi\left(t,x,y,z\right)}\end{pmatrix}\end{equation*}
+    \Gamma^1_{\mu\nu}= \begin{pmatrix}\frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0\\0 & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\end{pmatrix}
+
+    \Gamma^2_{\mu\nu}= \begin{pmatrix}\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0\\0 & \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 & 0 & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\end{pmatrix}
+
+    \Gamma^3_{\mu\nu}= \begin{pmatrix}\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & 0 & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 & \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & 0 & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\0 & 0 & \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\\- \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 - 2 \phi\left(t,x,y,z\right)}\end{pmatrix}
 
 and in the second case, only $\Gamma^0_{\mu\nu}$ is different:
-\begin{equation*}\Gamma^0_{\mu\nu}=
-\begin{pmatrix}\frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 +
-2 \phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} &
-\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 + 2
-\phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial z}
-\phi\left(t,x,y,z\right)}{1 + 2
-\phi\left(t,x,y,z\right)}\\\frac{\frac{\partial}{\partial x}
-\phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & -
-\frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2
-\phi\left(t,x,y,z\right)} & 0 & 0\\\frac{\frac{\partial}{\partial y}
-\phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & 0 & -
-\frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2
-\phi\left(t,x,y,z\right)} & 0\\\frac{\frac{\partial}{\partial z}
-\phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & 0 & 0 & -
-\frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2
-\phi\left(t,x,y,z\right)}\end{pmatrix}\end{equation*}
+
+.. math::
+
+    \Gamma^0_{\mu\nu}= \begin{pmatrix}\frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & \frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)}\\\frac{\frac{\partial}{\partial x} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & 0 & 0\\\frac{\frac{\partial}{\partial y} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & 0 & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & 0\\\frac{\frac{\partial}{\partial z} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)} & 0 & 0 & - \frac{\frac{\partial}{\partial t} \phi\left(t,x,y,z\right)}{1 + 2 \phi\left(t,x,y,z\right)}\end{pmatrix}
 
 
 Now we assume that $\partial_\mu\phi \sim \phi \ll c^2$, so all $\Gamma^\alpha_{\beta
@@ -1026,13 +963,15 @@ Lorentz Group
 
 
 The Lorentz group is O(3,1), e.g. all matrices satisfying:
-\begin{equation}
-g =
-\Lambda^T
-g
-\Lambda
-\label{ortho}
-\end{equation}
+
+.. math::
+    :label: ortho
+
+    g =
+    \Lambda^T
+    g
+    \Lambda
+
 with $g=\diag(-c^2, 1, 1, 1)$.
 Taking the determinant of (\ref{ortho}) we get $(\det\Lambda)^2=1$ or
 $\det\Lambda=\pm1$. Writing the 00 component of (\ref{ortho}) we get
@@ -1342,13 +1281,15 @@ O(4) Group
 
 
 The group of rotations in 4 dimensions is O(4), e.g. all matrices satisfying:
-\begin{equation}
+
+.. math::
+    :label: ortho2
+
 g =
 \Lambda^T
 g
 \Lambda
-\label{ortho2}
-\end{equation}
+
 with $g=\diag(c^2, 1, 1, 1)$.
 Taking the determinant of (\ref{ortho2}) we get $(\det\Lambda)^2=1$ or
 $\det\Lambda=\pm1$. Writing the 00 component of (\ref{ortho}) we get
