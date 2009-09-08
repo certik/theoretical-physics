@@ -947,16 +947,6 @@ matrix and let's assume this particular form:
     g'_{\mu\nu}=g_{\mu\nu} = \mat{\pm c^2 & 0 & 0 & 0\cr 0 & 1 & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr}
 
 (e.g. this covers almost all possible Newtonian metrics tensors).
-%For the
-%following analysis, it's easier to factor $c$ out into the coordinates, e.g.
-%have $x^\mu=(ct, x, y, z)$ and
-%
-.. math::
-
-    g'_{\mu\nu}=g_{\mu\nu} = %\mat{\pm 1 & 0 & 0 & 0\cr 0 & 1 & 0 & 0\cr %0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr} %
-
-So the transformation matrices form the $O(3, 1)$ or $O(4)$ group (depending on
-the sign of $g_{00}$).
 
 Lorentz Group
 -------------
