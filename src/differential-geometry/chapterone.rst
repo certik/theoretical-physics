@@ -520,22 +520,76 @@ and
 Laplace Operator
 ----------------
 
+.. math::
 
+    \nabla^2\varphi
+    =\nabla_\mu\nabla^\mu\varphi
+    =\partial_\mu\nabla^\mu\varphi+\Gamma^\mu_{\mu\sigma}\nabla^\sigma\varphi
+    =\partial_\mu\partial^\mu\varphi+\Gamma^\mu_{\mu\sigma}\partial^\sigma\varphi
+    =
+
+    =\partial_\mu\partial^\mu\varphi+{1\over\sqrt{|\det
+    g|}}\left(\partial_\sigma\sqrt{|\det g|}\right) \partial^\sigma\varphi
+    =
+
+    ={1\over\sqrt{|\det g|}}
+    \partial_\mu\left(\sqrt{|\det g|}\, \partial^\mu\varphi\right)
+    ={1\over\sqrt{|\det g|}}
+    \partial_\mu\left(\sqrt{|\det g|}\, g^{\mu\sigma}\partial_\sigma\varphi\right)
+
+If the metric is diagonal (let's show this in 3D):
 
 .. math::
 
-    \nabla^2\varphi = \nabla_\mu\nabla^\mu\varphi =\partial_\mu\nabla^\mu\varphi+\Gamma^\mu_{\mu\sigma}\nabla^\sigma\varphi =\partial_\mu\partial^\mu\varphi+\Gamma^\mu_{\mu\sigma}\partial^\sigma\varphi =
+    g_{ij} =
+    \mat{h_1^2 & 0 & 0\cr
+    0 & h_2^2 & 0\cr
+    0 & 0 & h_3^2\cr}
 
-
-.. math::
-
-     =g^{\mu\nu}\partial_\mu\partial_\nu\varphi+\Gamma^\mu_{\mu\sigma}g^{\sigma\alpha}\partial_\alpha\varphi =g^{\mu\nu}\partial_\mu\partial_\nu\varphi+{1\over{2\det g}}\partial_\sigma(\det g)\,\, g^{\sigma\alpha}\partial_\alpha\varphi
-
-One can also write
+then
 
 .. math::
 
-    \nabla^2\varphi = g^{\mu\nu} \partial_\mu\partial_\nu\varphi+\partial_\sigma\log\sqrt{|\det g|}\,\, g^{\sigma\alpha}\partial_\alpha\varphi
+    \sqrt{|\det g_{ij}|}=h_1 h_2 h_3
+
+    g^{ij} =
+    \mat{{1\over h_1^2} & 0 & 0\cr
+    0 & {1\over h_2^2} & 0\cr
+    0 & 0 & {1\over h_3^2}\cr}
+
+and
+
+.. math::
+
+    \nabla^2\varphi
+    =\sum_i{1\over h_1 h_2 h_3}\partial_i
+    \left({h_1 h_2 h_3\over h_i^2}\partial_i\varphi \right)
+
+Covariant integration
+---------------------
+
+If $f(x)$ is a scalar, then the integral $\int f(x) \d^4 x$ depends on
+coordinates. The correct way to integrate $f(x)$ in any coordinates is:
+
+.. math::
+
+    \int f(x) \sqrt{|g|}\d^4 x
+
+where $g\equiv\det g_{\mu\nu}$. The Gauss theorem in curvilinear coordinates
+is:
+
+.. math::
+
+    \int_\Omega \nabla_\mu u^\mu \sqrt{|g|}\d^4 x
+    =\int_\Omega {1\over\sqrt{|g|}}\partial_\mu\left(\sqrt{|g|} u^\mu\right) \sqrt{|g|}\d^4 x
+    =\int_\Omega \partial_\mu\left(\sqrt{|g|} u^\mu\right)\d^4 x
+    =
+
+    =\int_{\partial\Omega} \sqrt{|g|} u^\mu n_\mu\d^3 x
+    =\int_{\partial\Omega} u^\mu n_\mu \sqrt{|g|}\d^3 x
+
+where $\partial\Omega$ is the boundary (surface) of $\Omega$ and $n_\nu$ is the
+normal vector to this surface.
 
 
 Examples
