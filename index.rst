@@ -14,6 +14,7 @@ Contents:
    src/mhd.rst
    src/qft.rst
    src/chapterone.rst
+   src/chaptertwo.rst
 
 Indices and tables
 ==================
