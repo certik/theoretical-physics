@@ -471,6 +471,52 @@ $V_\mu U^\mu$ is conserved along the geodesics, because:
 where the first term is both symmetric and antisymmetric in $(\mu, \nu)$, thus
 zero, and the second term is the geodesics equation, thus also zero.
 
+Divergence Operator
+-------------------
+
+.. math::
+
+    \nabla_\mu A^\mu
+    =\partial_\mu A^\mu+\Gamma^\mu_{\mu\sigma}A^\sigma
+    =
+
+    =\partial_\mu A^\mu+{1\over\sqrt{|\det
+    g|}}\left(\partial_\sigma\sqrt{|\det g|}\right) A^\sigma
+    =
+
+    ={1\over\sqrt{|\det g|}}
+    \partial_\mu\left(\sqrt{|\det g|}\, A^\mu\right)
+
+If the metric is diagonal (let's show this in 3D):
+
+.. math::
+
+    g_{ij} =
+    \mat{h_1^2 & 0 & 0\cr
+    0 & h_2^2 & 0\cr
+    0 & 0 & h_3^2\cr}
+
+then
+
+.. math::
+
+    \sqrt{|\det g_{ij}|}=h_1 h_2 h_3
+
+    g^{ij} =
+    \mat{{1\over h_1^2} & 0 & 0\cr
+    0 & {1\over h_2^2} & 0\cr
+    0 & 0 & {1\over h_3^2}\cr}
+
+and
+
+.. math::
+
+    \nabla\cdot{\bf A}=
+    \nabla_i A^i
+    ={1\over h_1 h_2 h_3}\partial_i
+    \left(h_1 h_2 h_3 A^i \right)
+
+
 Laplace Operator
 ----------------
 
