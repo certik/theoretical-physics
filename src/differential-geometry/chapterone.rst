@@ -695,17 +695,28 @@ coordinates $x^i=(\rho, \phi, z)$:
 
 .. math::
 
-    \nabla^i\nabla_i\varphi = \partial^i\partial_i\varphi+{1\over{2\det g}}\partial_j(\det g)\,\, g^{jk}\partial_k\varphi=
-
-
-.. math::
-
-    = g^{ij}\partial_i\partial_j\varphi+{1\over{2\rho^2 }}\partial_\rho\rho^2\,\, g^{\rho \rho}\partial_\rho\varphi = g^{ij}\partial_i\partial_j\varphi+{1\over\rho}\partial_\rho\varphi=
-
+    \nabla^i\nabla_i\varphi
+    ={1\over\sqrt{|\det g|}}
+    \partial_i\left(\sqrt{|\det g|}\, g^{ij}\partial_j\varphi\right)
+    =
 
 .. math::
 
-     = \partial_\rho\partial_\rho\varphi +{1\over\rho^2}\partial_\phi\partial_\phi\varphi +\partial_z\partial_z\varphi +{1\over\rho}\partial_\rho\varphi
+    ={1\over\rho}\partial_i\left(\rho g^{ij}\partial_j\varphi\right)
+    ={1\over\rho}\partial_\rho\left(\rho \partial_\rho\varphi\right)
+    +{1\over\rho}\partial_\phi\left(\rho {1\over\rho^2}\partial_\phi\varphi\right)
+    +{1\over\rho}\partial_z\left(\rho \partial_z\varphi\right)=
+
+    ={1\over\rho}\partial_\rho\left(\rho \partial_\rho\varphi\right)
+    +{1\over\rho^2}\partial_\phi\partial_\phi\varphi
+    +\partial_z\partial_z\varphi=
+
+.. math::
+
+     = \partial_\rho\partial_\rho\varphi
+     +{1\over\rho}\partial_\rho\varphi
+     +{1\over\rho^2}\partial_\phi\partial_\phi\varphi
+     +\partial_z\partial_z\varphi
 
 
 As a particular example, let's write the Laplace equation with nonconstant
@@ -728,6 +739,29 @@ and the final equation is:
 .. math::
 
      {\partial\over\partial\rho}\sigma{\partial\varphi\over\partial\rho} + {\partial\over\partial z}\sigma{\partial\varphi\over\partial z} + {\sigma\over\rho}{\partial\varphi\over\partial\rho} =0
+
+To write the weak formulation for it, we need to integrate covariantly (e.g.
+$\rho\,\d\rho\d\phi\d z$ in our case) and
+rewrite it using per partes. We did exactly this in the previous example in a
+coordinate free maner, so we just use the final formula we got there for a
+diagonal metric:
+
+.. math::
+
+    \int\left(
+    -\partial_\rho\varphi\partial_\rho v
+    -{1\over\rho^2}\partial_\phi\varphi\partial_\phi v
+    -\partial_z\varphi\partial_z v
+    \right)\sigma\rho\,\d\rho\d\phi\d z=0
+
+and for $\partial_\phi\varphi=0$, we get:
+
+.. math::
+
+    -2\pi\int\left(
+    \partial_\rho\varphi\partial_\rho v
+    +\partial_z\varphi\partial_z v
+    \right)\sigma\rho\,\d\rho\d z=0
 
 
 Spherical Coordinates
