@@ -48,7 +48,7 @@ latex_preamble = r"""
 \def\back{}
 \def\col#1#2{\left(\matrix{#1#2}\right)}
 \def\row#1#2{\left(\matrix{#1#2}\right)}
-\def\mat#1#2#3#4{\left(\matrix{#1#2#3#4}\right)}
+\def\mat#1{\begin{pmatrix}#1\end{pmatrix}}
 \def\matd#1#2{\left(\matrix{#1\back0\cr0\back#2}\right)}
 \def\p#1#2{{\partial#1\over\partial#2}}
 \def\cg#1#2#3#4#5#6{({#1},\,{#2},\,{#3},\,{#4}\,|\,{#5},\,{#6})}
@@ -57,6 +57,7 @@ latex_preamble = r"""
 {#1}{#2}{#3}
 {#4}{#5}{#6}
 }\right\}}
+\def\diag{\hbox{diag}}
 
 \font\dsrom=dsrom10
 \def\one{\hbox{\dsrom 1}}
