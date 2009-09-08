@@ -1072,16 +1072,21 @@ with $\det \Lambda=-1$ can be constructed from a matrix with $\det\Lambda=1$
 (i.e. SO(3, 1)) and
 a diagonal matrix with odd number of -1, below we list all of them together
 with their construction using time reversal, parity and spatial rotations:
-\begin{align*}
-\diag(-1, 0, 0, 0) &= T\\
-\diag(0, -1, 0, 0) &= PR_1(\pi)\\
-\diag(0, 0, -1, 0) &= PR_2(\pi)\\
-\diag(0, 0, 0, -1) &= PR_3(\pi)\\
-\diag(0, -1, -1, -1) &= P\\
-\diag(-1, 0, -1, -1) &= TR_1(\pi)\\
-\diag(-1, -1, 0, -1) &= TR_2(\pi)\\
-\diag(-1, -1, -1, 0) &= TR_3(\pi)\\
-\end{align*}
+
+.. math::
+    :nowrap:
+
+    \begin{align*}
+    \diag(-1, 0, 0, 0) &= T\\
+    \diag(0, -1, 0, 0) &= PR_1(\pi)\\
+    \diag(0, 0, -1, 0) &= PR_2(\pi)\\
+    \diag(0, 0, 0, -1) &= PR_3(\pi)\\
+    \diag(0, -1, -1, -1) &= P\\
+    \diag(-1, 0, -1, -1) &= TR_1(\pi)\\
+    \diag(-1, -1, 0, -1) &= TR_2(\pi)\\
+    \diag(-1, -1, -1, 0) &= TR_3(\pi)\\
+    \end{align*}
+
 But $R_i(\pi)$ belongs to ${\rm SO}^+(3, 1)$, so we just need two extra
 elements, $T$ and $P$ to construct all matrices with $\det\Lambda=-1$ using
 matrices from SO(3, 1). So to recapitulate, if we start with ${\rm SO}^+(3, 1)$
