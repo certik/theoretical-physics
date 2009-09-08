@@ -62,12 +62,7 @@ so we have
      V'^\alpha {\partial x^\beta\over\partial x'^\alpha} = V^\beta
  
 multiplying by ${\partial x'^\mu\over\partial x^\beta}$ and using the fact that
-${\partial x^\beta\over\partial x'^\alpha}
-{\partial x'^\mu\over\partial x^\beta}
-=
-{\partial x'^\mu\over\partial x'^\alpha}
-=\delta^\mu_\alpha
-$ we get
+${\partial x^\beta\over\partial x'^\alpha} {\partial x'^\mu\over\partial x^\beta} = {\partial x'^\mu\over\partial x'^\alpha} =\delta^\mu_\alpha$ we get
 
 .. math::
 
@@ -922,20 +917,21 @@ coordinate systems):
 
      \nabla_0 \mat{V'^0\cr V'^1 \cr V'^2\cr V'^3\cr} = \mat{\partial_0V'^0\cr \partial_0V'^1 +\Gamma^1_{00}V'^0+\Gamma^1_{02}V'^2\cr \partial_0V'^2 +\Gamma^2_{00}V'^0+\Gamma^2_{01}V'^1\cr \partial_0V'^3\cr} = \mat{\partial_0V'^0\cr \partial_0V'^1 -x'\omega^2V'^0-\omega V'^2\cr \partial_0V'^2 -y'\omega^2V'^0+\omega V'^1\cr \partial_0V'^3\cr}=
 
-\begin{equation}
-=
-\partial_0
-\mat{V'^0\cr V'^1 \cr V'^2\cr V'^3\cr}
-+
-\mat{
-0 & 0 & 0 & 0\cr
--x'\omega^2 & 0 & -\omega & 0\cr
--y'\omega^2 & \omega & 0 & 0\cr
-0 & 0 & 0 & 0\cr
-}
-\mat{V'^0\cr V'^1 \cr V'^2\cr V'^3\cr}
-\label{vcovar}
-\end{equation}
+.. math::
+    :label: vcovar
+
+    =
+    \partial_0
+    \mat{V'^0\cr V'^1 \cr V'^2\cr V'^3\cr}
+    +
+    \mat{
+    0 & 0 & 0 & 0\cr
+    -x'\omega^2 & 0 & -\omega & 0\cr
+    -y'\omega^2 & \omega & 0 & 0\cr
+    0 & 0 & 0 & 0\cr
+    }
+    \mat{V'^0\cr V'^1 \cr V'^2\cr V'^3\cr}
+
 For our particular (static) vector this yields:
 
 .. math::
@@ -978,10 +974,12 @@ Similarly
 
 
 How can one prove the relation:
-\begin{equation}
-{\d{\bf A}\over\d t} = \boldsymbol\omega \times {\bf A} + {\d'{\bf A}\over\d t}
-\label{vrot}
-\end{equation}
+
+.. math::
+    :label: vrot
+
+    {\d{\bf A}\over\d t} = \boldsymbol\omega \times {\bf A} + {\d'{\bf A}\over\d t}
+
 that is used for example to derive the Coriolis acceleration etc.?
 We need to write it components to understand what it really means:
 
