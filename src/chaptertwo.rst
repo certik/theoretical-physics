@@ -1446,7 +1446,8 @@ surface.
 
 We'll calculate it with all the metrics discussed above, to see the difference.
 
-\subsection{Weak Field Metric}
+Weak Field Metric
+~~~~~~~~~~~~~~~~~
 
 Let's start with the metrics:
 
@@ -1583,7 +1584,8 @@ hours (without moving with respect to the inertial frame, e.g. far galaxies), on
     \Delta\tau ={ght\over c^2}=216.90{\rm\,ns}
 
 
-\subsection{Rotating Disk Metric}
+Rotating Disk Metric
+~~~~~~~~~~~~~~~~~~~~
 
 The rotating disk metrics is (taking weak field gravitation into account):
 
@@ -1753,7 +1755,8 @@ caused by a slightly vague definition of the speed of the plane, e.g. the
 ground speed is a bit different to the speed relative to the rotating Earth
 (this depends on how much the atmosphere rotates with the Earth).
 
-\subsection{Concluding Remarks}
+Concluding Remarks
+~~~~~~~~~~~~~~~~~~
 
 The coordinate time $t$ in both cases above is totally different. One can find
 some physical clocks in both cases that measure (e.g. whose proper time is) the
