@@ -843,7 +843,10 @@ coordinates $x^i=(\rho, \theta, \phi)$:
 
 .. math::
 
-     = \partial_\rho\partial_\rho\varphi +{1\over\rho^2}\partial_\theta\partial_\theta\varphi +{1\over\rho^2\sin^2\theta^2}\partial_\phi\partial_\phi\varphi +{2\over\rho}\partial_\rho\varphi +{\cos\theta\over\rho^2\sin\theta}\partial_\theta\varphi
+     = \partial_\rho\partial_\rho\varphi
+     +{1\over\rho^2}\partial_\theta\partial_\theta\varphi
+     +{1\over\rho^2\sin^2\theta}\partial_\phi\partial_\phi\varphi
+     +{2\over\rho}\partial_\rho\varphi +{\cos\theta\over\rho^2\sin\theta}\partial_\theta\varphi
 
 
 Rotating Disk
