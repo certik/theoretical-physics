@@ -8,3 +8,4 @@ Contents:
 
     chapterone.rst
     chaptertwo.rst
+    chapterthree.rst

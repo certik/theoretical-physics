@@ -26,6 +26,7 @@ sys.path.append(os.path.abspath('exts'))
 extensions = ['sphinx.ext.pngmath', "math_dollar"]
 
 latex_preamble = r"""
+\usepackage{dsfont}
 \usepackage{braket}
 \def\degrees{^\circ}
 \def\d{{\rm d}}
