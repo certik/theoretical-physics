@@ -675,7 +675,7 @@ We need to find such a metric tensor, that
 
     R^0{}_0={1\over c^2}\nabla^2\phi
 
-then we get (\ref{grav}).
+then we get :eq:`grav`.
 
 There are several ways to choose the metrics tensor. We
 start
@@ -856,7 +856,7 @@ Where $mU^0 = p^0$ is the energy of the particle (with respect to this frame
 only), this means the energy is conserved unless the gravitational field
 depends on time.
 
-To summarize: the Christoffel symbols (\ref{Chris-newton}) that we get from the
+To summarize: the Christoffel symbols :eq:`Chris-newton` that we get from the
 Newtonian theory contain $c$, which up to this point can be any speed, for
 example we can set $c=1\rm\,ms^{-1}$. However, in order to have some metrics
 tensor that generates those Christoffel symbols, the only way to do that is by
@@ -868,7 +868,7 @@ the metrics
 
 then calculating the Christoffel symbols. If we neglect the terms of the order
 $O\left(\left(\phi\over c^2\right)^2\right)$ and higher, we get the Newtonian
-Christoffel symbols (\ref{Chris-newton}) that we want. It's clear that in order
+Christoffel symbols :eq:`Chris-newton` that we want. It's clear that in order
 to neglect the terms, we must have $|\phi| \ll c^2$, so we must choose $c$
 large enough for this to work. To put it plainly, unless $c$ is large, there is
 no metrics in our Newtonian spacetime. However for $c$ large, everything is
@@ -973,8 +973,8 @@ The Lorentz group is O(3,1), e.g. all matrices satisfying:
     \Lambda
 
 with $g=\diag(-c^2, 1, 1, 1)$.
-Taking the determinant of (\ref{ortho}) we get $(\det\Lambda)^2=1$ or
-$\det\Lambda=\pm1$. Writing the 00 component of (\ref{ortho}) we get
+Taking the determinant of :eq:`ortho` we get $(\det\Lambda)^2=1$ or
+$\det\Lambda=\pm1$. Writing the 00 component of :eq:`ortho` we get
 
 .. math::
 
@@ -1111,7 +1111,7 @@ We can always write $A=e^L$, then:
 
     \det A = \det e^L = e^{{\rm Tr}\,L} = 1
 
-so $\Tr L = 0$ and $L$ is a real, traceless matrix. Rewriting (\ref{ortho}):
+so $\Tr L = 0$ and $L$ is a real, traceless matrix. Rewriting :eq:`ortho`:
 
 .. math::
 
@@ -1285,14 +1285,14 @@ The group of rotations in 4 dimensions is O(4), e.g. all matrices satisfying:
 .. math::
     :label: ortho2
 
-g =
-\Lambda^T
-g
-\Lambda
+    g =
+    \Lambda^T
+    g
+    \Lambda
 
 with $g=\diag(c^2, 1, 1, 1)$.
-Taking the determinant of (\ref{ortho2}) we get $(\det\Lambda)^2=1$ or
-$\det\Lambda=\pm1$. Writing the 00 component of (\ref{ortho}) we get
+Taking the determinant of :eq:`ortho2` we get $(\det\Lambda)^2=1$ or
+$\det\Lambda=\pm1$. Writing the 00 component of :eq:`ortho2` we get
 
 .. math::
 
