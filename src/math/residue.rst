@@ -31,7 +31,7 @@ Laurent series of $f(z)$ around the point $z_0$, as can be easily calculated:
     = \sum_{n=-\infty}^\infty c_n \delta_{n, -1} = c_{-1}
 
 where we used the result of the following integral (we integrate over the curve
-$z = z_0 + \epsilon e^{i\varphi}$, $\varphi\in[0, 2\pi)$, so $\d z = i\epsilon
+$z = z_0 + \epsilon e^{i\varphi}$, $0\le\varphi<2\pi$, so $\d z = i\epsilon
 e^{i\varphi}\d\varphi$):
 
 .. math::
@@ -96,3 +96,54 @@ $f(z_0) = 0$, but $f'(z_0) \neq 0$ and $g$ is analytic at $z_0$:
     \res_{z=z_0} {g(z)\over f(z)} = g(z_0)\lim_{z\to z_0}{z-z_0\over f(z)}
     = g(z_0)\lim_{z\to z_0}{z-z_0\over f(z)-f(z_0)}
     = {g(z_0)\over f'(z_0)}
+
+Useful Formulas
+---------------
+
+Jordan's Lemma
+~~~~~~~~~~~~~~
+
+For estimating integrals over semicircles $\Omega$ ($z = Re^{i\varphi}$,
+$0\le\varphi\le\pi$), we can use the following estimates:
+
+.. math::
+
+    \left|\int_\Omega g(z) \d z \right| \le \pi R \max_\Omega |g(z)|
+
+    \left|\int_\Omega e^{i\alpha z}g(z) \d z \right| \le {\pi\over\alpha}
+    \max_\Omega |g(z)|\quad\text{for $\alpha>0$}
+
+(If $\alpha<0$, we need to integrate over the lower semicircle.) These formulas
+are used to make sure the integral over the semicircle goes to zero as
+$R\to\infty$. Intuitively speaking, in the first case $g(z)$ must vanish faster
+than $1\over R$ (e.g. $1\over R^2$ is ok), in the second case it's enough if
+$g(z)$ just goes to 0 (no matter how fast).
+
+The estimates can be proved easily:
+
+.. math::
+
+    \left|\int_\Omega g(z) \d z \right|
+    = \left|\int_0^\pi g(Re^{i\varphi})iRe^{i\varphi} \d\varphi \right|
+    \le \int_0^\pi \left|g(Re^{i\varphi})\right|R \d\varphi
+    \le R\max_\Omega |g(z)| \int_0^\pi \d\varphi
+    = \pi R \max_\Omega |g(z)|
+
+and
+
+.. math::
+
+    \left|\int_\Omega e^{i\alpha z}g(z) \d z \right|
+    =\left|\int_0^\pi e^{i\alpha
+    Re^{i\varphi}}g(Re^{i\varphi})iRe^{i\varphi}\right|
+    \le
+
+    \le\int_0^\pi e^{-\alpha R\sin\varphi}\left|g(Re^{i\varphi})\right| R \d\varphi
+    \le R \max_\Omega |g(z)| \int_0^\pi e^{-\alpha R\sin\varphi}\d\varphi
+    <
+
+    < R \max_\Omega |g(z)| 2\int_0^{\pi\over2} e^{-\alpha R{2\over\pi}\varphi}\d\varphi
+    = {\pi\over\alpha} \max_\Omega |g(z)|(1-e^{-\alpha R})
+    =
+
+    < {\pi\over\alpha} \max_\Omega |g(z)|
