@@ -1,3 +1,5 @@
+.. index:: integration, surface integrals, volume integrals
+
 Integration
 ===========
 
@@ -119,6 +121,9 @@ z) = 1$ and get:
 Special Cases
 -------------
 
+.. index::
+    pair: volume; integration
+
 k = n
 ~~~~~
 
@@ -127,6 +132,9 @@ k = n
     \det{\bf G} = \det {\bf J}^R{\bf J} = (\det {\bf J})^2
 
     \d S = |\det {\bf J}|\,\d t_1\,\d t_2\cdots\d t_k
+
+.. index::
+    pair: line; integration
 
 k = 1
 ~~~~~
@@ -141,6 +149,9 @@ k = 1
     = \left|{\d\mathbf{\varphi}\over\d t}\right|^2
 
     \d S = \left|{\d\mathbf{\varphi}\over\d t}\right|\,\d t
+
+.. index::
+    pair: surface; integration
 
 k = n - 1
 ~~~~~~~~~
@@ -169,6 +180,9 @@ $\det(\cdots)$ symbol means a determinant of a matrix with one row removed
 (first term in the sum has first row removed, second term has second row
 removed, etc.).
 
+.. index::
+    pair: surface; integration
+
 k = 2, n = 3
 ~~~~~~~~~~~~
 
@@ -179,6 +193,7 @@ k = 2, n = 3
 
     \d S = \left|{\partial\mathbf{\varphi}\over\partial t_1}\times
     {\partial\mathbf{\varphi}\over\partial t_2}\right|\,\d t_1\,\d t_2
+
 
 y = f(x, z)
 ~~~~~~~~~~~
@@ -211,6 +226,9 @@ in general for $x_j = f(x_1, x_2, \dots, x_n)$ we get:
 
 The "$x_j$" term is missing in the sums above.
 
+.. index::
+    pair: implicit surface; integration
+
 Implicit Surface
 ~~~~~~~~~~~~~~~~
 
@@ -226,6 +244,9 @@ we get:
 
     \d S = |\nabla F| \left|{\partial F\over\partial x_n}\right|\,\d
     x_1\cdots\d x_{n-1}
+
+.. index::
+    pair: orthogonal coordinates; integration
 
 Orthogonal Coordinates
 ~~~~~~~~~~~~~~~~~~~~~~

@@ -1,3 +1,5 @@
+.. index:: residue theorem, contour integration
+
 Residue Theorem
 ===============
 
@@ -52,6 +54,9 @@ e^{i\varphi}\d\varphi$):
     \end{cases}
     =\delta_{n, -1}
 
+.. index::
+    pair: residue; computation
+
 Computation of Residues
 -----------------------
 
@@ -99,6 +104,8 @@ $f(z_0) = 0$, but $f'(z_0) \neq 0$ and $g$ is analytic at $z_0$:
 
 Useful Formulas
 ---------------
+
+.. index:: Jordan's Lemma
 
 Jordan's Lemma
 ~~~~~~~~~~~~~~
