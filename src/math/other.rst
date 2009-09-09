@@ -18,6 +18,8 @@ Spherical coordinates (radial, zenith, azimuth) $(\rho,\theta,\phi)$:
 
 Note: this meaning of $(\theta,\phi)$ is mostly used in the USA and in many books. In Europe people usualy use different symbols, like $(\phi,\theta)$, $(\vartheta,\varphi)$ and others.
 
+.. index:: delta function
+
 Delta Function
 --------------
 
@@ -86,6 +88,8 @@ In exactly the same manner we get
        \delta({\bf r}-{\bf r'})=\delta({\bf\hat r}-{\bf\hat r'}) {\delta(\rho-\rho')\over\rho^2}
 
 See also :eq:`functionalderdel` for an example of how to deal with more complex expressions involving the delta function like $\delta^2(x)$.
+
+.. index:: variation, functional derivative
 
 Variations and Functional Derivatives
 -------------------------------------
@@ -273,6 +277,8 @@ Some mathematicians would say the above calculation is incorrect, because $\delt
 
 As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That's why such obvious manipulations with $\delta_\alpha$ are tacitly implied.
 
+.. index:: spherical harmonics
+
 Spherical Harmonics
 -------------------
 
@@ -335,6 +341,7 @@ where $\gamma$ is the angle between the unit vectors given by ${\bf\hat r}=(\the
 
        \cos\gamma=\cos\theta\cos\theta'+\sin\theta\sin\theta'\cos(\phi-\phi') ={\bf\hat r}\cdot{\bf\hat r'}
 
+.. index:: dirac notation
 
 Dirac Notation
 --------------
