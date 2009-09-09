@@ -113,11 +113,13 @@ $0\le\varphi\le\pi$), we can use the following estimates:
     \left|\int_\Omega e^{i\alpha z}g(z) \d z \right| \le {\pi\over\alpha}
     \max_\Omega |g(z)|\quad\text{for $\alpha>0$}
 
-(If $\alpha<0$, we need to integrate over the lower semicircle.) These formulas
-are used to make sure the integral over the semicircle goes to zero as
-$R\to\infty$. Intuitively speaking, in the first case $g(z)$ must vanish faster
-than $1\over R$ (e.g. $1\over R^2$ is ok), in the second case it's enough if
-$g(z)$ just goes to 0 (no matter how fast).
+(In the first case the integration path can be extended to the full circle if
+needed ($0\le\varphi\le2\pi$), in the second case the semicircle is the maximum
+path. Also if $\alpha<0$, we need to integrate over the lower semicircle.)
+These formulas can be used to make sure the integral over the semicircle goes to
+zero as $R\to\infty$. Intuitively speaking, in the first case $g(z)$ must
+vanish faster than $1\over R$ (e.g. $1\over R^2$ is ok), in the second case
+it's enough if $g(z)$ just goes to 0 (no matter how fast).
 
 The estimates can be proved easily:
 
