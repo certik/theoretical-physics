@@ -1,6 +1,10 @@
 Integration
 ===========
 
+This chapter doesn't assume any knowledge about differential geometry. The most
+versatile way to do integration over manifolds is explained in the differential
+geometry section.
+
 General Case
 ------------
 
