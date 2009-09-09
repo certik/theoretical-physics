@@ -1,3 +1,5 @@
+.. index:: QFT, quantum field theory, QM, quantum mechanics
+
 ==========================================
 Quantum Field Theory and Quantum Mechanics
 ==========================================
@@ -14,15 +16,17 @@ The goal is to have a complete theory on about 30 or 40 pages and then lots of e
 
 The advantage of this top-down approach is that it is easy to see where things come from and also to understand exactly what approximations one is using when dealing with any equation in QM. However, as is well-known in physics, to be a good physicist one has to understand all the approaches, e.g. both top-down and bottom-up and all other approaches to QM and QFT, because there are no two approaches that would be 100% equivalent, so one has to use the right approach for the particular problem. So these notes do not aspire to be the right way to teach QM, but rather to serve as a reference to get quickly oriented and to find the equations to start from.
 
+.. index:: Standard Model
 
 Standard Model
 ==============
 
+.. index:: Electroweak Standard Model
 
 Electroweak Standard Model
 --------------------------
 
-Lagrangian with a global $SU(2)\times U(1)$ symmetry: 
+Lagrangian with a global $SU(2)\times U(1)$ symmetry:
 
 .. math::
 
@@ -74,6 +78,8 @@ of the vector gauge particles to the lagrangian.
 
 
 This breaks the gauge invariance. The $\partial^\mu\pi^a$ are going to be added to $A^a_\mu$ so we can set $\pi_a = 0$ now. 
+
+.. index:: Higgs boson
 
 Higgs Terms
 ~~~~~~~~~~~
@@ -166,6 +172,7 @@ so that the expressions simplify a bit, e.g. we now get:
     g^2+4Y^2g'^2 = {g^2\over\cos^2\theta_W}
 
 
+.. index:: Yukawa terms
 
 Yukawa terms
 ~~~~~~~~~~~~
@@ -195,6 +202,7 @@ The term $\bar L \Phi e_R$ is $U(1)$ (hypercharge) invariant, so
     -Y_L+Y+Y_R=0
 
 
+.. index:: leptons
 
 Leptonic Terms
 ~~~~~~~~~~~~~~
@@ -338,6 +346,8 @@ and the Lagrangian can be further simplified:
 
 Where we used the relations $\bar\nu_L\gamma^\mu e_L=\half\bar\nu\gamma^\mu (1-\gamma_5)e$ and $\bar\nu_R\gamma^\mu e_R=\half\bar\nu\gamma^\mu (1+\gamma_5)e$ .
 
+.. index:: gauge
+
 Gauge terms
 ~~~~~~~~~~~
 
@@ -438,6 +448,8 @@ Where $W^0_\mu = A^3_\mu=\cos\theta_W Z_\mu + \sin\theta_W A_\mu$ and:
     \L_{WWZ\gamma}=g^2\sin\theta_W\cos\theta_W(-2W^-_\mu W^{+\mu}A_\nu Z^\nu+W^-_\mu Z^\mu W^+_\nu A^\nu+W^-_\mu A^\mu W^+_\nu Z^\nu)
 
 
+.. index::
+    pair: GWS; Lagrangian
 
 GWS Lagrangian
 ~~~~~~~~~~~~~~
@@ -488,6 +500,7 @@ Plugging everything together we get the GWS Lagrangian:
 
 The free parameters are $g$, $\theta_W$, $v$, $\lambda$, $h_e$, $h_\mu$, $h_\tau$.
 
+.. index:: particle mass
 
 Particle Masses
 ~~~~~~~~~~~~~~~
@@ -531,7 +544,7 @@ we get
     m_e = {1\over\sqrt2}h_ev
 
 
-
+.. index:: quarks
 
 Quarks
 ~~~~~~
@@ -554,6 +567,7 @@ Quarks
 QFT
 ---
 
+.. index:: evolution operator, S-matrix
 
 Evolution Operator, S-Matrix Elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -768,7 +782,7 @@ One always gets the delta function in the result, so we define the matrix elemen
     S_{fi} = (2\pi)^4\delta^{(4)}(p_1+p_2+\cdots - k_1 - k_2 - \cdots) i \M_{fi}
 
 
-
+.. index:: Wick Theorem
 
 Wick Theorem
 ~~~~~~~~~~~~
@@ -869,6 +883,7 @@ A few lowest possibilities:
 
 For the last two equations, not all possibilities of the connected graphs are listed (and also the combinatorial factor is omitted).
 
+.. index:: fermions, vector bosons
 
 Fermions and Vector Bosons
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -908,7 +923,7 @@ For massless bosons:
     \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}
 
 
-
+.. index:: Feynman rules
 
 Feynman Rules
 ~~~~~~~~~~~~~
@@ -1104,7 +1119,7 @@ where we used the fact, that the only nonzero element of the Green function is
     =\pm S(x_1-x) \gamma^\mu S(x_2-x)D_{\mu\nu}(x-y)S(y_1-y)\gamma^\nu S(y_2-y)
 
 
-
+.. index:: low energy theories
 
 Low energy theories
 -------------------
@@ -1157,10 +1172,12 @@ with
 
 This is the universal V-A theory Lagrangian (after adding the h.c. term).
 
+.. index:: quantum mechanics
 
 Quantum Mechanics
 =================
 
+.. index:: QED, quantum electrodynamics
 
 From QED to Quantum Mechanics
 -----------------------------
@@ -1321,7 +1338,8 @@ After integration by parts we arrive at the Lagrangian for the Schrödinger equa
     L=i\varphi^*{\partial\varphi\over\partial t} -{1\over 2m}\partial^i\varphi^*\partial_i \varphi
 
 
-
+.. index::
+    pair: Klein-Gordon; equation
 
 Klein-Gordon Equation
 ~~~~~~~~~~~~~~~~~~~~~
@@ -1530,7 +1548,7 @@ and letting $c\to\infty$ we get the Schrödinger equation:
     i\hbar {\partial\over\partial t}\varphi= \left( {({\bf p}-e{\bf A})^2\over2m} +e\phi \right)\varphi
 
 
-
+.. index:: perturbation theory
 
 Perturbation Theory
 -------------------
@@ -1633,7 +1651,6 @@ In the second order, we take the last solution, substitute into the right hand s
 
 
 And so on for higher orders of the perturbation theory --- more terms will arise on the right hand side of the last formula, so this is our main formula for calculating the $d_n(t)$ coefficients.
-
 
 Time Independent Perturbation Theory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1761,7 +1778,7 @@ Where we have neglected the higher order terms, so we can identify the correctio
     E_i^2 = - \sum_{n\neq i} {|\braket{n^0|H^1|i^0}|^2\over E_n^0-E_i^0}
 
 
-
+.. index:: scattering theory
 
 Scattering Theory
 -----------------
@@ -2054,6 +2071,7 @@ The Born approximation is just the first term:
 Appendix
 ========
 
+.. index:: dimensional analysis
 
 Units and Dimensional Analysis
 ------------------------------
@@ -2202,6 +2220,8 @@ The SI units of the above quantities are:
 
 The SI units are useful for checking that the $c$, $e$ and $\hbar$ constants are at correct places in the expression.
 
+.. index::
+    pair: tensors; QFT
 
 Tensors in QFT
 --------------
@@ -2285,7 +2305,7 @@ and for the lower indices:
     D_j = \partial_j + {i\over\hbar}e A_j=-{i\over\hbar}(i\hbar\partial_j-eA_j) ={i\over\hbar}(i\hbar\partial^j-eA^j) ={i\over\hbar}({\bf p}-e{\bf A})
 
 
-
+.. index:: multipole expansion
 
 Multipole expansion
 -------------------
@@ -2339,5 +2359,3 @@ and rewrite the expansion using spherical harmonics:
 .. math::
 
     ={1\over r}\sum_{l,m}\left(r'\over r\right)^l {2l+1\over4\pi}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'} ={1\over r}\sum_{l,m}\left(r'\over r\right)^l {2l+1\over4\pi}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
-
-
