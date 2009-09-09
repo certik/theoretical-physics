@@ -1,3 +1,5 @@
+.. index:: MHD, magnetohydrodynamics
+
 MHD Equations
 =============
 
@@ -88,6 +90,9 @@ So the MHD equations can alternatively be written as:
 
 One can also introduce a new variable $p^* = p + {1\over2}\nabla|{\bf B}|^2$, that simplifies :eq:`MHD2b` a bit.
 
+.. index::
+    pair: magnetohydrodynamics; derivation
+
 Derivation
 ----------
 
@@ -154,6 +159,9 @@ where we used the Maxwell equation:
 .. math::
 
     \nabla\cdot{\bf B} = 0
+
+.. index::
+    pair: magnetohydrodynamics; FEM
 
 Finite Element Formulation
 --------------------------
