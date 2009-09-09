@@ -6,7 +6,14 @@
 Theoretical Physics Reference
 =============================
 
-Contents:
+Mathematics:
+
+.. toctree::
+   :maxdepth: 2
+
+   src/math/residue.rst
+
+Physics:
 
 .. toctree::
    :maxdepth: 2

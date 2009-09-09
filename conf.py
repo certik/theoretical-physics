@@ -63,6 +63,8 @@ latex_preamble = r"""
 \font\dsrom=dsrom10
 \def\one{\hbox{\dsrom 1}}
 
+\def\res{\mathop{\mathrm{Res}}}
+
 
 %See Character Table for cmmib10:
 %http://www.math.union.edu/~dpvc/jsmath/download/extra-fonts/cmmib10/cmmib10.html
