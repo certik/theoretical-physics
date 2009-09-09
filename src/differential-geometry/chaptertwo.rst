@@ -1,3 +1,5 @@
+.. index:: newtonian physics
+
 Newtonian Physics
 =================
 
@@ -948,6 +950,9 @@ matrix and let's assume this particular form:
 
 (e.g. this covers almost all possible Newtonian metrics tensors).
 
+.. index::
+    pair: Lorentz; Group
+
 Lorentz Group
 -------------
 
@@ -1270,6 +1275,7 @@ with
 
     w = {u+v\over1+{uv\over c^2}}
 
+.. index:: O(4) Group
 
 O(4) Group
 ----------
@@ -1383,6 +1389,8 @@ $\Lambda^0{}_0<0$ continuously (this corresponds to increasing $\varphi_4$ over
 $\pi/2$). In fact, by adding two speeds $u=v>c(\sqrt 2 - 1)$, one always gets
 $w>c$. But if $c(\sqrt 2 - 1)\doteq0.414c$ is larger than any speed that we are
 concerned about, we are fine.
+
+.. index:: proper time
 
 Proper Time
 -----------

@@ -1,6 +1,10 @@
+.. index:: fluid dynamics
+
 Fluid Dynamics
 ==============
 
+.. index::
+    pair: stress-energy; tensor
 
 Stress-Energy Tensor
 --------------------
@@ -212,6 +216,8 @@ get:
 
     v_2 = A_1\sqrt{2\Delta p\over \rho(A_1^2-A_2^2)}
 
+.. index::
+    pair: Hagen-Poiseuille; Law
 
 Hagen-Poiseuille Law
 ~~~~~~~~~~~~~~~~~~~~

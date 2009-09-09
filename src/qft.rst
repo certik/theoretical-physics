@@ -567,12 +567,14 @@ Quarks
 QFT
 ---
 
-.. index:: evolution operator, S-matrix
+.. index::
+    single: S-matrix
+    pair: evolution; operator
 
 Evolution Operator, S-Matrix Elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The evolution operator $U$ is defined by the equations: 
+The evolution operator $U$ is defined by the equations:
 
 .. math::
 

@@ -1,6 +1,9 @@
+.. index:: differential geometry, manifolds
+
 Manifolds
 =========
 
+.. index:: scalar, vector, tensor
 
 Scalars, Vectors, Tensors
 -------------------------
@@ -81,6 +84,8 @@ $\vec V$ has components $V^\alpha$ with respect to this basis:
 
     \vec V = V^\alpha\vec e_\alpha
 
+.. index::
+    pair: covariant; differentiation
 
 Covariant differentiation
 -------------------------
@@ -207,6 +212,8 @@ Change of variable:
 
     \Gamma'^\alpha{}_{\beta\gamma}= {\partial x^\mu\over\partial x'^\beta} {\partial x^\nu\over\partial x'^\gamma} \Gamma^\sigma{}_{\mu\nu} {\partial x'^\alpha\over\partial x^\sigma} + {\partial x'^\alpha\over\partial x^\sigma} {\partial^2 x^\sigma\over\partial x'^\beta\partial x'^\gamma}
 
+.. index::
+    pair: parallel; transport
 
 Parallel transport
 ------------------
@@ -232,6 +239,8 @@ In components (using the tangent vector $U^\beta = {\d x^\beta\over\d\lambda}$):
 
     {\d V^\alpha\over\d\lambda} = U^\beta\nabla_\beta V^\alpha = 0
 
+.. index::
+    pair: Fermi-Walker; transport
 
 Fermi-Walker transport
 ----------------------
@@ -273,6 +282,8 @@ for gyroscopes, so the natural, nonrotating tetrade is the one with $\vec e^\mu_
 \equiv U^\mu$, which is then correctly transported along any curve (not just
 geodesics).
 
+.. index:: geodesics
+
 Geodesics
 ---------
 
@@ -300,6 +311,7 @@ or equivalently (using the fact $U^\beta\partial_\beta U^\alpha=
     {\d^2 x^\alpha\over\d\lambda^2} + \Gamma^\alpha_{\beta\gamma} {\d x^\beta\over\d\lambda}{\d x^\gamma\over\d\lambda} = 0
 
 
+.. index:: curvature
 
 Curvature
 ---------
@@ -325,6 +337,8 @@ we get
 
     R^\mu{}_{\nu\alpha\beta}=\partial_\alpha\Gamma^\mu_{\beta\nu} -\partial_\beta\Gamma^\mu_{\alpha\nu} +\Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta\nu} -\Gamma^\mu_{\beta\sigma}\Gamma^\sigma_{\alpha\nu}
 
+.. index::
+    pair: Lie; derivative
 
 Lie derivative
 --------------
@@ -369,6 +383,7 @@ and so on for other tensors, for example:
 
     \L_{\vec V} g_{\mu\nu} = V^\alpha\nabla_\alpha g_{\mu\nu} +g_{\alpha\nu}\nabla_\mu V^\alpha +g_{\mu\alpha}\nabla_\nu V^\alpha = V^\alpha\partial_\alpha g_{\mu\nu} +g_{\alpha\nu}\partial_\mu V^\alpha +g_{\mu\alpha}\partial_\nu V^\alpha
 
+.. index:: metric
 
 Metric
 ------
@@ -434,6 +449,8 @@ the identity $\Tr\log g = \log|\det g|$, which follows from the well-known
 identity $\det\exp A = \exp\Tr A$ by substituting $A=\log g$ and taking the
 logarithm of both sides.
 
+.. index::
+    pair: Killing; vector
 
 Symmetries, Killing vectors
 ---------------------------
@@ -470,6 +487,9 @@ $V_\mu U^\mu$ is conserved along the geodesics, because:
 
 where the first term is both symmetric and antisymmetric in $(\mu, \nu)$, thus
 zero, and the second term is the geodesics equation, thus also zero.
+
+.. index::
+    pair: divergence; operator
 
 Divergence Operator
 -------------------
@@ -516,6 +536,8 @@ and
     ={1\over h_1 h_2 h_3}\partial_i
     \left(h_1 h_2 h_3 A^i \right)
 
+.. index::
+    pair: laplace; operator
 
 Laplace Operator
 ----------------
@@ -564,6 +586,9 @@ and
     \nabla^2\varphi
     =\sum_i{1\over h_1 h_2 h_3}\partial_i
     \left({h_1 h_2 h_3\over h_i^2}\partial_i\varphi \right)
+
+.. index::
+    pair: covariant; integration
 
 Covariant integration
 ---------------------
@@ -635,6 +660,8 @@ For diagonal metric this evaluates to:
     -\sum_i {1\over h_i^2}\partial_i\varphi \partial_i v
     - f v\right) h_1 h_2 h_3 d^3 x = 0
 
+.. index::
+    pair: cylindrical; coordinates
 
 Cylindrical Coordinates
 -----------------------
@@ -848,6 +875,7 @@ coordinates $x^i=(\rho, \theta, \phi)$:
      +{1\over\rho^2\sin^2\theta}\partial_\phi\partial_\phi\varphi
      +{2\over\rho}\partial_\rho\varphi +{\cos\theta\over\rho^2\sin\theta}\partial_\theta\varphi
 
+.. index:: rotating disk
 
 Rotating Disk
 -------------
