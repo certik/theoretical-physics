@@ -115,3 +115,136 @@ z) = 1$ and get:
     = \int_0^\pi\d\theta \int_0^{2\pi}\d\phi\, r^2\sin\theta
     = 2\pi r^2\int_0^\pi\d\theta \sin\theta
     = 4\pi r^2
+
+Special Cases
+-------------
+
+k = n
+~~~~~
+
+.. math::
+
+    \det{\bf G} = \det {\bf J}^R{\bf J} = (\det {\bf J})^2
+
+    \d S = |\det {\bf J}|\,\d t_1\,\d t_2\cdots\d t_k
+
+k = 1
+~~~~~
+
+.. math::
+
+    \det{\bf G} = \det \left(
+        \left({\d\varphi_1\over\d t}\right)^2+
+        \left({\d\varphi_2\over\d t}\right)^2+
+        \cdots
+        \right)
+    = \left|{\d\mathbf{\varphi}\over\d t}\right|^2
+
+    \d S = \left|{\d\mathbf{\varphi}\over\d t}\right|\,\d t
+
+k = n - 1
+~~~~~~~~~
+
+.. math::
+
+    \det{\bf G} = \det {\bf J}^R{\bf J} =
+
+    =\det(\cdots)^2 + \det(\cdots)^2+\cdots+\det(\dots)^2 =
+
+    =\left|\det\mat{
+        {\partial\mathbf{\varphi}\over\partial t_1} &
+        {\partial\mathbf{\varphi}\over\partial t_2} &
+        \cdots &
+        {\partial\mathbf{\varphi}\over\partial t_k} &
+        {\bf e}_1 \cr
+        \vdots & \vdots & \vdots & \vdots & {\bf e}_2 \cr
+        \vdots & \vdots & \vdots & \vdots & \vdots \cr
+        \vdots & \vdots & \vdots & \vdots & {\bf e}_n \cr
+    }\right|^2 \equiv |\omega_\varphi|^2
+
+    \d S = |\omega_\varphi|\,\d t_1\,\d t_2\cdots\d t_k
+
+$\omega_\varphi$ is a generalization of a vector cross product. The
+$\det(\cdots)$ symbol means a determinant of a matrix with one row removed
+(first term in the sum has first row removed, second term has second row
+removed, etc.).
+
+k = 2, n = 3
+~~~~~~~~~~~~
+
+.. math::
+
+    \det{\bf G} = \left|{\partial\mathbf{\varphi}\over\partial t_1}\times
+    {\partial\mathbf{\varphi}\over\partial t_2}\right|^2
+
+    \d S = \left|{\partial\mathbf{\varphi}\over\partial t_1}\times
+    {\partial\mathbf{\varphi}\over\partial t_2}\right|\,\d t_1\,\d t_2
+
+y = f(x, z)
+~~~~~~~~~~~
+
+.. math::
+
+    \det{\bf G} = 1
+    +\left({\partial f\over\partial x}\right)^2
+    +\left({\partial f\over\partial z}\right)^2
+
+    \d S = \sqrt{1
+    +\left({\partial f\over\partial x}\right)^2
+    +\left({\partial f\over\partial z}\right)^2
+    }\,\d x\,\d z
+
+in general for $x_j = f(x_1, x_2, \dots, x_n)$ we get:
+
+.. math::
+
+    \det{\bf G} = 1
+    +\left({\partial f\over\partial x_1}\right)^2
+    +\left({\partial f\over\partial x_2}\right)^2
+    +\cdots
+
+    \d S = \sqrt{1
+    +\left({\partial f\over\partial x_1}\right)^2
+    +\left({\partial f\over\partial x_2}\right)^2
+    +\cdots
+    }\,\d x_1\,\d x_2\cdots\d x_n
+
+The "$x_j$" term is missing in the sums above.
+
+Implicit Surface
+~~~~~~~~~~~~~~~~
+
+For a surface given explicitly by
+
+.. math::
+
+    F(x_1, x_2, ..., x_n) = 0
+
+we get:
+
+.. math::
+
+    \d S = |\nabla F| \left|{\partial F\over\partial x_n}\right|\,\d
+    x_1\cdots\d x_{n-1}
+
+Orthogonal Coordinates
+~~~~~~~~~~~~~~~~~~~~~~
+
+If the coordinate vectors are orghogonal to each other:
+
+.. math::
+
+    {\partial\mathbf{\varphi}\over\partial t_i} \cdot
+    {\partial\mathbf{\varphi}\over\partial t_i} = 0
+    \quad\text{for $i\neq j$}
+
+we get:
+
+.. math::
+
+    \d S =
+    \left|{\partial\mathbf{\varphi}\over\partial t_1}\right|
+    \left|{\partial\mathbf{\varphi}\over\partial t_2}\right|
+    \cdots
+    \left|{\partial\mathbf{\varphi}\over\partial t_k}\right|
+    \d t_1\cdots\d t_k
