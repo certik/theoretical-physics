@@ -149,3 +149,31 @@ and
     =
 
     < {\pi\over\alpha} \max_\Omega |g(z)|
+
+Other
+~~~~~
+
+Sometimes it is useful to integrate over the arc $z = z_0 + \epsilon
+e^{i\varphi}$, $\varphi_0 \le \varphi \le \varphi_0 + \alpha$, and let
+$\epsilon\to0$ at the end. If the function is analytic, the result is $0$. If the
+function has a pole of order $n > 1$, the result is infinity, unless it's a full
+circle (in which case the result is 0). The remaining case is if the function
+has a pole of order one, e.g. it can be written ($H(z)$ is analytic at $z_0$):
+
+.. math::
+
+    f(z) = {H(z)\over z - z_0}
+
+Then:
+
+.. math::
+
+    \int_\Omega f(z) \d z =
+    \int_\Omega {H(z)\over z - z_0} \d z = \int_{\varphi_0}^{\varphi_0+\alpha}{H(z_0 +
+    \epsilon e^{i\varphi})\over z_0 + \epsilon e^{i\varphi} - z_0}\epsilon i
+    e^{i\varphi} \d \varphi
+    =
+
+    =\int_{\varphi_0}^{\varphi_0+\alpha}H(z_0 + \epsilon e^{i\varphi}) i \d \varphi
+    \to\int_{\varphi_0}^{\varphi_0+\alpha}H(z_0) i \d \varphi = i\alpha H(z_0)
+    = i\alpha \res_{z = z_0}f(z)
