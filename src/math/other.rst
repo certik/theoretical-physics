@@ -87,7 +87,7 @@ In exactly the same manner we get
 
 See also :eq:`functionalderdel` for an example of how to deal with more complex expressions involving the delta function like $\delta^2(x)$.
 
-Variations and functional derivatives
+Variations and Functional Derivatives
 -------------------------------------
 
 
