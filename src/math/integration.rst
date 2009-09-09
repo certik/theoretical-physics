@@ -44,6 +44,22 @@ where ${\bf G}$ is called a Gram matrix and ${\bf J}$ is a Jacobian:
         \vdots & \vdots & \vdots & \vdots \cr
     }
 
+The idea behind this comes from the fact that the volume of the $k$-dimensional
+parallelepiped spanned by the vectors
+
+.. math::
+
+    {\partial\mathbf{\varphi}\over\partial t_1}, \dots, {\partial\mathbf{\varphi}\over\partial t_k}
+
+is given by
+
+.. math::
+
+    V = \sqrt{\det {\bf J}^T{\bf J}}
+
+where ${\bf J}$ is an $n\times k$ matrix having those vectors as its column
+vectors.
+
 Example
 ~~~~~~~
 
