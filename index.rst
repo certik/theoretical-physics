@@ -11,6 +11,7 @@ Mathematics:
 .. toctree::
    :maxdepth: 2
 
+   src/math/integration.rst
    src/math/residue.rst
 
 Physics:
