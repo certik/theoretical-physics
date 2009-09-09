@@ -13,6 +13,7 @@ Mathematics:
 
    src/math/integration.rst
    src/math/residue.rst
+   src/math/other.rst
 
 Physics:
 
