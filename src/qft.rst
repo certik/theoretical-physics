@@ -2236,16 +2236,28 @@ In general, the covariant and contravariant vectors and tensors work just like i
     A^\mu=\left({\phi\over c}, {\bf A}\right) = (A^0, A^1, A^2, A^3)
 
 
-where $\phi$ is the electrostatic potential. Whenever we write $\bf A$, the components of it are given by the upper indices, e.g. ${\bf A}=(A^1, A^2, A^3)$. The components with lower indices can be calculated using the metric tensor, so it depends on the signature convention: 
+where $\phi$ is the electrostatic potential. Whenever we write $\bf A$, the
+components of it are given by the upper indices, e.g. ${\bf A}=(A^1, A^2,
+A^3)$. The components with lower indices can be calculated using the metric
+tensor, so it depends on the signature convention:
 
 .. math::
 
     A_\mu=g_{\mu\nu}A^\nu=(A^0, -{\bf A}) = (A^0, -A^1, -A^2, -A^3)
 
 
-In our case we got $A_0=A^0$ and $A_i = -A^i$ (if we used the other signature convention, then the sign of $A_0$ would differ and $A_i$ would stay the same).
+In our case we got $A_0=A^0$ and $A_i = -A^i$ (if we used the other signature
+convention, then the sign of $A_0$ would differ and $A_i$ would stay the same).
+The length (squared) of the vector is:
 
-Gradient is defined as: 
+.. math::
+
+    A^2 = A_\mu A^\mu = \left(A^0\right)^2 - \left| {\bf A} \right|^2
+    = \left(A^0\right)^2 - {\bf A}^2
+
+where ${\bf A}^2 \equiv |{\bf A}|^2 = (A^1)^2+(A^2)^2+(A^3)^2$.
+
+Gradient is defined as:
 
 .. math::
 
@@ -2279,6 +2291,27 @@ Momentum (${\bf p}=-i\hbar\nabla$) and energy ($E=i\hbar{\partial\over\partial t
 
     p_\mu = g_{\mu\nu}p^\nu = i\hbar\left(\partial^0,-\partial^j\right) = i\hbar\left(\partial_0,\partial_j\right) = i\hbar\partial_\mu
 
+For $p^2$ we get:
+
+.. math::
+
+    p^2 = p_\mu p^\mu = (p^0)^2 - {\bf p}^2 = (p_0)^2 - {\bf p}^2
+    = {E^2\over c^2} - {\bf p}^2
+
+Now if the particle is not moving (${\bf p} = 0$), then it's energy $E=mc^2$,
+where $m$ is the rest mass, so $|p| = {E\over c}= mc$, from which:
+
+.. math::
+
+    E^2 = p^2c^2 + {\bf p}^2c^2 = m^2c^4 + {\bf p}^2c^2
+
+    E = \sqrt{m^2c^4 + {\bf p}^2c^2}
+    = mc^2\sqrt{1 + {{\bf p}^2\over m^2c^2}}
+    = mc^2\left(1 + {{\bf p}^2\over 2m^2c^2} + O\left({p^4\over m^4c^4}\right)
+        \right)
+    =
+
+    = mc^2 + {{\bf p}^2\over 2m} + O\left(p^4\over m^3c^2\right)
 
 Note: for the signature +2, we would get $p^\mu=-i\hbar\partial^\mu$ and $p_\mu=-i\hbar\partial_\mu$.
 
