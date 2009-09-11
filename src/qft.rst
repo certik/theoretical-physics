@@ -668,11 +668,12 @@ where
 
 This is called the LSZ formula. Now we use the Wick contraction, get some terms like $D_{23}D_{34}$ integrate things out, this will give the delta function and $\tilde D(p)$'s and that's it.
 
-Let's see how it goes for $\L=-{\lambda\over4}\phi^4$ for the process $k_1+k_2\to p_1+p_2$: 
+Let's see how it goes for $\L=-{\lambda\over4}\phi^4$ for the process
+$k_1+k_2\to p_1+p_2$:
 
 .. math::
 
-    \braket{p_1 p_2|S|k_1 k_2} = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{-i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}
+    \braket{p_1 p_2|S|k_1 k_2} = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}
 
 
 
@@ -684,7 +685,7 @@ Let's see how it goes for $\L=-{\lambda\over4}\phi^4$ for the process $k_1+k_2\t
 
 .. math::
 
-    = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{-i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}
+    = {\int\d^4 x_1\d^4 x_2 e^{-i(k_1x_1+k_2x_2)} \int\d^4 y_1\d^4 y_2 e^{i(p_1y_1+p_2y_2)} \over \tilde D(k_1)\tilde D(k_2) \tilde D(p_1)\tilde D(p_2)}
 
 
 
