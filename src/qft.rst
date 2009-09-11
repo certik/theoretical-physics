@@ -1027,6 +1027,19 @@ space):
         \omega-{{\bf p}^2\over 2m} + i\epsilon}
     \approx
     {i\one\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+    =\one G_0^+({\bf p}, \omega)
+
+where $G_0^+({\bf p}, \omega)$ is the nonrelativistic retarded propagator
+defined by:
+
+.. math::
+
+    G_0^+(x-y) =
+    i \int {\d^3 p\over (2\pi)^3}
+    \int {\d \omega\over 2\pi}
+    G_0^+({\bf p}, \omega)
+        e^{-i{\bf p}\cdot({\bf x-y})}
+        e^{-i\omega(t_x - t_y)}
 
 .. index:: Feynman rules
 
