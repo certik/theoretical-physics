@@ -904,7 +904,7 @@ with
 
     \tilde D(p) = {i\over p^2-m^2+i\epsilon}
 
-For fermions:
+For fermions (Feynman propagator):
 
 .. math::
 
@@ -1038,7 +1038,7 @@ defined by:
     i \int {\d^3 p\over (2\pi)^3}
     \int {\d \omega\over 2\pi}
     G_0^+({\bf p}, \omega)
-        e^{-i{\bf p}\cdot({\bf x-y})}
+        e^{i{\bf p}\cdot({\bf x-y})}
         e^{-i\omega(t_x - t_y)}
 
 (For the other pole $p_0 = -\sqrt{{\bf p}^2+m^2}$, we define $\omega=-p_0-m$ and
