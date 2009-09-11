@@ -888,43 +888,145 @@ For the last two equations, not all possibilities of the connected graphs are li
 
 .. index:: fermions, vector bosons
 
-Fermions and Vector Bosons
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagators for Scalar Bosons, Fermions and Vector Bosons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For fermions: 
+Propagator for a scalar boson is:
+
+.. math::
+
+    \braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}
+
+
+with
+
+.. math::
+
+    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
+
+For fermions:
 
 .. math::
 
     \braket{0|T\{\psi_I(x)\bar\psi_I(y)\}|0}\equiv S(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde S(p) e^{-ip(x-y)}
 
 
-with 
+with
 
 .. math::
 
     \tilde S(p) = {i\over \fslash{p} - m +i\epsilon}= {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
 
 
-For vector bosons: 
+For vector bosons:
 
 .. math::
 
     \braket{0|T\{A_\mu(x)A_\nu(y)\}|0}\equiv D_{\mu\nu}(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D_{\mu\nu}(p) e^{-ip(x-y)}
 
 
-with 
+with
 
 .. math::
 
     \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}+{p_\mu p_\nu\over m^2}\over p^2-m^2+i\epsilon}
 
 
-For massless bosons: 
+For massless bosons:
 
 .. math::
 
     \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}
 
+Nonrelativistic limits of the propagators are obtained by assuming $|{\bf p}|/m
+\ll 1$ (we substitute $\omega=p_0-m$):
+
+.. math::
+
+    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
+    = {i\over p_0^2-{\bf p}^2-m^2+i\epsilon}
+    = {i\over \left(p_0-\sqrt{{\bf p}^2+m^2}\right)\left(p_0
+        +\sqrt{{\bf p}^2+m^2}\right)+i\epsilon}
+    \approx
+
+    \approx
+    {i\over \left(p_0-m-{{\bf p}^2\over 2m}\right)
+        \left(p_0+m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+    =
+    {i\over \left(\omega-{{\bf p}^2\over 2m}\right)
+        \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+
+the behavior of the propagator in the vicinity of its positive frequency pole
+$\omega\approx{{\bf p}^2\over 2m}$ is (remember $\omega \to 0$ in the
+nonrelativistic limit):
+
+.. math::
+
+    \tilde D(p) \approx
+    {i\over \left(\omega-{{\bf p}^2\over 2m}\right)
+        \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+    \approx
+    {i\over \left(\omega-{{\bf p}^2\over 2m}\right) 2m + i\epsilon}
+    =
+    {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i\epsilon'}
+
+Similarly for fermions:
+
+.. math::
+
+    \tilde S(p) = {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
+    = {i(p^0\gamma_0 - p^j\gamma_j+m)\over p^2-m^2+i\epsilon}
+    \approx
+    {1\over2m}{i(p^0\gamma_0 - p^j\gamma_j+m)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+    =
+
+    = {1\over2m}{i((\omega+m)\gamma_0 - p^j\gamma_j+m)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+    \approx
+    {1\over2m}{i(m\gamma_0 - p^j\gamma_j+m)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+    =
+
+.. math::
+    :label: fermion-propagator-approx
+
+    =
+    {i\left(\half(\gamma_0+1) - {p^j\gamma_j\over2m}\right)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon'}
+
+The first term
+
+.. math::
+
+    \half(\gamma_0+1) = \mat{
+        1 & 0 & 0 & 0\cr
+        0 & 1 & 0 & 0\cr
+        0 & 0 & 0 & 0\cr
+        0 & 0 & 0 & 0\cr
+        }
+
+selects the two upper components of a given bispinor. The second term
+
+.. math::
+
+    - {p^j\gamma_j\over2m} = \mat{
+        0 & -{p^j\sigma_j\over2m} \cr
+        {p^j\sigma_j\over2m} & 0 \cr
+        }
+
+mixes the upper and lower components of the bispinor and the contribution of
+this term is quadratic in ${\bf p}\over m$ so it can be neglected. The
+numerator of :eq:`fermion-propagator-approx` reduces to a unit matrix (in spin
+space):
+
+.. math::
+
+    \tilde S(p) \approx
+    {i\left(\half(\gamma_0+1) - {p^j\gamma_j\over2m}\right)\over
+        \omega-{{\bf p}^2\over 2m} + i\epsilon}
+    \approx
+    {i\one\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
 
 .. index:: Feynman rules
 
