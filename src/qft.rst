@@ -1068,15 +1068,27 @@ with:
     {i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
 
 If we use the energies of the nonineracting particles
-$\epsilon_k = {\hbar^2k^2\over 2m} = {k^2\over 2m}$, we can write it as:
+$E_k \equiv \epsilon_k = {\hbar^2k^2\over 2m} = {k^2\over 2m}$, we can write it
+as:
 
 .. math::
 
     G_0^+({\bf p}, \omega)=
     {i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
     =
-    {i\over \omega-\epsilon_k + i\epsilon}
-    =G_0^+(k, \omega)
+    {i\over \omega-E_k + i\epsilon}
+
+so
+
+.. math::
+
+    G_0^+(k, \omega) = {i\over \omega-E_k + i\epsilon}
+
+using $E = \hbar\omega$ we can also write:
+
+.. math::
+
+    G_0^+(k, E) = {i\over E-E_k + i\epsilon}
 
 Other equivalent ways of representing the propagator:
 
@@ -1104,10 +1116,10 @@ Sometimes it's useful to calculate the mixed representation $G_0^+(k, t)$:
 
     G_0^+(k, t) = \int {\d\omega\over2\pi}e^{-i\omega t}G_0^+(k, \omega)
     = \int {\d\omega\over2\pi}e^{-i\omega t}
-    {i\over \omega-\epsilon_k + i\epsilon}
+    {i\over \omega-E_k + i\epsilon}
     =
     \cdots
-    =\theta_t e^{-i (\epsilon_k-i\epsilon)t}
+    =\theta_t e^{-i (E_k-i\epsilon)t}
 
 (The "$\cdots$" means to use the Residue Theorem and distinguish two cases $t <
 0$ and $t > 0$, thus getting the Heaviside step function $\theta_t$ in the
