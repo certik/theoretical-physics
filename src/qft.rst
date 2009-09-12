@@ -1142,11 +1142,30 @@ The relation to the contraction of operators is:
     G_0^+({\bf k}, t_2 - t_1) = -i \theta_{t_2-t_1} \braket{\Psi_0|
         c_{\bf k}(t_2) c_{\bf k}^\dag(t_1)|\Psi_0}
 
-where:
+where $\ket{\Psi_0}$ is the ground state wavefunction and:
 
 .. math::
 
     c_{\bf k}(t) = e^{i H_0 t} c_{\bf k} e^{-i H_0 t}
+
+so to understand the meaning of $G_0^+({\bf k}, t_2 - t_1)$, we write it as:
+
+.. math::
+
+    G_0^+({\bf k}, t_2 - t_1) = -i \theta_{t_2-t_1} \braket{\Psi_0|
+        c_{\bf k}(t_2) c_{\bf k}^\dag(t_1)|\Psi_0}
+    = -i \theta_{t_2-t_1} \braket{\Psi_0|e^{i H_0 t_2}
+        c_{\bf k}e^{-i H_0 (t_2-t_1)}c_{\bf k}^\dag e^{-i H_0 t_1}|\Psi_0}
+    =
+
+    = -i \theta_{t_2-t_1} \left(e^{-i H_0 t_2}\ket{\Psi_0}\right)^\dag
+        \left(
+        c_{\bf k}e^{-i H_0 (t_2-t_1)}c_{\bf k}^\dag e^{-i H_0 t_1}\ket{\Psi_0}
+        \right)
+
+which describes the probability amplitude of adding a bare particle at time
+$t_1$, removing at time $t_2$ and regaining the original many-body system (that
+in the meantime evolved into $e^{-i H_0 t_2}\ket{\Psi_0}$).
 
 .. index:: Feynman rules
 
