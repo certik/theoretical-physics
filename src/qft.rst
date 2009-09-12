@@ -1041,6 +1041,13 @@ defined by:
         e^{i{\bf p}\cdot({\bf x-y})}
         e^{-i\omega(t_x - t_y)}
 
+    \left(=
+    i \int {\d^3 p\d E\over (2\pi\hbar)^4}
+    G_0^+({\bf p}, E)
+        e^{{i\over\hbar}{\bf p}\cdot({\bf x-y})}
+        e^{-{i\over\hbar}E(t_x - t_y)}
+    \right)
+
 (For the other pole $p_0 = -\sqrt{{\bf p}^2+m^2}$, we define $\omega=-p_0-m$ and
 we would see that the antiparticles' propagator reduces to the advanced
 Green's function in the nonrelativistic limit.)
