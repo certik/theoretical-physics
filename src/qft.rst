@@ -1041,16 +1041,77 @@ defined by:
         e^{i{\bf p}\cdot({\bf x-y})}
         e^{-i\omega(t_x - t_y)}
 
-    \left(=
+(For the other pole $p_0 = -\sqrt{{\bf p}^2+m^2}$, we define $\omega=-p_0-m$ and
+we would see that the antiparticles' propagator reduces to the advanced
+Green's function in the nonrelativistic limit.)
+
+Nonrelativistic propagator
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As shown above, the nonrelativistic free propagator is defined by:
+
+.. math::
+
+    G_0^+(x-y) =
+    i \int {\d^3 p\over (2\pi)^3}
+    \int {\d \omega\over 2\pi}
+    G_0^+({\bf p}, \omega)
+        e^{i{\bf p}\cdot({\bf x-y})}
+        e^{-i\omega(t_x - t_y)}
+
+
+with:
+
+.. math::
+
+    G_0^+({\bf p}, \omega)=
+    {i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+
+If we use the energies of the nonineracting particles
+$\epsilon_k = {\hbar^2k^2\over 2m} = {k^2\over 2m}$, we can write it as:
+
+.. math::
+
+    G_0^+({\bf p}, \omega)=
+    {i\over \omega-{{\bf p}^2\over 2m} + i\epsilon}
+    =
+    {i\over \omega-\epsilon_k + i\epsilon}
+    =G_0^+(k, \omega)
+
+Other equivalent ways of representing the propagator:
+
+.. math::
+
+    G_0^+(x-y)
+    =
+    G_0^+({\bf x}, t_x, {\bf y}, t_y)
+    =
     i \int {\d^3 p\d E\over (2\pi\hbar)^4}
     G_0^+({\bf p}, E)
         e^{{i\over\hbar}{\bf p}\cdot({\bf x-y})}
         e^{-{i\over\hbar}E(t_x - t_y)}
-    \right)
+    =
 
-(For the other pole $p_0 = -\sqrt{{\bf p}^2+m^2}$, we define $\omega=-p_0-m$ and
-we would see that the antiparticles' propagator reduces to the advanced
-Green's function in the nonrelativistic limit.)
+    =
+    i \int {\d^3 k\d \omega\over (2\pi)^4}
+    G_0^+(k, \omega)
+        e^{i {\bf k}\cdot({\bf x-y})}
+        e^{-i\omega(t_x - t_y)}
+
+Sometimes it's useful to calculate the mixed representation $G_0^+(k, t)$:
+
+.. math::
+
+    G_0^+(k, t) = \int {\d\omega\over2\pi}e^{-i\omega t}G_0^+(k, \omega)
+    = \int {\d\omega\over2\pi}e^{-i\omega t}
+    {i\over \omega-\epsilon_k + i\epsilon}
+    =
+    \cdots
+    =\theta_t e^{-i (\epsilon_k-i\epsilon)t}
+
+(The "$\cdots$" means to use the Residue Theorem and distinguish two cases $t <
+0$ and $t > 0$, thus getting the Heaviside step function $\theta_t$ in the
+result.)
 
 .. index:: Feynman rules
 
