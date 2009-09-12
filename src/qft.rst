@@ -1125,6 +1125,29 @@ Sometimes it's useful to calculate the mixed representation $G_0^+(k, t)$:
 0$ and $t > 0$, thus getting the Heaviside step function $\theta_t$ in the
 result.)
 
+Very often, in practice, one just needs to work with $G_0^+(k, t)$ and
+$G_0^+(k, \omega)$, here is how to convert between those:
+
+.. math::
+
+    G_0^+(k, t) = \int_{-\infty}^\infty
+        {\d\omega\over2\pi}e^{-i\omega t}G_0^+(k, \omega)
+
+    G_0^+(k, \omega) = \int_{-\infty}^\infty \d t\, e^{i\omega t}G_0^+(k, t)
+
+The relation to the contraction of operators is:
+
+.. math::
+
+    G_0^+({\bf k}, t_2 - t_1) = -i \theta_{t_2-t_1} \braket{\Psi_0|
+        c_{\bf k}(t_2) c_{\bf k}^\dag(t_1)|\Psi_0}
+
+where:
+
+.. math::
+
+    c_{\bf k}(t) = e^{i H_0 t} c_{\bf k} e^{-i H_0 t}
+
 .. index:: Feynman rules
 
 Feynman Rules
