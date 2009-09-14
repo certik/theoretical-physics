@@ -941,8 +941,9 @@ For massless bosons:
 Field Operators
 ~~~~~~~~~~~~~~~
 
-The free fields in the interaction picture are expressed using the creation and
-anihilation operators.
+The free (non-interacting) fields in the interaction picture are expressed
+using the creation and anihilation operators below, also the corresponding
+non-interacting Hamiltonian is shown.
 
 Scalar bosons:
 
