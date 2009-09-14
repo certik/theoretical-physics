@@ -938,6 +938,10 @@ For massless bosons:
 
     \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}
 
+
+Nonrelativistic propagator
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Nonrelativistic limits of the propagators are obtained by assuming $|{\bf p}|/m
 \ll 1$ (we substitute $\omega=p_0-m$):
 
@@ -1044,9 +1048,6 @@ defined by:
 (For the other pole $p_0 = -\sqrt{{\bf p}^2+m^2}$, we define $\omega=-p_0-m$ and
 we would see that the antiparticles' propagator reduces to the advanced
 Green's function in the nonrelativistic limit.)
-
-Nonrelativistic propagator
-~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As shown above, the nonrelativistic free propagator is defined by:
 
