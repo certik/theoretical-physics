@@ -945,6 +945,14 @@ The free (non-interacting) fields in the interaction picture are expressed
 using the creation and anihilation operators below, also the corresponding
 non-interacting Hamiltonian is shown.
 
+The general idea behind the machinery is that the field operator
+$\hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k$ is constructed as a sum (or
+an integral, depending on if the index $k$ is discrete or continuous) of
+single-particle wave functions (i.e. solutions of the noninteracting equation
+of motion) multiplied by the creation/anihilation operators ($c_k$ or
+$c_k^\dag$) that create/destroy
+the particle in the given single-particle state.
+
 Scalar bosons:
 
 .. math::
