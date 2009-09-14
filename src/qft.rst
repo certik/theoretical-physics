@@ -1057,6 +1057,83 @@ The equal-time commutation relations for $A_\mu$ are then:
     \left[A_\mu({\bf x}), A_\nu^\dag({\bf y})\right] =
         \delta^{(3)}({\bf x} - {\bf y}) \delta_{\mu\nu}
 
+Nonrelativistic Field Operators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One difference in nonrelativistic quantum mechanics is that the noninteracting
+solutions to the equation of motion (Schrödinger equation in this case) can be
+numbered using a discrete index, so for example the momentum $\bf q$ is not
+continuous, thus the (anti)commutation relations for creation and anihilation
+operators contain the Kronecker delta (instead of a delta function) and
+integrals over the index are replaced by sums. The reason for that is that we
+usually employ boundary conditions (like a lattice, or one particle potential
+due to nuclei, etc.) that make the spectrum discrete.
+
+
+For bosons the field operators are given by:
+
+.. math::
+
+    \hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k
+
+    \hat\psi^\dag({\bf x}) = \sum_k \psi_k^*({\bf x}) c_k^\dag
+
+where the coefficients are the single-particle wave functions.
+
+..  math::
+
+    [c_k, c_l^\dag] = \delta_{kl}
+
+    [c_k, c_l] = [c_k^\dag, c_l^\dag] = 0
+
+so the commutation relations for $\hat\psi$ and $\hat\psi^\dag$ are:
+
+.. math::
+
+    [\hat\psi({\bf x}), \hat\psi^\dag({\bf y})] = \delta^{(3)}({\bf x}-{\bf y})
+
+    [\hat\psi({\bf x}), \hat\psi({\bf y})] =
+    [\hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y})] = 0
+
+For fermions:
+
+.. math::
+
+    \hat\psi({\bf x}) = \sum_k\sum_{s=1}^2 \psi_k^s({\bf x}) c_k
+
+    \hat\psi^\dag({\bf x}) = \sum_k\sum_{s=1}^2 \psi_k^{s*}({\bf x}) c_k^\dag
+
+where
+
+..  math::
+
+    \{c_k, c_l^\dag\} = \delta_{kl}
+
+    \{c_k, c_l\} = \{c_k^\dag, c_l^\dag\} = 0
+
+so the commutation relations for $\hat\psi$ and $\hat\psi^\dag$ are:
+
+.. math::
+
+    \{\hat\psi({\bf x}), \hat\psi^\dag({\bf y})\} =\delta^{(3)}({\bf x}-{\bf y})
+
+    \{\hat\psi({\bf x}), \hat\psi({\bf y})\} =
+    \{\hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y})\} = 0
+
+The (interacting) Hamiltonian for both bosons and fermions is
+
+.. math::
+
+    i\hbar\partial_t\ket{\Psi(t)} = \hat H\ket{\Psi(t)}
+
+    \hat H = \hat T + \hat V = \sum_{ij} c_i^\dag\braket{i|T|j}c_j +
+        \half \sum_{ijkl} c_i^\dag c_j^\dag\braket{ij|V|kl}c_l c_k
+
+Note the ordering of the final two destruction operators $c_l c_k$, which is
+opposite that of the last two single-particle wave functions in the matrix
+elements of the potential $\braket{ij|V|kl}$ (for bosons it doesn't matter, for
+fermions it changes a sign).
+
 
 Nonrelativistic Propagator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
