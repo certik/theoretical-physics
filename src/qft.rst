@@ -938,8 +938,42 @@ For massless bosons:
 
     \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}
 
+Field Operators
+~~~~~~~~~~~~~~~
 
-Nonrelativistic propagator
+Scalar bosons:
+
+.. math::
+
+    \phi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \left(a_{\bf p} e^{-ip\cdot x} + a_{\bf p}^\dag e^{ip\cdot x}\right)
+
+Fermions:
+
+.. math::
+
+    \psi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \sum_s
+        \left(a_{\bf p}^s u^s(p) e^{-ip\cdot x}
+        + b_{\bf p}^{s\dag} v^s(p) e^{ip\cdot x}\right)
+
+    \bar\psi_I(x) = \psi_I^\dag(x)\gamma^0 =
+    \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \sum_s
+        \left(b_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
+        + a_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)
+
+Vector bosons:
+
+.. math::
+
+    A_\mu(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \sum_{r=0}^3
+        \left(a_{\bf p}^r\epsilon_\mu^r e^{-ip\cdot x}
+        + a_{\bf p}^{r\dag}\epsilon_\mu^{r*} e^{ip\cdot x}\right)
+
+
+Nonrelativistic Propagator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Nonrelativistic limits of the propagators are obtained by assuming $|{\bf p}|/m
