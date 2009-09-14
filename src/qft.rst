@@ -951,7 +951,15 @@ an integral, depending on if the index $k$ is discrete or continuous) of
 single-particle wave functions (i.e. solutions of the noninteracting equation
 of motion) multiplied by the creation/anihilation operators ($c_k$ or
 $c_k^\dag$) that create/destroy
-the particle in the given single-particle state.
+the particle in the given single-particle state. Note that the noninteracting
+equation of motion usually means that we set all potentials (interactions) as
+zero, but in principle it can be any equation that we can solve exactly.
+
+The coefficients $\psi_k({\bf x})$ don't depend on time (so neither the field
+operators in the Schrödinger picture), but we work in the interaction picture,
+where the creation/anihilation operators depend on time, and the time
+dependence is put into the exponentials below (but the integration is still
+done over the spatial components of $p$ only).
 
 Scalar bosons:
 
