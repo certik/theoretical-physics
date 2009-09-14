@@ -941,6 +941,9 @@ For massless bosons:
 Field Operators
 ~~~~~~~~~~~~~~~
 
+The free fields in the interaction picture are expressed using the creation and
+anihilation operators.
+
 Scalar bosons:
 
 .. math::
@@ -976,6 +979,17 @@ where
     \sum_{s=1}^2 u^s(p)\bar u^s(p) = \slashed{p} + m
 
     \sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
+
+the equal-time commutation relations:
+
+.. math::
+
+    \left\{\psi_a({\bf x}), \psi_b^\dag({\bf y})\right\} =
+        \delta^{(3)}({\bf x} - {\bf y}) \delta_{ab}
+
+    \left\{\psi_a({\bf x}), \psi_b({\bf y})\right\} =
+    \left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
+    0
 
 Vector bosons:
 
