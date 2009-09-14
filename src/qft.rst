@@ -980,7 +980,12 @@ where
 
     \sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
 
-the equal-time anticommutation relations:
+    \left\{a_{\bf p}^r, a_{\bf q}^{s\dag}\right\} =
+    \left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
+
+(all other anticommutators are equal to zero).
+The equal-time anticommutation relations for $\psi$ and $\psi^\dag$ are then:
 
 .. math::
 
@@ -991,15 +996,14 @@ the equal-time anticommutation relations:
     \left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
     0
 
-and
+The Hamiltonian is
 
 .. math::
 
-    \left\{a_{\bf p}^r, a_{\bf q}^{s\dag}\right\} =
-    \left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
-        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
+    H = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2 E_{\bf p}
+        \left(a_{\bf p}^{s\dag}a_{\bf p}^{s}
+        +b_{\bf p}^{s\dag}b_{\bf p}^{s}\right)
 
-(all other anticommutators are equal to zero).
 
 Vector bosons:
 
