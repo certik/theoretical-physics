@@ -980,7 +980,7 @@ where
 
     \sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
 
-the equal-time commutation relations:
+the equal-time anticommutation relations:
 
 .. math::
 
@@ -990,6 +990,16 @@ the equal-time commutation relations:
     \left\{\psi_a({\bf x}), \psi_b({\bf y})\right\} =
     \left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
     0
+
+and
+
+.. math::
+
+    \left\{a_{\bf p}^r, a_{\bf q}^{s\dag}\right\} =
+    \left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
+
+(all other anticommutators are equal to zero).
 
 Vector bosons:
 
