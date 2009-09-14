@@ -1188,7 +1188,8 @@ Let's calculate the $\L_{ZZH}=\lambda Z_\mu Z^\mu H$ interaction in the SM, wher
 
 .. math::
 
-    \int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{Z_\mu(y_1) Z^\mu(y_2) H(x_1)\}|0} =
+    \int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{Z_\mu(y_1) Z^\mu(y_2) H(x_1)
+    \exp\left({i\over\hbar}\int\d^4 x \L_{ZZH}(x) \right)\}|0} =
 
 
 
