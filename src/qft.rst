@@ -951,6 +951,10 @@ Scalar bosons:
     \phi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
         \left(a_{\bf p} e^{-ip\cdot x} + a_{\bf p}^\dag e^{ip\cdot x}\right)
 
+    \pi_I(x) = {\partial_t}\phi_I(x)
+        = \int {\d^3 p\over (2\pi)^3}(-i) {\sqrt{E_{\bf p}\over2}}
+        \left(a_{\bf p} e^{-ip\cdot x} - a_{\bf p}^\dag e^{ip\cdot x}\right)
+
 where:
 
 .. math::
@@ -959,16 +963,14 @@ where:
         (2\pi)^3\delta^{(3)}({\bf p} - {\bf q})
 
 (all other commutators are equal to zero).
-The equal-time commutation relations for $\phi$ and $\phi^\dag$ are then:
+The equal-time commutation relations for $\phi$ and $\pi$ are then:
 
 .. math::
 
-    \left\{\psi_a({\bf x}), \psi_b^\dag({\bf y})\right\} =
-        \delta^{(3)}({\bf x} - {\bf y}) \delta_{ab}
+    \left[\phi({\bf x}), \pi({\bf y})\right] =
+        i\delta^{(3)}({\bf x} - {\bf y})
 
-    \left\{\psi_a({\bf x}), \psi_b({\bf y})\right\} =
-    \left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
-    0
+(all other commutators are equal to zero).
 
 The Hamiltonian is
 
@@ -982,13 +984,13 @@ Fermions:
 .. math::
 
     \psi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
-        \sum_s
+        \sum_{s=1}^2
         \left(a_{\bf p}^s u^s(p) e^{-ip\cdot x}
         + b_{\bf p}^{s\dag} v^s(p) e^{ip\cdot x}\right)
 
     \bar\psi_I(x) = \psi_I^\dag(x)\gamma^0 =
     \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
-        \sum_s
+        \sum_{s=1}^2
         \left(b_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
         + a_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)
 
@@ -1039,6 +1041,20 @@ Vector bosons:
         \sum_{r=0}^3
         \left(a_{\bf p}^r\epsilon_\mu^r e^{-ip\cdot x}
         + a_{\bf p}^{r\dag}\epsilon_\mu^{r*} e^{ip\cdot x}\right)
+
+where
+
+.. math::
+
+    \left[a_{\bf p}^r, a_{\bf q}^{s\dag}\right] =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
+
+The equal-time commutation relations for $A_\mu$ are then:
+
+.. math::
+
+    \left[A_\mu({\bf x}), A_\nu^\dag({\bf y})\right] =
+        \delta^{(3)}({\bf x} - {\bf y}) \delta_{\mu\nu}
 
 
 Nonrelativistic Propagator
