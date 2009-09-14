@@ -28,6 +28,7 @@ extensions = ['sphinx.ext.pngmath', "math_dollar"]
 latex_preamble = r"""
 \usepackage{dsfont}
 \usepackage{braket}
+\usepackage{slashed}
 \def\degrees{^\circ}
 \def\d{{\rm d}}
 

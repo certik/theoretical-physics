@@ -963,6 +963,20 @@ Fermions:
         \left(b_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
         + a_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)
 
+where
+
+.. math::
+
+    u^s(p) = \mat{\sqrt{p\cdot\sigma}\xi^s\cr
+        \sqrt{p\cdot\bar\sigma}\xi^s\cr}
+
+    v^s(p) = \mat{\sqrt{p\cdot\sigma}\eta^s\cr
+        -\sqrt{p\cdot\bar\sigma}\eta^s\cr}
+
+    \sum_{s=1}^2 u^s(p)\bar u^s(p) = \slashed{p} + m
+
+    \sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
+
 Vector bosons:
 
 .. math::
