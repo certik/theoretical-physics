@@ -891,6 +891,9 @@ For the last two equations, not all possibilities of the connected graphs are li
 Propagators for Scalar Bosons, Fermions and Vector Bosons
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The only nonzero contractions that can occur are the propagators below. All
+other contractions are zero.
+
 Propagator for a scalar boson is:
 
 .. math::
