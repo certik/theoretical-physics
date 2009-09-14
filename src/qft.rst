@@ -951,6 +951,32 @@ Scalar bosons:
     \phi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
         \left(a_{\bf p} e^{-ip\cdot x} + a_{\bf p}^\dag e^{ip\cdot x}\right)
 
+where:
+
+.. math::
+
+    \left[a_{\bf p}, a_{\bf q}^{\dag}\right] =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q})
+
+(all other commutators are equal to zero).
+The equal-time commutation relations for $\phi$ and $\phi^\dag$ are then:
+
+.. math::
+
+    \left\{\psi_a({\bf x}), \psi_b^\dag({\bf y})\right\} =
+        \delta^{(3)}({\bf x} - {\bf y}) \delta_{ab}
+
+    \left\{\psi_a({\bf x}), \psi_b({\bf y})\right\} =
+    \left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
+    0
+
+The Hamiltonian is
+
+.. math::
+
+    H = \int{\d^3p\over(2\pi)^3} E_{\bf p}
+        a_{\bf p}^\dag a_{\bf p}
+
 Fermions:
 
 .. math::
