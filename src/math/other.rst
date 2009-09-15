@@ -16,7 +16,8 @@ Spherical coordinates (radial, zenith, azimuth) $(\rho,\theta,\phi)$:
 
     \begin{eqnarray*} x&=&\rho\sin\theta\cos\phi \\ y&=&\rho\sin\theta\sin\phi \\ z&=&\rho\cos\theta \\ \end{eqnarray*}
 
-Note: this meaning of $(\theta,\phi)$ is mostly used in the USA and in many books. In Europe people usualy use different symbols, like $(\phi,\theta)$, $(\vartheta,\varphi)$ and others.
+Note: this meaning of $(\theta,\phi)$ is mostly used in the USA and in many
+books. In Europe people usually use different symbols, like $(\phi,\theta)$, $(\vartheta,\varphi)$ and others.
 
 .. index:: delta function
 

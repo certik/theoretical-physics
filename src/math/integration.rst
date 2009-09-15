@@ -251,7 +251,7 @@ we get:
 Orthogonal Coordinates
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If the coordinate vectors are orghogonal to each other:
+If the coordinate vectors are orthogonal to each other:
 
 .. math::
 

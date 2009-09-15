@@ -155,7 +155,7 @@ where we have defined
 
     \nabla_\beta p_\alpha = {\partial p_\alpha \over\partial     x^\beta}-\Gamma^\mu_{\alpha\beta}p_\mu
 
-Whis is obviously a tensor, because the above equation has a tensor on the left
+This is obviously a tensor, because the above equation has a tensor on the left
 hand side ($\nabla_\beta \phi$) and tensors on the right hand side
 ($p_\alpha\nabla_\beta V^\alpha$ and $V^\alpha$). Similarly for the derivative of
 the tensor $A^{\mu\nu}$ we use the fact that $V^\mu=A^{\mu\nu}p_\nu$ is a
