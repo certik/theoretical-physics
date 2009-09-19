@@ -22,6 +22,7 @@ Physics:
 
    src/mhd.rst
    src/qft.rst
+   src/qm-examples.rst
    src/differential-geometry/main.rst
 
 Indices and tables
