@@ -9,14 +9,15 @@ It is a 1D, two-body problem with an interacting Hamiltonian
 
 .. math::
 
-    H(x_1, x_2) = -\half{\d^2\over\d x_1^2} -\half{\d^2\over\d x_2^2}
+    H(x_1, x_2) = -\half{\partial^2\over\partial x_1^2}
+    -\half{\partial^2\over\partial x_2^2}
         +{1\over|x_1 - x_2|} + \half\omega^2 x_1^2 + \half\omega^2 x_2^2
 
 and it can be solved analytically. The Schrödinger equation is
 
 .. math::
 
-    \left(-\half{\d^2\over\d x_1^2} -\half{\d^2\over\d x_2^2}
+    \left(-\half{\partial^2\over\partial x_1^2} -\half{\partial^2\over\partial x_2^2}
         +{1\over|x_1 - x_2|} + \half\omega^2 x_1^2 + \half\omega^2 x_2^2
     \right)\Psi(x_1, x_2) = E \Psi(x_1, x_2)
 
@@ -32,8 +33,8 @@ then
 
 .. math::
 
-    {\d^2\over\d x_1^2} + {\d^2\over\d x_2^2}=
-    {\d^2\over\d u^2} + {\d^2\over\d v^2}
+    {\partial^2\over\partial x_1^2} + {\partial^2\over\partial x_2^2}=
+    {\partial^2\over\partial u^2} + {\partial^2\over\partial v^2}
 
     |x_1 - x_2| = \sqrt2|u|
 
@@ -43,7 +44,7 @@ and
 
 .. math::
 
-    \left(-\half{\d^2\over\d u^2} -\half{\d^2\over\d v^2}
+    \left(-\half{\partial^2\over\partial u^2} -\half{\partial^2\over\partial v^2}
         +{1\over\sqrt2 |u|} + \half\omega^2 u^2 + \half\omega^2 v^2
     \right)\Psi(u, v) = E \Psi(u, v)
 
