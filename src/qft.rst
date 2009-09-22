@@ -2527,7 +2527,115 @@ The Born approximation is just the first term:
     =4\pi\int_0^\infty rV(r)\sin(qr)\,\d r
 
 
+Systematic Perturbation Theory in QM
+====================================
 
+We have
+
+.. math::
+
+    H = H_0 + e^{-\epsilon |t|} H_1
+
+where the ground state of the noninteracting Hamiltonian $H_0$ is:
+
+.. math::
+
+    H_0\ket{0} = E_0\ket{0}
+
+and the ground state of the interacting Hamiltonian $H$ is:
+
+.. math::
+
+    H\ket{\Omega} = E\ket{\Omega}
+
+Then:
+
+.. math::
+
+    H\ket{\Omega} = (H_0 + H_1)\ket{\Omega} = E\ket{\Omega}
+
+    \braket{0|H_0 + H_1|\Omega} = E\braket{0 | \Omega}
+
+    E_0\braket{0|\Omega} + \braket{0|H_1|\Omega} = E\braket{0 | \Omega}
+
+    E = E_0 + {\braket{0|H_1|\Omega}\over\braket{0 | \Omega}}
+
+We can also write
+
+.. math::
+
+    \ket{\Omega} = \lim_{\epsilon\to0+} U_\epsilon(0, -\infty)\ket{0}
+
+where
+
+.. math::
+
+    U_\epsilon(t, t_0) = T \exp\left(-{i\over\hbar}\int_{t_0}^t \d t'
+        e^{-\epsilon|t'|} H_1(t')\right)
+
+Let's write several common expressions for the ground state energy:
+
+.. math::
+
+    \Delta E = E - E_0 = {\braket{0|H_1|\Omega}\over\braket{0 | \Omega}}
+    = {\braket{0|H_1 U(0, -\infty)|0}\over\braket{0 |U(0, -\infty)|0}}
+    =
+
+    = \lim_{t\to0} {\braket{0|H_1 U(t, -\infty)|0}\over
+        \braket{0 |U(t, -\infty)|0}}
+    = \lim_{t\to0} {\braket{0|i\partial_t U(t, -\infty)|0}\over
+        \braket{0 |U(t, -\infty)|0}}
+    = \lim_{t\to0} {i\partial_t\braket{0| U(t, -\infty)|0}\over
+        \braket{0 |U(t, -\infty)|0}}
+    =
+
+    = \lim_{t\to0} i\partial_t\log\braket{0| U(t, -\infty)|0}
+    \equiv \lim_{t\to\infty(1-i\epsilon)} i{\d\over\d t}\log
+        \braket{0| U(t, -\infty)|0}
+
+The last expression incorporates the $\epsilon$ dependence of $U_\epsilon$
+explicitly. The vacuum amplitude is sometimes denoted by $R(t)$:
+
+.. math::
+
+    R(t) = \braket{0| U(t, -\infty)|0}
+
+The two point (interacting) Green (or correlation) function is:
+
+.. math::
+
+    G(x, y) = \braket{\Omega|T\phi(x)\phi(y)|\Omega} =
+        {\braket{0|T\phi(x)\phi(y)U(\infty, -\infty)|0}\over
+            \braket{0|U(\infty, -\infty)|0}}
+
+The $\epsilon\to0$ limit of $U_\epsilon$ is tacitly assumed to make this
+formula well defined (sometimes the other way $t\to\infty(1-i\epsilon)$ of writing the same limit is used). Another way of writing the formula above for the Green
+function in QM is:
+
+.. math::
+
+    G({\bf k}_1, {\bf k}_2, t_2-t_1) = i
+        \braket{\Omega|T c_{{\bf k}_2}(t_2)c_{{\bf k}_1}^\dag(t_1)|\Omega} =
+        i {\braket{0|T c_{{\bf k}_2}(t_2)c_{{\bf k}_1}^\dag(t_1)
+            U(\infty, -\infty)|0}\over
+            \braket{0|U(\infty, -\infty)|0}}
+
+Last type of similar expressions to consider is the scattering amplitude:
+
+.. math::
+
+    \braket{f|U(\infty, -\infty)|i}
+
+where the initial state is let's say a boson+fermion and the final state a
+boson+antifermion:
+
+.. math::
+
+    \ket{i} = a_{\bf k}^\dag b_{\bf l}^{s\dag} \ket{0}
+    \ket{f} = a_{\bf p}^\dag a_{\bf q}^{r\dag} \ket{0}
+
+This is just an example, the $\ket{i}$ and $\ket{f}$ states can contain any
+number of (arbitrary) particles.
 
 Appendix
 ========
