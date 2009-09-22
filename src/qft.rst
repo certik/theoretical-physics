@@ -2632,6 +2632,7 @@ boson+antifermion:
 .. math::
 
     \ket{i} = a_{\bf k}^\dag b_{\bf l}^{s\dag} \ket{0}
+
     \ket{f} = a_{\bf p}^\dag a_{\bf q}^{r\dag} \ket{0}
 
 This is just an example, the $\ket{i}$ and $\ket{f}$ states can contain any
