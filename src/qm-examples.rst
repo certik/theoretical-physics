@@ -38,7 +38,7 @@ then
 
     |x_1 - x_2| = \sqrt2|u|
 
-    x_1 + x_2 = u^2 + v^2
+    x_1^2 + x_2^2 = u^2 + v^2
 
 and
 
@@ -48,7 +48,9 @@ and
         +{1\over\sqrt2 |u|} + \half\omega^2 u^2 + \half\omega^2 v^2
     \right)\Psi(u, v) = E \Psi(u, v)
 
-so we can separate the equation:
+Note also the symmetry of the Hamiltonian $H(x_1, x_2) = H(x_2, x_1)$ which
+after substitution is equivalent to $H(u, v) = H(-u, v)$.
+Now we can separate the equation:
 
 .. math::
 
