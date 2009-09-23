@@ -657,7 +657,7 @@ where
 
 .. math::
 
-    G(x_1, \cdots, x_n)= \braket{0|T\{\phi(x_1)\cdots\phi(x_n)\}|0} =
+    G(x_1, \cdots, x_n)= \braket{\Omega|T\{\phi(x_1)\cdots\phi(x_n)\}|\Omega} =
 
 
 
