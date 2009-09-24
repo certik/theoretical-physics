@@ -757,9 +757,17 @@ that they can be replaced by:
     d^s_{\bf k}\,{}_\text{out} \to
         -i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)v^s({\bf k})e^{-ikx}
 
+    a^{r\dag}_{\bf k}\,{}_\text{in} \to
+        i\epsilon_\mu^{r*}({\bf k})
+            \int\d^4 x e^{ikx}\left(-\partial^2\right) A^\mu(x)
+
+    a^r_{\bf k}\,{}_\text{out} \to
+        i\epsilon_\mu^r({\bf k})
+            \int\d^4 x e^{-ikx}\left(-\partial^2\right) A^\mu(x)
+
 where the "in" is the operator for $t\to -\infty$ and "out" for $t\to\infty$.
-The fields $\phi(x)$, $\psi(x)$ and $\bar\psi(x)$ have to be time ordered. For
-our example we get:
+The fields $\phi(x)$, $\psi(x)$, $\bar\psi(x)$ and $A^\mu(x)$ have to be time
+ordered. For our example we get:
 
 .. math::
 
