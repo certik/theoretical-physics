@@ -716,6 +716,35 @@ The equal-time commutation relations for $A_\mu$ are then:
     \left[A_\mu({\bf x}), A_\nu^\dag({\bf y})\right] =
         \delta^{(3)}({\bf x} - {\bf y}) \delta_{\mu\nu}
 
+Calculating Scattering Amplitudes using Green Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We are interested in calculating the following scattering amplitudes:
+
+.. math::
+
+    \braket{f|i}
+
+where the initial $\ket{i}$ and final $\ket{f}$ states are created by creation
+operators of the fields from the previous section. For example
+
+.. math::
+
+    \ket{i} = b_1^\dag b_2^\dag\ket{0}
+
+    \ket{f} = b_{1'}^\dag b_{2'}^\dag\ket{0}
+
+Depending on the particular creation and anihilation operators, it can be shown
+that they can be substituted by:
+
+.. math::
+
+    a^\dag({\bf k})_\text{in} \to
+        i\int\d^4 x e^{ikx}\left(-\partial^2+m^2\right)\phi(x)
+
+    a({\bf k})_\text{out} \to
+        i\int\d^4 x e^{-ikx}\left(-\partial^2+m^2\right)\phi(x)
+
 
 .. index:: fermions, vector bosons
 
