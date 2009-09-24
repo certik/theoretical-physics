@@ -918,61 +918,6 @@ where we used the following relations:
 
     \braket{\Omega|\Omega}=1
 
-.. index:: fermions, vector bosons
-
-Propagators for Scalar Bosons, Fermions and Vector Bosons
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The only nonzero contractions that can occur are the propagators below. All
-other contractions are zero.
-
-Propagator for a scalar boson is:
-
-.. math::
-
-    \braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}
-
-
-with
-
-.. math::
-
-    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
-
-For fermions (Feynman propagator):
-
-.. math::
-
-    \braket{0|T\{\psi_I(x)\bar\psi_I(y)\}|0}\equiv S(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde S(p) e^{-ip(x-y)}
-
-
-with
-
-.. math::
-
-    \tilde S(p) = {i\over \fslash{p} - m +i\epsilon}= {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
-
-
-For vector bosons:
-
-.. math::
-
-    \braket{0|T\{A_\mu(x)A_\nu(y)\}|0}\equiv D_{\mu\nu}(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D_{\mu\nu}(p) e^{-ip(x-y)}
-
-
-with
-
-.. math::
-
-    \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}+{p_\mu p_\nu\over m^2}\over p^2-m^2+i\epsilon}
-
-
-For massless bosons:
-
-.. math::
-
-    \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}
-
 
 .. index::
     single: S-matrix
@@ -1190,6 +1135,63 @@ One always gets the delta function in the result, so we define the matrix elemen
 .. math::
 
     S_{fi} = (2\pi)^4\delta^{(4)}(p_1+p_2+\cdots - k_1 - k_2 - \cdots) i \M_{fi}
+
+
+.. index:: fermions, vector bosons
+
+Propagators for Scalar Bosons, Fermions and Vector Bosons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The only nonzero contractions that can occur are the propagators below. All
+other contractions are zero.
+
+Propagator for a scalar boson is:
+
+.. math::
+
+    \braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}
+
+
+with
+
+.. math::
+
+    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
+
+For fermions (Feynman propagator):
+
+.. math::
+
+    \braket{0|T\{\psi_I(x)\bar\psi_I(y)\}|0}\equiv S(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde S(p) e^{-ip(x-y)}
+
+
+with
+
+.. math::
+
+    \tilde S(p) = {i\over \fslash{p} - m +i\epsilon}= {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
+
+
+For vector bosons:
+
+.. math::
+
+    \braket{0|T\{A_\mu(x)A_\nu(y)\}|0}\equiv D_{\mu\nu}(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D_{\mu\nu}(p) e^{-ip(x-y)}
+
+
+with
+
+.. math::
+
+    \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}+{p_\mu p_\nu\over m^2}\over p^2-m^2+i\epsilon}
+
+
+For massless bosons:
+
+.. math::
+
+    \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}
+
 
 
 .. index:: Wick Theorem
