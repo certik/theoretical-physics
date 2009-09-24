@@ -730,23 +730,123 @@ operators of the fields from the previous section. For example
 
 .. math::
 
-    \ket{i} = b_1^\dag b_2^\dag\ket{0}
+    \ket{i} = b_1^\dag b_2^\dag\ket{\Omega}
 
-    \ket{f} = b_{1'}^\dag b_{2'}^\dag\ket{0}
+    \ket{f} = b_{1'}^\dag b_{2'}^\dag\ket{\Omega}
 
 Depending on the particular creation and anihilation operators, it can be shown
-that they can be substituted by:
+that they can be replaced by:
 
 .. math::
 
-    a^\dag({\bf k})_\text{in} \to
+    a^\dag_{\bf k}\,{}_\text{in} \to
         i\int\d^4 x e^{ikx}\left(-\partial^2+m^2\right)\phi(x)
 
-    a({\bf k})_\text{out} \to
+    a_{\bf k}\,{}_\text{out} \to
         i\int\d^4 x e^{-ikx}\left(-\partial^2+m^2\right)\phi(x)
 
-    b_s({\bf k})_\text{out} \to
-        i\int\d^4 x e^{-ikx}\bar u_S({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
+    b^{s\dag}_{\bf k}\,{}_\text{in} \to
+        i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)u^s({\bf k})e^{ikx}
+
+    b^s_{\bf k}\,{}_\text{out} \to
+        i\int\d^4 x e^{-ikx}\bar u^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
+
+    d^{s\dag}_{\bf k}\,{}_\text{in} \to
+        -i\int\d^4 x e^{ikx}\bar v^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
+
+    d^s_{\bf k}\,{}_\text{out} \to
+        -i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)v^s({\bf k})e^{-ikx}
+
+where the "in" is the operator for $t\to -\infty$ and "out" for $t\to\infty$.
+The fields $\phi(x)$, $\psi(x)$ and $\bar\psi(x)$ have to be time ordered. For
+our example we get:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        b_{{\bf p}_{2'}}
+        b_{{\bf p}_{1'}}
+        b_{{\bf p}_{1}}^\dag
+        b_{{\bf p}_{2}}^\dag
+        |\Omega}
+    = \braket{\Omega|T\,
+        b_{{\bf p}_{2'}}
+        b_{{\bf p}_{1'}}
+        b_{{\bf p}_{1}}^\dag
+        b_{{\bf p}_{2}}^\dag
+        |\Omega}=
+
+    = i^4 \int \d^4 x_1\d^4 x_2\d^4 x_{1'}\d^4 x_{2'}
+
+    e^{-ip_{1'}x_{1'}}\left[\bar u^{s_{1'}}({\bf k}_{1'})
+        \left(-i\fslash\partial_{1'} +m\right)\right]_{\alpha_{1'}}
+
+    e^{-ip_{2'}x_{2'}}\left[\bar u^{s_{2'}}({\bf k}_{2'})
+        \left(-i\fslash\partial_{2'} +m\right)\right]_{\alpha_{2'}}
+
+    \braket{\Omega|T\,
+        \psi_{\alpha_{2'}}(x_{2'})
+        \psi_{\alpha_{1'}}(x_{1'})
+        \bar\psi_{\alpha_1}(x_1)
+        \bar\psi_{\alpha_2}(x_2)
+        |\Omega}
+
+    \left[\left(i\overleftarrow{\fslash\partial_1}+m\right)
+        u^s({\bf p}_1)\right]_{\alpha_1} \,e^{ip_1x_1}
+
+    \left[\left(i\overleftarrow{\fslash\partial_2}+m\right)
+        u^s({\bf p}_2)\right]_{\alpha_2} \,e^{ip_2x_2}
+
+where the $\alpha_1$, $\alpha_2$, $\alpha_{1'}$ and $\alpha_{2'}$ spinor
+indices were introduced to show how the matrices should be multiplied.
+The vacuum amplitude is called a 4 point interacting Green function in position
+space:
+
+.. math::
+
+    G^{(4)}_{\alpha_{1'} \alpha_{2'} \alpha_1 \alpha_2}
+        (x_{1'}, x_{2'}, x_1, x_2) =
+    \braket{\Omega|T\,
+        \psi_{\alpha_{2'}}(x_{2'})
+        \psi_{\alpha_{1'}}(x_{1'})
+        \bar\psi_{\alpha_1}(x_1)
+        \bar\psi_{\alpha_2}(x_2)
+        |\Omega}
+
+we can also take a Fourier transform to get the Green function in momentum
+space:
+
+.. math::
+
+    \tilde G^{(n)}(p_1,\dots, p_n) =
+    \int\prod_{i=1}^n \d^4 x_i e^{-i p_i x_i}\,
+    G^{(n)}(x_1, \dots, x_n)
+
+then the scattering amplitude becomes (resuming the previous calculation):
+
+.. math::
+
+    \braket{f|i} = \cdots =
+        i^4
+
+    \left[\bar u^{s_{1'}}({\bf k}_{1'})
+        \left(-i\fslash p_{1'} +m\right)\right]_{\alpha_{1'}}
+
+    \left[\bar u^{s_{2'}}({\bf k}_{2'})
+        \left(-i\fslash p_{2'} +m\right)\right]_{\alpha_{2'}}
+
+    \tilde G^{(4)}_{\alpha_{1'} \alpha_{2'} \alpha_1 \alpha_2}
+        (p_{1'}, p_{2'}, -p_1, -p_2)
+
+    \left[\left(i{\fslash p_1}+m\right)
+        u^s({\bf p}_1)\right]_{\alpha_1}
+
+    \left[\left(i{\fslash p_2}+m\right)
+        u^s({\bf p}_2)\right]_{\alpha_2}
+
+This is called Lehmann-Symanzik-Zimmermann (LSZ) reduction formula.  One
+obtains similar expressions for other fields as well (if there were different
+creation operators been in the initial and final states).
 
 .. index:: fermions, vector bosons
 
