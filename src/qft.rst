@@ -945,14 +945,15 @@ The evolution operator $U$ is defined by the equations:
     U(t_1, t_1) = 1
 
 
-We are interested in calculating the S matrix elements: 
+We are interested in calculating the S matrix elements:
 
 .. math::
 
-    \braket{f|U(-\infty,\infty)|i}=\braket{f|S|i}=S_{fi}
+    \braket{f|U(\infty, -\infty)|i}=\braket{f|S|i}=S_{fi}
 
 
-so we first calculate $U(-\infty,\infty)$. Integrating the equation for the evolution operator: 
+so we first calculate $U(\infty, -\infty)$. Integrating the equation for the
+evolution operator:
 
 .. math::
 
@@ -963,7 +964,7 @@ Now:
 
 .. math::
 
-    S=U(-\infty,\infty) =1-{i\over\hbar} \int_{-\infty}^{\infty} H(t')U(t', -\infty)\d t'=
+    S=U(\infty, -\infty) =1-{i\over\hbar} \int_{-\infty}^{\infty} H(t')U(t', -\infty)\d t'=
 
 
 
@@ -988,7 +989,7 @@ If $\L$ doesn't contain derivatives of the fields, then $\H = -\L$ so:
 
 .. math::
 
-    U(-\infty,\infty) = T\exp\left({i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \L(x) \right)
+    U(\infty, -\infty) = T\exp\left({i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \L(x) \right)
 
 
 
