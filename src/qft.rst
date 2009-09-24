@@ -633,28 +633,28 @@ Fermions:
 
     \psi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
         \sum_{s=1}^2
-        \left(b_{\bf p}^s u^s(p) e^{-ip\cdot x}
-        + d_{\bf p}^{s\dag} v^s(p) e^{ip\cdot x}\right)
+        \left(b_{\bf p}^s u^s({\bf p}) e^{-ip\cdot x}
+        + d_{\bf p}^{s\dag} v^s({\bf p}) e^{ip\cdot x}\right)
 
     \bar\psi_I(x) = \psi_I^\dag(x)\gamma^0 =
     \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
         \sum_{s=1}^2
-        \left(d_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
-        + b_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)
+        \left(d_{\bf p}^s \bar v^s({\bf p}) e^{-ip\cdot x}
+        + b_{\bf p}^{s\dag} \bar u^s({\bf p}) e^{ip\cdot x}\right)
 
 where
 
 .. math::
 
-    u^s(p) = \mat{\sqrt{p\cdot\sigma}\xi^s\cr
-        \sqrt{p\cdot\bar\sigma}\xi^s\cr}
+    u^s({\bf p}) = \mat{\sqrt{{\bf p}\cdot\sigma}\xi^s\cr
+        \sqrt{{\bf p}\cdot\bar\sigma}\xi^s\cr}
 
-    v^s(p) = \mat{\sqrt{p\cdot\sigma}\eta^s\cr
-        -\sqrt{p\cdot\bar\sigma}\eta^s\cr}
+    v^s({\bf p}) = \mat{\sqrt{{\bf p}\cdot\sigma}\eta^s\cr
+        -\sqrt{{\bf p}\cdot\bar\sigma}\eta^s\cr}
 
-    \sum_{s=1}^2 u^s(p)\bar u^s(p) = \slashed{p} + m
+    \sum_{s=1}^2 u^s({\bf p})\bar u^s({\bf p}) = \slashed{p} + m
 
-    \sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
+    \sum_{s=1}^2 v^s({\bf p})\bar v^s({\bf p}) = \slashed{p} - m
 
     \left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
     \left\{d_{\bf p}^r, d_{\bf q}^{s\dag}\right\} =
@@ -745,6 +745,8 @@ that they can be substituted by:
     a({\bf k})_\text{out} \to
         i\int\d^4 x e^{-ikx}\left(-\partial^2+m^2\right)\phi(x)
 
+    b_s({\bf k})_\text{out} \to
+        i\int\d^4 x e^{-ikx}\bar u_S({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
 
 .. index:: fermions, vector bosons
 
