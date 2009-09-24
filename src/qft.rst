@@ -567,6 +567,212 @@ Quarks
 QFT
 ---
 
+
+
+Field Operators
+~~~~~~~~~~~~~~~
+
+The free (non-interacting) fields in the interaction picture are expressed
+using the creation and anihilation operators below, also the corresponding
+non-interacting Hamiltonian is shown.
+
+The general idea behind the machinery is that the field operator
+$\hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k$ is constructed as a sum (or
+an integral, depending on if the index $k$ is discrete or continuous) of
+single-particle wave functions (i.e. solutions of the noninteracting equation
+of motion) multiplied by the creation/anihilation operators ($c_k$ or
+$c_k^\dag$) that create/destroy
+the particle in the given single-particle state. Note that the noninteracting
+equation of motion usually means that we set all potentials (interactions) as
+zero, but in principle it can be any equation that we can solve exactly.
+
+The coefficients $\psi_k({\bf x})$ don't depend on time (so neither the field
+operators in the Schrödinger picture), but we work in the interaction picture,
+where the creation/anihilation operators depend on time, and the time
+dependence is put into the exponentials below (but the integration is still
+done over the spatial components of $p$ only).
+
+Scalar bosons:
+
+.. math::
+
+    \phi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \left(a_{\bf p} e^{-ip\cdot x} + a_{\bf p}^\dag e^{ip\cdot x}\right)
+
+    \pi_I(x) = {\partial_t}\phi_I(x)
+        = \int {\d^3 p\over (2\pi)^3}(-i) {\sqrt{E_{\bf p}\over2}}
+        \left(a_{\bf p} e^{-ip\cdot x} - a_{\bf p}^\dag e^{ip\cdot x}\right)
+
+where:
+
+.. math::
+
+    \left[a_{\bf p}, a_{\bf q}^{\dag}\right] =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q})
+
+(all other commutators are equal to zero).
+The equal-time commutation relations for $\phi$ and $\pi$ are then:
+
+.. math::
+
+    \left[\phi({\bf x}), \pi({\bf y})\right] =
+        i\delta^{(3)}({\bf x} - {\bf y})
+
+(all other commutators are equal to zero).
+
+The Hamiltonian is
+
+.. math::
+
+    H = \int{\d^3p\over(2\pi)^3} E_{\bf p}
+        a_{\bf p}^\dag a_{\bf p}
+
+Fermions:
+
+.. math::
+
+    \psi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \sum_{s=1}^2
+        \left(b_{\bf p}^s u^s(p) e^{-ip\cdot x}
+        + d_{\bf p}^{s\dag} v^s(p) e^{ip\cdot x}\right)
+
+    \bar\psi_I(x) = \psi_I^\dag(x)\gamma^0 =
+    \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \sum_{s=1}^2
+        \left(d_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
+        + b_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)
+
+where
+
+.. math::
+
+    u^s(p) = \mat{\sqrt{p\cdot\sigma}\xi^s\cr
+        \sqrt{p\cdot\bar\sigma}\xi^s\cr}
+
+    v^s(p) = \mat{\sqrt{p\cdot\sigma}\eta^s\cr
+        -\sqrt{p\cdot\bar\sigma}\eta^s\cr}
+
+    \sum_{s=1}^2 u^s(p)\bar u^s(p) = \slashed{p} + m
+
+    \sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
+
+    \left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
+    \left\{d_{\bf p}^r, d_{\bf q}^{s\dag}\right\} =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
+
+(all other anticommutators are equal to zero).
+The equal-time anticommutation relations for $\psi$ and $\psi^\dag$ are then:
+
+.. math::
+
+    \left\{\psi_a({\bf x}), \psi_b^\dag({\bf y})\right\} =
+        \delta^{(3)}({\bf x} - {\bf y}) \delta_{ab}
+
+    \left\{\psi_a({\bf x}), \psi_b({\bf y})\right\} =
+    \left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
+    0
+
+The Hamiltonian is
+
+.. math::
+
+    H = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2 E_{\bf p}
+        \left(b_{\bf p}^{s\dag}b_{\bf p}^{s}
+        +d_{\bf p}^{s\dag}d_{\bf p}^{s}\right)
+
+and the total charge:
+
+.. math::
+
+    Q = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2
+        \left(b_{\bf p}^{s\dag}b_{\bf p}^{s}
+        -d_{\bf p}^{s\dag}d_{\bf p}^{s}\right)
+
+So the $b$-type particles and $d$-type particles are identical except the
+charge. In QED, we identify the $b$-type particles as electrons and the
+$d$-type particles as positrons.
+
+
+Vector bosons:
+
+.. math::
+
+    A_\mu(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
+        \sum_{r=0}^3
+        \left(a_{\bf p}^r\epsilon_\mu^r e^{-ip\cdot x}
+        + a_{\bf p}^{r\dag}\epsilon_\mu^{r*} e^{ip\cdot x}\right)
+
+where
+
+.. math::
+
+    \left[a_{\bf p}^r, a_{\bf q}^{s\dag}\right] =
+        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
+
+The equal-time commutation relations for $A_\mu$ are then:
+
+.. math::
+
+    \left[A_\mu({\bf x}), A_\nu^\dag({\bf y})\right] =
+        \delta^{(3)}({\bf x} - {\bf y}) \delta_{\mu\nu}
+
+
+.. index:: fermions, vector bosons
+
+Propagators for Scalar Bosons, Fermions and Vector Bosons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The only nonzero contractions that can occur are the propagators below. All
+other contractions are zero.
+
+Propagator for a scalar boson is:
+
+.. math::
+
+    \braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}
+
+
+with
+
+.. math::
+
+    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
+
+For fermions (Feynman propagator):
+
+.. math::
+
+    \braket{0|T\{\psi_I(x)\bar\psi_I(y)\}|0}\equiv S(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde S(p) e^{-ip(x-y)}
+
+
+with
+
+.. math::
+
+    \tilde S(p) = {i\over \fslash{p} - m +i\epsilon}= {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
+
+
+For vector bosons:
+
+.. math::
+
+    \braket{0|T\{A_\mu(x)A_\nu(y)\}|0}\equiv D_{\mu\nu}(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D_{\mu\nu}(p) e^{-ip(x-y)}
+
+
+with
+
+.. math::
+
+    \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}+{p_\mu p_\nu\over m^2}\over p^2-m^2+i\epsilon}
+
+
+For massless bosons:
+
+.. math::
+
+    \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}
+
+
 .. index::
     single: S-matrix
     pair: evolution; operator
@@ -885,208 +1091,6 @@ A few lowest possibilities:
 
 
 For the last two equations, not all possibilities of the connected graphs are listed (and also the combinatorial factor is omitted).
-
-.. index:: fermions, vector bosons
-
-Propagators for Scalar Bosons, Fermions and Vector Bosons
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The only nonzero contractions that can occur are the propagators below. All
-other contractions are zero.
-
-Propagator for a scalar boson is:
-
-.. math::
-
-    \braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}
-
-
-with
-
-.. math::
-
-    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
-
-For fermions (Feynman propagator):
-
-.. math::
-
-    \braket{0|T\{\psi_I(x)\bar\psi_I(y)\}|0}\equiv S(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde S(p) e^{-ip(x-y)}
-
-
-with
-
-.. math::
-
-    \tilde S(p) = {i\over \fslash{p} - m +i\epsilon}= {i(\fslash{p}+m)\over p^2-m^2+i\epsilon}
-
-
-For vector bosons:
-
-.. math::
-
-    \braket{0|T\{A_\mu(x)A_\nu(y)\}|0}\equiv D_{\mu\nu}(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D_{\mu\nu}(p) e^{-ip(x-y)}
-
-
-with
-
-.. math::
-
-    \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}+{p_\mu p_\nu\over m^2}\over p^2-m^2+i\epsilon}
-
-
-For massless bosons:
-
-.. math::
-
-    \tilde D_{\mu\nu}(p) = i{-g_{\mu\nu}\over p^2+i\epsilon}
-
-Field Operators
-~~~~~~~~~~~~~~~
-
-The free (non-interacting) fields in the interaction picture are expressed
-using the creation and anihilation operators below, also the corresponding
-non-interacting Hamiltonian is shown.
-
-The general idea behind the machinery is that the field operator
-$\hat\psi({\bf x}) = \sum_k \psi_k({\bf x}) c_k$ is constructed as a sum (or
-an integral, depending on if the index $k$ is discrete or continuous) of
-single-particle wave functions (i.e. solutions of the noninteracting equation
-of motion) multiplied by the creation/anihilation operators ($c_k$ or
-$c_k^\dag$) that create/destroy
-the particle in the given single-particle state. Note that the noninteracting
-equation of motion usually means that we set all potentials (interactions) as
-zero, but in principle it can be any equation that we can solve exactly.
-
-The coefficients $\psi_k({\bf x})$ don't depend on time (so neither the field
-operators in the Schrödinger picture), but we work in the interaction picture,
-where the creation/anihilation operators depend on time, and the time
-dependence is put into the exponentials below (but the integration is still
-done over the spatial components of $p$ only).
-
-Scalar bosons:
-
-.. math::
-
-    \phi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
-        \left(a_{\bf p} e^{-ip\cdot x} + a_{\bf p}^\dag e^{ip\cdot x}\right)
-
-    \pi_I(x) = {\partial_t}\phi_I(x)
-        = \int {\d^3 p\over (2\pi)^3}(-i) {\sqrt{E_{\bf p}\over2}}
-        \left(a_{\bf p} e^{-ip\cdot x} - a_{\bf p}^\dag e^{ip\cdot x}\right)
-
-where:
-
-.. math::
-
-    \left[a_{\bf p}, a_{\bf q}^{\dag}\right] =
-        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q})
-
-(all other commutators are equal to zero).
-The equal-time commutation relations for $\phi$ and $\pi$ are then:
-
-.. math::
-
-    \left[\phi({\bf x}), \pi({\bf y})\right] =
-        i\delta^{(3)}({\bf x} - {\bf y})
-
-(all other commutators are equal to zero).
-
-The Hamiltonian is
-
-.. math::
-
-    H = \int{\d^3p\over(2\pi)^3} E_{\bf p}
-        a_{\bf p}^\dag a_{\bf p}
-
-Fermions:
-
-.. math::
-
-    \psi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
-        \sum_{s=1}^2
-        \left(b_{\bf p}^s u^s(p) e^{-ip\cdot x}
-        + d_{\bf p}^{s\dag} v^s(p) e^{ip\cdot x}\right)
-
-    \bar\psi_I(x) = \psi_I^\dag(x)\gamma^0 =
-    \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
-        \sum_{s=1}^2
-        \left(d_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
-        + b_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)
-
-where
-
-.. math::
-
-    u^s(p) = \mat{\sqrt{p\cdot\sigma}\xi^s\cr
-        \sqrt{p\cdot\bar\sigma}\xi^s\cr}
-
-    v^s(p) = \mat{\sqrt{p\cdot\sigma}\eta^s\cr
-        -\sqrt{p\cdot\bar\sigma}\eta^s\cr}
-
-    \sum_{s=1}^2 u^s(p)\bar u^s(p) = \slashed{p} + m
-
-    \sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
-
-    \left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
-    \left\{d_{\bf p}^r, d_{\bf q}^{s\dag}\right\} =
-        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
-
-(all other anticommutators are equal to zero).
-The equal-time anticommutation relations for $\psi$ and $\psi^\dag$ are then:
-
-.. math::
-
-    \left\{\psi_a({\bf x}), \psi_b^\dag({\bf y})\right\} =
-        \delta^{(3)}({\bf x} - {\bf y}) \delta_{ab}
-
-    \left\{\psi_a({\bf x}), \psi_b({\bf y})\right\} =
-    \left\{\psi_a^\dag({\bf x}), \psi_b^\dag({\bf y})\right\} =
-    0
-
-The Hamiltonian is
-
-.. math::
-
-    H = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2 E_{\bf p}
-        \left(b_{\bf p}^{s\dag}b_{\bf p}^{s}
-        +d_{\bf p}^{s\dag}d_{\bf p}^{s}\right)
-
-and the total charge:
-
-.. math::
-
-    Q = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2
-        \left(b_{\bf p}^{s\dag}b_{\bf p}^{s}
-        -d_{\bf p}^{s\dag}d_{\bf p}^{s}\right)
-
-So the $b$-type particles and $d$-type particles are identical except the
-charge. In QED, we identify the $b$-type particles as electrons and the
-$d$-type particles as positrons.
-
-
-Vector bosons:
-
-.. math::
-
-    A_\mu(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
-        \sum_{r=0}^3
-        \left(a_{\bf p}^r\epsilon_\mu^r e^{-ip\cdot x}
-        + a_{\bf p}^{r\dag}\epsilon_\mu^{r*} e^{ip\cdot x}\right)
-
-where
-
-.. math::
-
-    \left[a_{\bf p}^r, a_{\bf q}^{s\dag}\right] =
-        (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
-
-The equal-time commutation relations for $A_\mu$ are then:
-
-.. math::
-
-    \left[A_\mu({\bf x}), A_\nu^\dag({\bf y})\right] =
-        \delta^{(3)}({\bf x} - {\bf y}) \delta_{\mu\nu}
 
 Nonrelativistic Field Operators
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
