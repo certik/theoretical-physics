@@ -846,7 +846,77 @@ then the scattering amplitude becomes (resuming the previous calculation):
 
 This is called Lehmann-Symanzik-Zimmermann (LSZ) reduction formula.  One
 obtains similar expressions for other fields as well (if there were different
-creation operators been in the initial and final states).
+creation operators been in the initial and final states). We now need to
+calculate the interacting Green functions.
+
+Evaluation of the Interacting Green Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The interacting Green functions can be evaluated using the formula:
+
+.. math::
+
+    G^{(n)}(x_1, \dots, x_n) =
+        \braket{\Omega|T\, \phi_H(x_1) \dots \phi_H(x_n) |\Omega}
+    =
+
+    ={\braket{0|T\, \phi_I(x_1) \dots \phi_I(x_n) S|0}\over
+    \braket{0|S|0}}
+
+where $S=U(\infty, -\infty)$, $\phi_H$ is a field in the Heisenberg picture
+($\phi({\bf x}, t)=e^{iHt}\phi({\bf x}, 0)e^{-iHt}$) and $\phi_I$ is a field in
+the interaction picture ($\phi({\bf x}, t)=e^{iH_0t}\phi({\bf x},
+0)e^{-iH_0t}$), where the Hamiltonian is $H=H_0 + H_1$ and the vacua (ground
+states) are $H_0\ket{0} = 0$ and $H\ket{\Omega} = 0$.
+
+This can be proven by evaluating the right hand side:
+
+.. math::
+
+    {\braket{0|T\, \phi_I(x_1) \dots \phi_I(x_n) S|0}\over
+    \braket{0|S|0}}
+    =
+    {\braket{0|T\, \phi_I(x_1) \dots \phi_I(x_n) U_I(\infty, -\infty)|0}\over
+    \braket{0|U_I(\infty, 0)U_I(0, -\infty)|0}}
+
+    =
+    {\braket{0|U_I(\infty, t_1) \phi_I(x_1) U_I(t_1, t_2) \dots
+        U_I(t_{n-1}, t_n)\phi_I(x_n) U_I(t_n, -\infty)|0}\over
+    \braket{0|U_I(\infty, 0)U_I(0, -\infty)|0}}
+
+    =
+    {\braket{0|U_I(\infty, 0) \phi_H(x_1) \dots \phi_H(x_n) U_I(0, -\infty)|0}\over
+    \braket{0|U_I(\infty, 0)U_I(0, -\infty)|0}}=
+
+    =
+    {\braket{0|\Omega}\braket{\Omega|T \phi_H(x_1) \dots \phi_H(x_n)
+        |\Omega}\braket{\Omega|0}\over
+    \braket{0|\Omega}\braket{\Omega|\Omega}\braket{\Omega|0}}=
+
+    =
+    {\braket{\Omega|T \phi_H(x_1) \dots \phi_H(x_n) |\Omega}\over
+    \braket{\Omega|\Omega}}=
+
+    =
+    \braket{\Omega|T \phi_H(x_1) \dots \phi_H(x_n) |\Omega}
+
+where we used the following relations:
+
+.. math::
+
+    U_I(t_{k-1}, t_k) \phi_I(x_k) U_I(t_k, t_{k+1})=
+    U_I(t_{k-1}, 0) U_I^\dag(t_k, 0) \phi_I(x_k) U_I(t_k, 0) U_I(0, t_{k+1})=
+    U_I(t_{k-1}, 0) \phi_H(x_k) U_I(0, t_{k+1})
+
+    U_I(0, -\infty)\ket{0}=
+    U_I(0, -\infty)\left[\ket{\Omega}\bra{\Omega}+\sum_{n\neq0}\ket{n}\bra{n}
+        \right]\ket{0} =
+    \ket{\Omega}\braket{\Omega|0}+\lim_{t\to-\infty}
+        \sum_{n\neq0}e^{i E_n t}\ket{n}\braket{n|0}
+    =
+    \ket{\Omega}\braket{\Omega|0}
+
+    \braket{\Omega|\Omega}=1
 
 .. index:: fermions, vector bosons
 
