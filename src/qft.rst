@@ -699,8 +699,8 @@ Vector bosons:
 
     A_\mu(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
         \sum_{r=0}^3
-        \left(a_{\bf p}^r\epsilon_\mu^r e^{-ip\cdot x}
-        + a_{\bf p}^{r\dag}\epsilon_\mu^{r*} e^{ip\cdot x}\right)
+        \left(a_{\bf p}^r\epsilon_\mu^r({\bf p}) e^{-ip\cdot x}
+        + a_{\bf p}^{r\dag}\epsilon_\mu^{r*}({\bf p}) e^{ip\cdot x}\right)
 
 where
 
