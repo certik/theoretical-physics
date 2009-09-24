@@ -863,7 +863,16 @@ The interacting Green functions can be evaluated using the formula:
     ={\braket{0|T\, \phi_I(x_1) \dots \phi_I(x_n) S|0}\over
     \braket{0|S|0}}
 
-where $S=U(\infty, -\infty)$, $\phi_H$ is a field in the Heisenberg picture
+where
+
+.. math::
+
+    S=U_I(\infty, -\infty) =
+    T\exp\left(-{i\over\hbar}\int_{-\infty}^{\infty}H_1(t)\d t \right) =
+    T\exp\left(-{i\over\hbar}\int\d^4 x \H_1(x) \right)
+
+
+$\phi_H$ is a field in the Heisenberg picture
 ($\phi({\bf x}, t)=e^{iHt}\phi({\bf x}, 0)e^{-iHt}$) and $\phi_I$ is a field in
 the interaction picture ($\phi({\bf x}, t)=e^{iH_0t}\phi({\bf x},
 0)e^{-iH_0t}$), where the Hamiltonian is $H=H_0 + H_1$ and the vacua (ground
