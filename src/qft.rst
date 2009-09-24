@@ -1005,14 +1005,14 @@ Fermions:
 
     \psi_I(x) = \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
         \sum_{s=1}^2
-        \left(a_{\bf p}^s u^s(p) e^{-ip\cdot x}
-        + b_{\bf p}^{s\dag} v^s(p) e^{ip\cdot x}\right)
+        \left(b_{\bf p}^s u^s(p) e^{-ip\cdot x}
+        + d_{\bf p}^{s\dag} v^s(p) e^{ip\cdot x}\right)
 
     \bar\psi_I(x) = \psi_I^\dag(x)\gamma^0 =
     \int {\d^3 p\over (2\pi)^3} {1\over\sqrt{2 E_{\bf p}}}
         \sum_{s=1}^2
-        \left(b_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
-        + a_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)
+        \left(d_{\bf p}^s \bar v^s(p) e^{-ip\cdot x}
+        + b_{\bf p}^{s\dag} \bar u^s(p) e^{ip\cdot x}\right)
 
 where
 
@@ -1028,8 +1028,8 @@ where
 
     \sum_{s=1}^2 v^s(p)\bar v^s(p) = \slashed{p} - m
 
-    \left\{a_{\bf p}^r, a_{\bf q}^{s\dag}\right\} =
     \left\{b_{\bf p}^r, b_{\bf q}^{s\dag}\right\} =
+    \left\{d_{\bf p}^r, d_{\bf q}^{s\dag}\right\} =
         (2\pi)^3\delta^{(3)}({\bf p} - {\bf q}) \delta^{rs}
 
 (all other anticommutators are equal to zero).
@@ -1049,8 +1049,20 @@ The Hamiltonian is
 .. math::
 
     H = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2 E_{\bf p}
-        \left(a_{\bf p}^{s\dag}a_{\bf p}^{s}
-        +b_{\bf p}^{s\dag}b_{\bf p}^{s}\right)
+        \left(b_{\bf p}^{s\dag}b_{\bf p}^{s}
+        +d_{\bf p}^{s\dag}d_{\bf p}^{s}\right)
+
+and the total charge:
+
+.. math::
+
+    Q = \int{\d^3p\over(2\pi)^3}\sum_{s=1}^2
+        \left(b_{\bf p}^{s\dag}b_{\bf p}^{s}
+        -d_{\bf p}^{s\dag}d_{\bf p}^{s}\right)
+
+So the $b$-type particles and $d$-type particles are identical except the
+charge. In QED, we identify the $b$-type particles as electrons and the
+$d$-type particles as positrons.
 
 
 Vector bosons:
