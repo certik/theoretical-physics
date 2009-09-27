@@ -760,10 +760,16 @@ that they can be replaced by:
     a^{r\dag}_{\bf k}\,{}_\text{in} \to
         i\epsilon_\mu^{r*}({\bf k})
             \int\d^4 x e^{ikx}\left(-\partial^2\right) A^\mu(x)
+        =
+        i\epsilon_\mu^{r*}({\bf k})k^2
+            \tilde A^\mu(-k)
 
     a^r_{\bf k}\,{}_\text{out} \to
         i\epsilon_\mu^r({\bf k})
             \int\d^4 x e^{-ikx}\left(-\partial^2\right) A^\mu(x)
+        =
+        i\epsilon_\mu^r({\bf k})k^2
+            \tilde A^\mu(k)
 
 where the "in" is the operator for $t\to -\infty$ and "out" for $t\to\infty$.
 The fields $\phi(x)$, $\psi(x)$, $\bar\psi(x)$ and $A^\mu(x)$ have to be time
