@@ -1868,54 +1868,101 @@ where we used the fact, that the only nonzero element of the Green function is
 eeee interaction
 ~~~~~~~~~~~~~~~~
 
-Let's calculate the $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$ interaction in the SM, where $\lambda=g\sin\theta_W$. Consider $e^-(p_1)+e^+(p_2)\to\gamma(q)\to e^-(k_1)+e^+(k_2)$: 
+Let's calculate the $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$
+interaction in the SM, where $\lambda=g\sin\theta_W$. Consider
+$e^-(p_1)+e^+(p_2)\to\gamma(q)\to e^-(k_1)+e^+(k_2)$:
 
 .. math::
 
-    \braket{f|S|i}= \braket{f|iT|i}= \braket{k_1 k_2|iT|p_1p_2}= {\bar u(k_1) v(k_2)\over\tilde S(k_1)\tilde S(k_2)} {\bar v(p_2) u(p_1)\over\tilde S(p_2)\tilde S(p_1)}
+    \braket{f|S|i}= \braket{f|iT|i}= \braket{k_1 k_2|iT|p_1p_2}=
+    \braket{\Omega|
+        b^r_{{\bf k}_1}
+        d^s_{{\bf k}_2}
+        b^{t\dag}_{{\bf p}_1}
+        d^{u\dag}_{{\bf p}_2}
+        |\Omega} =
+
+    =\braket{\Omega|T
+        b^r_{{\bf k}_1}
+        d^s_{{\bf k}_2}
+        b^{t\dag}_{{\bf p}_1}
+        d^{u\dag}_{{\bf p}_2}
+        |\Omega} =
+
+    =\braket{\Omega|T
+        \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\tilde \psi(k_1)\right]
+        \left[-\tilde{\bar\psi}(k_2){1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+        \left[\tilde{\bar\psi}(-p_1){1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+        \left[-\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\tilde \psi(-p_2)\right]
+        |\Omega} =
+
+    =
+    \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\right]
+    \left[\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\right]
+
+    \braket{\Omega|T
+        \tilde \psi(k_1)
+        \tilde{\bar\psi}(k_2)
+        \tilde{\bar\psi}(-p_1)
+        \tilde \psi(-p_2)
+        |\Omega}
+
+    \left[{1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+    \left[{1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+    =
+
+    =
+    \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\right]
+    \left[\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\right]
+
+    (-i\lambda)^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+        \tilde S(k_1)\gamma^\mu\tilde S(-k_2)
+        D_{\mu\nu}(k_1+k_2)
+        \tilde S(p_2)\gamma^\nu\tilde S(-p_1)
+        +\right.
+
+        \left. +
+        \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
+        D_{\mu\nu}(k_1-p_1)
+        \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
+
+    \left[{1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+    \left[{1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+    =
+
+    =
+    -\lambda^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+        \bar u^r({\bf k}_1)\gamma^\mu v^s({\bf k}_2)
+        {1\over (k_1+k_2)^2}
+        \bar v^u({\bf p}_2)\gamma_\mu u^t({\bf p}_1)
+        +\right.
+
+        \left. +
+        \bar u^r({\bf k}_1)\gamma^\mu u^t({\bf p}_1)
+        {1\over (k_1-p_1)^2}
+        \bar v^u({\bf p}_2)\gamma_\mu v^s({\bf k}_2)
+        \right]
 
 
+where we used the fact, that the interacting Green function is in the lowest
+nonzero order equal to:
 
 .. math::
 
-    \int\d^4 x_1\d^4 x_2 e^{-i (p_1x_1 + p_2x_2)} \int\d^4 y_1\d^4 y_2 e^{+i (k_1y_1 + k_2y_2)} \braket{0|T\{\bar e(y_1) e(y_2) \bar e(x_1) e(x_2)\}|0} =
+    \braket{\Omega|T\tilde\psi(k_1)\tilde{\bar\psi}(k_2)\tilde{\bar\psi}(-p_1)
+        \tilde\psi(-p_2) |\Omega}
+    =
 
+    =(-i\lambda)^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+        \tilde S(k_1)\gamma^\mu\tilde S(-k_2)
+        D_{\mu\nu}(k_1+k_2)
+        \tilde S(p_2)\gamma^\nu\tilde S(-p_1)
+        +\right.
 
-
-.. math::
-
-    = {\bar u(k_1) v(k_2)\over\tilde S(k_1)\tilde S(k_2)} {\bar v(p_2) u(p_1)\over\tilde S(p_2)\tilde S(p_1)}
-
-
-
-.. math::
-
-    \int\d^4 x_1\d^4 x_2 e^{-i (p_1x_1 + p_2x_2)} \int\d^4 y_1\d^4 y_2 e^{+i (k_1y_1 + k_2y_2)} \int\d^4 x \int\d^4 y
-
-
-
-.. math::
-
-    (-i\lambda)^2 S(x_1-x)\gamma^\mu S(x_2-x) D_{\mu\nu}(x-y)S(y_1-y)\gamma^\nu S(y_2-y) =
-
-
-
-.. math::
-
-    =(2\pi)^4\delta^{(4)}(p_1+p_2-k_1-k_2)\bar v(p_2)(-i\lambda)\gamma^\mu u(p_1)\tilde D_{\mu\nu}(q=p_1+p_2=k_1+k_2) \bar u(k_1)(-i\lambda)\gamma^\nu v(k_2)
-
-
-where we used the fact, that the only nonzero element of the Green function is 
-
-.. math::
-
-    \int\d^4 x \int\d^4 y \braket{0|T\{\bar e(y_1) e(y_2) \bar e(x_1) e(x_2) \bar e(x)\gamma^\mu e(x) A_\mu(x) \bar e(y)\gamma^\nu e(y) A_\nu(y) \}|0} =
-
-
-
-.. math::
-
-    =\pm S(x_1-x) \gamma^\mu S(x_2-x)D_{\mu\nu}(x-y)S(y_1-y)\gamma^\nu S(y_2-y)
+        \left. +
+        \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
+        D_{\mu\nu}(k_1-p_1)
+        \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
 
 
 .. index:: low energy theories
