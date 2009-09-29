@@ -1,4 +1,6 @@
-.. index:: compressible fluids,
+.. index::
+    triple: compressible; Euler; equations
+    single: fluid dynamics
 
 Compressible Euler Equations
 ============================
