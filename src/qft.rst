@@ -1759,8 +1759,8 @@ where $\lambda={g^2\over4\cos\theta_W}$. Consider $H(p)\to Z(k)+Z(l)$:
     = i\lambda (2\pi)^4 \delta(k+l-p)
         \epsilon^{r*}_\mu({\bf k})\epsilon^{s\mu*}({\bf l})
 
-where we used the fact, that the first order contribution to the interacting
-Green function is:
+where we used the fact, that the first order contribution of the $\lambda Z_\mu
+Z^\mu H$ interaction to the interacting Green function is:
 
 .. math::
 
@@ -1771,6 +1771,8 @@ Green function is:
 
 eeH interaction
 ~~~~~~~~~~~~~~~
+
+This is only approximate, it will be fixed soon.
 
 Let's calculate the $\L_{eeH}=-\lambda \bar ee H$ interaction in the SM, where $\lambda={h_e\over\sqrt2}$. Consider $H(p)\to e^-(k)+e^+(l)$: 
 
@@ -1814,6 +1816,8 @@ where we used the fact, that the only nonzero element of the Green function is
 
 ee gamma interaction
 ~~~~~~~~~~~~~~~~~~~~
+
+This is only approximate, it will be fixed soon.
 
 Let's calculate the $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$ interaction in the SM, where $\lambda=g\sin\theta_W$. Consider $\gamma(p)\to e^-(k)+e^+(l)$: 
 
