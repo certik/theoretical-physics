@@ -3102,6 +3102,19 @@ For $p^2$ we get:
     p^2 = p_\mu p^\mu = (p^0)^2 - {\bf p}^2 = (p_0)^2 - {\bf p}^2
     = {E^2\over c^2} - {\bf p}^2
 
+the following relations are also useful:
+
+.. math::
+
+    p^2 = p_\mu p^\mu = -\hbar^2\partial_\mu \partial^\mu \equiv
+    -\hbar^2\partial^2
+    = -\hbar^2\left(\partial_0\partial^0 + \partial_i\partial^i\right)
+    = -\hbar^2\left(\partial_0\partial_0 - \partial_i\partial_i\right)
+    =
+
+    = -\hbar^2\left({1\over c^2}{\partial^2\over\partial t^2} - \nabla^2\right)
+    = -{\hbar^2\over c^2}{\partial^2\over\partial t^2} + \hbar^2\nabla^2
+
 Now if the particle is not moving (${\bf p} = 0$), then it's energy $E=mc^2$,
 where $m$ is the rest mass, so $|p| = {E\over c}= mc$, from which:
 
