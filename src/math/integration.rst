@@ -269,3 +269,24 @@ we get:
     \cdots
     \left|{\partial\mathbf{\varphi}\over\partial t_k}\right|
     \d t_1\cdots\d t_k
+
+
+Motivation
+----------
+
+Let the $k$-dimensional parallelepiped P be spanned by the vectors
+
+.. math::
+
+    {\partial\mathbf{\varphi}\over t_1}, \dots,
+    {\partial\mathbf{\varphi}\over t_k}
+
+and let $\mathbf{J}$ is $n\times k$ matrix having these vectors as its column
+vectors. Then the area of P is
+
+.. math::
+
+    V = \sqrt{\det {\bf J}^T{\bf J}}
+
+so the definition of the integral over a manifold is just approximating the
+surface by infinitesimal parallelepipeds and integrating over them.

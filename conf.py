@@ -66,6 +66,8 @@ latex_preamble = r"""
 
 \def\res{\mathop{\mathrm{Res}}}
 
+\def\mathnot#1{\text{"$#1$"}}
+
 
 %See Character Table for cmmib10:
 %http://www.math.union.edu/~dpvc/jsmath/download/extra-fonts/cmmib10/cmmib10.html

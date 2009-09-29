@@ -20,7 +20,7 @@ Physics:
 .. toctree::
    :maxdepth: 2
 
-   src/mhd.rst
+   src/fluid-dynamics/main.rst
    src/qft.rst
    src/qm-examples.rst
    src/differential-geometry/main.rst
@@ -29,6 +29,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
-
