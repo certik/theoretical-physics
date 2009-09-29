@@ -21,6 +21,7 @@ Physics:
    :maxdepth: 2
 
    src/mhd.rst
+   src/euler.rst
    src/qft.rst
    src/qm-examples.rst
    src/differential-geometry/main.rst
