@@ -1716,45 +1716,57 @@ We can deduce a set of rules, so that one doesn't have to repeat the whole calcu
 ZZH interaction
 ~~~~~~~~~~~~~~~
 
-Let's calculate the $\L_{ZZH}=\lambda Z_\mu Z^\mu H$ interaction in the SM, where $\lambda={g^2\over4\cos\theta_W}$. Consider $H(p)\to Z(k)+Z(l)$: 
+Let's calculate the $\L_{ZZH}=\lambda Z_\mu Z^\mu H$ interaction in the SM,
+where $\lambda={g^2\over4\cos\theta_W}$. Consider $H(p)\to Z(k)+Z(l)$:
 
 .. math::
 
-    \braket{f|S|i}= \braket{f|iT|i}= \braket{k l|iT|p}= {\varepsilon_\alpha(k)\varepsilon^\alpha(l)\over\tilde D_{\mu\nu}(k)\tilde D^{\mu\nu}(l)} {1\over\tilde D(p)}
+    \braket{f|S|i}= \braket{f|iT|i}= \braket{k l|iT|p}=
+    \braket{\Omega|a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+    \braket{\Omega|T a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
 
+    =
+    \braket{\Omega|T
+        \epsilon^{r*}_\mu({\bf k}){k^2\over i} \tilde A^\mu(k)
+        \epsilon^{s*}_\nu({\bf l}){l^2\over i} \tilde A^\nu(l)
+        {1\over\tilde D(p)}\tilde\phi(-p)
+        |\Omega} =
 
+    = {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    \over {i\over k^2}{i\over l^2}\tilde D(p)}
+    \braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+
+    = {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    \over {i\over k^2}{i\over l^2}\tilde D(p)}
+    i\lambda (2\pi)^4 \delta(k+l-p) \tilde D^\mu{}_\alpha(k)
+        \tilde D^{\nu\alpha}(l)\tilde D(p)
+
+    = {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    \over {i\over k^2}{i\over l^2}\tilde D(p)}
+    i\lambda (2\pi)^4 \delta(k+l-p)
+        {-ig^\mu{}_\alpha\over k^2}
+        {-ig^{\nu\alpha}\over l^2}
+        \tilde D(p)
+
+    = \epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    i\lambda (2\pi)^4 \delta(k+l-p)
+        g^\mu{}_\alpha
+        g^{\nu\alpha}
+
+    = \epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    i\lambda (2\pi)^4 \delta(k+l-p) g^{\mu\nu}
+
+    = i\lambda (2\pi)^4 \delta(k+l-p)
+        \epsilon^{r*}_\mu({\bf k})\epsilon^{s\mu*}({\bf l})
+
+where we used the fact, that the first order contribution to the interacting
+Green function is:
 
 .. math::
 
-    \int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)} \braket{0|T\{Z_\mu(y_1) Z^\mu(y_2) H(x_1)
-    \exp\left({i\over\hbar}\int\d^4 x \L_{ZZH}(x) \right)\}|0} =
-
-
-
-.. math::
-
-    = {\varepsilon_\alpha(k)\varepsilon^\alpha(l)\over\tilde D_{\mu\nu}(k)\tilde D^{\mu\nu}(l)} {1\over\tilde D(p)}
-
-
-
-.. math::
-
-    \int\d^4 x_1 e^{-i p x_1} \int\d^4 y_1 \d^4 y_2 e^{+i(k y_1+l y_2)}\int\d^4 x i\lambda D_{\alpha\mu}(y_1-x)D^{\alpha\mu}(y_2-x)D(x_1-x) =
-
-
-
-.. math::
-
-    =i\lambda(2\pi)^4\delta^{(4)}(p-k-l)\varepsilon_\alpha(k)\varepsilon^\alpha(l)
-
-
-where we used the fact, that the only nonzero element of the Green function is 
-
-.. math::
-
-    \int\d^4 x \braket{0|T\{Z_\alpha(y_1) Z^\alpha(y_2) H(x_1)Z_\mu(x)Z^\mu(x) H(x)\}|0}
-
-
+    \braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+    =i\lambda (2\pi)^4 \delta(k+l-p) \tilde D^\mu{}_\alpha(k)
+        \tilde D^{\nu\alpha}(l)\tilde D(p)
 
 
 eeH interaction
