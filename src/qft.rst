@@ -740,40 +740,72 @@ that they can be replaced by:
 .. math::
 
     a^\dag_{\bf k}\,{}_\text{in} \to
-        i\int\d^4 x e^{ikx}\left(-\partial^2+m^2\right)\phi(x)
+        i\int\d^4 x e^{ikx}\left(\partial^2+m^2\right)\phi(x)
+        ={k^2-m^2\over i}\tilde\phi(-k)
+        ={1\over\tilde D(k)}\tilde\phi(-k)
 
     a_{\bf k}\,{}_\text{out} \to
-        i\int\d^4 x e^{-ikx}\left(-\partial^2+m^2\right)\phi(x)
+        i\int\d^4 x e^{-ikx}\left(\partial^2+m^2\right)\phi(x)
+        ={k^2-m^2\over i}\tilde\phi(k)
+        ={1\over\tilde D(k)}\tilde\phi(k)
 
     b^{s\dag}_{\bf k}\,{}_\text{in} \to
         i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)u^s({\bf k})e^{ikx}
+        =\tilde{\bar\psi}(-k){-\fslash k - m\over i}u^s({\bf k})
+        =\tilde{\bar\psi}(-k){1\over\tilde S(-k)}u^s({\bf k})
 
     b^s_{\bf k}\,{}_\text{out} \to
         i\int\d^4 x e^{-ikx}\bar u^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
+        =\bar u^s({\bf k}){\fslash k - m\over i}\psi(k)
+        =\bar u^s({\bf k}){1\over\tilde S(k)}\psi(k)
 
     d^{s\dag}_{\bf k}\,{}_\text{in} \to
         -i\int\d^4 x e^{ikx}\bar v^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
+        =-\bar v^s({\bf k}){\fslash k - m\over i}\psi(-k)
+        =-\bar v^s({\bf k}){1\over\tilde S(k)}\psi(-k)
 
     d^s_{\bf k}\,{}_\text{out} \to
         -i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)v^s({\bf k})e^{-ikx}
+        =-\tilde{\bar\psi}(k){-\fslash k - m\over i}v^s({\bf k})
+        =-\tilde{\bar\psi}(k){1\over\tilde S(-k)}v^s({\bf k})
 
     a^{r\dag}_{\bf k}\,{}_\text{in} \to
         i\epsilon_\mu^{r*}({\bf k})
-            \int\d^4 x e^{ikx}\left(-\partial^2\right) A^\mu(x)
+            \int\d^4 x e^{ikx} \partial^2 A^\mu(x)
         =
-        i\epsilon_\mu^{r*}({\bf k})k^2
+        \epsilon_\mu^{r*}({\bf k}){k^2\over i}
             \tilde A^\mu(-k)
 
     a^r_{\bf k}\,{}_\text{out} \to
         i\epsilon_\mu^r({\bf k})
-            \int\d^4 x e^{-ikx}\left(-\partial^2\right) A^\mu(x)
+            \int\d^4 x e^{-ikx} \partial^2 A^\mu(x)
         =
-        i\epsilon_\mu^r({\bf k})k^2
+        \epsilon_\mu^r({\bf k}){k^2\over i}
             \tilde A^\mu(k)
 
 where the "in" is the operator for $t\to -\infty$ and "out" for $t\to\infty$.
 The fields $\phi(x)$, $\psi(x)$, $\bar\psi(x)$ and $A^\mu(x)$ have to be time
-ordered. For our example we get:
+ordered. On the left hand side is a position space representation, the two
+expressions on the right hand side are the momentum representation (the last
+expression is written using the propagators), e.g. a Fourier transform, which
+is essentially just the following substitutions:
+
+.. math::
+
+    \partial^2\to -k^2
+
+    i\fslash\partial\to\fslash k
+
+    e^{\pm ikx}\phi(x) \to \tilde\phi(\mp k)
+
+    {k^2 - m^2\over i} \to {1\over\tilde D(k)}
+
+    {\pm\fslash k - m\over i} \to {1\over\tilde S(\pm k)}
+
+both representations are of course equivalent (but the momentum one is easier
+to use, since the formulas are shorter).
+
+For our example we get:
 
 .. math::
 
@@ -844,18 +876,18 @@ then the scattering amplitude becomes (resuming the previous calculation):
         i^4
 
     \left[\bar u^{s_{1'}}({\bf k}_{1'})
-        \left(-i\fslash p_{1'} +m\right)\right]_{\alpha_{1'}}
+        \left(-\fslash p_{1'} +m\right)\right]_{\alpha_{1'}}
 
     \left[\bar u^{s_{2'}}({\bf k}_{2'})
-        \left(-i\fslash p_{2'} +m\right)\right]_{\alpha_{2'}}
+        \left(-\fslash p_{2'} +m\right)\right]_{\alpha_{2'}}
 
     \tilde G^{(4)}_{\alpha_{1'} \alpha_{2'} \alpha_1 \alpha_2}
         (p_{1'}, p_{2'}, -p_1, -p_2)
 
-    \left[\left(i{\fslash p_1}+m\right)
+    \left[\left({\fslash p_1}+m\right)
         u^s({\bf p}_1)\right]_{\alpha_1}
 
-    \left[\left(i{\fslash p_2}+m\right)
+    \left[\left({\fslash p_2}+m\right)
         u^s({\bf p}_2)\right]_{\alpha_2}
 
 This is called Lehmann-Symanzik-Zimmermann (LSZ) reduction formula.  One
