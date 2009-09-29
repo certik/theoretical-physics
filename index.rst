@@ -20,8 +20,7 @@ Physics:
 .. toctree::
    :maxdepth: 2
 
-   src/mhd.rst
-   src/euler.rst
+   src/fluid-dynamics/main.rst
    src/qft.rst
    src/qm-examples.rst
    src/differential-geometry/main.rst
