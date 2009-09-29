@@ -3087,6 +3087,11 @@ and +2:
 
     \partial^\mu = (\partial^0, \partial^1, \partial^2, \partial^3)= \left(-{1\over c}{\partial\over\partial t},{\partial\over\partial x},{\partial\over\partial y},{\partial\over\partial z}\right)
 
+The d'Alembert operator is:
+
+.. math::
+
+    \partial^2 \equiv \partial_\mu \partial^\mu
 
 
 Momentum (${\bf p}=-i\hbar\nabla$) and energy ($E=i\hbar{\partial\over\partial t}$) is combined into 4-momentum as 
@@ -3095,11 +3100,10 @@ Momentum (${\bf p}=-i\hbar\nabla$) and energy ($E=i\hbar{\partial\over\partial t
 
     p^\mu = \left({E\over c},{\bf p}\right) = i\hbar\left({1\over c}{\partial\over\partial t},-\nabla\right) = i\hbar\left(\partial_0,-\partial_j\right) = i\hbar\left(\partial^0,\partial^j\right) = i\hbar\partial^\mu
 
+    p_\mu = g_{\mu\nu}p^\nu = i\hbar g_{\mu\nu}\partial^\nu = i\hbar\partial_\mu
 
-
-.. math::
-
-    p_\mu = g_{\mu\nu}p^\nu = i\hbar\left(\partial^0,-\partial^j\right) = i\hbar\left(\partial_0,\partial_j\right) = i\hbar\partial_\mu
+For the signature $+2$ we get $p^\mu = -i\hbar\partial^\mu$ and $p_\mu =
+-i\hbar\partial_\mu$.
 
 For $p^2$ we get:
 
@@ -3120,6 +3124,38 @@ the following relations are also useful:
 
     = -\hbar^2\left({1\over c^2}{\partial^2\over\partial t^2} - \nabla^2\right)
     = -{\hbar^2\over c^2}{\partial^2\over\partial t^2} + \hbar^2\nabla^2
+
+For the signature $+2$ we get:
+
+.. math::
+
+    p^2 = p_\mu p^\mu = -\hbar^2\partial_\mu \partial^\mu \equiv
+    -\hbar^2\partial^2
+    = -\hbar^2\left(\partial_0\partial^0 + \partial_i\partial^i\right)
+    = -\hbar^2\left(-\partial_0\partial_0 + \partial_i\partial_i\right)
+    =
+
+    = -\hbar^2\left(-{1\over c^2}{\partial^2\over\partial t^2} + \nabla^2\right)
+    = {\hbar^2\over c^2}{\partial^2\over\partial t^2} - \hbar^2\nabla^2
+
+So for example the Klein-Gordon equation:
+
+.. math::
+
+    \left({\hbar^2\over c^2}{\partial^2\over\partial t^2} - \hbar^2\nabla^2
+    +m^2c^2\right)\psi = 0
+
+can be for signature $-2$ written as:
+
+.. math::
+
+    (+\hbar^2\partial^2 + m^2 c^2)\psi = (-p^2 + m^2c^2)\psi = 0
+
+and for $+2$ as:
+
+.. math::
+
+    (-\hbar^2\partial^2 + m^2 c^2)\psi = (p^2 + m^2c^2)\psi = 0
 
 Now if the particle is not moving (${\bf p} = 0$), then it's energy $E=mc^2$,
 where $m$ is the rest mass, so $|p| = {E\over c}= mc$, from which:
