@@ -52,7 +52,15 @@ one example of such a sequence is:
 
        \delta_\alpha(x) = {1\over\pi x}\sin(\alpha x)
 
-It's clear that :eq:`deltaprec` holds for any well behaved function $f(x)$. Mathematicians like to say it's incorrect to use such a notation when in fact the integral :eq:`deltadef` doesn't "exist", but they are wrong, because it is not important if something "exist" or not, but rather if it is clear what we mean by our notation: :eq:`deltadef` is a shorthand for :eq:`deltaprec` and :eq:`deltalim` gets a mathematically rigorous meaning when you integrate both sides and use :eq:`deltadef` to arrive at :eq:`deltaprec`. Thus one uses the relations :eq:`deltadef`, :eq:`deltalim`, :eq:`deltaprec` to derive all properties of the delta function.
+It's clear that :eq:`deltaprec` holds for any well behaved function $f(x)$.
+Some mathematicians like to say that it's incorrect to use such a notation when
+in fact the integral :eq:`deltadef` doesn't "exist", but that's a wrong
+approach to things, because it is not important if something "exist" or not,
+but rather if it is clear what we mean by our notation: :eq:`deltadef` is a
+shorthand for :eq:`deltaprec` and :eq:`deltalim` gets a mathematically rigorous
+meaning when you integrate both sides and use :eq:`deltadef` to arrive at
+:eq:`deltaprec`.  Thus one uses the relations :eq:`deltadef`, :eq:`deltalim`,
+:eq:`deltaprec` to derive all properties of the delta function.
 
 Let's give an example. Let ${\bf\hat r}$ be the unit vector in 3D and we can label it using spherical coordinates ${\bf\hat r}={\bf\hat r}(\theta,\phi)$. We can also express it in cartesian coordinates as ${\bf\hat r}(\theta,\phi)=(\cos\phi\sin\theta,\sin\phi\sin\theta,\cos\theta)$.
 
@@ -89,6 +97,142 @@ In exactly the same manner we get
        \delta({\bf r}-{\bf r'})=\delta({\bf\hat r}-{\bf\hat r'}) {\delta(\rho-\rho')\over\rho^2}
 
 See also :eq:`functionalderdel` for an example of how to deal with more complex expressions involving the delta function like $\delta^2(x)$.
+
+Distributions
+-------------
+
+Some mathematicians like to use distributions and a mathematical notation for
+that, which I think is making things less clear, but nevertheless it's
+important to understand it too, so the notation is explained in this section,
+but I discourage to use it -- I suggest to only use the physical notation as
+explained below. The math notation below is put into quotation marks, so that
+it's not confused with the physical notation.
+
+The distribution is a functional and each function $f(x)$ can be identified
+with a distribution $\mathnot{T_f}$ that it generates using this definition ($\varphi(x)$
+is a test function):
+
+.. math::
+
+    \mathnot{T_f(\phi(x))} \equiv \int f(x)\varphi(x) \d x \equiv
+    \mathnot{f(\varphi(x))} \equiv \mathnot{(f(x), \varphi(x))}
+
+besides that, one can also define distributions that can't be identified with
+regular functions, one example is a delta distribution (Dirac delta function):
+
+.. math::
+
+    \mathnot{\delta(\phi(x))} \equiv \phi(0) \equiv \int \delta(x) \phi(x) \d x
+
+The last integral is not used in mathematics, in physics on the other hand, the
+first expressions ($\mathnot{\delta(\phi(x))}$) is not used, so $\delta(x)$ always means
+that you have to integrate it, as explained in the previous section, so it
+behaves like a regular function (except that such a function doesn't exist and
+the precise mathematical meaning is only after you integrate it, or through the
+identification above with distributions).
+
+One then defines common operations via acting on the generating function, then
+observes the pattern and defines it for all distributions. For example
+differentiation:
+
+.. math::
+
+    \mathnot{{\d\over\d x}T_f(\varphi)} =
+    \mathnot{T_{f'}(\varphi)} =
+    \int f'\varphi \d x =
+    -\int f\varphi' \d x =
+    \mathnot{-T_f(\varphi')}
+
+so:
+
+.. math::
+
+    \mathnot{{\d\over\d x}T(\varphi)} =
+    \mathnot{-T(\varphi')}
+
+
+Multiplication:
+
+.. math::
+
+    \mathnot{gT_f(\varphi)} =
+    \mathnot{T_{gf}(\varphi)} =
+    \int gf\varphi \d x =
+    \mathnot{T_f(g\varphi)}
+
+so:
+
+.. math::
+
+    \mathnot{gT(\varphi)} =
+    \mathnot{T(g\varphi)}
+
+Fourier transform:
+
+.. math::
+
+    \mathnot{FT_f(\varphi)} =
+    \mathnot{T_{Ff}(\varphi)} =
+    \int F(f)\varphi \d x =
+
+    =\int\left[\int e^{-ikx} f(k) \d k\right] \varphi(x) \d x
+    =\int f(k)\left[\int e^{-ikx} \varphi(x) \d x\right] \d k
+    =\int f(x)\left[\int e^{-ikx} \varphi(k) \d k\right] \d x
+    =
+
+    =
+    \int f F(\varphi) \d x =
+    \mathnot{T_f(F\varphi)}
+
+so:
+
+.. math::
+
+    \mathnot{FT(\varphi)} =
+    \mathnot{T(F\varphi)}
+
+But as you can see, the notation is just making things more complex, since it's
+enough to just work with the integrals and forget about the rest. One can then
+even omit the integrals, with the understanding that they are implicit.
+
+Some more examples:
+
+.. math::
+
+    \int \delta(x-x_0)\varphi(x) \d x = \int \delta(x)\varphi(x+x_0) \d x
+    = \varphi(x_0) \equiv \mathnot{\delta(\varphi(x+x_0))}
+
+Proof of $\delta(-x) = \delta(x)$:
+
+.. math::
+
+    \int_{-\infty}^\infty \delta(-x)\varphi(x)\d x =
+    -\int_{\infty}^{-\infty} \delta(y)\varphi(-y)\d y =
+    \int_{-\infty}^\infty \delta(x)\varphi(-x)\d x
+    \equiv \mathnot{\delta(\varphi(-x))} = \varphi(0)
+    =\mathnot{\delta(\phi(x))}
+    \equiv
+    \int_{-\infty}^\infty \delta(x)\varphi(x)\d x
+
+Proof of $x\delta(x) = 0$:
+
+.. math::
+
+    \int x\delta(x)\varphi(x)\d x = \mathnot{\delta(x\varphi(x))}
+    = 0 \cdot \varphi(0) = 0
+
+Proof of $\delta(cx) = {\delta(x)\over |c|}$:
+
+.. math::
+
+    \int \delta(cx)\varphi(x)\d x = {1\over|c|}\int\delta(x)\varphi\left({x\over
+    c}\right)\d x
+    =\mathnot{\delta\left(\varphi\left({x\over c}\right)\over|c|\right)}
+    ={\delta(0)\over|c|}
+    =\mathnot{{\delta(\varphi(x))\over|c|}}
+    =
+    \int {\delta(x)\over |c|}\varphi(x)\d x
+
 
 .. index:: variation, functional derivative
 
