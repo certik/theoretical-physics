@@ -83,6 +83,10 @@ Now we write ${\bf U} = (U, V, W)$ and we get:
 
     p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)
 
+We solve for the unknowns $\rho$, $U$, $V$, $W$ and $E$ as functions of $(t,
+x, y, z)$, the rest ($R$, $c_v$, $f_x$, $f_y$, $f_z$) are either constants or
+depend on the unknowns.
+
 Sea Breeze Modeling
 -------------------
 
@@ -117,13 +121,6 @@ so we get:
            \frac{UW}{\varrho}\\
            \frac{U}{\varrho}(E+p)
        \end{array} \right)
-       + \frac{\partial}{\partial y} \left( \begin{array}{c}
-           0\\
-           0\\
-           0 + p\\
-           0\\
-           0
-       \end{array} \right)
        + \frac{\partial}{\partial z} \left( \begin{array}{c}
            W\\
            \frac{WU}{\varrho}\\
@@ -139,15 +136,18 @@ so we get:
        \end{array} \right) =
        \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
 
-    p = {R\over c_v} \left(E-{{\bf U}^2\over2\rho}\right)
+    p = {R\over c_v} \left(E-{U^2+W^2\over2\rho}\right)
 
-Older derivation
-----------------
+where we prescribe $R$, $c_v$, $g$ and solve for $\rho$, $U$, $W$ and $E$ as
+functions of $(t, x, z)$.
+
+Older notes
+-----------
 
 Author: Pavel Solin
 
 Governing Equations and Boundary Conditions
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. math::
     :label: one
@@ -183,7 +183,7 @@ Initial conditions have the form
 
 
 Discretization and the Newton's Method
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 We will use the implicit Euler method in time, i.e., 
