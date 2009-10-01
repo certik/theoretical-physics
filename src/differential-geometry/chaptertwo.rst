@@ -1056,13 +1056,26 @@ $T$ belongs here.
 
 Example: where does the reflection around a
 single spatial axis $(t, x, y, z)\to(t, -x, y, z)$ belong to? It is the third
-case, because determinant is 1 and the 00 element is 1.
-Written in matrix
-form:
+case, because the determinant is $\det\Lambda=-1$ and the 00 element is 1.
+Written in the matrix form:
 
 .. math::
 
-     \mat{ 1 & 0 & 0 & 0\cr 0 & -1 & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr} = \mat{ 1 & 0 & 0 & 0\cr 0 & -1 & 0 & 0\cr 0 & 0 & -1 & 0\cr 0 & 0 & 0 & -1\cr} \mat{ 1 & 0 & 0 & 0\cr 0 & 1 & 0 & 0\cr 0 & 0 & \cos\pi & \sin\pi\cr 0 & 0 & -\sin\pi & \cos\pi\cr} =PR_1(\pi)
+    \Lambda =
+     \mat{ 1 & 0 & 0 & 0\cr 0 & -1 & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 &
+     1\cr} =
+     \mat{ 1 & 0 & 0 & 0\cr 0 & -1 & 0 & 0\cr 0 & 0 & -1 & 0\cr 0 & 0 &
+     0 & -1\cr}
+     \mat{ 1 & 0 & 0 & 0\cr 0 & 1 & 0 & 0\cr 0 & 0 & -1 &
+     0\cr 0 & 0 & 0 & -1\cr}
+     =
+
+     =
+     \mat{ 1 & 0 & 0 & 0\cr 0 & -1 & 0 & 0\cr 0 & 0 & -1 & 0\cr 0 & 0 &
+     0 & -1\cr}
+     \mat{ 1 & 0 & 0 & 0\cr 0 & 1 & 0 & 0\cr 0 & 0 & \cos\pi &
+     \sin\pi\cr 0 & 0 & -\sin\pi & \cos\pi\cr}
+     =PR_1(\pi)
 
 So it is constructed using the $R_1$ element from ${\rm SO}^+(3, 1)$ and P
 from the discrete group above.
