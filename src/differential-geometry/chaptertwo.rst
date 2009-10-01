@@ -1800,15 +1800,17 @@ FAQ
 ---
 
 
-\textbf{How does one incorporate the fact, that there are only two possible
-transformations, into all of this?} For more info, see:
-http://arxiv.org/abs/0710.3398. Answer: in that article there are
+**How does one incorporate the fact, that there are only two possible
+transformations, into all of this?**
+For more info, see: http://arxiv.org/abs/0710.3398.
+Answer: in that article there are
 actually three possible transformations, $K<0$ corresponds to O(4), $K>0$ to
 O(3, 1) and $K=0$ to either of them in the limit $c\to\infty$.
 
-\textbf{What is the real difference between the Newtonian physics and special
-relativity? E.g. how do we derive the Minkowski metrics, how do we know we need
-to set $c=const$ and how do we incorporate gravity in it?} Answer:
+**What is the real difference between the Newtonian physics and special
+relativity?** E.g. how do we derive the Minkowski metrics, how do we know we
+need to set $c=const$ and how do we incorporate gravity in it?
+Answer:
 there are only three possible groups of transformations: O(4), O(3, 1) and a
 limit of either for $c\to\infty$. All three provide inequivalent predictions
 for high speeds, so we just choose the right one by experiment. It happens to
