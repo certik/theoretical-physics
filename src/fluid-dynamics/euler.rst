@@ -5,8 +5,104 @@
 Compressible Euler Equations
 ============================
 
+The compressible Euler equations are:
+
+.. math::
+
+    {\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u}) = 0
+
+    {\partial(\rho{\bf u})\over\partial t} + \nabla\cdot(\rho{\bf u}{\bf u}^T)
+        + \nabla p - {\bf f} = 0
+
+    {\partial E\over\partial t} + \nabla\cdot({\bf u}(E+p)) = 0
+
+where $E = \rho e + \half \rho u^2$, $e$ is the internal energy and
+
+.. math::
+
+    p = {n\over V} RT = \rho RT = \rho R {e\over c_v} =
+        {R\over c_v} (E-\half \rho u^2)
+
+We use the substitution:
+
+.. math::
+
+    {\bf U} = \rho {\bf u}
+
+    p = {R\over c_v} (E-\half \rho u^2) =
+        {R\over c_v} \left(E-{{\bf U}^2\over2\rho}\right)
+
+and we get:
+
+.. math::
+
+    {\partial\rho\over\partial t} + \nabla\cdot{\bf U} = 0
+
+    {\partial{\bf U}\over\partial t}
+        + \nabla\cdot\left({{\bf U}{\bf U}^T\over\rho}+p\one\right)
+        - {\bf f} = 0
+
+    {\partial E\over\partial t}
+        + \nabla\cdot\left({{\bf U}\over\rho}(E+p)\right) = 0
+
+Now we write ${\bf U} = (U, V, W)$ and ${\bf u} = (u, v, w)$ and we get:
+
+.. math::
+
+       \frac{\partial}{\partial t} \left( \begin{array}{c}
+           \varrho\\ U\\ V\\ W\\ E
+       \end{array} \right)
+       + \frac{\partial}{\partial x} \left( \begin{array}{c}
+           U\\
+           \frac{U^2}{\varrho} + p\\
+           \frac{UV}{\varrho}\\
+           \frac{UW}{\varrho}\\
+           \frac{U}{\varrho}(E+p)
+       \end{array} \right)
+       + \frac{\partial}{\partial y} \left( \begin{array}{c}
+           V\\
+           \frac{UV}{\varrho}\\
+           \frac{V^2}{\varrho} + p\\
+           \frac{WV}{\varrho}\\
+           \frac{V}{\varrho}(E+p)
+       \end{array} \right)
+       + \frac{\partial}{\partial z} \left( \begin{array}{c}
+           W\\
+           \frac{UW}{\varrho}\\
+           \frac{VW}{\varrho}\\
+           \frac{W^2}{\varrho} + p\\
+           \frac{W}{\varrho}(E+p)
+       \end{array} \right) + \left( \begin{array}{c}
+           0\\
+           -f_x\\
+           -f_y\\
+           -f_z\\
+           0\\
+       \end{array} \right) =
+       \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
+
+    p = {R\over c_v} (E-\half \rho u^2) =
+        {R\over c_v} \left(E-{{\bf U}^2\over2\rho}\right)
+
+For our model we substitute:
+
+.. math::
+
+    f_x = 0
+
+    f_y = 0
+
+    f_y = -\rho g
+
+
+    V = 0
+
 Sea Breeze Modeling
 -------------------
+
+
+Older derivation
+----------------
 
 Author: Pavel Solin
 
