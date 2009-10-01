@@ -16,12 +16,37 @@ The compressible Euler equations are:
 
     {\partial E\over\partial t} + \nabla\cdot({\bf u}(E+p)) = 0
 
-where $E = \rho e + \half \rho u^2$, $e$ is the internal energy and
+where
 
 .. math::
 
-    p = {n\over V} RT = \rho RT = \rho R {e\over c_v} =
+    E = \rho e + \half \rho u^2
+
+is the total energy per unit volume ($\half \rho u^2$ is the kinetic energy per
+unit volume), $e$ is the internal energy per unit mass ($e={U\over nM}$)
+and we use the ideal gas equations, so:
+
+.. math::
+
+    e = T c_v
+
+    p = {n\over V} \bar RT =
+    {n M\over V} {\bar R\over M}T =
+    \rho RT = \rho R {e\over c_v} =
         {R\over c_v} (E-\half \rho u^2)
+
+where
+$n$ is the number of moles of gas,
+$M$ is the molar mass of the gas (e.g. a mass of one mole of the gas),
+$\rho={n M\over V}$ is the density of the gas,
+$\bar R$ is the ideal gas constant,
+$R={\bar R\over M}$ is the specific ideal gas constant,
+$c_v$ is the specific heat capacity at constant volume (e.g. a heat capacity
+per unit volume),
+$V$ is the volume
+and $T$ is the temperature of the gas.
+Of those, $V$, $n$, $M$, $R$, $\bar R$ are constants, $\rho$, $e$, $E$ and $T$ are
+functions of $(t, x, y, z)$.
 
 We use the substitution:
 
