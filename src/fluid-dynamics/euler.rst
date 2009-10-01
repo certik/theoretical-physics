@@ -45,7 +45,7 @@ and we get:
     {\partial E\over\partial t}
         + \nabla\cdot\left({{\bf U}\over\rho}(E+p)\right) = 0
 
-Now we write ${\bf U} = (U, V, W)$ and ${\bf u} = (u, v, w)$ and we get:
+Now we write ${\bf U} = (U, V, W)$ and we get:
 
 .. math::
 
@@ -81,10 +81,12 @@ Now we write ${\bf U} = (U, V, W)$ and ${\bf u} = (u, v, w)$ and we get:
        \end{array} \right) =
        \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
 
-    p = {R\over c_v} (E-\half \rho u^2) =
-        {R\over c_v} \left(E-{{\bf U}^2\over2\rho}\right)
+    p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)
 
-For our model we substitute:
+Sea Breeze Modeling
+-------------------
+
+In our model we make the following assumptions:
 
 .. math::
 
@@ -92,14 +94,52 @@ For our model we substitute:
 
     f_y = 0
 
-    f_y = -\rho g
-
+    f_z = -\rho g
 
     V = 0
 
-Sea Breeze Modeling
--------------------
+    {\partial U\over\partial y}
+    ={\partial V\over\partial y}
+    ={\partial W\over\partial y}
+    ={\partial E\over\partial y}=0
 
+so we get:
+
+.. math::
+
+       \frac{\partial}{\partial t} \left( \begin{array}{c}
+           \varrho\\ U\\ 0\\ W\\ E
+       \end{array} \right)
+       + \frac{\partial}{\partial x} \left( \begin{array}{c}
+           U\\
+           \frac{U^2}{\varrho} + p\\
+           0\\
+           \frac{UW}{\varrho}\\
+           \frac{U}{\varrho}(E+p)
+       \end{array} \right)
+       + \frac{\partial}{\partial y} \left( \begin{array}{c}
+           0\\
+           0\\
+           0 + p\\
+           0\\
+           0
+       \end{array} \right)
+       + \frac{\partial}{\partial z} \left( \begin{array}{c}
+           W\\
+           \frac{WU}{\varrho}\\
+           0\\
+           \frac{W^2}{\varrho} + p\\
+           \frac{W}{\varrho}(E+p)
+       \end{array} \right) + \left( \begin{array}{c}
+           0\\
+           0\\
+           0\\
+           \rho g\\
+           0\\
+       \end{array} \right) =
+       \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
+
+    p = {R\over c_v} \left(E-{{\bf U}^2\over2\rho}\right)
 
 Older derivation
 ----------------
