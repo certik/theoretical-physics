@@ -61,15 +61,15 @@ Now we write ${\bf U} = (U, V, W)$ and ${\bf u} = (u, v, w)$ and we get:
        \end{array} \right)
        + \frac{\partial}{\partial y} \left( \begin{array}{c}
            V\\
-           \frac{UV}{\varrho}\\
+           \frac{VU}{\varrho}\\
            \frac{V^2}{\varrho} + p\\
-           \frac{WV}{\varrho}\\
+           \frac{VW}{\varrho}\\
            \frac{V}{\varrho}(E+p)
        \end{array} \right)
        + \frac{\partial}{\partial z} \left( \begin{array}{c}
            W\\
-           \frac{UW}{\varrho}\\
-           \frac{VW}{\varrho}\\
+           \frac{WU}{\varrho}\\
+           \frac{WV}{\varrho}\\
            \frac{W^2}{\varrho} + p\\
            \frac{W}{\varrho}(E+p)
        \end{array} \right) + \left( \begin{array}{c}
