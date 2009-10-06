@@ -245,6 +245,19 @@ then we can calculate the Jacobians (and we substitute for $p$):
             \cdot & \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
 
+    {\bf J}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 0 & 0 & 1 & 0\\
+            -{WU\over\rho^2} & {W\over\rho} & 0 & {U\over\rho} & 0 \\
+            -{WV\over\rho^2} & 0 & {W\over\rho} & {V\over\rho} & 0 \\
+            -{W^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &
+                -{R\over c_v}{U\over\rho} &
+                -{R\over c_v}{V\over\rho} &
+                {2W\over\rho} -{R\over c_v}{W\over\rho} &
+                {R\over c_v}\\
+            \cdot & \cdot & \cdot & \cdot & \cdot \\
+       \end{array} \right)
+
 Sea Breeze Modeling
 -------------------
 
