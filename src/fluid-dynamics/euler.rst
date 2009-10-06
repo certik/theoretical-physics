@@ -112,6 +112,126 @@ We solve for the unknowns $\rho$, $U$, $V$, $W$ and $E$ as functions of $(t,
 x, y, z)$, the rest ($R$, $c_v$, $f_x$, $f_y$, $f_z$) are either constants or
 depend on the unknowns.
 
+After introducing:
+
+.. math::
+
+    {\bf w} =
+       \left( \begin{array}{c}
+           \varrho\\ U\\ V\\ W\\ E
+       \end{array} \right)
+
+    {\bf f}_x =
+       \left( \begin{array}{c}
+           U\\
+           \frac{U^2}{\varrho} + p\\
+           \frac{UV}{\varrho}\\
+           \frac{UW}{\varrho}\\
+           \frac{U}{\varrho}(E+p)
+       \end{array} \right)
+
+    {\bf f}_y =
+       \left( \begin{array}{c}
+           V\\
+           \frac{VU}{\varrho}\\
+           \frac{V^2}{\varrho} + p\\
+           \frac{VW}{\varrho}\\
+           \frac{V}{\varrho}(E+p)
+       \end{array} \right)
+
+    {\bf f}_z =
+       \left( \begin{array}{c}
+           W\\
+           \frac{WU}{\varrho}\\
+           \frac{WV}{\varrho}\\
+           \frac{W^2}{\varrho} + p\\
+           \frac{W}{\varrho}(E+p)
+       \end{array} \right)
+
+    {\bf g} =
+       \left( \begin{array}{c}
+           0\\
+           -f_x\\
+           -f_y\\
+           -f_z\\
+           0\\
+       \end{array} \right)
+
+we can then write the equations as:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\partial{\bf f}_z\over \partial z} +
+    {\bf g}= 0
+
+Now we write the spatial derivatives using the so called flux Jacobians
+${\bf J}_x$,
+${\bf J}_y$
+and
+${\bf J}_z$:
+
+.. math::
+
+    {\partial{\bf f}_x\over \partial x} =
+    {\partial{\bf f}_x\over \partial {\bf w}}
+    {\partial{\bf w}\over \partial x} \equiv
+    {\bf J}_x
+    {\partial{\bf w}\over \partial x}
+
+    {\bf J}_x={\bf J}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}
+
+Similarly for $y$ and $z$, so we get:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\bf J}_x
+    {\partial{\bf w}\over \partial x} +
+    {\bf J}_y
+    {\partial{\bf w}\over \partial y} +
+    {\bf J}_z
+    {\partial{\bf w}\over \partial z} +
+    {\bf g}= 0
+
+to calculate the Jacobians, we'll need:
+
+.. math::
+
+    {\partial p\over \partial {\bf w}}=
+        {R\over c_v}
+        \left( \begin{array}{ccccc}
+            {U^2+V^2+W^2\over 2\rho^2} & -{U\over\rho} & -{V\over\rho}
+                & -{W\over\rho} & 1\\
+        \end{array} \right)
+
+then we can calculate the Jacobians (and we substitute for $p$):
+
+.. math::
+
+    {\bf J}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 1 & 0 & 0 & 0\\
+            -{U^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &
+                {2U\over\rho}-{R\over c_v}{U\over\rho} &
+                -{R\over c_v}{U\over\rho} &
+                -{R\over c_v}{V\over\rho} &
+                {R\over c_v}\\
+            -{UV\over\rho^2} & {V\over\rho} & {U\over\rho} & 0 & 0\\
+            -{UW\over\rho^2} & {W\over\rho} & 0 & {U\over\rho} & 0 \\
+                -{UE\over\rho^2}-{U\over\rho^2}{R\over c_v}
+                    \left(E-{U^2+V^2+W^2\over 2\rho}\right)
+                    +{U\over\rho}{R\over c_v}{U^2+V^2+W^2\over 2\rho} &
+                {E\over\rho}+{1\over\rho}{R\over c_v}
+                    \left(E-{U^2+V^2+W^2\over 2\rho}\right)
+                    -{R\over c_v}{U^2\over\rho^2} &
+                -{R\over c_v}{UV\over\rho^2} &
+                -{R\over c_v}{UW\over\rho^2} &
+                {U\over\rho}-{R\over c_v}{U\over\rho} \\
+       \end{array} \right)
+
 Sea Breeze Modeling
 -------------------
 
