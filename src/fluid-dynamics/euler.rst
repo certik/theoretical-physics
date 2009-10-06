@@ -196,6 +196,42 @@ Similarly for $y$ and $z$, so we get:
     {\partial{\bf w}\over \partial z} +
     {\bf g}= 0
 
+One nice thing about these particular Jacobians is that (this only holds for
+Euler equations):
+
+.. math::
+
+    {\partial {\bf J}_x\over \partial x}\,{\bf w} = 0
+
+    {\partial {\bf J}_y\over \partial y}\,{\bf w} = 0
+
+    {\partial {\bf J}_z\over \partial z}\,{\bf w} = 0
+
+so
+
+.. math::
+
+    {\partial{\bf f}_x\over \partial x} =
+    {\partial{\bf f}_x\over \partial {\bf w}}
+    {\partial{\bf w}\over \partial x} =
+    {\bf J}_x {\partial{\bf w}\over \partial x}
+    =
+    {\bf J}_x {\partial{\bf w}\over \partial x}
+    +
+    {\partial {\bf J}_x\over \partial x}\,{\bf w}
+    =
+    {\partial({\bf J}_x{\bf w})\over \partial x}
+
+similarly for $y$ and $z$, hence:
+
+.. math::
+
+    {\bf f}_x = {\bf J}_x{\bf w}
+
+    {\bf f}_y = {\bf J}_y{\bf w}
+
+    {\bf f}_z = {\bf J}_z{\bf w}
+
 to calculate the Jacobians, we'll need:
 
 .. math::
