@@ -216,8 +216,8 @@ then we can calculate the Jacobians (and we substitute for $p$):
             0 & 1 & 0 & 0 & 0\\
             -{U^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &
                 {2U\over\rho}-{R\over c_v}{U\over\rho} &
-                -{R\over c_v}{U\over\rho} &
                 -{R\over c_v}{V\over\rho} &
+                -{R\over c_v}{W\over\rho} &
                 {R\over c_v}\\
             -{UV\over\rho^2} & {V\over\rho} & {U\over\rho} & 0 & 0\\
             -{UW\over\rho^2} & {W\over\rho} & 0 & {U\over\rho} & 0 \\
@@ -230,6 +230,19 @@ then we can calculate the Jacobians (and we substitute for $p$):
                 -{R\over c_v}{UV\over\rho^2} &
                 -{R\over c_v}{UW\over\rho^2} &
                 {U\over\rho}-{R\over c_v}{U\over\rho} \\
+       \end{array} \right)
+
+    {\bf J}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 0 & 1 & 0 & 0\\
+            -{VU\over\rho^2} & {V\over\rho} & {U\over\rho} & 0 & 0\\
+            -{V^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &
+                -{R\over c_v}{U\over\rho} &
+                {2V\over\rho}-{R\over c_v}{V\over\rho} &
+                -{R\over c_v}{W\over\rho} &
+                {R\over c_v}\\
+            -{VW\over\rho^2} & 0 & {W\over\rho} & {V\over\rho} & 0 \\
+            \cdot & \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
 
 Sea Breeze Modeling
