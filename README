@@ -1,3 +1,10 @@
-To build for the gh-pages, do:
+To build the book, do:
 
 make web
+git checkout gh-pages
+./copy-docs
+git commit -a
+
+and optionally push the gh-pages branch to github:
+
+git push github
