@@ -1,0 +1,3 @@
+To build for the gh-pages, do:
+
+make web
