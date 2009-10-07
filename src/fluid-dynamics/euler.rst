@@ -189,6 +189,9 @@ After introducing:
            0\\
        \end{array} \right)
 
+    p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)
+    = {R\over c_v} \left(w_5-{w_2^2+w_3^2+w_4^2\over2w_1}\right)
+
 we can then write the equations as:
 
 .. math::
@@ -265,8 +268,8 @@ To calculate the Jacobians, we'll need:
     {\partial p\over \partial {\bf w}}=
         {R\over c_v}
         \left( \begin{array}{ccccc}
-            {U^2+V^2+W^2\over 2\rho^2} & -{U\over\rho} & -{V\over\rho}
-                & -{W\over\rho} & 1\\
+            {w_2^2+w_3^2+w_4^2\over 2w_1^2} & -{w_2\over w_1} & -{w_3\over w_1}
+                & -{w_4\over w_1} & 1\\
         \end{array} \right)
 
 then we can calculate the Jacobians (and we substitute for $p$):
@@ -276,46 +279,46 @@ then we can calculate the Jacobians (and we substitute for $p$):
     {\bf J}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 1 & 0 & 0 & 0\\
-            -{U^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &
-                {2U\over\rho}-{R\over c_v}{U\over\rho} &
-                -{R\over c_v}{V\over\rho} &
-                -{R\over c_v}{W\over\rho} &
+            -{w_2^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
+                {2w_2\over w_1}-{R\over c_v}{w_2\over w_1} &
+                -{R\over c_v}{w_3\over w_1} &
+                -{R\over c_v}{w_4\over w_1} &
                 {R\over c_v}\\
-            -{UV\over\rho^2} & {V\over\rho} & {U\over\rho} & 0 & 0\\
-            -{UW\over\rho^2} & {W\over\rho} & 0 & {U\over\rho} & 0 \\
-                -{UE\over\rho^2}-{U\over\rho^2}{R\over c_v}
-                    \left(E-{U^2+V^2+W^2\over 2\rho}\right)
-                    +{U\over\rho}{R\over c_v}{U^2+V^2+W^2\over 2\rho} &
-                {E\over\rho}+{1\over\rho}{R\over c_v}
-                    \left(E-{U^2+V^2+W^2\over 2\rho}\right)
-                    -{R\over c_v}{U^2\over\rho^2} &
-                -{R\over c_v}{UV\over\rho^2} &
-                -{R\over c_v}{UW\over\rho^2} &
-                {U\over\rho}-{R\over c_v}{U\over\rho} \\
+            -{w_2w_3\over w_1^2} & {w_3\over w_1} & {w_2\over w_1} & 0 & 0\\
+            -{w_2w_4\over w_1^2} & {w_4\over w_1} & 0 & {w_2\over w_1} & 0 \\
+                -{w_2w_5\over w_1^2}-{w_2\over w_1^2}{R\over c_v}
+                    \left(w_5-{w_2^2+w_3^2+w_4^2\over 2 w_1}\right)
+                    +{w_2\over w_1}{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1} &
+                {w_5\over w_1}+{1\over w_1}{R\over c_v}
+                    \left(w_5-{w_2^2+w_3^2+w_4^2\over 2 w_1}\right)
+                    -{R\over c_v}{w_2^2\over w_1^2} &
+                -{R\over c_v}{w_2w_3\over w_1^2} &
+                -{R\over c_v}{w_2w_4\over w_1^2} &
+                {w_2\over w_1}-{R\over c_v}{w_2\over w_1} \\
        \end{array} \right)
 
     {\bf J}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 0 & 1 & 0 & 0\\
-            -{VU\over\rho^2} & {V\over\rho} & {U\over\rho} & 0 & 0\\
-            -{V^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &
-                -{R\over c_v}{U\over\rho} &
-                {2V\over\rho}-{R\over c_v}{V\over\rho} &
-                -{R\over c_v}{W\over\rho} &
+            -{w_3w_2\over w_1^2} & {w_3\over w_1} & {w_2\over w_1} & 0 & 0\\
+            -{w_3^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
+                -{R\over c_v}{w_2\over w_1} &
+                {2w_3\over w_1}-{R\over c_v}{w_3\over w_1} &
+                -{R\over c_v}{w_4\over w_1} &
                 {R\over c_v}\\
-            -{VW\over\rho^2} & 0 & {W\over\rho} & {V\over\rho} & 0 \\
+            -{w_3w_4\over w_1^2} & 0 & {w_4\over w_1} & {w_3\over w_1} & 0 \\
             \cdot & \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
 
     {\bf J}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 0 & 0 & 1 & 0\\
-            -{WU\over\rho^2} & {W\over\rho} & 0 & {U\over\rho} & 0 \\
-            -{WV\over\rho^2} & 0 & {W\over\rho} & {V\over\rho} & 0 \\
-            -{W^2\over\rho^2} +{R\over c_v}{U^2+V^2+W^2\over 2\rho^2} &
-                -{R\over c_v}{U\over\rho} &
-                -{R\over c_v}{V\over\rho} &
-                {2W\over\rho} -{R\over c_v}{W\over\rho} &
+            -{w_4w_2\over w_1^2} & {w_4\over w_1} & 0 & {w_2\over w_1} & 0 \\
+            -{w_4w_3\over w_1^2} & 0 & {w_4\over w_1} & {w_3\over w_1} & 0 \\
+            -{w_4^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
+                -{R\over c_v}{w_2\over w_1} &
+                -{R\over c_v}{w_3\over w_1} &
+                {2w_4\over w_1} -{R\over c_v}{w_4\over w_1} &
                 {R\over c_v}\\
             \cdot & \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
