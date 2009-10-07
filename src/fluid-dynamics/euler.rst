@@ -363,7 +363,7 @@ Then we multiply by the test functions (one by one):
 .. math::
 
     \left( \begin{array}{c}
-        \varphi_1 \\
+        \varphi^1 \\
         0 \\
         0 \\
         0 \\
@@ -371,7 +371,7 @@ Then we multiply by the test functions (one by one):
     \end{array} \right),\ 
     \left( \begin{array}{c}
         0 \\
-        \varphi_2 \\
+        \varphi^2 \\
         0 \\
         0 \\
         0 \\
@@ -379,7 +379,7 @@ Then we multiply by the test functions (one by one):
     \left( \begin{array}{c}
         0 \\
         0 \\
-        \varphi_3 \\
+        \varphi^3 \\
         0 \\
         0 \\
     \end{array} \right),\ 
@@ -387,7 +387,7 @@ Then we multiply by the test functions (one by one):
         0 \\
         0 \\
         0 \\
-        \varphi_4 \\
+        \varphi^4 \\
         0 \\
     \end{array} \right),\ 
     \left( \begin{array}{c}
@@ -395,7 +395,7 @@ Then we multiply by the test functions (one by one):
         0 \\
         0 \\
         0 \\
-        \varphi_5 \\
+        \varphi^5 \\
     \end{array} \right)
 
 and integrate over the 3D domain $\Omega$, so
@@ -403,41 +403,41 @@ we get ($i$ is numbering the 5 equations, we are *not* summing over it):
 
 .. math::
 
-    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi_i
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
         + \left({\bf A}_x({\bf w}^n)\right)_{ij}
-          {\partial w_j^{n+1}\over\partial x} \varphi_i
+          {\partial w_j^{n+1}\over\partial x} \varphi^i
         + \left({\bf A}_y({\bf w}^n)\right)_{ij}
-          {\partial w_j^{n+1}\over\partial y} \varphi_i
+          {\partial w_j^{n+1}\over\partial y} \varphi^i
         + \left({\bf A}_z({\bf w}^n)\right)_{ij}
-          {\partial w_j^{n+1}\over\partial z} \varphi_i
-        + g_i \varphi_i
+          {\partial w_j^{n+1}\over\partial z} \varphi^i
+        + g_i \varphi^i
         \ \d^3 x
         =0
 
 Now we integrate by parts and use the homogeneity property (
 $w_j {\partial\left({\bf A}_z({\bf w}^n)\right)_{ij}\over\partial x}
-\varphi_i = 0$):
+\varphi^i = 0$):
 
 .. math::
 
-    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi_i
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
         - \left({\bf A}_x({\bf w}^n)\right)_{ij}
-          w_j^{n+1} {\partial \varphi_i\over\partial x}
+          w_j^{n+1} {\partial \varphi^i\over\partial x}
         - \left({\bf A}_y({\bf w}^n)\right)_{ij}
-          w_j^{n+1} {\partial \varphi_i\over\partial y}
+          w_j^{n+1} {\partial \varphi^i\over\partial y}
         - \left({\bf A}_z({\bf w}^n)\right)_{ij}
-          w_j^{n+1} {\partial \varphi_i\over\partial z}
-        + g_i \varphi_i
+          w_j^{n+1} {\partial \varphi^i\over\partial z}
+        + g_i \varphi^i
         \ \d^3 x
         +
 
     +\int_{\partial\Omega}
     \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
-        \varphi_i\, n_x
+        \varphi^i\, n_x
     + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j^{n+1}
-        \varphi_i\, n_y
+        \varphi^i\, n_y
     + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
-        \varphi_i\, n_z
+        \varphi^i\, n_z
     \ \d^2 x
     =0
 
@@ -446,62 +446,62 @@ $\partial\Omega$. Rearranging:
 
 .. math::
 
-    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi_i
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
         - \left({\bf A}_x({\bf w}^n)\right)_{ij}
-          w_j^{n+1} {\partial \varphi_i\over\partial x}
+          w_j^{n+1} {\partial \varphi^i\over\partial x}
         - \left({\bf A}_y({\bf w}^n)\right)_{ij}
-          w_j^{n+1} {\partial \varphi_i\over\partial y}
+          w_j^{n+1} {\partial \varphi^i\over\partial y}
         - \left({\bf A}_z({\bf w}^n)\right)_{ij}
-          w_j^{n+1} {\partial \varphi_i\over\partial z}
+          w_j^{n+1} {\partial \varphi^i\over\partial z}
         \ \d^3 x
         +
 
     +\int_{\partial\Omega}
     \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
-        \varphi_i\, n_x
+        \varphi^i\, n_x
     + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j^{n+1}
-        \varphi_i\, n_y
+        \varphi^i\, n_y
     + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
-        \varphi_i\, n_z
+        \varphi^i\, n_z
     \ \d^2 x
     =
-    \int_{\Omega} {w_i^n\over\tau}\varphi_i
-        - g_i \varphi_i
+    \int_{\Omega} {w_i^n\over\tau}\varphi^i
+        - g_i \varphi^i
         \ \d^3 x
 
 Expanding the $w_i$ into the basis functions:
 
 .. math::
 
-    w_i^{n+1} = \sum_k y_k^i \varphi_k
+    w_i^{n+1} = \sum_k y_k^i \varphi_k^i
 
-we get:
+and using base functions $\varphi^i_l$ for the test functions $\varphi^i$, we get:
 
 .. math::
 
     \sum_k \left[
-    \int_{\Omega} y_k^i{\varphi_k\varphi_i\over\tau}
+    \int_{\Omega} y_k^i{\varphi_k^i\varphi_l^i\over\tau}
         - \left({\bf A}_x({\bf w}^n)\right)_{ij}
-          y_k^j \varphi_k {\partial \varphi_i\over\partial x}
+          y_k^j \varphi_k^i {\partial \varphi_l^i\over\partial x}
         - \left({\bf A}_y({\bf w}^n)\right)_{ij}
-          y_k^j \varphi_k {\partial \varphi_i\over\partial y}
+          y_k^j \varphi_k^i {\partial \varphi_l^i\over\partial y}
         - \left({\bf A}_z({\bf w}^n)\right)_{ij}
-          y_k^j \varphi_k {\partial \varphi_i\over\partial z}
+          y_k^j \varphi_k^i {\partial \varphi_l^i\over\partial z}
         \ \d^3 x
         +\right.
 
       \left.
     +\int_{\partial\Omega}
-    \left({\bf A}_x({\bf w}^n)\right)_{ij}y_k^j \varphi_k
-        \varphi_i\, n_x
-    + \left({\bf A}_y({\bf w}^n)\right)_{ij}y_k^j \varphi_k
-        \varphi_i\, n_y
-    + \left({\bf A}_z({\bf w}^n)\right)_{ij}y_k^j \varphi_k
-        \varphi_i\, n_z
+    \left({\bf A}_x({\bf w}^n)\right)_{ij}y_k^j \varphi_k^i
+        \varphi_l^i\, n_x
+    + \left({\bf A}_y({\bf w}^n)\right)_{ij}y_k^j \varphi_k^i
+        \varphi_l^i\, n_y
+    + \left({\bf A}_z({\bf w}^n)\right)_{ij}y_k^j \varphi_k^i
+        \varphi_l^i\, n_z
     \ \d^2 x\right]
     =
-    \int_{\Omega} {w_i^n\over\tau}\varphi_i
-        - g_i \varphi_i
+    \int_{\Omega} {w_i^n\over\tau}\varphi_l^i
+        - g_i \varphi_l^i
         \ \d^3 x
 
 Sea Breeze Modeling
