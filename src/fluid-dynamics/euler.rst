@@ -469,40 +469,6 @@ $\partial\Omega$. Rearranging:
         - g_i \varphi^i
         \ \d^3 x
 
-Expanding the $w_i$ into the basis functions:
-
-.. math::
-
-    w_i^{n+1} = \sum_k y_k^i \varphi_k^i
-
-and using base functions $\varphi^i_l$ for the test functions $\varphi^i$, we get:
-
-.. math::
-
-    \sum_k \left[
-    \int_{\Omega} y_k^i{\varphi_k^i\varphi_l^i\over\tau}
-        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
-          y_k^j \varphi_k^i {\partial \varphi_l^i\over\partial x}
-        - \left({\bf A}_y({\bf w}^n)\right)_{ij}
-          y_k^j \varphi_k^i {\partial \varphi_l^i\over\partial y}
-        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
-          y_k^j \varphi_k^i {\partial \varphi_l^i\over\partial z}
-        \ \d^3 x
-        +\right.
-
-      \left.
-    +\int_{\partial\Omega}
-    \left({\bf A}_x({\bf w}^n)\right)_{ij}y_k^j \varphi_k^i
-        \varphi_l^i\, n_x
-    + \left({\bf A}_y({\bf w}^n)\right)_{ij}y_k^j \varphi_k^i
-        \varphi_l^i\, n_y
-    + \left({\bf A}_z({\bf w}^n)\right)_{ij}y_k^j \varphi_k^i
-        \varphi_l^i\, n_z
-    \ \d^2 x\right]
-    =
-    \int_{\Omega} {w_i^n\over\tau}\varphi_l^i
-        - g_i \varphi_l^i
-        \ \d^3 x
 
 Sea Breeze Modeling
 -------------------
