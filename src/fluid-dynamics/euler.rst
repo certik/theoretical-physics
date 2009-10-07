@@ -199,72 +199,66 @@ we can then write the equations as:
     {\partial{\bf f}_z\over \partial z} +
     {\bf g}= 0
 
-Now we write the spatial derivatives using the so called flux Jacobians
-${\bf J}_x$,
-${\bf J}_y$
+Now we write the spatial derivatives using so called flux Jacobians
+${\bf A}_x$,
+${\bf A}_y$
 and
-${\bf J}_z$:
+${\bf A}_z$:
 
 .. math::
 
     {\partial{\bf f}_x\over \partial x} =
     {\partial{\bf f}_x\over \partial {\bf w}}
     {\partial{\bf w}\over \partial x} \equiv
-    {\bf J}_x
+    {\bf A}_x
     {\partial{\bf w}\over \partial x}
 
-    {\bf J}_x={\bf J}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}
+    {\bf A}_x={\bf A}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}
 
 Similarly for $y$ and $z$, so we get:
 
 .. math::
 
     {\partial{\bf w}\over \partial t} +
-    {\bf J}_x
+    {\bf A}_x
     {\partial{\bf w}\over \partial x} +
-    {\bf J}_y
+    {\bf A}_y
     {\partial{\bf w}\over \partial y} +
-    {\bf J}_z
+    {\bf A}_z
     {\partial{\bf w}\over \partial z} +
     {\bf g}= 0
 
-One nice thing about these particular Jacobians is that (this only holds for
-Euler equations):
+One nice thing about these particular
+${\bf f}_x$,
+${\bf f}_y$ and
+${\bf f}_z$ functions is that they are homogeneous of degree 1:
 
 .. math::
 
-    {\partial {\bf J}_x\over \partial x}\,{\bf w} = 0
+    {\bf f}_x(\lambda{\bf w})
+    =\lambda\,{\bf f}_x({\bf w})
 
-    {\partial {\bf J}_y\over \partial y}\,{\bf w} = 0
-
-    {\partial {\bf J}_z\over \partial z}\,{\bf w} = 0
-
-so
+so the Euler equation/formula for the homogeneous function is:
 
 .. math::
+
+    {\bf w}\cdot {\partial {\bf f}_x({\bf w})\over\partial {\bf w}}
+    ={\bf f}_x({\bf w})
+
+    {\bf w}\cdot {\bf A}_x ={\bf f}_x({\bf w})
+
+So both the ${\bf f}_x$ and it's derivative can be nicely factored out using
+the flux Jacobian:
+
+.. math::
+
+    {\bf f}_x = {\bf A}_x\, {\bf w}
 
     {\partial{\bf f}_x\over \partial x} =
-    {\partial{\bf f}_x\over \partial {\bf w}}
-    {\partial{\bf w}\over \partial x} =
-    {\bf J}_x {\partial{\bf w}\over \partial x}
-    =
-    {\bf J}_x {\partial{\bf w}\over \partial x}
-    +
-    {\partial {\bf J}_x\over \partial x}\,{\bf w}
-    =
-    {\partial({\bf J}_x{\bf w})\over \partial x}
+        {\bf A}_x {\partial{\bf w}\over \partial x}
 
-similarly for $y$ and $z$, hence:
-
-.. math::
-
-    {\bf f}_x = {\bf J}_x{\bf w}
-
-    {\bf f}_y = {\bf J}_y{\bf w}
-
-    {\bf f}_z = {\bf J}_z{\bf w}
-
-to calculate the Jacobians, we'll need:
+similarly for $y$ and $z$.
+To calculate the Jacobians, we'll need:
 
 .. math::
 
