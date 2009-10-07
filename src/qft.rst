@@ -3178,10 +3178,13 @@ The SI units are useful for checking that the $c$, $e$ and $\hbar$ constants are
 .. index::
     pair: tensors; QFT
 
-Tensors in QFT
---------------
+Tensors in Special Relativity and QFT
+-------------------------------------
 
-In general, the covariant and contravariant vectors and tensors work just like in general relativity. We use the metric $g_{\mu\nu}={\rm diag}(1, -1, -1, -1)$ (e.g. signature -2, but it's possible to also use the metric with signature +2). The four potential $A^\mu$ is given by: 
+In general, the covariant and contravariant vectors and tensors work just like
+in special (and general) relativity. We use the metric $g_{\mu\nu}={\rm
+diag}(1, -1, -1, -1)$ (e.g. signature -2, but it's possible to also use the
+metric with signature +2). The four potential $A^\mu$ is given by:
 
 .. math::
 
@@ -3209,11 +3212,19 @@ The length (squared) of the vector is:
 
 where ${\bf A}^2 \equiv |{\bf A}|^2 = (A^1)^2+(A^2)^2+(A^3)^2$.
 
-Gradient is defined as:
+The position 4-vector is (in any metric):
 
 .. math::
 
-    \partial_\mu = (\partial_0, \partial_1, \partial_2, \partial_3)= \left({1\over c}{\partial\over\partial t},{\partial\over\partial x},{\partial\over\partial y},{\partial\over\partial z}\right)
+    x^\mu = (ct, {\bf x})
+
+Gradient is defined as (in any metric):
+
+.. math::
+
+    \partial_\mu = (\partial_0, \partial_1, \partial_2, \partial_3) =
+    {\partial\over\partial x^\mu}=
+    \left({1\over c}{\partial\over\partial t},{\partial\over\partial x},{\partial\over\partial y},{\partial\over\partial z}\right)
 
 
 the upper indices depend on the signature, e.g. for -2: 
@@ -3236,7 +3247,51 @@ The d'Alembert operator is:
     \partial^2 \equiv \partial_\mu \partial^\mu
 
 
-Momentum (${\bf p}=-i\hbar\nabla$) and energy ($E=i\hbar{\partial\over\partial t}$) is combined into 4-momentum as 
+the 4-velocity is (in any metric):
+
+.. math::
+
+    v^\mu = {\d x^\mu\over\d\tau} =
+    {\d t\over\d\tau}{\d x^\mu\over\d t} = \gamma(c, {\bf v})
+
+where $\tau$ is the proper time,
+$\gamma={\d t\over\d\tau}={1\over\sqrt{1 - {{\bf v}^2\over c^2}}}$
+and ${\bf v}={\d {\bf x}\over\d t}$
+is the velocity in the coordinate time $t$. In the metric
+with signature +2:
+
+.. math::
+
+    v^2 = v_\mu v^\mu = g_{\mu\nu}v^\mu v^\nu = -\gamma^2 c^2 + {\bf v}^2
+    = - {c^2\over 1 - {{\bf v}^2\over c^2}} + {\bf v}^2 = c^2
+
+The 4-momentum is (in any metric)
+
+.. math::
+
+    p^\mu = m v^\mu = m\gamma(c, {\bf v})
+
+where $m$ is the rest mass. The fluid-density 4-current is (in any metric):
+
+.. math::
+
+    j^\mu = \rho v^\mu = \rho\gamma(c, {\bf v})
+
+where $\rho$ is the fluid density at rest. For example the vanishing
+4-divergence (the continuity equation) is written as (in any metric):
+
+.. math::
+
+    0 = \partial_\mu j^\mu = {1\over c}{\partial\over\partial t} (\rho\gamma c)
+        + \nabla \cdot (\rho\gamma {\bf v})
+    = {\partial\over\partial t} (\rho\gamma) + \nabla \cdot (\rho{\bf v}\gamma)
+    = {\partial\over\partial t}\left(\rho\over
+        \sqrt{1-{{\bf v}^2\over c^2}}\right)
+      + \nabla \cdot\left(\rho{\bf v}\over
+        \sqrt{1-{{\bf v}^2\over c^2}}\right)
+
+Momentum (${\bf p}=-i\hbar\nabla$) and energy ($E=i\hbar{\partial\over\partial
+t}$) is combined into 4-momentum as
 
 .. math::
 
