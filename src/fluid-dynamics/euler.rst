@@ -202,6 +202,28 @@ we can then write the equations as:
     {\partial{\bf f}_z\over \partial z} +
     {\bf g}= 0
 
+Note: we should probably rename ${\bf U}$ to ${\bf j}$, because it is the
+fluid-density current. Also we should start indexing components of ${\bf w}$
+from 0, because then the first 4 components are exactly the components of the
+density 4-current:
+
+.. math::
+
+    j^\mu =\rho v^\mu = \rho\gamma (c, {\bf u}) =
+        \gamma
+        \left( \begin{array}{c}
+            c\rho\\
+            \rho u_1\\
+            \rho u_2\\
+            \rho u_3\\
+        \end{array} \right)
+
+where $c$ is the speed of light, and in the nonrelativistic limit
+($c\to\infty$)
+we get $\gamma\to1$ and the remaining $c$ in $j^0$ will cancel with $c$ in
+$\partial_0 = {1\over c}{\partial\over\partial t}$, so it will not be present
+in the final equations.
+
 Now we write the spatial derivatives using so called flux Jacobians
 ${\bf A}_x$,
 ${\bf A}_y$
