@@ -120,6 +120,14 @@ After introducing:
        \left( \begin{array}{c}
            \varrho\\ U\\ V\\ W\\ E
        \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_1 \\
+           w_2 \\
+           w_3 \\
+           w_4 \\
+           w_5 \\
+       \end{array} \right)
 
     {\bf f}_x =
        \left( \begin{array}{c}
@@ -128,6 +136,14 @@ After introducing:
            \frac{UV}{\varrho}\\
            \frac{UW}{\varrho}\\
            \frac{U}{\varrho}(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_2\\
+           \frac{w_2^2}{w_1} + p\\
+           \frac{w_2w_3}{w_1}\\
+           \frac{w_2w_4}{w_1}\\
+           \frac{w_2}{w_1}(w_5+p)
        \end{array} \right)
 
     {\bf f}_y =
@@ -138,6 +154,14 @@ After introducing:
            \frac{VW}{\varrho}\\
            \frac{V}{\varrho}(E+p)
        \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_3\\
+           \frac{w_3w_2}{w_1}\\
+           \frac{w_3^2}{w_1} + p\\
+           \frac{w_3w_4}{w_1}\\
+           \frac{w_3}{w_1}(w_5+p)
+       \end{array} \right)
 
     {\bf f}_z =
        \left( \begin{array}{c}
@@ -146,6 +170,14 @@ After introducing:
            \frac{WV}{\varrho}\\
            \frac{W^2}{\varrho} + p\\
            \frac{W}{\varrho}(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_4\\
+           \frac{w_4w_2}{w_1}\\
+           \frac{w_4w_3}{w_1}\\
+           \frac{w_4^2}{w_1} + p\\
+           \frac{w_4}{w_1}(w_5+p)
        \end{array} \right)
 
     {\bf g} =
