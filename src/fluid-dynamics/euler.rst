@@ -260,6 +260,12 @@ the flux Jacobian:
     {\partial{\bf f}_x\over \partial x} =
         {\bf A}_x {\partial{\bf w}\over \partial x}
 
+by differentiating the first equation and substracting the second, we get:
+
+.. math::
+
+    {\partial {\bf A}_x\over\partial x}\, {\bf w} = 0
+
 similarly for $y$ and $z$.
 To calculate the Jacobians, we'll need:
 
@@ -276,7 +282,7 @@ then we can calculate the Jacobians (and we substitute for $p$):
 
 .. math::
 
-    {\bf J}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+    {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 1 & 0 & 0 & 0\\
             -{w_2^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
@@ -297,7 +303,7 @@ then we can calculate the Jacobians (and we substitute for $p$):
                 {w_2\over w_1}-{R\over c_v}{w_2\over w_1} \\
        \end{array} \right)
 
-    {\bf J}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
+    {\bf A}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 0 & 1 & 0 & 0\\
             -{w_3w_2\over w_1^2} & {w_3\over w_1} & {w_2\over w_1} & 0 & 0\\
@@ -310,7 +316,7 @@ then we can calculate the Jacobians (and we substitute for $p$):
             \cdot & \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
 
-    {\bf J}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
+    {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 0 & 0 & 1 & 0\\
             -{w_4w_2\over w_1^2} & {w_4\over w_1} & 0 & {w_2\over w_1} & 0 \\
@@ -322,6 +328,181 @@ then we can calculate the Jacobians (and we substitute for $p$):
                 {R\over c_v}\\
             \cdot & \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
+
+FEM formulation
+---------------
+
+The Euler equations:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\bf A}_x({\bf w})
+    {\partial{\bf w}\over \partial x} +
+    {\bf A}_y({\bf w})
+    {\partial{\bf w}\over \partial y} +
+    {\bf A}_z({\bf w})
+    {\partial{\bf w}\over \partial z} +
+    {\bf g}= 0
+
+are nonlinear. The simplest approximation is to linearize them by:
+
+.. math::
+
+    {{\bf w}^{n+1}-{\bf w}^n\over \tau} +
+    {\bf A}_x({\bf w}^n)
+    {\partial{\bf w}^{n+1}\over \partial x} +
+    {\bf A}_y({\bf w}^n)
+    {\partial{\bf w}^{n+1}\over \partial y} +
+    {\bf A}_z({\bf w}^n)
+    {\partial{\bf w}^{n+1}\over \partial z} +
+    {\bf g}= 0
+
+Then we multiply by the test functions (one by one):
+
+.. math::
+
+    \left( \begin{array}{c}
+        \varphi_1 \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\ 
+    \left( \begin{array}{c}
+        0 \\
+        \varphi_2 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\ 
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        \varphi_3 \\
+        0 \\
+        0 \\
+    \end{array} \right),\ 
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        \varphi_4 \\
+        0 \\
+    \end{array} \right),\ 
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        \varphi_5 \\
+    \end{array} \right)
+
+and integrate over the 3D domain $\Omega$, so
+we get ($i$ is numbering the 5 equations, we are *not* summing over it):
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi_i
+        + \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          {\partial w_j^{n+1}\over\partial x} \varphi_i
+        + \left({\bf A}_y({\bf w}^n)\right)_{ij}
+          {\partial w_j^{n+1}\over\partial y} \varphi_i
+        + \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          {\partial w_j^{n+1}\over\partial z} \varphi_i
+        + g_i \varphi_i
+        \ \d^3 x
+        =0
+
+Now we integrate by parts and use the homogeneity property (
+$w_j {\partial\left({\bf A}_z({\bf w}^n)\right)_{ij}\over\partial x}
+\varphi_i = 0$):
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi_i
+        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi_i\over\partial x}
+        - \left({\bf A}_y({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi_i\over\partial y}
+        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi_i\over\partial z}
+        + g_i \varphi_i
+        \ \d^3 x
+        +
+
+    +\int_{\partial\Omega}
+    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi_i\, n_x
+    + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi_i\, n_y
+    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi_i\, n_z
+    \ \d^2 x
+    =0
+
+where ${\bf n} = (n_x, n_y, n_z)$ is the outward surface normal to
+$\partial\Omega$. Rearranging:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi_i
+        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi_i\over\partial x}
+        - \left({\bf A}_y({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi_i\over\partial y}
+        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi_i\over\partial z}
+        \ \d^3 x
+        +
+
+    +\int_{\partial\Omega}
+    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi_i\, n_x
+    + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi_i\, n_y
+    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi_i\, n_z
+    \ \d^2 x
+    =
+    \int_{\Omega} {w_i^n\over\tau}\varphi_i
+        - g_i \varphi_i
+        \ \d^3 x
+
+Expanding the $w_i$ into the basis functions:
+
+.. math::
+
+    w_i^{n+1} = \sum_k y_k^i \varphi_k
+
+we get:
+
+.. math::
+
+    \sum_k \left[
+    \int_{\Omega} y_k^i{\varphi_k\varphi_i\over\tau}
+        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          y_k^j \varphi_k {\partial \varphi_i\over\partial x}
+        - \left({\bf A}_y({\bf w}^n)\right)_{ij}
+          y_k^j \varphi_k {\partial \varphi_i\over\partial y}
+        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          y_k^j \varphi_k {\partial \varphi_i\over\partial z}
+        \ \d^3 x
+        +\right.
+
+      \left.
+    +\int_{\partial\Omega}
+    \left({\bf A}_x({\bf w}^n)\right)_{ij}y_k^j \varphi_k
+        \varphi_i\, n_x
+    + \left({\bf A}_y({\bf w}^n)\right)_{ij}y_k^j \varphi_k
+        \varphi_i\, n_y
+    + \left({\bf A}_z({\bf w}^n)\right)_{ij}y_k^j \varphi_k
+        \varphi_i\, n_z
+    \ \d^2 x\right]
+    =
+    \int_{\Omega} {w_i^n\over\tau}\varphi_i
+        - g_i \varphi_i
+        \ \d^3 x
 
 Sea Breeze Modeling
 -------------------
