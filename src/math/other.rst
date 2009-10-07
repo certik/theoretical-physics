@@ -673,3 +673,64 @@ or written explicitly
 
        f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})
 
+.. index:: homogeneous functions
+
+Homogeneous functions
+---------------------
+
+A function of several variables $f(x_1, x_2, \dots) \equiv f(x_i)$ is
+homogeneous of degree $k$ if
+
+.. math::
+
+    f(\lambda x_i) = \lambda^k f(x_i)
+
+By differentiating with respect to $\lambda$:
+
+.. math::
+
+    x_i {\partial f(\lambda x_i)\over\partial x_i} = k\lambda^{k-1} f(x_i)
+
+and setting $\lambda=1$ we get the so called Euler equation:
+
+.. math::
+
+    x_i {\partial f(x_i)\over\partial x_i} = k f(x_i)
+
+in 3D this can also be written as:
+
+.. math::
+
+    {\bf x} \cdot \nabla f({\bf x}) = k f({\bf x})
+
+Example
+~~~~~~~
+
+The function $f(x, y, z) = {xy\over z}$ is homogeneous of degree 1, because:
+
+.. math::
+
+    f(\lambda x, \lambda y, \lambda z) = {\lambda x\lambda y\over \lambda z}
+    = \lambda {xy\over z}
+    = \lambda f(x, y, z)
+
+and the Euler equation is:
+
+.. math::
+
+    x{\partial f\over\partial x} +
+    y{\partial f\over\partial y} +
+    z{\partial f\over\partial z}
+    =
+    f
+
+or
+
+.. math::
+
+    x{y\over z} +
+    y{x\over z} +
+    z\left(-{xy\over z^2}\right)
+    ={xy\over z}
+
+Which obviously is true.
