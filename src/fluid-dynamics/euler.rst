@@ -122,11 +122,11 @@ After introducing:
        \end{array} \right)
        =
        \left( \begin{array}{c}
+           w_0 \\
            w_1 \\
            w_2 \\
            w_3 \\
            w_4 \\
-           w_5 \\
        \end{array} \right)
 
     {\bf f}_x =
@@ -139,11 +139,11 @@ After introducing:
        \end{array} \right)
        =
        \left( \begin{array}{c}
-           w_2\\
-           \frac{w_2^2}{w_1} + p\\
-           \frac{w_2w_3}{w_1}\\
-           \frac{w_2w_4}{w_1}\\
-           \frac{w_2}{w_1}(w_5+p)
+           w_1\\
+           \frac{w_1^2}{w_0} + p\\
+           \frac{w_1w_2}{w_0}\\
+           \frac{w_1w_3}{w_0}\\
+           \frac{w_1}{w_0}(w_4+p)
        \end{array} \right)
 
     {\bf f}_y =
@@ -156,11 +156,11 @@ After introducing:
        \end{array} \right)
        =
        \left( \begin{array}{c}
-           w_3\\
-           \frac{w_3w_2}{w_1}\\
-           \frac{w_3^2}{w_1} + p\\
-           \frac{w_3w_4}{w_1}\\
-           \frac{w_3}{w_1}(w_5+p)
+           w_2\\
+           \frac{w_2w_1}{w_0}\\
+           \frac{w_2^2}{w_0} + p\\
+           \frac{w_2w_3}{w_0}\\
+           \frac{w_2}{w_0}(w_4+p)
        \end{array} \right)
 
     {\bf f}_z =
@@ -173,11 +173,11 @@ After introducing:
        \end{array} \right)
        =
        \left( \begin{array}{c}
-           w_4\\
-           \frac{w_4w_2}{w_1}\\
-           \frac{w_4w_3}{w_1}\\
-           \frac{w_4^2}{w_1} + p\\
-           \frac{w_4}{w_1}(w_5+p)
+           w_3\\
+           \frac{w_3w_1}{w_0}\\
+           \frac{w_3w_2}{w_0}\\
+           \frac{w_3^2}{w_0} + p\\
+           \frac{w_3}{w_0}(w_4+p)
        \end{array} \right)
 
     {\bf g} =
@@ -190,7 +190,7 @@ After introducing:
        \end{array} \right)
 
     p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)
-    = {R\over c_v} \left(w_5-{w_2^2+w_3^2+w_4^2\over2w_1}\right)
+    = {R\over c_v} \left(w_4-{w_1^2+w_2^2+w_3^2\over2w_0}\right)
 
 we can then write the equations as:
 
@@ -202,10 +202,10 @@ we can then write the equations as:
     {\partial{\bf f}_z\over \partial z} +
     {\bf g}= 0
 
-Note: we should probably rename ${\bf U}$ to ${\bf j}$, because it is the
-fluid-density current. Also we should start indexing components of ${\bf w}$
-from 0, because then the first 4 components are exactly the components of the
-density 4-current:
+Note: ${\bf U}\equiv{\bf j}$, where ${\bf j}$ is the fluid density current
+(it's a 3-vector) and also $w^\mu \equiv j^\mu$, where $j^\mu$ is the density
+4-current (e.g. the first 4 components of ${\bf w}$ are exactly the
+components of the 4-current $j^\mu$):
 
 .. math::
 
@@ -218,11 +218,12 @@ density 4-current:
             \rho u_3\\
         \end{array} \right)
 
-where $c$ is the speed of light, and in the nonrelativistic limit
-($c\to\infty$)
-we get $\gamma\to1$ and the remaining $c$ in $j^0$ will cancel with $c$ in
-$\partial_0 = {1\over c}{\partial\over\partial t}$, so it will not be present
-in the final equations.
+where as usual $\mu = 0, 1, 2, 3$ is the relativistic index, $c$ is the speed
+of light, and in the nonrelativistic limit ($c\to\infty$) we get $\gamma\to1$
+and the remaining $c$ in $j^0$ will cancel with $c$ in
+$\partial_0 = {1\over c}{\partial\over\partial t}$,
+so it will not be present in the final equations (that involve terms like
+$\partial_\mu j^\mu$).
 
 Now we write the spatial derivatives using so called flux Jacobians
 ${\bf A}_x$,
@@ -296,8 +297,8 @@ To calculate the Jacobians, we'll need:
     {\partial p\over \partial {\bf w}}=
         {R\over c_v}
         \left( \begin{array}{ccccc}
-            {w_2^2+w_3^2+w_4^2\over 2w_1^2} & -{w_2\over w_1} & -{w_3\over w_1}
-                & -{w_4\over w_1} & 1\\
+            {w_1^2+w_2^2+w_3^2\over 2w_0^2} & -{w_1\over w_0} & -{w_2\over w_0}
+                & -{w_3\over w_0} & 1\\
         \end{array} \right)
 
 then we can calculate the Jacobians (and we substitute for $p$):
@@ -307,46 +308,46 @@ then we can calculate the Jacobians (and we substitute for $p$):
     {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 1 & 0 & 0 & 0\\
-            -{w_2^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
-                {2w_2\over w_1}-{R\over c_v}{w_2\over w_1} &
-                -{R\over c_v}{w_3\over w_1} &
-                -{R\over c_v}{w_4\over w_1} &
+            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+                {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
+                -{R\over c_v}{w_2\over w_0} &
+                -{R\over c_v}{w_3\over w_0} &
                 {R\over c_v}\\
-            -{w_2w_3\over w_1^2} & {w_3\over w_1} & {w_2\over w_1} & 0 & 0\\
-            -{w_2w_4\over w_1^2} & {w_4\over w_1} & 0 & {w_2\over w_1} & 0 \\
-                -{w_2w_5\over w_1^2}-{w_2\over w_1^2}{R\over c_v}
-                    \left(w_5-{w_2^2+w_3^2+w_4^2\over 2 w_1}\right)
-                    +{w_2\over w_1}{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1} &
-                {w_5\over w_1}+{1\over w_1}{R\over c_v}
-                    \left(w_5-{w_2^2+w_3^2+w_4^2\over 2 w_1}\right)
-                    -{R\over c_v}{w_2^2\over w_1^2} &
-                -{R\over c_v}{w_2w_3\over w_1^2} &
-                -{R\over c_v}{w_2w_4\over w_1^2} &
-                {w_2\over w_1}-{R\over c_v}{w_2\over w_1} \\
+            -{w_1w_2\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 & 0\\
+            -{w_1w_3\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
+                -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0} &
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_1^2\over w_0^2} &
+                -{R\over c_v}{w_1w_2\over w_0^2} &
+                -{R\over c_v}{w_1w_3\over w_0^2} &
+                {w_1\over w_0}-{R\over c_v}{w_1\over w_0} \\
        \end{array} \right)
 
     {\bf A}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 0 & 1 & 0 & 0\\
-            -{w_3w_2\over w_1^2} & {w_3\over w_1} & {w_2\over w_1} & 0 & 0\\
-            -{w_3^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
-                -{R\over c_v}{w_2\over w_1} &
-                {2w_3\over w_1}-{R\over c_v}{w_3\over w_1} &
-                -{R\over c_v}{w_4\over w_1} &
+            -{w_2w_1\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 & 0\\
+            -{w_2^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+                -{R\over c_v}{w_1\over w_0} &
+                {2w_2\over w_0}-{R\over c_v}{w_2\over w_0} &
+                -{R\over c_v}{w_3\over w_0} &
                 {R\over c_v}\\
-            -{w_3w_4\over w_1^2} & 0 & {w_4\over w_1} & {w_3\over w_1} & 0 \\
+            -{w_2w_3\over w_0^2} & 0 & {w_3\over w_0} & {w_2\over w_0} & 0 \\
             \cdot & \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
 
     {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
         \left( \begin{array}{ccccc}
             0 & 0 & 0 & 1 & 0\\
-            -{w_4w_2\over w_1^2} & {w_4\over w_1} & 0 & {w_2\over w_1} & 0 \\
-            -{w_4w_3\over w_1^2} & 0 & {w_4\over w_1} & {w_3\over w_1} & 0 \\
-            -{w_4^2\over w_1^2} +{R\over c_v}{w_2^2+w_3^2+w_4^2\over 2 w_1^2} &
-                -{R\over c_v}{w_2\over w_1} &
-                -{R\over c_v}{w_3\over w_1} &
-                {2w_4\over w_1} -{R\over c_v}{w_4\over w_1} &
+            -{w_3w_1\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
+            -{w_3w_2\over w_0^2} & 0 & {w_3\over w_0} & {w_2\over w_0} & 0 \\
+            -{w_3^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+                -{R\over c_v}{w_1\over w_0} &
+                -{R\over c_v}{w_2\over w_0} &
+                {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &
                 {R\over c_v}\\
             \cdot & \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
