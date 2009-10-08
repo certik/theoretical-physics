@@ -572,37 +572,32 @@ anyway and introduce:
 .. math::
 
     {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
-        \left( \begin{array}{ccccc}
-            0 & 1 & 0 & 0 & 0\\
-            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+        \left( \begin{array}{cccc}
+            0 & 1 & 0 & 0\\
+            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
                 {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
-                -{R\over c_v}{w_2\over w_0} &
                 -{R\over c_v}{w_3\over w_0} &
                 {R\over c_v}\\
-            -{w_1w_2\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 & 0\\
-            -{w_1w_3\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
+            -{w_1w_3\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
                 -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
-                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
-                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0} &
+                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
+                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0} &
                 {w_4\over w_0}+{1\over w_0}{R\over c_v}
-                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
                     -{R\over c_v}{w_1^2\over w_0^2} &
-                -{R\over c_v}{w_1w_2\over w_0^2} &
                 -{R\over c_v}{w_1w_3\over w_0^2} &
                 {w_1\over w_0}-{R\over c_v}{w_1\over w_0} \\
        \end{array} \right)
 
     {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
-        \left( \begin{array}{ccccc}
-            0 & 0 & 0 & 1 & 0\\
-            -{w_3w_1\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
-            -{w_3w_2\over w_0^2} & 0 & {w_3\over w_0} & {w_2\over w_0} & 0 \\
-            -{w_3^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+        \left( \begin{array}{cccc}
+            0 & 0 & 1 & 0\\
+            -{w_3w_1\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
+            -{w_3^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
                 -{R\over c_v}{w_1\over w_0} &
-                -{R\over c_v}{w_2\over w_0} &
                 {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &
                 {R\over c_v}\\
-            \cdot & \cdot & \cdot & \cdot & \cdot \\
+            \cdot & \cdot & \cdot & \cdot \\
        \end{array} \right)
 
 The weak formulation in 2D is (here $i = 0, 1, 3, 4$):
