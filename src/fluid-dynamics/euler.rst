@@ -635,6 +635,107 @@ where $T(t)$ is a known function of time (it changes with the day and night)
 and also prescribe $w_1^{n+1}=0$ on the left and right end of the domain and
 $w_3^{n+1}=0$ at the top and bottom.
 
+In order to specify the input forms for Hermes, we'll write the weak
+formulation as:
+
+.. math::
+
+    B_{00}(w_0, \varphi^0) + B_{01}(w_1, \varphi^0) +
+        B_{03}(w_3, \varphi^0)+ B_{04}(w_4, \varphi^0) = l_0(\varphi^0)
+
+    B_{10}(w_0, \varphi^1) + B_{11}(w_1, \varphi^1) +
+        B_{13}(w_3, \varphi^1)+ B_{14}(w_4, \varphi^1) = l_1(\varphi^1)
+
+    B_{30}(w_0, \varphi^3) + B_{31}(w_1, \varphi^3) +
+        B_{33}(w_3, \varphi^3)+ B_{34}(w_4, \varphi^3) = l_3(\varphi^3)
+
+    B_{40}(w_0, \varphi^4) + B_{41}(w_1, \varphi^4) +
+        B_{43}(w_3, \varphi^4)+ B_{44}(w_4, \varphi^4) = l_4(\varphi^4)
+
+where the forms are (we write $w_i$ instead of $w_i^{n+1}$):
+
+.. math::
+
+    l_0(\varphi^0) = \int_\Omega {w_0\varphi^0\over\tau} \,\d^2 x
+
+    l_1(\varphi^1) = \int_\Omega {w_1\varphi^1\over\tau} \,\d^2 x
+
+    l_3(\varphi^3) = \int_\Omega {w_3\varphi^3\over\tau} + \rho g \varphi^3
+        \,\d^2 x
+
+    l_4(\varphi^4) = \int_\Omega {w_4\varphi^4\over\tau} \,\d^2 x
+
+    B_{ij}(w_j, \varphi^i) = \int_{\Omega} {w_i\over\tau}\varphi^i
+        \delta_{ij}
+        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          w_j {\partial \varphi^i\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          w_j {\partial \varphi^i\over\partial z}
+        \ \d^2 x
+
+In the last expression we do *not* sum over $i$ nor $j$.
+In particular:
+
+.. math::
+
+    B_{00}(w_0, \varphi^0) = \int_{\Omega} {w_0\over\tau}\varphi^0
+        - \left({\bf A}_x({\bf w}^n)\right)_{00}
+          w_0 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{00}
+          w_0 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega} {w_0\over\tau}\varphi^0
+        \ \d^2 x
+
+    B_{01}(w_1, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{01}
+          w_1 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{01}
+          w_1 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{01}
+          w_1 {\partial \varphi^0\over\partial x}
+        \ \d^2 x
+
+    B_{03}(w_3, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{03}
+          w_3 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{03}
+          w_3 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega}
+        - \left({\bf A}_z({\bf w}^n)\right)_{03}
+          w_3 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+
+    B_{04}(w_4, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{04}
+          w_4 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{04}
+          w_4 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =0
+
+    B_{10}(w_0, \varphi^1) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{10}
+          w_0 {\partial \varphi^1\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{10}
+          w_0 {\partial \varphi^1\over\partial z}
+        \ \d^2 x
+
+    B_{11}(w_1, \varphi^1) = \int_{\Omega} {w_1\over\tau}\varphi^1
+        - \left({\bf A}_x({\bf w}^n)\right)_{11}
+          w_1 {\partial \varphi^1\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{11}
+          w_1 {\partial \varphi^1\over\partial z}
+        \ \d^2 x
+
+    \cdots
+
 Older notes
 -----------
 
