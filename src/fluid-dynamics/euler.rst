@@ -427,8 +427,9 @@ Then we multiply by the test functions (one by one):
         \varphi^4 \\
     \end{array} \right)
 
-and integrate over the 3D domain $\Omega$, so
-we get ($i$ is numbering the 5 equations, we are *not* summing over it):
+and integrate over the 3D domain $\Omega$, so we get (here the index
+$i=0, 1, 2, 3, 4$ is numbering the 5 equations, so we are *not* summing over
+it):
 
 .. math::
 
