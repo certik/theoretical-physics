@@ -520,7 +520,7 @@ In our model we make the following assumptions:
     ={\partial W\over\partial y}
     ={\partial E\over\partial y}=0
 
-so we get:
+so we get a 2D model:
 
 .. math::
 
@@ -552,7 +552,57 @@ so we get:
     p = {R\over c_v} \left(E-{U^2+W^2\over2\rho}\right)
 
 where we prescribe $R$, $c_v$, $g$ and solve for $\rho$, $U$, $W$ and $E$ as
-functions of $(t, x, z)$.
+functions of $(t, x, z)$. We delete the row for $y$, which only contains zeros
+anyway and introduce:
+
+.. math::
+
+    {\bf w} =
+       \left( \begin{array}{c}
+           \varrho\\ \rho u_1\\ \rho u_3\\ E
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_0 \\
+           w_1 \\
+           w_3 \\
+           w_4 \\
+       \end{array} \right)
+
+The weak formulation in 2D is (here $i = 0, 1, 3, 4$):
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
+        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi^i\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi^i\over\partial z}
+        \ \d^2 x
+        +
+
+    +\int_{\partial\Omega}
+    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi^i\, n_x
+    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi^i\, n_z
+    \ \d x
+    =
+    \int_{\Omega} {w_i^n\over\tau}\varphi^i
+        - g_i \varphi^i
+        \ \d^2 x
+
+In the boundary (line) integral we prescribe $w_5^{n+1}$ using a Dirichlet
+condition and calculate it at each iteration using:
+
+.. math::
+
+    w_5^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
+        {w_1^2+w_3^2\over 2w_0}
+
+where $T(t)$ is a known function of time (it changes with the day and night)
+and also prescribe $w_1^{n+1}=0$ on the left and right end of the domain and
+$w_3^{n+1}=0$ at the top and bottom.
 
 Older notes
 -----------
