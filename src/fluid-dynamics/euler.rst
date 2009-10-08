@@ -392,39 +392,39 @@ Then we multiply by the test functions (one by one):
 .. math::
 
     \left( \begin{array}{c}
+        \varphi^0 \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\ 
+    \left( \begin{array}{c}
+        0 \\
         \varphi^1 \\
         0 \\
         0 \\
         0 \\
-        0 \\
     \end{array} \right),\ 
     \left( \begin{array}{c}
+        0 \\
         0 \\
         \varphi^2 \\
         0 \\
         0 \\
-        0 \\
     \end{array} \right),\ 
     \left( \begin{array}{c}
+        0 \\
         0 \\
         0 \\
         \varphi^3 \\
         0 \\
-        0 \\
     \end{array} \right),\ 
     \left( \begin{array}{c}
+        0 \\
         0 \\
         0 \\
         0 \\
         \varphi^4 \\
-        0 \\
-    \end{array} \right),\ 
-    \left( \begin{array}{c}
-        0 \\
-        0 \\
-        0 \\
-        0 \\
-        \varphi^5 \\
     \end{array} \right)
 
 and integrate over the 3D domain $\Omega$, so
