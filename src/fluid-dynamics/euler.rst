@@ -122,6 +122,10 @@ After introducing:
        \end{array} \right)
        =
        \left( \begin{array}{c}
+           \varrho\\ \rho u_1\\ \rho u_2\\ \rho u_3\\ E
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
            w_0 \\
            w_1 \\
            w_2 \\
@@ -203,8 +207,9 @@ we can then write the equations as:
     {\bf g}= 0
 
 Note: ${\bf U}\equiv{\bf j}$, where ${\bf j}$ is the fluid density current
-(it's a 3-vector) and also $w^\mu \equiv j^\mu$, where $j^\mu$ is the density
-4-current (e.g. the first 4 components of ${\bf w}$ are exactly the
+(it's a 3-vector) and also $w^\mu \equiv j^\mu$ (here $w^\mu$ is the same as
+$w_\mu$, e.g. we are a bit sloppy about the notation), where $j^\mu$ is the
+density 4-current (e.g. the first 4 components of ${\bf w}$ are exactly the
 components of the 4-current $j^\mu$):
 
 .. math::
@@ -223,7 +228,8 @@ of light, and in the nonrelativistic limit ($c\to\infty$) we get $\gamma\to1$
 and the remaining $c$ in $j^0$ will cancel with $c$ in
 $\partial_0 = {1\over c}{\partial\over\partial t}$,
 so it will not be present in the final equations (that involve terms like
-$\partial_\mu j^\mu$).
+$\partial_\mu j^\mu$). We can also just set $c=1$ as usual in relativistic
+physics.
 
 Now we write the spatial derivatives using so called flux Jacobians
 ${\bf A}_x$,
