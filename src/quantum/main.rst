@@ -3,8 +3,6 @@
 Quantum Field Theory and Quantum Mechanics
 ==========================================
 
-Contents:
-
 .. toctree::
     :maxdepth: 2
 

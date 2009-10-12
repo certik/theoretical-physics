@@ -1,8 +1,6 @@
 Mathematics
 ===========
 
-Contents:
-
 .. toctree::
     :maxdepth: 2
 

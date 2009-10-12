@@ -1,8 +1,6 @@
 Fluid Dynamics
 ==============
 
-Contents:
-
 .. toctree::
     :maxdepth: 2
 
