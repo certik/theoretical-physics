@@ -1,10 +1,3 @@
-.. index:: QFT, quantum field theory, QM, quantum mechanics
-
-==========================================
-Quantum Field Theory and Quantum Mechanics
-==========================================
-
-
 Introduction
 ============
 

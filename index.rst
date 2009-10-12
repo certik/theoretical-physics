@@ -11,8 +11,7 @@ Theoretical Physics Reference
 
    src/math/main.rst
    src/fluid-dynamics/main.rst
-   src/quantum/qft.rst
-   src/quantum/examples.rst
+   src/quantum/main.rst
    src/differential-geometry/main.rst
 
 Indices and tables
