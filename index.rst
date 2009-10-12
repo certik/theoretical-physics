@@ -6,20 +6,10 @@
 Theoretical Physics Reference
 =============================
 
-Mathematics:
-
 .. toctree::
    :maxdepth: 3
 
-   src/math/integration.rst
-   src/math/residue.rst
-   src/math/other.rst
-
-Physics:
-
-.. toctree::
-   :maxdepth: 3
-
+   src/math/main.rst
    src/fluid-dynamics/main.rst
    src/quantum/qft.rst
    src/quantum/examples.rst

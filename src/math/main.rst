@@ -1,0 +1,11 @@
+Mathematics
+===========
+
+Contents:
+
+.. toctree::
+    :maxdepth: 2
+
+    integration.rst
+    residue.rst
+    other.rst
