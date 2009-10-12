@@ -10,9 +10,9 @@ Theoretical Physics Reference
    :maxdepth: 3
 
    src/math/main.rst
+   src/relativity/main.rst
    src/fluid-dynamics/main.rst
    src/quantum/main.rst
-   src/relativity/main.rst
 
 Indices and tables
 ==================
