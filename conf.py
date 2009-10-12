@@ -44,6 +44,19 @@ latex_preamble = r"""
 \def\y{{\bf y}}
 \def\h{{\rm h}}
 \def\a{{\rm a}}
+\newcommand{\bfx}{\mbox{\boldmath $x$}}
+\newcommand{\bfy}{\mbox{\boldmath $y$}}
+\newcommand{\bfz}{\mbox{\boldmath $z$}}
+\newcommand{\bfv}{\mbox{\boldmath $v$}}
+\newcommand{\bfu}{\mbox{\boldmath $u$}}
+\newcommand{\bfF}{\mbox{\boldmath $F$}}
+\newcommand{\bfJ}{\mbox{\boldmath $J$}}
+\newcommand{\bfU}{\mbox{\boldmath $U$}}
+\newcommand{\bfY}{\mbox{\boldmath $Y$}}
+\newcommand{\bfR}{\mbox{\boldmath $R$}}
+\newcommand{\bfg}{\mbox{\boldmath $g$}}
+\newcommand{\bfc}{\mbox{\boldmath $c$}}
+\newcommand{\bfxi}{\mbox{\boldmath $\xi$}}
 
 
 %\def\back{\!\!\!\!\!\!\!\!\!\!}
