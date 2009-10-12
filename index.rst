@@ -9,7 +9,7 @@ Theoretical Physics Reference
 Mathematics:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    src/math/integration.rst
    src/math/residue.rst
@@ -18,11 +18,11 @@ Mathematics:
 Physics:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    src/fluid-dynamics/main.rst
-   src/qft.rst
-   src/qm-examples.rst
+   src/quantum/qft.rst
+   src/quantum/examples.rst
    src/differential-geometry/main.rst
 
 Indices and tables
