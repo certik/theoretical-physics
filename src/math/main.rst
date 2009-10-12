@@ -9,3 +9,4 @@ Contents:
     integration.rst
     residue.rst
     other.rst
+    differential-geometry.rst

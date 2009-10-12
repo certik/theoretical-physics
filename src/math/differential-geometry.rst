@@ -1,3 +1,7 @@
+=====================
+Differential Geometry
+=====================
+
 .. index:: differential geometry, manifolds
 
 Manifolds
