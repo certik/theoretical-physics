@@ -511,7 +511,7 @@ In our model we make the following assumptions:
 
     f_y = 0
 
-    f_z = -\rho g
+    f_z = -\rho g = -w_0 g
 
     V = 0
 
@@ -623,12 +623,12 @@ The weak formulation in 2D is (here $i = 0, 1, 3, 4$):
         - g_i \varphi^i
         \ \d^2 x
 
-In the boundary (line) integral we prescribe $w_5^{n+1}$ using a Dirichlet
+In the boundary (line) integral we prescribe $w_4^{n+1}$ using a Dirichlet
 condition and calculate it at each iteration using:
 
 .. math::
 
-    w_5^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
+    w_4^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
         {w_1^2+w_3^2\over 2w_0}
 
 where $T(t)$ is a known function of time (it changes with the day and night)
@@ -656,14 +656,14 @@ where the forms are (we write $w_i$ instead of $w_i^{n+1}$):
 
 .. math::
 
-    l_0(\varphi^0) = \int_\Omega {w_0\varphi^0\over\tau} \,\d^2 x
+    l_0(\varphi^0) = \int_\Omega {w_0^n\varphi^0\over\tau} \,\d^2 x
 
-    l_1(\varphi^1) = \int_\Omega {w_1\varphi^1\over\tau} \,\d^2 x
+    l_1(\varphi^1) = \int_\Omega {w_1^n\varphi^1\over\tau} \,\d^2 x
 
-    l_3(\varphi^3) = \int_\Omega {w_3\varphi^3\over\tau} + \rho g \varphi^3
+    l_3(\varphi^3) = \int_\Omega {w_3^n\varphi^3\over\tau} + \rho g \varphi^3
         \,\d^2 x
 
-    l_4(\varphi^4) = \int_\Omega {w_4\varphi^4\over\tau} \,\d^2 x
+    l_4(\varphi^4) = \int_\Omega {w_4^n\varphi^4\over\tau} \,\d^2 x
 
     B_{ij}(w_j, \varphi^i) = \int_{\Omega} {w_i\over\tau}\varphi^i
         \delta_{ij}
