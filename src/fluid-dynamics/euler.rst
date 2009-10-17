@@ -323,13 +323,13 @@ then we can calculate the Jacobians (and we substitute for $p$):
             -{w_1w_3\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
                 -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
                     \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
-                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0} &
+                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
                 {w_4\over w_0}+{1\over w_0}{R\over c_v}
                     \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
                     -{R\over c_v}{w_1^2\over w_0^2} &
                 -{R\over c_v}{w_1w_2\over w_0^2} &
                 -{R\over c_v}{w_1w_3\over w_0^2} &
-                {w_1\over w_0}-{R\over c_v}{w_1\over w_0} \\
+                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
        \end{array} \right)
 
     {\bf A}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
@@ -581,12 +581,12 @@ anyway and introduce:
             -{w_1w_3\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
                 -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
                     \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0} &
+                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
                 {w_4\over w_0}+{1\over w_0}{R\over c_v}
                     \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
                     -{R\over c_v}{w_1^2\over w_0^2} &
                 -{R\over c_v}{w_1w_3\over w_0^2} &
-                {w_1\over w_0}-{R\over c_v}{w_1\over w_0} \\
+                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
        \end{array} \right)
 
     {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
