@@ -548,3 +548,8 @@ expressing $R_l(kr)$ using $\delta_l$ and solving for it we get:
         n_l(ka)}
 
 Now we can use these $\delta_l$ in the formula for the total cross section.
+
+The problem can now be formulated in two ways. Either to solve the radial
+equation for a potential with finite reach and then "measure" those phase
+shifts in the solution. Or by prescribing those phase shifts and we now need to
+calculate the solutions (e.g. the energies) from the radial equation.
