@@ -21,6 +21,70 @@ books. In Europe people usually use different symbols, like $(\phi,\theta)$, $(\
 
 .. index:: delta function
 
+Argument function, atan2
+------------------------
+
+Argument function $\arg(z)$ is any $\varphi$ such that
+
+.. math::
+
+    z = r e^{i\varphi}
+
+Obviously $\arg(z)$ is unique up to any integer multiple of $2\pi$. By taking
+the principal value of the $\arg(z)$ function, e.g. fixing $\arg(z)$ to the
+interval $(-\pi, \pi]$, we get the $\Arg(z)$ function:
+
+.. math::
+
+    -\pi < \Arg z \le \pi
+
+then $\arg z = \Arg z + 2\pi n$, where $n=0, \pm 1, \pm 2, \dots$. We can then
+use the following formula to easily calculate $\Arg z$ for any $z=x+iy$:
+
+.. math::
+
+    \Arg(x+iy) =\begin{cases}\pi&y=0;x<0;\cr
+        2\,\atan{y\over\sqrt{x^2+y^2}+x}&\rm otherwise\cr\end{cases}
+
+Finally we define $\atan2(y, x)$ as:
+
+.. math::
+
+    \atan2(y, x) = \Arg(x+iy)
+
+Some properties:
+
+.. math::
+
+    \tan\atan2(y, x) = {y\over x}
+
+    \sin\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
+
+    \cos\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
+
+    \atan2(ky, kx) = \Arg(kx + iky) = \Arg(x+iy) = \atan2(y, x)
+
+An example of an application:
+
+.. math::
+
+    A\sin x + B\cos x = \sqrt{A^2+B^2}\left(
+        {A\over\sqrt{A^2+B^2}}\sin x + {B\over\sqrt{A^2+B^2}}\cos x\right)
+    =
+
+    = \sqrt{A^2+B^2}\left( \cos\delta\sin x + \sin\delta\cos x\right)
+    = \sqrt{A^2+B^2}\sin(x+\delta)
+    =
+
+    = \sqrt{A^2+B^2}\sin(x+\atan2(B, A))
+
+where
+
+.. math::
+
+    \delta = \atan2\left({B\over\sqrt{A^2+B^2}}, {A\over\sqrt{A^2+B^2}}\right)
+    =\atan2(B, A)
+
 Delta Function
 --------------
 

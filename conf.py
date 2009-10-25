@@ -151,6 +151,8 @@ latex_preamble = r"""
 \def\bsigmasmall{\hbox{\mibsmall\char"1B}}
 
 \def\Tr{\hbox{Tr}\,}
+\def\Arg{\hbox{Arg}}
+\def\atan{\hbox{atan}}
 """
 
 pngmath_latex_preamble = latex_preamble
