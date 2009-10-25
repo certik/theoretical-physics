@@ -470,3 +470,81 @@ $l<3$ we need to use our first nonsymmetric version.
 As you can see, this is something very different to what we got in the previous
 section. First there were lots of technical difficulties and second the final
 result is wrong, since it doesn't correspond to the 3D Schrödinger equation.
+
+Scattering in radial potential
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If $V=0$, the radial equation is:
+
+.. math::
+
+    -{1\over2}R''(r)-{1\over r}R'(r)+{l(l+1)\over2r^2} R(r)=ER(r)
+
+The general solution is a linear combination of the spherical Bessel functions
+$j_l(kr)$ and $n_l(kr)$, whose asymptotic expansion for $r\to\infty$ is:
+
+.. math::
+
+    j_l(kr)\to{1\over kr}\sin\left(kr-{l\pi\over 2}\right)
+
+    n_l(kr)\to{1\over kr}\cos\left(kr-{l\pi\over 2}\right)
+
+so we get for large $r$:
+
+.. math::
+
+    R_l(kr) = A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
+        + B_l{1\over kr}\cos\left(kr-{l\pi\over 2}\right) =
+
+    = \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
+    = C_l {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
+
+where
+
+.. math::
+
+    \delta_l = \atan2(B_l, A_l)
+
+    C_l = \sqrt{A_l^2 + B_l^2}
+
+We can then compare this to $\phi \approx e^{ikz} + f(\theta, \phi)
+{e^{ikr}\over r}$, by expanding $e^{ikz} = e^{ikr\cos\theta}=
+\sum (2l+1) i^l j_l(kr)P_l(\cos\theta)$:
+
+.. math::
+
+    C_l = {e^{i\delta_l}\over k}
+
+    f(\theta, \phi) = {1\over 2ik} \sum (2l+1)(e^{2i\delta_l}-1)P_l(\cos\theta)
+
+Since $\sigma(\theta) = |f(\theta)|^2$ and integrating over $\omega$ we get the
+total cross section:
+
+.. math::
+
+    \sigma = {4\pi\over k}\sum (2l+1)\sin^2\delta_l
+
+In order to find the phase shifts $\delta_l$, we solve the radial equation for
+the full potential
+
+.. math::
+
+    -{1\over2}R''(r)-{1\over r}R'(r)+\left(V+{l(l+1)\over2r^2}\right)R(r)=ER(r)
+
+and then fit it to the above asymptotic solution for V=0. We require that the
+value and the slope must be continuous. In particular, we take the logarithmic
+derivative ($(\log u)'={u'\over u}$) at the point $r=a$:
+
+.. math::
+
+    \gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a} =
+    \left.{\d\over\d r} \log R_l(kr)\right|_{r=a}
+
+expressing $R_l(kr)$ using $\delta_l$ and solving for it we get:
+
+.. math::
+
+    \tan\delta_l = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l
+        n_l(ka)}
+
+Now we can use these $\delta_l$ in the formula for the total cross section.
