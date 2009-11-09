@@ -184,3 +184,29 @@ Then:
     =\int_{\varphi_0}^{\varphi_0+\alpha}H(z_0 + \epsilon e^{i\varphi}) i \d \varphi
     \to\int_{\varphi_0}^{\varphi_0+\alpha}H(z_0) i \d \varphi = i\alpha H(z_0)
     = i\alpha \res_{z = z_0}f(z)
+
+Complex Substitution
+--------------------
+
+When substituting in integrals, as long as we just substitute for real
+functions, we use the regular substitution theorem, e.g. $x = y+1$ ($f(x)$ can
+be a complex function):
+
+.. math::
+
+    \int_{-\infty}^\infty f(x) \d x = \int_{-\infty}^\infty f(y+1) \d y
+
+if, on the other hand, we substitute for complex functions, e.g. $x = iy$:
+
+.. math::
+
+    \int_{-\infty}^\infty f(x) \d x = \int_{i\infty}^{-i\infty} f(iy) i\d y
+    \to \int_{\infty}^{-\infty} f(iy) i\d y
+
+then the first two integrals in the left hand side are equal, however the
+integral on the right hand side is over a different integration path and we
+need to use the Residue Theorem to relate those integrals, e.g. in general the
+two integrals on the LHS and the integral on the RHS are not equal. However the
+idea is that the integral after the substitution (and changing the limits, e.g.
+the integration path) is easier to evaluate, so the substitution guides us
+which integration path to choose for the Residue Theorem.

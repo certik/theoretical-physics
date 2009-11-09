@@ -6,5 +6,6 @@ Mathematics
 
     integration.rst
     residue.rst
+    transforms.rst
     other.rst
     differential-geometry.rst
