@@ -73,3 +73,48 @@ to the left of the line (otherwise the integral in the Laplace transform may
 not converge).  It can be shown that the integral over the left semicircle goes
 to zero, so the complex integral is equal to the sum of all residues of $\bar
 f(s)e^{sx}$ in the complex plane.
+
+Since we derived the Laplace transform from the Fourier transform, it's clear
+that it has to work, but for educational purposes we can also show it
+explicitly:
+
+.. math::
+
+    L^{-1} L [f(x)]
+    =
+    {1\over2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty}
+        \left[\int_0^{\infty}
+        f(x) e^{-s x}\,\d x\right] e^{s x}\,\d s
+    =
+    {1\over2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty}
+        \left[\int_0^{\infty}
+        f(x') e^{-s x'}\,\d x'\right] e^{s x}\,\d s
+    =
+
+    =
+    \int_0^{\infty} f(x') \left[{1\over2\pi i}
+        \int_{\sigma-i\infty}^{\sigma+i\infty}
+        e^{s (x- x')}\,\d s \right] \,\d x'
+    =
+    \int_0^{\infty} f(x') \delta(x-x') \,\d x'
+    =f(x)
+
+where we used:
+
+.. math::
+
+    {1\over2\pi i}
+    \int_{\sigma-i\infty}^{\sigma+i\infty} e^{s (x- x')}\,\d s
+    =
+    {1\over2\pi i}
+        \int_{\sigma-i\infty}^{\sigma+i\infty} e^{s (x- x')}\,\d s
+    =
+    {1\over2\pi i}
+        \int_{-\infty}^{\infty} e^{(\sigma+i\omega) (x- x')}\,i\d \omega
+    =
+
+    =
+    {e^{\sigma (x- x')}\over2\pi}
+        \int_{-\infty}^{\infty} e^{i\omega (x- x')}\,\d \omega
+    = e^{\sigma (x- x')}\delta(x - x')
+    =\delta(x - x')
