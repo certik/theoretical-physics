@@ -151,11 +151,22 @@ and
     \le R \max_\Omega |g(z)| \int_0^\pi e^{-\alpha R\sin\varphi}\d\varphi
     <
 
-    < R \max_\Omega |g(z)| 2\int_0^{\pi\over2} e^{-\alpha R{2\over\pi}\varphi}\d\varphi
-    = {\pi\over\alpha} \max_\Omega |g(z)|(1-e^{-\alpha R})
+    < {\pi\over\alpha} \max_\Omega |g(z)|
+
+where we use the following useful estimate for the integral
+(valid for $\alpha>0$):
+
+.. math::
+
+    \int_0^\pi e^{-\alpha R\sin\varphi}\d\varphi
+    < 2\int_0^{\pi\over2} e^{-\alpha R{2\over\pi}\varphi}\d\varphi
+    = 2 \left[e^{-\alpha R{2\over\pi}\varphi}\over
+        -\alpha R {2\over\pi}\right]_0^{\pi/2}
     =
 
-    < {\pi\over\alpha} \max_\Omega |g(z)|
+    = {2\over-\alpha R {2\over\pi}}
+        \left[e^{-\alpha R} - 1\right]
+    = {\pi\over\alpha R} (1-e^{-\alpha R}) < {\pi\over\alpha R}
 
 Other
 ~~~~~

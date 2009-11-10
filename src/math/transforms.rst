@@ -36,7 +36,17 @@ To show that it works:
 Laplace Transform
 -----------------
 
-Laplace transform of $f(x)$ can be derived from the Fourier transform by
+Laplace transform of $f(x)$ is:
+
+.. math::
+
+    L[f(x)] = \int_0^{\infty} f(x) e^{-s x}\,\d x
+
+    L^{-1}[\bar f(s)]
+    = {1\over2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty}
+        \bar f(s) e^{s x}\,\d s
+
+and it can be derived from the Fourier transform by
 transforming a function $U(x)$:
 
 .. math::
@@ -71,7 +81,31 @@ means the Fourier transform.  The contour integration is over the vertical line
 $\sigma+i\omega$ and $\sigma$ is chosen large enough so that all residues are
 to the left of the line (otherwise the integral in the Laplace transform may
 not converge).  It can be shown that the integral over the left semicircle goes
-to zero, so the complex integral is equal to the sum of all residues of $\bar
+to zero:
+
+.. math::
+
+    \left|\int_\Omega e^{sx}g(s) \d s \right|
+    =\left|\int_{\pi\over2}^{3\pi\over2} e^{(\sigma + Re^{i\varphi})x}
+    g(\sigma+Re^{i\varphi})iRe^{i\varphi}\d\varphi\right|
+    \le
+
+    \le R \max_\Omega |g(z)| e^{\sigma x}
+        \int_{\pi\over2}^{3\pi\over2}\left| e^{xRe^{i\varphi}}
+        \right|\d\varphi
+    =
+
+    = R \max_\Omega |g(z)| e^{\sigma x}
+        \int_{\pi\over2}^{3\pi\over2}e^{xR \cos \varphi} \d\varphi
+    =
+
+    = R \max_\Omega |g(z)| e^{\sigma x}
+        \int_0^{\pi}e^{-xR \sin \varphi} \d\varphi
+    =
+
+    < {\pi e^{\sigma x}\over x} \max_\Omega |g(z)|
+
+so the complex integral is equal to the sum of all residues of $\bar
 f(s)e^{sx}$ in the complex plane.
 
 Since we derived the Laplace transform from the Fourier transform, it's clear
