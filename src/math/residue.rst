@@ -144,7 +144,7 @@ and
 
     \left|\int_\Omega e^{i\alpha z}g(z) \d z \right|
     =\left|\int_0^\pi e^{i\alpha
-    Re^{i\varphi}}g(Re^{i\varphi})iRe^{i\varphi}\right|
+    Re^{i\varphi}}g(Re^{i\varphi})iRe^{i\varphi}\d\varphi\right|
     \le
 
     \le\int_0^\pi e^{-\alpha R\sin\varphi}\left|g(Re^{i\varphi})\right| R \d\varphi
