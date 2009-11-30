@@ -932,7 +932,7 @@ beginning:
 
 This is called Lehmann-Symanzik-Zimmermann (LSZ) reduction formula.  One
 obtains similar expressions for other fields as well (if there were different
-creation operators been in the initial and final states). We now need to
+creation operators between the initial and final states). We now need to
 calculate the interacting Green functions.
 
 Evaluation of the Interacting Green Functions
