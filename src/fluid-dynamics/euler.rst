@@ -366,7 +366,7 @@ then we can calculate the Jacobians (and we substitute for $p$):
                 {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
        \end{array} \right)
 
-FEM formulation
+FEM Formulation
 ---------------
 
 The Euler equations:
