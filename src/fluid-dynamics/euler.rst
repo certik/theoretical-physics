@@ -367,7 +367,7 @@ then we can calculate the Jacobians (and we substitute for $p$):
        \end{array} \right)
 
 Dimensionless Euler Equations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 We choose 3 constants $l_r$, $u_r$ and $\rho_r$ - characteristic length of the
 domain, velocity and density. Now we multiply the Euler equations with proper
