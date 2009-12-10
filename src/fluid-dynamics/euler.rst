@@ -430,6 +430,8 @@ In particular, if ${\bf f}=(0, 0, -\rho g)$, then
 
     \tilde g = g{l_r\over u^2_r} = g{t_r^2\over l_r}
 
+So the dimensionless Euler equations look exactly the same as the original
+ones, we just need to rescale all the quantities using the relations above.
 
 FEM Formulation
 ---------------
