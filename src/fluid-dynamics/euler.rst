@@ -37,10 +37,20 @@ and we use the ideal gas equations, so:
 
 where
 $n$ is the number of moles of gas,
-$M$ is the molar mass of the gas (e.g. a mass of one mole of the gas),
-$\rho={n M\over V}$ is the density of the gas,
-$\bar R$ is the ideal gas constant,
-$R={\bar R\over M}$ is the specific ideal gas constant,
+$M$ is the molar mass of the gas (i.e. a mass of one mole of the gas, e.g. for
+dry air we get $M=28.956\rm\,g/mol$, as it is mainly composed of 20% of oxygen
+with atomic mass 16 and 78% of nitrogen with atomic mass $14$, both form
+diatomic molecules, so the molecular mass is twice the atomic mass
+giving the total of $0.2\cdot2\cdot16+0.78\cdot2\cdot14 = 28.24$, the rest is
+given by the other components and one also has to average over all isotopes),
+$\bar R=N_A k_B\doteq8.3145\rm\,{J\over K\, mol}$ is the ideal gas constant
+($N_A$ is the Avogadro constant and $k_B$ is the Boltzmann constant),
+$R={\bar R\over M}$ is the specific ideal gas constant (e.g. for dry air we get
+$R = {8.3145\over 28.956}\rm\,{J\over g\,K}\doteq 287.14\rm\,{J\over kg\,K}$),
+$\rho={n M\over V}={p\over RT}$ is the density of the gas (e.g. for dry air at
+the pressure $10^5\rm\,Pa$ and temperature $22\rm\,^\circ C$ we get
+$\rho = {10^5\over 287.14 \cdot (22+273.15)}\rm\,{kg\over m^3}
+=1.18\,{kg\over m^3}$),
 $c_v$ is the specific heat capacity at constant volume (e.g. a heat capacity
 per unit volume),
 $V$ is the volume
