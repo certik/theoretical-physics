@@ -51,8 +51,9 @@ $\rho={n M\over V}={p\over RT}$ is the density of the gas (e.g. for dry air at
 the pressure $10^5\rm\,Pa$ and temperature $22\rm\,^\circ C$ we get
 $\rho = {10^5\over 287.14 \cdot (22+273.15)}\rm\,{kg\over m^3}
 =1.18\,{kg\over m^3}$),
-$c_v$ is the specific heat capacity at constant volume (e.g. a heat capacity
-per unit volume),
+$c_v$ is the specific heat capacity at constant volume (i.e. the amount of
+energy needed to heat one kg by one Kelvin at constant volume, e.g. for dry air
+the experimental value is about $c_v = 717.5\rm\,{J\over kg\,K}$),
 $V$ is the volume
 and $T$ is the temperature of the gas.
 Of those, $V$, $n$, $M$, $R$, $\bar R$ are constants, $\rho$, $e$, $E$ and $T$ are
