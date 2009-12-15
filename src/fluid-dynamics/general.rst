@@ -64,25 +64,26 @@ The divergence of the tensor is:
 
     \partial_j T_{ij} =2\mu\partial_j\epsilon_{ij} + \partial_j\delta_{ij} \lambda \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+\mu\partial_i \nabla\cdot{\bf v} + \lambda \partial_i  \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+(\mu+\lambda)\partial_i \nabla\cdot{\bf v}
 
-or in vector form:
+or in vector form (these are usually called the compressible Navier-Stokes
+equations):
 
 .. math::
 
     \nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}+(\mu+\lambda)\nabla \nabla\cdot{\bf v}
 
-For incompressible fluid we have $\nabla\cdot\bf v=0$, so we get:
+For incompressible fluid we have $\nabla\cdot\bf v=0$, so we get the
+incompressible Navier-Stokes equations:
 
 .. math::
 
     \nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}
 
-and for a perfect fluid we have no viscosity, e.g. $\mu=0$, so:
+and for a perfect fluid we have no viscosity, e.g. $\mu=0$, then we get the
+Euler equations (for perfect fluid):
 
 .. math::
 
     \nabla \cdot \mathds{T}=0
-
-and the equations are then called Euler equations (for perfect fluid).
 
 Bernoulli's Principle
 ---------------------
@@ -143,6 +144,9 @@ immediately get:
 .. math::
 
     {v^2\over 2} + gz + {p\over\rho}={\rm const.}
+
+The last equation then holds everywhere in the (nonmoving) fluid (as opposed to
+the previous equation that only holds along the streamline).
 
 
 Hydrostatic Pressure
