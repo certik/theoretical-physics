@@ -18,12 +18,65 @@ conservation law:
 
     \partial_\nu T^{\mu\nu} + f^\mu = 0
 
+Perfect Fluids
+~~~~~~~~~~~~~~
+
+Perfect fluids have no heat conduction ($T^{i0} = T^{0i} = 0$) and no
+viscosity ($T^{ij} = p\one$), so in the MCRF:
+
+.. math::
+
+    T^{\alpha\beta} = \diag(\rho, p, p, p) =
+    (\rho+p)u^\alpha u^\beta + p g^{\alpha\beta}
+
+where in MCRF we have $g^{\mu\nu} = \diag(-1, 1, 1, 1)$, $u^0=1$ and $u^i=0$,
+but $\partial_\alpha U^i\neq0$. The last equation is a tensor equation so it
+holds in any frame. The nonrelativistic limit of this stress energy tensor is:
+
+.. math::
+
+    T^{00} = (\rho+p)u^0u^0 - p \approx \rho
+
+    T^{0j} = T^{j0} = (\rho+p)u^0u^j \approx \rho u^j
+
+    T^{jk} = (\rho+p)u^ju^k + p \delta^{jk} \approx \rho u^j u^k + p
+        \delta^{jk}
+
+
+Substituting this into the conversation law $\partial_\beta
+T^{\alpha\beta}=0$ we get for $\alpha=0$:
+
+.. math::
+
+    \partial_\beta T^{0\beta} = 0
+
+    \partial_0 T^{00} + \partial_i T^{0i} = 0
+
+    \partial_0 \rho + \partial_i (\rho u^i) = 0
+
+    {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0
+
+This is the continuity equation. For $\alpha=i$ we get:
+
+.. math::
+
+    \partial_\beta T^{i\beta} = 0
+
+    \partial_0 T^{i0} + \partial_j T^{ij} = 0
+
+    \partial_0 (\rho u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
+
+    {\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
+        (\rho {\bf u}{\bf u}^T) + \nabla p = 0
+
+Which are the Euler equations.
+
 
 Navier-Stokes Equations
 -----------------------
 
-When we write the above conservation law in a nonrelativistic limit, we get the
-Cauchy momentum equation:
+When we write the relativistic conservation law in a nonrelativistic limit (for
+a general fluid), we get the Cauchy momentum equation:
 
 .. math::
 
