@@ -29,13 +29,13 @@ viscosity ($T^{ij} = p\one$), so in the MCRF:
     T^{\alpha\beta} = \diag(\rho, p, p, p) =
     (\rho+p)u^\alpha u^\beta + p g^{\alpha\beta}
 
-where in MCRF we have $g^{\mu\nu} = \diag(-1, 1, 1, 1)$, $u^0=1$ and $u^i=0$,
+where in MCRF we have $g^{\mu\nu} = \diag(-1, 1, 1, 1)$, $u^0=c$ and $u^i=0$,
 but $\partial_\alpha U^i\neq0$. The last equation is a tensor equation so it
 holds in any frame. The nonrelativistic limit of this stress energy tensor is:
 
 .. math::
 
-    T^{00} = (\rho+p)u^0u^0 - p \approx \rho
+    T^{00} = (\rho+p)u^0u^0 - p \approx \rho c
 
     T^{0j} = T^{j0} = (\rho+p)u^0u^j \approx \rho u^j
 
@@ -52,7 +52,7 @@ T^{\alpha\beta}=0$ we get for $\alpha=0$:
 
     \partial_0 T^{00} + \partial_i T^{0i} = 0
 
-    \partial_0 \rho + \partial_i (\rho u^i) = 0
+    \partial_0 (\rho c) + \partial_i (\rho u^i) = 0
 
     {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0
 
