@@ -3347,8 +3347,8 @@ and for $+2$ as:
 
     (-\hbar^2\partial^2 + m^2 c^2)\psi = (p^2 + m^2c^2)\psi = 0
 
-Now if the particle is not moving (${\bf p} = 0$), then it's energy $E=mc^2$,
-where $m$ is the rest mass, so $|p| = {E\over c}= mc$, from which:
+Now if the particle is not moving (${\bf v} = 0$), then the 4-momentum is
+$p^\mu = m ( c, 0 )$, where $m$ is the rest mass, so $p^2 = m^2c^2$, from which:
 
 .. math::
 
