@@ -11,7 +11,26 @@ Stress-Energy Tensor
 
 
 In general, the stress energy tensor is the flux of momentum $p^\mu$ over the
-surface $x^\nu$. The Navier-Stokes equations can be derived from the
+surface $x^\nu$. It is a machine that contains a knowledge of the energy
+density, momentum density and stress as measured by any observer of the event.
+
+Imagine a (small) box in the spacetime. Then the observer with a 4-velocity
+$u^\mu$ measures the density of 4-momentum $\d p^\alpha\over\d V$
+in his frame as:
+
+.. math::
+
+    {\d p^\alpha\over\d V} = -T^\alpha{}_\beta u^\beta
+
+and the energy density that he measures is:
+
+.. math::
+
+    \rho = {E\over V} = -{u^\alpha p_\alpha \over V}
+    = - u^\alpha {\d p_\alpha\over\d V}
+    = u^\alpha T_{\alpha\beta} u^\beta
+
+The Navier-Stokes equations can be derived from the
 conservation law:
 
 .. math::
@@ -56,7 +75,8 @@ T^{\alpha\beta}=0$ we get for $\alpha=0$:
 
     {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0
 
-This is the continuity equation. For $\alpha=i$ we get:
+This is the continuity equation for the energy ($\rho$ here is the energy
+density). For $\alpha=i$ we get:
 
 .. math::
 
@@ -69,7 +89,26 @@ This is the continuity equation. For $\alpha=i$ we get:
     {\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
         (\rho {\bf u}{\bf u}^T) + \nabla p = 0
 
-Which are the Euler equations.
+Which are the Euler equations. The equation of continuity follows from the
+conservation of the baryon number --- the volume $V$ that contains certain
+number of baryons can change, but the total number of baryons $nV$ must remain
+constant:
+
+.. math::
+
+    {\d (nV)\over\d\tau} = 0
+
+    {\d n\over\d\tau}V + n{\d V\over\d\tau} = 0
+
+    u^\alpha (\partial_\alpha n)V + n(\partial_\alpha u^\alpha) V = 0
+
+    \partial_\alpha (n u^\alpha) = 0
+
+and in the limit $c\to\infty$:
+
+.. math::
+
+    {\partial n\over \partial t} + \nabla\cdot(n{\bf v}) = 0
 
 
 Navier-Stokes Equations
