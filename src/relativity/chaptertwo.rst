@@ -35,8 +35,13 @@ College Formulation
 Unfortunately, it is quite messy to keep track of the direction of the forces
 and all the masses involved, it quickly becomes cumbersome for more than 2
 particles. For this reason, the better approach is to calculate the force
-(field) from the mass density function $\rho$
-\footnote{To see that both formulations are equivalent,
+(field) from the mass density function $\rho$:
+
+.. math::
+
+    \nabla\cdot{\bf F} = -4\pi Gm\,\rho(t, x, y, z)
+
+To see that both formulations are equivalent,
 integrate both sides inside some sphere:
 
 .. math::
@@ -65,11 +70,6 @@ law of gravitation:
 
     {\bf F} = -G{m_1m_2\over r^2}{\bf n}
 
-}:
-
-.. math::
-
-    \nabla\cdot{\bf F} = -4\pi Gm\,\rho(t, x, y, z)
 
 It is useful to deal with a scalar field instead of a vector field (and also
 not to have the mass $m$ of the test particle in our equations explicitly), so we
