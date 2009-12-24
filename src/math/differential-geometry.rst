@@ -1453,7 +1453,8 @@ For $u_3$, using that it does not depend on $\phi$, we have
     \frac{\partial u_3}{\partial x_3} &=& \frac{\partial u_z}{\partial z}. \nonumber
     \end{eqnarray*}
 
-For further reference, transform also div$u$ into cylindrical coordinates
+For further reference, transform also $\mbox{div}u$ into cylindrical
+coordinates
 
 .. math::
     :nowrap:
@@ -1480,7 +1481,6 @@ The second equation in :eq:`weak` has the form:
 
 .. math::
     :nowrap:
-    :label: weakccc
 
     \begin{eqnarray*} &&\int_{\Omega} r 2\mu \left(\frac{\partial u_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}u_r \cos\phi\sin\phi\right)\left(\frac{\partial v_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}v_r \cos\phi\sin\phi\right) +\\ && r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) + 2 \mu (\frac{\partial u_r}{\partial r}\sin^2\phi + \frac{1}{r} u_r\cos^2\phi)\right] (\frac{\partial v_r}{\partial r}\sin^2\phi + \frac{1}{r} v_r\cos^2\phi) + \\ && r \mu \left(\frac{\partial u_r}{\partial z}\sin\phi + \frac{\partial u_z}{\partial r}\sin\phi\right)(\frac{\partial v_r}{\partial z}\sin\phi)  - \int_{\Gamma_2}r g_r v_r \sin^2 \phi = \int_{\Omega}r f_r\ v_r \sin^2 \phi,\\ \end{eqnarray*}
 
@@ -1502,7 +1502,7 @@ This can be simplified to
 
      - \int_{\Gamma_2} g_r v_r r = \int_{\Omega}f_r\ v_r r
 
-Finally, the third equation in :eq:`weakccc` has the form
+Finally, the third equation in :eq:`weak` has the form
 
 .. math::
     :nowrap:
