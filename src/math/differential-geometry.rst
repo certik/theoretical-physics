@@ -1338,7 +1338,7 @@ Thus
 
        \int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\Gamma_2} g_i v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3.
 
-Let us write the equations :eq:`1b` in detail using relation :eq:`0b`
+Let us write the equations :eq:`1b` in detail using relation :eq:`0a`
 
 .. math::
     :nowrap:
@@ -1532,3 +1532,110 @@ Since the integrands do not depend on $\phi$, we can simplify this to integral o
 .. math::
 
      \int_{\Omega_0} r \mu \left(\frac{\partial u_r}{\partial z}\frac{\partial v_z}{\partial r} + \frac{\partial u_z}{\partial r}\frac{\partial v_z}{\partial r} + 2 \frac{\partial u_z}{\partial z} \frac{\partial v_z}{\partial z}\right) +  r \lambda \left(\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z} \right)\frac{\partial v_z}{\partial z} - \int_{\Gamma_2} g_z v_z  r = \int_{\Omega_0}f_z\ v_z r.
+
+Coordinate Independent Way
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Let's write the elasticity equations in the cartesian coordinates again:
+
+.. math::
+
+    \sigma_{ij} = \lambda \delta_{ij}\partial_k u^k + \mu
+        (\partial_j u_i + \partial_i u_j)
+
+    \partial_j \sigma^{ij} + f^i = 0
+
+Those only work in the cartesian coordinates, so we first write them in a
+coordinate independent way:
+
+.. math::
+
+    \sigma^{ij} = \lambda g^{ij}\nabla_k u^k + \mu
+        (\nabla^j u^i + \nabla^i u^j)
+
+    \nabla_j \sigma^{ij} + f^i = 0
+
+so:
+
+.. math::
+
+    \nabla_j \left( \lambda g^{ij}\nabla_k u^k + \mu
+        (\nabla^j u^i + \nabla^i u^j) \right) + f^i = 0
+
+The weak formulation is then (do not sum over $i$):
+
+.. math::
+
+    -\int \nabla_j \left( \lambda g^{ij}\nabla_k u^k + \mu
+        (\nabla^j u^i + \nabla^i u^j) \right) v^i \sqrt{|g|}\d^3x
+        = \int f^i v^i\sqrt{|g|}\d^3x
+
+We apply the integration by parts (note: the equations below should be checked
+for mistakes):
+
+.. math::
+
+    \int \left( \lambda g^{ij}\nabla_k u^k + \mu
+        (\nabla^j u^i + \nabla^i u^j) \right) \nabla_j v^i \sqrt{|g|}\d^3x
+        = \int f^i v^i\sqrt{|g|}\d^3x
+
+This is the weak formulation valid in any coordinates. Using the cylindrical
+coordinates (see above) we get:
+
+.. math::
+
+    {\bf x} = (\rho, \phi, z)
+
+    \d^3 x = \d\rho\, \d \phi\, \d z
+
+    g^{ij} = \mat{1 & 0 & 0\cr 0 & 1\over\rho^2 & 0\cr 0 & 0 & 1\cr}
+
+    \sqrt{|g|} = \sqrt{|\det g_{ij}|} = \rho
+
+    \nabla_k u^k = {1\over\sqrt{|g|}}\partial_k (\sqrt{|g|} u^k) =
+        {1\over\rho}\partial_k (\rho u^k) =
+
+    = {1\over\rho} u^\rho + \partial_\rho u^\rho + \partial_\phi u^\phi +
+        \partial_z u^z
+
+    (\nabla^j u^z + \nabla^z u^j) \nabla_j v^z =
+        (g^{jk}\nabla_k u^z + g^{zk}\nabla_k u^j) \nabla_j v^z =
+        (\partial_\rho u^z + \partial_z u^\rho) \partial_\rho v^z +
+        (\partial_z u^z + \partial_z u^z) \partial_z v^z
+        =
+
+    = (\partial_\rho u^z + \partial_z u^\rho) \partial_\rho v^z +
+        2\partial_z u^z \partial_z v^z
+
+    \int \left( \lambda g^{ij}\left(
+    {1\over\rho} u^\rho + \partial_\rho u^\rho + \partial_\phi u^\phi +
+        \partial_z u^z
+    \right) + \mu
+        (\nabla^j u^i + \nabla^i u^j) \right) \nabla_j v^i
+        \rho \,\d\rho\, \d \phi\, \d z
+        = \int f^i v^i \rho \,\d\rho\, \d \phi\, \d z
+
+for $i=1, 3$ we get:
+
+.. math::
+
+    \int \lambda \left(
+    {1\over\rho} u^\rho + \partial_\rho u^\rho + \partial_\phi u^\phi +
+        \partial_z u^z
+    \right)\partial_\rho v^\rho\rho + \mu
+    \left(2\partial_\rho u^\rho \partial_\rho v^\rho +
+        (\partial_z u^\rho +\partial_\rho u^z)\partial_z v^\rho\right)
+        \rho \,\d\rho\, \d \phi\, \d z
+        = \int f^\rho v^\rho \rho \,\d\rho\, \d \phi\, \d z
+
+    \int \lambda \left(
+    {1\over\rho} u^\rho + \partial_\rho u^\rho + \partial_\phi u^\phi +
+        \partial_z u^z
+    \right)\partial_z v^z\rho + \mu
+    \left((\partial_\rho u^z + \partial_z u^\rho) \partial_\rho v^z +
+        2\partial_z u^z \partial_z v^z\right)
+        \rho \,\d\rho\, \d \phi\, \d z
+        = \int f^z v^z \rho \,\d\rho\, \d \phi\, \d z
+
+TODO: the $\nabla_j v^i$ has to be done using Christoffel symbols. Then it will
+work.
