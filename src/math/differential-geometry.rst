@@ -410,7 +410,7 @@ We define the commutation coefficients of the basis $c^\alpha{}_{\mu\nu}$ by
     c^\alpha{}_{\mu\nu}\vec e_\alpha = \nabla_{\vec e_\mu}\vec e_\nu- \nabla_{\vec e_\nu}\vec e_\mu
 
 In general these coefficients are not zero (as an example, take the units
-vectors in in spherical and cylindrical coordinates), but for coordinate bases
+vectors in spherical or cylindrical coordinates), but for coordinate bases
 they are.
 It can be proven, that
 
