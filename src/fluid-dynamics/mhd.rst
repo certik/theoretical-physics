@@ -73,7 +73,7 @@ So the MHD equations can alternatively be written as:
     :label: MHD2b
 
     \frac{\partial \rho{\bf v}}{\partial t} + \nabla\cdot(\rho{\bf v}{\bf v}^T)
-        = -\nabla p + 
+        = -\nabla p +
         {1\over\mu}\left(\nabla\cdot({\bf B}{\bf B}^T)
             - {1\over2}\nabla|{\bf B}|^2\right) + \rho {\bf g}
 
@@ -127,7 +127,7 @@ from which we eliminate ${\bf E}$:
 
 .. math::
 
-    {\bf E} = - {\bf v}\times{\bf B} + {1\over\sigma}{\bf j} = 
+    {\bf E} = - {\bf v}\times{\bf B} + {1\over\sigma}{\bf j} =
               - {\bf v}\times{\bf B} + {1\over\sigma\mu}\nabla\times{\bf B}
 
 and put it into the Maxwell equation:

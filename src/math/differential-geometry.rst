@@ -41,7 +41,7 @@ in $x'$ coordinates):
     \phi'(x')=\phi(x)
 
 One form $p_\alpha(x)$ is such a field that transforms the same as the
-gradient $\partial\phi(x)\over\partial x^\mu$ of a scalar, that transforms as 
+gradient $\partial\phi(x)\over\partial x^\mu$ of a scalar, that transforms as
 ($\partial\phi'(x')\over\partial x'^\mu$ is it's value in $x'$ coordinates):
 
 .. math::
@@ -67,14 +67,14 @@ so we have
 .. math::
 
      V'^\alpha {\partial x^\beta\over\partial x'^\alpha} = V^\beta
- 
+
 multiplying by ${\partial x'^\mu\over\partial x^\beta}$ and using the fact that
 ${\partial x^\beta\over\partial x'^\alpha} {\partial x'^\mu\over\partial x^\beta} = {\partial x'^\mu\over\partial x'^\alpha} =\delta^\mu_\alpha$ we get
 
 .. math::
 
      V'^\mu = {\partial x'^\mu\over\partial x^\beta} V^\beta
- 
+
 Higher tensors are build up and their transformation properties derived from
 the fact, that by contracting with either a vector or a form we get a lower
 rank tensor that we already know how it transforms.
@@ -269,7 +269,7 @@ in a general frame:
     {\d S^\alpha\over\d \tau} = \lambda U^\alpha =  S_\mu {\d U^\mu\over\d \tau} U^\alpha
 
 where $\lambda$ was calculated by differentiating the orthogonality condition.
-This is called a Thomas precession. 
+This is called a Thomas precession.
 
 For any vector, we define:
 the vector $X^\mu$ is Fermi-Walker tranported along the curve if:
@@ -292,7 +292,7 @@ Geodesics
 ---------
 
 
-Geodesics is a curve $x^\alpha(\lambda)$ that locally looks like a line, 
+Geodesics is a curve $x^\alpha(\lambda)$ that locally looks like a line,
 i.e. it parallel
 transports its own tangent vector:
 
@@ -1281,14 +1281,14 @@ Let's start with some notations: By $\bfu = (u_1, u_2, u_3)^T$ we denote the dis
 
      \epsilon_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}   \right),\ \ \ \ 1 \le i,j \le 3.
 
-The stress tensor $\sigma$ has the form 
+The stress tensor $\sigma$ has the form
 
 .. math::
     :label: 0a
 
        \sigma_{ij} = \lambda \delta_{ij}\mbox{div}\bfu + 2\mu \epsilon_{ij},\ \ \ \ 1 \le i,j \le 3,
 
-where 
+where
 
 .. math::
 
@@ -1296,14 +1296,14 @@ where
 
 The symbols $\lambda$ and $\mu$ are the Lam\'e constants and $\delta_{ij}$ is the Kronecker
 symbol ($\delta_{ij} = 1$ if $i = j$ and $\delta_{ij} = 0$ otherwise).
-The equilibrium equations have the form 
+The equilibrium equations have the form
 
 .. math::
     :label: 0b
 
        \sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j} + f_i = 0,\ \ \ \ 1 \le i \le 3,
 
-where $(f_1, f_2, f_3)^T$ is the vector of internal forces (such as gravity). 
+where $(f_1, f_2, f_3)^T$ is the vector of internal forces (such as gravity).
 
 The boundary conditions for linear elasticity are given by
 
@@ -1331,7 +1331,7 @@ Using Green's theorem and the boundary conditions
 
       \int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\partial \Omega} \sum_{j=1}^3 \sigma_{ij} n_j v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3.
 
-Thus 
+Thus
 
 .. math::
     :label: 1b
@@ -1345,11 +1345,11 @@ Let us write the equations :eq:`1b` in detail using relation :eq:`0b`
     :label: weak
 
     \begin{eqnarray*}
-    \int_{\Omega} \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_1}{\partial x_1}\right] \frac{\partial v_1}{\partial x_1} + \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_1}{\partial x_2} + \mu \left(\frac{\partial u_1}{\partial x_3} + \frac{\partial u_3}{\partial x_1}\right)\frac{\partial v_1}{\partial x_3} 
+    \int_{\Omega} \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_1}{\partial x_1}\right] \frac{\partial v_1}{\partial x_1} + \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_1}{\partial x_2} + \mu \left(\frac{\partial u_1}{\partial x_3} + \frac{\partial u_3}{\partial x_1}\right)\frac{\partial v_1}{\partial x_3}
     - \int_{\Gamma_2} g_1 v_1 &=& \int_{\Omega}f_1\ v_1,\nonumber\\
-    \int_{\Omega} \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_2}{\partial x_1} + \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_2}{\partial x_2}\right] \frac{\partial v_2}{\partial x_2} + \mu \left(\frac{\partial u_2}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\right)\frac{\partial v_2}{\partial x_3} 
+    \int_{\Omega} \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_2}{\partial x_1} + \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_2}{\partial x_2}\right] \frac{\partial v_2}{\partial x_2} + \mu \left(\frac{\partial u_2}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\right)\frac{\partial v_2}{\partial x_3}
     - \int_{\Gamma_2} g_2 v_2 &=& \int_{\Omega}f_2\ v_2,\\
-    \int_{\Omega} \mu \left(\frac{\partial u_1}{\partial x_3} + \frac{\partial u_3}{\partial x_1}\right)\frac{\partial v_3}{\partial x_1} + \mu \left(\frac{\partial u_2}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\right)\frac{\partial v_3}{\partial x_2}  + \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_3}{\partial x_3}\right] \frac{\partial v_3}{\partial x_3} 
+    \int_{\Omega} \mu \left(\frac{\partial u_1}{\partial x_3} + \frac{\partial u_3}{\partial x_1}\right)\frac{\partial v_3}{\partial x_1} + \mu \left(\frac{\partial u_2}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\right)\frac{\partial v_3}{\partial x_2}  + \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_3}{\partial x_3}\right] \frac{\partial v_3}{\partial x_3}
     - \int_{\Gamma_2} g_3 v_3 &=& \int_{\Omega}f_3\ v_3.\nonumber
     \end{eqnarray*}
 
@@ -1357,9 +1357,9 @@ Elementary transformation relations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-First let us show how the partial derivatives of a scalar function $g$ are transformed 
+First let us show how the partial derivatives of a scalar function $g$ are transformed
 from Cartesian coordinates $x_1, x_2, x_3$ to cylindrical coordinates $r, \phi, z$.
-Note that 
+Note that
 
 .. math::
 
@@ -1394,7 +1394,7 @@ From here we obtain
     \frac{\partial g}{\partial x_3} &=& \frac{\partial g}{\partial z}. \nonumber
     \end{eqnarray*}
 
-The relations between displacement components in Cartesian and cylindrical 
+The relations between displacement components in Cartesian and cylindrical
 coordinates are
 
 .. math::
@@ -1404,12 +1404,12 @@ coordinates are
     \begin{eqnarray*}
     u_1 &=& u_r \cos \phi, \nonumber \\
     u_2 &=& u_r \sin \phi, \nonumber \\
-    u_3 &=& u_z. \nonumber 
+    u_3 &=& u_z. \nonumber
     \end{eqnarray*}
 
 The same relations hold for surface forces $g_i$ and volume forces $f_i$.
 
-Applying :eq:`1` to $u_1$, we obtain 
+Applying :eq:`1` to $u_1$, we obtain
 
 .. math::
     :nowrap:

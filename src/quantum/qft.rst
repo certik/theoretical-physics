@@ -26,7 +26,7 @@ Lagrangian with a global $SU(2)\times U(1)$ symmetry:
     \L=i\bar L^{(l)}\gamma_\mu\partial^\mu L^{(l)}+i\bar l_R \gamma_\mu\partial^\mu l_R +\half \partial_\mu\Phi^*\partial^\mu\Phi-m^2\Phi^*\Phi-{1\over4} \lambda(\Phi^*\Phi)^2 -h_e\bar L^{(l)} \Phi e_R - \hbox{h.c.}
 
 
-where $l=e,\mu,\tau$ and $a=1,2$, $l_{L,R} = \half (1\mp\gamma_5)l$ and 
+where $l=e,\mu,\tau$ and $a=1,2$, $l_{L,R} = \half (1\mp\gamma_5)l$ and
 
 .. math::
 
@@ -36,21 +36,21 @@ where $l=e,\mu,\tau$ and $a=1,2$, $l_{L,R} = \half (1\mp\gamma_5)l$ and
 
 Local $SU(2)\times U(1)$ symmetry:
 
-This consists of two things. First changing the partial derivatives to covariant ones: 
+This consists of two things. First changing the partial derivatives to covariant ones:
 
 .. math::
 
     \partial^\mu \to D^\mu =\partial^\mu-{i\over2}g\tau_k A_k^\mu - {i\over2}g'YB^\mu
 
 
-and second adding the kinetic terms 
+and second adding the kinetic terms
 
 .. math::
 
     -{1\over4}F^a_{\mu\nu}F^{a\mu\nu}-{1\over4}B_{\mu\nu}B^{\mu\nu}
 
 
-of the vector gauge particles to the lagrangian. 
+of the vector gauge particles to the lagrangian.
 
 .. math::
 
@@ -70,7 +70,7 @@ of the vector gauge particles to the lagrangian.
     \Phi = e^{{i\over v}\pi^a(x)\tau^a} \left( \begin{array}{c} 0 \\ {1\over\sqrt{2}}(v+H(x)) \end{array} \right)
 
 
-This breaks the gauge invariance. The $\partial^\mu\pi^a$ are going to be added to $A^a_\mu$ so we can set $\pi_a = 0$ now. 
+This breaks the gauge invariance. The $\partial^\mu\pi^a$ are going to be added to $A^a_\mu$ so we can set $\pi_a = 0$ now.
 
 .. index:: Higgs boson
 
@@ -83,7 +83,7 @@ Higgs Terms
     \L_{Higgs}= \half \partial_\mu\Phi^*\partial^\mu\Phi-m^2\Phi^*\Phi-{1\over4} \lambda(\Phi^*\Phi)^2
 
 
-Plugging in the covariant derivatives and $\Phi$ in U-gauge (symmetry breaking): 
+Plugging in the covariant derivatives and $\Phi$ in U-gauge (symmetry breaking):
 
 .. math::
 
@@ -126,7 +126,7 @@ Plugging in the covariant derivatives and $\Phi$ in U-gauge (symmetry breaking):
     +{1\over2}vg^2W_\mu^-W^{+\mu}H +{g^2\over4\cos\theta_W}vZ_\mu Z^\mu H +{1\over4}g^2W_\mu^-W^{+\mu}H^2 +{g^2\over8\cos\theta_W}Z_\mu Z^\mu H^2
 
 
-Where we put 
+Where we put
 
 .. math::
 
@@ -139,14 +139,14 @@ Where we put
     Z_\mu = {g\over\sqrt{g^2+4Y^2g'^2}}A^3_\mu- {2Yg'\over\sqrt{g^2+4Y^2g'^2}}B_\mu
 
 
-we defined $\theta_W$ by the relation 
+we defined $\theta_W$ by the relation
 
 .. math::
 
     \cos\theta_W = {g\over\sqrt{g^2+4Y^2g'^2}}
 
 
-so that the expressions simplify a bit, e.g. we now get: 
+so that the expressions simplify a bit, e.g. we now get:
 
 .. math::
 
@@ -188,7 +188,7 @@ Yukawa terms
     =-{1\over\sqrt2}h_ev\bar ee-{1\over\sqrt2}h_e\bar eeH
 
 
-The term $\bar L \Phi e_R$ is $U(1)$ (hypercharge) invariant, so 
+The term $\bar L \Phi e_R$ is $U(1)$ (hypercharge) invariant, so
 
 .. math::
 
@@ -254,7 +254,7 @@ Leptonic Terms
     +\left[ (\half g\cos\theta_W-Y_Lg'\sin\theta_W)\bar\nu_L\gamma^\mu\nu_L +(-\half g\cos\theta_W -Y_Lg'\sin\theta_W)\bar e_L\gamma^\mu e_L -2Y_Lg'\sin\theta_W\bar e_R\gamma^\mu e_R \right]Z_\mu
 
 
-Where we substituted new fields $Z_\mu$ and $A_\mu$ for the old ones $A^3_\mu$ and $B_\mu$ using the relation: 
+Where we substituted new fields $Z_\mu$ and $A_\mu$ for the old ones $A^3_\mu$ and $B_\mu$ using the relation:
 
 .. math::
 
@@ -267,21 +267,21 @@ Where we substituted new fields $Z_\mu$ and $A_\mu$ for the old ones $A^3_\mu$ a
     A_\mu= \sin\theta_W A^3_\mu + \cos\theta_W B_\mu
 
 
-The angle $\theta_W$ must be the same as in the Higgs sector, so that the field $Z_\mu$ is the same. We now need to make the following requirement in order to proceed further: 
+The angle $\theta_W$ must be the same as in the Higgs sector, so that the field $Z_\mu$ is the same. We now need to make the following requirement in order to proceed further:
 
 .. math::
 
     Y = -Y_L
 
 
-This follows for example by requiring that neutrinos have zero charge, i.e. setting $\half g\sin\theta_W+Y_Lg'\cos\theta_W = 0$ and substituting for $\theta_W$ from the definition (see the Higgs terms), from which one gets $Y=-Y_L$. From $-Y_L+Y+Y_R=0$ we now get 
+This follows for example by requiring that neutrinos have zero charge, i.e. setting $\half g\sin\theta_W+Y_Lg'\cos\theta_W = 0$ and substituting for $\theta_W$ from the definition (see the Higgs terms), from which one gets $Y=-Y_L$. From $-Y_L+Y+Y_R=0$ we now get
 
 .. math::
 
     Y_R = 2Y_L
 
 
-it now follows: 
+it now follows:
 
 .. math::
 
@@ -306,7 +306,7 @@ it now follows:
     \tan\theta_W = -2Y_L {g'\over g}
 
 
-and the Lagrangian can be further simplified: 
+and the Lagrangian can be further simplified:
 
 .. math::
 
@@ -404,7 +404,7 @@ Gauge terms
     = -{1\over2}W^-_{\mu\nu}W^{+\mu\nu} -{1\over4}A_{\mu\nu}A^{\mu\nu} -{1\over4}Z_{\mu\nu}Z^{\mu\nu} +\L_{WW\gamma}+L_{WWZ}+L_{WW\gamma\gamma}+L_{WWWW}+L_{WWZZ}+L_{WWZ\gamma}
 
 
-Where $W^0_\mu = A^3_\mu=\cos\theta_W Z_\mu + \sin\theta_W A_\mu$ and: 
+Where $W^0_\mu = A^3_\mu=\cos\theta_W Z_\mu + \sin\theta_W A_\mu$ and:
 
 .. math::
 
@@ -447,7 +447,7 @@ Where $W^0_\mu = A^3_\mu=\cos\theta_W Z_\mu + \sin\theta_W A_\mu$ and:
 GWS Lagrangian
 ~~~~~~~~~~~~~~
 
-Plugging everything together we get the GWS Lagrangian: 
+Plugging everything together we get the GWS Lagrangian:
 
 .. math::
 
@@ -498,21 +498,21 @@ The free parameters are $g$, $\theta_W$, $v$, $\lambda$, $h_e$, $h_\mu$, $h_\tau
 Particle Masses
 ~~~~~~~~~~~~~~~
 
-The particle masses are deduced from the terms 
+The particle masses are deduced from the terms
 
 .. math::
 
     \L = -{1\over2}m_H^2 H^2 +m_W^2 W^-_\mu W^{+\mu} +{1\over2}m_Z^2 Z_\mu Z^\mu -m_e\bar ee +\cdots
 
 
-comparing to the above: 
+comparing to the above:
 
 .. math::
 
     \L = -\lambda v^2 H^2 +{1\over4}g^2v^2W^-_\mu W^{+\mu} +{g^2v^2\over8\cos^2\theta_W}Z_\mu Z^\mu -{1\over\sqrt2}h_ev\bar ee +\cdots
 
 
-we get 
+we get
 
 .. math::
 
@@ -1055,7 +1055,7 @@ evolution operator:
     U(t_2, t_1)=U(t_1, t_1)-{i\over\hbar}\int_{t_1}^{t_2} H(t)U(t, t_1)\d t =1-{i\over\hbar}\int_{t_1}^{t_2} H(t)U(t, t_1)\d t
 
 
-Now: 
+Now:
 
 .. math::
 
@@ -1080,7 +1080,7 @@ Now:
     = T\exp\left(-{i\over\hbar}\int_{-\infty}^{\infty}H(t)\d t \right) = T\exp\left(-{i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \H(x) \right)
 
 
-If $\L$ doesn't contain derivatives of the fields, then $\H = -\L$ so: 
+If $\L$ doesn't contain derivatives of the fields, then $\H = -\L$ so:
 
 .. math::
 
@@ -1088,7 +1088,7 @@ If $\L$ doesn't contain derivatives of the fields, then $\H = -\L$ so:
 
 
 
-Let's write $S=1+iT$ and $\ket{i}=\ket{k_1\cdots k_m}$, $\ket{f}=\ket{p_1\cdots p_n}$. As a first step now, let's investigate a scalar field, e.g. $\L=-{\lambda\over4}\phi^4$ (e.g. a Higgs self interaction term above), we'll look at other fields later: 
+Let's write $S=1+iT$ and $\ket{i}=\ket{k_1\cdots k_m}$, $\ket{f}=\ket{p_1\cdots p_n}$. As a first step now, let's investigate a scalar field, e.g. $\L=-{\lambda\over4}\phi^4$ (e.g. a Higgs self interaction term above), we'll look at other fields later:
 
 .. math::
 
@@ -1101,7 +1101,7 @@ Let's write $S=1+iT$ and $\ket{i}=\ket{k_1\cdots k_m}$, $\ket{f}=\ket{p_1\cdots 
     \int\d^4 x_1\cdots \d^4 x_m e^{-i(k_1 x_1+\cdots + k_m x_m)} \int\d^4 y_1\cdots \d^4 y_n e^{+i(p_1 y_1+\cdots + p_n y_n)} G(x_1, \cdots, x_m, y_1, \cdots, y_m)
 
 
-where 
+where
 
 .. math::
 
@@ -1184,7 +1184,7 @@ $k_1+k_2\to p_1+p_2$:
     = (2\pi)^4\delta^{(4)}(p_1+p_2-k_1-k_2)\left[6(-i\lambda)+ 3(-i\lambda)^2\int{\d^4 k\over (2\pi)^4}\tilde D(k)\tilde D(p1+p2-k) +(-i\lambda)^3(\cdots)+\cdots\right]
 
 
-The denominator cancels with the disconnected terms. We used the Wick contractions (see below for a thorough explanation+derivation): 
+The denominator cancels with the disconnected terms. We used the Wick contractions (see below for a thorough explanation+derivation):
 
 .. math::
 
@@ -1211,7 +1211,7 @@ The denominator cancels with the disconnected terms. We used the Wick contractio
 
 Where the "disconnected" terms are $D(x_1-y_1)D(x_2-y_2)D(x-x)D(x-x)$ and similar. When they are integrated over, they do not generate enough $\tilde D(p_1)$ propagators to cancel the propagators from the LSZ formula, which will cause the terms to vanish.
 
-For the $\L=\phi^3(x)$ theory, one also needs the following contractions: 
+For the $\L=\phi^3(x)$ theory, one also needs the following contractions:
 
 .. math::
 
@@ -1226,7 +1226,7 @@ For the $\L=\phi^3(x)$ theory, one also needs the following contractions:
 
 Thus it is clear that the only difference from the above is the factor $D(x-y)$ which after integrating changes to $\tilde D(p_1+p_2)$ and this ends up in the final result.
 
-One always gets the delta function in the result, so we define the matrix element $\M_{fi}$ by: 
+One always gets the delta function in the result, so we define the matrix element $\M_{fi}$ by:
 
 .. math::
 
@@ -1295,28 +1295,28 @@ For massless bosons:
 Wick Theorem
 ~~~~~~~~~~~~
 
-As seen above, we need to be able to calculate 
+As seen above, we need to be able to calculate
 
 .. math::
 
     \braket{0|T\{\phi_I(x_1)\cdots\phi_I(x_n)\}|0}
 
 
-The Wick theorem says, that this is equal to all possible contractions of fields (all fields need to be contracted), where a contraction is defined as: 
+The Wick theorem says, that this is equal to all possible contractions of fields (all fields need to be contracted), where a contraction is defined as:
 
 .. math::
 
     \braket{0|T\{\phi_I(x)\phi_I(y)\}|0}\equiv D(x-y)= \int {\d^4 p\over (2\pi)^4}\tilde D(p) e^{-ip(x-y)}
 
 
-with 
+with
 
 .. math::
 
     \tilde D(p) = {i\over p^2-m^2+i\epsilon}
 
 
-A few lowest possibilities: 
+A few lowest possibilities:
 
 .. math::
 
@@ -1767,7 +1767,7 @@ eeH interaction
 
 This is only approximate, it will be fixed soon.
 
-Let's calculate the $\L_{eeH}=-\lambda \bar ee H$ interaction in the SM, where $\lambda={h_e\over\sqrt2}$. Consider $H(p)\to e^-(k)+e^+(l)$: 
+Let's calculate the $\L_{eeH}=-\lambda \bar ee H$ interaction in the SM, where $\lambda={h_e\over\sqrt2}$. Consider $H(p)\to e^-(k)+e^+(l)$:
 
 .. math::
 
@@ -1798,7 +1798,7 @@ Let's calculate the $\L_{eeH}=-\lambda \bar ee H$ interaction in the SM, where $
     =(-i\lambda)(2\pi)^4\delta^{(4)}(p-k-l)\bar u(k) v(l)
 
 
-where we used the fact, that the only nonzero element of the Green function is 
+where we used the fact, that the only nonzero element of the Green function is
 
 .. math::
 
@@ -1812,7 +1812,7 @@ ee gamma interaction
 
 This is only approximate, it will be fixed soon.
 
-Let's calculate the $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$ interaction in the SM, where $\lambda=g\sin\theta_W$. Consider $\gamma(p)\to e^-(k)+e^+(l)$: 
+Let's calculate the $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$ interaction in the SM, where $\lambda=g\sin\theta_W$. Consider $\gamma(p)\to e^-(k)+e^+(l)$:
 
 .. math::
 
@@ -1843,7 +1843,7 @@ Let's calculate the $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$ interactio
     =(2\pi)^4\delta^{(4)}(p-k-l)\bar u(k)(-i\lambda)\gamma^\mu v(l)\varepsilon_\mu(p)
 
 
-where we used the fact, that the only nonzero element of the Green function is 
+where we used the fact, that the only nonzero element of the Green function is
 
 .. math::
 
@@ -1967,42 +1967,42 @@ Low energy theories
 Fermi-type theory
 ~~~~~~~~~~~~~~~~~
 
-This is a low energy ($m_W^2 \gg m_\mu m_e$) model for the EW interactions, that can be derived for example from the muon decay: 
+This is a low energy ($m_W^2 \gg m_\mu m_e$) model for the EW interactions, that can be derived for example from the muon decay:
 
 .. math::
 
     \mu^- \to e^- +\nu_\mu + \bar \nu_e
 
 
-From the SM the relevant Lagrangian is 
+From the SM the relevant Lagrangian is
 
 .. math::
 
     \L = {g\over2\sqrt2}(\bar e \gamma^\mu (1-\gamma_5) \nu_e W^-_\mu) + {g\over2\sqrt2}(\bar \mu \gamma^\mu (1-\gamma_5) \nu_\mu W^-_\mu)
 
 
-and one gets the diagram $\mu^- +\bar\nu_\mu+ \to e^- + \bar \nu_e$ and the corresponding matrix element: 
+and one gets the diagram $\mu^- +\bar\nu_\mu+ \to e^- + \bar \nu_e$ and the corresponding matrix element:
 
 .. math::
 
     iM = -i{g^2\over8}[\bar u\gamma_\mu (1-\gamma_5) u] {-g^{\mu\nu}+{q^\mu q^\nu\over m_W^2}\over q^2 - m_W^2} [\bar u\gamma_\nu (1-\gamma_5) v]
 
 
-which when the momentum transfer $q$ is much less than $m_w$ becomes 
+which when the momentum transfer $q$ is much less than $m_w$ becomes
 
 .. math::
 
     iM = -i{g^2\over8m_W^2}[\bar u\gamma^\mu (1-\gamma_5) u] [\bar u\gamma_\mu (1-\gamma_5) v]
 
 
-but this element can be derived directly from the Lagrangian: 
+but this element can be derived directly from the Lagrangian:
 
 .. math::
 
     \L = -{G_\mu\over\sqrt2} [\bar \psi_{\nu_\mu}\gamma^\mu (1-\gamma_5) \psi_\mu] [\bar \psi_e\gamma^\mu (1-\gamma_5) \psi_{\nu_e}]
 
 
-with 
+with
 
 .. math::
 
@@ -2021,28 +2021,28 @@ Quantum Mechanics
 From QED to Quantum Mechanics
 -----------------------------
 
-The QED Lagrangian density is 
+The QED Lagrangian density is
 
 .. math::
 
     \L=\bar\psi(i\hbar c\gamma^\mu D_\mu-mc^2)\psi-{1\over4}F_{\mu\nu}F^{\mu\nu}
 
 
-where 
+where
 
 .. math::
 
     \psi=\left( \begin{array}{c} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4 \\ \end{array}\right)
 
 
-and 
+and
 
 .. math::
 
     D_\mu=\partial_\mu+{i\over \hbar}eA_\mu
 
 
-is the gauge covariant derivative and ($e$ is the elementary charge, which is $1$ in atomic units, i.e. the electron has a charge $-e$) 
+is the gauge covariant derivative and ($e$ is the elementary charge, which is $1$ in atomic units, i.e. the electron has a charge $-e$)
 
 .. math::
 
@@ -2051,7 +2051,7 @@ is the gauge covariant derivative and ($e$ is the elementary charge, which is $1
 
 is the electromagnetic field tensor. It's astonishing, that this simple Lagrangian can account for all phenomena from macroscopic scales down to something like $10^{-13}\rm\,cm$. So it's not a surprise that Feynman, Schwinger and Tomonaga received the 1965 Nobel Prize in Physics for such a fantastic achievement.
 
-Plugging this Lagrangian into the Euler-Lagrange equation of motion for a field, we get: 
+Plugging this Lagrangian into the Euler-Lagrange equation of motion for a field, we get:
 
 .. math::
 
@@ -2068,7 +2068,7 @@ The first equation is the Dirac equation in the electromagnetic field and the se
 
 The fields $\psi$ and $A^\mu$ are quantized. The first approximation is that we take $\psi$ as a wavefunction, that is, it is a classical 4-component field. It can be shown that this corresponds to taking the tree diagrams in the perturbation theory.
 
-We multiply the Dirac equation by $\gamma^0$ from left to get: 
+We multiply the Dirac equation by $\gamma^0$ from left to get:
 
 .. math::
 
@@ -2081,35 +2081,35 @@ We multiply the Dirac equation by $\gamma^0$ from left to get:
     = (i\hbar c\partial_0+i\hbar c\gamma^0\gamma^i\partial_i-\gamma^0mc^2-ceA_0 -ce\gamma^0\gamma^iA_i)\psi
 
 
-and we make the following substitutions (it's just a formalism, nothing more): $\beta=\gamma^0$, $\alpha^i=\gamma^0\gamma^i$, $p_j=i\hbar\partial_j$, $\partial_0={1\over c}{\partial\over\partial t}$ to get 
+and we make the following substitutions (it's just a formalism, nothing more): $\beta=\gamma^0$, $\alpha^i=\gamma^0\gamma^i$, $p_j=i\hbar\partial_j$, $\partial_0={1\over c}{\partial\over\partial t}$ to get
 
 .. math::
 
     (i\hbar{\partial\over\partial t}+c\alpha^i p_i-\beta mc^2-ceA_0-ce\alpha^iA_i)\psi=0\,.
 
 
-or: 
+or:
 
 .. math::
 
     i\hbar{\partial\psi\over\partial t}=(c\alpha^i(-p_i+eA_i) +\beta mc^2+ceA_0)\psi\,.
 
 
-This can be written as: 
+This can be written as:
 
 .. math::
 
     i{\partial\psi\over\partial t}=H\psi\,,
 
 
-where the Hamiltonian is given by: 
+where the Hamiltonian is given by:
 
 .. math::
 
     H=c\alpha^i(-p_i+eA_i)+\beta mc^2+ceA_0\,,
 
 
-or introducing the electrostatic potential $\phi=cA_0$ and writing the momentum as a vector (see the appendix for all the details regarding signs): 
+or introducing the electrostatic potential $\phi=cA_0$ and writing the momentum as a vector (see the appendix for all the details regarding signs):
 
 .. math::
 
@@ -2117,14 +2117,14 @@ or introducing the electrostatic potential $\phi=cA_0$ and writing the momentum 
 
 
 
-The right hand side of the Maxwell equations is the 4-current, so it's given by: 
+The right hand side of the Maxwell equations is the 4-current, so it's given by:
 
 .. math::
 
     j^\mu=c\bar\psi\gamma^\mu\psi
 
 
-Now we make the substitution $\psi=e^{-imc^2t}\varphi$, which states, that we separate the largest oscillations of the wavefunction and we get 
+Now we make the substitution $\psi=e^{-imc^2t}\varphi$, which states, that we separate the largest oscillations of the wavefunction and we get
 
 .. math::
 
@@ -2163,14 +2163,14 @@ We use the identity ${\partial\over\partial t}\left(e^{-imc^2t}f(t)\right)= e^{-
     =2mc^2\left[{1\over2}i(\varphi^*{\partial\varphi\over\partial t}- \varphi{\partial\varphi^*\over\partial t})- {1\over2m}\partial^i\varphi^*\partial_i\varphi +{1\over2mc^2}{\partial\varphi^*\over\partial t} {\partial\varphi\over\partial t}\right]
 
 
-The constant factor $2mc^2$ in front of the Lagrangian is of course irrelevant, so we drop it and then we take the limit $c\to\infty$ (neglecting the last term) and we get 
+The constant factor $2mc^2$ in front of the Lagrangian is of course irrelevant, so we drop it and then we take the limit $c\to\infty$ (neglecting the last term) and we get
 
 .. math::
 
     L={1\over2}i(\varphi^*{\partial\varphi\over\partial t}- \varphi{\partial\varphi^*\over\partial t})- {1\over2m}\partial^i\varphi^*\partial_i\varphi
 
 
-After integration by parts we arrive at the Lagrangian for the Schrödinger equation: 
+After integration by parts we arrive at the Lagrangian for the Schrödinger equation:
 
 .. math::
 
@@ -2183,7 +2183,7 @@ After integration by parts we arrive at the Lagrangian for the Schrödinger equa
 Klein-Gordon Equation
 ~~~~~~~~~~~~~~~~~~~~~
 
-The Dirac equation implies the Klein-Gordon equation: 
+The Dirac equation implies the Klein-Gordon equation:
 
 .. math::
 
@@ -2196,7 +2196,7 @@ The Dirac equation implies the Klein-Gordon equation:
     =(\hbar^2c^2g^{\mu\nu}D_\mu D_\nu+m^2c^4)\psi =(\hbar^2c^2D^\mu D_\mu+m^2c^4)\psi
 
 
-Note however, the $\psi$ in the true Klein-Gordon equation is just a scalar, but here we get a 4-component spinor. Now: 
+Note however, the $\psi$ in the true Klein-Gordon equation is just a scalar, but here we get a 4-component spinor. Now:
 
 .. math::
 
@@ -2209,7 +2209,7 @@ Note however, the $\psi$ in the true Klein-Gordon equation is just a scalar, but
     [D_\mu, D_\nu] = D_\mu D_\nu-D_\nu D_\mu=ie(\partial_\mu A_\nu)- ie(\partial_\nu A_\mu)
 
 
-We rewrite $D^\mu D_\mu$: 
+We rewrite $D^\mu D_\mu$:
 
 .. math::
 
@@ -2229,7 +2229,7 @@ We rewrite $D^\mu D_\mu$:
 
 
 
-The nonrelativistic limit can also be applied directly to the Klein-Gordon equation: 
+The nonrelativistic limit can also be applied directly to the Klein-Gordon equation:
 
 .. math::
 
@@ -2284,14 +2284,14 @@ The nonrelativistic limit can also be applied directly to the Klein-Gordon equat
     \left.-{i\hbar e\over2m}\partial^i A_i-{i\hbar e\over m}A^i\partial_i+{e^2\over2m}A^iA_i\right)\varphi
 
 
-Taking the limit $c\to\infty$ we again recover the Schrödinger equation: 
+Taking the limit $c\to\infty$ we again recover the Schrödinger equation:
 
 .. math::
 
     i\hbar{\partial\over\partial t}\varphi=\left(-\hbar^2{\nabla^2\over2 m}+V +{i\hbar e\over2m}\partial^i A_i +{i\hbar e\over m}A^i\partial_i -{e^2\over2m}A^iA_i \right)\varphi\,,
 
 
-we rewrite the right hand side a little bit: 
+we rewrite the right hand side a little bit:
 
 .. math::
 
@@ -2310,14 +2310,14 @@ we rewrite the right hand side a little bit:
     i\hbar{\partial\over\partial t}\varphi=\left({1\over2 m} \hbar^2D^iD_i +V \right)\varphi\,,
 
 
-Using (see the appendix for details): 
+Using (see the appendix for details):
 
 .. math::
 
     \hbar^2D^iD_i=-\hbar^2\delta_{ij}D^iD^j =-\hbar^2\left({i\over\hbar}({\bf p}-e{\bf A})\right)^2 =({\bf p}-e{\bf A})^2
 
 
-we get the usual form of the Schrödinger equation for the vector potential: 
+we get the usual form of the Schrödinger equation for the vector potential:
 
 .. math::
 
@@ -2325,7 +2325,7 @@ we get the usual form of the Schrödinger equation for the vector potential:
 
 
 
-A little easier derivation: 
+A little easier derivation:
 
 .. math::
 
@@ -2380,7 +2380,7 @@ A little easier derivation:
     =2mc^2 e^{-{i\over\hbar}mc^2 t} \left( -i\hbar {\partial\over\partial t} +{({\bf p}-e{\bf A})^2\over2m} +e\phi +{\hbar^2\over2mc^2}{\partial^2\over\partial t^2} -{e^2\phi^2\over 2mc^2} +{ie\hbar\over mc^2}({\partial\over\partial t} \phi + \phi{\partial\over\partial t}) \right) \varphi
 
 
-and letting $c\to\infty$ we get the Schrödinger equation: 
+and letting $c\to\infty$ we get the Schrödinger equation:
 
 .. math::
 
@@ -2392,7 +2392,7 @@ and letting $c\to\infty$ we get the Schrödinger equation:
 Perturbation Theory
 -------------------
 
-We want to solve the equation: 
+We want to solve the equation:
 
 .. math::
     :label: schroed
@@ -2400,14 +2400,14 @@ We want to solve the equation:
     i\hbar{\d \over\d t}\ket{\psi(t)}=H(t)\ket{\psi(t)}
 
 
-with $H(t) = H^0 + H^1(t)$, where $H^0$ is time-independent part whose eigenvalue problem has been solved: 
+with $H(t) = H^0 + H^1(t)$, where $H^0$ is time-independent part whose eigenvalue problem has been solved:
 
 .. math::
 
     H^0\ket{n^0}=E^0_n\ket{n^0}
 
 
-and $H^1(t)$ is a small time-dependent perturbation. $\ket{n^0}$ form a complete basis, so we can express $\ket{\psi(t)}$ in this basis: 
+and $H^1(t)$ is a small time-dependent perturbation. $\ket{n^0}$ form a complete basis, so we can express $\ket{\psi(t)}$ in this basis:
 
 .. math::
     :label: psi
@@ -2415,42 +2415,42 @@ and $H^1(t)$ is a small time-dependent perturbation. $\ket{n^0}$ form a complete
     \ket{\psi(t)} = \sum_n d_n(t)e^{-{i\over\hbar}E^0_n t}\ket{n^0}
 
 
-Substituting this into :eq:`schroed`, we get: 
+Substituting this into :eq:`schroed`, we get:
 
 .. math::
 
     \sum_n\left( i\hbar{\d\over\d t} d_n(t)+E^0_n d_n(t) \right)e^{-{i\over\hbar}E^0_n t}\ket{n^0} =\sum_n\left( E^0_n d_n(t) +H^1 d_n(t) \right)e^{-{i\over\hbar}E^0_n t}\ket{n^0}
 
 
-so: 
+so:
 
 .. math::
 
     \sum_n i\hbar{\d\over\d t}\left( d_n(t)\right) e^{-{i\over\hbar}E^0_n t}\ket{n^0} =\sum_n d_n(t) e^{-{i\over\hbar}E^0_n t}H^1\ket{n^0}
 
 
-Choosing some particular state $\ket{f^0}$ of the $H^0$ Hamiltonian, we multiply the equation from the left by $\bra{f^0}e^{{i\over\hbar}E^0_f t}$: 
+Choosing some particular state $\ket{f^0}$ of the $H^0$ Hamiltonian, we multiply the equation from the left by $\bra{f^0}e^{{i\over\hbar}E^0_f t}$:
 
 .. math::
 
     \sum_n i\hbar{\d\over\d t}\left( d_n(t)\right)e^{i w_{fn} t} \braket{f^0|n^0} =\sum_n d_n(t) e^{i w_{fn} t}\braket{f^0|H^1|n^0}
 
 
-where $w_{fn}={E^0_f - E^0_n\over \hbar}$. Using $\braket{f^0|n^0}=\delta_{fn}$: 
+where $w_{fn}={E^0_f - E^0_n\over \hbar}$. Using $\braket{f^0|n^0}=\delta_{fn}$:
 
 .. math::
 
     i\hbar{\d\over\d t}d_f(t) =\sum_n d_n(t) e^{i w_{fn} t}\braket{f^0|H^1|n^0}
 
 
-we integrate from $t_1$ to $t$: 
+we integrate from $t_1$ to $t$:
 
 .. math::
 
     i\hbar\left((d_f(t)-d_f(t_1)\right) =\sum_n\int_{t_1}^t d_n(t') e^{i w_{fn} t'}\braket{f^0|H^1(t')|n^0} \d t'
 
 
-Let the initial wavefunction at time $t_1$ be some particular state $\ket{\psi(t_1)}=\ket{i^0}$ of the unperturbed Hamiltonian, then $d_n(t_1)=\delta_{ni}$ and we get: 
+Let the initial wavefunction at time $t_1$ be some particular state $\ket{\psi(t_1)}=\ket{i^0}$ of the unperturbed Hamiltonian, then $d_n(t_1)=\delta_{ni}$ and we get:
 
 .. math::
     :label: perturb0
@@ -2460,7 +2460,7 @@ Let the initial wavefunction at time $t_1$ be some particular state $\ket{\psi(t
 
 This is the equation that we will use for the perturbation theory.
 
-In the zeroth order of the perturbation theory, we set $H^1(t)=0$ and we get: 
+In the zeroth order of the perturbation theory, we set $H^1(t)=0$ and we get:
 
 .. math::
 
@@ -2468,7 +2468,7 @@ In the zeroth order of the perturbation theory, we set $H^1(t)=0$ and we get:
 
 
 
-In the first order of the perturbation theory, we take the solution $d_n(t)=\delta_{ni}$ obtained in the zeroth order and substitute into the right hand side of :eq:`perturb0`: 
+In the first order of the perturbation theory, we take the solution $d_n(t)=\delta_{ni}$ obtained in the zeroth order and substitute into the right hand side of :eq:`perturb0`:
 
 .. math::
 
@@ -2476,7 +2476,7 @@ In the first order of the perturbation theory, we take the solution $d_n(t)=\del
 
 
 
-In the second order, we take the last solution, substitute into the right hand side of :eq:`perturb0` again: 
+In the second order, we take the last solution, substitute into the right hand side of :eq:`perturb0` again:
 
 .. math::
 
@@ -2494,7 +2494,7 @@ And so on for higher orders of the perturbation theory --- more terms will arise
 Time Independent Perturbation Theory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As a special case, if $H^1$ doesn't depend on time, the coefficients $d_n(t)$ simplify, so we calculate them in this section explicitly. Let's take 
+As a special case, if $H^1$ doesn't depend on time, the coefficients $d_n(t)$ simplify, so we calculate them in this section explicitly. Let's take
 
 .. math::
 
@@ -2503,7 +2503,7 @@ As a special case, if $H^1$ doesn't depend on time, the coefficients $d_n(t)$ si
 
 so at the time $t_1=-\infty$ the Hamiltonian $H(t)=H^0$ is unperturbed and we are interested in the time $t=0$, when the Hamiltonian becomes $H(t) = H^0 + H^1$ (the coefficients $d_n(t)$ will still depend on the $\tau$ variable) and we do the limit $\tau\to\infty$ (this corresponds to smoothly applying the perturbation $H^1$ at the time negative infinity).
 
-Let's calculate $d_f(0)$: 
+Let's calculate $d_f(0)$:
 
 .. math::
 
@@ -2528,7 +2528,7 @@ Let's calculate $d_f(0)$:
     + \left(-{i\over\hbar}\right)^2\sum_n {1\over{1\over\tau}+i\omega_{ni}} {1\over{2\over\tau}+i\omega_{fn}+i\omega_{ni}} \braket{f^0|H^1|n^0} \braket{n^0|H^1|i^0}
 
 
-Taking the limit $\tau\to\infty$: 
+Taking the limit $\tau\to\infty$:
 
 .. math::
 
@@ -2553,7 +2553,7 @@ Taking the limit $\tau\to\infty$:
     + \sum_n { \braket{f^0|H^1|n^0} \braket{n^0|H^1|i^0} \over (E_n^0-E_i^0)(E_f^0-E_i^0) }
 
 
-Substituting this into :eq:`psi` evaluated for $t=0$: 
+Substituting this into :eq:`psi` evaluated for $t=0$:
 
 .. math::
 
@@ -2572,7 +2572,7 @@ Substituting this into :eq:`psi` evaluated for $t=0$:
     + \sum_{n,m} {\ket{n^0} \braket{n^0|H^1|m^0} \braket{m^0|H^1|i^0} \over (E_m^0-E_i^0)(E_n^0-E_i^0) }
 
 
-The sum $\sum_n$ is over all $n\neq i$, similarly for the other sum. Let's also calculate the energy: 
+The sum $\sum_n$ is over all $n\neq i$, similarly for the other sum. Let's also calculate the energy:
 
 .. math::
 
@@ -2585,7 +2585,7 @@ The sum $\sum_n$ is over all $n\neq i$, similarly for the other sum. Let's also 
     \left(\cdots- \sum_{n'\neq i} {\braket{i^0|H^1|n'^0}\bra{n'^0}\over E_{n'}^0-E_i^0} +\bra{i^0}\right) (H^0+H^1) \left(\ket{i^0}- \sum_{n\neq i} {\ket{n^0}\braket{n^0|H^1|i^0}\over E_n^0-E_i^0} +\cdots\right)
 
 
-To evaluate this, we use the fact that $\braket{i^0|H^0|i^0}=E_i^0$ and $\braket{i^0|H^0|n^0}=E_i^0\delta_{ni}$: 
+To evaluate this, we use the fact that $\braket{i^0|H^0|i^0}=E_i^0$ and $\braket{i^0|H^0|n^0}=E_i^0\delta_{ni}$:
 
 .. math::
 
@@ -2598,7 +2598,7 @@ To evaluate this, we use the fact that $\braket{i^0|H^0|i^0}=E_i^0$ and $\braket
     = E_i^0 + \braket{i^0|H^1|i^0} - \sum_{n\neq i} {|\braket{n^0|H^1|i^0}|^2\over E_n^0-E_i^0}+\cdots
 
 
-Where we have neglected the higher order terms, so we can identify the corrections to the energy $E$ coming from the particular orders of the perturbation theory: 
+Where we have neglected the higher order terms, so we can identify the corrections to the energy $E$ coming from the particular orders of the perturbation theory:
 
 .. math::
 
@@ -2622,14 +2622,14 @@ Where we have neglected the higher order terms, so we can identify the correctio
 Scattering Theory
 -----------------
 
-The incoming plane wave state is a solution of 
+The incoming plane wave state is a solution of
 
 .. math::
 
     H_0\ket{{\bf k}}=E_k\ket{{\bf k}}
 
 
-with $H_0={p^2\over 2m}$. E.g. 
+with $H_0={p^2\over 2m}$. E.g.
 
 .. math::
 
@@ -2642,28 +2642,28 @@ with $H_0={p^2\over 2m}$. E.g.
     E_k = {\hbar^2 k^2\over 2 m}
 
 
-We want to solve: 
+We want to solve:
 
 .. math::
 
     (H_0+V)\ket{\psi}=E_k\ket{\psi}
 
 
-The solution of this is: 
+The solution of this is:
 
 .. math::
 
     \ket{\psi}=\ket{{\bf k}}+{1\over E_k-H_0}V\ket{\psi} =\ket{\bf{k}}+GV\ket{\psi}
 
 
-where 
+where
 
 .. math::
 
     G={1\over E_k-H_0}
 
 
-is the Green function for the Schrödinger equation. $G$ is not unique, it contains both outgoing and ingoing waves. As shown below, one can distinguish between these two by adding a small $i\epsilon$ into the denominator, that moves the poles of the Green functions above and below the $x$-axis: 
+is the Green function for the Schrödinger equation. $G$ is not unique, it contains both outgoing and ingoing waves. As shown below, one can distinguish between these two by adding a small $i\epsilon$ into the denominator, that moves the poles of the Green functions above and below the $x$-axis:
 
 .. math::
 
@@ -2676,7 +2676,7 @@ is the Green function for the Schrödinger equation. $G$ is not unique, it conta
     G_-={1\over E_k-H_0-i\epsilon}
 
 
-Both $G_+$ and $G_-$ are well-defined and unique. One can calculate both Green functions explicitly: 
+Both $G_+$ and $G_-$ are well-defined and unique. One can calculate both Green functions explicitly:
 
 .. math::
 
@@ -2707,7 +2707,7 @@ Both $G_+$ and $G_-$ are well-defined and unique. One can calculate both Green f
     G_-({\bf r}, {\bf r'}) = \braket{{\bf r}|G_-|{\bf r'}}=\bra{{\bf r}}{1\over E_k-H_0-i\epsilon}\ket{{\bf r'}} =\cdots ={4\pi^2 me^{-i k|{\bf r}-{\bf r'}|}\over\hbar^2|{\bf r}-{\bf r'}|}
 
 
-Assuming $|{\bf r'}|\ll|{\bf r}|$, we can taylor expand $|{\bf r}-{\bf r'}|$: 
+Assuming $|{\bf r'}|\ll|{\bf r}|$, we can taylor expand $|{\bf r}-{\bf r'}|$:
 
 .. math::
 
@@ -2720,7 +2720,7 @@ Assuming $|{\bf r'}|\ll|{\bf r}|$, we can taylor expand $|{\bf r}-{\bf r'}|$:
     =r-{\bf r'}\cdot{\bf \hat r}+O\left(r'^2\right)
 
 
-and simplify the result even further: 
+and simplify the result even further:
 
 .. math::
 
@@ -2735,14 +2735,14 @@ and simplify the result even further:
 
 Note: both functions may be divided by the factor $(2\pi)^3$ due to the momentum integration.
 
-Let's get back to the solution of the Schrödinger equation: 
+Let's get back to the solution of the Schrödinger equation:
 
 .. math::
 
     \ket{\psi}=\ket{\bf{k}}+G_+V\ket{\psi}
 
 
-It contains the solution $\ket{\psi}$ on both sides of the equation, so we express it explicitly: 
+It contains the solution $\ket{\psi}$ on both sides of the equation, so we express it explicitly:
 
 .. math::
 
@@ -2755,14 +2755,14 @@ It contains the solution $\ket{\psi}$ on both sides of the equation, so we expre
     \ket{\psi}={1\over 1-G_+V}\ket{\bf{k}}
 
 
-and multiply by $V$: 
+and multiply by $V$:
 
 .. math::
 
     V\ket{\psi}={V\over 1-G_+V}\ket{\bf{k}}=T\ket{\bf{k}}
 
 
-where $T$ is the transition matrix: 
+where $T$ is the transition matrix:
 
 .. math::
 
@@ -2781,14 +2781,14 @@ where $T$ is the transition matrix:
     =V+V{1\over E_k-H_0+i\epsilon}V + V{1\over E_k-H_0+i\epsilon}V{1\over E_k-H_0+i\epsilon}V + \cdots
 
 
-Then the final solution is: 
+Then the final solution is:
 
 .. math::
 
     \ket{\psi}=\ket{\bf{k}}+G_+V\ket{\psi}=\ket{\bf{k}}+G_+T\ket{{\bf k}}
 
 
-and in a coordinate representation: 
+and in a coordinate representation:
 
 .. math::
 
@@ -2807,7 +2807,7 @@ and in a coordinate representation:
     =e^{i{\bf k}\cdot{\bf r}} +\int\d^3 r'\d^3k' G_+({\bf r}, {\bf r'}) e^{i{\bf k'}\cdot{\bf r'}} \braket{{\bf k'}|T|{\bf k}}
 
 
-Plugging the representation of the Green function for $|{\bf r'}|\ll|{\bf r}|$ in: 
+Plugging the representation of the Green function for $|{\bf r'}|\ll|{\bf r}|$ in:
 
 .. math::
 
@@ -2838,7 +2838,7 @@ Plugging the representation of the Green function for $|{\bf r'}|\ll|{\bf r}|$ i
     =e^{i{\bf k}\cdot{\bf r}} + f(\theta,\phi)\, {e^{ikr}\over r}
 
 
-where the scattering amplitude $f(\theta,\phi)$ is: 
+where the scattering amplitude $f(\theta,\phi)$ is:
 
 .. math::
 
@@ -2847,7 +2847,7 @@ where the scattering amplitude $f(\theta,\phi)$ is:
 
 Where ${\bf k'}=k{\bf\hat r}$ is the final momentum.
 
-The differential cross section ${\d\sigma\over\d\Omega}$ is defined as the probability to observe the scattered particle in a given state per solid angle, e.g. the scattered flux per unit of solid angle per incident flux: 
+The differential cross section ${\d\sigma\over\d\Omega}$ is defined as the probability to observe the scattered particle in a given state per solid angle, e.g. the scattered flux per unit of solid angle per incident flux:
 
 .. math::
 
@@ -2860,7 +2860,7 @@ The differential cross section ${\d\sigma\over\d\Omega}$ is defined as the proba
     = {r^2\over{\hbar k\over m}}\,{\hbar k\over m}\left({1\over r^2} +{i\over k r^3}\right)|f(\theta, \phi)|^2 = \left(1 +{i\over k r}\right)|f(\theta, \phi)|^2 \to |f(\theta, \phi)|^2
 
 
-where we used $|{\bf j}_i|={\hbar k\over m}$ and 
+where we used $|{\bf j}_i|={\hbar k\over m}$ and
 
 .. math::
 
@@ -2879,7 +2879,7 @@ where we used $|{\bf j}_i|={\hbar k\over m}$ and
     ={\hbar k\over m}\left({1\over r^2}+{i\over k r^3} \right)|f(\theta, \phi)|^2
 
 
-Let's write the explicit formula for the transition matrix: 
+Let's write the explicit formula for the transition matrix:
 
 .. math::
 
@@ -2892,7 +2892,7 @@ Let's write the explicit formula for the transition matrix:
     =\int\d^3r e^{i({\bf k}-{\bf k'})\cdot{\bf r}}V({\bf r}) +\int\d^3r\d^3r'e^{-i{\bf k'}\cdot{\bf r}} V({\bf r}) {e^{i k|{\bf r}-{\bf r'}|}\over|{\bf r}-{\bf r'}|} V({\bf r'})e^{i{\bf k}\cdot{\bf r'}}+\cdots=
 
 
-The Born approximation is just the first term: 
+The Born approximation is just the first term:
 
 .. math::
 
@@ -3024,35 +3024,35 @@ Appendix
 Units and Dimensional Analysis
 ------------------------------
 
-The evolution operator is dimensionless: 
+The evolution operator is dimensionless:
 
 .. math::
 
     U(-\infty,\infty) = T\exp\left({i\over\hbar}\int_{-\infty}^{\infty}\d^4 x \L(x) \right)
 
 
-So: 
+So:
 
 .. math::
 
     \left[\int_{-\infty}^{\infty}\d^4 x \L(x) \right] = [\hbar] = M^0
 
 
-where $M$ is an arbitrary mass scale. Length unit is $M^{-1}$, so then 
+where $M$ is an arbitrary mass scale. Length unit is $M^{-1}$, so then
 
 .. math::
 
     [\L(x)] = M^4
 
 
-For the particular forms of the Lagrangians above we get: 
+For the particular forms of the Lagrangians above we get:
 
 .. math::
 
     [m\bar ee] = [m^2 Z_\mu Z^\mu] = [m^2 H^2] = [i\bar e\gamma^\mu\partial_\mu e] = [\L] = M^4
 
 
-so $[\bar ee] = M^3$, $[Z_\mu Z^\mu]=[H^2] = M^2$ and we get 
+so $[\bar ee] = M^3$, $[Z_\mu Z^\mu]=[H^2] = M^2$ and we get
 
 .. math::
 
@@ -3066,7 +3066,7 @@ so $[\bar ee] = M^3$, $[Z_\mu Z^\mu]=[H^2] = M^2$ and we get
 
 
 
-Example: what is the dimension of $G_\mu$ in $\L = -{G_\mu\over\sqrt2} [\bar \psi_{\nu_\mu}\gamma^\mu (1-\gamma_5) \psi_\mu] [\bar \psi_e\gamma^\mu (1-\gamma_5) \psi_{\nu_e}]$? Answer: 
+Example: what is the dimension of $G_\mu$ in $\L = -{G_\mu\over\sqrt2} [\bar \psi_{\nu_\mu}\gamma^\mu (1-\gamma_5) \psi_\mu] [\bar \psi_e\gamma^\mu (1-\gamma_5) \psi_{\nu_e}]$? Answer:
 
 .. math::
 
@@ -3086,7 +3086,7 @@ Example: what is the dimension of $G_\mu$ in $\L = -{G_\mu\over\sqrt2} [\bar \ps
 
 
 
-In order to get the above units from the SI units, one has to do the following identification: 
+In order to get the above units from the SI units, one has to do the following identification:
 
 .. math::
 
@@ -3111,7 +3111,7 @@ In order to get the above units from the SI units, one has to do the following i
     A\to M^1
 
 
-The SI units of the above quantities are: 
+The SI units of the above quantities are:
 
 .. math::
 
@@ -3220,14 +3220,14 @@ Gradient is defined as (in any metric):
     \left({1\over c}{\partial\over\partial t},{\partial\over\partial x},{\partial\over\partial y},{\partial\over\partial z}\right)
 
 
-the upper indices depend on the signature, e.g. for -2: 
+the upper indices depend on the signature, e.g. for -2:
 
 .. math::
 
     \partial^\mu = (\partial^0, \partial^1, \partial^2, \partial^3)= \left({1\over c}{\partial\over\partial t},-{\partial\over\partial x},-{\partial\over\partial y},-{\partial\over\partial z}\right)
 
 
-and +2: 
+and +2:
 
 .. math::
 
@@ -3364,7 +3364,7 @@ $p^\mu = m ( c, 0 )$, where $m$ is the rest mass, so $p^2 = m^2c^2$, from which:
 
 Note: for the signature +2, we would get $p^\mu=-i\hbar\partial^\mu$ and $p_\mu=-i\hbar\partial_\mu$.
 
-For the minimal coupling $D_\mu = \partial_\mu + {i\over\hbar}e A_\mu$ we get: 
+For the minimal coupling $D_\mu = \partial_\mu + {i\over\hbar}e A_\mu$ we get:
 
 .. math::
 
@@ -3377,7 +3377,7 @@ For the minimal coupling $D_\mu = \partial_\mu + {i\over\hbar}e A_\mu$ we get:
     D^j = \partial^j + {i\over\hbar}e A^j=-{i\over\hbar}(i\hbar\partial^j-eA^j) =-{i\over\hbar}({\bf p}-e{\bf A})
 
 
-and for the lower indices: 
+and for the lower indices:
 
 .. math::
 
@@ -3426,14 +3426,14 @@ Multipole expansion
     ={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)
 
 
-We can also use the formula: 
+We can also use the formula:
 
 .. math::
 
     \sum_m \braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}={4\pi\over 2l+1} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}
 
 
-and rewrite the expansion using spherical harmonics: 
+and rewrite the expansion using spherical harmonics:
 
 .. math::
 

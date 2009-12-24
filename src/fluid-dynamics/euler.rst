@@ -491,28 +491,28 @@ Then we multiply by the test functions (one by one):
         0 \\
         0 \\
         0 \\
-    \end{array} \right),\ 
+    \end{array} \right),\
     \left( \begin{array}{c}
         0 \\
         \varphi^1 \\
         0 \\
         0 \\
         0 \\
-    \end{array} \right),\ 
+    \end{array} \right),\
     \left( \begin{array}{c}
         0 \\
         0 \\
         \varphi^2 \\
         0 \\
         0 \\
-    \end{array} \right),\ 
+    \end{array} \right),\
     \left( \begin{array}{c}
         0 \\
         0 \\
         0 \\
         \varphi^3 \\
         0 \\
-    \end{array} \right),\ 
+    \end{array} \right),\
     \left( \begin{array}{c}
         0 \\
         0 \\
@@ -972,13 +972,13 @@ where $\varrho$ is the air density, ${\bf v} = (u,w)$ is the velocity, $U =
 $g$ is the gravitational acceleration constant.  We use the perfect gas state
 equation $p = \varrho R T = R \theta$ for the pressure.
 
-Boundary conditions are prescribed as follows: 
+Boundary conditions are prescribed as follows:
 
 * edge $a$: $\partial \varrho / \partial \nu = 0$, $\partial U / \partial \nu = 0$, $W = 0$, $\theta = \mbox{tanh}(x)*\mbox{sin}(\pi t /86400)$
 * edges $b, c$: $\partial \varrho / \partial \nu = 0$, $U = 0$, $\partial W / \partial \nu = 0$, $\partial \theta/ \partial \nu = 0$
 * edge $d$: $\partial \varrho / \partial \nu = 0$, $\partial U / \partial \nu = 0$, $W = 0$, $\partial \theta/ \partial \nu = 0$
 
-Initial conditions have the form 
+Initial conditions have the form
 
 .. math::
     :nowrap:
@@ -990,7 +990,7 @@ Discretization and the Newton's Method
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-We will use the implicit Euler method in time, i.e., 
+We will use the implicit Euler method in time, i.e.,
 
 
 .. math::
@@ -1000,7 +1000,7 @@ We will use the implicit Euler method in time, i.e.,
 etc. Let's discuss one equation of :eq:`one` at a time:
 
 `Continuity equation`:
-The weak formulation of 
+The weak formulation of
 
 .. math::
 
@@ -1014,7 +1014,7 @@ reads
 
     F_i^{\varrho}(Y^{n+1}) = \int_{\Omega} \frac{\varrho^{n+1}}{\tau}
     \varphi^{\varrho}_i
-    - \int_{\Omega} \frac{\varrho^{n}}{\tau} \varphi^{\varrho}_i 
+    - \int_{\Omega} \frac{\varrho^{n}}{\tau} \varphi^{\varrho}_i
       + \int_{\Omega} \frac{\partial U^{n+1}}{\partial x} \varphi^{\varrho}_i
         + \int_{\Omega} \frac{\partial W^{n+1}}{\partial z} \varphi^{\varrho}_i = 0
 
@@ -1023,7 +1023,7 @@ The global coefficient vector $Y^{n+1}$ consists of four parts $Y^{\varrho}$, $Y
 and $Y^{\theta}$ corresponding to the fields $\varrho$, $U$, $W$ and $\theta$, respectively.
 The same holds for the vector function $F$ which consists of four parts $F^{\varrho}$, $F^{U}$, $F^{W}$
 and $F^{\theta}$. Thus the global Jacobi matrix will have a four-by-four block structure. We
-denote 
+denote
 
 
 .. math::
@@ -1043,14 +1043,14 @@ It follows from :eq:`cont` and :eq:`two` that
 
      \frac{\partial F^{\varrho}_i}{\partial y^{\varrho}_j} = \int_{\Omega} \frac{\varphi^{\varrho}_j}{\tau} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{U}_j} = \int_{\Omega} \frac{\partial \varphi^{U}_j}{\partial x} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{W}_j} = \int_{\Omega} \frac{\partial \varphi^{W}_j}{\partial z} \varphi^{\varrho}_i, \ \ \ \frac{\partial F^{\varrho}_i}{\partial y^{W}_j} = 0.
 
-`First momentum equation`: The second equation of :eq:`one` has the form 
+`First momentum equation`: The second equation of :eq:`one` has the form
 
 
 .. math::
 
      \frac{\partial U}{\partial t} + \frac{2U}{\varrho}\frac{\partial U}{\partial x}  - \frac{U^2}{\varrho^2} \frac{\partial \varrho}{\partial x} + R\frac{\partial \theta}{\partial x} + \frac{W}{\varrho}\frac{\partial U}{\partial z} + \frac{U}{\varrho}\frac{\partial W}{\partial z} - \frac{UW}{\varrho^2}\frac{\partial \varrho}{\partial z} = 0.
 
-After applying the implicit Euler method, we obtain 
+After applying the implicit Euler method, we obtain
 
 
 .. math::
@@ -1062,7 +1062,7 @@ After applying the implicit Euler method, we obtain
 
      + \frac{W^{n+1}}{\varrho^{n+1}}\frac{\partial U^{n+1}}{\partial z} + \frac{U^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial z} - \frac{U^{n+1}W^{n+1}}{(\varrho^{n+1})^2}\frac{\partial \varrho^{n+1}}{\partial z} = 0.
 
-Thus we obtain 
+Thus we obtain
 
 .. math::
 
@@ -1095,14 +1095,14 @@ Analogously,
      \frac{\partial F^{U}_i}{\partial y^{\theta}_j} =  \int_{\Omega} R \frac{\partial \varphi^{\theta}_j}{\partial x} \varphi^U_i.
 
 
-`Second momentum equation`: The third equation of :eq:`one` reads 
+`Second momentum equation`: The third equation of :eq:`one` reads
 
 
 .. math::
 
      \frac{\partial W}{\partial t}  + \frac{W}{\varrho}\frac{\partial U}{\partial x} + \frac{U}{\varrho}\frac{\partial W}{\partial x} - \frac{UW}{\varrho^2}\frac{\partial \varrho}{\partial x}  + \frac{2W}{\varrho}\frac{\partial W}{\partial z}  - \frac{W^2}{\varrho^2} \frac{\partial \varrho}{\partial x} + R\frac{\partial \theta}{\partial z} + \varrho g= 0.
 
-After applying the implicit Euler method, we obtain 
+After applying the implicit Euler method, we obtain
 
 
 .. math::
@@ -1114,7 +1114,7 @@ After applying the implicit Euler method, we obtain
 
      + \frac{2W^{n+1}}{\varrho^{n+1}}\frac{\partial W^{n+1}}{\partial z}  - \frac{(W^{n+1})^2}{(\varrho^{n+1})^2} \frac{\partial \varrho^{n+1}}{\partial x} + R\frac{\partial \theta^{n+1}}{\partial z} + \varrho^{n+1} g= 0.
 
-Thus we obtain 
+Thus we obtain
 
 .. math::
 
@@ -1154,7 +1154,7 @@ Analogously,
 
      \frac{\partial \theta}{\partial t} + \mbox{div}(\theta {\bf v}) + \frac{R
      \theta}{c_v} \mbox{div}{\bf v} = 0
- 
+
 where $\theta = \varrho T$. This can be written equivalently as
 
 
@@ -1163,7 +1163,7 @@ where $\theta = \varrho T$. This can be written equivalently as
      \frac{\partial \theta}{\partial t} + \nabla \theta \cdot {\bf v} + \gamma
      \theta \mbox{div} {\bf v} = 0.
 
-Written in terms of single derivatives, this is 
+Written in terms of single derivatives, this is
 
 .. math::
 
