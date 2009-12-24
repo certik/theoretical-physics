@@ -600,7 +600,7 @@ or
 
     {\d^2 x^i\over\d t^2}=-\delta^{ij}\partial_j\phi
 
-So the Newton's second law \textit{is} the equation of geodesics.
+So the Newton's second law *is* the equation of geodesics.
 
 
 Obsolete section
@@ -684,7 +684,7 @@ start
 We can always find a coordinate transformation, that converts the metrics to a
 diagonal form with only $1$, $0$ and $-1$ on the diagonal. If we want
 nondegenerate metrics, we do not accept $0$ (but as it turns out, the metrics
-for the Newtonian mechanics \textit{is} degenerated).
+for the Newtonian mechanics *is* degenerated).
 Also, it is equivalent if we add a minus to all diagonal elements, e.g. $\diag(1,
 1, 1, 1)$ and $\diag(-1, -1, -1, -1)$ are equivalent, so
 we are left
@@ -901,7 +901,7 @@ In general, if $R^\alpha{}_{\beta\gamma\delta} \neq 0$ in the whole universe,
 then no such frame exists, but one can always achieve that locally, because
 one can always find a coordinate transformation so that the Christoffel
 symbols are zero locally (e.g. at one point), but unless
-$R^\alpha{}_{\beta\gamma\delta} = 0$, the Christoffel symbols will \textit{not}
+$R^\alpha{}_{\beta\gamma\delta} = 0$, the Christoffel symbols will *not*
 be zero in the whole frame. So the (local) inertial frame is such a frame that
 has zero Christoffel symbols (locally).
 
