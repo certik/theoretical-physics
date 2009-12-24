@@ -1261,3 +1261,274 @@ we get
 
      \left({d{\bf G}\over dt}\right)_{\rm space} = \left({d{\bf G}\over dt}\right)_{\rm body} + \boldsymbol\omega \times {\bf G}
 
+
+Linear Elasticity Equations in Cylindrical Coordinates
+------------------------------------------------------
+
+Authors: Pavel Solin & Lenka Dubcova
+
+In this paper we derive the weak formulation of linear elasticity equations suitable
+for the finite element discretization of axisymmetric 3D problems.
+
+Original equations in Cartesian coordinates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Let's start with some notations: By $\bfu = (u_1, u_2, u_3)^T$ we denote the displacement vector in
+3D Cartesian coordinates, and by $\epsilon$ the tensor of small deformations,
+
+.. math::
+
+     \epsilon_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}   \right),\ \ \ \ 1 \le i,j \le 3.
+
+The stress tensor $\sigma$ has the form 
+
+.. math::
+    :label: 0a
+
+       \sigma_{ij} = \lambda \delta_{ij}\mbox{div}\bfu + 2\mu \epsilon_{ij},\ \ \ \ 1 \le i,j \le 3,
+
+where 
+
+.. math::
+
+     \mbox{div}\bfu = \sum_{k=1}^3 \frac{\partial u_k}{\partial x_k} = \sum_{k=1}^3 \epsilon_{kk} = \mbox{Tr}(\epsilon).
+
+The symbols $\lambda$ and $\mu$ are the Lam\'e constants and $\delta_{ij}$ is the Kronecker
+symbol ($\delta_{ij} = 1$ if $i = j$ and $\delta_{ij} = 0$ otherwise).
+The equilibrium equations have the form 
+
+.. math::
+    :label: 0b
+
+       \sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j} + f_i = 0,\ \ \ \ 1 \le i \le 3,
+
+where $(f_1, f_2, f_3)^T$ is the vector of internal forces (such as gravity). 
+
+The boundary conditions for linear elasticity are given by
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*}  u_i &=& \hat{u}_i \quad \mbox{on} \ \Gamma_1\\ \sum_{j=1}^3 \sigma_{ij} n_j &=& g_i \quad \mbox{on} \ \Gamma_2, \end{eqnarray*}
+
+where $g_i$ are surface forces.
+
+
+Weak formulation
+~~~~~~~~~~~~~~~~
+
+Multiplying by test functions and integrating over the domain $\Omega$ we obtain
+
+.. math::
+    :label: 1a
+
+       - \int_{\Omega}\sum_{j=1}^3 \frac{\partial \sigma_{ij}}{\partial x_j}v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3.
+
+Using Green's theorem and the boundary conditions
+
+.. math::
+
+      \int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\partial \Omega} \sum_{j=1}^3 \sigma_{ij} n_j v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3.
+
+Thus 
+
+.. math::
+    :label: 1b
+
+       \int_{\Omega}\sum_{j=1}^3 \sigma_{ij} \frac{\partial v_i}{\partial x_j} - \int_{\Gamma_2} g_i v_i = \int_{\Omega}f_i\ v_i,\ \ \ \ 1 \le i \le 3.
+
+Let us write the equations :eq:`1b` in detail using relation :eq:`0b`
+
+.. math::
+    :nowrap:
+    :label: weak
+
+    \begin{eqnarray*}
+    \int_{\Omega} \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_1}{\partial x_1}\right] \frac{\partial v_1}{\partial x_1} + \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_1}{\partial x_2} + \mu \left(\frac{\partial u_1}{\partial x_3} + \frac{\partial u_3}{\partial x_1}\right)\frac{\partial v_1}{\partial x_3} 
+    - \int_{\Gamma_2} g_1 v_1 &=& \int_{\Omega}f_1\ v_1,\nonumber\\
+    \int_{\Omega} \mu \left(\frac{\partial u_1}{\partial x_2} + \frac{\partial u_2}{\partial x_1}\right)\frac{\partial v_2}{\partial x_1} + \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_2}{\partial x_2}\right] \frac{\partial v_2}{\partial x_2} + \mu \left(\frac{\partial u_2}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\right)\frac{\partial v_2}{\partial x_3} 
+    - \int_{\Gamma_2} g_2 v_2 &=& \int_{\Omega}f_2\ v_2,\\
+    \int_{\Omega} \mu \left(\frac{\partial u_1}{\partial x_3} + \frac{\partial u_3}{\partial x_1}\right)\frac{\partial v_3}{\partial x_1} + \mu \left(\frac{\partial u_2}{\partial x_3} + \frac{\partial u_3}{\partial x_2}\right)\frac{\partial v_3}{\partial x_2}  + \left[\lambda \mbox{div}u + 2 \mu \frac{\partial u_3}{\partial x_3}\right] \frac{\partial v_3}{\partial x_3} 
+    - \int_{\Gamma_2} g_3 v_3 &=& \int_{\Omega}f_3\ v_3.\nonumber
+    \end{eqnarray*}
+
+Elementary transformation relations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+First let us show how the partial derivatives of a scalar function $g$ are transformed 
+from Cartesian coordinates $x_1, x_2, x_3$ to cylindrical coordinates $r, \phi, z$.
+Note that 
+
+.. math::
+
+     x_1(r, \phi) = r \cos \phi, \ \ \ x_2(r, \phi) = r \sin \phi, \ \ \ x_3(z) = z.
+
+Since
+
+.. math::
+
+     g(x_1, x_2, x_3) = g(x_1(r, \phi), x_2(r, \phi), x_3(z)),
+
+it is
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*}
+    \frac{\partial g}{\partial r} &=& \frac{\partial g}{\partial x_1}\cos\phi +  \frac{\partial g}{\partial x_2}\sin\phi,\nonumber \\
+    \frac{\partial g}{\partial \phi} &=& \frac{\partial g}{\partial x_1}(-r\sin\phi) +  \frac{\partial g}{\partial x_2}r\cos\phi,\nonumber\\
+    \frac{\partial g}{\partial z} &=&\frac{\partial g}{\partial x_3}.\nonumber
+    \end{eqnarray*}
+
+From here we obtain
+
+.. math::
+    :nowrap:
+    :label: 1
+
+    \begin{eqnarray*}
+    \frac{\partial g}{\partial x_1} &=& \frac{\partial g}{\partial r}\cos\phi - \frac{1}{r}\frac{\partial g}{\partial \phi}\sin\phi,\nonumber \\
+    \frac{\partial g}{\partial x_2} &=& \frac{\partial g}{\partial r}\sin\phi + \frac{1}{r}\frac{\partial g}{\partial \phi}\cos\phi, \\
+    \frac{\partial g}{\partial x_3} &=& \frac{\partial g}{\partial z}. \nonumber
+    \end{eqnarray*}
+
+The relations between displacement components in Cartesian and cylindrical 
+coordinates are
+
+.. math::
+    :nowrap:
+    :label: 2
+
+    \begin{eqnarray*}
+    u_1 &=& u_r \cos \phi, \nonumber \\
+    u_2 &=& u_r \sin \phi, \nonumber \\
+    u_3 &=& u_z. \nonumber 
+    \end{eqnarray*}
+
+The same relations hold for surface forces $g_i$ and volume forces $f_i$.
+
+Applying :eq:`1` to $u_1$, we obtain 
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*}
+    \frac{\partial u_1}{\partial x_1} &=& \frac{\partial u_1}{\partial r}\cos\phi - \frac{1}{r}\frac{\partial u_1}{\partial \phi}\sin\phi,\nonumber \\
+    \frac{\partial u_1}{\partial x_2} &=& \frac{\partial u_1}{\partial r}\sin\phi + \frac{1}{r}\frac{\partial u_1}{\partial \phi}\cos\phi, \nonumber \\
+    \frac{\partial u_1}{\partial x_3} &=& \frac{\partial u_1}{\partial z}. \nonumber
+    \end{eqnarray*}
+
+Using :eq:`2` and the fact that $u_r$ does not depend on $\phi$, this yields
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*}
+    \frac{\partial u_1}{\partial x_1} &=& \frac{\partial u_r}{\partial r}\cos^2\phi + \frac{1}{r} u_r\sin^2\phi,\nonumber \\
+    \frac{\partial u_1}{\partial x_2} &=& \frac{\partial u_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}u_r \cos\phi\sin\phi, \nonumber \\
+    \frac{\partial u_1}{\partial x_3} &=& \frac{\partial u_r}{\partial z}\cos\phi. \nonumber
+    \end{eqnarray*}
+
+Analogously, for $u_2$ we calculate
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*}
+    \frac{\partial u_2}{\partial x_1} &=& \frac{\partial u_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}u_r \cos\phi\sin\phi, \nonumber \\
+    \frac{\partial u_2}{\partial x_2} &=& \frac{\partial u_r}{\partial r}\sin^2\phi + \frac{1}{r} u_r\cos^2\phi,\nonumber \\
+    \frac{\partial u_2}{\partial x_3} &=& \frac{\partial u_r}{\partial z}\sin\phi. \nonumber
+    \end{eqnarray*}
+
+For $u_3$, using that it does not depend on $\phi$, we have
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*}
+    \frac{\partial u_3}{\partial x_1} &=& \frac{\partial u_z}{\partial r}\cos\phi, \nonumber \\
+    \frac{\partial u_3}{\partial x_2} &=& \frac{\partial u_z}{\partial r}\sin\phi,\nonumber \\
+    \frac{\partial u_3}{\partial x_3} &=& \frac{\partial u_z}{\partial z}. \nonumber
+    \end{eqnarray*}
+
+For further reference, transform also div$u$ into cylindrical coordinates
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} \mbox{div}u &=& \frac{\partial u_1}{\partial x_1} + \frac{\partial u_2}{\partial x_2} + \frac{\partial u_3}{\partial x_3} = \\ &=& \frac{\partial u_r}{\partial r}\cos^2\phi + \frac{1}{r} u_r\sin^2\phi + \frac{\partial u_r}{\partial r}\sin^2\phi + \frac{1}{r} u_r\cos^2\phi + \frac{\partial u_z}{\partial z} = \\ &=& \frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}  \end{eqnarray*}
+
+
+
+Axisymmetric formulation
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Assuming that the domain $\Omega$ is axisymmetric,
+we can begin to transform the integrals in :eq:`weak` to cylindrical coordinates.
+Recall that the Jacobian of the transformation is $J(r, \phi, z) = r$. The first equation in :eq:`weak` has the form:
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} &&\int_{\Omega} r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) + 2 \mu (\frac{\partial u_r}{\partial r}\cos^2\phi + \frac{1}{r} u_r\sin^2\phi)\right] (\frac{\partial v_r}{\partial r}\cos^2\phi + \frac{1}{r} v_r\sin^2\phi) + \\ &&r 2 \mu \left(\frac{\partial u_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}u_r \cos\phi\sin\phi\right)\left(\frac{\partial v_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}v_r \cos\phi\sin\phi\right) + \\ &&r \mu \left(\frac{\partial u_r}{\partial z}\cos\phi + \frac{\partial u_z}{\partial r}\cos\phi\right)\frac{\partial v_r}{\partial z}\cos\phi - \int_{\Gamma_2} r g_r v_r {\cos}^2 \phi = \int_{\Omega} r f_r\ v_r \cos^2 \phi, \end{eqnarray*}
+
+The second equation in :eq:`weak` has the form:
+
+.. math::
+    :nowrap:
+    :label: weakccc
+
+    \begin{eqnarray*} &&\int_{\Omega} r 2\mu \left(\frac{\partial u_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}u_r \cos\phi\sin\phi\right)\left(\frac{\partial v_r}{\partial r}\cos\phi\sin\phi - \frac{1}{r}v_r \cos\phi\sin\phi\right) +\\ && r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) + 2 \mu (\frac{\partial u_r}{\partial r}\sin^2\phi + \frac{1}{r} u_r\cos^2\phi)\right] (\frac{\partial v_r}{\partial r}\sin^2\phi + \frac{1}{r} v_r\cos^2\phi) + \\ && r \mu \left(\frac{\partial u_r}{\partial z}\sin\phi + \frac{\partial u_z}{\partial r}\sin\phi\right)(\frac{\partial v_r}{\partial z}\sin\phi)  - \int_{\Gamma_2}r g_r v_r \sin^2 \phi = \int_{\Omega}r f_r\ v_r \sin^2 \phi,\\ \end{eqnarray*}
+
+Adding these two equations together we get
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} &&\int_{\Omega} r \lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) (\frac{\partial v_r}{\partial r} + \frac{1}{r} v_r) + \\ &&\int_{\Omega} r \mu \left[ 2 \left(\frac{\partial u_r}{\partial r}\frac{\partial v_r}{\partial r}\cos^4\phi + \frac{1}{r} u_r \frac{\partial v_r}{\partial r}\sin^2 \phi \cos^2 \phi + \frac{1}{r}\frac{\partial u_r}{\partial r} v_r\sin^2 \phi \cos^2 \phi + \frac{1}{r^2} u_r v_r\sin^4\phi\right) +\right.\\ &&\qquad\ \left.2 \left(\frac{\partial u_r}{\partial r}\frac{\partial v_r}{\partial r}\sin^4\phi + \frac{1}{r} u_r \frac{\partial v_r}{\partial r}\sin^2 \phi \cos^2 \phi + \frac{1}{r}\frac{\partial u_r}{\partial r} v_r\sin^2 \phi \cos^2 \phi + \frac{1}{r^2} u_r v_r\cos^4\phi\right) + \right. \\ && \left. 4 \left( \frac{\partial u_r}{\partial r}\frac{\partial v_r}{\partial r}\cos^2\phi\sin^2\phi - \frac{1}{r}u_r\frac{\partial v_r}{\partial r} \cos^2\phi\sin^2\phi - \frac{1}{r} \frac{\partial u_r}{\partial r} v_r \cos^2\phi\sin^2\phi + \frac{1}{r^2}u_r v_r \cos^2\phi\sin^2\phi\right)\right. + \\ && \left. \left(\frac{\partial u_r}{\partial z}\frac{\partial v_r}{\partial z} + \frac{\partial u_z}{\partial r}\frac{\partial v_r}{\partial z}\right)\right]  - \int_{\Gamma_2} g_r v_r r= \int_{\Omega}f_r\ v_r r \end{eqnarray*}
+
+This can be simplified to
+
+.. math::
+
+    \int_{\Omega} r \lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) (\frac{\partial v_r}{\partial r} + \frac{1}{r} v_r) + \int_{\Omega} r \mu \left[ 2 \left(\frac{\partial u_r}{\partial r}\frac{\partial v_r}{\partial r} + \frac{1}{r^2} u_r v_r\right) +  \left(\frac{\partial u_r}{\partial z}\frac{\partial v_r}{\partial z} + \frac{\partial u_z}{\partial r}\frac{\partial v_r}{\partial z}\right)\right]
+
+
+.. math::
+
+     - \int_{\Gamma_2} g_r v_r r = \int_{\Omega}f_r\ v_r r
+
+Finally, the third equation in :eq:`weakccc` has the form
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} && \int_{\Omega} r \mu \left(\frac{\partial u_r}{\partial z}\cos\phi + \frac{\partial u_z}{\partial r}\cos\phi\right)\frac{\partial v_z}{\partial r}\cos\phi + r \mu \left(\frac{\partial u_r}{\partial z}\sin\phi + \frac{\partial u_z}{\partial r}\sin\phi\right)\frac{\partial v_z}{\partial r}\sin\phi  + \\ && r \left[\lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z} ) + 2 \mu \frac{\partial u_z}{\partial z}\right] \frac{\partial v_z}{\partial z} - \int_{\Gamma_2} g_z v_z  r = \int_{\Omega}f_z\ v_z r. \end{eqnarray*}
+
+This gives us
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} && \int_{\Omega} r \mu \left(\frac{\partial u_r}{\partial z}\frac{\partial v_z}{\partial r} + \frac{\partial u_z}{\partial r}\frac{\partial v_z}{\partial r} + 2 \frac{\partial u_z}{\partial z} \frac{\partial v_z}{\partial z}\right) +  r \lambda \left(\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z} \right)\frac{\partial v_z}{\partial z} - \int_{\Gamma_2} g_z v_z  r = \int_{\Omega}f_z\ v_z r. \end{eqnarray*}
+
+
+Since the integrands do not depend on $\phi$, we can simplify this to integral over $\Omega_0$, where $\Omega_0$ is the intersection of the domain $\Omega$ with the $x^+_1x_3$ half-plane. Dividing both equations by $2\pi$ we get
+
+.. math::
+
+    \int_{\Omega_0} r \lambda (\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z}) (\frac{\partial v_r}{\partial r} + \frac{1}{r} v_r) + \int_{\Omega_0} r \mu \left[ 2 \left(\frac{\partial u_r}{\partial r}\frac{\partial v_r}{\partial r} + \frac{1}{r^2} u_r v_r\right) +  \left(\frac{\partial u_r}{\partial z}\frac{\partial v_r}{\partial z} + \frac{\partial u_z}{\partial r}\frac{\partial v_r}{\partial z}\right)\right]
+
+
+.. math::
+
+     - \int_{\Gamma_2} g_r v_r r = \int_{\Omega_0}f_r\ v_r r
+
+
+.. math::
+
+     \int_{\Omega_0} r \mu \left(\frac{\partial u_r}{\partial z}\frac{\partial v_z}{\partial r} + \frac{\partial u_z}{\partial r}\frac{\partial v_z}{\partial r} + 2 \frac{\partial u_z}{\partial z} \frac{\partial v_z}{\partial z}\right) +  r \lambda \left(\frac{\partial u_r}{\partial r} + \frac{1}{r} u_r + \frac{\partial u_z}{\partial z} \right)\frac{\partial v_z}{\partial z} - \int_{\Gamma_2} g_z v_z  r = \int_{\Omega_0}f_z\ v_z r.
