@@ -839,17 +839,37 @@ coordinates $x^i=(\rho, \phi, z)$:
 
      g^{ij} = \mat{1 & 0 & 0\cr 0 & 1\over\rho^2 & 0\cr 0 & 0 & 1\cr}
 
-
-
-.. math::
-
     \det g = \det g_{ij} = \rho^2
 
+    h_\rho=h_z =1
 
+    h_\phi = \rho
+
+    \Gamma^\phi_{\phi\rho} = \Gamma^\phi_{\rho\phi} =
+    {1\over h_\phi} \partial_\rho h_\phi = {1\over\rho}\partial_\rho \rho
+        = {1\over\rho}
+
+    \Gamma^\rho_{\phi\phi} =
+    -{h_\phi\over h_\rho^2} \partial_\rho h_\phi =
+        -{\rho\over 1^2}\partial_\rho \rho
+        = -\rho
+
+    \nabla\cdot{\bf A}=
+    \nabla_i A^i
+    ={1\over h_1 h_2 h_3}\partial_i
+    \left(h_1 h_2 h_3 A^i \right)
+    ={1\over \rho}\partial_i
+    \left(\rho A^i \right)
+    =
+
+    ={1\over\rho}\partial_\rho(\rho A^\rho) + \partial_\theta A^\theta
+        + \partial_z A^z
+    =\partial_\rho A^\rho + {1\over\rho}A^\rho + \partial_\theta A^\theta
+        + \partial_z A^z
 
 .. math::
 
-    \nabla^i\nabla_i\varphi
+    \nabla^2 \varphi = \nabla^i\nabla_i\varphi
     ={1\over\sqrt{|\det g|}}
     \partial_i\left(\sqrt{|\det g|}\, g^{ij}\partial_j\varphi\right)
     =
