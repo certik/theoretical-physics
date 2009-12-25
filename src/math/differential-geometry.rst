@@ -424,9 +424,6 @@ and for coordinate bases $c^\alpha{}_{\mu\nu}=0$, so
 
     \Gamma^\mu_{\alpha\beta}=\Gamma^\mu_{\beta\alpha}
 
-
-.. math::
-
     \Gamma^\mu_{\alpha\beta}=\half g^{\mu\sigma} \left(\partial_\beta g_{\sigma\alpha}+\partial_\alpha g_{\sigma\beta}- \partial_\sigma g_{\alpha\beta}\right)
 
 As a special case:
@@ -435,12 +432,7 @@ As a special case:
 
     \Gamma^\mu_{\mu\beta}=\half g^{\mu\sigma} \left(\partial_\beta g_{\sigma\mu}+\partial_\mu g_{\sigma\beta}- \partial_\sigma g_{\mu\beta}\right)=\half g^{\mu\sigma}\partial_\beta g_{\sigma\mu}=
 
-
-.. math::
-
      =\half \Tr g^{-1}\partial_\beta g =\half \Tr\partial_\beta\log g =\half \partial_\beta\Tr\log g =\half \partial_\beta\log|\det g| =\partial_\beta\log\sqrt{|\det g|} =
-
-.. math::
 
     ={1\over2\det g}\partial_\beta\det g
     ={1\over\sqrt{|\det g|}}\partial_\beta\sqrt{|\det g|}
@@ -452,6 +444,137 @@ g_{\sigma\beta}- \partial_\sigma g_{\mu\beta}$ is unsymmetric.  Later we used
 the identity $\Tr\log g = \log|\det g|$, which follows from the well-known
 identity $\det\exp A = \exp\Tr A$ by substituting $A=\log g$ and taking the
 logarithm of both sides.
+
+Diagonal Metric
+~~~~~~~~~~~~~~~
+
+Many times the metric is diagonal, e.g. in 3D:
+
+.. math::
+
+    g_{ij} =
+    \mat{h_1^2 & 0 & 0\cr
+    0 & h_2^2 & 0\cr
+    0 & 0 & h_3^2\cr}
+
+(in general $g_{ij} = \diag(h_1^2, h_2^2, \dots)$), then the Christoffel
+symbols $\Gamma^k_{ij}$ can be calculated very easily (below we do not sum
+over $i$, $j$ and $k$):
+
+.. math::
+
+    \Gamma^k_{ij}
+        =\half g^{kl} \left(\partial_j g_{li}+\partial_i g_{lj}-
+         \partial_l g_{ij}\right)
+        =\half g^{kk} \left(\partial_j g_{ki}+\partial_i g_{kj}-
+         \partial_k g_{ij}\right)
+
+If $k=i$ or $k=j$ then
+
+.. math::
+    :label: Chris1
+
+    \Gamma^k_{ij} =
+    \Gamma^i_{ij} = \Gamma^i_{ji}
+        =\half g^{ii} \left(\partial_j g_{ii}+\partial_i g_{ij}-
+         \partial_i g_{ij}\right)
+        =\half g^{ii} \partial_j g_{ii}
+        =\half {1\over h_i^2} \partial_j h_i^2
+        ={1\over h_i} \partial_j h_i
+
+otherwise (i.e. $k\neq i$ and $k\neq j$) then either $i=j$:
+
+.. math::
+    :label: Chris2
+
+    \Gamma^k_{ij} =
+    \Gamma^k_{ii}
+        =\half g^{kk} \left(\partial_i g_{ki}+\partial_i g_{ki}-
+         \partial_k g_{ii}\right)
+        =-\half g^{kk} \partial_k g_{ii}
+        =-\half {1\over h_k^2} \partial_k h_i^2
+        =-{h_i\over h_k^2} \partial_k h_i
+
+or $i\neq j$ (i.e. $i\neq j\neq k$):
+
+.. math::
+
+    \Gamma^k_{ij}
+        =\half g^{kk} \left(\partial_j g_{ki}+\partial_i g_{kj}-
+         \partial_k g_{ij}\right)
+        =0
+
+In other words, the symbols can only be nonzero if at least two of $i$, $j$
+or $k$ are the same and one can use the two formulas :eq:`Chris1` and
+:eq:`Chris2` to quickly evaluate them. A systematic way to do it is to write
+:eq:`Chris1` and :eq:`Chris2` in the following form:
+
+.. math::
+    :label: Chris3
+
+    \Gamma^i_{ij} = \Gamma^i_{ji} ={1\over h_i} \partial_j h_i \quad\quad
+        \mbox{$i$, $j$ arbitrary}
+
+    \Gamma^j_{ii} =-{h_i\over h_j^2} \partial_j h_i \quad\quad
+        \mbox{$i\neq j$}
+
+Then find all $i$ and $j$ for which $\partial_j h_i$ is nonzero and then
+immediately write all nonzero Christoffel symbols using the equations
+:eq:`Chris3`.
+
+For example for cylindrical coordinates we have $h_\rho=h_z =1$ and $h_\phi =
+\rho$, so $\partial_j h_i$ is only nonzero for $i=\phi$ and $j=\rho$ and we
+get:
+
+.. math::
+
+    \Gamma^\phi_{\phi\rho} = \Gamma^\phi_{\rho\phi} =
+    {1\over h_\phi} \partial_\rho h_\phi = {1\over\rho}\partial_\rho \rho
+        = {1\over\rho}
+
+    \Gamma^\rho_{\phi\phi} =
+    -{h_\phi\over h_\rho^2} \partial_\rho h_\phi =
+        -{\rho\over 1^2}\partial_\rho \rho
+        = -\rho
+
+all other Christoffel symbols are zero. For spherical coordinates we have
+$h_\rho=1$, $h_\theta=\rho$ and $h_\phi=\rho\sin\theta$, so $\partial_j h_i$ is
+only nonzero for $i=\theta$, $j=\rho$ or $i=\phi$, $j=\rho$ or $i=\phi$,
+$j=\theta$ and we get:
+
+.. math::
+
+    \Gamma^\theta_{\theta\rho} =
+    \Gamma^\theta_{\rho\theta} =
+        {1\over h_\theta}\partial_\rho h_\theta =
+        {1\over \rho}\partial_\rho \rho = {1\over\rho}
+
+    \Gamma^\rho_{\theta\theta} =
+        -{h_\theta\over h_\rho^2}\partial_\rho h_\theta =
+        -{\rho \over 1^2}\partial_\rho \rho = -\rho
+
+    \Gamma^\phi_{\phi\rho} =
+    \Gamma^\phi_{\rho\phi} =
+        {1\over h_\phi}\partial_\rho h_\phi =
+        {1\over \rho\sin\theta}\partial_\rho (\rho\sin\theta) = {1\over\rho}
+
+    \Gamma^\rho_{\phi\phi} =
+        -{h_\phi\over h_\rho^2}\partial_\rho h_\phi =
+        -{\rho\sin\theta \over 1^2}\partial_\rho (\rho\sin\theta) =
+        -\rho\sin^2\theta
+
+    \Gamma^\phi_{\phi\theta} =
+    \Gamma^\phi_{\theta\phi} =
+        {1\over h_\phi}\partial_\theta h_\phi =
+        {1\over \rho\sin\theta}\partial_\theta (\rho\sin\theta) =
+        {\cos\theta\over\sin\theta}
+
+    \Gamma^\theta_{\phi\phi} =
+        -{h_\phi\over h_\theta^2}\partial_\theta h_\phi =
+        -{\rho\sin\theta \over \rho^2}\partial_\theta (\rho\sin\theta) =
+        -\sin\theta\cos\theta
+
+All other symbols are zero.
 
 .. index::
     pair: Killing; vector
