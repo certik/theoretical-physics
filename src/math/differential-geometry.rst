@@ -1713,8 +1713,7 @@ The weak formulation is then (do not sum over $i$):
         (\nabla^j u^i + \nabla^i u^j) \right) v^i \sqrt{|g|}\d^3x
         = \int f^i v^i\sqrt{|g|}\d^3x
 
-We apply the integration by parts (note: the equations below should be checked
-for mistakes):
+We apply the integration by parts:
 
 .. math::
 
@@ -1750,6 +1749,17 @@ coordinates (see above) we get:
     = (\partial_\rho u^z + \partial_z u^\rho) \partial_\rho v^z +
         2\partial_z u^z \partial_z v^z
 
+    g^{\rho j}\nabla_j v^\rho = g^{\rho\rho}\nabla_\rho v^\rho =
+        \partial_\rho v^\rho + \Gamma^\rho_{k\rho} v^k =
+        \partial_\rho v^\rho + {1\over\rho} v^\phi
+
+    g^{\phi j}\nabla_j v^\phi = g^{\phi\phi}\nabla_\phi v^\phi =
+        {1\over\rho^2}(\partial_\phi v^\phi + \Gamma^\phi_{k\phi} v^k )=
+        {1\over\rho^2}(\partial_\phi v^\phi + {1\over\rho} v^\rho )=
+
+    g^{zj}\nabla_j v^z = g^{zz}\nabla_z v^z =
+        \partial_z v^z + \Gamma^z_{kz} v^k = \partial_z v^z
+
     \int \left( \lambda g^{ij}\left(
     {1\over\rho} u^\rho + \partial_\rho u^\rho + \partial_\phi u^\phi +
         \partial_z u^z
@@ -1758,18 +1768,27 @@ coordinates (see above) we get:
         \rho \,\d\rho\, \d \phi\, \d z
         = \int f^i v^i \rho \,\d\rho\, \d \phi\, \d z
 
-for $i=1, 3$ we get:
+for $i=1, 2, 3$ we get:
 
 .. math::
 
     \int \lambda \left(
     {1\over\rho} u^\rho + \partial_\rho u^\rho + \partial_\phi u^\phi +
         \partial_z u^z
-    \right)\partial_\rho v^\rho\rho + \mu
+    \right)\left(\partial_\rho v^\rho + {1\over\rho} v^\phi\right)\rho + \mu
     \left(2\partial_\rho u^\rho \partial_\rho v^\rho +
         (\partial_z u^\rho +\partial_\rho u^z)\partial_z v^\rho\right)
         \rho \,\d\rho\, \d \phi\, \d z
         = \int f^\rho v^\rho \rho \,\d\rho\, \d \phi\, \d z
+
+    \int \lambda \left(
+    {1\over\rho} u^\rho + \partial_\rho u^\rho + \partial_\phi u^\phi +
+        \partial_z u^z
+    \right){1\over\rho^2}\left(\partial_\phi v^\phi + {1\over\rho} v^\rho \right)\rho + \mu
+    \left(2\partial_\rho u^\rho \partial_\rho v^\rho +
+        (\partial_z u^\rho +\partial_\rho u^z)\partial_z v^\rho\right)
+        \rho \,\d\rho\, \d \phi\, \d z
+        = \int f^\phi v^\phi \rho \,\d\rho\, \d \phi\, \d z
 
     \int \lambda \left(
     {1\over\rho} u^\rho + \partial_\rho u^\rho + \partial_\phi u^\phi +
@@ -1779,6 +1798,3 @@ for $i=1, 3$ we get:
         2\partial_z u^z \partial_z v^z\right)
         \rho \,\d\rho\, \d \phi\, \d z
         = \int f^z v^z \rho \,\d\rho\, \d \phi\, \d z
-
-TODO: the $\nabla_j v^i$ has to be done using Christoffel symbols. Then it will
-work.
