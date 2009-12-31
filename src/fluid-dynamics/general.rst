@@ -115,8 +115,8 @@ viscosity ($T^{ij} = p\one$), so in the MCRF:
 
 .. math::
 
-    T^{\alpha\beta} = \diag(\rho, p, p, p) =
-    (\rho+p)u^\alpha u^\beta + p g^{\alpha\beta}
+    T^{\alpha\beta} = \diag(\rho c^2, p, p, p) =
+    \left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}
 
 where in MCRF we have $g^{\mu\nu} = \diag(-1, 1, 1, 1)$, $u^0=c$ and $u^i=0$,
 but $\partial_\alpha U^i\neq0$. The last equation is a tensor equation so it
@@ -124,12 +124,12 @@ holds in any frame. The nonrelativistic limit of this stress energy tensor is:
 
 .. math::
 
-    T^{00} = (\rho+p)u^0u^0 - p \approx \rho c
+    T^{00} = \left(\rho+{p\over c^2}\right)u^0u^0 - p \approx \rho c^2
 
-    T^{0j} = T^{j0} = (\rho+p)u^0u^j \approx \rho u^j
+    T^{0j} = T^{j0} = \left(\rho+{p\over c^2}\right)u^0u^j \approx \rho c u^j
 
-    T^{jk} = (\rho+p)u^ju^k + p \delta^{jk} \approx \rho u^j u^k + p
-        \delta^{jk}
+    T^{jk} = \left(\rho+{p\over c^2}\right) u^ju^k + p \delta^{jk}
+        \approx \rho u^j u^k + p \delta^{jk}
 
 
 Substituting this into the conversation law $\partial_\beta
@@ -141,7 +141,7 @@ T^{\alpha\beta}=0$ we get for $\alpha=0$:
 
     \partial_0 T^{00} + \partial_i T^{0i} = 0
 
-    \partial_0 (\rho c) + \partial_i (\rho u^i) = 0
+    \partial_0 (\rho c^2) + \partial_i (\rho c u^i) = 0
 
     {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0
 
@@ -154,7 +154,7 @@ density). For $\alpha=i$ we get:
 
     \partial_0 T^{i0} + \partial_j T^{ij} = 0
 
-    \partial_0 (\rho u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
+    \partial_0 (\rho c u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
 
     {\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
         (\rho {\bf u}{\bf u}^T) + \nabla p = 0
