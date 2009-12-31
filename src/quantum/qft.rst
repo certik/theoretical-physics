@@ -3255,10 +3255,11 @@ with signature +2:
 
 .. math::
 
-    v^2 = v_\mu v^\mu = g_{\mu\nu}v^\mu v^\nu = -\gamma^2 c^2 + {\bf v}^2
-    = - {c^2\over 1 - {{\bf v}^2\over c^2}} + {\bf v}^2 = c^2
+    v^2 = v_\mu v^\mu = g_{\mu\nu}v^\mu v^\nu =
+        -\gamma^2 c^2 + \gamma^2{\bf v}^2
+    = {-c^2 + {\bf v}^2 \over 1 - {{\bf v}^2\over c^2}} = -c^2
 
-The 4-momentum is (in any metric)
+With signature -2 we get $v^2 = c^2$. The 4-momentum is (in any metric)
 
 .. math::
 
@@ -3295,12 +3296,31 @@ t}$) is combined into 4-momentum as
 For the signature $+2$ we get $p^\mu = -i\hbar\partial^\mu$ and $p_\mu =
 -i\hbar\partial_\mu$.
 
-For $p^2$ we get:
+For $p^2$ we get (signature -2):
 
 .. math::
 
     p^2 = p_\mu p^\mu = (p^0)^2 - {\bf p}^2 = (p_0)^2 - {\bf p}^2
     = {E^2\over c^2} - {\bf p}^2
+
+    p^2 = p_\mu p^\mu = m^2 v_\mu v^\mu = m^2 c^2
+
+comparing those two we get the following useful relations (valid in any metric):
+
+.. math::
+
+    {E^2\over c^2} - {\bf p}^2 = m^2 c^2
+
+    E^2 = m^2 c^4 + {\bf p}^2 c^2
+
+    E = \sqrt{m^2c^4 + {\bf p}^2c^2}
+    = mc^2\sqrt{1 + {{\bf p}^2\over m^2c^2}}
+    = mc^2\left(1 + {{\bf p}^2\over 2m^2c^2} + O\left({p^4\over m^4c^4}\right)
+        \right)
+    =
+
+    = mc^2 + {{\bf p}^2\over 2m} + O\left(p^4\over m^3c^2\right)
+
 
 the following relations are also useful:
 
@@ -3346,21 +3366,6 @@ and for $+2$ as:
 .. math::
 
     (-\hbar^2\partial^2 + m^2 c^2)\psi = (p^2 + m^2c^2)\psi = 0
-
-Now if the particle is not moving (${\bf v} = 0$), then the 4-momentum is
-$p^\mu = m ( c, 0 )$, where $m$ is the rest mass, so $p^2 = m^2c^2$, from which:
-
-.. math::
-
-    E^2 = p^2c^2 + {\bf p}^2c^2 = m^2c^4 + {\bf p}^2c^2
-
-    E = \sqrt{m^2c^4 + {\bf p}^2c^2}
-    = mc^2\sqrt{1 + {{\bf p}^2\over m^2c^2}}
-    = mc^2\left(1 + {{\bf p}^2\over 2m^2c^2} + O\left({p^4\over m^4c^4}\right)
-        \right)
-    =
-
-    = mc^2 + {{\bf p}^2\over 2m} + O\left(p^4\over m^3c^2\right)
 
 Note: for the signature +2, we would get $p^\mu=-i\hbar\partial^\mu$ and $p_\mu=-i\hbar\partial_\mu$.
 
