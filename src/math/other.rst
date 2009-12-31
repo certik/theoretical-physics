@@ -118,8 +118,8 @@ one example of such a sequence is:
 
 It's clear that :eq:`deltaprec` holds for any well behaved function $f(x)$.
 Some mathematicians like to say that it's incorrect to use such a notation when
-in fact the integral :eq:`deltadef` doesn't "exist", but that's a wrong
-approach to things, because it is not important if something "exist" or not,
+in fact the integral :eq:`deltadef` doesn't "exist", but we will not follow
+their approach, because it is not important if something "exists" or not,
 but rather if it is clear what we mean by our notation: :eq:`deltadef` is a
 shorthand for :eq:`deltaprec` and :eq:`deltalim` gets a mathematically rigorous
 meaning when you integrate both sides and use :eq:`deltadef` to arrive at
@@ -395,7 +395,13 @@ thus we write $h=\delta f$ and
 
        \delta F[f]=\int {\delta F\over\delta f(x)}\delta f(x)\d x
 
-so $\delta f$ have two meanings --- it's either $h(x)=\left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x)) \right|_{\varepsilon=0}$ (a finite change in the function $f$) or a variation of a functional, depending on the context. Mathematicians never write $\delta f$ in the meaning of $h(x)$, they always write the latter, but it's ridiculous, because it is completely analogous to $\d\x$.
+so $\delta f$ have two meanings --- it's either
+$h(x)=\left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x))
+\right|_{\varepsilon=0}$ (a finite change in the function $f$) or a variation
+of a functional, depending on the context. Some mathematicians don't like to
+write $\delta f$ in the meaning of $h(x)$, they prefer to write the latter, but
+it is in fact perfectly fine to use $\delta f$, because it is completely analogous to $\d\x$.
+
 
 The correspondence between the finite and infinite dimensional case can be summarized as:
 
@@ -467,7 +473,11 @@ The last equality follows from $K(t_1,t_2)=K(t_2,t_1)$ (any antisymmetrical part
 
        =\left.\int3(f(x)+\varepsilon\delta(x-t))^2\delta(x-t)\d x \right|_{\varepsilon=0}=\int3f^2(x)\delta(x-t)\d x=3f^2(t)
 
-Some mathematicians would say the above calculation is incorrect, because $\delta^2(x-t)$ is undefined. But that's not true, because in case of such problems the above notation automatically implies working with some sequence $\delta_\alpha(x) \to \delta(x)$ (for example $\delta_\alpha(x) = {1\over\pi x}\sin(\alpha x)$) and taking the limit $\alpha\to\infty$:
+Some mathematicians would say the above calculation is incorrect, because
+$\delta^2(x-t)$ is undefined. But that's not exactly true, because in case of
+such problems the above notation automatically implies working with some
+sequence $\delta_\alpha(x) \to \delta(x)$ (for example $\delta_\alpha(x) =
+{1\over\pi x}\sin(\alpha x)$) and taking the limit $\alpha\to\infty$:
 
 .. math::
 
@@ -583,7 +593,18 @@ and thus we can interpret $\ket{f}$ as a vector, $\ket{x}$ as a basis and $\brak
 
        \ket{f}=\one\ket{f}=\int\ket{x}\bra{x}\d x\ket{f}= \int\ket{x}\braket{x|f}\d x
 
-That's all there is to it. Take the above rules as the operational definition of the Dirac notation. It's like with the delta function - written alone it doesn't have any meaning, but there are clear and non-ambiguous rules to convert any expression with $\delta$ to an expression which even mathematicians understand (i.e. integrating, applying test functions and using other relations to get rid of all $\delta$ symbols in the expression -- but the result is usually much more complicated than the original formula). It's the same with the ket $\ket{f}$: written alone it doesn't have any meaning, but you can always use the above rules to get an expression that make sense to everyone (i.e. attaching any bra to the left and rewriting all brackets $\braket{a|b}$ with their equivalent expressions) -- but it will be more complex and harder to remember and -- that is important -- less general.
+That's all there is to it. Take the above rules as the operational definition
+of the Dirac notation. It's like with the delta function - written alone it
+doesn't have any meaning, but there are clear and non-ambiguous rules to
+convert any expression with $\delta$ to an expression which even mathematicians
+understand (i.e. integrating, applying test functions and using other relations
+to get rid of all $\delta$ symbols in the expression -- but the result is
+usually much more complicated than the original formula). It's the same with
+the ket $\ket{f}$: written alone it doesn't have any meaning, but you can
+always use the above rules to get an expression that make sense to everyone
+(i.e. attaching any bra to the left and rewriting all brackets $\braket{a|b}$
+with their equivalent expressions) -- but it will be more complex and harder to
+remember and -- that is important -- less general.
 
 Now, let's look at the spherical harmonics:
 
