@@ -464,6 +464,52 @@ A few more examples:
 
 The last equality follows from $K(t_1,t_2)=K(t_2,t_1)$ (any antisymmetrical part of a $K$ would not contribute to the symmetrical integration).
 
+Another example is the derivation of Euler-Lagrange equations for the
+Lagrangian density $\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)$:
+
+.. math::
+
+    0 = \delta I = \delta \int \L \,\d^4x^\mu
+    = \int \partial \L \,\d^4x^\mu
+    = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+        +
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \delta(\partial_\nu\eta_\rho)
+        \,\d^4x^\mu
+    =
+
+    = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+        +
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \partial_\nu(\delta\eta_\rho)
+        \,\d^4x^\mu
+    =
+
+    = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
+        -
+        \partial_\nu\left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \right)
+        \delta\eta_\rho
+        \,\d^4x^\mu
+        +\int \partial_\nu \left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \delta\eta_\rho
+        \right)
+        \,\d^4x^\mu
+    =
+
+    = \int \left[{ \partial \L\over\partial \eta_\rho}
+        -
+        \partial_\nu\left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \right)
+        \right]
+        \delta\eta_\rho
+        \,\d^4x^\mu
+
+Another example:
+
 .. math::
 
        {\delta\over\delta f(t)}\int f^3(x)\d x= \left.{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta(x-t))^3\d x \right|_{\varepsilon=0}=
