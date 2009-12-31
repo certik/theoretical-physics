@@ -126,18 +126,30 @@ viscosity ($T^{ij} = p\one$), so in the MCRF:
     \left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}
 
 where in MCRF we have $g^{\mu\nu} = \diag(-1, 1, 1, 1)$, $u^0=c$ and $u^i=0$,
-but $\partial_\alpha U^i\neq0$. The last equation is a tensor equation so it
-holds in any frame. The nonrelativistic limit of this stress energy tensor is:
+but $\partial_\alpha U^i\neq0$. $p$ is the pressure with units
+$[p] =\rm N\,m^{-2}=kg\,m^{-1}\,s^{-2}$ (then
+$[{p\over c^2}] =\rm kg\,m^{-3}$), $\rho$ is the mass density with units
+$[\rho] =\rm kg\,m^{-3}$, and $\rho c^2$ is the energy density with units
+$[\rho c^2] =\rm kg\,m^{-1}\,s^{-2}$.
+
+The last equation is a tensor equation so it
+holds in any frame. The nonrelativistic limit of this stress energy tensor is
+obtained by approximating $u^0\approx c$ and $u^j$ by the nonrelativistic
+velocity (and we can also neglect ${p\over c^2}$ compared to $\rho$):
 
 .. math::
 
-    T^{00} = \left(\rho+{p\over c^2}\right)u^0u^0 - p \approx \rho c^2
+    T^{00} = \left(\rho+{p\over c^2}\right)u^0u^0 - p \approx \rho c^2+p
+        \approx \rho c^2
 
-    T^{0j} = T^{j0} = \left(\rho+{p\over c^2}\right)u^0u^j \approx \rho c u^j
+    T^{0j} = T^{j0} = \left(\rho+{p\over c^2}\right)u^0u^j \approx
+        \left(\rho + {p\over c^2}\right) c u^j
+        \approx
+        \rho c u^j
 
     T^{jk} = \left(\rho+{p\over c^2}\right) u^ju^k + p \delta^{jk}
+        \approx \left(\rho + {p\over c^2}\right) u^j u^k + p \delta^{jk}
         \approx \rho u^j u^k + p \delta^{jk}
-
 
 Substituting this into the conversation law $\partial_\beta
 T^{\alpha\beta}=0$ we get for $\alpha=0$:
