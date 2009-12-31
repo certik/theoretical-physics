@@ -107,6 +107,13 @@ conservation law:
 
     \partial_\nu T^{\mu\nu} + f^\mu = 0
 
+To obtain some Lagrangian (and action) for the perfect fluid, so that we can
+derive the stress energy tensor $T^{\mu\nu}$ from that, is not trivial, see for
+example `arXiv:gr-qc/9304026 <http://arxiv.org/abs/gr-qc/9304026>`_. One has to
+take into account the equation of state and incorporate the particle number
+conservation $\nabla_\mu(nu^\mu)=0$ and no entropy exchange
+$\nabla_\mu(nsu^\mu)=0$ constraints.
+
 Perfect Fluids
 ~~~~~~~~~~~~~~
 
