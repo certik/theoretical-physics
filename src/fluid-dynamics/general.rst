@@ -30,6 +30,76 @@ and the energy density that he measures is:
     = - u^\alpha {\d p_\alpha\over\d V}
     = u^\alpha T_{\alpha\beta} u^\beta
 
+One can also obtain the stress energy tensor from the Lagrangian
+$\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)$ by combining the
+Euler-Lagrange equations
+
+.. math::
+
+    { \partial \L\over\partial \eta_\rho}
+        -
+        \partial_\nu\left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \right)
+    =0
+
+with the total derivative ${\d \L\over \d x^\mu}$:
+
+.. math::
+
+    {\d \L\over \d x^\mu} = {\partial\L\over\partial\eta_\rho}
+        \partial_\mu \eta_\rho
+        +
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \partial_\mu\partial_\nu\eta_\rho + \partial_\mu\L
+    =
+
+    =
+        \partial_\nu\left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \right)
+        \partial_\mu \eta_\rho
+        +
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \partial_\nu\partial_\mu\eta_\rho + \partial_\mu\L
+    =
+
+    =
+        \partial_\nu\left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \partial_\mu \eta_\rho
+        \right)
+        + \partial_\mu\L
+
+or
+
+.. math::
+
+        \partial_\nu\left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \partial_\mu \eta_\rho
+        -\L \delta_\mu{}^\nu
+        \right)
+        + \partial_\mu\L
+          =0
+
+This can be written as:
+
+.. math::
+
+    \partial_\nu T_\mu{}^\nu + f_\mu = 0
+
+where
+
+.. math::
+
+    T_\mu{}^\nu =
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \partial_\mu \eta_\rho
+        -\L \delta_\mu{}^\nu
+
+    f_\mu = \partial_\mu\L
+
 The Navier-Stokes equations can be derived from the
 conservation law:
 
