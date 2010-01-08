@@ -162,6 +162,8 @@ T^{\alpha\beta}=0$ we get for $\alpha=0$:
 
     \partial_0 (\rho c^2) + \partial_i (\rho c u^i) = 0
 
+    \partial_t\rho + \partial_i(\rho u^i) = 0
+
     {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0
 
 This is the continuity equation for the energy ($\rho$ here is the energy
@@ -175,10 +177,19 @@ density). For $\alpha=i$ we get:
 
     \partial_0 (\rho c u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
 
+    \partial_t (\rho u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
+
     {\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
         (\rho {\bf u}{\bf u}^T) + \nabla p = 0
 
-Which are the Euler equations. The equation of continuity follows from the
+Which are the Euler equations, sometimes also written as (using the continuity
+equation):
+
+.. math::
+
+    \rho\partial_t u^i + \rho u^j\partial_j u^i + \delta^{ij}\partial_j p = 0
+
+The equation of continuity follows from the
 conservation of the baryon number --- the volume $V$ that contains certain
 number of baryons can change, but the total number of baryons $nV$ must remain
 constant:
@@ -265,6 +276,110 @@ Euler equations (for perfect fluid):
 .. math::
 
     \nabla \cdot \mathds{T}=0
+
+Energy Equation
+~~~~~~~~~~~~~~~
+
+We have the following two Euler equations:
+
+.. math::
+
+    \partial_t\rho + \partial_i(\rho u^i) = 0
+
+    \rho\partial_t u^i + \rho u^j\partial_j u^i + \delta^{ij}\partial_j p = 0
+
+We'll need the following formulas:
+
+.. math::
+
+    \partial_t (u_i u^i) = (\partial_t u_i) u^i + u_i \partial_t u^i =
+    (\partial_t u_i)\delta^{ij} u_j + u_i \partial_t u^i =
+
+    = (\partial_t u_i\delta^{ij}) u_j + u_i \partial_t u^i =
+    (\partial_t u^j) u_j + u_i \partial_t u^i =
+    2 u_i \partial_t u^i
+
+    \partial_j (u_i u^i) = 2 u_i \partial_j u^i
+
+    \partial_t\rho =- \partial_i(\rho u^i)
+
+    \partial_t u^i =- u^j\partial_j u^i - {\delta^{ij}\over\rho}\partial_j p
+
+    - u^j\partial_j p + \partial_t(\rho U) =
+
+      = - {\d p \over\d t} +\partial_t p + \partial_t(\rho U) =
+
+      = - {\d p \over\d t} +\partial_t (\rho U + p) =
+
+      = - {\d p \over\d t} +{\d\over\d t} (\rho U + p)
+        -u^j\partial_j (\rho U + p)=
+
+      = - {\d p \over\d t} +{\d\rho\over\d t} \left(U + {p\over\rho}\right)
+        +\rho{\d\over\d t} \left(U + {p\over\rho}\right)
+        -u^j\partial_j (\rho U + p)=
+
+      = - {\d p \over\d t} +{\d\rho\over\d t} \left(U + {p\over\rho}\right)
+        +\rho{\d\over\d t} \left(U + {p\over\rho}\right)
+        + (\rho U + p)\partial_j u^j
+        -\partial_j (\rho U u^j + p u^j) =
+
+      = \left[\rho {\d\over\d t}\left(U + {p\over\rho}\right) - {\d p\over\d t}
+        \right]
+        +
+        \left(U + {p\over\rho}\right)\left[ {\d\rho\over\d t} + \rho
+            \partial_j u^j \right]
+        -\partial_j (\rho U u^j + p u^j) =
+
+      = - \partial_j(\rho U u^j + p u^j)
+
+      0 = \d Q = T\d S = \d U + p\d V = \d (U + pV) - V\d p
+        = \d\left(U+{p\over\rho}\right) - {1\over \rho}\d p
+        = \d H - {1\over \rho}\d p
+
+where $V = {1\over\rho}$ is the specific volume and
+$H = U+{p\over\rho}$ is entalphy (heat content).
+
+Then:
+
+.. math::
+
+    \partial_t E =
+
+    = \partial_t (\half \rho u_i u^i + \rho U) =
+
+    = \half u_i u^i \partial_t \rho
+        +\half\rho\partial_t(u_i u^i) + \partial_t(\rho U) =
+
+    = -\half u_i u^i \partial_j(\rho u^j)
+        +\rho u_i\partial_t u^i + \partial_t(\rho U) =
+
+    = -\half u_i u^i \partial_j(\rho u^j)
+        - \rho u_i u^j\partial_j u^i - u_i\delta^{ij}\partial_j p
+        + \partial_t(\rho U) =
+
+    = -\half u_i u^i \partial_j(\rho u^j)
+        - \half\rho u^j\partial_j (u_i u^i) - u_i\delta^{ij}\partial_j p
+        + \partial_t(\rho U) =
+
+    = -\half\partial_j(\rho u_i u^i u^j)
+        - u^j\partial_j p + \partial_t(\rho U) =
+
+    = -\half\partial_j(\rho u_i u^i u^j)
+        - \partial_j(\rho U u^j + p u^j) =
+
+    = -\partial_j\left(u^j\left(\half\rho u_i u^i+\rho U + p \right)\right) =
+
+    = -\partial_j\left(u^j\left(E + p \right)\right)
+
+so:
+
+.. math::
+
+    \partial_t E + \partial_j\left(u^j\left(E + p \right)\right) = 0
+
+    {\partial E\over\partial t}
+        + \nabla\cdot\left({\bf u}\left(E + p \right)\right) = 0
+
 
 Bernoulli's Principle
 ---------------------
