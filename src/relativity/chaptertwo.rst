@@ -1936,15 +1936,19 @@ limit $c\to\infty$. I would like to have an explicit proof of this though.
 What is the role of the different metrics, that generate the same Christoffel
 symbols in the limit ($c\to\infty$)? Can one inertial frame be given with one
 and another frame with a different form of the metrics (e.g. one with
-$g_{00}=c^2$ and the other one with $g_{00}=-c^2$?)
+$g_{00}=c^2$ and the other one with $g_{00}=-c^2$?) Possible answer: there is
+no transformation to convert a metrics with signature +4 to signature +2, so
+one has to choose one and then all other inertial frames have the same one.
 
 What are all the allowed transformations between intertial frames? If we assume
 that the inertial frames are given with one given metrics (see the previous
 question), then the answer is: representation of the O(3, 1) group if
 $g_{00}=-c^2$ or O(4) group if $g_{00}=c^2$. But if one frame is $g_{00}=-c^2$
 and we transform to another frame with $g_{00}=c^2$, then it is not clear what
-happens.
+happens. Possible answer: one has to choose some signature and stick to it,
+see also the previous question.
 
 What is the real difference between Newtonian physics and general relativity?
 Given our formulation of Newtonian physics using the differential geometry, I
-want to know what the physical differences are between all the three theories.
+want to know what the physical differences are between all the three theories
+are.
