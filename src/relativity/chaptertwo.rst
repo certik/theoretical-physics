@@ -3,6 +3,103 @@
 Newtonian Physics
 =================
 
+Introduction: Why Tensors
+-------------------------
+
+This section gives a brief introduction, and in the next sections we derive
+everything in detail. The Newton law is:
+
+.. math::
+
+    m {\d^2 {\bf x}\over\d t^2} = {\bf F}
+
+and using a potential for ${\bf F}$, we get:
+
+.. math::
+
+    {\d^2 {\bf x}\over\d t^2} = -\nabla \phi
+
+    {\d^2 x^i\over\d t^2} = -\partial^i \phi
+
+the last two equations are two different equivalent ways to write a tensor
+equation in 3D, which means that this equation has the exact same form (is
+valid) in any (spatial) coordinate system (rotated, translated, in cartesian
+coordinates, spherical coordinates, ...). Each coordinate system has a
+different metric, but we can always locally transform into
+$g_{ij}=\diag(1, 1, 1)$.
+
+However, if our coordinate transformation depends on time (e.g. a rotating
+disk), then the above tensor equation changes (e.g. for the rotating disk, we
+get the Coriolis acceleration term), that's because time is treated as a
+parameter, not as a coordinate.
+
+To fix this, we need to work in 4D and treat time as a coordinate, so we
+introduce $x^0 = ct$ where $c$ is any constant speed (it can be any speed,
+doesn't have to be the speed of light). Then in 4D, the above equations are not
+tensor equations anymore, because the operator ${\d\over \d t} = c \partial_0$
+is not a tensor. The 4D tensor formulation happens to be the geodesic equation:
+
+.. math::
+
+    {\d x^\beta\over\d\lambda}\nabla_\beta {\d x^\alpha\over\d\lambda} = 0
+
+    R_{00} = 4\pi G\rho
+
+    R_{ij} = 0
+
+Which (given that we know how to calculate the Ricci tensor in our coordinates)
+is valid in any coordinates, not only rotated, translated, cartesian,
+spherical, ..., but also with arbitrary time dependence, e.g. a rotating disk,
+accelerating disk, ...
+
+After suitable local coordinate transformation, we can only get two possible
+metrics (that connect the time and spatial coordinates): $\diag(-1, 1, 1, 1)$
+and $\diag(1, 1, 1, 1)$. Inertial systems have no fictitious forces, so the
+metrics is one of the two above (possibly with $c\to\infty$). Transformation
+between inertial systems is such a coordinate transformation that leaves the
+metric intact, e.g.:
+
+.. math::
+
+     g' = \Lambda^T g \Lambda
+
+There is no coordinate transformation that turns the metric $\diag(-1, 1, 1,
+1)$ into $\diag(1, 1, 1, 1)$, so we need to choose either one to describe one
+inertial system and then all other inertial systems will automatically have a
+metric with the same signature.
+
+The Newton law is valid for small speeds compared to the speed of light, so
+when we want to extend the theory for all speeds, we only have 4 options: O(3,
+1) with either $c\to\infty$ or $c$ finite and O(4) with either $c\to\infty$ or
+$c$ finite. If $c$ is finite, it has to be large enough, so that we still
+recover the Newton law for small speeds with the given experimental precision.
+All 4 cases give the correct Newton law, but give different predictions for
+large speeds. All we need to do to decide which one is correct is to perform
+such large speeds (relativistic) experiments. It turns out that all such
+relativistic experiments are in agreement with the O(3, 1) case where $c$ is
+the (finite) speed of light and with disagreement with the 3 other cases. For
+small speeds however (i.e. Newtonean physics), all 4 cases will work, as long
+as $c$ is chosen large enough.
+
+Given a tensor equation, we can easily determine, if it transforms correctly
+under the Galilean ($c\to\infty$) or Lorentz transformations ($c$ is finite).
+All we have to do is to perform the limit $c\to\infty$. For example the Newton
+second law is recovered if we do the $c\to\infty$ limit, but Maxwell equations
+are only recovered if we choose $c$ to be exactly the speed of light in the
+Maxwell equations.
+
+The reason why we write equations as tensor equations in 4D is that we can then
+use any coordinates (including any time dependence), i.e. any observer, and the
+equations still have the exact same form. So specifying the metrics is enough
+to define the coordinates (observer) and since the equations has only one form,
+that is all we need. If we write equations only as tensors in 3D, we not only
+need to specify the (3D) metrics, but also how the observer accelerates with
+respect to some (usually inertial) frame where the equations (let's say Newton
+law) is defined and we then need to transform all the time derivatives
+correctly. By using tensors in 4D, all those transformations are taken care of
+by the standard tensor machinery and all we need to care about is exactly one
+observer, defined by its metric tensor.
+
 
 High School Formulation
 -----------------------
