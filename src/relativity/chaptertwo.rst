@@ -100,6 +100,11 @@ correctly. By using tensors in 4D, all those transformations are taken care of
 by the standard tensor machinery and all we need to care about is exactly one
 observer, defined by its metric tensor.
 
+By choosing the correct metrics and $c$ (i.e. $\diag(-1, 1, 1, 1)$ and $c$ the
+speed of light), all equations are then automatically Lorentz invariant. If we
+choose $c\to\infty$ (and any metric), we automatically get all equations
+Galilean invariant.
+
 
 High School Formulation
 -----------------------
