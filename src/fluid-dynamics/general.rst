@@ -406,8 +406,8 @@ Then we write things explicitly using $u^0=\gamma c$ and $u^i = \gamma v^i$:
 
     T^{0j} = T^{j0} =
         \left(\rho+{\rho U +p\over c^2}\right)u^0u^j =
-        \left(\rho+{\rho U +p\over c^2}\right)\gamma c v^j =
-        \rho c v^j \gamma + {1\over c} (\rho U + p) v^j \gamma
+        \left(\rho+{\rho U +p\over c^2}\right)\gamma^2 c v^j =
+        \rho c v^j \gamma^2 + {1\over c} (\rho U + p) v^j \gamma^2
 
     T^{jk} =
         \left(\rho+{\rho U +p\over c^2}\right) u^ju^k + p \delta^{jk} =
@@ -425,39 +425,39 @@ And we write for $\alpha=0$:
     \partial_0 T^{00} + \partial_i T^{0i} = 0
 
     \partial_0 \left(\rho c^2 \gamma^2 +(\rho U +p)\gamma^2 - p\right)
-        + \partial_i \left( \rho c v^i \gamma + {1\over c} (\rho U + p) v^i \gamma \right) = 0
+        + \partial_i \left( \rho c v^i \gamma^2 + {1\over c} (\rho U + p) v^i
+          \gamma^2 \right) = 0
 
     \partial_t \left(\rho c \gamma^2 +{1\over c}(\rho U +p)\gamma^2 -
         {1\over c}p\right)
-        + \partial_i \left( \rho c v^i \gamma + {1\over c} (\rho U + p) v^i \gamma \right) = 0
+        + \partial_i \left( \rho c v^i \gamma^2 + {1\over c} (\rho U + p) v^i
+          \gamma^2 \right) = 0
 
-    \partial_t (\rho c^2 \gamma^2) + \partial_i ( \rho c^2 v^i \gamma) +
+    \partial_t (\rho c^2 \gamma^2) + \partial_i ( \rho c^2 v^i \gamma^2) +
     \partial_t (\rho U \gamma^2 + p\gamma^2 - p) +
-    \partial_i \left((\rho U + p) v^i\gamma\right)
+    \partial_i \left((\rho U + p) v^i\gamma^2\right)
     = 0
 
-Now we use the approximation $c^2\gamma\approx c^2 + \half v^2$,
-$c^2\gamma^2\approx c^2 + v^2$ and
+Now we use the approximation $c^2\gamma^2\approx c^2 + v^2$ and
 $\gamma\approx1$:
 
 .. math::
 
     \partial_t \left(\rho c^2 +\rho v^2 \right) + \partial_i \left(
-        (\rho c^2 +\half\rho v^2) v^i\right) +
+        (\rho c^2 +\rho v^2) v^i\right) +
     \partial_t (\rho U) +
     \partial_i \left((\rho U + p) v^i\right)
     = 0
 
     c^2 \left[\partial_t \rho + \partial_i \left( \rho v^i\right) \right]
     +
-    \partial_t (\half\rho v^2) +
-    \partial_t (\half\rho v^2+\rho U) +
-    \partial_i \left((\half\rho v^2+\rho U + p) v^i\right)
+    \partial_t (\rho v^2+\rho U) +
+    \partial_i \left((\rho v^2+\rho U + p) v^i\right)
     = 0
 
 The first term vanishes (it is the continuity equation) and thus we get the
-equation for the energy $E =\half\rho v^2+\rho U$, except that we have one more
-additional term $\partial_t (\half\rho v^2)$, not sure what to do with that:
+equation for the energy $E =\half\rho v^2+\rho U$, except that we don't have
+the $\half$ in there.
 
 .. math::
 
