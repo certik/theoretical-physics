@@ -128,7 +128,7 @@ viscosity ($T^{ij} = p\one$), so in the MCRF:
 where in MCRF we have $g^{\mu\nu} = \diag(-1, 1, 1, 1)$, $u^0=c$ and $u^i=0$,
 but $\partial_\alpha U^i\neq0$. $p$ is the pressure with units
 $[p] =\rm N\,m^{-2}=kg\,m^{-1}\,s^{-2}$ (then
-$[{p\over c^2}] =\rm kg\,m^{-3}$), $\rho$ is the mass density with units
+$[{p\over c^2}] =\rm kg\,m^{-3}$), $\rho$ is the rest mass density with units
 $[\rho] =\rm kg\,m^{-3}$, and $\rho c^2$ is the energy density with units
 $[\rho c^2] =\rm kg\,m^{-1}\,s^{-2}$.
 
@@ -139,7 +139,7 @@ velocity (and we can also neglect ${p\over c^2}$ compared to $\rho$):
 
 .. math::
 
-    T^{00} = \left(\rho+{p\over c^2}\right)u^0u^0 - p \approx \rho c^2+p
+    T^{00} = \left(\rho+{p\over c^2}\right)u^0u^0 - p \approx \rho c^2+p-p
         \approx \rho c^2
 
     T^{0j} = T^{j0} = \left(\rho+{p\over c^2}\right)u^0u^j \approx
@@ -148,7 +148,6 @@ velocity (and we can also neglect ${p\over c^2}$ compared to $\rho$):
         \rho c u^j
 
     T^{jk} = \left(\rho+{p\over c^2}\right) u^ju^k + p \delta^{jk}
-        \approx \left(\rho + {p\over c^2}\right) u^j u^k + p \delta^{jk}
         \approx \rho u^j u^k + p \delta^{jk}
 
 Substituting this into the conversation law $\partial_\beta
@@ -379,6 +378,58 @@ so:
 
     {\partial E\over\partial t}
         + \nabla\cdot\left({\bf u}\left(E + p \right)\right) = 0
+
+
+Relativistic Derivation of the Energy Equation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We have to write $T = \diag(\rho c^2 + \rho U, p, p, p)$, where $U$ is the
+classical internal energy per unit mass and $\rho$ is the relativistic rest
+mass:
+
+.. math::
+
+    T^{\alpha\beta} = \diag(\rho c^2 +\rho U, p, p, p) =
+    \left(\rho+{\rho U + p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}
+
+Then we write things explicitly using $u^0=\gamma c$ and $u^i = \gamma v^i$:
+
+.. math::
+
+    T^{00} =
+    \left(\rho+{\rho U +p\over c^2}\right)u^0u^0 - p
+    =
+    \left(\rho+{\rho U +p\over c^2}\right)\gamma^2 c^2 - p
+    =
+    \rho c^2 \gamma^2 +(\rho U +p)\gamma^2 - p
+
+    T^{0j} = T^{j0} =
+        \left(\rho+{\rho U +p\over c^2}\right)u^0u^j =
+        \left(\rho+{\rho U +p\over c^2}\right)\gamma c v^j =
+        \rho c v^j \gamma + {1\over c} (\rho U + p) v^j \gamma
+
+    T^{jk} =
+        \left(\rho+{\rho U +p\over c^2}\right) u^ju^k + p \delta^{jk} =
+        \left(\rho+{\rho U +p\over c^2}\right) \gamma^2 v^jv^k
+            + p \delta^{jk} =
+        \rho v^j v^k \gamma^2 + {1\over c^2}(\rho U +p) \gamma^2 v^jv^k
+            + p \delta^{jk}
+
+And we write for $\alpha=0$:
+
+.. math::
+
+    \partial_\beta T^{0\beta} = 0
+
+    \partial_0 T^{00} + \partial_i T^{0i} = 0
+
+For $\alpha=i$ we get:
+
+.. math::
+
+    \partial_\beta T^{i\beta} = 0
+
+    \partial_0 T^{i0} + \partial_j T^{ij} = 0
 
 
 Bernoulli's Principle
