@@ -203,6 +203,11 @@ constant:
 
     \partial_\alpha (n u^\alpha) = 0
 
+.. math::
+    :label: baryon1
+
+    \partial_t (n \gamma) + \partial_i(n v^i \gamma) = 0
+
 and in the limit $c\to\infty$:
 
 .. math::
