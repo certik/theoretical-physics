@@ -384,8 +384,9 @@ Relativistic Derivation of the Energy Equation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We have to write $T = \diag(\rho c^2 + \rho U, p, p, p)$, where $U$ is the
-classical internal energy per unit mass and $\rho$ is the relativistic rest
-mass:
+classical internal energy per unit mass and $\rho$ is the rest
+mass density (so $\rho c^2$ is the energy density, excluding the internal
+energy, that is taken care of by the $\rho U$ term):
 
 .. math::
 
@@ -435,12 +436,13 @@ And we write for $\alpha=0$:
     \partial_i \left((\rho U + p) v^i\gamma\right)
     = 0
 
-Now we use the approximation $c^2\gamma\approx c^2 + \half v^2$ and
+Now we use the approximation $c^2\gamma\approx c^2 + \half v^2$,
+$c^2\gamma^2\approx c^2 + v^2$ and
 $\gamma\approx1$:
 
 .. math::
 
-    \partial_t \left(\rho c^2 +\half\rho v^2 \right) + \partial_i \left(
+    \partial_t \left(\rho c^2 +\rho v^2 \right) + \partial_i \left(
         (\rho c^2 +\half\rho v^2) v^i\right) +
     \partial_t (\rho U) +
     \partial_i \left((\rho U + p) v^i\right)
@@ -448,12 +450,14 @@ $\gamma\approx1$:
 
     c^2 \left[\partial_t \rho + \partial_i \left( \rho v^i\right) \right]
     +
+    \partial_t (\half\rho v^2) +
     \partial_t (\half\rho v^2+\rho U) +
     \partial_i \left((\half\rho v^2+\rho U + p) v^i\right)
     = 0
 
 The first term vanishes (it is the continuity equation) and thus we get the
-equation for the energy $E =\half\rho v^2+\rho U$:
+equation for the energy $E =\half\rho v^2+\rho U$, except that we have one more
+additional term $\partial_t (\half\rho v^2)$, not sure what to do with that:
 
 .. math::
 
