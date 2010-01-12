@@ -383,6 +383,9 @@ so:
 Relativistic Derivation of the Energy Equation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+This section is only approximate, it roughly gets the right equations, but some
+small things still have to be improved.
+
 We have to write $T = \diag(\rho c^2 + \rho U, p, p, p)$, where $U$ is the
 classical internal energy per unit mass and $\rho$ is the rest
 mass density (so $\rho c^2$ is the energy density, excluding the internal
@@ -433,6 +436,9 @@ And we write for $\alpha=0$:
         + \partial_i \left( \rho c v^i \gamma^2 + {1\over c} (\rho U + p) v^i
           \gamma^2 \right) = 0
 
+.. math::
+    :label: euler5
+
     \partial_t (\rho c^2 \gamma^2) + \partial_i ( \rho c^2 v^i \gamma^2) +
     \partial_t (\rho U \gamma^2 + p\gamma^2 - p) +
     \partial_i \left((\rho U + p) v^i\gamma^2\right)
@@ -467,6 +473,65 @@ the $\half$ in there.
 
     \partial_t E + \partial_i \left((E + p) v^i\right) = 0
 
+We can also write the equation :eq:`euler5` as (here we use $T=
+\diag(\rho c^2, p, p, p)$:
+
+.. math::
+
+    \partial_t \left(\left(\rho c^2 + p\left(1-{1\over\gamma^2}
+        \right)\right)\gamma^2\right)
+    +
+    \partial_i\left(\left(\rho c^2 + p\right)v^i \gamma^2\right)
+    =0
+
+    \partial_t \left(\left(\rho c^2 + p{v^2\over c^2}\right)\gamma^2\right)
+    +
+    \partial_i\left(\left(\rho c^2 + p\right)v^i \gamma^2\right)
+    =0
+
+which becomes for large $c$:
+
+.. math::
+
+    \partial_t \left(\rho c^2\right)
+    +
+    \partial_i\left(\left(\rho c^2 + p\right)v^i\right)
+    =0
+
+and that can be interpreted either as $E=\rho c^2$:
+
+.. math::
+    :label: euler8
+
+    \partial_t E
+    +
+    \partial_i\left(\left(E + p\right)v^i\right)
+    =0
+
+or as:
+
+.. math::
+
+    \partial_t \rho
+    +
+    \partial_i\left(\left(\rho + {p\over c^2}\right)v^i\right)
+    =0
+
+which reduces to:
+
+.. math::
+    :label: euler9
+
+    \partial_t \rho
+    +
+    \partial_i\left(\rho v^i\right)
+    =0
+
+But both equations :eq:`euler8` and :eq:`euler9` are equivalent, because $E$ is
+much larger than $p$ in :eq:`euler8`, so $p$ can be negleted. In order to get
+the equation we want, we need to get rid of the rest mass $mc^2$ energy first
+(as we roughly did in the treatment in :eq:`euler5`),
+and only the rest is comparable with $p$.
 
 For $\alpha=i$ we get:
 
