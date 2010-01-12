@@ -423,6 +423,47 @@ And we write for $\alpha=0$:
 
     \partial_0 T^{00} + \partial_i T^{0i} = 0
 
+    \partial_0 \left(\rho c^2 \gamma^2 +(\rho U +p)\gamma^2 - p\right)
+        + \partial_i \left( \rho c v^i \gamma + {1\over c} (\rho U + p) v^i \gamma \right) = 0
+
+    \partial_t \left(\rho c \gamma^2 +{1\over c}(\rho U +p)\gamma^2 -
+        {1\over c}p\right)
+        + \partial_i \left( \rho c v^i \gamma + {1\over c} (\rho U + p) v^i \gamma \right) = 0
+
+    \partial_t (\rho c^2 \gamma^2) + \partial_i ( \rho c^2 v^i \gamma) +
+    \partial_t (\rho U \gamma^2 + p\gamma^2 - p) +
+    \partial_i \left((\rho U + p) v^i\gamma\right)
+    = 0
+
+Now we use the approximation $c^2\gamma\approx c^2 + \half v^2$ and
+$\gamma\approx1$:
+
+.. math::
+
+    \partial_t \left(\rho c^2 +\half\rho v^2 \right) + \partial_i \left(
+        (\rho c^2 +\half\rho v^2) v^i\right) +
+    \partial_t (\rho U) +
+    \partial_i \left((\rho U + p) v^i\right)
+    = 0
+
+    c^2 \left[\partial_t \rho + \partial_i \left( \rho v^i\right) \right]
+    +
+    \partial_t (\half\rho v^2+\rho U) +
+    \partial_i \left((\half\rho v^2+\rho U + p) v^i\right)
+    = 0
+
+The first term vanishes (it is the continuity equation) and thus we get the
+equation for the energy $E =\half\rho v^2+\rho U$:
+
+.. math::
+
+    \partial_t (\half\rho v^2+\rho U) +
+    \partial_i \left((\half\rho v^2+\rho U + p) v^i\right)
+    = 0
+
+    \partial_t E + \partial_i \left((E + p) v^i\right) = 0
+
+
 For $\alpha=i$ we get:
 
 .. math::
@@ -430,6 +471,10 @@ For $\alpha=i$ we get:
     \partial_\beta T^{i\beta} = 0
 
     \partial_0 T^{i0} + \partial_j T^{ij} = 0
+
+    \cdots
+
+and those are the Euler equations in the limit.
 
 
 Bernoulli's Principle
