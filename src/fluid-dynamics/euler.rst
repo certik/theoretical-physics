@@ -785,6 +785,9 @@ solution by:
     = {\bf f}({\bf w}_L) + \int_{{\bf w}_L}^{{\bf w}_R}
         {\bf A}^-({\bf w}) \d {\bf w} \approx
 
+.. math::
+    :label: riemann_sol
+
     \approx {\bf f}({\bf w}_L) + {\bf A}^-({\bf w}_R) {\bf w}_R -
         {\bf A}^-({\bf w}_L) {\bf w}_L
 
