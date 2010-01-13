@@ -610,6 +610,222 @@ We can then linearize this for example by taking the flux jacobians
 ${\bf A}_x({\bf w}^{n+1})$ on the previous time level
 ${\bf A}_x({\bf w}^n)$.
 
+Boundary Conditions
+~~~~~~~~~~~~~~~~~~~
+
+We rewrite the boundary integral by rotating coordinates, so that
+the flow is only in the $x$ direction (thus we only have ${\bf f}_x$):
+
+.. math::
+
+    \int_{\partial\Omega}
+    \left({\bf f}_x({\bf w})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w})\right)_i
+        \varphi^i\, n_y
+    + \left({\bf f}_z({\bf w})\right)_i
+        \varphi^i\, n_z
+    \ \d^2 x
+    =
+
+    =
+    \int_{\partial\Omega}
+    T^{-1} {\bf f}_x(T {\bf w})
+    \ \d^2 x
+    \approx
+    \Delta S\,
+    T^{-1} {\bf f}_x(T {\bf w})
+
+Now we need to approximate ${\bf f}_x(T {\bf w})$ somehow.
+We do that by solving the following 1D problem (Riemann problem):
+
+.. math::
+
+    {\partial {\bf w}\over\partial t} + {\partial\over\partial x}
+        {\bf f}({\bf w}) = 0
+
+or:
+
+.. math::
+    :label: riemann2
+
+    {\partial {\bf w}\over\partial t} + {\bf A}({\bf w})
+        {\partial{\bf w}\over\partial x} = 0
+
+
+.. math::
+
+    {\bf w}(x, t) = \left( \begin{array}{c}
+        w_0 \\
+        w_1 \\
+        w_2 \\
+        w_3 \\
+        w_4 \\
+    \end{array} \right)
+
+And we approximate ${\bf f}_x({\bf w})={\bf f}({\bf w}(0, t))$. The initial
+condition is:
+
+.. math::
+
+    {\bf w}(x, 0) = \begin{cases}{\bf w}_L&x<0\cr {\bf w}_R & x > 0\cr
+        \end{cases}
+    = {\bf w}_L(1-H(x)) + {\bf w}_R H(x)
+
+Now we write:
+
+.. math::
+
+    {\bf w}(x, t) = \sum_i \xi^i(x, t) {\bf r}_i
+
+    {\bf w}_L = \sum_i \alpha_i {\bf r}_i
+
+    {\bf w}_R = \sum_i \beta_i {\bf r}_i
+
+    \xi^i(x, 0) = \begin{cases}
+    \alpha_i & x < 0\cr
+    \beta_i & x > 0\cr
+    \end{cases}
+
+and substitute into :eq:`riemann2`:
+
+.. math::
+
+    \sum_i\left(
+    {\partial \xi^i\over\partial t} + {\bf A}({\bf w})
+        {\partial \xi^i\over\partial x} \right) {\bf r}_i = 0
+
+    \sum_i\left(
+    {\partial \xi^i\over\partial t} + \lambda_i({\bf w})
+        {\partial \xi^i\over\partial x} \right) {\bf r}_i = 0
+
+so we get:
+
+.. math::
+
+    {\partial \xi^i\over\partial t} + \lambda_i({\bf w})
+        {\partial \xi^i\over\partial x} = 0
+
+This is a nonlinear problem, that cannot be solved exactly. First,
+let ${\bf A}$ doesn't depend on ${\bf w}$. Then also $\lambda_i$
+are a constants:
+
+.. math::
+
+    {\partial \xi^i\over\partial t} + \lambda_i
+        {\partial \xi^i\over\partial x} = 0
+
+and the solution is constant along the characteristic $x(t) = \lambda_i t + c$
+for $t>0$ and we get:
+
+.. math::
+
+    \xi_i(x, t) = \xi^i(x-\lambda_i t, 0) =
+    \begin{cases}
+    \alpha_i & x-\lambda_i t < 0\cr
+    \beta_i & x-\lambda_i t > 0\cr
+    \end{cases}
+    =\alpha_i (1-H(x-\lambda_i t)) + \beta_i H(x-\lambda_i t)
+
+and
+
+.. math::
+
+    {\bf w}(x, t)
+    = \sum_i \xi^i(x, t) {\bf r}_i
+    = \sum_i \left(
+    \alpha_i (1-H(x-\lambda_i t)) + \beta_i H(x-\lambda_i t)
+    \right){\bf r}_i
+
+    {\bf w}(0, t)
+    = \sum_i \left(
+    \alpha_i (1-H(-\lambda_i t)) + \beta_i H(-\lambda_i t)
+    \right){\bf r}_i
+    =
+
+    = \sum_i \left(
+    \alpha_i H(\lambda_i t) + \beta_i H(-\lambda_i t)
+    \right){\bf r}_i=
+
+    = \sum_i \left(
+    \alpha_i H(\lambda_i) + \beta_i H(-\lambda_i)
+    \right){\bf r}_i=
+
+    = \sum_{i=k+1}^n \alpha_i {\bf r}_i
+    + \sum_{i=1}^k \beta_i {\bf r}_i
+
+so:
+
+.. math::
+
+    {\bf f}({\bf w}(0, t)) = {\bf A}{\bf w}(0, t)
+    = \sum_{i=k+1}^n {\bf A}\alpha_i {\bf r}_i
+    + \sum_{i=1}^k {\bf A}\beta_i {\bf r}_i
+
+    = \sum_{i=k+1}^n \lambda_i\alpha_i {\bf r}_i
+    + \sum_{i=1}^k \lambda_i\beta_i {\bf r}_i=
+
+    = {\bf A}^+\sum_{i=1}^n \alpha_i {\bf r}_i
+    + {\bf A}^-\sum_{i=1}^n \beta_i {\bf r}_i=
+
+    = {\bf A}^+{\bf w}_L
+    + {\bf A}^-{\bf w}_R
+
+
+In the nonlinear case we cannot solve it exactly, but we can approximate the
+solution by:
+
+.. math::
+
+    {\bf f}({\bf w}(0, t)) = {\bf f}^+({\bf w}_L) + {\bf f}^-({\bf w}_R) =
+
+    = {\bf f}({\bf w}_R) - \int_{{\bf w}_L}^{{\bf w}_R}
+        {\bf A}^+({\bf w}) \d {\bf w} =
+
+    = {\bf f}({\bf w}_L) + \int_{{\bf w}_L}^{{\bf w}_R}
+        {\bf A}^-({\bf w}) \d {\bf w} \approx
+
+    \approx {\bf f}({\bf w}_L) + {\bf A}^-({\bf w}_R) {\bf w}_R -
+        {\bf A}^-({\bf w}_L) {\bf w}_L
+
+Let's say the domain is for $x<0$ and we are applying the BC condition from
+$x>0$. Then ${\bf w}_L$ is taken from the solution and ${\bf w}_R$ is
+prescribed, for example at the bottom it could be:
+
+.. math::
+
+    {\bf w}_R = \left( \begin{array}{c}
+        \rho \\
+        \rho u_1 \\
+        0 \\
+        0 \\
+        E \\
+    \end{array} \right)
+
+Now we need to calculate ${\bf A}^-$. First we write:
+
+.. math::
+
+    {\bf A}_x = {\bf R}{\bf D}_x{\bf R}^{-1}
+
+    {\bf A}_x^- = {\bf R}{\bf D}_x^-{\bf R}^{-1}
+
+    {\bf D}_x({\bf w}) = {w_1\over w_0}\one +
+    \diag(-c, 0, 0, 0, c)
+    =
+    \left( \begin{array}{ccccc}
+        u_1-c & 0 & 0 & 0 & 0 \\
+        0 & u_1 & 0 & 0 & 0 \\
+        0 & 0 & u_1 & 0 & 0 \\
+        0 & 0 & 0 & u_1 & 0 \\
+        0 & 0 & 0 & 0 & u_1 + c \\
+    \end{array} \right)
+
+    {\bf D}_x({\bf w})^- =\begin{cases}
+    \diag({w_1\over w_0}-c, {w_1\over w_0}, {w_1\over w_0}, {w_1\over w_0}, 0)
+        & w_1 < 0\cr
+    \diag(-c, 0, 0, 0, 0) & w_1 > 0\cr
+    \end{cases}
 
 Sea Breeze Modeling
 -------------------
