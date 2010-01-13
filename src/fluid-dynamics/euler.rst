@@ -5,6 +5,9 @@
 Compressible Euler Equations
 ============================
 
+Introduction
+------------
+
 The compressible Euler equations are:
 
 .. math::
@@ -460,6 +463,16 @@ The Euler equations:
 .. math::
 
     {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\partial{\bf f}_z\over \partial z} +
+    {\bf g}= 0
+
+or:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
     {\bf A}_x({\bf w})
     {\partial{\bf w}\over \partial x} +
     {\bf A}_y({\bf w})
@@ -468,16 +481,16 @@ The Euler equations:
     {\partial{\bf w}\over \partial z} +
     {\bf g}= 0
 
-are nonlinear. The simplest approximation is to linearize them by:
+are nonlinear. We first linearize the time derivative:
 
 .. math::
 
     {{\bf w}^{n+1}-{\bf w}^n\over \tau} +
-    {\bf A}_x({\bf w}^n)
+    {\bf A}_x({\bf w}^{n+1})
     {\partial{\bf w}^{n+1}\over \partial x} +
-    {\bf A}_y({\bf w}^n)
+    {\bf A}_y({\bf w}^{n+1})
     {\partial{\bf w}^{n+1}\over \partial y} +
-    {\bf A}_z({\bf w}^n)
+    {\bf A}_z({\bf w}^{n+1})
     {\partial{\bf w}^{n+1}\over \partial z} +
     {\bf g}= 0
 
@@ -528,11 +541,11 @@ it):
 .. math::
 
     \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
-        + \left({\bf A}_x({\bf w}^n)\right)_{ij}
+        + \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}
           {\partial w_j^{n+1}\over\partial x} \varphi^i
-        + \left({\bf A}_y({\bf w}^n)\right)_{ij}
+        + \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}
           {\partial w_j^{n+1}\over\partial y} \varphi^i
-        + \left({\bf A}_z({\bf w}^n)\right)_{ij}
+        + \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}
           {\partial w_j^{n+1}\over\partial z} \varphi^i
         + g_i \varphi^i
         \ \d^3 x
@@ -545,22 +558,22 @@ $w_j {\partial\left({\bf A}_z({\bf w}^n)\right)_{ij}\over\partial x}
 .. math::
 
     \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
-        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+        - \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}
           w_j^{n+1} {\partial \varphi^i\over\partial x}
-        - \left({\bf A}_y({\bf w}^n)\right)_{ij}
+        - \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}
           w_j^{n+1} {\partial \varphi^i\over\partial y}
-        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+        - \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}
           w_j^{n+1} {\partial \varphi^i\over\partial z}
         + g_i \varphi^i
         \ \d^3 x
         +
 
     +\int_{\partial\Omega}
-    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
+    \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}w_j^{n+1}
         \varphi^i\, n_x
-    + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j^{n+1}
+    + \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}w_j^{n+1}
         \varphi^i\, n_y
-    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
+    + \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}w_j^{n+1}
         \varphi^i\, n_z
     \ \d^2 x
     =0
@@ -571,27 +584,31 @@ $\partial\Omega$. Rearranging:
 .. math::
 
     \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
-        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+        - \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}
           w_j^{n+1} {\partial \varphi^i\over\partial x}
-        - \left({\bf A}_y({\bf w}^n)\right)_{ij}
+        - \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}
           w_j^{n+1} {\partial \varphi^i\over\partial y}
-        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+        - \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}
           w_j^{n+1} {\partial \varphi^i\over\partial z}
         \ \d^3 x
         +
 
     +\int_{\partial\Omega}
-    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
+    \left({\bf f}_x({\bf w}^{n+1})\right)_i
         \varphi^i\, n_x
-    + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j^{n+1}
+    + \left({\bf f}_y({\bf w}^{n+1})\right)_i
         \varphi^i\, n_y
-    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
+    + \left({\bf f}_z({\bf w}^{n+1})\right)_i
         \varphi^i\, n_z
     \ \d^2 x
     =
     \int_{\Omega} {w_i^n\over\tau}\varphi^i
         - g_i \varphi^i
         \ \d^3 x
+
+We can then linearize this for example by taking the flux jacobians
+${\bf A}_x({\bf w}^{n+1})$ on the previous time level
+${\bf A}_x({\bf w}^n)$.
 
 
 Sea Breeze Modeling
