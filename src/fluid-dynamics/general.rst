@@ -479,7 +479,7 @@ the $\half$ in there.
     \partial_t E + \partial_i \left((E + p) v^i\right) = 0
 
 We can also write the equation :eq:`euler5` as (here we use $T=
-\diag(\rho c^2, p, p, p)$:
+\diag(\rho c^2, p, p, p)$):
 
 .. math::
 
