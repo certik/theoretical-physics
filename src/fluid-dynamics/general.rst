@@ -210,11 +210,14 @@ The equation :eq:`conv1` gives for $\mu=0$:
         \gamma^2\right) + \partial_i\left({1\over c}\left(\rho c^2 + p\right)
         v^i \gamma^2\right) = 0
 
+.. math::
+    :label: energy-relat2
+
     \partial_t\left(\left(\rho c^2 + p {v^2\over c^2}\right)
         \gamma^2\right) + \partial_i\left(\left(\rho c^2 + p\right)
         v^i \gamma^2\right) = 0
 
-We now substract from it the equation :eq:`continuity1`:
+We now substract the equation :eq:`continuity1` from :eq:`energy-relat2`:
 
 .. math::
 
@@ -231,7 +234,8 @@ We define the nonrelativistic energy as:
     E = \rho c^2\gamma -n m c^2 = \half \rho v^2 + (\rho - nm)c^2 +
         O\left(v^4\over c^2\right)
 
-so it contains the kinetic plus internal energies. We substitute back:
+so it contains the kinetic plus internal energies. We substitute back
+into :eq:`energy-relat2`:
 
 .. math::
     :label: energy-relat
@@ -242,7 +246,18 @@ so it contains the kinetic plus internal energies. We substitute back:
         \gamma\right)
         v^i \gamma\right) = 0
 
-This is the relativistic equation for the energy.
+This is the relativistic equation for the energy. Substituting
+$nm = \rho\gamma - {E\over c^2}$ into
+:eq:`continuity-relat`:
+
+.. math::
+    :label: continuity-relat3
+
+    \partial_t\left(\rho\gamma^2 - {E\gamma\over c^2}\right) +
+        \partial_i\left(\left(\rho\gamma^2 - {E\gamma\over c^2}\right)
+        v^i
+        \right) = 0
+
 For $\mu=i$ we get:
 
 .. math::
@@ -264,15 +279,17 @@ For $\mu=i$ we get:
         \left(\rho+{p\over c^2}\right) v^iv^j\gamma^2 + p \delta^{ij}
         \right) = 0
 
-This is the momentum equation. The equations :eq:`continuity-relat`,
+This is the momentum equation. The equations :eq:`continuity-relat3`,
 :eq:`momentum-relat`
 and
 :eq:`energy-relat` are the correct relativistic equations for the perfect fluid
-(no approximations were done). Their Newtonian limit is:
+(no approximations were done). We can take either :eq:`continuity-relat3` or
+:eq:`energy-relat2` as the equation of continuity (both give the same
+nonrelativistic equation of continuity).  Their Newtonian limit is:
 
 .. math::
 
-    \partial_t (n m) + \partial_i(n m v^i) = 0
+    \partial_t \rho + \partial_i(\rho v^i) = 0
 
     \partial_t \left(\rho v^i\right)
         + \partial_j \left(
@@ -285,7 +302,7 @@ those are the Euler equations, also sometimes written as:
 
 .. math::
 
-    {\partial (nm)\over \partial t} + \nabla\cdot(nm{\bf v}) = 0
+    {\partial \rho\over \partial t} + \nabla\cdot(\rho{\bf v}) = 0
 
     {\partial (\rho{\bf v})\over\partial t} + \nabla \cdot
         (\rho {\bf v}{\bf v}^T) + \nabla p = 0
