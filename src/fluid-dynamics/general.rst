@@ -114,80 +114,6 @@ take into account the equation of state and incorporate the particle number
 conservation $\nabla_\mu(nu^\mu)=0$ and no entropy exchange
 $\nabla_\mu(nsu^\mu)=0$ constraints.
 
-Perfect Fluids
-~~~~~~~~~~~~~~
-
-Perfect fluids have no heat conduction ($T^{i0} = T^{0i} = 0$) and no
-viscosity ($T^{ij} = p\one$), so in the MCRF:
-
-.. math::
-
-    T^{\alpha\beta} = \diag(\rho c^2, p, p, p) =
-    \left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}
-
-where in MCRF we have $g^{\mu\nu} = \diag(-1, 1, 1, 1)$, $u^0=c$ and $u^i=0$,
-but $\partial_\alpha U^i\neq0$. $p$ is the pressure with units
-$[p] =\rm N\,m^{-2}=kg\,m^{-1}\,s^{-2}$ (then
-$[{p\over c^2}] =\rm kg\,m^{-3}$), $\rho$ is the rest mass density with units
-$[\rho] =\rm kg\,m^{-3}$, and $\rho c^2$ is the energy density with units
-$[\rho c^2] =\rm kg\,m^{-1}\,s^{-2}$.
-
-The last equation is a tensor equation so it
-holds in any frame. The nonrelativistic limit of this stress energy tensor is
-obtained by approximating $u^0\approx c$ and $u^j$ by the nonrelativistic
-velocity (and we can also neglect ${p\over c^2}$ compared to $\rho$):
-
-.. math::
-
-    T^{00} = \left(\rho+{p\over c^2}\right)u^0u^0 - p \approx \rho c^2+p-p
-        \approx \rho c^2
-
-    T^{0j} = T^{j0} = \left(\rho+{p\over c^2}\right)u^0u^j \approx
-        \left(\rho + {p\over c^2}\right) c u^j
-        \approx
-        \rho c u^j
-
-    T^{jk} = \left(\rho+{p\over c^2}\right) u^ju^k + p \delta^{jk}
-        \approx \rho u^j u^k + p \delta^{jk}
-
-Substituting this into the conversation law $\partial_\beta
-T^{\alpha\beta}=0$ we get for $\alpha=0$:
-
-.. math::
-
-    \partial_\beta T^{0\beta} = 0
-
-    \partial_0 T^{00} + \partial_i T^{0i} = 0
-
-    \partial_0 (\rho c^2) + \partial_i (\rho c u^i) = 0
-
-    \partial_t\rho + \partial_i(\rho u^i) = 0
-
-    {\partial \rho\over\partial t} + \nabla \cdot (\rho {\bf u}) = 0
-
-This is the continuity equation for the energy ($\rho$ here is the energy
-density). For $\alpha=i$ we get:
-
-.. math::
-
-    \partial_\beta T^{i\beta} = 0
-
-    \partial_0 T^{i0} + \partial_j T^{ij} = 0
-
-    \partial_0 (\rho c u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
-
-    \partial_t (\rho u^i) + \partial_j (\rho u^i u^j + p\delta^{ij}) = 0
-
-    {\partial (\rho{\bf u})\over\partial t} + \nabla \cdot
-        (\rho {\bf u}{\bf u}^T) + \nabla p = 0
-
-Which are the Euler equations, sometimes also written as (using the continuity
-equation):
-
-.. math::
-
-    \rho\partial_t u^i + \rho u^j\partial_j u^i + \delta^{ij}\partial_j p = 0
-
 The equation of continuity follows from the
 conservation of the baryon number --- the volume $V$ that contains certain
 number of baryons can change, but the total number of baryons $nV$ must remain
@@ -203,87 +129,175 @@ constant:
 
     \partial_\alpha (n u^\alpha) = 0
 
-.. math::
-    :label: baryon1
 
-    \partial_t (n \gamma) + \partial_i(n v^i \gamma) = 0
+Perfect Fluids
+~~~~~~~~~~~~~~
 
-and in the limit $c\to\infty$:
-
-.. math::
-
-    {\partial n\over \partial t} + \nabla\cdot(n{\bf v}) = 0
-
-
-Navier-Stokes Equations
------------------------
-
-When we write the relativistic conservation law in a nonrelativistic limit (for
-a general fluid), we get the Cauchy momentum equation:
+Perfect fluids have no heat conduction ($T^{i0} = T^{0i} = 0$) and no
+viscosity ($T^{ij} = p\one$), so in the comoving frame:
 
 .. math::
 
-    \rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = \nabla \cdot \mathds{\sigma} + {\bf f}
+    T^{\alpha\beta} = \diag(\rho c^2, p, p, p) =
+    \left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}
 
-where the stress tensor $\sigma$ can be written as:
+where in the comoving frame we have $g^{\mu\nu} = \diag(-1, 1, 1, 1)$, $u^0=c$
+and $u^i=0$,
+but $\partial_\alpha U^i\neq0$. $p$ is the pressure with units
+$[p] =\rm N\,m^{-2}=kg\,m^{-1}\,s^{-2}$ (then
+$[{p\over c^2}] =\rm kg\,m^{-3}$), $\rho$ is the rest mass density with units
+$[\rho] =\rm kg\,m^{-3}$, and $\rho c^2$ is the energy density with units
+$[\rho c^2] =\rm kg\,m^{-1}\,s^{-2}$.
 
-.. math::
-
-    \sigma=-p\mathds{1} + \mathds{T}
-
-and we get the Navier-Stokes equations:
-
-.. math::
-
-    \rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = -\nabla p + \nabla \cdot \mathds{T} + {\bf f}
-
-Those are the most general equations. If we assume some more things about the
-fluid, they can be further simplified.
-
-For Newtonean fluids, we want $\mathds{T}$ to be isotropic, linear in strain
-rates and it's divergence zero for fluid at rest. It follows that the only way
-to write the tensor under these conditions is:
+The last equation is a tensor equation so it
+holds in any frame. Let's write the components explicitly:
 
 .. math::
 
-    T_{ij} = 2\mu\epsilon_{ij} + \delta_{ij} \lambda \nabla\cdot{\bf v}
+    T^{00}
+        = \left(\rho+{p\over c^2}\right)u^0u^0 - p
+        = \left(\rho+{p\over c^2}\right)c^2 \gamma^2 - p
+        = \left(\rho c^2+p\left(1-{1\over\gamma^2}\right)\right) \gamma^2
+        = \left(\rho c^2+p {v^2\over c^2}\right) \gamma^2
 
-where the strain rate is:
+    T^{0i} = T^{i0}
+        = \left(\rho+{p\over c^2}\right)u^0u^i
+        = \left(\rho+{p\over c^2}\right) c v^i \gamma^2
+        = {1\over c}\left(\rho c^2+p\right) v^i \gamma^2
+
+    T^{ij}
+        = \left(\rho+{p\over c^2}\right) u^iu^j + p \delta^{ij}
+        = \left(\rho+{p\over c^2}\right) v^iv^j\gamma^2 + p \delta^{ij}
+
+We now use the conservation of the stress energy tensor and the conservation of
+the number of particles:
+
+.. math::
+    :label: conv1
+
+    \partial_\nu T^{\mu\nu} = 0
+
+.. math::
+    :label: conv2
+
+    \partial_\mu(nu^\mu) = 0
+
+The equation :eq:`conv2` gives:
 
 .. math::
 
-    \epsilon_{ij}={1\over 2}\left(\partial_j v_i+\partial_i v_j\right)
+    \partial_t (n\gamma) + \partial_i(n v^i \gamma) = 0
 
-The divergence of the tensor is:
+.. math::
+    :label: continuity-relat
+
+    \partial_t (n m\gamma) + \partial_i(n m v^i \gamma) = 0
+
+.. math::
+    :label: continuity1
+
+    \partial_t (n m c^2\gamma) + \partial_i(n m c^2 v^i \gamma) = 0
+
+The equation :eq:`conv1` gives for $\mu=0$:
 
 .. math::
 
-    \partial_j T_{ij} =2\mu\partial_j\epsilon_{ij} + \partial_j\delta_{ij} \lambda \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+\mu\partial_i \nabla\cdot{\bf v} + \lambda \partial_i  \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+(\mu+\lambda)\partial_i \nabla\cdot{\bf v}
+    \partial_\nu T^{0\nu} = 0
 
-or in vector form (these are usually called the compressible Navier-Stokes
-equations):
+    \partial_0 T^{00} + \partial_i T^{0i} = 0
 
-.. math::
+    \partial_t\left({1\over c}\left(\rho c^2 + p {v^2\over c^2}\right)
+        \gamma^2\right) + \partial_i\left({1\over c}\left(\rho c^2 + p\right)
+        v^i \gamma^2\right) = 0
 
-    \nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}+(\mu+\lambda)\nabla \nabla\cdot{\bf v}
+    \partial_t\left(\left(\rho c^2 + p {v^2\over c^2}\right)
+        \gamma^2\right) + \partial_i\left(\left(\rho c^2 + p\right)
+        v^i \gamma^2\right) = 0
 
-For incompressible fluid we have $\nabla\cdot\bf v=0$, so we get the
-incompressible Navier-Stokes equations:
-
-.. math::
-
-    \nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}
-
-and for a perfect fluid we have no viscosity, e.g. $\mu=0$, then we get the
-Euler equations (for perfect fluid):
+We now substract from it the equation :eq:`continuity1`:
 
 .. math::
 
-    \nabla \cdot \mathds{T}=0
+    \partial_t\left(\left(\rho c^2\gamma - n m c^2 + p {v^2\over c^2}
+        \gamma\right)
+        \gamma\right) + \partial_i\left(\left(\rho c^2\gamma -n m c^2 + p
+        \gamma\right)
+        v^i \gamma\right) = 0
+
+We define the nonrelativistic energy as:
+
+.. math::
+
+    E = \rho c^2\gamma -n m c^2 = \half \rho v^2 + (\rho - nm)c^2 +
+        O\left(v^4\over c^2\right)
+
+so it contains the kinetic plus internal energies. We substitute back:
+
+.. math::
+    :label: energy-relat
+
+    \partial_t\left(\left(E + p {v^2\over c^2}
+        \gamma\right)
+        \gamma\right) + \partial_i\left(\left(E + p
+        \gamma\right)
+        v^i \gamma\right) = 0
+
+This is the relativistic equation for the energy.
+For $\mu=i$ we get:
+
+.. math::
+
+    \partial_\nu T^{i\nu} = 0
+
+    \partial_0 T^{i0} + \partial_j T^{ij} = 0
+
+    \partial_t \left({1\over c^2}\left(\rho c^2 + p \right) v^i\gamma^2\right)
+        + \partial_j \left(
+        \left(\rho+{p\over c^2}\right) v^iv^j\gamma^2 + p \delta^{ij}
+        \right) = 0
+
+.. math::
+    :label: momentum-relat
+
+    \partial_t \left(\left(\rho + {p\over c^2} \right) v^i\gamma^2\right)
+        + \partial_j \left(
+        \left(\rho+{p\over c^2}\right) v^iv^j\gamma^2 + p \delta^{ij}
+        \right) = 0
+
+This is the momentum equation. The equations :eq:`continuity-relat`,
+:eq:`momentum-relat`
+and
+:eq:`energy-relat` are the correct relativistic equations for the perfect fluid
+(no approximations were done). Their Newtonian limit is:
+
+.. math::
+
+    \partial_t (n m) + \partial_i(n m v^i) = 0
+
+    \partial_t \left(\rho v^i\right)
+        + \partial_j \left(
+        \rho v^iv^j + p \delta^{ij}
+        \right) = 0
+
+    \partial_t E + \partial_j\left(v^j\left(E + p \right)\right) = 0
+
+those are the Euler equations, also sometimes written as:
+
+.. math::
+
+    {\partial (nm)\over \partial t} + \nabla\cdot(nm{\bf v}) = 0
+
+    {\partial (\rho{\bf v})\over\partial t} + \nabla \cdot
+        (\rho {\bf v}{\bf v}^T) + \nabla p = 0
+
+    {\partial E\over\partial t}
+        + \nabla\cdot\left({\bf v}\left(E + p \right)\right) = 0
 
 Energy Equation
 ~~~~~~~~~~~~~~~
 
+The energy equation can also be derived from thermodynamic and the other two
+Euler equations.
 We have the following two Euler equations:
 
 .. math::
@@ -385,170 +399,71 @@ so:
         + \nabla\cdot\left({\bf u}\left(E + p \right)\right) = 0
 
 
-Relativistic Derivation of the Energy Equation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Navier-Stokes Equations
+-----------------------
 
-This section is only approximate, it roughly gets the right equations, but some
-small things still have to be improved.
-
-We have to write $T = \diag(\rho c^2 + \rho U, p, p, p)$, where $U$ is the
-classical internal energy per unit mass and $\rho$ is the rest
-mass density (so $\rho c^2$ is the energy density, excluding the internal
-energy, that is taken care of by the $\rho U$ term):
+When we write the relativistic conservation law in a nonrelativistic limit (for
+a general fluid), we get the Cauchy momentum equation:
 
 .. math::
 
-    T^{\alpha\beta} = \diag(\rho c^2 +\rho U, p, p, p) =
-    \left(\rho+{\rho U + p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}
+    \rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = \nabla \cdot \mathds{\sigma} + {\bf f}
 
-Then we write things explicitly using $u^0=\gamma c$ and $u^i = \gamma v^i$:
-
-.. math::
-
-    T^{00} =
-    \left(\rho+{\rho U +p\over c^2}\right)u^0u^0 - p
-    =
-    \left(\rho+{\rho U +p\over c^2}\right)\gamma^2 c^2 - p
-    =
-    \rho c^2 \gamma^2 +(\rho U +p)\gamma^2 - p
-
-    T^{0j} = T^{j0} =
-        \left(\rho+{\rho U +p\over c^2}\right)u^0u^j =
-        \left(\rho+{\rho U +p\over c^2}\right)\gamma^2 c v^j =
-        \rho c v^j \gamma^2 + {1\over c} (\rho U + p) v^j \gamma^2
-
-    T^{jk} =
-        \left(\rho+{\rho U +p\over c^2}\right) u^ju^k + p \delta^{jk} =
-        \left(\rho+{\rho U +p\over c^2}\right) \gamma^2 v^jv^k
-            + p \delta^{jk} =
-        \rho v^j v^k \gamma^2 + {1\over c^2}(\rho U +p) \gamma^2 v^jv^k
-            + p \delta^{jk}
-
-And we write for $\alpha=0$:
+where the stress tensor $\sigma$ can be written as:
 
 .. math::
 
-    \partial_\beta T^{0\beta} = 0
+    \sigma=-p\mathds{1} + \mathds{T}
 
-    \partial_0 T^{00} + \partial_i T^{0i} = 0
-
-    \partial_0 \left(\rho c^2 \gamma^2 +(\rho U +p)\gamma^2 - p\right)
-        + \partial_i \left( \rho c v^i \gamma^2 + {1\over c} (\rho U + p) v^i
-          \gamma^2 \right) = 0
-
-    \partial_t \left(\rho c \gamma^2 +{1\over c}(\rho U +p)\gamma^2 -
-        {1\over c}p\right)
-        + \partial_i \left( \rho c v^i \gamma^2 + {1\over c} (\rho U + p) v^i
-          \gamma^2 \right) = 0
-
-.. math::
-    :label: euler5
-
-    \partial_t (\rho c^2 \gamma^2) + \partial_i ( \rho c^2 v^i \gamma^2) +
-    \partial_t (\rho U \gamma^2 + p\gamma^2 - p) +
-    \partial_i \left((\rho U + p) v^i\gamma^2\right)
-    = 0
-
-Now we use the approximation $c^2\gamma^2\approx c^2 + v^2$ and
-$\gamma\approx1$:
+and we get the Navier-Stokes equations:
 
 .. math::
 
-    \partial_t \left(\rho c^2 +\rho v^2 \right) + \partial_i \left(
-        (\rho c^2 +\rho v^2) v^i\right) +
-    \partial_t (\rho U) +
-    \partial_i \left((\rho U + p) v^i\right)
-    = 0
+    \rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = -\nabla p + \nabla \cdot \mathds{T} + {\bf f}
 
-    c^2 \left[\partial_t \rho + \partial_i \left( \rho v^i\right) \right]
-    +
-    \partial_t (\rho v^2+\rho U) +
-    \partial_i \left((\rho v^2+\rho U + p) v^i\right)
-    = 0
+Those are the most general equations. If we assume some more things about the
+fluid, they can be further simplified.
 
-The first term vanishes (it is the continuity equation) and thus we get the
-equation for the energy $E =\half\rho v^2+\rho U$, except that we don't have
-the $\half$ in there.
+For Newtonean fluids, we want $\mathds{T}$ to be isotropic, linear in strain
+rates and it's divergence zero for fluid at rest. It follows that the only way
+to write the tensor under these conditions is:
 
 .. math::
 
-    \partial_t (\half\rho v^2+\rho U) +
-    \partial_i \left((\half\rho v^2+\rho U + p) v^i\right)
-    = 0
+    T_{ij} = 2\mu\epsilon_{ij} + \delta_{ij} \lambda \nabla\cdot{\bf v}
 
-    \partial_t E + \partial_i \left((E + p) v^i\right) = 0
-
-We can also write the equation :eq:`euler5` as (here we use $T=
-\diag(\rho c^2, p, p, p)$):
+where the strain rate is:
 
 .. math::
 
-    \partial_t \left(\left(\rho c^2 + p\left(1-{1\over\gamma^2}
-        \right)\right)\gamma^2\right)
-    +
-    \partial_i\left(\left(\rho c^2 + p\right)v^i \gamma^2\right)
-    =0
+    \epsilon_{ij}={1\over 2}\left(\partial_j v_i+\partial_i v_j\right)
 
-    \partial_t \left(\left(\rho c^2 + p{v^2\over c^2}\right)\gamma^2\right)
-    +
-    \partial_i\left(\left(\rho c^2 + p\right)v^i \gamma^2\right)
-    =0
-
-which becomes for large $c$:
+The divergence of the tensor is:
 
 .. math::
 
-    \partial_t \left(\rho c^2\right)
-    +
-    \partial_i\left(\left(\rho c^2 + p\right)v^i\right)
-    =0
+    \partial_j T_{ij} =2\mu\partial_j\epsilon_{ij} + \partial_j\delta_{ij} \lambda \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+\mu\partial_i \nabla\cdot{\bf v} + \lambda \partial_i  \nabla\cdot{\bf v} =\mu\partial_j\partial_j v_i+(\mu+\lambda)\partial_i \nabla\cdot{\bf v}
 
-and that can be interpreted either as $E=\rho c^2$:
-
-.. math::
-    :label: euler8
-
-    \partial_t E
-    +
-    \partial_i\left(\left(E + p\right)v^i\right)
-    =0
-
-or as:
+or in vector form (these are usually called the compressible Navier-Stokes
+equations):
 
 .. math::
 
-    \partial_t \rho
-    +
-    \partial_i\left(\left(\rho + {p\over c^2}\right)v^i\right)
-    =0
+    \nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}+(\mu+\lambda)\nabla \nabla\cdot{\bf v}
 
-which reduces to:
-
-.. math::
-    :label: euler9
-
-    \partial_t \rho
-    +
-    \partial_i\left(\rho v^i\right)
-    =0
-
-But both equations :eq:`euler8` and :eq:`euler9` are equivalent, because $E$ is
-much larger than $p$ in :eq:`euler8`, so $p$ can be negleted. In order to get
-the equation we want, we need to get rid of the rest mass $mc^2$ energy first
-(as we roughly did in the treatment in :eq:`euler5`),
-and only the rest is comparable with $p$.
-
-For $\alpha=i$ we get:
+For incompressible fluid we have $\nabla\cdot\bf v=0$, so we get the
+incompressible Navier-Stokes equations:
 
 .. math::
 
-    \partial_\beta T^{i\beta} = 0
+    \nabla \cdot \mathds{T} =\mu\nabla^2{\bf v}
 
-    \partial_0 T^{i0} + \partial_j T^{ij} = 0
+and for a perfect fluid we have no viscosity, e.g. $\mu=0$, then we get the
+Euler equations (for perfect fluid):
 
-    \cdots
+.. math::
 
-and those are the Euler equations in the limit.
+    \nabla \cdot \mathds{T}=0
 
 
 Bernoulli's Principle
