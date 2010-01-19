@@ -8,7 +8,27 @@ Compressible Euler Equations
 Introduction
 ------------
 
-The compressible Euler equations are:
+The compressible Euler equations are equations for perfect fluid.
+Perfect fluids have no heat conduction ($T^{i0} = T^{0i} = 0$) and no
+viscosity ($T^{ij} = p\one$), so in the comoving frame the stress energy tensor
+is:
+
+.. math::
+
+    T^{\alpha\beta} = \diag(\rho c^2, p, p, p) =
+    \left(\rho+{p\over c^2}\right)u^\alpha u^\beta + p g^{\alpha\beta}
+
+(we use $g^{\mu\nu} = \diag(-1, 1, 1, 1)$). Relativistic Euler equations are
+given by the conservation of the stress energy tensor and the particle number
+conservation:
+
+.. math::
+
+    \partial_\nu T^{\mu\nu} = 0
+
+    \partial_\mu(nu^\mu) = 0
+
+By doing the nonrelativistic limit, we get the following Euler equations:
 
 .. math::
 
@@ -25,9 +45,14 @@ where
 
     E = \rho e + \half \rho u^2
 
-is the total energy per unit volume ($\half \rho u^2$ is the kinetic energy per
-unit volume), $e$ is the internal energy per unit mass ($e={U\over nM}$)
-and we use the ideal gas equations, so:
+is the total energy per unit volume, composed of the kinetic energy per unit
+volume ($\half \rho u^2$) and the internal energy per unit volume ($\rho e$),
+where $e$ is the internal energy per unit mass ($e={U\over nM}$). The energy
+$E$ doesn't contain the rest mass energy, but all other energies are hidden in
+the internal energy.
+
+We use the
+ideal gas equations, so:
 
 .. math::
 
@@ -62,79 +87,25 @@ and $T$ is the temperature of the gas.
 Of those, $V$, $n$, $M$, $R$, $\bar R$ are constants, $\rho$, $e$, $E$ and $T$ are
 functions of $(t, x, y, z)$.
 
-We use the substitution:
+
+Euler Equations
+---------------
+
+We can write the Euler equations as:
 
 .. math::
 
-    {\bf U} = \rho {\bf u}
+    {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\partial{\bf f}_z\over \partial z} +
+    {\bf g}= 0
 
-    p = {R\over c_v} (E-\half \rho u^2) =
-        {R\over c_v} \left(E-{{\bf U}^2\over2\rho}\right)
-
-and we get:
-
-.. math::
-
-    {\partial\rho\over\partial t} + \nabla\cdot{\bf U} = 0
-
-    {\partial{\bf U}\over\partial t}
-        + \nabla\cdot\left({{\bf U}{\bf U}^T\over\rho}+p\one\right)
-        - {\bf f} = 0
-
-    {\partial E\over\partial t}
-        + \nabla\cdot\left({{\bf U}\over\rho}(E+p)\right) = 0
-
-Now we write ${\bf U} = (U, V, W)$ and we get:
-
-.. math::
-
-       \frac{\partial}{\partial t} \left( \begin{array}{c}
-           \varrho\\ U\\ V\\ W\\ E
-       \end{array} \right)
-       + \frac{\partial}{\partial x} \left( \begin{array}{c}
-           U\\
-           \frac{U^2}{\varrho} + p\\
-           \frac{UV}{\varrho}\\
-           \frac{UW}{\varrho}\\
-           \frac{U}{\varrho}(E+p)
-       \end{array} \right)
-       + \frac{\partial}{\partial y} \left( \begin{array}{c}
-           V\\
-           \frac{VU}{\varrho}\\
-           \frac{V^2}{\varrho} + p\\
-           \frac{VW}{\varrho}\\
-           \frac{V}{\varrho}(E+p)
-       \end{array} \right)
-       + \frac{\partial}{\partial z} \left( \begin{array}{c}
-           W\\
-           \frac{WU}{\varrho}\\
-           \frac{WV}{\varrho}\\
-           \frac{W^2}{\varrho} + p\\
-           \frac{W}{\varrho}(E+p)
-       \end{array} \right) + \left( \begin{array}{c}
-           0\\
-           -f_x\\
-           -f_y\\
-           -f_z\\
-           0\\
-       \end{array} \right) =
-       \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
-
-    p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)
-
-We solve for the unknowns $\rho$, $U$, $V$, $W$ and $E$ as functions of $(t,
-x, y, z)$, the rest ($R$, $c_v$, $f_x$, $f_y$, $f_z$) are either constants or
-depend on the unknowns.
-
-After introducing:
+where:
 
 .. math::
 
     {\bf w} =
-       \left( \begin{array}{c}
-           \varrho\\ U\\ V\\ W\\ E
-       \end{array} \right)
-       =
        \left( \begin{array}{c}
            \varrho\\ \rho u_1\\ \rho u_2\\ \rho u_3\\ E
        \end{array} \right)
@@ -149,11 +120,11 @@ After introducing:
 
     {\bf f}_x =
        \left( \begin{array}{c}
-           U\\
-           \frac{U^2}{\varrho} + p\\
-           \frac{UV}{\varrho}\\
-           \frac{UW}{\varrho}\\
-           \frac{U}{\varrho}(E+p)
+           \rho u_1\\
+           \rho u_1^2 + p\\
+           \rho u_1 u_2\\
+           \rho u_1 u_3\\
+           u_1(E+p)
        \end{array} \right)
        =
        \left( \begin{array}{c}
@@ -166,11 +137,11 @@ After introducing:
 
     {\bf f}_y =
        \left( \begin{array}{c}
-           V\\
-           \frac{VU}{\varrho}\\
-           \frac{V^2}{\varrho} + p\\
-           \frac{VW}{\varrho}\\
-           \frac{V}{\varrho}(E+p)
+           \rho u_2\\
+           \rho u_2 u_1\\
+           \rho u_2^2 + p\\
+           \rho u_2 u_3\\
+           u_2(E+p)
        \end{array} \right)
        =
        \left( \begin{array}{c}
@@ -183,11 +154,11 @@ After introducing:
 
     {\bf f}_z =
        \left( \begin{array}{c}
-           W\\
-           \frac{WU}{\varrho}\\
-           \frac{WV}{\varrho}\\
-           \frac{W^2}{\varrho} + p\\
-           \frac{W}{\varrho}(E+p)
+           \rho u_3\\
+           \rho u_3 u_1\\
+           \rho u_3 u_2\\
+           \rho u_3^2 + p\\
+           u_3(E+p)
        \end{array} \right)
        =
        \left( \begin{array}{c}
@@ -207,20 +178,44 @@ After introducing:
            0\\
        \end{array} \right)
 
-    p = {R\over c_v} \left(E-{U^2+V^2+W^2\over2\rho}\right)
+    p = {R\over c_v} \left(E-\half \rho\left(u_1^2 + u_2^2 + u_3^3\right)\right)
     = {R\over c_v} \left(w_4-{w_1^2+w_2^2+w_3^2\over2w_0}\right)
 
-we can then write the equations as:
+
+We solve for the unknowns $w_0$, $w_1$, $w_2$, $w_3$ and $w_4$ as functions of
+$(t, x, y, z)$, the rest ($R$, $c_v$, $f_x$, $f_y$, $f_z$) are either constants
+or depend on the unknowns. In order to convert from the physical quantities
+$\rho$, $u_1$, $u_2$, $u_3$, $E$ and $p$ to $w_0$, ..., $w_4$, we use:
 
 .. math::
 
-    {\partial{\bf w}\over \partial t} +
-    {\partial{\bf f}_x\over \partial x} +
-    {\partial{\bf f}_y\over \partial y} +
-    {\partial{\bf f}_z\over \partial z} +
-    {\bf g}= 0
+    w_0 = \rho
 
-Note: ${\bf U}\equiv{\bf j}$, where ${\bf j}$ is the fluid density current
+    w_1 = \rho u_1
+
+    w_2 = \rho u_2
+
+    w_3 = \rho u_3
+
+    w_4 = E = p {c_v \over R} + \half \rho \left(u_1^2 + u_2^2 + u_3^2\right)
+
+the opposite conversion is:
+
+.. math::
+
+    \rho = w_0
+
+    u_1 = {w_1\over w_0}
+
+    u_2 = {w_2\over w_0}
+
+    u_3 = {w_3\over w_0}
+
+    E = w_4
+
+    p = {R\over c_v} \left(w_4-{w_1^2+w_2^2+w_3^2\over2w_0}\right)
+
+Note: $\rho {\bf u}\equiv{\bf j}$, where ${\bf j}$ is the fluid density current
 (it's a 3-vector) and also $w^\mu \equiv j^\mu$ (here $w^\mu$ is the same as
 $w_\mu$, e.g. we are a bit sloppy about the notation), where $j^\mu$ is the
 density 4-current (e.g. the first 4 components of ${\bf w}$ are exactly the
@@ -245,7 +240,11 @@ so it will not be present in the final equations (that involve terms like
 $\partial_\mu j^\mu$). We can also just set $c=1$ as usual in relativistic
 physics.
 
-Now we write the spatial derivatives using so called flux Jacobians
+
+Flux Jacobians
+--------------
+
+Now we write the spatial derivatives using the so called flux Jacobians
 ${\bf A}_x$,
 ${\bf A}_y$
 and
@@ -630,11 +629,8 @@ the flow is only in the $x$ direction (thus we only have ${\bf f}_x$):
 
     =
     \int_{\partial\Omega}
-    T^{-1} {\bf f}_x(T {\bf w})
+    T^{-1} {\bf f}_x(T {\bf w}) \varphi^i
     \ \d^2 x
-    \approx
-    \Delta S\,
-    T^{-1} {\bf f}_x(T {\bf w})
 
 Now we need to approximate ${\bf f}_x(T {\bf w})$ somehow.
 We do that by solving the following 1D problem (Riemann problem):
