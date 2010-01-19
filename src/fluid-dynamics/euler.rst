@@ -88,7 +88,7 @@ and $T$ is the temperature of the gas.
 Of those, $V$, $n$, $M$, $R$, $\bar R$ are constants, $\rho$, $e$, $E$ and $T$ are
 functions of $(t, x, y, z)$.
 
-Here are the SI units of various terms in the Euler equations:
+Here are the SI units of the various terms in the Euler equations:
 
 .. math::
 
