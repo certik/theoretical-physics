@@ -28,7 +28,8 @@ conservation:
 
     \partial_\mu(nu^\mu) = 0
 
-By doing the nonrelativistic limit, we get the following Euler equations:
+By doing the nonrelativistic limit (see :ref:`perfect-fluids` for a detailed
+derivation), we get the following Euler equations:
 
 .. math::
 

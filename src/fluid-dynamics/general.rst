@@ -130,6 +130,8 @@ constant:
     \partial_\alpha (n u^\alpha) = 0
 
 
+.. _perfect-fluids:
+
 Perfect Fluids
 ~~~~~~~~~~~~~~
 
