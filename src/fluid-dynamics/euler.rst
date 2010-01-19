@@ -88,7 +88,32 @@ and $T$ is the temperature of the gas.
 Of those, $V$, $n$, $M$, $R$, $\bar R$ are constants, $\rho$, $e$, $E$ and $T$ are
 functions of $(t, x, y, z)$.
 
-In order to calculate $\kappa$, we use $R=c_p-c_v$:
+Here are the SI units of various terms in the Euler equations:
+
+.. math::
+
+    [u] = \rm m\,s^{-1}
+
+    [\rho] = \rm kg\,m^{-3}
+
+    \rm N = kg \, m \, s^{-2}
+
+    \rm J = N\, m = kg \, m^2 \, s^{-2}
+
+    [p] = \rm N\, m^{-2} = kg\, m^{-1}\,s^{-2}
+
+    [\half \rho u^2] = [\rho][u]^2 = \rm kg\,m^{-3}\,m^2\,s^{-2} = kg\, m^{-1}\,s^{-2}
+
+    [E] = \rm J\,m^{-3} = kg\, m^{-1}\,s^{-2}
+
+    [R] = \rm J\,kg^{-1}\,K^{-1} = m^2\,s^{-2}\,K^{-1}
+
+    [c_v] = \rm J\,kg^{-1}\,K^{-1} = m^2\,s^{-2}\,K^{-1}
+
+    [e] = {[E]\over[\rho]} = \rm {kg\,m^{-1}\,s^{-2}\over kg\,m^{-3}} =
+        m^2\,s^{-2}
+
+In order to calculate the specific heat ratio $\kappa$, we use $R=c_p-c_v$:
 
 .. math::
 
