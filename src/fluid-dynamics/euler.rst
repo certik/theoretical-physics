@@ -126,8 +126,76 @@ and the speed of sound is:
     c = \sqrt{\kappa {p \over \rho}}
 
 
-Euler Equations
----------------
+Dimensionless Euler Equations
+-----------------------------
+
+We choose 3 constants $l_r$, $u_r$ and $\rho_r$ - characteristic length of the
+domain, velocity and density. Now we multiply the Euler equations with proper
+combinations of these constants as follows:
+
+.. math::
+
+    \left[{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u})\right]
+    {l_r\over\rho_r u_r}
+    = 0
+
+    \left[{\partial(\rho{\bf u})\over\partial t} + \nabla\cdot(\rho{\bf u}{\bf u}^T)
+        + \nabla p - {\bf f}\right]
+    {l_r\over\rho_r u_r^2}
+    = 0
+
+    \left[{\partial E\over\partial t} + \nabla\cdot({\bf u}(E+p))\right]
+    {l_r\over\rho_r u_r^3}
+    = 0
+
+This is equal to:
+
+.. math::
+
+    {\partial\tilde\rho\over\partial \tilde t} + \tilde\nabla\cdot(\tilde\rho
+    \tilde{\bf u}) = 0
+
+    {\partial(\tilde \rho\tilde{\bf u})\over\partial \tilde t} +
+        \tilde\nabla\cdot(\tilde\rho\tilde{\bf u}\tilde{\bf u}^T)
+        + \tilde\nabla\tilde p - \tilde{\bf f} = 0
+
+    {\partial\tilde E\over\partial\tilde t} + \tilde\nabla\cdot(
+    \tilde{\bf u}(\tilde E+\tilde p)) = 0
+
+where:
+
+.. math::
+
+    t_r = {l_r\over u_r}
+
+    \tilde t = {t\over t_r}
+
+    \tilde \rho = {\rho\over\rho_r}
+
+    \tilde{\bf u} = {{\bf u}\over u_r}
+
+    \tilde\nabla = l_r\nabla
+
+    \tilde E = {E\over \rho_r u^2_r}
+
+    \tilde p = {p\over \rho_r u^2_r}
+
+    \tilde {\bf f} = {\bf f}{l_r\over\rho_r u^2_r}
+
+In particular, if ${\bf f}=(0, 0, -\rho g)$, then
+
+.. math::
+
+    \tilde{\bf f}=(0, 0, -\tilde\rho \tilde g)
+
+    \tilde g = g{l_r\over u^2_r} = g{t_r^2\over l_r}
+
+So the dimensionless Euler equations look exactly the same as the original
+ones, we just need to rescale all the quantities using the relations above.
+
+
+Conservative Form of the Euler Equations
+----------------------------------------
 
 We can write the Euler equations as:
 
@@ -427,72 +495,6 @@ then we can calculate the Jacobians (and we substitute for $p$):
                 {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
        \end{array} \right)
 
-Dimensionless Euler Equations
------------------------------
-
-We choose 3 constants $l_r$, $u_r$ and $\rho_r$ - characteristic length of the
-domain, velocity and density. Now we multiply the Euler equations with proper
-combinations of these constants as follows:
-
-.. math::
-
-    \left[{\partial\rho\over\partial t} + \nabla\cdot(\rho{\bf u})\right]
-    {l_r\over\rho_r u_r}
-    = 0
-
-    \left[{\partial(\rho{\bf u})\over\partial t} + \nabla\cdot(\rho{\bf u}{\bf u}^T)
-        + \nabla p - {\bf f}\right]
-    {l_r\over\rho_r u_r^2}
-    = 0
-
-    \left[{\partial E\over\partial t} + \nabla\cdot({\bf u}(E+p))\right]
-    {l_r\over\rho_r u_r^3}
-    = 0
-
-This is equal to:
-
-.. math::
-
-    {\partial\tilde\rho\over\partial \tilde t} + \tilde\nabla\cdot(\tilde\rho
-    \tilde{\bf u}) = 0
-
-    {\partial(\tilde \rho\tilde{\bf u})\over\partial \tilde t} +
-        \tilde\nabla\cdot(\tilde\rho\tilde{\bf u}\tilde{\bf u}^T)
-        + \tilde\nabla\tilde p - \tilde{\bf f} = 0
-
-    {\partial\tilde E\over\partial\tilde t} + \tilde\nabla\cdot(
-    \tilde{\bf u}(\tilde E+\tilde p)) = 0
-
-where:
-
-.. math::
-
-    t_r = {l_r\over u_r}
-
-    \tilde t = {t\over t_r}
-
-    \tilde \rho = {\rho\over\rho_r}
-
-    \tilde{\bf u} = {{\bf u}\over u_r}
-
-    \tilde\nabla = l_r\nabla
-
-    \tilde E = {E\over \rho_r u^2_r}
-
-    \tilde p = {p\over \rho_r u^2_r}
-
-    \tilde {\bf f} = {\bf f}{l_r\over\rho_r u^2_r}
-
-In particular, if ${\bf f}=(0, 0, -\rho g)$, then
-
-.. math::
-
-    \tilde{\bf f}=(0, 0, -\tilde\rho \tilde g)
-
-    \tilde g = g{l_r\over u^2_r} = g{t_r^2\over l_r}
-
-So the dimensionless Euler equations look exactly the same as the original
-ones, we just need to rescale all the quantities using the relations above.
 
 Weak Formulation
 ----------------
