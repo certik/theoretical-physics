@@ -647,9 +647,173 @@ then we can calculate the Jacobians (and we substitute for $p$):
                 {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
        \end{array} \right)
 
+2D Version of the Equations
+---------------------------
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\bf g}= 0
+
+where:
+
+.. math::
+
+    {\bf w} =
+       \left( \begin{array}{c}
+           \varrho\\ \rho u_1\\ \rho u_2\\ E
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_0 \\
+           w_1 \\
+           w_2 \\
+           w_3 \\
+       \end{array} \right)
+
+    {\bf f}_x =
+       \left( \begin{array}{c}
+           \rho u_1\\
+           \rho u_1^2 + p\\
+           \rho u_1 u_2\\
+           u_1(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_1\\
+           \frac{w_1^2}{w_0} + p\\
+           \frac{w_1w_2}{w_0}\\
+           \frac{w_1}{w_0}(w_3+p)
+       \end{array} \right)
+
+    {\bf f}_y =
+       \left( \begin{array}{c}
+           \rho u_2\\
+           \rho u_2 u_1\\
+           \rho u_2^2 + p\\
+           u_2(E+p)
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_2\\
+           \frac{w_2w_1}{w_0}\\
+           \frac{w_2^2}{w_0} + p\\
+           \frac{w_2}{w_0}(w_3+p)
+       \end{array} \right)
+
+    {\bf g} =
+       \left( \begin{array}{c}
+           0\\
+           -f_x\\
+           -f_y\\
+           0\\
+       \end{array} \right)
+
+    p = {R\over c_v} \left(E-\half \rho\left(u_1^2 + u_2^2\right)\right)
+    = {R\over c_v} \left(w_3-{w_1^2+w_2^2\over2w_0}\right)
+
+Discretizing the time derivative:
+
+.. math::
+
+    {{\bf w}^{n+1}-{\bf w}^n\over \tau} +
+    {\partial{\bf f}_x({\bf w}^{n+1})\over \partial x} +
+    {\partial{\bf f}_y({\bf w}^{n+1})\over \partial y} +
+    {\bf g}= 0
+
+The vector-valued test functions for the above system of equations have the
+form:
+
+.. math::
+
+    \left( \begin{array}{c}
+        \varphi^0 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        \varphi^1 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        \varphi^2 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        \varphi^3 \\
+    \end{array} \right)
+
+After multiplying the equation system with the test functions and integrating
+over the domain $\Omega$, we obtain:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        +{\partial\left({\bf f}_x({\bf w}^{n+1})\right)_i\over \partial x}\varphi^i
+        +{\partial\left({\bf f}_y({\bf w}^{n+1})\right)_i\over \partial y}\varphi^i
+        + g_i \varphi^i
+        \ \d^2 x
+        =0
+
+Now we integrate by parts:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial y}
+        + g_i \varphi^i
+        \ \d^2 x
+        +
+
+    +\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_y
+    \ \d x
+    =0
+
+where ${\bf n} = (n_x, n_y)$ is the outward surface normal to
+$\partial\Omega$. Rearranging:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
+        - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial y}
+        \ \d^2 x
+        +
+
+    +\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^{n+1})\right)_i
+        \varphi^i\, n_y
+    \ \d x
+    =
+    \int_{\Omega} {w_i^n\over\tau}\varphi^i
+        - g_i\varphi^i
+        \ \d^2 x
+
+
 
 Boundary Conditions
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 We rewrite the boundary integral by rotating coordinates, so that
 the flow is only in the $x$ direction (thus we only have ${\bf f}_x$):
