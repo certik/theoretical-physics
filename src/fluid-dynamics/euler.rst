@@ -810,6 +810,46 @@ $\partial\Omega$. Rearranging:
         - g_i\varphi^i
         \ \d^2 x
 
+The 2D flux Jacobians are:
+
+.. math::
+
+    {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+        \left( \begin{array}{cccc}
+            0 & 1 & 0 & 0\\
+            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
+                {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
+                -{R\over c_v}{w_3\over w_0} &
+                {R\over c_v}\\
+            -{w_1w_3\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
+                -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
+                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_1^2\over w_0^2} &
+                -{R\over c_v}{w_1w_3\over w_0^2} &
+                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
+       \end{array} \right)
+
+    {\bf A}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
+        \left( \begin{array}{cccc}
+            0 & 0 & 1 & 0\\
+            -{w_2w_1\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 \\
+            -{w_2^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2\over 2 w_0^2} &
+                -{R\over c_v}{w_1\over w_0} &
+                {2w_2\over w_0} -{R\over c_v}{w_2\over w_0} &
+                {R\over c_v}\\
+            -{w_2w_3\over w_0^2}-{w_2\over w_0^2}{R\over c_v}
+                    \left(w_3-{w_1^2+w_2^2\over 2 w_0}\right)
+                    +{w_2\over w_0}{R\over c_v}{w_1^2+w_2^2\over 2 w_0^2}&
+                -{R\over c_v}{w_2w_1\over w_0^2} &
+                {w_3\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_3-{w_1^2+w_2^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_2^2\over w_0^2} &
+                {w_2\over w_0}+{R\over c_v}{w_2\over w_0} \\
+       \end{array} \right)
+
 
 
 Boundary Conditions
