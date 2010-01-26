@@ -850,6 +850,245 @@ The 2D flux Jacobians are:
                 {w_2\over w_0}+{R\over c_v}{w_2\over w_0} \\
        \end{array} \right)
 
+Sea Breeze Modeling
+-------------------
+
+In our model we make the following assumptions:
+
+.. math::
+
+    f_x = 0
+
+    f_y = 0
+
+    f_z = -\rho g = -w_0 g
+
+    V = 0
+
+    {\partial U\over\partial y}
+    ={\partial V\over\partial y}
+    ={\partial W\over\partial y}
+    ={\partial E\over\partial y}=0
+
+and the boundary condition is as follows:
+
+.. math::
+
+    T'(x, t) = \left(A\over2\right) \sin \left(\pi (t-t_0)\over 24\right)
+        \left(1+\tanh\left(S(x)\over L\right)\right)
+
+    T(x) = T_0 + T'(x, t)
+
+so we get a 2D model:
+
+.. math::
+
+       \frac{\partial}{\partial t} \left( \begin{array}{c}
+           \varrho\\ U\\ 0\\ W\\ E
+       \end{array} \right)
+       + \frac{\partial}{\partial x} \left( \begin{array}{c}
+           U\\
+           \frac{U^2}{\varrho} + p\\
+           0\\
+           \frac{UW}{\varrho}\\
+           \frac{U}{\varrho}(E+p)
+       \end{array} \right)
+       + \frac{\partial}{\partial z} \left( \begin{array}{c}
+           W\\
+           \frac{WU}{\varrho}\\
+           0\\
+           \frac{W^2}{\varrho} + p\\
+           \frac{W}{\varrho}(E+p)
+       \end{array} \right) + \left( \begin{array}{c}
+           0\\
+           0\\
+           0\\
+           \rho g\\
+           0\\
+       \end{array} \right) =
+       \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
+
+    p = {R\over c_v} \left(E-{U^2+W^2\over2\rho}\right)
+
+where we prescribe $R$, $c_v$, $g$ and solve for $\rho$, $U$, $W$ and $E$ as
+functions of $(t, x, z)$. We delete the row for $y$, which only contains zeros
+anyway and introduce:
+
+.. math::
+
+    {\bf w} =
+       \left( \begin{array}{c}
+           \varrho\\ \rho u_1\\ \rho u_3\\ E
+       \end{array} \right)
+       =
+       \left( \begin{array}{c}
+           w_0 \\
+           w_1 \\
+           w_3 \\
+           w_4 \\
+       \end{array} \right)
+
+.. math::
+
+    {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+        \left( \begin{array}{cccc}
+            0 & 1 & 0 & 0\\
+            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
+                {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
+                -{R\over c_v}{w_3\over w_0} &
+                {R\over c_v}\\
+            -{w_1w_3\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
+                -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
+                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_1^2\over w_0^2} &
+                -{R\over c_v}{w_1w_3\over w_0^2} &
+                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
+       \end{array} \right)
+
+    {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
+        \left( \begin{array}{cccc}
+            0 & 0 & 1 & 0\\
+            -{w_3w_1\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
+            -{w_3^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
+                -{R\over c_v}{w_1\over w_0} &
+                {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &
+                {R\over c_v}\\
+            -{w_3w_4\over w_0^2}-{w_3\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
+                    +{w_3\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2}&
+                -{R\over c_v}{w_3w_1\over w_0^2} &
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_3^2\over w_0^2} &
+                {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
+       \end{array} \right)
+
+The weak formulation in 2D is (here $i = 0, 1, 3, 4$):
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
+        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi^i\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          w_j^{n+1} {\partial \varphi^i\over\partial z}
+        \ \d^2 x
+        +
+
+    +\int_{\partial\Omega}
+    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi^i\, n_x
+    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
+        \varphi^i\, n_z
+    \ \d x
+    =
+    \int_{\Omega} {w_i^n\over\tau}\varphi^i
+        - g_i \varphi^i
+        \ \d^2 x
+
+In order to specify the input forms for Hermes, we'll write the weak
+formulation as:
+
+.. math::
+
+    B_{00}(w_0, \varphi^0) + B_{01}(w_1, \varphi^0) +
+        B_{03}(w_3, \varphi^0)+ B_{04}(w_4, \varphi^0) = l_0(\varphi^0)
+
+    B_{10}(w_0, \varphi^1) + B_{11}(w_1, \varphi^1) +
+        B_{13}(w_3, \varphi^1)+ B_{14}(w_4, \varphi^1) = l_1(\varphi^1)
+
+    B_{30}(w_0, \varphi^3) + B_{31}(w_1, \varphi^3) +
+        B_{33}(w_3, \varphi^3)+ B_{34}(w_4, \varphi^3) = l_3(\varphi^3)
+
+    B_{40}(w_0, \varphi^4) + B_{41}(w_1, \varphi^4) +
+        B_{43}(w_3, \varphi^4)+ B_{44}(w_4, \varphi^4) = l_4(\varphi^4)
+
+where the forms are (we write $w_i$ instead of $w_i^{n+1}$):
+
+.. math::
+
+    l_0(\varphi^0) = \int_\Omega {w_0^n\varphi^0\over\tau} \,\d^2 x
+
+    l_1(\varphi^1) = \int_\Omega {w_1^n\varphi^1\over\tau} \,\d^2 x
+
+    l_3(\varphi^3) = \int_\Omega {w_3^n\varphi^3\over\tau} + \rho g \varphi^3
+        \,\d^2 x
+
+    l_4(\varphi^4) = \int_\Omega {w_4^n\varphi^4\over\tau} \,\d^2 x
+
+    B_{ij}(w_j, \varphi^i) = \int_{\Omega} {w_i\over\tau}\varphi^i
+        \delta_{ij}
+        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
+          w_j {\partial \varphi^i\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
+          w_j {\partial \varphi^i\over\partial z}
+        \ \d^2 x
+
+In the last expression we do *not* sum over $i$ nor $j$.
+In particular:
+
+.. math::
+
+    B_{00}(w_0, \varphi^0) = \int_{\Omega} {w_0\over\tau}\varphi^0
+        - \left({\bf A}_x({\bf w}^n)\right)_{00}
+          w_0 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{00}
+          w_0 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega} {w_0\over\tau}\varphi^0
+        \ \d^2 x
+
+    B_{01}(w_1, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{01}
+          w_1 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{01}
+          w_1 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{01}
+          w_1 {\partial \varphi^0\over\partial x}
+        \ \d^2 x
+
+    B_{03}(w_3, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{03}
+          w_3 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{03}
+          w_3 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega}
+        - \left({\bf A}_z({\bf w}^n)\right)_{03}
+          w_3 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+
+    B_{04}(w_4, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{04}
+          w_4 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{04}
+          w_4 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =0
+
+    B_{10}(w_0, \varphi^1) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{10}
+          w_0 {\partial \varphi^1\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{10}
+          w_0 {\partial \varphi^1\over\partial z}
+        \ \d^2 x
+
+    B_{11}(w_1, \varphi^1) = \int_{\Omega} {w_1\over\tau}\varphi^1
+        - \left({\bf A}_x({\bf w}^n)\right)_{11}
+          w_1 {\partial \varphi^1\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{11}
+          w_1 {\partial \varphi^1\over\partial z}
+        \ \d^2 x
+
+    \cdots
 
 
 Boundary Conditions
@@ -1104,245 +1343,6 @@ For $u_1>0$:
 
 
 
-Sea Breeze Modeling
--------------------
-
-In our model we make the following assumptions:
-
-.. math::
-
-    f_x = 0
-
-    f_y = 0
-
-    f_z = -\rho g = -w_0 g
-
-    V = 0
-
-    {\partial U\over\partial y}
-    ={\partial V\over\partial y}
-    ={\partial W\over\partial y}
-    ={\partial E\over\partial y}=0
-
-and the boundary condition is as follows:
-
-.. math::
-
-    T'(x, t) = \left(A\over2\right) \sin \left(\pi (t-t_0)\over 24\right)
-        \left(1+\tanh\left(S(x)\over L\right)\right)
-
-    T(x) = T_0 + T'(x, t)
-
-so we get a 2D model:
-
-.. math::
-
-       \frac{\partial}{\partial t} \left( \begin{array}{c}
-           \varrho\\ U\\ 0\\ W\\ E
-       \end{array} \right)
-       + \frac{\partial}{\partial x} \left( \begin{array}{c}
-           U\\
-           \frac{U^2}{\varrho} + p\\
-           0\\
-           \frac{UW}{\varrho}\\
-           \frac{U}{\varrho}(E+p)
-       \end{array} \right)
-       + \frac{\partial}{\partial z} \left( \begin{array}{c}
-           W\\
-           \frac{WU}{\varrho}\\
-           0\\
-           \frac{W^2}{\varrho} + p\\
-           \frac{W}{\varrho}(E+p)
-       \end{array} \right) + \left( \begin{array}{c}
-           0\\
-           0\\
-           0\\
-           \rho g\\
-           0\\
-       \end{array} \right) =
-       \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
-
-    p = {R\over c_v} \left(E-{U^2+W^2\over2\rho}\right)
-
-where we prescribe $R$, $c_v$, $g$ and solve for $\rho$, $U$, $W$ and $E$ as
-functions of $(t, x, z)$. We delete the row for $y$, which only contains zeros
-anyway and introduce:
-
-.. math::
-
-    {\bf w} =
-       \left( \begin{array}{c}
-           \varrho\\ \rho u_1\\ \rho u_3\\ E
-       \end{array} \right)
-       =
-       \left( \begin{array}{c}
-           w_0 \\
-           w_1 \\
-           w_3 \\
-           w_4 \\
-       \end{array} \right)
-
-.. math::
-
-    {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
-        \left( \begin{array}{cccc}
-            0 & 1 & 0 & 0\\
-            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
-                {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
-                -{R\over c_v}{w_3\over w_0} &
-                {R\over c_v}\\
-            -{w_1w_3\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
-                -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
-                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
-                {w_4\over w_0}+{1\over w_0}{R\over c_v}
-                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                    -{R\over c_v}{w_1^2\over w_0^2} &
-                -{R\over c_v}{w_1w_3\over w_0^2} &
-                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
-       \end{array} \right)
-
-    {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
-        \left( \begin{array}{cccc}
-            0 & 0 & 1 & 0\\
-            -{w_3w_1\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
-            -{w_3^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
-                -{R\over c_v}{w_1\over w_0} &
-                {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &
-                {R\over c_v}\\
-            -{w_3w_4\over w_0^2}-{w_3\over w_0^2}{R\over c_v}
-                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                    +{w_3\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2}&
-                -{R\over c_v}{w_3w_1\over w_0^2} &
-                {w_4\over w_0}+{1\over w_0}{R\over c_v}
-                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                    -{R\over c_v}{w_3^2\over w_0^2} &
-                {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
-       \end{array} \right)
-
-The weak formulation in 2D is (here $i = 0, 1, 3, 4$):
-
-.. math::
-
-    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
-        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
-          w_j^{n+1} {\partial \varphi^i\over\partial x}
-        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
-          w_j^{n+1} {\partial \varphi^i\over\partial z}
-        \ \d^2 x
-        +
-
-    +\int_{\partial\Omega}
-    \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j^{n+1}
-        \varphi^i\, n_x
-    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j^{n+1}
-        \varphi^i\, n_z
-    \ \d x
-    =
-    \int_{\Omega} {w_i^n\over\tau}\varphi^i
-        - g_i \varphi^i
-        \ \d^2 x
-
-In order to specify the input forms for Hermes, we'll write the weak
-formulation as:
-
-.. math::
-
-    B_{00}(w_0, \varphi^0) + B_{01}(w_1, \varphi^0) +
-        B_{03}(w_3, \varphi^0)+ B_{04}(w_4, \varphi^0) = l_0(\varphi^0)
-
-    B_{10}(w_0, \varphi^1) + B_{11}(w_1, \varphi^1) +
-        B_{13}(w_3, \varphi^1)+ B_{14}(w_4, \varphi^1) = l_1(\varphi^1)
-
-    B_{30}(w_0, \varphi^3) + B_{31}(w_1, \varphi^3) +
-        B_{33}(w_3, \varphi^3)+ B_{34}(w_4, \varphi^3) = l_3(\varphi^3)
-
-    B_{40}(w_0, \varphi^4) + B_{41}(w_1, \varphi^4) +
-        B_{43}(w_3, \varphi^4)+ B_{44}(w_4, \varphi^4) = l_4(\varphi^4)
-
-where the forms are (we write $w_i$ instead of $w_i^{n+1}$):
-
-.. math::
-
-    l_0(\varphi^0) = \int_\Omega {w_0^n\varphi^0\over\tau} \,\d^2 x
-
-    l_1(\varphi^1) = \int_\Omega {w_1^n\varphi^1\over\tau} \,\d^2 x
-
-    l_3(\varphi^3) = \int_\Omega {w_3^n\varphi^3\over\tau} + \rho g \varphi^3
-        \,\d^2 x
-
-    l_4(\varphi^4) = \int_\Omega {w_4^n\varphi^4\over\tau} \,\d^2 x
-
-    B_{ij}(w_j, \varphi^i) = \int_{\Omega} {w_i\over\tau}\varphi^i
-        \delta_{ij}
-        - \left({\bf A}_x({\bf w}^n)\right)_{ij}
-          w_j {\partial \varphi^i\over\partial x}
-        - \left({\bf A}_z({\bf w}^n)\right)_{ij}
-          w_j {\partial \varphi^i\over\partial z}
-        \ \d^2 x
-
-In the last expression we do *not* sum over $i$ nor $j$.
-In particular:
-
-.. math::
-
-    B_{00}(w_0, \varphi^0) = \int_{\Omega} {w_0\over\tau}\varphi^0
-        - \left({\bf A}_x({\bf w}^n)\right)_{00}
-          w_0 {\partial \varphi^0\over\partial x}
-        - \left({\bf A}_z({\bf w}^n)\right)_{00}
-          w_0 {\partial \varphi^0\over\partial z}
-        \ \d^2 x
-        =
-        \int_{\Omega} {w_0\over\tau}\varphi^0
-        \ \d^2 x
-
-    B_{01}(w_1, \varphi^0) = \int_{\Omega}
-        - \left({\bf A}_x({\bf w}^n)\right)_{01}
-          w_1 {\partial \varphi^0\over\partial x}
-        - \left({\bf A}_z({\bf w}^n)\right)_{01}
-          w_1 {\partial \varphi^0\over\partial z}
-        \ \d^2 x
-        =
-        \int_{\Omega}
-        - \left({\bf A}_x({\bf w}^n)\right)_{01}
-          w_1 {\partial \varphi^0\over\partial x}
-        \ \d^2 x
-
-    B_{03}(w_3, \varphi^0) = \int_{\Omega}
-        - \left({\bf A}_x({\bf w}^n)\right)_{03}
-          w_3 {\partial \varphi^0\over\partial x}
-        - \left({\bf A}_z({\bf w}^n)\right)_{03}
-          w_3 {\partial \varphi^0\over\partial z}
-        \ \d^2 x
-        =
-        \int_{\Omega}
-        - \left({\bf A}_z({\bf w}^n)\right)_{03}
-          w_3 {\partial \varphi^0\over\partial z}
-        \ \d^2 x
-
-    B_{04}(w_4, \varphi^0) = \int_{\Omega}
-        - \left({\bf A}_x({\bf w}^n)\right)_{04}
-          w_4 {\partial \varphi^0\over\partial x}
-        - \left({\bf A}_z({\bf w}^n)\right)_{04}
-          w_4 {\partial \varphi^0\over\partial z}
-        \ \d^2 x
-        =0
-
-    B_{10}(w_0, \varphi^1) = \int_{\Omega}
-        - \left({\bf A}_x({\bf w}^n)\right)_{10}
-          w_0 {\partial \varphi^1\over\partial x}
-        - \left({\bf A}_z({\bf w}^n)\right)_{10}
-          w_0 {\partial \varphi^1\over\partial z}
-        \ \d^2 x
-
-    B_{11}(w_1, \varphi^1) = \int_{\Omega} {w_1\over\tau}\varphi^1
-        - \left({\bf A}_x({\bf w}^n)\right)_{11}
-          w_1 {\partial \varphi^1\over\partial x}
-        - \left({\bf A}_z({\bf w}^n)\right)_{11}
-          w_1 {\partial \varphi^1\over\partial z}
-        \ \d^2 x
-
-    \cdots
 
 Boundary Conditions
 ~~~~~~~~~~~~~~~~~~~
