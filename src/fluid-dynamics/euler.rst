@@ -915,6 +915,15 @@ In our model we make the following assumptions:
     ={\partial W\over\partial y}
     ={\partial E\over\partial y}=0
 
+and the boundary condition is as follows:
+
+.. math::
+
+    T'(x, t) = \left(A\over2\right) \sin \left(\pi (t-t_0)\over 24\right)
+        \left(1+\tanh\left(S(x)\over L\right)\right)
+
+    T(x) = T_0 + T'(x, t)
+
 so we get a 2D model:
 
 .. math::
@@ -1244,6 +1253,54 @@ where:
 So all the components $i\neq 1$ of the surface integral are zero, and for $i=1$
 the test function $\varphi^1$ is not there, because we prescribe the Dirichlet
 BC $w^1=0$, so the surface integral vanishes for all $i$.
+
+Newton Method
+-------------
+
+The residual is:
+
+.. math::
+
+    F_{i,m}(Y^{n+1}) = \int_\Omega {w_{i,m}(y_m^{n+1}) - w_{i,m}(y^n)\over\tau}
+        \varphi_{i, m}
+        -f_{x,m}(w(y^n)){\partial \varphi_{i, m}\over\partial x}
+        -f_{y,m}(w(y^n)){\partial \varphi_{i, m}\over\partial y}
+        +\delta_{3, m} g \varphi_{i, m} \,\d x\, \d y
+        +
+
+    - \int_{\partial\Omega}
+        f_{x,m}(w(y^n))\varphi_{i, m}\nu_x
+        +f_{y,m}(w(y^n))\varphi_{i, m}\nu_y
+        \,
+        \d S = 0
+
+where $m = 0, 1, 2, 4$ numbers the equations, $i = 1, 2, ..., M$ numbers the
+finite element basis functions, $N = 4M$,
+$Y = (y_0^1, y_1^1, y_2^1, y_3^1, y_0^2, y_1^2, ...)$.
+The Jacobian is:
+
+.. math::
+
+    J(Y^n) = {\partial F_{i, m}\over\partial y_{r, s}} (Y^n) =
+        \int_\Omega {\varphi_{r, s}\over\tau} \varphi_{i, m}
+        -A_{x, m, s}(w(y^n)) \varphi_{r, s} {\partial\varphi_{i,
+        m}\over\partial x}
+        -A_{y, m, s}(w(y^n)) \varphi_{r, s} {\partial\varphi_{i,
+        m}\over\partial y}
+        \,\d x\,\d y
+
+        +
+        \int_{\partial\Omega}
+        A_{x, m, s}(w(y^n)) \varphi_{r, s} \varphi_{i, m}\nu_x
+        +
+        A_{y, m, s}(w(y^n)) \varphi_{r, s} \varphi_{i, m}\nu_y
+        \,\d S
+
+And the Newton method then is:
+
+.. math::
+
+    J(Y^n) \delta Y^{n+1} = -F(Y^n)
 
 
 Older notes
