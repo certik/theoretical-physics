@@ -494,8 +494,8 @@ In particular, if ${\bf f}=(0, 0, -\rho g)$, then
 So the dimensionless Euler equations look exactly the same as the original
 ones, we just need to rescale all the quantities using the relations above.
 
-FEM Formulation
----------------
+Weak Formulation
+----------------
 
 The Euler equations:
 
@@ -507,33 +507,19 @@ The Euler equations:
     {\partial{\bf f}_z\over \partial z} +
     {\bf g}= 0
 
-or:
-
-.. math::
-
-    {\partial{\bf w}\over \partial t} +
-    {\bf A}_x({\bf w})
-    {\partial{\bf w}\over \partial x} +
-    {\bf A}_y({\bf w})
-    {\partial{\bf w}\over \partial y} +
-    {\bf A}_z({\bf w})
-    {\partial{\bf w}\over \partial z} +
-    {\bf g}= 0
-
-are nonlinear. We first linearize the time derivative:
+are nonlinear. The time-derivative is approximated using the implicit Euler
+method
 
 .. math::
 
     {{\bf w}^{n+1}-{\bf w}^n\over \tau} +
-    {\bf A}_x({\bf w}^{n+1})
-    {\partial{\bf w}^{n+1}\over \partial x} +
-    {\bf A}_y({\bf w}^{n+1})
-    {\partial{\bf w}^{n+1}\over \partial y} +
-    {\bf A}_z({\bf w}^{n+1})
-    {\partial{\bf w}^{n+1}\over \partial z} +
+    {\partial{\bf f}_x({\bf w}^{n+1})\over \partial x} +
+    {\partial{\bf f}_y({\bf w}^{n+1})\over \partial y} +
+    {\partial{\bf f}_z({\bf w}^{n+1})\over \partial z} +
     {\bf g}= 0
 
-Then we multiply by the test functions (one by one):
+The vector-valued test functions for the above system of equations have the
+form:
 
 .. math::
 
@@ -573,46 +559,41 @@ Then we multiply by the test functions (one by one):
         \varphi^4 \\
     \end{array} \right)
 
-and integrate over the 3D domain $\Omega$, so we get (here the index
-$i=0, 1, 2, 3, 4$ is numbering the 5 equations, so we are *not* summing over
-it):
+After multiplying the equation system with the test functions and integrating
+over the domain $\Omega$, we obtain (here the index $i=0, 1, 2, 3, 4$ is
+numbering the 5 equations, so we are *not* summing over it):
 
 .. math::
 
     \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
-        + \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}
-          {\partial w_j^{n+1}\over\partial x} \varphi^i
-        + \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}
-          {\partial w_j^{n+1}\over\partial y} \varphi^i
-        + \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}
-          {\partial w_j^{n+1}\over\partial z} \varphi^i
+        +{\partial\left({\bf f}_x({\bf w}^{n+1})\right)_i\over \partial x}\varphi^i
+        +{\partial\left({\bf f}_y({\bf w}^{n+1})\right)_i\over \partial y}\varphi^i
+        +{\partial\left({\bf f}_z({\bf w}^{n+1})\right)_i\over \partial z}\varphi^i
         + g_i \varphi^i
         \ \d^3 x
         =0
 
-Now we integrate by parts and use the homogeneity property (
-$w_j {\partial\left({\bf A}_z({\bf w}^n)\right)_{ij}\over\partial x}
-\varphi^i = 0$):
+Now we integrate by parts:
 
 .. math::
 
     \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
-        - \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}
-          w_j^{n+1} {\partial \varphi^i\over\partial x}
-        - \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}
-          w_j^{n+1} {\partial \varphi^i\over\partial y}
-        - \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}
-          w_j^{n+1} {\partial \varphi^i\over\partial z}
+        - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial y}
+        - \left({\bf f}_z({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial z}
         + g_i \varphi^i
         \ \d^3 x
         +
 
     +\int_{\partial\Omega}
-    \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}w_j^{n+1}
+        \left({\bf f}_x({\bf w}^{n+1})\right)_i
         \varphi^i\, n_x
-    + \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}w_j^{n+1}
+    + \left({\bf f}_y({\bf w}^{n+1})\right)_i
         \varphi^i\, n_y
-    + \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}w_j^{n+1}
+    + \left({\bf f}_z({\bf w}^{n+1})\right)_i
         \varphi^i\, n_z
     \ \d^2 x
     =0
@@ -623,17 +604,17 @@ $\partial\Omega$. Rearranging:
 .. math::
 
     \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
-        - \left({\bf A}_x({\bf w}^{n+1})\right)_{ij}
-          w_j^{n+1} {\partial \varphi^i\over\partial x}
-        - \left({\bf A}_y({\bf w}^{n+1})\right)_{ij}
-          w_j^{n+1} {\partial \varphi^i\over\partial y}
-        - \left({\bf A}_z({\bf w}^{n+1})\right)_{ij}
-          w_j^{n+1} {\partial \varphi^i\over\partial z}
+        - \left({\bf f}_x({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial y}
+        - \left({\bf f}_z({\bf w}^{n+1})\right)_i
+          {\partial \varphi^i\over\partial z}
         \ \d^3 x
         +
 
     +\int_{\partial\Omega}
-    \left({\bf f}_x({\bf w}^{n+1})\right)_i
+        \left({\bf f}_x({\bf w}^{n+1})\right)_i
         \varphi^i\, n_x
     + \left({\bf f}_y({\bf w}^{n+1})\right)_i
         \varphi^i\, n_y
@@ -642,12 +623,25 @@ $\partial\Omega$. Rearranging:
     \ \d^2 x
     =
     \int_{\Omega} {w_i^n\over\tau}\varphi^i
-        - g_i \varphi^i
+        - g_i\varphi^i
         \ \d^3 x
 
 We can then linearize this for example by taking the flux jacobians
 ${\bf A}_x({\bf w}^{n+1})$ on the previous time level
 ${\bf A}_x({\bf w}^n)$.
+
+The finite element formulation is obtained from here by replacing in the
+standard way the unknown solution $w^{n+1}$ by a piecewise-polynomial unknown
+function
+
+.. math::
+
+    w_h^{n+1} = \sum_{k=1}^N y_k \psi_k,
+
+where $\psi_k$ are the basis functions of the piecewise-polynomial finite
+element space.  This turns the above weak formulation into a finite number of
+nonlinear algebraic equations of the form $F(Y) = 0$ that will be solved using
+the Newton's method.
 
 Boundary Conditions
 ~~~~~~~~~~~~~~~~~~~
