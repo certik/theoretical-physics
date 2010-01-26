@@ -853,22 +853,13 @@ The 2D flux Jacobians are:
 Sea Breeze Modeling
 -------------------
 
-In our model we make the following assumptions:
+In our 2D model we make the following assumptions:
 
 .. math::
 
     f_x = 0
 
-    f_y = 0
-
-    f_z = -\rho g = -w_0 g
-
-    V = 0
-
-    {\partial U\over\partial y}
-    ={\partial V\over\partial y}
-    ={\partial W\over\partial y}
-    ={\partial E\over\partial y}=0
+    f_y = -\rho g = -w_0 g
 
 and the boundary condition is as follows:
 
@@ -878,93 +869,6 @@ and the boundary condition is as follows:
         \left(1+\tanh\left(S(x)\over L\right)\right)
 
     T(x) = T_0 + T'(x, t)
-
-so we get a 2D model:
-
-.. math::
-
-       \frac{\partial}{\partial t} \left( \begin{array}{c}
-           \varrho\\ U\\ 0\\ W\\ E
-       \end{array} \right)
-       + \frac{\partial}{\partial x} \left( \begin{array}{c}
-           U\\
-           \frac{U^2}{\varrho} + p\\
-           0\\
-           \frac{UW}{\varrho}\\
-           \frac{U}{\varrho}(E+p)
-       \end{array} \right)
-       + \frac{\partial}{\partial z} \left( \begin{array}{c}
-           W\\
-           \frac{WU}{\varrho}\\
-           0\\
-           \frac{W^2}{\varrho} + p\\
-           \frac{W}{\varrho}(E+p)
-       \end{array} \right) + \left( \begin{array}{c}
-           0\\
-           0\\
-           0\\
-           \rho g\\
-           0\\
-       \end{array} \right) =
-       \left( \begin{array}{c} 0\\ 0\\ 0\\ 0\\ 0 \end{array} \right)
-
-    p = {R\over c_v} \left(E-{U^2+W^2\over2\rho}\right)
-
-where we prescribe $R$, $c_v$, $g$ and solve for $\rho$, $U$, $W$ and $E$ as
-functions of $(t, x, z)$. We delete the row for $y$, which only contains zeros
-anyway and introduce:
-
-.. math::
-
-    {\bf w} =
-       \left( \begin{array}{c}
-           \varrho\\ \rho u_1\\ \rho u_3\\ E
-       \end{array} \right)
-       =
-       \left( \begin{array}{c}
-           w_0 \\
-           w_1 \\
-           w_3 \\
-           w_4 \\
-       \end{array} \right)
-
-.. math::
-
-    {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
-        \left( \begin{array}{cccc}
-            0 & 1 & 0 & 0\\
-            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
-                {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
-                -{R\over c_v}{w_3\over w_0} &
-                {R\over c_v}\\
-            -{w_1w_3\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
-                -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
-                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
-                {w_4\over w_0}+{1\over w_0}{R\over c_v}
-                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                    -{R\over c_v}{w_1^2\over w_0^2} &
-                -{R\over c_v}{w_1w_3\over w_0^2} &
-                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
-       \end{array} \right)
-
-    {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
-        \left( \begin{array}{cccc}
-            0 & 0 & 1 & 0\\
-            -{w_3w_1\over w_0^2} & {w_3\over w_0} & {w_1\over w_0} & 0 \\
-            -{w_3^2\over w_0^2} +{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2} &
-                -{R\over c_v}{w_1\over w_0} &
-                {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &
-                {R\over c_v}\\
-            -{w_3w_4\over w_0^2}-{w_3\over w_0^2}{R\over c_v}
-                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                    +{w_3\over w_0}{R\over c_v}{w_1^2+w_3^2\over 2 w_0^2}&
-                -{R\over c_v}{w_3w_1\over w_0^2} &
-                {w_4\over w_0}+{1\over w_0}{R\over c_v}
-                    \left(w_4-{w_1^2+w_3^2\over 2 w_0}\right)
-                    -{R\over c_v}{w_3^2\over w_0^2} &
-                {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
-       \end{array} \right)
 
 The weak formulation in 2D is (here $i = 0, 1, 3, 4$):
 
