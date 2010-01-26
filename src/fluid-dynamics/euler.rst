@@ -870,7 +870,7 @@ and the boundary condition is as follows:
 
     T(x) = T_0 + T'(x, t)
 
-The weak formulation in 2D is (here $i = 0, 1, 3, 4$):
+The weak formulation in 2D is (here $i = 0, 1, 2, 3$):
 
 .. math::
 
@@ -899,16 +899,16 @@ formulation as:
 .. math::
 
     B_{00}(w_0, \varphi^0) + B_{01}(w_1, \varphi^0) +
-        B_{03}(w_3, \varphi^0)+ B_{04}(w_4, \varphi^0) = l_0(\varphi^0)
+        B_{02}(w_2, \varphi^0)+ B_{03}(w_3, \varphi^0) = l_0(\varphi^0)
 
     B_{10}(w_0, \varphi^1) + B_{11}(w_1, \varphi^1) +
-        B_{13}(w_3, \varphi^1)+ B_{14}(w_4, \varphi^1) = l_1(\varphi^1)
+        B_{12}(w_2, \varphi^1)+ B_{13}(w_3, \varphi^1) = l_1(\varphi^1)
+
+    B_{20}(w_0, \varphi^2) + B_{21}(w_1, \varphi^2) +
+        B_{22}(w_2, \varphi^2)+ B_{23}(w_3, \varphi^2) = l_2(\varphi^2)
 
     B_{30}(w_0, \varphi^3) + B_{31}(w_1, \varphi^3) +
-        B_{33}(w_3, \varphi^3)+ B_{34}(w_4, \varphi^3) = l_3(\varphi^3)
-
-    B_{40}(w_0, \varphi^4) + B_{41}(w_1, \varphi^4) +
-        B_{43}(w_3, \varphi^4)+ B_{44}(w_4, \varphi^4) = l_4(\varphi^4)
+        B_{32}(w_2, \varphi^3)+ B_{33}(w_3, \varphi^3) = l_3(\varphi^3)
 
 where the forms are (we write $w_i$ instead of $w_i^{n+1}$):
 
@@ -918,10 +918,10 @@ where the forms are (we write $w_i$ instead of $w_i^{n+1}$):
 
     l_1(\varphi^1) = \int_\Omega {w_1^n\varphi^1\over\tau} \,\d^2 x
 
-    l_3(\varphi^3) = \int_\Omega {w_3^n\varphi^3\over\tau} + \rho g \varphi^3
+    l_2(\varphi^2) = \int_\Omega {w_2^n\varphi^2\over\tau} + \rho g \varphi^2
         \,\d^2 x
 
-    l_4(\varphi^4) = \int_\Omega {w_4^n\varphi^4\over\tau} \,\d^2 x
+    l_3(\varphi^3) = \int_\Omega {w_3^n\varphi^3\over\tau} \,\d^2 x
 
     B_{ij}(w_j, \varphi^i) = \int_{\Omega} {w_i\over\tau}\varphi^i
         \delta_{ij}
@@ -958,23 +958,23 @@ In particular:
           w_1 {\partial \varphi^0\over\partial x}
         \ \d^2 x
 
+    B_{02}(w_2, \varphi^0) = \int_{\Omega}
+        - \left({\bf A}_x({\bf w}^n)\right)_{02}
+          w_2 {\partial \varphi^0\over\partial x}
+        - \left({\bf A}_z({\bf w}^n)\right)_{02}
+          w_2 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+        =
+        \int_{\Omega}
+        - \left({\bf A}_z({\bf w}^n)\right)_{02}
+          w_2 {\partial \varphi^0\over\partial z}
+        \ \d^2 x
+
     B_{03}(w_3, \varphi^0) = \int_{\Omega}
         - \left({\bf A}_x({\bf w}^n)\right)_{03}
           w_3 {\partial \varphi^0\over\partial x}
         - \left({\bf A}_z({\bf w}^n)\right)_{03}
           w_3 {\partial \varphi^0\over\partial z}
-        \ \d^2 x
-        =
-        \int_{\Omega}
-        - \left({\bf A}_z({\bf w}^n)\right)_{03}
-          w_3 {\partial \varphi^0\over\partial z}
-        \ \d^2 x
-
-    B_{04}(w_4, \varphi^0) = \int_{\Omega}
-        - \left({\bf A}_x({\bf w}^n)\right)_{04}
-          w_4 {\partial \varphi^0\over\partial x}
-        - \left({\bf A}_z({\bf w}^n)\right)_{04}
-          w_4 {\partial \varphi^0\over\partial z}
         \ \d^2 x
         =0
 
