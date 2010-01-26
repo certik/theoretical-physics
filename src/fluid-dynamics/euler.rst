@@ -349,151 +349,6 @@ $\partial_\mu j^\mu$). We can also just set $c=1$ as usual in relativistic
 physics.
 
 
-Flux Jacobians
---------------
-
-Now we write the spatial derivatives using the so called flux Jacobians
-${\bf A}_x$,
-${\bf A}_y$
-and
-${\bf A}_z$:
-
-.. math::
-
-    {\partial{\bf f}_x\over \partial x} =
-    {\partial{\bf f}_x\over \partial {\bf w}}
-    {\partial{\bf w}\over \partial x} \equiv
-    {\bf A}_x
-    {\partial{\bf w}\over \partial x}
-
-    {\bf A}_x={\bf A}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}
-
-Similarly for $y$ and $z$, so we get:
-
-.. math::
-
-    {\partial{\bf w}\over \partial t} +
-    {\bf A}_x
-    {\partial{\bf w}\over \partial x} +
-    {\bf A}_y
-    {\partial{\bf w}\over \partial y} +
-    {\bf A}_z
-    {\partial{\bf w}\over \partial z} +
-    {\bf g}= 0
-
-One nice thing about these particular
-${\bf f}_x$,
-${\bf f}_y$ and
-${\bf f}_z$ functions is that they are homogeneous of degree 1:
-
-.. math::
-
-    {\bf f}_x(\lambda{\bf w})
-    =\lambda\,{\bf f}_x({\bf w})
-
-so the Euler equation/formula for the homogeneous function is:
-
-.. math::
-
-    {\bf w}\cdot {\partial {\bf f}_x({\bf w})\over\partial {\bf w}}
-    ={\bf f}_x({\bf w})
-
-    {\bf w}\cdot {\bf A}_x ={\bf f}_x({\bf w})
-
-So both the ${\bf f}_x$ and it's derivative can be nicely factored out using
-the flux Jacobian:
-
-.. math::
-
-    {\bf f}_x = {\bf A}_x\, {\bf w}
-
-    {\partial{\bf f}_x\over \partial x} =
-        {\bf A}_x {\partial{\bf w}\over \partial x}
-
-by differentiating the first equation and substracting the second, we get:
-
-.. math::
-
-    {\partial {\bf A}_x\over\partial x}\, {\bf w} = 0
-
-similarly for $y$ and $z$.
-To calculate the Jacobians, we'll need:
-
-.. math::
-
-    {\partial p\over \partial {\bf w}}=
-        {R\over c_v}
-        \left( \begin{array}{ccccc}
-            {w_1^2+w_2^2+w_3^2\over 2w_0^2} & -{w_1\over w_0} & -{w_2\over w_0}
-                & -{w_3\over w_0} & 1\\
-        \end{array} \right)
-
-then we can calculate the Jacobians (and we substitute for $p$):
-
-.. math::
-
-    {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
-        \left( \begin{array}{ccccc}
-            0 & 1 & 0 & 0 & 0\\
-            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
-                {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
-                -{R\over c_v}{w_2\over w_0} &
-                -{R\over c_v}{w_3\over w_0} &
-                {R\over c_v}\\
-            -{w_1w_2\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 & 0\\
-            -{w_1w_3\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
-                -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
-                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
-                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
-                {w_4\over w_0}+{1\over w_0}{R\over c_v}
-                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
-                    -{R\over c_v}{w_1^2\over w_0^2} &
-                -{R\over c_v}{w_1w_2\over w_0^2} &
-                -{R\over c_v}{w_1w_3\over w_0^2} &
-                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
-       \end{array} \right)
-
-    {\bf A}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
-        \left( \begin{array}{ccccc}
-            0 & 0 & 1 & 0 & 0\\
-            -{w_2w_1\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 & 0\\
-            -{w_2^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
-                -{R\over c_v}{w_1\over w_0} &
-                {2w_2\over w_0}-{R\over c_v}{w_2\over w_0} &
-                -{R\over c_v}{w_3\over w_0} &
-                {R\over c_v}\\
-            -{w_2w_3\over w_0^2} & 0 & {w_3\over w_0} & {w_2\over w_0} & 0 \\
-                -{w_2w_4\over w_0^2}-{w_2\over w_0^2}{R\over c_v}
-                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
-                    +{w_2\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
-                -{R\over c_v}{w_2w_1\over w_0^2} &
-                {w_4\over w_0}+{1\over w_0}{R\over c_v}
-                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
-                    -{R\over c_v}{w_2^2\over w_0^2} &
-                -{R\over c_v}{w_2w_3\over w_0^2} &
-                {w_2\over w_0}+{R\over c_v}{w_2\over w_0} \\
-       \end{array} \right)
-
-    {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
-        \left( \begin{array}{ccccc}
-            0 & 0 & 0 & 1 & 0\\
-            -{w_3w_1\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
-            -{w_3w_2\over w_0^2} & 0 & {w_3\over w_0} & {w_2\over w_0} & 0 \\
-            -{w_3^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
-                -{R\over c_v}{w_1\over w_0} &
-                -{R\over c_v}{w_2\over w_0} &
-                {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &
-                {R\over c_v}\\
-                -{w_3w_4\over w_0^2}-{w_3\over w_0^2}{R\over c_v}
-                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
-                    +{w_3\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
-                -{R\over c_v}{w_3w_1\over w_0^2} &
-                -{R\over c_v}{w_3w_2\over w_0^2} &
-                {w_4\over w_0}+{1\over w_0}{R\over c_v}
-                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
-                    -{R\over c_v}{w_3^2\over w_0^2} &
-                {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
-       \end{array} \right)
 
 
 Weak Formulation
@@ -644,6 +499,154 @@ where $\psi_k$ are the basis functions of the piecewise-polynomial finite
 element space.  This turns the above weak formulation into a finite number of
 nonlinear algebraic equations of the form $F(Y) = 0$ that will be solved using
 the Newton's method.
+
+
+Flux Jacobians
+--------------
+
+Now we write the spatial derivatives using the so called flux Jacobians
+${\bf A}_x$,
+${\bf A}_y$
+and
+${\bf A}_z$:
+
+.. math::
+
+    {\partial{\bf f}_x\over \partial x} =
+    {\partial{\bf f}_x\over \partial {\bf w}}
+    {\partial{\bf w}\over \partial x} \equiv
+    {\bf A}_x
+    {\partial{\bf w}\over \partial x}
+
+    {\bf A}_x={\bf A}_x({\bf w})\equiv{\partial{\bf f}_x\over \partial {\bf w}}
+
+Similarly for $y$ and $z$, so we get:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\bf A}_x
+    {\partial{\bf w}\over \partial x} +
+    {\bf A}_y
+    {\partial{\bf w}\over \partial y} +
+    {\bf A}_z
+    {\partial{\bf w}\over \partial z} +
+    {\bf g}= 0
+
+One nice thing about these particular
+${\bf f}_x$,
+${\bf f}_y$ and
+${\bf f}_z$ functions is that they are homogeneous of degree 1:
+
+.. math::
+
+    {\bf f}_x(\lambda{\bf w})
+    =\lambda\,{\bf f}_x({\bf w})
+
+so the Euler equation/formula for the homogeneous function is:
+
+.. math::
+
+    {\bf w}\cdot {\partial {\bf f}_x({\bf w})\over\partial {\bf w}}
+    ={\bf f}_x({\bf w})
+
+    {\bf w}\cdot {\bf A}_x ={\bf f}_x({\bf w})
+
+So both the ${\bf f}_x$ and it's derivative can be nicely factored out using
+the flux Jacobian:
+
+.. math::
+
+    {\bf f}_x = {\bf A}_x\, {\bf w}
+
+    {\partial{\bf f}_x\over \partial x} =
+        {\bf A}_x {\partial{\bf w}\over \partial x}
+
+by differentiating the first equation and substracting the second, we get:
+
+.. math::
+
+    {\partial {\bf A}_x\over\partial x}\, {\bf w} = 0
+
+similarly for $y$ and $z$.
+To calculate the Jacobians, we'll need:
+
+.. math::
+
+    {\partial p\over \partial {\bf w}}=
+        {R\over c_v}
+        \left( \begin{array}{ccccc}
+            {w_1^2+w_2^2+w_3^2\over 2w_0^2} & -{w_1\over w_0} & -{w_2\over w_0}
+                & -{w_3\over w_0} & 1\\
+        \end{array} \right)
+
+then we can calculate the Jacobians (and we substitute for $p$):
+
+.. math::
+
+    {\bf A}_x({\bf w}) = {\partial{\bf f}_x\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 1 & 0 & 0 & 0\\
+            -{w_1^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+                {2w_1\over w_0}-{R\over c_v}{w_1\over w_0} &
+                -{R\over c_v}{w_2\over w_0} &
+                -{R\over c_v}{w_3\over w_0} &
+                {R\over c_v}\\
+            -{w_1w_2\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 & 0\\
+            -{w_1w_3\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
+                -{w_1w_4\over w_0^2}-{w_1\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    +{w_1\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_1^2\over w_0^2} &
+                -{R\over c_v}{w_1w_2\over w_0^2} &
+                -{R\over c_v}{w_1w_3\over w_0^2} &
+                {w_1\over w_0}+{R\over c_v}{w_1\over w_0} \\
+       \end{array} \right)
+
+    {\bf A}_y({\bf w}) = {\partial{\bf f}_y\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 0 & 1 & 0 & 0\\
+            -{w_2w_1\over w_0^2} & {w_2\over w_0} & {w_1\over w_0} & 0 & 0\\
+            -{w_2^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+                -{R\over c_v}{w_1\over w_0} &
+                {2w_2\over w_0}-{R\over c_v}{w_2\over w_0} &
+                -{R\over c_v}{w_3\over w_0} &
+                {R\over c_v}\\
+            -{w_2w_3\over w_0^2} & 0 & {w_3\over w_0} & {w_2\over w_0} & 0 \\
+                -{w_2w_4\over w_0^2}-{w_2\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    +{w_2\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
+                -{R\over c_v}{w_2w_1\over w_0^2} &
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_2^2\over w_0^2} &
+                -{R\over c_v}{w_2w_3\over w_0^2} &
+                {w_2\over w_0}+{R\over c_v}{w_2\over w_0} \\
+       \end{array} \right)
+
+    {\bf A}_z({\bf w}) = {\partial{\bf f}_z\over \partial {\bf w}}=
+        \left( \begin{array}{ccccc}
+            0 & 0 & 0 & 1 & 0\\
+            -{w_3w_1\over w_0^2} & {w_3\over w_0} & 0 & {w_1\over w_0} & 0 \\
+            -{w_3w_2\over w_0^2} & 0 & {w_3\over w_0} & {w_2\over w_0} & 0 \\
+            -{w_3^2\over w_0^2} +{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2} &
+                -{R\over c_v}{w_1\over w_0} &
+                -{R\over c_v}{w_2\over w_0} &
+                {2w_3\over w_0} -{R\over c_v}{w_3\over w_0} &
+                {R\over c_v}\\
+                -{w_3w_4\over w_0^2}-{w_3\over w_0^2}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    +{w_3\over w_0}{R\over c_v}{w_1^2+w_2^2+w_3^2\over 2 w_0^2}&
+                -{R\over c_v}{w_3w_1\over w_0^2} &
+                -{R\over c_v}{w_3w_2\over w_0^2} &
+                {w_4\over w_0}+{1\over w_0}{R\over c_v}
+                    \left(w_4-{w_1^2+w_2^2+w_3^2\over 2 w_0}\right)
+                    -{R\over c_v}{w_3^2\over w_0^2} &
+                {w_3\over w_0}+{R\over c_v}{w_3\over w_0} \\
+       \end{array} \right)
+
 
 Boundary Conditions
 ~~~~~~~~~~~~~~~~~~~
