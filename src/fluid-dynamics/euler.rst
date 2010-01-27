@@ -1248,23 +1248,23 @@ For $u_1>0$:
 
 
 
-Boundary Conditions
-~~~~~~~~~~~~~~~~~~~
+Boundary Conditions for the Sea Breeze Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the boundary (line) integral we prescribe $w_4^{n+1}$ using a Dirichlet
+In the boundary (line) integral we prescribe $w_3^{n+1}$ using a Dirichlet
 condition and calculate it at each iteration using:
 
 .. math::
 
-    w_4^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
-        {w_1^2+w_3^2\over 2w_0}
+    w_3^{n+1} = E = \rho T c_v + \half \rho u^2 = w_0 T c_v +
+        {w_1^2+w_2^2\over 2w_0}
 
 where $T(t)$ is a known function of time (it changes with the day and night)
 and also prescribe $w_1^{n+1}=0$ on the left and right end of the domain and
-$w_3^{n+1}=0$ at the top and bottom.
+$w_2^{n+1}=0$ at the top and bottom.
 
 All the surface integrals turn out to be zero. On the top and bottom edges we
-have ${\bf n} = (n_x, n_z) = (0, \pm 1)$ respectively and we prescribe $w_3=0$,
+have ${\bf n} = (n_x, n_y) = (0, \pm 1)$ respectively and we prescribe $w_2=0$,
 so we get (remember we do not sum over $i$):
 
 .. math::
@@ -1272,8 +1272,8 @@ so we get (remember we do not sum over $i$):
     \int_{\partial\Omega}
     \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j
         \varphi^i\, n_x
-    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j
-        \varphi^i\, n_z
+    + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j
+        \varphi^i\, n_y
     \ \d x
     =
 
@@ -1281,14 +1281,14 @@ so we get (remember we do not sum over $i$):
     \int_{\partial\Omega}
     \left({\bf f}_x({\bf w}^n)\right)_i
         \varphi^i\, n_x
-    + \left({\bf f}_z({\bf w}^n)\right)_i
-        \varphi^i\, n_z
+    + \left({\bf f}_y({\bf w}^n)\right)_i
+        \varphi^i\, n_y
     \ \d x
     =
 
     =
     \pm\int_{\partial\Omega}
-    \left({\bf f}_z({\bf w}^n)\right)_i
+    \left({\bf f}_y({\bf w}^n)\right)_i
         \varphi^i
     \ \d x
 
@@ -1296,12 +1296,12 @@ where:
 
 .. math::
 
-    {\bf f}_z =
+    {\bf f}_y =
        \left( \begin{array}{c}
-           w_3\\
-           \frac{w_3w_1}{w_0}\\
-           \frac{w_3^2}{w_0} + p\\
-           \frac{w_3}{w_0}(w_4+p)
+           w_2\\
+           \frac{w_2w_1}{w_0}\\
+           \frac{w_2^2}{w_0} + p\\
+           \frac{w_2}{w_0}(w_3+p)
        \end{array} \right)
        =
        \left( \begin{array}{c}
@@ -1316,7 +1316,7 @@ the test function $\varphi^3$ is not there, because we prescribe the Dirichlet
 BC $w^3=0$, so the surface integral vanishes for all $i$.
 
 Similarly on the left and right edges we
-have ${\bf n} = (n_x, n_z) = (\pm1, 0)$ respectively and we prescribe $w_1=0$,
+have ${\bf n} = (n_x, n_y) = (\pm1, 0)$ respectively and we prescribe $w_1=0$,
 so we get (remember we do not sum over $i$):
 
 .. math::
@@ -1324,8 +1324,8 @@ so we get (remember we do not sum over $i$):
     \int_{\partial\Omega}
     \left({\bf A}_x({\bf w}^n)\right)_{ij}w_j
         \varphi^i\, n_x
-    + \left({\bf A}_z({\bf w}^n)\right)_{ij}w_j
-        \varphi^i\, n_z
+    + \left({\bf A}_y({\bf w}^n)\right)_{ij}w_j
+        \varphi^i\, n_y
     \ \d x
     =
 
@@ -1333,8 +1333,8 @@ so we get (remember we do not sum over $i$):
     \int_{\partial\Omega}
     \left({\bf f}_x({\bf w}^n)\right)_i
         \varphi^i\, n_x
-    + \left({\bf f}_z({\bf w}^n)\right)_i
-        \varphi^i\, n_z
+    + \left({\bf f}_y({\bf w}^n)\right)_i
+        \varphi^i\, n_y
     \ \d x
     =
 
@@ -1352,8 +1352,8 @@ where:
        \left( \begin{array}{c}
            w_1\\
            \frac{w_1^2}{w_0} + p\\
-           \frac{w_1w_3}{w_0}\\
-           \frac{w_1}{w_0}(w_4+p)
+           \frac{w_1w_2}{w_0}\\
+           \frac{w_1}{w_0}(w_3+p)
        \end{array} \right)
        =
        \left( \begin{array}{c}
