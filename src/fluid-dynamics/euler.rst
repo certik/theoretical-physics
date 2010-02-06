@@ -2,6 +2,14 @@
     triple: compressible; Euler; equations
     single: fluid dynamics
 
+.. TODO
+    * Use kappa all over (as other texts), instead of R/c_v
+    * in 2D, use x, y (or 0, 1, 2, 3), instead of x, z (or 0, 1, 3, 4). Also
+      show, that it doesn't matter, if you reduce A_x, A_y into 2D, or A_x,
+      A_z into 2D, it gives the same matrices.
+    * fix the thing with Riemann solver -- A^+, A^-. Show that it is in fact
+      equal to A^+q_l + A^-q_r, so it will be more intuitive
+
 Compressible Euler Equations
 ============================
 
