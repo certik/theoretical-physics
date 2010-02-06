@@ -501,6 +501,143 @@ nonlinear algebraic equations of the form $F(Y) = 0$ that will be solved using
 the Newton's method.
 
 
+Explicit Method
+~~~~~~~~~~~~~~~
+
+We also derive the weak formulation for the explicit method.
+Euler equations:
+
+.. math::
+
+    {\partial{\bf w}\over \partial t} +
+    {\partial{\bf f}_x\over \partial x} +
+    {\partial{\bf f}_y\over \partial y} +
+    {\partial{\bf f}_z\over \partial z} +
+    {\bf g}= 0
+
+The time-derivative is approximated using the explicit Euler
+method
+
+.. math::
+
+    {{\bf w}^{n+1}-{\bf w}^n\over \tau} +
+    {\partial{\bf f}_x({\bf w}^{n})\over \partial x} +
+    {\partial{\bf f}_y({\bf w}^{n})\over \partial y} +
+    {\partial{\bf f}_z({\bf w}^{n})\over \partial z} +
+    {\bf g}= 0
+
+The vector-valued test functions for the above system of equations have the
+form:
+
+.. math::
+
+    \left( \begin{array}{c}
+        \varphi^0 \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        \varphi^1 \\
+        0 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        \varphi^2 \\
+        0 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        \varphi^3 \\
+        0 \\
+    \end{array} \right),\
+    \left( \begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        \varphi^4 \\
+    \end{array} \right)
+
+After multiplying the equation system with the test functions and integrating
+over the domain $\Omega$, we obtain (here the index $i=0, 1, 2, 3, 4$ is
+numbering the 5 equations, so we are *not* summing over it):
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        +{\partial\left({\bf f}_x({\bf w}^{n})\right)_i\over \partial x}\varphi^i
+        +{\partial\left({\bf f}_y({\bf w}^{n})\right)_i\over \partial y}\varphi^i
+        +{\partial\left({\bf f}_z({\bf w}^{n})\right)_i\over \partial z}\varphi^i
+        + g_i \varphi^i
+        \ \d^3 x
+        =0
+
+Now we integrate by parts:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}-w_i^n\over\tau}\varphi^i
+        - \left({\bf f}_x({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial x}
+        - \left({\bf f}_y({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial y}
+        - \left({\bf f}_z({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial z}
+        + g_i \varphi^i
+        \ \d^3 x
+        +
+
+    +\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n})\right)_i
+        \varphi^i\, n_x
+    + \left({\bf f}_y({\bf w}^{n})\right)_i
+        \varphi^i\, n_y
+    + \left({\bf f}_z({\bf w}^{n})\right)_i
+        \varphi^i\, n_z
+    \ \d^2 x
+    =0
+
+where ${\bf n} = (n_x, n_y, n_z)$ is the outward surface normal to
+$\partial\Omega$. Rearranging:
+
+.. math::
+
+    \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
+        \ \d^3 x
+    =
+    \int_{\Omega}
+        \left({\bf f}_x({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial x}
+        + \left({\bf f}_y({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial y}
+        + \left({\bf f}_z({\bf w}^{n})\right)_i
+          {\partial \varphi^i\over\partial z}
+        \ \d^3 x
+        +
+
+    -\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n})\right)_i
+        \varphi^i\, n_x
+    - \left({\bf f}_y({\bf w}^{n})\right)_i
+        \varphi^i\, n_y
+    - \left({\bf f}_z({\bf w}^{n})\right)_i
+        \varphi^i\, n_z
+    \ \d^2 x
+    +
+    \int_{\Omega} {w_i^n\over\tau}\varphi^i
+        - g_i\varphi^i
+        \ \d^3 x
+
+
 Flux Jacobians
 --------------
 
