@@ -614,28 +614,25 @@ $\partial\Omega$. Rearranging:
     \int_{\Omega} {w_i^{n+1}\over\tau}\varphi^i
         \ \d^3 x
     =
-    \int_{\Omega}
-        \left({\bf f}_x({\bf w}^{n})\right)_i
+    \int_{\Omega}{w_i^n\over\tau}\varphi^i
+        + \left({\bf f}_x({\bf w}^{n})\right)_i
           {\partial \varphi^i\over\partial x}
         + \left({\bf f}_y({\bf w}^{n})\right)_i
           {\partial \varphi^i\over\partial y}
         + \left({\bf f}_z({\bf w}^{n})\right)_i
           {\partial \varphi^i\over\partial z}
+        - g_i\varphi^i
         \ \d^3 x
         +
 
-    +\int_{\partial\Omega}
-        -\left({\bf f}_x({\bf w}^{n})\right)_i
+    -\int_{\partial\Omega}
+        \left({\bf f}_x({\bf w}^{n})\right)_i
         \varphi^i\, n_x
-    - \left({\bf f}_y({\bf w}^{n})\right)_i
+    + \left({\bf f}_y({\bf w}^{n})\right)_i
         \varphi^i\, n_y
-    - \left({\bf f}_z({\bf w}^{n})\right)_i
+    + \left({\bf f}_z({\bf w}^{n})\right)_i
         \varphi^i\, n_z
     \ \d^2 x
-    +
-    \int_{\Omega} {w_i^n\over\tau}\varphi^i
-        - g_i\varphi^i
-        \ \d^3 x
 
 
 Flux Jacobians
