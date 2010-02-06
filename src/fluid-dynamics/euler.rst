@@ -624,8 +624,8 @@ $\partial\Omega$. Rearranging:
         \ \d^3 x
         +
 
-    -\int_{\partial\Omega}
-        \left({\bf f}_x({\bf w}^{n})\right)_i
+    +\int_{\partial\Omega}
+        -\left({\bf f}_x({\bf w}^{n})\right)_i
         \varphi^i\, n_x
     - \left({\bf f}_y({\bf w}^{n})\right)_i
         \varphi^i\, n_y
