@@ -54,13 +54,15 @@ Finally we define $\atan2(y, x)$ as:
 
 Some properties:
 
+.. TODO: do this explicitly
+
 .. math::
 
     \tan\atan2(y, x) = {y\over x}
 
-    \sin\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
+    \sin\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
 
-    \cos\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
+    \cos\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
 
     \atan2(ky, kx) = \Arg(kx + iky) = \Arg(x+iy) = \atan2(y, x)
 
