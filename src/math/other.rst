@@ -39,7 +39,8 @@ interval $(-\pi, \pi]$, we get the $\Arg(z)$ function:
     -\pi < \Arg z \le \pi
 
 then $\arg z = \Arg z + 2\pi n$, where $n=0, \pm 1, \pm 2, \dots$. We can then
-use the following formula to easily calculate $\Arg z$ for any $z=x+iy$:
+use the following formula to easily calculate $\Arg z$ for any $z=x+iy$ (except
+$x=y=0$, i.e. $z=0$):
 
 .. math::
 
@@ -52,9 +53,59 @@ Finally we define $\atan2(y, x)$ as:
 
     \atan2(y, x) = \Arg(x+iy)
 
-Some properties:
+The following useful relations hold:
 
-.. TODO: do this explicitly
+.. math::
+
+    \sin\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
+        \quad\quad\quad\mbox{except $x=y=0$}
+
+    \cos\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
+        \quad\quad\quad\mbox{except $x=y=0$}
+
+    \tan\atan2(y, x) = {y\over x}
+        \quad\quad\quad\mbox{for $x\neq 0$}
+
+    \atan2(ky, kx) = \atan2(y, x)
+        \quad\quad\quad\mbox{for $k>0$}
+
+We now prove them. The following works for all $x, y$ except for $x=y=0$:
+
+.. math::
+
+    \sin\atan2(y, x)
+        =\begin{cases}\sin\pi&y=0;x<0;\cr
+            \sin\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+                &\rm otherwise\cr\end{cases}
+            =
+
+    =\begin{cases}0&y=0;x<0;\cr
+        {y\over \sqrt{x^2+y^2}}&\rm otherwise\cr\end{cases}
+        =
+
+    =\begin{cases}{y\over \sqrt{x^2+y^2}}&y=0;x<0;\cr
+        {y\over \sqrt{x^2+y^2}}&\rm otherwise\cr\end{cases}
+        ={y\over \sqrt{x^2+y^2}}
+
+
+
+    \cos\atan2(y, x)
+        =\begin{cases}\cos\pi&y=0;x<0;\cr
+            \cos\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+                &\rm otherwise\cr\end{cases}
+            =
+
+    =\begin{cases}-1&y=0;x<0;\cr
+        {x\over \sqrt{x^2+y^2}}&\rm otherwise\cr\end{cases}
+        =
+
+    =\begin{cases}{x\over \sqrt{x^2+y^2}}&y=0;x<0;\cr
+        {x\over \sqrt{x^2+y^2}}&\rm otherwise\cr\end{cases}
+        ={x\over \sqrt{x^2+y^2}}
+
+
+Tangent is infinite for $\pm{\pi\over 2}$, which corresponds to $x=0$, so the
+following works for all $x\neq 0$:
 
 .. math::
 
@@ -72,36 +123,19 @@ Some properties:
         {y\over x}&\rm otherwise\cr\end{cases}
         ={y\over x}
 
-where we used the double angle formulas:
+In the above, we used the following double angle formulas:
 
 .. math::
-
-    \tan 2x = {2\tan x\over 1-\tan^2 x}
 
     \sin 2x = {2\tan x\over 1+\tan^2 x}
 
     \cos 2x = {1-\tan^2x\over 1+\tan^2 x}
 
+    \tan 2x = {2\tan x\over 1-\tan^2 x}
+
 to simplify the following expressions:
 
 .. math::
-
-    \tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
-        {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
-        =
-
-        =
-        {2{y\over\sqrt{x^2+y^2}+x}\over1
-            -\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
-        =
-        {2y\left(\sqrt{x^2+y^2}+x\right)\over
-            \left(\sqrt{x^2+y^2}+x\right)^2-y^2}
-        =
-
-        =
-        {y\left(\sqrt{x^2+y^2}+x\right)\over
-            x\left(\sqrt{x^2+y^2}+x\right)}
-        = {y\over x}
 
     \sin\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
         {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
@@ -126,6 +160,8 @@ to simplify the following expressions:
         =
         {y\over\sqrt{x^2+y^2}}
 
+
+
     \cos\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
         {1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
         =
@@ -149,17 +185,38 @@ to simplify the following expressions:
         =
         {x\over\sqrt{x^2+y^2}}
 
-To summarize, we have:
+
+
+    \tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+        {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+        =
+
+        =
+        {2{y\over\sqrt{x^2+y^2}+x}\over1
+            -\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+        =
+        {2y\left(\sqrt{x^2+y^2}+x\right)\over
+            \left(\sqrt{x^2+y^2}+x\right)^2-y^2}
+        =
+
+        =
+        {y\left(\sqrt{x^2+y^2}+x\right)\over
+            x\left(\sqrt{x^2+y^2}+x\right)}
+        = {y\over x}
+
+Finally, for all $k>0$ we get:
 
 .. math::
 
-    \tan\atan2(y, x) = {y\over x}
+    \atan2(ky, kx) = \Arg(kx + iky)
+    =\begin{cases}\pi&y=0;x<0;\cr
+        2\,\atan{ky\over\sqrt{(kx)^2+(ky)^2}+kx}&\rm otherwise\cr\end{cases}
+    =
 
-    \sin\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
+    =\begin{cases}\pi&y=0;x<0;\cr
+        2\,\atan{y\over\sqrt{x^2+y^2}+x}&\rm otherwise\cr\end{cases}
+    = \Arg(x+iy) = \atan2(y, x)
 
-    \cos\atan2(y, x) = {x\over \sqrt{x^2+y^2}}
-
-    \atan2(ky, kx) = \Arg(kx + iky) = \Arg(x+iy) = \atan2(y, x)
 
 An example of an application:
 
