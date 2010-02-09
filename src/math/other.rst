@@ -58,6 +58,101 @@ Some properties:
 
 .. math::
 
+    \tan\atan2(y, x)
+        =\begin{cases}\tan\pi&y=0;x<0;\cr
+            \tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+                &\rm otherwise\cr\end{cases}
+            =
+
+    =\begin{cases}0&y=0;x<0;\cr
+        {y\over x}&\rm otherwise\cr\end{cases}
+        =
+
+    =\begin{cases}{y\over x}&y=0;x<0;\cr
+        {y\over x}&\rm otherwise\cr\end{cases}
+        ={y\over x}
+
+where we used the double angle formulas:
+
+.. math::
+
+    \tan 2x = {2\tan x\over 1-\tan^2 x}
+
+    \sin 2x = {2\tan x\over 1+\tan^2 x}
+
+    \cos 2x = {1-\tan^2x\over 1+\tan^2 x}
+
+to simplify the following expressions:
+
+.. math::
+
+    \tan\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+        {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+        =
+
+        =
+        {2{y\over\sqrt{x^2+y^2}+x}\over1
+            -\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+        =
+        {2y\left(\sqrt{x^2+y^2}+x\right)\over
+            \left(\sqrt{x^2+y^2}+x\right)^2-y^2}
+        =
+
+        =
+        {y\left(\sqrt{x^2+y^2}+x\right)\over
+            x\left(\sqrt{x^2+y^2}+x\right)}
+        = {y\over x}
+
+    \sin\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+        {2\tan\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+        =
+
+        =
+        {2{y\over\sqrt{x^2+y^2}+x}\over1
+            +\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+        =
+        {2y\left(\sqrt{x^2+y^2}+x\right)\over
+            \left(\sqrt{x^2+y^2}+x\right)^2+y^2}
+        =
+
+        =
+        {y\left(\sqrt{x^2+y^2}+x\right)\over
+            x^2+y^2+x\sqrt{x^2+y^2}}
+        =
+        {y\left(\sqrt{x^2+y^2}+x\right)\over
+            \sqrt{x^2+y^2}\left(\sqrt{x^2+y^2}+x\right)}
+        =
+
+        =
+        {y\over\sqrt{x^2+y^2}}
+
+    \cos\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right) =
+        {1-\tan^2\atan{y\over\sqrt{x^2+y^2}+x}\over1+\tan^2\atan{y\over\sqrt{x^2+y^2}+x}}
+        =
+
+        =
+        {1 -\left({y\over\sqrt{x^2+y^2}+x}\right)^2\over
+        1 +\left({y\over\sqrt{x^2+y^2}+x}\right)^2}
+        =
+        {\left(\sqrt{x^2+y^2}+x\right)^2-y^2\over
+            \left(\sqrt{x^2+y^2}+x\right)^2+y^2}
+        =
+
+        =
+        {x\left(\sqrt{x^2+y^2}+x\right)\over
+            x^2+y^2+x\sqrt{x^2+y^2}}
+        =
+        {x\left(\sqrt{x^2+y^2}+x\right)\over
+            \sqrt{x^2+y^2}\left(\sqrt{x^2+y^2}+x\right)}
+        =
+
+        =
+        {x\over\sqrt{x^2+y^2}}
+
+To summarize, we have:
+
+.. math::
+
     \tan\atan2(y, x) = {y\over x}
 
     \sin\atan2(y, x) = {y\over \sqrt{x^2+y^2}}
