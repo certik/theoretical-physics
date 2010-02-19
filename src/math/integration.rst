@@ -290,3 +290,25 @@ vectors. Then the area of P is
 
 so the definition of the integral over a manifold is just approximating the
 surface by infinitesimal parallelepipeds and integrating over them.
+
+
+Example
+-------
+
+Let's calculate the total distance traveled by a body in 1D, whose position is
+given by $s(t)$:
+
+.. math::
+
+    l = \int_\gamma \d s = \int_{t_1}^{t_2}\left|{\d s\over \d t}\right| \d t =
+
+    = \int_{t_1}^{t'}\left|{\d s\over \d t}\right| \d t
+    + \int_{t'}^{t''}\left|{\d s\over \d t}\right| \d t +
+      \cdots
+    + \int_{t''''^{\cdots}}^{t_2}\left|{\d s\over \d t}\right| \d t =
+
+    =|s(t')-s(t_1)|+|s(t'')-s(t')|+\cdots+|s(t_2)-s(t''''^{\cdots})|
+
+where $t'$, $t''$, ... are all the points at which $\left|{\d s\over \d
+t}\right|=0$, so each of the integrals in the above sum has either positive or
+negative integrand.
