@@ -1,7 +1,76 @@
-Maxwell's equations
+Maxwell's Equations
 ===================
 
-xxx
+The Maxwell's equations are:
+
+.. math::
+
+    \partial_\alpha F^{\beta\alpha} = \mu_0 j^\beta
+
+    \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta} = 0
+
+and the Lorentz force is:
+
+.. math::
+
+    {\d p_\alpha\over\d \tau} = q F_{\alpha\beta} u^\beta
+
+where:
+
+.. math::
+
+    j^\alpha = (c\rho, {\bf j})
+
+    F_{\alpha\beta} = \left(\begin{array}{cccc}
+    0 & {E_1\over c} & {E_2\over c} & {E_3\over c} \\
+    -{E_1\over c} & 0 & -B_3 & B_2 \\
+    -{E_2\over c} & B_3 & 0 & -B_1 \\
+    -{E_3\over c} & -B_2 & B_1 & 0 \\
+    \end{array}\right)
+
+This corresponds to:
+
+.. math::
+
+    \nabla\cdot{\bf E} = c^2\mu_0 \rho
+
+    \nabla\times{\bf B} = \mu_0 {\bf j} + {1\over c^2}{\partial{\bf E}
+        \over \partial t}
+
+    \nabla\cdot{\bf B} = 0
+
+    \nabla\times{\bf E} = -{\partial{\bf B}\over\partial t}
+
+Four Potential
+--------------
+
+The four potential is defined by:
+
+.. math::
+
+    A^\alpha = \left({\phi\over c}, {\bf A}\right)
+
+    F_{\alpha\beta} = \partial_\alpha A_\beta - \partial_\beta A_\alpha
+
+this corresponds to:
+
+.. math::
+
+    {\bf E} = -\nabla\phi - {\partial {\bf A}\over\partial t}
+
+    {\bf B} = \nabla\times{\bf A}
+
+The Maxwell's equations can then be written as (note that the two eq. without
+sources are automatically satisfied by the four potential):
+
+.. math::
+
+    \partial_\alpha F^{\beta\alpha} =
+        \partial_\alpha (\partial^\beta A^\alpha - \partial^\alpha A^\beta) =
+        -\partial_\alpha \partial^\alpha A^\beta =
+        \mu_0 j^\beta
+
+where we have employed the Lorentz gauge $\partial_\alpha A^\alpha=0$.
 
 Semiconductor Device Physics
 ============================
