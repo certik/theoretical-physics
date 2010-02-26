@@ -182,8 +182,41 @@ equations for three unknowns $n$, $p$ and ${\bf E}$:
 
     \nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)
 
-Example
-~~~~~~~
+
+Example 1
+~~~~~~~~~
+
+We can substract the first two
+equations and we get:
+
+.. math::
+
+    {\partial q(p-n)\over\partial t} = - \nabla\cdot (q(\mu_p p+\mu_n n) {\bf E}
+        -q\nabla (D_p p-D_n n))
+
+    \nabla\cdot(\varepsilon {\bf E}) = q(p-n)
+
+and using $\rho=q(p-n)$ and $\sigma=q(\mu_p p+\mu_n n)$, we get:
+
+.. math::
+
+    {\partial \rho\over\partial t} = - \nabla\cdot (\sigma {\bf E}
+        -q\nabla (D_p p-D_n n))
+
+    \nabla\cdot(\varepsilon {\bf E}) = \rho
+
+Assuming $\nabla (D_p p-D_n n)=0$ and that $\rho$ doesn't depend on time, we
+get:
+
+.. math::
+
+    \nabla\cdot (\sigma {\bf E}) = 0
+
+    \nabla\cdot(\varepsilon {\bf E}) = \rho
+
+
+Example 2
+~~~~~~~~~
 
 As a simple model, assume $D_n$, $D_p$, $\mu_n$, $\mu_p$ and $\varepsilon$
 are position independent and $C=0$, $R=0$:
