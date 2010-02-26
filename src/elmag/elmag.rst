@@ -89,7 +89,60 @@ where $n$ ($p$) is the electron (hole) concentration, ${\bf J}_n$
 (${\bf J}_p$) is the electron (hole) current density, ${\bf E}$ is the
 electric field.
 
-And we have five equations that relate them. Drift-diffusion equations:
+And we have five equations that relate them. We start with the continuity
+equation:
+
+.. math::
+
+    \nabla\cdot{\bf J} +{\partial\rho\over\partial t} = 0
+
+where the current density ${\bf J}$ is composed of electron and hole current
+densities:
+
+.. math::
+
+    {\bf J} = {\bf J}_n + {\bf J}_p
+
+and the charge density $\rho$ is composed of mobile (electrons and holes) and
+fixed charges (ionized donors and acceptors):
+
+.. math::
+
+    \rho = q(p-n+C)
+
+where $n$ and $p$ is the electron and hole concetration, $C$ is the net
+doping concetration and $q$ is the electron charge (positive). We get:
+
+.. math::
+
+    \nabla\cdot{\bf J}_n + \nabla\cdot{\bf J}_p + q\left(
+        {\partial p\over\partial t}
+        -{\partial n\over\partial t}
+        +{\partial C\over\partial t}
+        \right) = 0
+
+Assuming the fixed charges $C$ are time invariant, we get:
+
+.. math::
+
+    \nabla\cdot{\bf J}_n - q {\partial n\over\partial t} =
+        -\left( \nabla\cdot{\bf J}_p + q{\partial p\over\partial t}
+        \right) \equiv qR
+
+where $R$ is the net recombination rate for electrons and holes (a positive
+value means recombination, a negative value generation of carriers). We get the
+carrier continuity equations:
+
+.. math::
+    :label: continuity
+
+    {\partial n\over\partial t} = -R + {1\over q} \nabla\cdot {\bf J}_n
+
+    {\partial p\over\partial t} = -R - {1\over q} \nabla\cdot {\bf J}_p
+
+Then we need material relations that express how the current ${\bf J}$ is
+generated using ${\bf E}$ and $n$ and $p$. A general model gives the
+current density relations:
 
 .. math::
     :label: drift
@@ -99,23 +152,19 @@ And we have five equations that relate them. Drift-diffusion equations:
     {\bf J}_p = q\mu_p p {\bf E} - q D_p \nabla p
 
 where $\mu_n$, $\mu_p$, $D_n$, $D_p$ are the carrier mobilities and
-diffusivities, $q$ is the electron charge (positive).
-Continuity equations:
+diffusivities.
+
+Final equation is the Gauss's law:
 
 .. math::
-    :label: continuity
 
-    {\partial n\over\partial t} = -q R + {1\over q} \nabla\cdot {\bf J}_n
-
-    {\partial p\over\partial t} = -q R - {1\over q} \nabla\cdot {\bf J}_p
-
-where $R$ is the recombination rate.
-And the Gauss's law:
+    \nabla\cdot (\varepsilon{\bf E}) = \rho
 
 .. math::
     :label: gauss
 
-    \nabla\cdot(\varepsilon {\bf E}) = q(p-n + N_c)
+    \nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)
+
 
 Equations
 ---------
@@ -125,19 +174,19 @@ equations for three unknowns $n$, $p$ and ${\bf E}$:
 
 .. math::
 
-    {\partial n\over\partial t} = -q R + \nabla\cdot (\mu_n n {\bf E}
+    {\partial n\over\partial t} = -R + \nabla\cdot (\mu_n n {\bf E}
         +D_n \nabla n)
 
-    {\partial p\over\partial t} = -q R - \nabla\cdot (\mu_p p {\bf E}
+    {\partial p\over\partial t} = -R - \nabla\cdot (\mu_p p {\bf E}
         -D_p \nabla p)
 
-    \nabla\cdot(\varepsilon {\bf E}) = q(p-n + N_c)
+    \nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)
 
 Example
 ~~~~~~~
 
 As a simple model, assume $D_n$, $D_p$, $\mu_n$, $\mu_p$ and $\varepsilon$
-are position independent and $N_c=0$, $R=0$:
+are position independent and $C=0$, $R=0$:
 
 .. math::
 
@@ -152,3 +201,20 @@ are position independent and $N_c=0$, $R=0$:
         +D_p \nabla^2 p
 
     \varepsilon\nabla\cdot {\bf E} = q(p-n)
+
+
+Using ${\bf E} = -\nabla \phi$ we get:
+
+.. math::
+
+    {\partial n\over\partial t} =
+        -\mu_n n \nabla^2\phi
+        -\mu_n \nabla\phi\cdot\nabla n
+        +D_n \nabla^2 n
+
+    {\partial p\over\partial t} =
+        +\mu_p p \nabla^2\phi
+        +\mu_p \nabla\phi\cdot\nabla p
+        +D_p \nabla^2 p
+
+    \varepsilon\nabla^2\phi = -q(p-n)
