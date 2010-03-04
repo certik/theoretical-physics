@@ -111,7 +111,9 @@ fixed charges (ionized donors and acceptors):
     \rho = q(p-n+C)
 
 where $n$ and $p$ is the electron and hole concetration, $C$ is the net
-doping concetration and $q$ is the electron charge (positive). We get:
+doping concetration ($C=p_D-n_A$ where $p_D$ is the concentration of ionized
+donors, charged positive, and $n_A$ is the concentration of ionized acceptors,
+charged negative) and $q$ is the electron charge (positive). We get:
 
 .. math::
 
