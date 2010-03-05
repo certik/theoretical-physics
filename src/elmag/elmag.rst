@@ -143,8 +143,9 @@ carrier continuity equations:
     {\partial p\over\partial t} = -R - {1\over q} \nabla\cdot {\bf J}_p
 
 Then we need material relations that express how the current ${\bf J}$ is
-generated using ${\bf E}$ and $n$ and $p$. A general model gives the
-current density relations:
+generated using ${\bf E}$ and $n$ and $p$. A drift-diffusion model is to assume
+a drift current ($q\mu_n n {\bf E}$) and a diffusion ($q D_n \nabla n$),
+which gives:
 
 .. math::
     :label: drift
@@ -176,11 +177,11 @@ equations for three unknowns $n$, $p$ and ${\bf E}$:
 
 .. math::
 
-    {\partial n\over\partial t} = -R + \nabla\cdot (\mu_n n {\bf E}
-        +D_n \nabla n)
+    {\partial n\over\partial t} = -R + \nabla\cdot (\mu_n n {\bf E})
+        +\nabla\cdot (D_n \nabla n)
 
-    {\partial p\over\partial t} = -R - \nabla\cdot (\mu_p p {\bf E}
-        -D_p \nabla p)
+    {\partial p\over\partial t} = -R - \nabla\cdot (\mu_p p {\bf E})
+        +\nabla\cdot (D_p \nabla p)
 
     \nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)
 
@@ -193,22 +194,43 @@ equations and we get:
 
 .. math::
 
-    {\partial q(p-n)\over\partial t} = - \nabla\cdot (q(\mu_p p+\mu_n n) {\bf E}
-        -q\nabla (D_p p-D_n n))
+    {\partial q(p-n)\over\partial t} = - q\nabla\cdot ((\mu_p p+\mu_n n){\bf E})
+        +q\nabla\cdot(D_p \nabla p-D_n\nabla n)
 
-    \nabla\cdot(\varepsilon {\bf E}) = q(p-n)
+    \nabla\cdot(\varepsilon {\bf E}) = q(p-n+C)
 
-and using $\rho=q(p-n)$ and $\sigma=q(\mu_p p+\mu_n n)$, we get:
+and using $\rho=q(p-n+C)$ and $\sigma=q(\mu_p p+\mu_n n)$, we get:
 
 .. math::
 
-    {\partial \rho\over\partial t} = - \nabla\cdot (\sigma {\bf E}
-        -q\nabla (D_p p-D_n n))
+    {\partial \rho\over\partial t} -q{\partial C\over\partial t} =
+        - \nabla\cdot (\sigma {\bf E})
+        +q\nabla\cdot(D_p \nabla p-D_n\nabla n)
 
     \nabla\cdot(\varepsilon {\bf E}) = \rho
 
-Assuming $\nabla (D_p p-D_n n)=0$ and that $\rho$ doesn't depend on time, we
-get:
+So far we didn't make any assumptions. Most of the times the net doping
+concetration $C$ is time independent, which gives:
+
+.. math::
+
+    {\partial \rho\over\partial t} =
+        - \nabla\cdot (\sigma {\bf E})
+        +q\nabla\cdot(D_p \nabla p-D_n\nabla n)
+
+    \nabla\cdot(\varepsilon {\bf E}) = \rho
+
+Assuming further $D_p \nabla p-D_n\nabla n=0$, we just get the equation of
+continuity and the Gauss law:
+
+.. math::
+
+    {\partial \rho\over\partial t} + \nabla\cdot (\sigma {\bf E}) = 0
+
+    \nabla\cdot(\varepsilon {\bf E}) = \rho
+
+Finally, assuming also that that $\rho$ doesn't depend on
+time, we get:
 
 .. math::
 
