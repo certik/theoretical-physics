@@ -185,6 +185,22 @@ equations for three unknowns $n$, $p$ and ${\bf E}$:
 
     \nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)
 
+And it is usually assumed that the magnetic field is time independent, so
+${\bf E}=-\nabla\phi$ and we get:
+
+.. math::
+    :label: semicond-eq
+
+    {\partial n\over\partial t} = -R - \nabla\cdot (\mu_n n \nabla\phi)
+        +\nabla\cdot (D_n \nabla n)
+
+    {\partial p\over\partial t} = -R + \nabla\cdot (\mu_p p \nabla\phi)
+        +\nabla\cdot (D_p \nabla p)
+
+    \nabla\cdot(\varepsilon \nabla\phi) = -q(p-n + C)
+
+These are three nonlinear (due to the terms $\mu_n n \nabla\phi$ and
+$\mu_p p \nabla\phi$) equations for three unknown functions $n$, $p$ and $\phi$.
 
 Example 1
 ~~~~~~~~~
