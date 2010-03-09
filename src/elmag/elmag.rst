@@ -291,3 +291,82 @@ Using ${\bf E} = -\nabla \phi$ we get:
         +D_p \nabla^2 p
 
     \varepsilon\nabla^2\phi = -q(p-n)
+
+Example 3
+---------
+
+Let's calculate the 1D pn-junction. We take the equations :eq:`semicond-eq` and
+write them in 1D for the stationary state
+(${\partial n\over\partial t}={\partial p\over\partial t}=0$):
+
+.. math::
+
+    0 = -R - (\mu_n n \phi')' + (D_n n')'
+
+    0 = -R + (\mu_p p \phi')' + (D_p p')'
+
+    (\varepsilon \phi')' = -q(p-n + C)
+
+We expand the derivatives and assume that $\mu$ and $D$ is constant:
+
+.. math::
+
+    0 = -R - \mu_n n' \phi' - \mu_n n \phi'' + D_n n''
+
+    0 = -R + \mu_p p' \phi' + \mu_p p \phi'' + D_p p''
+
+    \varepsilon \phi'' = -q(p-n + C)
+
+and we put the second derivatives on the left hand side:
+
+.. math::
+    :label: 1d-pn-junction1
+
+    n'' = {1\over D_n}(R + \mu_n n' \phi' + \mu_n n \phi'')
+
+    p'' = {1\over D_p}(R - \mu_p p' \phi' - \mu_p p \phi'')
+
+    \phi'' = -{q\over\varepsilon} (p-n + C)
+
+now we introduce the variables $y_i$:
+
+.. math::
+
+    y_0 = n
+
+    y_1 = y_0' = n'
+
+    y_2 = p
+
+    y_3 = y_2' = p'
+
+    y_4 = \phi
+
+    y_5 = y_4' = \phi'
+
+and rewrite :eq:`1d-pn-junction1`:
+
+.. math::
+
+    y_1' = {1\over D_n}(R + \mu_n y_1 y_5 + \mu_n y_0 y_5')
+
+    y_3' = {1\over D_p}(R - \mu_p y_3 y_5 - \mu_p y_2 y_5')
+
+    y_5' = -{q\over\varepsilon} (y_2-y_0 + C)
+
+So we are solving the following six nonlinear first order ODE:
+
+.. math::
+    :label: 1d-pn-junction2
+
+    y_5' = -{q\over\varepsilon} (y_2-y_0 + C)
+
+    y_0' = y_1
+
+    y_1' = {1\over D_n}(R + \mu_n y_1 y_5 + \mu_n y_0 y_5')
+
+    y_2' = y_3
+
+    y_3' = {1\over D_p}(R - \mu_p y_3 y_5 - \mu_p y_2 y_5')
+
+    y_4' = y_5
