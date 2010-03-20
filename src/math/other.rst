@@ -51,7 +51,32 @@ Finally we define $\atan2(y, x)$ as:
 
 .. math::
 
-    \atan2(y, x) = \Arg(x+iy)
+    \atan2(y, x) = \Arg(x+iy) =
+        \begin{cases}\pi&y=0;x<0;\cr
+            2\,\atan{y\over\sqrt{x^2+y^2}+x}&\rm otherwise\cr\end{cases}
+
+The angle $\phi=\atan2(y, x)$ is the angle of the point $(x, y)$ on the unit
+circle (assuming the usual conventions), and it works for all quadrants
+($\phi=\atan(y, x)$ only works for the first and fourth quadrant, where
+$\atan(y, x)=\atan2(y, x)$, but in the second and third qudrant, $\atan(y, x)$
+gives the wrong angles, while $\atan2(y, x)$ gives the correct angles). So in
+particular:
+
+.. math::
+
+    \atan2(0, 1) = 2\,\atan{0\over\sqrt{1^2+0^2}+1} = 0
+
+    \atan2(0, -1) = \pi
+
+    \atan2(1, 0) = 2\,\atan{1\over\sqrt{0^2+1^2}+0} = 2\,\atan 1 =
+        {\pi\over 2}
+
+    \atan2(-1, 0) = 2\,\atan{-1\over\sqrt{0^2+1^2}+0} = -2\,\atan 1 =
+        -{\pi\over 2}
+
+This convention ($\atan2(y, x)$) is used for example in Python, C or Fortran.
+Some people might interchange $x$ with $y$ in the definition (i.e. $\atan2(x,
+y)= \Arg(y+ix)$), but it is not very common.
 
 The following useful relations hold:
 
