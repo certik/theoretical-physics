@@ -35,7 +35,6 @@ where $l=e,\mu,\tau$ and $a=1,2$, $l_{L,R} = \half (1\mp\gamma_5)l$ and
 
 
 Local $SU(2)\times U(1)$ symmetry:
-
 This consists of two things. First changing the partial derivatives to covariant ones:
 
 .. math::
