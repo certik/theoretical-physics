@@ -1036,6 +1036,94 @@ and we get:
     \left[-{1\over\tilde S(-{\bf k'})} v({\bf k'}) \right]
     \left[{1\over\tilde S(-{\bf P})} u({\bf P}) \right]
 
+Example 3
+^^^^^^^^^
+
+$e^+ + e^-$ scattering:
+
+.. math::
+
+    e^-(p_1)+e^+(p_2) \to e^-(k_1)+e^+(k_2)
+
+Initial and final states:
+
+.. math::
+
+    \ket{i} = b_{{\bf p}_1}^{t\dag} d_{{\bf p}_2}^{u\dag}\ket{\Omega}
+
+    \ket{f} = b_{{\bf k}_1}^{r\dag} d_{{\bf k}_2}^{s\dag}\ket{\Omega}
+
+
+And we get:
+
+.. math::
+
+    \braket{f|i}=
+    \braket{\Omega|
+        b^r_{{\bf k}_1}
+        d^s_{{\bf k}_2}
+        b^{t\dag}_{{\bf p}_1}
+        d^{u\dag}_{{\bf p}_2}
+        |\Omega} =
+
+    =\braket{\Omega|T
+        b^r_{{\bf k}_1}
+        d^s_{{\bf k}_2}
+        b^{t\dag}_{{\bf p}_1}
+        d^{u\dag}_{{\bf p}_2}
+        |\Omega} =
+
+    =\braket{\Omega|T
+        \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\tilde \psi(k_1)\right]
+        \left[-\tilde{\bar\psi}(k_2){1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+        \left[\tilde{\bar\psi}(-p_1){1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+        \left[-\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\tilde \psi(-p_2)\right]
+        |\Omega} =
+
+    =
+    \left[\bar u^r({\bf k}_1){1\over\tilde S(k_1)}\right]
+    \left[\bar v^u({\bf p}_2){1\over\tilde S(p_2)}\right]
+
+    \braket{\Omega|T
+        \tilde \psi(k_1)
+        \tilde{\bar\psi}(k_2)
+        \tilde{\bar\psi}(-p_1)
+        \tilde \psi(-p_2)
+        |\Omega}
+
+    \left[{1\over\tilde S(-k_2)}v^s({\bf k}_2)\right]
+    \left[{1\over\tilde S(-p_1)}u^t({\bf p}_1)\right]
+
+
+Example 4
+^^^^^^^^^
+
+$H(p)\to Z(k)+Z(l)$ decay. Initial and final states:
+
+.. math::
+
+    \ket{i} = a^\dag_{\bf p}\ket{\Omega}
+
+    \ket{f} = a^{r\dag}_{\bf k}a^{s\dag}_{\bf l}\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i}=
+    \braket{\Omega|a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+    \braket{\Omega|T a^r_{\bf k} a^s_{\bf l} a^\dag_{\bf p}|\Omega} =
+
+    =
+    \braket{\Omega|T
+        \epsilon^{r*}_\mu({\bf k}){k^2\over i} \tilde A^\mu(k)
+        \epsilon^{s*}_\nu({\bf l}){l^2\over i} \tilde A^\nu(l)
+        {1\over\tilde D(p)}\tilde\phi(-p)
+        |\Omega} =
+
+    = {\epsilon^{r*}_\mu({\bf k})\epsilon^{s*}_\nu({\bf l})
+    \over {i\over k^2}{i\over l^2}\tilde D(p)}
+    \braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
 
 
 Evaluation of the Interacting Green Functions
