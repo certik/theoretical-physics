@@ -1166,6 +1166,46 @@ and we get:
 
     \left[{1\over\tilde S(-{\bf k})} u({\bf k}) \right]
 
+Example 6
+^^^^^^^^^
+
+$W^+ W^- \to W^+ W^-$ scattering:
+
+.. math::
+
+    W^-(k) + W^+(p) \to W^-(r) + W^+(l)
+
+So the initial and final states are:
+
+.. math::
+
+    \ket{i} = a_{\bf k}^{\mu \dag} a_{\bf p}^{\nu \dag}\ket{\Omega}
+
+    \ket{f} = a_{\bf r}^{\alpha \dag} a_{\bf l}^{\beta \dag}\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        a_{\bf l}^\beta
+        a_{\bf r}^\alpha
+        a_{\bf k}^{\mu \dag} a_{\bf p}^{\nu \dag}
+        |\Omega}
+
+    =
+    \epsilon^{\mu*}_\rho({\bf k}) {k^2\over i}
+    \epsilon^{\nu*}_\sigma({\bf p}) {p^2\over i}
+    \braket{\Omega|T\,
+        \tilde A^\kappa({\bf r})
+        \tilde A^\lambda({\bf l})
+        \tilde A^\sigma(-{\bf p})
+        \tilde A^\rho(-{\bf k})
+    |\Omega}
+    \epsilon^\alpha_\kappa({\bf r}) {r^2\over i}
+    \epsilon^\beta_\lambda({\bf l}) {l^2\over i}
+
+
 
 Evaluation of the Interacting Green Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
