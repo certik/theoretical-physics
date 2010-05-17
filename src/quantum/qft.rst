@@ -970,9 +970,9 @@ and we get:
         |\Omega}=
 
     =
-    \left[\bar u^s({\bf p'}){1\over\tilde S({\bf p'})}
+    \left[\bar u({\bf p'}){1\over\tilde S({\bf p'})}
         \right]
-    \left[\bar u^s({\bf k'}){1\over\tilde S({\bf k'})}
+    \left[\bar u({\bf k'}){1\over\tilde S({\bf k'})}
         \right]
 
     \braket{\Omega|T\,
@@ -982,16 +982,61 @@ and we get:
         \tilde{\bar\psi}(-{\bf p})
     |\Omega}
 
-    \left[{1\over\tilde S(-{\bf k})} u^s({\bf k})
+    \left[{1\over\tilde S(-{\bf k})} u({\bf k})
         \right]
-    \left[{1\over\tilde S(-{\bf p})} u^s({\bf p})
+    \left[{1\over\tilde S(-{\bf p})} u({\bf p})
         \right]
 
 We only multiply the matrices with the same momentum, i.e.
 $\left[\bar u^s({\bf p'}){1\over\tilde S({\bf p'})}\right]$ with
 $\tilde\psi({\bf p'})$,
 $\left[\bar u^s({\bf k'}){1\over\tilde S({\bf k'})}\right]$ with
-$\tilde\psi({\bf k'})$ and so on.
+$\tilde\psi({\bf k'})$ and so on. Also we don't write the spin anymore, e.g.
+$u({\bf k})$ should in fact be $u^{s_k}({\bf k})$ and so on.
+
+Example 2
+^^^^^^^^^
+
+Muon decay:
+
+.. math::
+
+    \mu(P) \to e(p) + \bar\nu_e(k') + \nu_\mu(k)
+
+So the initial and final states are:
+
+.. math::
+
+    \ket{i} = b_{\bf P}^\dag\ket{\Omega}
+
+    \ket{f} = b_{\bf p}^\dag d_{\bf k'}^\dag b_{\bf k}^\dag\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        b_{{\bf k}}
+        d_{{\bf k'}}
+        b_{{\bf p}}
+        b_{{\bf P}}^\dag
+        |\Omega}
+
+    =
+    \left[\bar u({\bf k}){1\over\tilde S({\bf k})} \right]
+    \left[\bar u({\bf p}){1\over\tilde S({\bf p})} \right]
+
+    \braket{\Omega|T\,
+        \tilde\psi({\bf k})
+        \tilde\psi({\bf p})
+        \tilde{\bar\psi}({\bf k'})
+        \tilde{\bar\psi}(-{\bf P})
+    |\Omega}
+
+    \left[-{1\over\tilde S(-{\bf k'})} v({\bf k'}) \right]
+    \left[{1\over\tilde S(-{\bf P})} u({\bf P}) \right]
+
+
 
 Evaluation of the Interacting Green Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
