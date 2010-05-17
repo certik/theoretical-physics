@@ -830,10 +830,10 @@ For our example we get in the position space:
         |\Omega}
 
     \left[\left(i\overleftarrow{\fslash\partial_1}+m\right)
-        u^s({\bf p}_1)\right]_{\alpha_1} \,e^{ip_1x_1}
+        u^{s_1}({\bf p}_1)\right]_{\alpha_1} \,e^{ip_1x_1}
 
     \left[\left(i\overleftarrow{\fslash\partial_2}+m\right)
-        u^s({\bf p}_2)\right]_{\alpha_2} \,e^{ip_2x_2}
+        u^{s_2}({\bf p}_2)\right]_{\alpha_2} \,e^{ip_2x_2}
 
 where the $\alpha_1$, $\alpha_2$, $\alpha_{1'}$ and $\alpha_{2'}$ spinor
 indices were introduced to show how the matrices should be multiplied.
@@ -877,10 +877,10 @@ then the scattering amplitude becomes (resuming the previous calculation):
         (p_{1'}, p_{2'}, -p_1, -p_2)
 
     \left[\left({\fslash p_1}+m\right)
-        u^s({\bf p}_1)\right]_{\alpha_1}
+        u^{s_1}({\bf p}_1)\right]_{\alpha_1}
 
     \left[\left({\fslash p_2}+m\right)
-        u^s({\bf p}_2)\right]_{\alpha_2}
+        u^{s_2}({\bf p}_2)\right]_{\alpha_2}
 
 We can get the same result much faster if we use the momentum space from the
 beginning:
@@ -901,20 +901,20 @@ beginning:
         |\Omega}=
 
     = \braket{\Omega|T\,
-        \bar u^s({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
+        \bar u^{s_{2'}}({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
                 \tilde\psi({\bf p}_{2'})
-        \bar u^s({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
+        \bar u^{s_{1'}}({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
                 \tilde\psi({\bf p}_{1'})
         \tilde{\bar\psi}(-{\bf p}_1){1\over\tilde S(-{\bf p}_1)}
-                u^s({\bf p}_1)
+                u^{s_1}({\bf p}_1)
         \tilde{\bar\psi}(-{\bf p}_2){1\over\tilde S(-{\bf p}_2)}
-                u^s({\bf p}_2)
+                u^{s_2}({\bf p}_2)
         |\Omega}=
 
         =
-        \left[\bar u^s({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
+        \left[\bar u^{s_{2'}}({\bf p}_{2'}){1\over\tilde S({\bf p}_{2'})}
             \right]_{\alpha_{2'}}
-        \left[\bar u^s({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
+        \left[\bar u^{s_{1'}}({\bf p}_{1'}){1\over\tilde S({\bf p}_{1'})}
             \right]_{\alpha_{1'}}
 
         \braket{\Omega|T\,
@@ -924,9 +924,9 @@ beginning:
             \tilde{\bar\psi}_{\alpha_2}(-{\bf p}_2)
         |\Omega}
 
-        \left[{1\over\tilde S(-{\bf p}_1)} u^s({\bf p}_1)
+        \left[{1\over\tilde S(-{\bf p}_1)} u^{s_1}({\bf p}_1)
             \right]_{\alpha_1}
-        \left[{1\over\tilde S(-{\bf p}_2)} u^s({\bf p}_2)
+        \left[{1\over\tilde S(-{\bf p}_2)} u^{s_2}({\bf p}_2)
             \right]_{\alpha_1}
 
 This is called Lehmann-Symanzik-Zimmermann (LSZ) reduction formula.  One
