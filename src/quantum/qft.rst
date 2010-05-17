@@ -1125,6 +1125,47 @@ and we get:
     \over {i\over k^2}{i\over l^2}\tilde D(p)}
     \braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
 
+Example 5
+^^^^^^^^^
+
+$e^+ e^- \to W^+ W^-$ scattering:
+
+.. math::
+
+    e^-(k) + e^+(-l) \to W^-(p) + W^+(r)
+
+So the initial and final states are:
+
+.. math::
+
+    \ket{i} = b_{\bf k}^\dag d_{-{\bf l}}^\dag\ket{\Omega}
+
+    \ket{f} = a_{\bf p}^{\lambda \dag} a_{\bf r}^{\mu \dag}\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        a_{\bf r}^\mu
+        a_{\bf p}^\lambda
+        b_{\bf k}^\dag d_{-{\bf l}}^\dag
+        |\Omega}
+
+    =
+    \epsilon^\mu_\alpha({\bf r}) {r^2\over i}
+    \epsilon^\lambda_\beta({\bf p}) {p^2\over i}
+    \left[-\bar v(-{\bf l}){1\over\tilde S(-{\bf l})} \right]
+
+    \braket{\Omega|T\,
+        \tilde A^\alpha({\bf r})
+        \tilde A^\beta({\bf p})
+        \tilde{\bar\psi}(-{\bf k})
+        \tilde\psi({\bf l})
+    |\Omega}
+
+    \left[{1\over\tilde S(-{\bf k})} u({\bf k}) \right]
+
 
 Evaluation of the Interacting Green Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
