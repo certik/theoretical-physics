@@ -931,8 +931,67 @@ beginning:
 
 This is called Lehmann-Symanzik-Zimmermann (LSZ) reduction formula.  One
 obtains similar expressions for other fields as well (if there were different
-creation operators between the initial and final states). We now need to
-calculate the interacting Green functions.
+creation operators between the initial and final states). All that remains is
+to calculate the interacting Green functions (for which we need to know the
+interaction Lagrangian). But first couple more examples:
+
+Example 1
+^^^^^^^^^
+
+$\nu_e$ - $e$ elastic scattering:
+
+.. math::
+
+    \nu_e(k) + e(p) \to \nu_e(k') + e(p')
+
+So the initial and final states are:
+
+.. math::
+
+    \ket{i} = b_{\bf k}^\dag b_{\bf p}^\dag\ket{\Omega}
+
+    \ket{f} = b_{\bf k'}^\dag b_{\bf p'}^\dag\ket{\Omega}
+
+and we get:
+
+.. math::
+
+    \braket{f|i} = \braket{\Omega|
+        b_{{\bf p'}}
+        b_{{\bf k'}}
+        b_{{\bf k}}^\dag
+        b_{{\bf p}}^\dag
+        |\Omega}
+    =\braket{\Omega|T\,
+        b_{\bf p'}
+        b_{\bf k'}
+        b_{\bf k}^\dag
+        b_{\bf p}^\dag
+        |\Omega}=
+
+    =
+    \left[\bar u^s({\bf p'}){1\over\tilde S({\bf p'})}
+        \right]
+    \left[\bar u^s({\bf k'}){1\over\tilde S({\bf k'})}
+        \right]
+
+    \braket{\Omega|T\,
+        \tilde\psi({\bf p'})
+        \tilde\psi({\bf k'})
+        \tilde{\bar\psi}(-{\bf k})
+        \tilde{\bar\psi}(-{\bf p})
+    |\Omega}
+
+    \left[{1\over\tilde S(-{\bf k})} u^s({\bf k})
+        \right]
+    \left[{1\over\tilde S(-{\bf p})} u^s({\bf p})
+        \right]
+
+We only multiply the matrices with the same momentum, i.e.
+$\left[\bar u^s({\bf p'}){1\over\tilde S({\bf p'})}\right]$ with
+$\tilde\psi({\bf p'})$,
+$\left[\bar u^s({\bf k'}){1\over\tilde S({\bf k'})}\right]$ with
+$\tilde\psi({\bf k'})$ and so on.
 
 Evaluation of the Interacting Green Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
