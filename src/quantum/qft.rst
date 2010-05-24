@@ -2267,7 +2267,7 @@ which when the momentum transfer $q$ is much less than $m_w$ becomes
     iM = -i{g^2\over8m_W^2}[\bar u\gamma^\mu (1-\gamma_5) u] [\bar u\gamma_\mu (1-\gamma_5) v]
 
 
-but this element can be derived directly from the Lagrangian:
+but this matrix element can be derived directly from the Lagrangian:
 
 .. math::
 
@@ -2281,7 +2281,17 @@ with
     {G_\mu\over\sqrt2} = {g^2\over8m_W^2}
 
 
-This is the universal V-A theory Lagrangian (after adding the h.c. term).
+This is the universal V-A theory Lagrangian (after adding the h.c. term). Note
+that the Fermi constant $G_F$ is equal to $G_\mu$.
+
+For the beta decay we get:
+
+.. math::
+
+    \L = -{G_\beta\over\sqrt2} [\bar \psi_p\gamma^\mu (1-f\gamma_5) \psi_n] [\bar \psi_e\gamma^\mu (1-\gamma_5) \psi_{\nu_e}]
+
+where $G_\beta = G_F \cos\theta_C$, $\theta_C=13^\circ$ is the Cabibbo
+angle and $f\doteq 1.26$.
 
 .. index:: quantum mechanics
 
