@@ -538,8 +538,13 @@ order corrections given by the loop diagrams).
 Parameters of the Standard Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The free parameters are $g$, $\theta_W$, $v$, $\lambda$, $h_e$, $h_\mu$,
-$h_\tau$. They can be traded for other physical parameters (see below), but
+The free parameters are $g$, $\theta_W$, $v$, $\lambda$, then three masses of
+the charged leptons $h_e$, $h_\mu$, $h_\tau$, six quark masses and four
+parameters of the CKM mixing matrix, which gives 4 + 3 + 6 + 4 = 17 free
+parameters (if one allows for three neutrino masses and the corresponding four
+mixings parameters, one gets 17 + 3 + 4 = 24 free parameters).
+
+They can be traded for other physical parameters (see below), but
 their numerical values are not predicted by the theory, so they have to be
 measured and their experimental values are approximately:
 
