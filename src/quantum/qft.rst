@@ -2018,13 +2018,41 @@ which describes the probability amplitude of adding a bare particle at time
 $t_1$, removing at time $t_2$ and regaining the original many-body system (that
 in the meantime evolved into $e^{-i H_0 t_2}\ket{\Psi_0}$).
 
-.. index:: Feynman rules
+Evaluating the Interacting Green Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Feynman Rules
-~~~~~~~~~~~~~
+Example 1
+^^^^^^^^^
 
-We can deduce a set of rules, so that one doesn't have to repeat the whole calculation each time. For a scalar field we derived the rules above, for fermion and vector boson fields it's more difficult.
+$\L_{ZZH} = \lambda Z_\mu Z^\mu H$, in the first order:
 
+.. math::
+
+    \braket{\Omega|T \tilde A^\mu(k)\tilde A^\nu(l)\tilde \phi(-p)|\Omega}
+    =i\lambda (2\pi)^4 \delta(k+l-p) \tilde D^\mu{}_\alpha(k)
+        \tilde D^{\nu\alpha}(l)\tilde D(p)
+
+Example 2
+^^^^^^^^^
+
+$\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$, in the second order:
+
+.. math::
+
+    \braket{\Omega|T\tilde\psi(k_1)\tilde{\bar\psi}(k_2)\tilde{\bar\psi}(-p_1)
+        \tilde\psi(-p_2) |\Omega}
+    =
+
+    =(-i\lambda)^2(2\pi)^4\delta(k_1+k_2-p_1-p_2)\left[
+        \tilde S(k_1)\gamma^\mu\tilde S(-k_2)
+        D_{\mu\nu}(k_1+k_2)
+        \tilde S(p_2)\gamma^\nu\tilde S(-p_1)
+        +\right.
+
+        \left. +
+        \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
+        D_{\mu\nu}(k_1-p_1)
+        \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
 
 ZZH interaction
 ~~~~~~~~~~~~~~~
@@ -2276,6 +2304,16 @@ nonzero order equal to:
         \tilde S(k_1)\gamma^\mu\tilde S(-p_1)
         D_{\mu\nu}(k_1-p_1)
         \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
+
+
+.. index:: Feynman rules
+
+Feynman Rules
+~~~~~~~~~~~~~
+
+We can deduce a set of rules, so that one doesn't have to repeat the whole
+calculation each time.
+
 
 
 .. index:: low energy theories
