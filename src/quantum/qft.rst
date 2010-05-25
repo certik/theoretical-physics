@@ -2073,9 +2073,79 @@ W_\mu^+ + \hbox{h.c.}$, in the second order:
         |\Omega}
         =
 
-    = \left(-i{g\over 2 \sqrt 2}\right)^2
-        \delta(r+p-k-l)
-        \tilde D^\alpha_\mu(r) \tilde D^\beta_\nu(p)\tilde S(l)
+    =\int \d^4x\,\d^4 y
+    \bra{0}T\tilde A^\alpha(r) \tilde A^\beta(p)
+        \tilde{\bar\psi}(-k)\tilde{\psi}(-l)
+
+        i{g\over 2 \sqrt 2}\bar\nu_e(x) \gamma^\mu (1-\gamma_5) e(x) W_\mu^+(x)
+
+        i{g\over 2 \sqrt 2}\bar\nu_e(y) \gamma^\nu (1-\gamma_5) e(y) W_\nu^+(y)
+
+        \ket{0}
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,\d\hat r\,\d\hat p\,\d\hat k\,\d\hat l\,
+    e^{i(\hat rr + \hat pp - \hat kk - \hat ll)}
+
+    \bra{0}T A^\alpha(\hat r) A^\beta(\hat p)
+        {\bar\psi}(\hat k){\psi}(\hat l)
+
+        \bar\nu_e(x) \gamma^\mu (1-\gamma_5) e(x) W_\mu^+(x)
+
+        \bar\nu_e(y) \gamma^\nu (1-\gamma_5) e(y) W_\nu^+(y)
+
+        \ket{0}
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,\d\hat r\,\d\hat p\,\d\hat k\,\d\hat l\,
+    e^{i(\hat rr + \hat pp - \hat kk - \hat ll)}
+
+    D^\alpha{}_\mu(\hat r - x) D^\mu{}_\nu(\hat p - y)
+    S(\hat l - x) \gamma^\mu (1-\gamma_5)S(x-y)\gamma^\nu(1-\gamma_5)
+    S(\hat k - y)
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,\d\hat r\,\d\hat p\,\d\hat k\,\d\hat l\,
+    e^{i((\hat r+x)r + (\hat p+y)p - (\hat k+y)k - (\hat l+x)l)}
+
+    D^\alpha{}_\mu(\hat r) D^\mu{}_\nu(\hat p)
+    S(\hat l) \gamma^\mu (1-\gamma_5)S(x-y)\gamma^\nu(1-\gamma_5)
+    S(\hat k)
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,
+    e^{i(xr + yp - yk - xl)}
+
+    \tilde D^\alpha{}_\mu(r) \tilde D^\mu{}_\nu(p)
+    \tilde S(l) \gamma^\mu (1-\gamma_5)S(x-y)\gamma^\nu(1-\gamma_5)
+    \tilde S(k)
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4x\,\d^4 y \,
+    e^{i((x+y)r + yp - yk - (x+y)l)}
+
+    \tilde D^\alpha{}_\mu(r) \tilde D^\mu{}_\nu(p)
+    \tilde S(l) \gamma^\mu (1-\gamma_5)S(x)\gamma^\nu(1-\gamma_5)
+    \tilde S(k)
+        =
+
+    =\left(i{g\over 2 \sqrt 2}\right)^2
+    \int \d^4 y \,
+    e^{i(yr + yp - yk - yl)}
+
+    \tilde D^\alpha{}_\mu(r) \tilde D^\mu{}_\nu(p)
+    \tilde S(l) \gamma^\mu (1-\gamma_5)\tilde S(r-l)\gamma^\nu(1-\gamma_5)
+    \tilde S(k)
+        =
+
+    = \left(i{g\over 2 \sqrt 2}\right)^2
+        (2\pi)^4\delta(r+p-k-l)
+        \tilde D^\alpha{}_\mu(r) \tilde D^\beta{}_\nu(p)\tilde S(l)
         \gamma^\mu(1-\gamma_5) \tilde S(r-l) \gamma^\nu(1-\gamma_5)\tilde S(k)
 
 ZZH interaction
