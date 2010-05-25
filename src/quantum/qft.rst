@@ -2054,6 +2054,24 @@ $\L_{ee\gamma}=-\lambda \bar e\gamma^\mu e A_\mu$, in the second order:
         D_{\mu\nu}(k_1-p_1)
         \tilde S(p_2)\gamma^\nu\tilde S(-k_2)\right]
 
+Example 3
+^^^^^^^^^
+
+$\L_{\rm int}={g\over 2 \sqrt 2} \bar\nu_e \gamma^\mu (1-\gamma_5) e
+W_\mu^+ + \hbox{h.c.}$, in the second order:
+
+.. math::
+
+    \braket{\Omega|T\tilde A^\alpha(r) \tilde A^\beta(p)
+        \tilde{\bar\psi}(-k)\tilde{\psi}(-l)
+        |\Omega}
+        =
+
+    = \left(-i{g\over 2 \sqrt 2}\right)^2
+        \delta(r+p-k-l)
+        \tilde D^\alpha_\mu(r) \tilde D^\beta_\nu(p)\tilde S(l)
+        \gamma^\mu(1-\gamma_5) \tilde S(r-l) \gamma^\nu(1-\gamma_5)\tilde S(k)
+
 ZZH interaction
 ~~~~~~~~~~~~~~~
 
