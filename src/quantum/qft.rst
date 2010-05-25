@@ -490,7 +490,8 @@ Plugging everything together we get the GWS Lagrangian:
 
 
 
-The free parameters are $g$, $\theta_W$, $v$, $\lambda$, $h_e$, $h_\mu$, $h_\tau$.
+The free parameters are $g$, $\theta_W$, $v$, $\lambda$, $h_e$, $h_\mu$,
+$h_\tau$.
 
 .. index:: particle mass
 
@@ -517,26 +518,68 @@ we get
 
     m_W = \half g v
 
-
-
-.. math::
-
     m_Z = {gv\over2\cos\theta_W}={m_W\over\cos\theta_W}
-
-
-
-.. math::
 
     m_H = v\sqrt{2\lambda}
 
-
-
-.. math::
-
     m_e = {1\over\sqrt2}h_ev
+
+    m_\mu = {1\over\sqrt2}h_\mu v
+
+    m_\tau = {1\over\sqrt2}h_\tau v
+
+Note that those are the bare masses (e.g. in order to obtain the real mesaured
+masses of the particles, one has to renormalize them by calculating the higher
+order corrections given by the loop diagrams).
 
 
 .. index:: quarks
+
+Parameters of the Standard Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The free parameters are $g$, $\theta_W$, $v$, $\lambda$, $h_e$, $h_\mu$,
+$h_\tau$. They can be traded for other physical parameters (see below), but
+their numerical values are not predicted by the theory, so they have to be
+measured and their experimental values are approximately:
+
+.. math::
+
+    g = 0.631
+
+    \theta_W = 28.67^\circ
+
+    v = 246.218 {\rm\,GeV}
+
+    0.2 < \lambda < 4.0
+
+    h_e = 2.929 {\rm\,KeV}
+
+    h_\tau = 0.6065 {\rm\,MeV}
+
+All the parameters have been measured quite exactly, except $\lambda$.
+
+Other physical constants can then be calculated using the formulas:
+
+.. math::
+
+    m_W = \half g v = 77.7 {\rm\, GeV}
+
+    m_Z = {m_W\over\cos\theta_W} = 88.6 {\rm\, GeV}
+
+    m_H = v\sqrt{2\lambda} = \mbox{from }150 {\rm\,GeV}\mbox{ to }700 {\rm\,GeV}
+
+    m_e = {1\over\sqrt2}h_ev = 510{\rm\,KeV}
+
+    m_\mu= {1\over\sqrt2}h_\mu v = 105.6{\rm\,MeV}
+
+    G_F = {1\over\sqrt{2} v^2} = (1.16639 \pm 0.00001) \times 10^{-5}
+        {\rm\, GeV^{-2}}
+
+    e = g \sin\theta_W = 0.3
+
+    \alpha = {1\over 4\pi} g^2 \sin^2 \theta_W \doteq {1\over 137}
+
 
 Quarks
 ~~~~~~
