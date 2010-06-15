@@ -8,3 +8,4 @@ Quantum Field Theory and Quantum Mechanics
 
     qft.rst
     examples.rst
+    radial.rst

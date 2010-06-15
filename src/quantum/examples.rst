@@ -152,7 +152,7 @@ eigenvalues expansion:
 where the sum goes over the whole spectrum (for continuous spectrum the sum
 turns into an integral), the $c_E$ coefficients are determined from the initial condition
 and $\psi_E(x)$ satisfies the one dimensional one particle time independent
-Schröodinger equation:
+Schrödinger equation:
 
 .. math::
 
