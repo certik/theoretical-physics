@@ -454,7 +454,7 @@ contribute to:
         \epsilon \int Q v_2 \d\rho
 
 To show that this problem generates a symmetric matrix, it is helpful to write
-it in the following form:
+the radial equations in the following form:
 
 .. math::
 
@@ -466,8 +466,9 @@ where the operator $\hat H$
 .. math::
 
     \hat H = \left(\begin{array}{cc}
-        V(r) & \hbar c (-{\d\over\d\rho}+{\kappa\over\rho}) \\
-        \hbar c (-{\d\over\d\rho}+{\kappa\over\rho}) & V(r) - 2mc^2 \\
+        V(r) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(r) - 2mc^2 \\
         \end{array}\right)
 
-is Hermitean ($\hat H^\dag = \hat H$), because $(-{\d\over\d\rho})^\dag = {\d\over\d\rho}$.
+is Hermitean ($\hat H^\dag = \hat H$), because
+$\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$.
