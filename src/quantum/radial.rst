@@ -39,10 +39,10 @@ Variating it (subject to the normalization condition) we get:
 
 Which gives the Schrödinger equation assuming the surface integral vanishes.
 
-Finite Element Formulation
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Weak Formulation
+~~~~~~~~~~~~~~~~
 
-The FE weak formulation is obtained from the above by substituting $\delta\psi
+The weak formulation is obtained from the above by substituting $\delta\psi
 \to v$ (the test function) so we get:
 
 .. math::
@@ -67,12 +67,12 @@ by writing the Laplace operator in spherical coordinates as:
 
 .. math::
 
-     \nabla^2f =  {\partial^2 f\over\partial\rho^2} +{2\over \rho}{\partial^2 f\over\partial\rho^2} -{L^2\over \rho^2}
+     \nabla^2f =  {\partial^2 f\over\partial\rho^2} +{2\over \rho}{\partial^2 f\over\partial\rho^2} -{L^2 f\over \rho^2}
 
 
 .. math::
 
-     L^2= -{\partial^2 f\over\partial\theta^2} -{1\over\sin^2\theta}{\partial^2 f\over\partial\phi^2} -{1\over\tan\theta}{\partial f\over\partial\theta}
+     L^2= -{\partial^2\over\partial\theta^2} -{1\over\sin^2\theta}{\partial^2\over\partial\phi^2} -{1\over\tan\theta}{\partial\over\partial\theta}
 
 Substituting $\psi({\bf x})=R(\rho)Y(\theta,\phi)$ into the Schrödinger equation
 yields:
@@ -106,8 +106,52 @@ scalar):
 
     = \int (\half (\nabla (RY))^2 + V (RY)^2  )\rho^2\d \rho \d\Omega =
 
-    = \int (\half (R'^2Y^2 + R^2(\nabla Y)^2 + 2RR'({\bf\hat r}Y)\cdot\nabla Y) + V (RY)^2  )\rho^2\d \rho \d\Omega =
+    = \int (\half (R'^2Y^2 + R^2(\nabla Y)^2 + 2RR'({\bf\hat\rho}Y)\cdot\nabla Y) + V (RY)^2  )\rho^2\d \rho \d\Omega =
 
     = \int \left(\half \left(R'^2 + R^2{l(l+1)\over\rho^2}\right) + V R^2\right)\rho^2\d \rho =
 
     = \int \half \rho^2 R'^2 + (\rho^2 V + \half l(l+1)) R^2\,\d \rho =
+
+where we used the following properties of spherical harmonics:
+
+.. math::
+
+    \int Y^2\d\Omega = 1
+
+    \int \rho^2 (\nabla Y)^2\d\Omega = l(l+1)
+
+    (Y{\bf \hat \rho})\cdot(\rho \nabla Y) = 0
+
+We now minimize the action (subject to the normalization $\int \rho^2 R^2\d\rho
+= 1$) to obtain the radial equation:
+
+.. math::
+
+    0 = \delta (S - \epsilon N) = \delta
+    \int \half \rho^2 R'^2 + (\rho^2 V + \half l(l+1)) R^2 - \epsilon \rho^2R^2
+        \,\d \rho =
+
+    = 2\int \half \rho^2 R'(\delta R)' + (\rho^2 V + \half l(l+1)) R\delta R -
+    \epsilon \rho^2 R\delta R \,\d \rho =
+
+    = 2\int \left( (-\half \rho^2 R')' + (\rho^2 V + \half l(l+1)) R - \epsilon \rho^2
+    R\right)\delta R \,\d \rho + [\rho^2 R' \delta R]^a_b
+
+So the radial equation is:
+
+.. math::
+
+    (-\half \rho^2 R')' + (\rho^2 V + \half l(l+1)) R = \epsilon \rho^2 R
+
+In agreement with the previous result.
+
+Weak Formulation
+~~~~~~~~~~~~~~~~
+
+The weak formulation is obtained from the above by substituting $\delta R
+\to v$ (the test function) so we get:
+
+.. math::
+
+    \int \half \rho^2 R'v' + (\rho^2 V + \half l(l+1)) Rv\,\d\rho =
+    \epsilon \int \rho^2 Rv \,\d \rho
