@@ -474,13 +474,13 @@ is Hermitean ($\hat H^\dag = \hat H$), because
 $\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$.
 From this we get the finite element formulation using the standard procedure
 --- we insert the complete basis set $\one=\sum_j \ket{j}\bra{j}$ and multiply
-by $\ket{i}$ from the left:
+by $\bra{i}$ from the left:
 
 .. math::
 
     \sum_j \braket{i|\hat H|j}\bra{j} \left(\begin{array}{c} P(r) \\
         Q(r)\end{array}\right) =
-        \epsilon \ket{i}\left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+        \epsilon \bra{i}\left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
 
-The basis $\ket{i}$ can be for example the FE basis, some spline basis set, or
+The basis $\bra{i}$ can be for example the FE basis, some spline basis set, or
 gaussians.
