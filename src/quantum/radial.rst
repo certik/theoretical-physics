@@ -458,19 +458,21 @@ the radial equations in the following form:
 
 .. math::
 
-    \hat H \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right) =
-        \epsilon \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+    \hat H \ket{P, Q} = \epsilon \ket{P, Q}
 
-where the operator $\hat H$
+
+where:
 
 .. math::
+
+    \ket{P, Q} = \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
 
     \hat H = \left(\begin{array}{cc}
         V(r) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
         \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(r) - 2mc^2 \\
         \end{array}\right)
 
-is Hermitean ($\hat H^\dag = \hat H$), because
+the operator $\hat H$ is Hermitean ($\hat H^\dag = \hat H$), because
 $\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$.
 From this we get the finite element formulation using the standard procedure
 --- we insert the complete basis set $\one=\sum_j \ket{j}\bra{j}$ and multiply
@@ -478,9 +480,8 @@ by $\bra{i}$ from the left:
 
 .. math::
 
-    \sum_j \braket{i|\hat H|j}\bra{j} \left(\begin{array}{c} P(r) \\
-        Q(r)\end{array}\right) =
-        \epsilon \bra{i}\left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+    \sum_j \braket{i|\hat H|j}\bra{j} \ket{P, Q} =
+        \epsilon \bra{i} \ket{P, Q}
 
 The basis $\bra{i}$ can be for example the FE basis, some spline basis set, or
 gaussians.
