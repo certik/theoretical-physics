@@ -421,3 +421,20 @@ which gives the two radial equations:
     -\hbar c Q' + \hbar c{\kappa\over\rho}Q + PV          = \epsilon P
 
      \hbar c P' + \hbar c{\kappa\over\rho}P + QV - 2mc^2Q = \epsilon Q
+
+Weak Formulation
+~~~~~~~~~~~~~~~~
+
+The weak formulation can be obtained by substituting $\delta P \to v_1$ and
+$\delta Q\to v_2$ into the action above (and separating the integrals) and
+omitting the the boundary term:
+
+.. math::
+
+    \int -\hbar c Q'v_1 + \hbar c{\kappa\over\rho}Qv_1 + PVv_1\d\rho =
+    \epsilon \int Pv_1 \d\rho
+
+    \int \hbar c P'v_2 + \hbar c{\kappa\over\rho}Pv_2 + QVv_2 -2mc^2Qv_2\d\rho =
+        \epsilon \int Q v_2 \d\rho
+
+We can also start from the radial equations themselves to get the same result.
