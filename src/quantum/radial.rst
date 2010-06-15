@@ -438,3 +438,19 @@ omitting the the boundary term:
         \epsilon \int Q v_2 \d\rho
 
 We can also start from the radial equations themselves to get the same result.
+If we start from the equations themselves (which is the most elementary
+approach), there are no boundary terms (because we didn't integrate by parts).
+We can separate the integrals according to the matrix elements that they
+contribute to:
+
+.. math::
+
+    \int PVv_1 \d\rho + \int -\hbar c Q'v_1 +
+        \hbar c{\kappa\over\rho}Qv_1 \d\rho =
+    \epsilon \int Pv_1 \d\rho
+
+    \int \hbar c P'v_2 + \hbar c{\kappa\over\rho}Pv_2 +
+        \int (V -2mc^2)Qv_2 \d\rho =
+        \epsilon \int Q v_2 \d\rho
+
+.. It might help to write it using bilinear forms as:
