@@ -155,13 +155,53 @@ In agreement with the previous result.
 Weak Formulation
 ~~~~~~~~~~~~~~~~
 
-The weak formulation is obtained from the above by substituting $\delta R
+The weak formulation is obtained from the action above by substituting $\delta R
 \to v$ (the test function) so we get:
 
 .. math::
 
     \int \half \rho^2 R'v' + (\rho^2 V + \half l(l+1)) Rv\,\d\rho =
     \epsilon \int \rho^2 Rv \,\d \rho
+
+We can also start from the equation itself, multiply by a test function $v$:
+
+.. math::
+
+    (-\half \rho^2 R')'v + (\rho^2 V + \half l(l+1)) Rv = \epsilon \rho^2 Rv
+
+We integrate it. Normally we need to be using $\rho^2\d\rho$ in order to
+integrate covariantly, but the above equation was already multiplied by
+$\rho^2$ (i.e. strictly speaking, it is not coordinate independent anymore), so
+we only integrate by $\d\rho$:
+
+.. math::
+
+    \int (-\half \rho^2 R')'v + (\rho^2 V + \half l(l+1)) Rv \d\rho =
+        \epsilon \int \rho^2 Rv \d\rho
+
+After integration by parts:
+
+.. math::
+
+    \int \half \rho^2 R'v' + (\rho^2 V + \half l(l+1)) Rv \d\rho
+        -\half[\rho^2R'v]_0^a
+    =
+        \epsilon \int \rho^2 Rv \d\rho
+
+Where $a$ is the end of the domain (the origin is at $0$).
+The boundary term is zero at the origin, so we get:
+
+.. math::
+
+    \int \half \rho^2 R'v' + (\rho^2 V + \half l(l+1)) Rv \d\rho
+        \half\rho^2R'(a)v(a)
+    =
+        \epsilon \int \rho^2 Rv \d\rho
+
+We usually want to have the boundary term $\half\rho^2R'(a)v(a)$ equal to zero.
+This is equivalent to either letting $R'(a) = 0$ (we prescribe the zero
+derivative of the radial wave function at $a$) or we set $v(a)=0$ (which
+corresponds to zero Dirichlet condition for $R$, i.e. setting $R(a)=0$).
 
 Variational Formulation of the Dirac equation
 ---------------------------------------------
