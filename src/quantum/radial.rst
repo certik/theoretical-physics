@@ -453,4 +453,21 @@ contribute to:
         \int (V -2mc^2)Qv_2 \d\rho =
         \epsilon \int Q v_2 \d\rho
 
-.. It might help to write it using bilinear forms as:
+To show that this problem generates a symmetric matrix, it is helpful to write
+it in the following form:
+
+.. math::
+
+    \hat H \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right) =
+        \epsilon \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+
+where the operator $\hat H$
+
+.. math::
+
+    \hat H = \left(\begin{array}{cc}
+        V(r) & \hbar c (-{\d\over\d\rho}+{\kappa\over\rho}) \\
+        \hbar c (-{\d\over\d\rho}+{\kappa\over\rho}) & V(r) - 2mc^2 \\
+        \end{array}\right)
+
+is Hermitean ($\hat H^\dag = \hat H$), because $(-{\d\over\d\rho})^\dag = {\d\over\d\rho}$.
