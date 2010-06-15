@@ -194,7 +194,7 @@ The boundary term is zero at the origin, so we get:
 .. math::
 
     \int \half \rho^2 R'v' + (\rho^2 V + \half l(l+1)) Rv \d\rho
-        \half\rho^2R'(a)v(a)
+        +\half\rho^2R'(a)v(a)
     =
         \epsilon \int \rho^2 Rv \d\rho
 
