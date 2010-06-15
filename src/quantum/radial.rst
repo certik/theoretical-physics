@@ -378,6 +378,6 @@ which gives the two radial equations:
 
 .. math::
 
-    -\hbar c Q' + c{\kappa\over\rho}Q + PV          = \epsilon P
+    -\hbar c Q' + \hbar c{\kappa\over\rho}Q + PV          = \epsilon P
 
-     \hbar c P' + c{\kappa\over\rho}P + QV - 2mc^2Q = \epsilon Q
+     \hbar c P' + \hbar c{\kappa\over\rho}P + QV - 2mc^2Q = \epsilon Q
