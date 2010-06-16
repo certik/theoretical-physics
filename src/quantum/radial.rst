@@ -597,14 +597,28 @@ completeness relation, which is different to the radial Schrödinger equation):
         \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
         \end{array}\right)
 
-From this we get the finite element formulation using the standard procedure
---- we insert the complete basis set $\one=\sum_j \ket{l}\bra{l}$ and multiply
-by $\bra{k}$ from the left:
+The weak formulation is:
 
 .. math::
 
-    \sum_l \braket{k|\hat H|l}\braket{l|P, Q} =
-        \epsilon \braket{k|P, Q}
+    \braket{v|\hat H|P, Q} =
+        \epsilon \braket{v|P, Q}
+
+where the test function $\ket{v}$ is one of::
+
+.. math::
+
+    \ket{v} = \begin{cases}
+        \ket{v_1}\left(\begin{array}{c}1\\0\\\end{array}\right) \cr
+        \ket{v_2}\left(\begin{array}{c}0\\1\\\end{array}\right) \cr
+        \end{cases}
+
+The FE formulation is then obtained by expanding $\ket{P, Q} = \sum_k q_k \ket{k}$:
+
+.. math::
+
+    \sum_l \braket{k|\hat H|l}q_l =
+        \epsilon \sum_l\braket{k|l}q_l
 
 The basis $\ket{k}$ can be for example the FE basis, some spline basis set, or
 gaussians. The basis has actually $2n$ base functions and it enumerates each
@@ -628,4 +642,12 @@ So at the end of the day, the $\braket{k|\hat H|l}$ matrix looks like this:
         \hbar c \braket{i|{\d\over\d\rho}+{\kappa\over\rho}|j} & \braket{i|V(r) - 2mc^2|j} \\
         \end{array}\right)
 
-The matrix is $2n \times 2n$, composed of those 4 matrices $n \times n$.
+The matrix is $2n \times 2n$, composed of those 4 matrices $n \times n$. The
+$\braket{k|l}$ matrix looks like this:
+
+.. math::
+
+    \braket{k|l} = \left(\begin{array}{cc}
+        \braket{i|j} & 0 \\
+        0            & \braket{i|j} \\
+        \end{array}\right)
