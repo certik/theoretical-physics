@@ -251,6 +251,13 @@ so to recover the above formula, we do:
     =
         {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
 
+Operator $\hat H$ is symmetric, because:
+
+.. math::
+
+    \int f{1\over\rho^2}(\rho^2 g')' \rho^2\d\rho =
+    \int {1\over\rho^2}(\rho^2 f')'g \rho^2\d\rho
+
 The weak formulation is:
 
 .. math::
@@ -555,12 +562,19 @@ where:
         \end{array}\right)
 
 the operator $\hat H$ is Hermitean ($\hat H^\dag = \hat H$), because
-$\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$ and all the other
+$\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$:
+
+.. math::
+
+    \int f{\d\over\d\rho}g \d\rho =
+    \int \left(-{\d\over\d\rho}\right)f g \d\rho
+
+and all the other
 quantities are just scalars.
 
 Stricly speaking, the exact Dirac notation (that is coordinate/representation
 independent) would be the following (notice the missing $\rho^2$ in the
-completeness relation, which is different to the radial Schroedinger equation):
+completeness relation, which is different to the radial Schrödinger equation):
 
 .. math::
 
