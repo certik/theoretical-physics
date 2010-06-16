@@ -602,7 +602,7 @@ The normalization is:
 .. math::
 
     \braket{P, Q| P, Q} = \int \d\rho \braket{P, Q|\rho}\braket{\rho|P, Q} =
-        \int \d\rho (P^2+Q^2)
+        \int \d\rho (P^2+Q^2) = 1
 
 The weak formulation is:
 
