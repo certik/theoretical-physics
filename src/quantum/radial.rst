@@ -465,11 +465,11 @@ where:
 
 .. math::
 
-    \ket{P, Q} = \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+    \ket{P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
 
     \hat H = \left(\begin{array}{cc}
-        V(r) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
-        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(r) - 2mc^2 \\
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
         \end{array}\right)
 
 the operator $\hat H$ is Hermitean ($\hat H^\dag = \hat H$), because
@@ -481,16 +481,18 @@ be the following:
 
 .. math::
 
+    \hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
     \int
     \braket{\rho|\hat H|\rho'}\braket{\rho'|P, Q}\rho'^2\d\rho'
         = \epsilon \braket{\rho|P, Q}
 
-    \braket{\rho|P, Q} = \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+    \braket{\rho|P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
 
     \braket{\rho|\hat H|\rho'} = {\delta(\rho-\rho')\over \rho^2}
         \left(\begin{array}{cc}
-        V(r) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
-        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(r) - 2mc^2 \\
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
         \end{array}\right)
 
 From this we get the finite element formulation using the standard procedure
