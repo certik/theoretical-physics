@@ -476,6 +476,23 @@ the operator $\hat H$ is Hermitean ($\hat H^\dag = \hat H$), because
 $\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$ and all the other
 quantities are just scalars.
 
+Stricly speaking, the exact Dirac notation would
+be the following:
+
+.. math::
+
+    \int
+    \braket{\rho|\hat H|\rho'}\braket{\rho'|P, Q}\rho'^2\d\rho'
+        = \epsilon \braket{\rho|P, Q}
+
+    \braket{\rho|P, Q} = \left(\begin{array}{c} P(r) \\ Q(r)\end{array}\right)
+
+    \braket{\rho|\hat H|\rho'} = {\delta(\rho-\rho')\over \rho^2}
+        \left(\begin{array}{cc}
+        V(r) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(r) - 2mc^2 \\
+        \end{array}\right)
+
 From this we get the finite element formulation using the standard procedure
 --- we insert the complete basis set $\one=\sum_j \ket{l}\bra{l}$ and multiply
 by $\bra{k}$ from the left:
