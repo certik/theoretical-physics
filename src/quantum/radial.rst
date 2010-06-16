@@ -259,6 +259,7 @@ The weak formulation is:
 
     \int\d\rho\rho^2 \braket{v|\rho}\braket{\rho|H|R} = E
         \int\d\rho\rho^2\braket{v|\rho}\braket{\rho|R}
+
     \int\d\rho\rho^2 v(\rho)\left(
         {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
     \right) = E
