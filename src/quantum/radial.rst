@@ -597,6 +597,13 @@ completeness relation, which is different to the radial Schrödinger equation):
         \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
         \end{array}\right)
 
+The normalization is:
+
+.. math::
+
+    \braket{P, Q| P, Q} = \int \d\rho \braket{P, Q|\rho}\braket{\rho|P, Q} =
+        \int \d\rho (P^2+Q^2)
+
 The weak formulation is:
 
 .. math::
@@ -604,7 +611,7 @@ The weak formulation is:
     \braket{v|\hat H|P, Q} =
         \epsilon \braket{v|P, Q}
 
-where the test function $\ket{v}$ is one of::
+where the test function $\ket{v}$ is one of:
 
 .. math::
 
