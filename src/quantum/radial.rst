@@ -251,6 +251,30 @@ so to recover the above formula, we do:
     =
         {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
 
+The weak formulation is:
+
+.. math::
+
+    \braket{v|H|R} = E\braket{v|R}
+
+and we obtain the FE formulation by expanding $\ket{R} =\sum_j R_j \ket{j}$
+(note that the basis $\ket{j}$ is not orthogonal, so in particular $\sum_j
+\ket{j}\bra{j} \neq 1$):
+
+.. math::
+
+    \sum_j\braket{i|H|j}R_j = E\sum_j\braket{i|j}R_j
+
+This is a generalized eigenvalue problem.
+In the special case of an orthonormal basis, $\braket{i|j} = \delta_{ij}$
+(which FE is not), we get:
+
+.. math::
+
+    \sum_j\braket{i|H|j}R_j = R_i
+
+Which is an eigenvalue problem.
+
 Variational Formulation of the Dirac equation
 ---------------------------------------------
 
