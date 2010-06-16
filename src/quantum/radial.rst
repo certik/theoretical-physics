@@ -559,24 +559,25 @@ $\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$ and all the other
 quantities are just scalars.
 
 Stricly speaking, the exact Dirac notation (that is coordinate/representation
-independent) would be the following:
+independent) would be the following (notice the missing $\rho^2$ in the
+completeness relation, which is different to the radial Schroedinger equation):
 
 .. math::
 
     \hat H \ket{P, Q} = \epsilon \ket{P, Q}
 
-    \one = \int \d\rho \rho^2 \ket{\rho}\bra{\rho}
+    \one = \int \d\rho \ket{\rho}\bra{\rho}
 
-    \braket{\rho|\rho'} = {\delta(\rho-\rho')\over \rho^2}
+    \braket{\rho|\rho'} = \delta(\rho-\rho')
 
     \int
-    \braket{\rho|\hat H|\rho'}\braket{\rho'|P, Q}\rho'^2\d\rho'
+    \braket{\rho|\hat H|\rho'}\braket{\rho'|P, Q}\d\rho'
         = \epsilon \braket{\rho|P, Q}
 
-    \braket{\rho|P, Q} = %{1\over\rho^2}
+    \braket{\rho|P, Q} =
         \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
 
-    \braket{\rho|\hat H|\rho'} = \braket{\rho|\rho'}
+    \braket{\rho|\hat H|\rho'} = \delta(\rho-\rho')
         \left(\begin{array}{cc}
         V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
         \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
