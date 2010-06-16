@@ -257,6 +257,13 @@ The weak formulation is:
 
     \braket{v|H|R} = E\braket{v|R}
 
+    \int\d\rho\rho^2 \braket{v|\rho}\braket{\rho|H|R} = E
+        \int\d\rho\rho^2\braket{v|\rho}\braket{\rho|R}
+    \int\d\rho\rho^2 v(\rho)\left(
+        {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
+    \right) = E
+        \int\d\rho\rho^2v(\rho)R(\rho)
+
 and we obtain the FE formulation by expanding $\ket{R} =\sum_j R_j \ket{j}$
 (note that the basis $\ket{j}$ is not orthogonal, so in particular $\sum_j
 \ket{j}\bra{j} \neq 1$):
