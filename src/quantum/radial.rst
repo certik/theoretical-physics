@@ -473,15 +473,38 @@ where:
         \end{array}\right)
 
 the operator $\hat H$ is Hermitean ($\hat H^\dag = \hat H$), because
-$\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$.
+$\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$ and all the other
+quantities are just scalars.
+
 From this we get the finite element formulation using the standard procedure
---- we insert the complete basis set $\one=\sum_j \ket{j}\bra{j}$ and multiply
-by $\bra{i}$ from the left:
+--- we insert the complete basis set $\one=\sum_j \ket{l}\bra{l}$ and multiply
+by $\bra{k}$ from the left:
 
 .. math::
 
-    \sum_j \braket{i|\hat H|j}\bra{j} \ket{P, Q} =
-        \epsilon \bra{i} \ket{P, Q}
+    \sum_l \braket{k|\hat H|l}\braket{l|P, Q} =
+        \epsilon \braket{k|P, Q}
 
-The basis $\bra{i}$ can be for example the FE basis, some spline basis set, or
-gaussians.
+The basis $\ket{k}$ can be for example the FE basis, some spline basis set, or
+gaussians. The basis has actually $2n$ base functions and it enumerates each
+equation like this:
+
+.. math::
+
+    \ket{k} = \begin{cases}
+        \ket{i}\left(\begin{array}{c}1\\0\\\end{array}\right) &
+            \mbox{for } i=k < n\cr
+        \ket{i}\left(\begin{array}{c}0\\1\\\end{array}\right) &
+            \mbox{for } i=k >= n\cr
+        \end{cases}
+
+So at the end of the day, the $\braket{k|\hat H|l}$ matrix looks like this:
+
+.. math::
+
+    \braket{k|\hat H|l} = \left(\begin{array}{cc}
+        \braket{i|V(r)|j} & \hbar c \braket{i|-{\d\over\d\rho}+{\kappa\over\rho}|j} \\
+        \hbar c \braket{i|{\d\over\d\rho}+{\kappa\over\rho}|j} & \braket{i|V(r) - 2mc^2|j} \\
+        \end{array}\right)
+
+The matrix is $2n \times 2n$, composed of those 4 matrices $n \times n$.
