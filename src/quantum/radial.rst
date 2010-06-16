@@ -658,3 +658,16 @@ $\braket{k|l}$ matrix looks like this:
         \braket{i|j} & 0 \\
         0            & \braket{i|j} \\
         \end{array}\right)
+
+We can also write the matrix elements explicitly. Let $\ket{i} = B_i(\rho)$,
+then:
+
+.. math::
+
+    \braket{i|j} = \int B_i B_j \,\d\rho
+    \braket{i|V|j} = \int B_i V B_j \,\d\rho
+    \braket{i|V-2mc^2|j} = \int B_i (V-2mc^2) B_j \,\d\rho
+    \hbar c \braket{i|{\d\over\d\rho}+{\kappa\over\rho}|j} =
+        \hbar c\int B_i B_j' + B_i {\kappa\over\rho} B_j \,\d\rho
+    \hbar c \braket{i|-{\d\over\d\rho}+{\kappa\over\rho}|j} =
+        \hbar c\int -B_i B_j' + B_i {\kappa\over\rho} B_j \,\d\rho
