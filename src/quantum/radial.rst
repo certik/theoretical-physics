@@ -483,7 +483,7 @@ independent) would be the following:
 
     \hat H \ket{P, Q} = \epsilon \ket{P, Q}
 
-    \one = \int \d\rho^2 \ket{\rho}\bra{\rho}
+    \one = \int \d\rho \rho^2 \ket{\rho}\bra{\rho}
 
     \braket{\rho|\rho'} = {\delta(\rho-\rho')\over \rho^2}
 
