@@ -203,6 +203,54 @@ This is equivalent to either letting $R'(a) = 0$ (we prescribe the zero
 derivative of the radial wave function at $a$) or we set $v(a)=0$ (which
 corresponds to zero Dirichlet condition for $R$, i.e. setting $R(a)=0$).
 
+We can also write all the formulas using the Dirac notation:
+
+.. math::
+
+    \one = \int \d\rho \rho^2 \ket{\rho}\bra{\rho}
+
+    \braket{\rho|\rho'} = {\delta(\rho-\rho')\over \rho^2}
+
+    \braket{\rho|R} = R(\rho)
+
+    \braket{\rho|\hat H|R} =
+        {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
+
+    \hat H \ket{R} = E\ket{R}
+
+Then normalization is:
+
+.. math::
+
+    \braket{R|R} = \int \d\rho \rho^2 \braket{R|\rho}\braket{\rho|R} =
+        \int \d\rho \rho^2 R^2(\rho)
+
+The operator $\hat H$ can be written as:
+
+.. math::
+
+    \braket{\rho|\hat H|\rho'} = \braket{\rho|\rho'}\left(
+        -\half{1\over\rho^2}{\d\over\d\rho}\left(\rho^2{\d\over\d\rho}\right)
+        + (V + \half {l(l+1)\over\rho^2})
+        \right)
+
+so to recover the above formula, we do:
+
+.. math::
+
+    \braket{\rho|\hat H| R} = \int\d\rho'\rho'^2\braket{\rho|\hat H|\rho'}
+        \braket{\rho'|R}=
+
+    =\int\d\rho'\rho'^2
+    {\delta(\rho-\rho')\over \rho^2}
+    \left(
+        -\half{1\over\rho^2}{\d\over\d\rho}\left(\rho^2{\d\over\d\rho}\right)
+        + (V + \half {l(l+1)\over\rho^2})
+        \right)
+    R(\rho')
+    =
+        {1\over\rho^2}(-\half \rho^2 R')' + (V + \half {l(l+1)\over\rho^2}) R
+
 Variational Formulation of the Dirac equation
 ---------------------------------------------
 
