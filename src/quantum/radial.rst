@@ -273,6 +273,8 @@ In the special case of an orthonormal basis, $\braket{i|j} = \delta_{ij}$
 
     \sum_j\braket{i|H|j}R_j = R_i
 
+    R_i = \braket{i|R}
+
 Which is an eigenvalue problem.
 
 Variational Formulation of the Dirac equation
