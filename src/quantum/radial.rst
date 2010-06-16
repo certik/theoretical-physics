@@ -476,20 +476,25 @@ the operator $\hat H$ is Hermitean ($\hat H^\dag = \hat H$), because
 $\left(-{\d\over\d\rho}\right)^\dag = {\d\over\d\rho}$ and all the other
 quantities are just scalars.
 
-Stricly speaking, the exact Dirac notation would
-be the following:
+Stricly speaking, the exact Dirac notation (that is coordinate/representation
+independent) would be the following:
 
 .. math::
 
     \hat H \ket{P, Q} = \epsilon \ket{P, Q}
 
+    \one = \int \d\rho^2 \ket{\rho}\bra{\rho}
+
+    \braket{\rho|\rho'} = {\delta(\rho-\rho')\over \rho^2}
+
     \int
     \braket{\rho|\hat H|\rho'}\braket{\rho'|P, Q}\rho'^2\d\rho'
         = \epsilon \braket{\rho|P, Q}
 
-    \braket{\rho|P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
+    \braket{\rho|P, Q} = %{1\over\rho^2}
+        \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
 
-    \braket{\rho|\hat H|\rho'} = {\delta(\rho-\rho')\over \rho^2}
+    \braket{\rho|\hat H|\rho'} = \braket{\rho|\rho'}
         \left(\begin{array}{cc}
         V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
         \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
