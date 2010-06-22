@@ -7,5 +7,6 @@ Quantum Field Theory and Quantum Mechanics
     :maxdepth: 2
 
     qft.rst
+    qm.rst
     examples.rst
     radial.rst
