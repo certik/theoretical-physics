@@ -6,9 +6,10 @@ git checkout gh-pages
 rm -rf book
 cp -r _build/html/ book
 cp -r _build/latex/theoretical-physics.pdf book/
-cd book
-sphinx-to-github .
-cd ..
+# not necessary any more:
+#cd book
+#sphinx-to-github .
+#cd ..
 git add book
 git commit -a -m "Automatic commit"
 git checkout master
