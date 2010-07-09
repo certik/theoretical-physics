@@ -226,6 +226,27 @@ This is equivalent to either letting $R'(a) = 0$ (we prescribe the zero
 derivative of the radial wave function at $a$) or we set $v(a)=0$ (which
 corresponds to zero Dirichlet condition for $R$, i.e. setting $R(a)=0$).
 
+Weak Formulation for u
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. math::
+
+    \int \half u'v' + (V + {l(l+1)\over 2\rho^2}) uv \d\rho
+        -\half\left[u'v\right]_0^R
+    =
+        \epsilon \int uv \d\rho
+
+We prescribe $u(0) = u(R) = 0$, so we get:
+
+.. math::
+
+    \int \half u'v' + (V + {l(l+1)\over 2\rho^2}) uv \d\rho
+    =
+        \epsilon \int uv \d\rho
+
+Dirac Notation
+^^^^^^^^^^^^^^
+
 We can also write all the formulas using the Dirac notation:
 
 .. math::
