@@ -231,18 +231,18 @@ Weak Formulation for u
 
 .. math::
 
-    \int \half u'v' + (V + {l(l+1)\over 2\rho^2}) uv \d\rho
+    \int \half u'v' + (V + {l(l+1)\over 2\rho^2}) uv \,\d\rho
         -\half\left[u'v\right]_0^R
     =
-        \epsilon \int uv \d\rho
+        \epsilon \int uv \,\d\rho
 
 We prescribe $u(0) = u(R) = 0$, so we get:
 
 .. math::
 
-    \int \half u'v' + (V + {l(l+1)\over 2\rho^2}) uv \d\rho
+    \int \half u'v' + (V + {l(l+1)\over 2\rho^2}) uv \,\d\rho
     =
-        \epsilon \int uv \d\rho
+        \epsilon \int uv \,\d\rho
 
 Dirac Notation
 ^^^^^^^^^^^^^^
