@@ -147,10 +147,33 @@ We now minimize the action (subject to the normalization $\int \rho^2 R^2\d\rho
 So the radial equation is:
 
 .. math::
+    :label: radial2
 
     (-\half \rho^2 R')' + (\rho^2 V + \half l(l+1)) R = \epsilon \rho^2 R
 
 In agreement with the previous result.
+
+Solving for u=rR
+~~~~~~~~~~~~~~~~
+
+We can also make the substitution $u = rR$ and solve for $u$:
+
+.. math::
+
+    R = {u\over r}
+
+    R' = {u'\over r} - {u\over r^2}
+
+and we substitute this to :eq:`radial2`:
+
+.. math::
+
+    -\half \left(r^2\left({u'\over r} - {u\over r^2}\right)\right)'+
+        \left(V + {l(l+1)\over 2 r^2}\right) r u = \epsilon r u
+
+    -\half ru''+ \left(V + {l(l+1)\over 2 r^2}\right) r u = \epsilon r u
+
+    -\half u''+ \left(V + {l(l+1)\over 2 r^2}\right) u = \epsilon u
 
 Weak Formulation
 ~~~~~~~~~~~~~~~~
