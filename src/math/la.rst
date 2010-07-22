@@ -156,7 +156,7 @@ $\braket{f|f} \ge 0$, which imposes some conditions on the parameters $p(x)$
 and $q(x)$.
 
 Projections
------------
+===========
 
 Projection is a linear idempotent operator $P$:
 
@@ -250,3 +250,112 @@ $\ket{w} = P\ket{u}$. We used the fact that $\braket{u-Pu|z}=0$, because
 $\ket{u-Pu}$ is from the orthogonal complement to the subspace $W$.
 In other words, orthogonal projection finds the closest vector from a subspace
 onto which it projects.
+
+Examples
+--------
+
+$R^n$ projection. Orthogonal basis:
+
+.. math::
+
+    \ket{w_0} =
+    \left(\begin{array}{c}
+        1 \\
+        0 \\
+        0 \\
+        \end{array}\right)
+
+    \ket{w_1} =
+    \left(\begin{array}{c}
+        0 \\
+        1 \\
+        0 \\
+        \end{array}\right)
+
+    P = \ket{w_0}\bra{w_0} + \ket{w_1}\bra{w_1} =
+    \left(\begin{array}{ccc}
+        1 & 0 & 0 \\
+        0 & 0 & 0\\
+        0 & 0 & 0\\
+        \end{array}\right)
+    +
+    \left(\begin{array}{ccc}
+        0 & 0 & 0 \\
+        0 & 1 & 0\\
+        0 & 0 & 0\\
+        \end{array}\right)
+    =
+    \left(\begin{array}{ccc}
+        1 & 0 & 0 \\
+        0 & 1 & 0\\
+        0 & 0 & 0\\
+        \end{array}\right)
+
+Different basis orthogonal basis:
+
+.. math::
+
+    \ket{w_0} = {1\over\sqrt 2}
+    \left(\begin{array}{c}
+        1 \\
+        1 \\
+        0 \\
+        \end{array}\right)
+
+    \ket{w_1} = {1\over\sqrt 2}
+    \left(\begin{array}{c}
+        1 \\
+        -1 \\
+        0 \\
+        \end{array}\right)
+
+    P = \ket{w_0}\bra{w_0} + \ket{w_1}\bra{w_1} =
+    {1\over 2}
+    \left(\begin{array}{ccc}
+        1 & 1 & 0 \\
+        1 & 1 & 0\\
+        0 & 0 & 0\\
+        \end{array}\right)
+    +
+    {1\over 2}
+    \left(\begin{array}{ccc}
+        1 & -1 & 0 \\
+        -1 & 1 & 0\\
+        0 & 0 & 0\\
+        \end{array}\right)
+    =
+    \left(\begin{array}{ccc}
+        1 & 0 & 0 \\
+        0 & 1 & 0\\
+        0 & 0 & 0\\
+        \end{array}\right)
+
+$L^2$ projection onto the space $\{1, x\}$. Orthogonal basis:
+
+.. math::
+
+    \ket{u} = f(x)
+
+    \ket{w_0} = {1\over\sqrt2}
+
+    \ket{w_1} = \sqrt{3\over2}x
+
+    P\ket{u} = \ket{w_0}\braket{w_0|u} + \ket{w_1}\braket{w_1|u} =
+
+        = {1\over\sqrt2} \int_{-1}^1 {1\over\sqrt2} f(x) \d x
+            + \sqrt{3\over2}x \int_{-1}^1 \sqrt{3\over2}x f(x) \d x
+        = {1\over2}\int_{-1}^1 f(x) \d x + {3\over2}x \int_{-1}^1 x f(x) \d x
+
+Different orthogonal basis:
+
+.. math::
+
+    \ket{w_0} = {\sqrt6\over4}(1+x)
+
+    \ket{w_1} = {\sqrt2\over4}(1-3x)
+
+    P\ket{u} = \ket{w_0}\braket{w_0|u} + \ket{w_1}\braket{w_1|u} =
+
+        = {\sqrt6\over4}(1+x) \int_{-1}^1 {\sqrt6\over4}(1+x) f(x) \d x
+        + {\sqrt2\over4}(1-3x) \int_{-1}^1 {\sqrt2\over4}(1-3x) f(x) \d x
+        = {1\over2}\int_{-1}^1 f(x) \d x + {3\over2}x \int_{-1}^1 x f(x) \d x
