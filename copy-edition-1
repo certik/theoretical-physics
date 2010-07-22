@@ -1,0 +1,13 @@
+#! /bin/sh
+
+set +e
+
+git checkout 1st-edition
+make web
+git checkout gh-pages
+rm -rf 0.1
+cp -r _build/html/ 0.1
+cp -r _build/latex/theoretical-physics.pdf 0.1/
+git add 0.1
+git commit -a -m "Automatic commit"
+git checkout master
