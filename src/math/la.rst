@@ -286,6 +286,7 @@ with:
 
     f_l = \braket{v_l|u}
 
+This works for any basis, it doesn't have to be normalized nor orthogonal.
 
 Examples
 --------
@@ -394,4 +395,81 @@ Different orthogonal basis:
 
         = {\sqrt6\over4}(1+x) \int_{-1}^1 {\sqrt6\over4}(1+x) f(x) \d x
         + {\sqrt2\over4}(1-3x) \int_{-1}^1 {\sqrt2\over4}(1-3x) f(x) \d x
+        = {1\over2}\int_{-1}^1 f(x) \d x + {3\over2}x \int_{-1}^1 x f(x) \d x
+
+Nonorthogonal basis:
+
+.. math::
+
+    \ket{w_0} = 1
+
+    \ket{w_1} = 1 + x
+
+    A_{lk}\phi_k = f_l
+
+    A_{lk} = \left(\begin{array}{cc}
+        A_{00} & A_{01} \\
+        A_{10} & A_{11} \\
+    \end{array}\right)=
+    \left(\begin{array}{cc}
+        \braket{w_0|w_0} & \braket{w_0|w_1} \\
+        \braket{w_1|w_0} & \braket{w_1|w_1} \\
+    \end{array}\right)=
+
+    =
+    \left(\begin{array}{cc}
+        \int_{-1}^1 \d x & \int_{-1}^1 1+x \,\d x \\
+        \int_{-1}^1 1+x\,\d x & \int_{-1}^1 (1+x)^2 \,\d x \\
+    \end{array}\right)
+    =\left(\begin{array}{cc}
+        2 & 2 \\
+        2 & {8\over3} \\
+    \end{array}\right)
+
+    A_{kl}^{-1} =
+    \left(\begin{array}{cc}
+        2 & -{3\over2} \\
+        -{3\over2} & {3\over2} \\
+    \end{array}\right)
+
+    f_{l} = \left(\begin{array}{c}
+        f_0 \\
+        f_1 \\
+    \end{array}\right)=
+    \left(\begin{array}{c}
+        \braket{w_0|u} \\
+        \braket{w_1|u} \\
+    \end{array}\right)=
+    \left(\begin{array}{c}
+        \int_{-1}^1 f(x)\, \d x \\
+        \int_{-1}^1 (1+x)f(x)\,\d x \\
+    \end{array}\right)
+
+    \phi_k =
+    \left(\begin{array}{c}
+        \phi_0 \\
+        \phi_1 \\
+    \end{array}\right)=
+    A_{kl}^{-1} f_l =
+    \left(\begin{array}{cc}
+        2 & -{3\over2} \\
+        -{3\over2} & {3\over2} \\
+    \end{array}\right)
+    \left(\begin{array}{c}
+        \int_{-1}^1 f(x)\, \d x \\
+        \int_{-1}^1 (1+x)f(x)\,\d x \\
+    \end{array}\right)=
+
+    =
+    \left(\begin{array}{c}
+        2\int_{-1}^1 f(x) - {3\over2}(1+x)f(x)\d x \\
+        -{3\over2}\int_{-1}^1 f(x) + {3\over2}(1+x)f(x)\d x \\
+    \end{array}\right)=
+
+    P\ket{u} = \ket{w_0}\phi_0 + \ket{w_1}\phi_1 =
+
+        = 1 \left(2\int_{-1}^1 f(x) - {3\over2}(1+x)f(x)\d x\right)
+        + (1+x)\left(-{3\over2}\int_{-1}^1 f(x) + {3\over2}(1+x)f(x)\d x\right)
+        =
+
         = {1\over2}\int_{-1}^1 f(x) \d x + {3\over2}x \int_{-1}^1 x f(x) \d x
