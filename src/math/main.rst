@@ -8,4 +8,5 @@ Mathematics
     residue.rst
     transforms.rst
     other.rst
+    la.rst
     differential-geometry.rst
