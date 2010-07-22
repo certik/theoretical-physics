@@ -481,3 +481,87 @@ Nonorthogonal basis:
         =
 
         = {1\over2}\int_{-1}^1 f(x) \d x + {3\over2}x \int_{-1}^1 x f(x) \d x
+
+$H^1$ projection. Nonorthogonal basis:
+
+.. math::
+
+    \ket{w_0} = 1
+
+    \ket{w_1} = 1 + x
+
+    A_{lk}\phi_k = f_l
+
+    A_{lk} = \left(\begin{array}{cc}
+        A_{00} & A_{01} \\
+        A_{10} & A_{11} \\
+    \end{array}\right)=
+    \left(\begin{array}{cc}
+        \braket{w_0|w_0} & \braket{w_0|w_1} \\
+        \braket{w_1|w_0} & \braket{w_1|w_1} \\
+    \end{array}\right)=
+
+    =
+    \left(\begin{array}{cc}
+        \int_{-1}^1 \d x & \int_{-1}^1 1+x \,\d x \\
+        \int_{-1}^1 1+x\,\d x & \int_{-1}^1 (1+x)^2 + 1 \,\d x \\
+    \end{array}\right)
+    =\left(\begin{array}{cc}
+        2 & 2 \\
+        2 & {14\over3} \\
+    \end{array}\right)
+
+    A_{kl}^{-1} =
+    \left(\begin{array}{cc}
+        {7\over8} & -{3\over8} \\
+        -{3\over8} & {3\over8} \\
+    \end{array}\right)
+
+    f_{l} = \left(\begin{array}{c}
+        f_0 \\
+        f_1 \\
+    \end{array}\right)=
+    \left(\begin{array}{c}
+        \braket{w_0|u} \\
+        \braket{w_1|u} \\
+    \end{array}\right)=
+    \left(\begin{array}{c}
+        \int_{-1}^1 f(x)\, \d x \\
+        \int_{-1}^1 (1+x)f(x) + f'(x)\,\d x \\
+    \end{array}\right)
+
+    \phi_k =
+    \left(\begin{array}{c}
+        \phi_0 \\
+        \phi_1 \\
+    \end{array}\right)=
+    A_{kl}^{-1} f_l =
+    \left(\begin{array}{cc}
+        {7\over8} & -{3\over8} \\
+        -{3\over8} & {3\over8} \\
+    \end{array}\right)
+    \left(\begin{array}{c}
+        \int_{-1}^1 f(x)\, \d x \\
+        \int_{-1}^1 (1+x)f(x) +f'(x)\,\d x \\
+    \end{array}\right)=
+
+    =
+    \left(\begin{array}{c}
+        \int_{-1}^1  {7\over8}f(x) - {3\over8}(1+x)f(x)- {3\over8}f'(x)\d x \\
+        \int_{-1}^1 -{3\over8}f(x) + {3\over8}(1+x)f(x)+ {3\over8}f'(x)\d x \\
+    \end{array}\right)=
+
+    P\ket{u} = \ket{w_0}\phi_0 + \ket{w_1}\phi_1 =
+
+        = 1 \left(\int_{-1}^1 {7\over8}f(x) - {3\over8}(1+x)f(x)- {3\over8}f'(x)\d x\right)
+        + (1+x)\left(\int_{-1}^1 -{3\over8}f(x) + {3\over8}(1+x)f(x)+ {3\over8}f'(x)\d x\right)
+        =
+
+        = \int_{-1}^1 {1\over2}f(x)-{3\over8}f'(x) \d x
+        + x \int_{-1}^1 {3\over8}x f(x)+{3\over8}f'(x) \d x=
+
+        = \int_{-1}^1 {1\over2}f(x) \d x + x \int_{-1}^1 {3\over8}x f(x) \d x
+            -{3\over8}(f(1)-f(-1)) + {3\over8}x(f(1)-f(-1))=
+
+        = {1\over2}\int_{-1}^1 f(x) \d x + {3\over8}x \int_{-1}^1 x f(x) \d x
+            +{3\over8}(-1+x)(f(1)-f(-1))
