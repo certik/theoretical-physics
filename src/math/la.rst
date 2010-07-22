@@ -164,9 +164,13 @@ Projection is a linear idempotent operator $P$:
 
     P^2 = P
 
-It takes a vector $\ket{u}$ from $V$ and projects it onto a vector $\ket{w}$
-from $W$. It decomposes the space $V$ into a direct sum $V=W\oplus W^\bot$ of
-the projection subspace $W$ and its complement $W^\bot$.
+It takes a vector $\ket{u}$ from $V$ and projects it onto a vector $\ket{w} =
+P\ket{u}$ from $W$. Further application of the operator $P$ gains nothing:
+$P\ket{w} = P^2\ket{u} = P\ket{u} = \ket{w}$.
+It decomposes the space $V$ into a direct sum $V=W\oplus W^\bot$ of
+the projection subspace $W$ and its complement $W^\bot$. If $\ket{w}$ is
+from $W$ then its complement $\ket{u} - P\ket{u}$ is from $W^\bot$. Given the
+space $W$, the operator $P$ is unique.
 
 Orthogonal projection is a projection that is Hermitean:
 
@@ -174,18 +178,24 @@ Orthogonal projection is a projection that is Hermitean:
 
     P^\dag = P
 
-Orthogonal projections satisfy:
+The complement of an orthogonal projection is orthogonal to any vector from $W$:
 
 .. math::
 
-    \braket{u-Pu|Pu} = \left(\ket{u-Pu}\right)^\dag\ket{Pu}
-    = \left((\one-P)\ket{u}\right)^\dag P\ket{u} =
+    \braket{u-Pu|w} = \braket{u|w} - \braket{Pu|w} =
+        \braket{u|w} - \braket{u|P^\dag|w} =
 
-    =\braket{u|(\one-P)^\dag P|u}
-    =\braket{u|(\one-P)P|u} = \braket{u|P-P^2|u} = \braket{u|P-P|u}=0
+        =
+        \braket{u|w} - \braket{u|P|w} =
+        \braket{u|w} - \braket{u|w} = 0
 
-Which says that the projected vector $\ket{Pu}$ and the complement $\ket{u-Pu}$
-are orthogonal. If we choose any orthonormal basis $\ket{w_0}$, $\ket{w_1}$,
+
+
+In other words, orthogonal projection projects a vector
+$\ket{u}$ from the space $V$ into an orthogonal subspace (projection subspace)
+$W$.
+
+If we choose any orthonormal basis $\ket{w_0}$, $\ket{w_1}$,
 $\ket{w_2}$, ..., of the subspace $W$, then the orthogonal projection $P$ is:
 
 .. math::
@@ -214,10 +224,10 @@ and
     \sum_{k=0}^\infty \left(\ket{w_k}\bra{w_k}\right)^\dag =
     \sum_{k=0}^\infty \ket{w_k}\bra{w_k} = P
 
+$P$ is independent of the basis, i.e $\sum_{k=0}^\infty \ket{w_k}\bra{w_k}
+=\sum_{l=0}^\infty \ket{u_l}\bra{u_l}$, as long as $\ket{u_l}$ span the same
+subspace as $\ket{w_k}$, because the operator $P$ is unique.
 
-In other words, orthogonal projection projects a vector
-$\ket{u}$ from the space $V$ into an orthogonal subspace (projection subspace)
-$W$.
 
 To find the closest vector $\ket{w}$ from $W$ to the vector $\ket{u}$ from $V$,
 we need to minimize the norm $||\ket{u}-\ket{w}||$. So we write
