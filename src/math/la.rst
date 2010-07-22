@@ -2,7 +2,7 @@ Linear Algebra
 ==============
 
 Scalar Product
---------------
+==============
 
 Virtually all spaces used in physics are Hilbert spaces (treated in the weak
 sense, i.e. equipped with distributions), which means that they have a scalar
@@ -51,7 +51,7 @@ other hand, it is very important to understand how to work with Hilbert spaces
 remember how to work with such spaces.
 
 Examples
-~~~~~~~~
+--------
 
 Some examples of frequently used spaces and scalar products follows.
 
@@ -154,3 +154,89 @@ All of these scalar products automatically satisfy all of the properties of the
 scalar product, only the energy scalar product doesn't automatically satisfy
 $\braket{f|f} \ge 0$, which imposes some conditions on the parameters $p(x)$
 and $q(x)$.
+
+Projections
+-----------
+
+Projection is a linear idempotent operator $P$:
+
+.. math::
+
+    P^2 = P
+
+It takes a vector $\ket{u}$ from $V$ and projects it onto a vector $\ket{w}$
+from $W$. It decomposes the space $V$ into a direct sum $V=W\oplus W^\bot$ of
+the projection subspace $W$ and its complement $W^\bot$.
+
+Orthogonal projection is a projection that is Hermitean:
+
+.. math::
+
+    P^\dag = P
+
+Orthogonal projections satisfy:
+
+.. math::
+
+    \braket{u-Pu|Pu} = \left(\ket{u-Pu}\right)^\dag\ket{Pu}
+    = \left((\one-P)\ket{u}\right)^\dag P\ket{u} =
+
+    =\braket{u|(\one-P)^\dag P|u}
+    =\braket{u|(\one-P)P|u} = \braket{u|P-P^2|u} = \braket{u|P-P|u}=0
+
+Which says that the projected vector $\ket{Pu}$ and the complement $\ket{u-Pu}$
+are orthogonal. If we choose any orthonormal basis $\ket{w_0}$, $\ket{w_1}$,
+$\ket{w_2}$, ..., of the subspace $W$, then the orthogonal projection $P$ is:
+
+.. math::
+
+    P = \sum_{k=0}^\infty \ket{w_k}\bra{w_k}
+
+because:
+
+
+.. math::
+
+    P^2 =
+    \sum_{k=0}^\infty \ket{w_k}\bra{w_k}
+    \sum_{l=0}^\infty \ket{w_l}\bra{w_l}
+    =
+    \sum_{k,l=0}^\infty \ket{w_k}\braket{w_k|w_l}\bra{w_l}=
+
+    =\sum_{k,l=0}^\infty \ket{w_k}\delta_{kl}\bra{w_l}
+    = \sum_{k=0}^\infty \ket{w_k}\bra{w_k} = P
+
+and
+
+.. math::
+
+    P^\dag = \left(\sum_{k=0}^\infty \ket{w_k}\bra{w_k}\right)^\dag =
+    \sum_{k=0}^\infty \left(\ket{w_k}\bra{w_k}\right)^\dag =
+    \sum_{k=0}^\infty \ket{w_k}\bra{w_k} = P
+
+
+In other words, orthogonal projection projects a vector
+$\ket{u}$ from the space $V$ into an orthogonal subspace (projection subspace)
+$W$.
+
+To find the closest vector $\ket{w}$ from $W$ to the vector $\ket{u}$ from $V$,
+we need to minimize the norm $||\ket{u}-\ket{w}||$. So we write
+$\ket{w} = P\ket{u} + \ket{z}$ for some vector $\ket{z}$ from $W$ and simplify
+the norm:
+
+.. math::
+
+    ||\ket{u}-\ket{w}||^2 = \braket{u-w|u-w} =
+    \braket{u-Pu-z|u-Pu-z} =
+
+    =
+    \braket{u-Pu|u-Pu} + \braket{z|z} - \braket{u-Pu|z}-\braket{z|u-Pu}=
+
+    =
+    \braket{u-Pu|u-Pu} + \braket{z|z}
+
+which is minimal for $\ket{z}=0$, so we found out that the closest vector is
+$\ket{w} = P\ket{u}$. We used the fact that $\braket{u-Pu|z}=0$, because
+$\ket{u-Pu}$ is from the orthogonal complement to the subspace $W$.
+In other words, orthogonal projection finds the closest vector from a subspace
+onto which it projects.
