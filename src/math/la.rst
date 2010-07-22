@@ -367,6 +367,14 @@ Different basis orthogonal basis:
         0 & 0 & 0\\
         \end{array}\right)
 
+Lagrange interpolation projection onto the space $\{1, x\}$:
+
+.. math::
+
+    \ket{u} = f(x)
+
+    P\ket{u} = {f(1)+f(-1)\over 2} + x{f(1)-f(-1)\over 2}
+
 $L^2$ projection onto the space $\{1, x\}$. Orthogonal basis:
 
 .. math::
