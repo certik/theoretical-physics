@@ -251,6 +251,42 @@ $\ket{u-Pu}$ is from the orthogonal complement to the subspace $W$.
 In other words, orthogonal projection finds the closest vector from a subspace
 onto which it projects.
 
+Nonorthogonal basis
+-------------------
+
+In order to project using a nonorthogonal basis $\ket{v_k}$ (for example a
+finite element basis), we write:
+
+.. math::
+
+    P\ket{u} = \sum_{k=0}^\infty \ket{v_k}\phi_k
+
+where $\phi_k$ are the projection coefficients that we'd like to calculate.
+This holds, because $P\ket{u}$ belongs to the space $W$ and every vector from it
+can be expressed as a linear combination of $\ket{v_k}$. Now we multiply by
+$\bra{v_l}$ from the left and simplify:
+
+.. math::
+
+    \braket{v_l|P|u} = \sum_{k=0}^\infty \braket{v_l|v_k}\phi_k
+
+    \braket{v_l|u} = \sum_{k=0}^\infty \braket{v_l|v_k}\phi_k
+
+so we need to solve the linear system:
+
+.. math::
+
+    A_{lk}\phi_k = f_l
+
+with:
+
+.. math::
+
+    A_{lk} = \braket{v_l|v_k}
+
+    f_l = \braket{v_l|u}
+
+
 Examples
 --------
 
