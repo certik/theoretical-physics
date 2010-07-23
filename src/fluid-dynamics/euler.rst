@@ -1232,7 +1232,7 @@ so we get:
 
 This is a nonlinear problem, that cannot be solved exactly. First,
 let ${\bf A}$ doesn't depend on ${\bf w}$. Then also $\lambda_i$
-are a constants:
+are constants:
 
 .. math::
 
