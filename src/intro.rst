@@ -53,6 +53,7 @@ only picked those that we actually read):
 #. Steven Weinberg: The Quantum Theory of Fields
 #. L.H. Ryder: Quantum Field Theory
 #. Jiří Hořejší: Fundamentals of Electroweak Theory
+#. Michele Maggiore: A Modern Introduction to Quantum Field Theory 
 #. M.E. Peskin & D.V. Schroeder: An Introduction to Quantum Field Theory
 #. J.W. Negele, H. Orland: Quantum Many-Particle Systems
 #. X-G. Wen: Quantum Field Theory of Many-Body Systems
