@@ -558,9 +558,11 @@ measured and their experimental values are approximately:
 
     0.2 < \lambda < 4.0
 
-    h_e = 2.929 {\rm\,KeV}
+    h_e = 2.929\cdot 10^{-6} {\rm\,eV}
 
-    h_\tau = 0.6065 {\rm\,MeV}
+    h_\mu = 6.065\cdot 10^{-4} {\rm\,eV}
+
+    h_\tau = 1.021\cdot 10^{-2} {\rm\,eV}
 
 All the parameters have been measured quite exactly, except $\lambda$.
 
@@ -574,9 +576,11 @@ Other physical constants can then be calculated using the formulas:
 
     m_H = v\sqrt{2\lambda} = \mbox{from }150 {\rm\,GeV}\mbox{ to }700 {\rm\,GeV}
 
-    m_e = {1\over\sqrt2}h_ev = 510{\rm\,KeV}
+    m_e = {1\over\sqrt2}h_ev = 511{\rm\,KeV}
 
     m_\mu= {1\over\sqrt2}h_\mu v = 105.6{\rm\,MeV}
+
+    m_\tau= {1\over\sqrt2}h_\tau v = 1.777{\rm\,GeV}
 
     G_F = {1\over\sqrt{2} v^2} = (1.16639 \pm 0.00001) \times 10^{-5}
         {\rm\, GeV^{-2}}
