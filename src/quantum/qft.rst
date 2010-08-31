@@ -589,6 +589,36 @@ Other physical constants can then be calculated using the formulas:
 
     \alpha = {1\over 4\pi} g^2 \sin^2 \theta_W \doteq {1\over 137}
 
+Code::
+
+    >>> from math import pi, sin, cos, sqrt
+    >>> eV = 1
+    >>> KeV = 1e3
+    >>> MeV = 1e6
+    >>> GeV = 1e9
+    >>> g = 0.631
+    >>> theta_W = 28.67 * pi / 180
+    >>> v = 246.218 * GeV
+    >>> h_e = 2.935 * 1e-6 * eV
+    >>> h_mu = 6.065 * 1e-4 * eV
+    >>> h_tau = 1.021 * 1e-2 * eV
+    >>> g*v/2 / GeV
+    77.681779
+    >>> g*v/2/cos(theta_W) / GeV
+    88.5365869768
+    >>> h_e * v / sqrt(2) / KeV
+    510.99059521630568
+    >>> h_mu * v / sqrt(2) / MeV
+    105.59311618353983
+    >>> h_tau * v / sqrt(2) / GeV
+    1.7775856821664329
+    >>> 1./sqrt(2)/v**2 / (1e-5 * GeV**-2)
+    1.1663943402665491
+    >>> g*sin(theta_W)
+    0.30273118431564783
+    >>> 1. / (g**2*sin(theta_W)**2/(4*pi))
+    137.11833915409719
+
 
 Quarks
 ~~~~~~
