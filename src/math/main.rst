@@ -8,5 +8,6 @@ Mathematics
     residue.rst
     transforms.rst
     other.rst
+    feynman-parameters.rst
     la.rst
     differential-geometry.rst
