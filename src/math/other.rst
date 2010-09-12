@@ -287,7 +287,7 @@ more precisely:
 .. math::
     :label: deltaprec
 
-       \lim_{\alpha\to\infty}\int f(x)\delta_\alpha(x)\d x = \int f(x)\lim_{\alpha\to\infty}\delta_\alpha(x)\d x = f(t)
+       \lim_{\alpha\to\infty}\int f(x)\delta_\alpha(x)\d x = \int f(x)\lim_{\alpha\to\infty}\delta_\alpha(x)\d x = f(0)
 
 one example of such a sequence is:
 
