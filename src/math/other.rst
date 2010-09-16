@@ -57,10 +57,10 @@ Finally we define $\atan2(y, x)$ as:
 
 The angle $\phi=\atan2(y, x)$ is the angle of the point $(x, y)$ on the unit
 circle (assuming the usual conventions), and it works for all quadrants
-($\phi=\atan(y, x)$ only works for the first and fourth quadrant, where
-$\atan(y, x)=\atan2(y, x)$, but in the second and third qudrant, $\atan(y, x)$
-gives the wrong angles, while $\atan2(y, x)$ gives the correct angles). So in
-particular:
+($\phi=\atan({y\over x})$ only works for the first and fourth quadrant, where
+$\atan({y\over x})=\atan2(y, x)$, but in the second and third qudrant,
+$\atan({y\over x})$ gives the wrong angles, while $\atan2(y, x)$ gives the
+correct angles). So in particular:
 
 .. math::
 
