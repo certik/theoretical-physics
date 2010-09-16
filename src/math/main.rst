@@ -7,6 +7,7 @@ Mathematics
     integration.rst
     residue.rst
     transforms.rst
+    trig.rst
     other.rst
     feynman-parameters.rst
     la.rst
