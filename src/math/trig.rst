@@ -268,9 +268,114 @@ where
 Multiple Argument Formulas
 --------------------------
 
+sin(a x)
+~~~~~~~~
+
 Systematic way to derive all multiple argument formulas is to use the following
 relation:
 
 .. math::
 
-    \sin(a*x) = U_{a-1}(\cos x) \sin x
+    \sin(ax) = U_{a-1}(\cos x) \sin x
+
+where $U_n(x)$ are the Chebyshev polynomials of the second kind, first few are:
+
+.. math::
+
+    U_{-3}(x) = -2x
+
+    U_{-2}(x) = -1
+
+    U_{-1}(x) = 0
+
+    U_{- {1\over2}}(x) = {1\over \sqrt 2 \sqrt{x+1}}
+
+    U_0(x) = 1
+
+    U_{1\over2}(x) = {2x+1\over \sqrt 2 \sqrt{x+1}}
+
+    U_1(x) = 2x
+
+    U_2(x) = 4x^2 - 1
+
+    U_3(x) = 8x^3 - 4x
+
+    U_4(x) = 16x^4 - 12x^2 + 1
+
+    U_5(x) = 32x^5 - 32x^3 + 6x
+
+    U_6(x) = 64x^6 - 80x^4 + 24x^2 - 1
+
+One can then use this to calculate:
+
+.. math::
+
+    \sin (-2x) = U_{-3}(\cos x) \sin x = -2\cos x\sin x
+
+    \sin (-x) = U_{-2}(\cos x) \sin x = -\sin x
+
+    \sin 0 = U_{-1}(\cos x) \sin x = 0
+
+    \sin {x\over 2}  = U_{-{1\over2}}(\cos x) \sin x =
+        {\sin x\over\sqrt 2\sqrt{\cos x + 1}} =
+        {\sqrt{1-\cos^2x}\over\sqrt 2\sqrt{\cos x + 1}} =
+        {\sqrt{1-\cos x}\over\sqrt 2}
+
+    \sin x = U_0(\cos x) \sin x = \sin x
+
+    \sin {3x\over 2}  = U_{1\over2}(\cos x) \sin x =
+        {(2\cos x+1)\sin x\over\sqrt 2\sqrt{\cos x + 1}} =
+        {(2\cos x+1)\sqrt{1-\cos^2x}\over\sqrt 2\sqrt{\cos x + 1}} =
+        {(2\cos x+1)\sqrt{1-\cos x}\over\sqrt 2}
+
+    \sin 2x = U_1(\cos x) \sin x = 2\cos x\sin x
+
+    \sin 3x = U_2(\cos x) \sin x = (4\cos^2 x-1)\sin x
+
+cos(a x)
+~~~~~~~~
+
+Similarly as above, we use:
+
+.. math::
+
+    \cos(ax) = T_a(\cos x)
+
+where $T_n(x)$ are the Chebyshev polynomials of the first kind, first few are:
+
+.. math::
+
+    T_0(x) = 1
+
+    T_{1\over2}(x) = {\sqrt{x+1}\over \sqrt 2}
+
+    T_1(x) = x
+
+    T_{3\over2}(x) = {(2x-1)\sqrt{x+1}\over \sqrt 2}
+
+    T_2(x) = 2x^2 - 1
+
+    T_3(x) = 4x^3 - 3x
+
+    T_4(x) = 8x^4 - 8x^2 + 1
+
+    T_5(x) = 16x^5 - 20x^3 + 5x
+
+    T_6(x) = 32x^6 - 48x^4 + 18x^2 - 1
+
+One can then use this to calculate:
+
+.. math::
+
+    \cos 0 = T_0(\cos x) = 1
+
+    \cos {x\over 2} = T_{1\over 2}(\cos x) = {\sqrt{1+\cos x}\over\sqrt 2}
+
+    \cos x = T_1(\cos x) = \cos x
+
+    \cos {3x\over 2} = T_{3\over2}(\cos x) =
+        {(2\cos x-1)\sqrt{1+\cos x}\over\sqrt 2}
+
+    \cos 2x = T_2(\cos x) = 2\cos^2 x - 1
+
+    \cos 3x = T_3(\cos x) = 4\cos^3 x - 3\cos x
