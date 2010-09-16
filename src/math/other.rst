@@ -32,7 +32,8 @@ Argument function $\arg(z)$ is any $\varphi$ such that
 
 Obviously $\arg(z)$ is unique up to any integer multiple of $2\pi$. By taking
 the principal value of the $\arg(z)$ function, e.g. fixing $\arg(z)$ to the
-interval $(-\pi, \pi]$, we get the $\Arg(z)$ function:
+interval $(-\pi, \pi]$ (so that the branch cut is on the negative $x$-axis, as
+usual), we get the $\Arg(z)$ function:
 
 .. math::
 
