@@ -306,6 +306,20 @@ where $U_n(x)$ are the Chebyshev polynomials of the second kind, first few are:
 
     U_6(x) = 64x^6 - 80x^4 + 24x^2 - 1
 
+Code::
+
+    >>> from sympy import chebyshevu, var
+    >>> var("x")
+    >>> for i in range(7): print "U_%d(x) = %s" % (i, chebyshevu(i, x))
+    U_0(x) = 1
+    U_1(x) = 2*x
+    U_2(x) = -1 + 4*x**2
+    U_3(x) = -4*x + 8*x**3
+    U_4(x) = 1 - 12*x**2 + 16*x**4
+    U_5(x) = 6*x - 32*x**3 + 32*x**5
+    U_6(x) = -1 + 24*x**2 - 80*x**4 + 64*x**6
+
+
 One can then use this to calculate:
 
 .. math::
@@ -331,6 +345,19 @@ One can then use this to calculate:
     \sin 2x = U_1(\cos x) \sin x = 2\cos x\sin x
 
     \sin 3x = U_2(\cos x) \sin x = (4\cos^2 x-1)\sin x
+
+Code::
+
+    >>> from sympy import chebyshevu, var, sin, cos
+    >>> var("x")
+    >>> for n in range(1, 7): print "sin(%d*x) = %s" % (n, chebyshevu(n-1, cos(x))*sin(x))
+    sin(1*x) = sin(x)
+    sin(2*x) = 2*cos(x)*sin(x)
+    sin(3*x) = -(1 - 4*cos(x)**2)*sin(x)
+    sin(4*x) = (-4*cos(x) + 8*cos(x)**3)*sin(x)
+    sin(5*x) = (1 - 12*cos(x)**2 + 16*cos(x)**4)*sin(x)
+    sin(6*x) = (6*cos(x) - 32*cos(x)**3 + 32*cos(x)**5)*sin(x)
+
 
 cos(a x)
 ~~~~~~~~
@@ -363,6 +390,20 @@ where $T_n(x)$ are the Chebyshev polynomials of the first kind, first few are:
 
     T_6(x) = 32x^6 - 48x^4 + 18x^2 - 1
 
+Code::
+
+    >>> from sympy import chebyshevt, var
+    >>> var("x")
+    >>> for i in range(7): print "T_%d(x) = %s" % (i, chebyshevt(i, x))
+    T_0(x) = 1
+    T_1(x) = x
+    T_2(x) = -1 + 2*x**2
+    T_3(x) = -3*x + 4*x**3
+    T_4(x) = 1 - 8*x**2 + 8*x**4
+    T_5(x) = 5*x - 20*x**3 + 16*x**5
+    T_6(x) = -1 + 18*x**2 - 48*x**4 + 32*x**6
+
+
 One can then use this to calculate:
 
 .. math::
@@ -379,3 +420,16 @@ One can then use this to calculate:
     \cos 2x = T_2(\cos x) = 2\cos^2 x - 1
 
     \cos 3x = T_3(\cos x) = 4\cos^3 x - 3\cos x
+
+Code::
+
+    >>> from sympy import chebyshevt, var, cos
+    >>> var("x")
+    >>> for n in range(7): print "cos(%d*x) = %s" % (n, chebyshevt(n, cos(x)))
+    cos(0*x) = 1
+    cos(1*x) = cos(x)
+    cos(2*x) = -1 + 2*cos(x)**2
+    cos(3*x) = -3*cos(x) + 4*cos(x)**3
+    cos(4*x) = 1 - 8*cos(x)**2 + 8*cos(x)**4
+    cos(5*x) = 5*cos(x) - 20*cos(x)**3 + 16*cos(x)**5
+    cos(6*x) = -1 + 18*cos(x)**2 - 48*cos(x)**4 + 32*cos(x)**6
