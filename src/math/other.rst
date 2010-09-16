@@ -41,7 +41,7 @@ usual), we get the $\Arg(z)$ function:
 
 then $\arg z = \Arg z + 2\pi n$, where $n=0, \pm 1, \pm 2, \dots$. We can then
 use the following formula to easily calculate $\Arg z$ for any $z=x+iy$ (except
-$x=y=0$, i.e. $z=0$):
+$x=y=0$, i.e. $z=0$, where it is not defined):
 
 .. math::
 
