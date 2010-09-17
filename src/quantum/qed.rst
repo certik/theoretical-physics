@@ -333,7 +333,33 @@ Higher order corrections from QED can also be calculated:
           A_2 \left({\alpha\over \pi}\right)^2 +
           A_3 \left({\alpha\over \pi}\right)^3 + \cdots
 
-we already know that $A_1 = \half$. See for example `hep-ph/9602417
+we already know that $A_1 = \half$. See for example `hep-ph/9410248
+<http://arxiv.org/abs/hep-ph/9410248>`_ for the expression for $A_2$:
+
+.. math::
+
+    A_2 = \frac{197}{144} + \frac{3}{4} \zeta\left(3\right) - \frac{1}{2}
+        \pi^{2} \operatorname{log}\left(2\right) + \frac{1}{12} \pi^{2} =
+
+    = -0.328478965579\dots
+
+
+Code::
+
+    >>> from sympy import zeta, S, log, pprint
+    >>> A_3 = S(197)/144 + zeta(2)/2 + 3*zeta(3)/4 - 3*zeta(2) * log(2)
+    >>> pprint(A_3)
+                    2           2
+    197   3⋅ζ(3)   π ⋅log(2)   π
+    ─── + ────── - ───────── + ──
+    144     4          2       12
+    >>> A_3.n()
+    -0.328478965579194
+
+
+
+
+See for example `hep-ph/9602417
 <http://arxiv.org/abs/hep-ph/9602417>`_, where the author obtains the following
 expression for the coefficient $A_3$:
 
