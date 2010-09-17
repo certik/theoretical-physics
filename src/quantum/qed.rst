@@ -85,7 +85,8 @@ identity) we can always write $\Gamma^\mu$ as:
         2m} F_2(q^2)
 
 where $F_1$ and $F_2$ ar unknown functions of $q^2 = (p'-p)^2 = -2p'\cdot p +
-2m^2$ called form factors. In the lowest order we get $F_1 = 1$ and $F_2 = 0$.
+2m^2$ called form factors. As we will see below, in the lowest order we get
+$F_1 = 1$ and $F_2 = 0$.
 
 We can calculate the amplitude for elastic Coulomb scattering of a
 nonrelativistic electron from a region of nonzero electrostatic potential by
@@ -235,7 +236,7 @@ process $\gamma(q) + e^+(p) \to e^+(p')$:
              b^{t\dag}_{\bf p} \ket{\Omega} =
 
         =\bra{\Omega}T
-             \bar u^s({\bf p'}){1\over\tilde S(p')}\psi(p')
+             \bar u^s({\bf p'}){1\over\tilde S(p')}\tilde \psi(p')
              \epsilon_\mu^{r*}({\bf q}){q^2\over i} \tilde A^\mu(-q)
              \tilde{\bar\psi}(-p){1\over\tilde S(-p)}u^t({\bf p})
              \ket{\Omega} =
@@ -243,7 +244,7 @@ process $\gamma(q) + e^+(p) \to e^+(p')$:
         =\bar u^s({\bf p'}){1\over\tilde S(p')}
             \epsilon_\mu^{r*}({\bf q}){q^2\over i}
              \bra{\Omega}T
-             \psi(p')
+             \tilde \psi(p')
              \tilde A^\mu(-q)
              \tilde{\bar\psi}(-p)
              \ket{\Omega}{1\over\tilde S(-p)}u^t({\bf p}) =
@@ -257,9 +258,70 @@ where:
 
 .. math::
 
-    \tilde G(p, p', q) = \bra{\Omega}T \psi(p') \tilde A^\mu(-q)
+    \tilde G(p, p', q) = \bra{\Omega}T \tilde \psi(p') \tilde A^\mu(-q)
              \tilde{\bar\psi}(-p)
              \ket{\Omega}
+
+is the interacting Green function for the Lagrangian
+$-\lambda \bar e \gamma^\mu e A_\mu$. In the first order:
+
+.. math::
+
+    \tilde G(p, p', q) = \bra{\Omega}T \tilde\psi(p') \tilde A^\mu(-q)
+             \tilde{\bar\psi}(-p)
+             \ket{\Omega} =
+
+        = \int \d^4 x \bra{0}T \tilde\psi(p') \tilde A^\mu(-q)
+             \tilde{\bar\psi}(-p)
+             (-\lambda)\bar e(x) \gamma^\rho e(x) A_\rho(x)
+             \ket{0} =
+
+        = (-\lambda)\int \d^4 x \d\hat p'\d\hat q\d\hat p
+            e^{i\hat p'p' - \hat q q
+            -\hat pp}
+            \bra{0}T \psi(\hat p') A^\mu(\hat q)
+             {\bar\psi}(\hat p)
+             \bar e(x) \gamma^\rho e(x) A_\rho(x)
+             \ket{0} =
+
+        = (-\lambda)\int \d^4 x \d\hat p'\d\hat q\d\hat p
+            e^{i\hat p'p' - \hat q q
+            -\hat pp}
+            D^\mu_\rho(\hat q-x) S(\hat p' - x)\gamma^\rho S(\hat p-x)
+            =
+
+        = (-\lambda)(2\pi)^4\delta(p'-q-p)
+            \tilde D^\mu_\rho(q) \tilde S(p')\gamma^\rho \tilde S(p)
+
+so the amplitude is:
+
+.. math::
+
+        \braket{f|i}=\bar u^s({\bf p'}){1\over\tilde S(p')}
+            \epsilon_\mu^{r*}({\bf q}){q^2\over i}
+         (-\lambda)(2\pi)^4\delta(p'-q-p)
+            \tilde D^\mu_\rho(q) \tilde S(p')\gamma^\rho \tilde S(p)
+             {1\over\tilde S(-p)}u^t({\bf p}) =
+
+        =(-\lambda)(2\pi)^4\delta(p'-q-p)\epsilon_\mu^{r*}({\bf q})
+                u^s({\bf p'})\gamma^\mu u^t({\bf p})
+
+and we got $\Gamma^\mu = \gamma^\mu$, so $F_1=1$ and $F_2=0$ in the lowest
+order. In the next order we get:
+
+.. math::
+
+    \tilde G(p, p', q)
+        = (-\lambda)(2\pi)^4\delta(p'-q-p)
+            \tilde D^\mu_\rho(q) \tilde S(p')\delta\Gamma^\rho \tilde S(p)
+
+    \delta\Gamma^\mu =
+        \int {\d^4 k\over (2\pi)^4} \tilde D_{\nu\rho}(k-p)
+            (-ie\gamma^\nu)
+            \tilde S(k')
+            \gamma^\mu
+            \tilde S(k)
+            (-ie\gamma^\rho)
 
 Now we can write:
 

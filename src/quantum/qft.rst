@@ -831,12 +831,12 @@ that they can be replaced by:
     b^s_{\bf k}\,{}_\text{out} \to
         i\int\d^4 x e^{-ikx}\bar u^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
         =\bar u^s({\bf k}){\fslash k - m\over i}\psi(k)
-        =\bar u^s({\bf k}){1\over\tilde S(k)}\psi(k)
+        =\bar u^s({\bf k}){1\over\tilde S(k)}\tilde\psi(k)
 
     d^{s\dag}_{\bf k}\,{}_\text{in} \to
         -i\int\d^4 x e^{ikx}\bar v^s({\bf k})\left(-i\fslash\partial+m\right)\psi(x)
         =-\bar v^s({\bf k}){\fslash k - m\over i}\psi(-k)
-        =-\bar v^s({\bf k}){1\over\tilde S(k)}\psi(-k)
+        =-\bar v^s({\bf k}){1\over\tilde S(k)}\tilde\psi(-k)
 
     d^s_{\bf k}\,{}_\text{out} \to
         -i\int\d^4 x\bar\psi(x) \left(i\overleftarrow{\fslash\partial}+m\right)v^s({\bf k})e^{-ikx}
