@@ -325,5 +325,39 @@ Code::
 
 Experiments give $a_e = 0.00115965218073\pm0.00000000000028$.
 
-Higher order corrections from QED can also be calculated, see for example
-`hep-ph/9602417 <http://arxiv.org/abs/hep-ph/9602417>`_.
+Higher order corrections from QED can also be calculated:
+
+.. math::
+
+    a_e = A_1 \left({\alpha\over \pi}\right) +
+          A_2 \left({\alpha\over \pi}\right)^2 +
+          A_3 \left({\alpha\over \pi}\right)^3 + \cdots
+
+we already know that $A_1 = \half$. See for example `hep-ph/9602417
+<http://arxiv.org/abs/hep-ph/9602417>`_, where the author obtains the following
+expression for the coefficient $A_3$, code::
+
+    >>> from sympy import pi, zeta, S, log, pprint, sum, var, oo
+    >>> var("n")
+    n
+    >>> a4 = sum(1/(2**n * n**4), (n, 1, oo))
+    >>> A_3 = 83*pi**2*zeta(3)/72 - 215*zeta(5)/24 + 100*(a4 + log(2)**4/24 - \
+    ...         pi**2*log(2)**2/24)/3 - \
+    ...         239*pi**4/2160 + 139*zeta(3)/18 - 298 * pi**2 * log(2)/9 + \
+    ...         17101 * pi**2 / 810 + S(28259)/5184
+    >>> pprint(A_3)
+                           ⎛                                 2    2         4   ⎞ 
+                           ⎜                                π ⋅log (2)   log (2)⎟ 
+                       100⋅⎜Sum(2**(-n)/n**4, (n, 1, oo)) - ────────── + ───────⎟ 
+    28259   215⋅ζ(5)       ⎝                                    24          24  ⎠ 
+    ───── - ──────── + ────────────────────────────────────────────────────────── 
+     5184      24                                  3                              
+
+                                                               
+                                                               
+                      2              2               2        4
+      139⋅ζ(3)   298⋅π ⋅log(2)   83⋅π ⋅ζ(3)   17101⋅π    239⋅π 
+    + ──────── - ───────────── + ────────── + ──────── - ──────
+         18            9             72         810       2160 
+    >>> A_3.n()
+    1.18124145658720
