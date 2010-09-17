@@ -324,3 +324,6 @@ Code::
     0.0011614097335977778
 
 Experiments give $a_e = 0.00115965218073\pm0.00000000000028$.
+
+Higher order corrections from QED can also be calculated, see for example
+`hep-ph/9602417 <http://arxiv.org/abs/hep-ph/9602417>`_.
