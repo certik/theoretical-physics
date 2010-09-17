@@ -397,18 +397,15 @@ So the expressions for the form factors are:
     F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
         \delta(x+y+z-1)
          \left[{1\over\Delta}2m^2 z(1-z) \right]
-            +O(\alpha^2)
+            +O(\alpha^2) =
 
-After renormalization we get:
-
-.. math::
-
-    F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+    = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
         \delta(x+y+z-1)
          \left[2m^2 z(1-z)\over m^2(1-z)^2 - q^2 xy \right]
             +O(\alpha^2)
 
-and setting $q=0$:
+$F_1$ needs to be renormalized, but neither the ultraviolet nor the infrared
+divergence affects $F_2(q^2)$, so we just set $q=0$:
 
 .. math::
 
@@ -420,8 +417,25 @@ and setting $q=0$:
         \delta(x+y+z-1)
          {2 z\over 1-z} +O(\alpha^2) =
 
+    ={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z
+        \theta(1-(1-y-z))\theta((1-y-z)-0)
+         {2 z\over 1-z} +O(\alpha^2) =
+
+    ={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z
+        \theta(y+z)\theta(1-y-z)
+         {2 z\over 1-z} +O(\alpha^2) =
+
+    ={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z
+        \theta(1-y-z)
+         {2 z\over 1-z} +O(\alpha^2) =
+
     ={\alpha\over 2\pi} \int_0^1 \d z \int_0^{1-z} \,\d y
          {2 z\over 1-z} +O(\alpha^2) =
+
+    ={\alpha\over 2\pi} \int_0^1 \d z (1-z)
+         {2 z\over 1-z} +O(\alpha^2) =
+
+    ={\alpha\over 2\pi} \int_0^1 \d z 2z + O(\alpha^2) =
 
     = {\alpha\over 2\pi} + O(\alpha^2)
 
