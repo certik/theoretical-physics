@@ -335,7 +335,25 @@ Higher order corrections from QED can also be calculated:
 
 we already know that $A_1 = \half$. See for example `hep-ph/9602417
 <http://arxiv.org/abs/hep-ph/9602417>`_, where the author obtains the following
-expression for the coefficient $A_3$, code::
+expression for the coefficient $A_3$:
+
+.. math::
+
+    A_3 = \frac{28259}{5184} - \frac{215}{24} \zeta\left(5\right)
+    + \frac{100}{3} \left(\sum_{n=1}^{\infty} \frac{1}{2^{n} n^{4}} -
+      \frac{1}{24} \pi^{2} \operatorname{log}^{2}\left(2\right) + \frac{1}{24}
+      \operatorname{log}^{4}\left(2\right)\right) +
+
+    +\frac{139}{18}
+    \zeta\left(3\right) - \frac{298}{9} \pi^{2}
+    \operatorname{log}\left(2\right) + \frac{83}{72} \pi^{2}
+    \zeta\left(3\right) + \frac{17101}{810} \pi^{2} -
+    \frac{239}{2160} \pi^{4} =
+
+    = 1.181241456\dots
+
+
+Code::
 
     >>> from sympy import pi, zeta, S, log, pprint, sum, var, oo
     >>> var("n")
