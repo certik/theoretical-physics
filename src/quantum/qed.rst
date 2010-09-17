@@ -219,7 +219,49 @@ moment is then:
     a_e = {g - 2\over 2} = F_2(0)
 
 To calculate that, we need to evaluate the one-loop correction to the vertex
-function:
+function, so we start by deriving the appropriate Green function for the
+process $\gamma(q) + e^+(p) \to e^+(p')$:
+
+.. math::
+
+    \ket{i} = a^{r\dag}_{\bf q} b^{t\dag}_{\bf p} \ket{\Omega}
+
+    \ket{f} = b^{s\dag}_{\bf p'} \ket{\Omega}
+
+    \braket{f|i} =\bra{\Omega} b^s_{\bf p'} a^{r\dag}_{\bf q}
+         b^{t\dag}_{\bf p} \ket{\Omega} =
+
+        =\bra{\Omega}T b^s_{\bf p'} a^{r\dag}_{\bf q}
+             b^{t\dag}_{\bf p} \ket{\Omega} =
+
+        =\bra{\Omega}T
+             \bar u^s({\bf p'}){1\over\tilde S(p')}\psi(p')
+             \epsilon_\mu^{r*}({\bf q}){q^2\over i} \tilde A^\mu(-q)
+             \tilde{\bar\psi}(-p){1\over\tilde S(-p)}u^t({\bf p})
+             \ket{\Omega} =
+
+        =\bar u^s({\bf p'}){1\over\tilde S(p')}
+            \epsilon_\mu^{r*}({\bf q}){q^2\over i}
+             \bra{\Omega}T
+             \psi(p')
+             \tilde A^\mu(-q)
+             \tilde{\bar\psi}(-p)
+             \ket{\Omega}{1\over\tilde S(-p)}u^t({\bf p}) =
+
+        =\bar u^s({\bf p'}){1\over\tilde S(p')}
+            \epsilon_\mu^{r*}({\bf q}){q^2\over i}
+             \tilde G(p, p', q)
+             {1\over\tilde S(-p)}u^t({\bf p}) =
+
+where:
+
+.. math::
+
+    \tilde G(p, p', q) = \bra{\Omega}T \psi(p') \tilde A^\mu(-q)
+             \tilde{\bar\psi}(-p)
+             \ket{\Omega}
+
+Now we can write:
 
 .. math::
 
