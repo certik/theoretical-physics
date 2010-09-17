@@ -227,12 +227,22 @@ function:
         \bar u(p')(\gamma^\mu + \delta\Gamma^\mu) u(p)
 
     \bar u(p')\delta\Gamma^\mu(p', p) u(p) =
+        \int {\d^4 k\over (2\pi)^4} \tilde D_{\nu\rho}(k-p)
+            \bar u(p')
+            (-ie\gamma^\nu)
+            \tilde S(k')
+            \gamma^\mu
+            \tilde S(k)
+            (-ie\gamma^\rho)
+            u(p) =
+
+        =
         \int {\d^4 k\over (2\pi)^4} {-ig_{\nu\rho}\over (k-p)^2 +i\epsilon}
             \bar u(p')
             (-ie\gamma^\nu)
             {i(\fslash k' + m)\over k'^2-m^2 +i\epsilon}
             \gamma^\mu
-            {i(\fslash k' + m)\over k^2-m^2 +i\epsilon}
+            {i(\fslash k + m)\over k^2-m^2 +i\epsilon}
             (-ie\gamma^\rho)
             u(p) =
 
@@ -263,6 +273,8 @@ function:
 where
 
 .. math::
+
+    k' = k + q
 
     D = l^2 - \Delta + i\epsilon
 
