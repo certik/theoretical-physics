@@ -359,9 +359,8 @@ Code::
 
 
 
-See for example `hep-ph/9602417
-<http://arxiv.org/abs/hep-ph/9602417>`_, where the author obtains the following
-expression for the coefficient $A_3$:
+See `hep-ph/9602417 <http://arxiv.org/abs/hep-ph/9602417>`_, where the author
+obtains the following expression for the coefficient $A_3$:
 
 .. math::
 
@@ -406,11 +405,12 @@ Code::
     >>> A_3.n()
     1.18124145658720
 
-Numerical approximation for $A_4$ can be found in the above article as well:
+Numerical approximation for $A_4$ can be found in
+`hep-ph/0507249 <http://arxiv.org/abs/hep-ph/0507249>`_:
 
 .. math::
 
-    A_4=-1.557
+    A_4=-1.7283(35)
 
 
 So the total value of $a_e$ is:
@@ -419,7 +419,7 @@ So the total value of $a_e$ is:
 
     a_e = 0.00115965223273643 + O(\alpha^4)
 
-    a_e = 0.00115965218741011 + O(\alpha^5)
+    a_e = 0.00115965218242334 + O(\alpha^5)
 
 Code::
 
@@ -437,6 +437,6 @@ Code::
     >>> a_e = A_1 * (alpha/pi) + A_2 * (alpha/pi)**2 + A_3 * (alpha/pi)**3
     >>> a_e.n()
     0.00115965223273643
-    >>> A_4 = -1.557
+    >>> A_4 = -1.7283
     >>> (a_e + A_4 * (alpha/pi)**4).n()
-    0.00115965218741011
+    0.00115965218242334
