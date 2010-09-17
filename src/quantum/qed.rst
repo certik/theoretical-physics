@@ -347,13 +347,13 @@ we already know that $A_1 = \half$. See for example `hep-ph/9410248
 Code::
 
     >>> from sympy import zeta, S, log, pprint
-    >>> A_3 = S(197)/144 + zeta(2)/2 + 3*zeta(3)/4 - 3*zeta(2) * log(2)
-    >>> pprint(A_3)
+    >>> A_2 = S(197)/144 + zeta(2)/2 + 3*zeta(3)/4 - 3*zeta(2) * log(2)
+    >>> pprint(A_2)
                     2           2
     197   3⋅ζ(3)   π ⋅log(2)   π
     ─── + ────── - ───────── + ──
     144     4          2       12
-    >>> A_3.n()
+    >>> A_2.n()
     -0.328478965579194
 
 
@@ -405,3 +405,27 @@ Code::
          18            9             72         810       2160 
     >>> A_3.n()
     1.18124145658720
+
+
+So the total value of $a_e$ is:
+
+.. math::
+
+    a_e = 0.00115965223273643 + O(\alpha^4)
+
+Code::
+
+    >>> from sympy import pi, zeta, S, log, pprint, sum, var, oo
+    >>> var("n")
+    n
+    >>> a4 = sum(1/(2**n * n**4), (n, 1, oo))
+    >>> A_1 = S(1)/2
+    >>> A_2 = S(197)/144 + zeta(2)/2 + 3*zeta(3)/4 - 3*zeta(2) * log(2)
+    >>> A_3 = 83*pi**2*zeta(3)/72 - 215*zeta(5)/24 + 100*(a4 + log(2)**4/24 - \
+    ...         pi**2*log(2)**2/24)/3 - \
+    ...         239*pi**4/2160 + 139*zeta(3)/18 - 298 * pi**2 * log(2)/9 + \
+    ...         17101 * pi**2 / 810 + S(28259)/5184
+    >>> alpha = 1/137.035999
+    >>> a_e = A_1 * (alpha/pi) + A_2 * (alpha/pi)**2 + A_3 * (alpha/pi)**3
+    >>> a_e.n()
+    0.00115965223273643
