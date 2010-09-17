@@ -53,3 +53,274 @@ The first equation is the Dirac equation in the electromagnetic field and the
 second equation is a set of Maxwell equations ($\partial_\nu
 F^{\nu\mu}=-ej^\mu$) with a source $j^\mu=c\bar\psi\gamma^\mu\psi$, which is a
 4-current comming from the Dirac equation.
+
+Magnetic moment of an electron
+------------------------------
+
+In this section we derive the order-$\alpha$ correction to the magnetic moment
+of an electron.
+
+We start by computing the electron vertex function for the process
+$\gamma(q)\to e^+(p) + e^-(p')$:
+
+.. math::
+
+    i M = i e^2 \left(\bar u(p')\Gamma^\mu(p', p)u(p)\right) {1\over q^2}
+        \left(\bar u(k') \gamma_\mu u(k)\right)
+
+where $k$ corresponds to some heavy target. If $A_\mu^{\rm cl}$ is a fixed
+classical potential, we get:
+
+.. math::
+
+    i M 2\pi \delta(p^{0'} - p^0) =
+        -i e \bar u(p')\Gamma^\mu(p', p)u(p) A_\mu^{\rm cl}
+
+Using general arguments (Lorentz invariance, parity-conservation, Ward
+identity) we can always write $\Gamma^\mu$ as:
+
+.. math::
+
+    \Gamma^\mu(p', p) = \gamma^\mu F_1(q^2) + {i\sigma^{\mu\nu} q_\nu \over
+        2m} F_2(q^2)
+
+where $F_1$ and $F_2$ ar unknown functions of $q^2 = (p'-p)^2 = -2p'\cdot p +
+2m^2$ called form factors. In the lowest order we get $F_1 = 1$ and $F_2 = 0$.
+
+We can calculate the amplitude for elastic Coulomb scattering of a
+nonrelativistic electron from a region of nonzero electrostatic potential by
+setting $A_\mu^{\rm cl}(x)=(\phi({\bf x}), 0)$, then:
+
+.. math::
+
+    A_\mu^{\rm cl}(q)=(2\pi\delta(q^0)\tilde\phi({\bf q}), 0)
+
+    i M 2\pi \delta(p^{0'} - p^0) =
+        -i e \bar u(p')\Gamma^0(p', p)u(p) 2\pi\delta(q^0)\tilde\phi({\bf q})
+
+    i M = -i e \bar u(p')\Gamma^0(p', p)u(p) \tilde\phi({\bf q})
+
+If the electrostatic field is very slowly varying over a large (even
+macroscopic) region, $\tilde\phi({\bf q})$ will be concentrated about ${\bf q}
+= 0$, then we can take the limit ${\bf q}\to 0$:
+
+.. math::
+
+    i M = -i e \bar u(p')\Gamma^0(p', p)u(p) \tilde\phi({\bf q})
+
+    i M = -i e \bar u(p')
+        \left(\gamma^0 F_1(q^2) + {i\sigma^{0\nu} q_\nu \over 2m} F_2(q^2)
+            \right)u(p) \tilde\phi({\bf q})
+
+    i M = -i e \bar u(p') \gamma^0 u(p) F_1(0) \tilde\phi({\bf q})
+
+    i M = -i e 2m\xi^{'\dag}\xi F_1(0) \tilde\phi({\bf q})
+
+    i M = -i \left( e F_1(0) \tilde\phi({\bf q})\right) 2m\xi^{'\dag}\xi
+
+This corresponds to the Born approximation for scattering from a potential
+
+.. math::
+
+    V({\bf x}) = e F_1(0) \phi({\bf x})
+
+Thus $F_1(0)$ is the electric charge of the electron, in units of $e$. Since
+$F_1(0) = 1$ already in the first order of perturbation theory, radiative
+corrections to $F_1(q^2)$ must vanish at $q^2=0$.
+
+Now we calculate the scattering from a static vector potential by setting
+$A_\mu^{\rm cl}(x)=(0, {\bf A}_\mu^{\rm cl}({\bf x}))$, then:
+
+.. math::
+
+    A^\mu_{\rm cl}(q)=(0, 2\pi\delta(q^i)\tilde A^i_{\rm cl}({\bf q}))
+
+    i M 2\pi \delta(p^{'i} - p^i) =
+        i e \bar u(p')\Gamma^i(p', p)u(p) 2\pi\delta(q^i)\tilde A^i_{\rm cl}({\bf q})
+
+    i M = i e \bar u(p')\Gamma^i(p', p)u(p) \tilde A^i_{\rm cl}({\bf q})
+
+    i M = i e \bar u(p')\left(\gamma^i F_1(q^2) + {i\sigma^{i\nu} q_\nu \over 2m} F_2(q^2) \right)
+    u(p) \tilde A^i_{\rm cl}({\bf q})
+
+In the limit $q\to0$ this becomes:
+
+.. math::
+
+    i M = i e
+        2m\xi^{'\dag}\left(-i\epsilon^{ijk}{q^j\sigma^k\over 2m}(F_1(0) + F_2(0)) \right)\xi
+    \tilde A^i_{\rm cl}({\bf q})
+
+    i M = -i e
+        2m\xi^{'\dag}\left(-{\sigma^k\over 2m}(F_1(0) + F_2(0)) \right)\xi
+    \left(-i\epsilon^{ijk}q^j\tilde A^i_{\rm cl}({\bf q})\right)
+
+    i M = -i e
+        2m\xi^{'\dag}\left(-{\sigma^k\over 2m}(F_1(0) + F_2(0)) \right)\xi
+        \tilde B^k({\bf q})
+
+    i M = -i \left(-{e\over m} (F_1(0) + F_2(0))
+        2m\xi^{'\dag}{\sigma^k\over 2}\xi
+        \tilde B^k({\bf q})\right)
+
+
+where
+
+.. math::
+
+    \tilde B^k({\bf q}) =
+    \left(-i\epsilon^{ijk}q^j\tilde A^i_{\rm cl}({\bf q})\right)
+
+is the Fourier transform of the magnetic field produced by ${\bf A}^{\rm
+cl}({\bf x})$.
+
+This corresponds to the Born approximation for scattering from a potential
+
+.. math::
+
+    V({\bf x}) = -{e\over m} (F_1(0) + F_2(0))
+        \xi^{'\dag}{\sigma^k\over 2}\xi
+        B^k({\bf x})
+
+    V({\bf x}) = -{e\over m} (F_1(0) + F_2(0))
+        \xi^{'\dag}{\bsigma\over 2}\xi\cdot {\bf B}({\bf x})
+
+    V({\bf x}) = -<{\bmu}>\cdot {\bf B}({\bf x})
+
+where
+
+.. math::
+
+    <{\bmu}> = {e\over m} (F_1(0) + F_2(0)) \xi^{'\dag}{\bsigma\over 2}\xi
+
+    <{\bmu}> = g {e\over 2m} {\bf S}
+
+where
+
+.. math::
+
+    g = 2(F_1(0) + F_2(0))
+
+    {\bf S} = \xi^{'\dag}{\bsigma\over 2}\xi
+
+The coefficient $g$ is called the Landé g-factor, and since the leading order
+of perturbation theory gives $F_2(0)=0$ (and we know that $F_1(0)=1$ to all
+orders), we get:
+
+.. math::
+
+    g = 2(F_1(0) + F_2(0)) = 2 + 2F_2(0) = 2 + O(\alpha)
+
+This is the standard prediction of the Dirac equation. The anomalous magnetic
+moment is then:
+
+.. math::
+
+    a_e = {g - 2\over 2} = F_2(0)
+
+To calculate that, we need to evaluate the one-loop correction to the vertex
+function:
+
+.. math::
+
+    \bar u(p')\Gamma^\mu(p', p) u(p) =
+        \bar u(p')(\gamma^\mu + \delta\Gamma^\mu) u(p)
+
+    \bar u(p')\delta\Gamma^\mu(p', p) u(p) =
+        \int {\d^4 k\over (2\pi)^4} {-ig_{\nu\rho}\over (k-p)^2 +i\epsilon}
+            \bar u(p')
+            (-ie\gamma^\nu)
+            {i(\fslash k' + m)\over k'^2-m^2 +i\epsilon}
+            \gamma^\mu
+            {i(\fslash k' + m)\over k^2-m^2 +i\epsilon}
+            (-ie\gamma^\rho)
+            u(p) =
+
+    = 2ie^2\int {\d^4 k\over (2\pi)^4}
+        {\bar u(p') \left(
+            \fslash k \gamma^mu \fslash k' + m^2\gamma^\mu - 2m(k+k')^\mu
+            \right) u(p) \over
+        ((k-p)^2 + i\epsilon)(k'^2 - m^2 + i\epsilon)(k^2-m^2+i\epsilon)
+            }=
+
+    = \cdots =
+
+    = 2i e^2 \int {\d^4 l\over (2\pi)^4} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+        {2\over D^3} \bar u(p') \left(
+        \gamma^\mu (-\half l^2+ (1-x)(1-y)q^2 + (1-4z+z^2)m^2)
+            + {i\sigma^{\mu\nu}q_\nu\over 2m} (2m^2 z(1-z))
+        \right)u(p) =
+
+    = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+        \bar u(p') \left(
+        \gamma^\mu \left[\log {z \Lambda^2\over\Delta} + {1\over\Delta}
+            \left((1-x)(1-y)q^2 + (1-4z+z^2)m^2\right)\right]
+            + {i\sigma^{\mu\nu}q_\nu\over 2m}\left[{1\over\Delta}2m^2 z(1-z)
+                \right] \right)u(p)
+
+where
+
+.. math::
+
+    D = l^2 - \Delta + i\epsilon
+
+    \Delta = -xyq^2 + (1-z)^2 m^2 > 0
+
+So the expressions for the form factors are:
+
+.. math::
+
+    F_1(q^2) = 1 + {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+        \left[\log {z \Lambda^2\over\Delta} + {1\over\Delta}
+            \left((1-x)(1-y)q^2 + (1-4z+z^2)m^2\right)\right]
+            +O(\alpha^2)
+
+    F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+         \left[{1\over\Delta}2m^2 z(1-z) \right]
+            +O(\alpha^2)
+
+After renormalization we get:
+
+.. math::
+
+    F_2(q^2) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+         \left[2m^2 z(1-z)\over m^2(1-z)^2 - q^2 xy \right]
+            +O(\alpha^2)
+
+and setting $q=0$:
+
+.. math::
+
+    F_2(0) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+         \left[2m^2 z(1-z)\over m^2(1-z)^2 \right] +O(\alpha^2) =
+
+    ={\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+         {2 z\over 1-z} +O(\alpha^2) =
+
+    ={\alpha\over 2\pi} \int_0^1 \d z \int_0^{1-z} \,\d y
+         {2 z\over 1-z} +O(\alpha^2) =
+
+    = {\alpha\over 2\pi} + O(\alpha^2)
+
+Thus we get the correction to the $g$-factor of the electron:
+
+.. math::
+
+    a_e = {g - 2\over 2} = F_2(0) = {\alpha\over 2\pi} \approx 0.0011614
+
+Code::
+
+    >>> from math import pi
+    >>> alpha = 1/137.035999
+    >>> a_e = alpha / (2*pi)
+    >>> a_e
+    0.0011614097335977778
+
+Experiments give $a_e = 0.00115965218073\pm0.00000000000028$.
