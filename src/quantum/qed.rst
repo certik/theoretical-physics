@@ -331,7 +331,8 @@ Higher order corrections from QED can also be calculated:
 
     a_e = A_1 \left({\alpha\over \pi}\right) +
           A_2 \left({\alpha\over \pi}\right)^2 +
-          A_3 \left({\alpha\over \pi}\right)^3 + \cdots
+          A_3 \left({\alpha\over \pi}\right)^3 +
+          A_4 \left({\alpha\over \pi}\right)^4 + \cdots
 
 we already know that $A_1 = \half$. See for example `hep-ph/9410248
 <http://arxiv.org/abs/hep-ph/9410248>`_ for the expression for $A_2$:
