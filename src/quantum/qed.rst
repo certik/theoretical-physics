@@ -477,13 +477,8 @@ we already know that $A_1 = \half$. See for example `hep-ph/9410248
 
 Code::
 
-    >>> from sympy import zeta, S, log, pprint
+    >>> from sympy import zeta, S, log
     >>> A_2 = S(197)/144 + zeta(2)/2 + 3*zeta(3)/4 - 3*zeta(2) * log(2)
-    >>> pprint(A_2)
-                    2           2
-    197   3⋅ζ(3)   π ⋅log(2)   π
-    ─── + ────── - ───────── + ──
-    144     4          2       12
     >>> A_2.n()
     -0.328478965579194
 
@@ -511,7 +506,7 @@ obtains the following expression for the coefficient $A_3$:
 
 Code::
 
-    >>> from sympy import pi, zeta, S, log, pprint, sum, var, oo
+    >>> from sympy import pi, zeta, S, log, sum, var, oo
     >>> var("n")
     n
     >>> a4 = sum(1/(2**n * n**4), (n, 1, oo))
@@ -519,20 +514,6 @@ Code::
     ...         pi**2*log(2)**2/24)/3 - \
     ...         239*pi**4/2160 + 139*zeta(3)/18 - 298 * pi**2 * log(2)/9 + \
     ...         17101 * pi**2 / 810 + S(28259)/5184
-    >>> pprint(A_3)
-                           ⎛                                 2    2         4   ⎞ 
-                           ⎜                                π ⋅log (2)   log (2)⎟ 
-                       100⋅⎜Sum(2**(-n)/n**4, (n, 1, oo)) - ────────── + ───────⎟ 
-    28259   215⋅ζ(5)       ⎝                                    24          24  ⎠ 
-    ───── - ──────── + ────────────────────────────────────────────────────────── 
-     5184      24                                  3                              
-
-                                                               
-                                                               
-                      2              2               2        4
-      139⋅ζ(3)   298⋅π ⋅log(2)   83⋅π ⋅ζ(3)   17101⋅π    239⋅π 
-    + ──────── - ───────────── + ────────── + ──────── - ──────
-         18            9             72         810       2160 
     >>> A_3.n()
     1.18124145658720
 
@@ -554,7 +535,7 @@ So the total value of $a_e$ is:
 
 Code::
 
-    >>> from sympy import pi, zeta, S, log, pprint, sum, var, oo
+    >>> from sympy import pi, zeta, S, log, sum, var, oo
     >>> var("n")
     n
     >>> a4 = sum(1/(2**n * n**4), (n, 1, oo))
