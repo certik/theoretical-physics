@@ -75,6 +75,21 @@ In exactly the same manner we get
 
 See also :eq:`functionalderdel` for an example of how to deal with more complex expressions involving the delta function like $\delta^2(x)$.
 
+When integrating over finite interval, this formula is very useful:
+
+.. math::
+
+    \int_a^b f(x)\delta(x-t)\d x = f(t) \theta(b-t) \theta(t-a)
+
+in other words, the integral vanishes unless $a < t < b$. In the limit $a\to
+-\infty$ and $b\to\infty$ we get:
+
+.. math::
+
+    \theta(b-t) \to \theta(\infty - t) = 1
+
+    \theta(t-a) \to \theta(t - (-\infty)) = \theta(t+\infty) = 1
+
 Distributions
 -------------
 
