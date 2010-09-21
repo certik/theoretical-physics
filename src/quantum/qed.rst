@@ -458,15 +458,15 @@ divergence affects $F_2(q^2)$, so we just set $q=0$:
         \delta(x+y+z-1)
          {2 z\over 1-z} +O(\alpha^2) =
 
-    ={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z
+    ={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z\,
         \theta(1-(1-y-z))\theta((1-y-z)-0)
          {2 z\over 1-z} +O(\alpha^2) =
 
-    ={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z
+    ={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z\,
         \theta(y+z)\theta(1-y-z)
          {2 z\over 1-z} +O(\alpha^2) =
 
-    ={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z
+    ={\alpha\over 2\pi} \int_0^1 \d y \int_0^1 \,\d z\,
         \theta(1-y-z)
          {2 z\over 1-z} +O(\alpha^2) =
 
