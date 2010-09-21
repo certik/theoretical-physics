@@ -95,3 +95,112 @@ Where we used :eq:`feynpar-abn` and the fact, that $\delta(x_1 + \cdots
 +x_n-1)=y\,\delta(yx_1 + \cdots +yx_n-y)$, after the substituation we also
 restricted the limits of integration from 1 to $1\over y$, since $x_1$, $x_2$,
 ... are all positive.
+
+Example 1
+~~~~~~~~~
+
+.. math::
+
+    \int {\d^4 k\over (k-p)^2 (k^2 - m^2)}
+        = \int d^4 k \int_0^1\d x \d y {\delta(x+y-1)\over D^2}
+
+where
+
+.. math::
+
+    D = x (k-p)^2 + y(k^2 - m^2) = (x+y)k^2 - 2xk\cdot p +xp^2-ym^2
+      = k^2 - 2xk\cdot p +xp^2-ym^2
+
+In the last part we used $x+y=1$. We now shift $k$ by introducing:
+
+.. math::
+
+    l = k - xp
+
+    \d^4k = \d^4 l
+
+and we get:
+
+.. math::
+
+    D = k^2 - 2xk\cdot p +xp^2-ym^2 = l^2 - x^2p^2 + xp^2 - ym^2
+
+thus:
+
+.. math::
+
+    \int d^4 k \int_0^1\d x \d y {\delta(x+y-1)\over D^2} =
+
+    = \int l^4 k \int_0^1\d x \d y {\delta(x+y-1)\over
+        (l^2 - x^2p^2 + xp^2 - ym^2)^2}
+
+Example 2
+~~~~~~~~~
+
+.. math::
+
+    \int {\d^4 k\over (k^2-m^2+i\epsilon)((k+p)^2 - m^2 + i\epsilon)
+        ((k-p)^2+i\epsilon)}
+        = \int d^4 k \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over D^3}
+
+where
+
+.. math::
+
+    D = x (k^2-m^2+i\epsilon) + y((k+p)^2 - m^2 + i\epsilon) +
+        z((k-p)^2+i\epsilon) =
+
+      = (x+y+z)k^2 + 2k\cdot(yq-zp) + yq^2 + zp^2 - (x+y)m^2 +
+        (x+y+z)i\epsilon =
+
+      = k^2 + 2k\cdot(yq-zp) + yq^2 + zp^2 - (x+y)m^2 + i\epsilon
+
+In the last part we used $x+y+z=1$. We now shift $k$ by introducing:
+
+.. math::
+
+    l = k + yq - zp
+
+    \d^4k = \d^4 l
+
+and we get:
+
+.. math::
+
+    D = k^2 + 2k\cdot(yq-zp) + yq^2 + zp^2 - (x+y)m^2 + i\epsilon =
+
+    = l^2 - \Delta + i\epsilon
+
+where
+
+.. math::
+
+    \Delta = -xyq^2 + (1-z)^2m^2
+
+thus:
+
+.. math::
+
+    \int d^4 k \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over D^3} =
+
+    = \int \d^4 l \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over
+    (l^2 - \Delta + i\epsilon)^3 } =
+
+    = (-i)\int \d^4 l_E \int_0^1\d x \d y\d z {2\delta(x+y+z-1)\over
+    (l_E^2 + \Delta)^3 } =
+
+    = (-i)\int \d\Omega_4 \int_0^\infty \d l_E \int_0^1\d x \d y\d z
+    {2\delta(x+y+z-1)l_E^3\over (l_E^2 + \Delta)^3 } =
+
+    = (-i4\pi^2)\int_0^1\d x \d y\d z \delta(x+y+z-1) \int_0^\infty \d l_E
+        {l_E^3\over (l_E^2 + \Delta)^3 } =
+
+    = (-i4\pi^2)\int_0^1\d x \d y\d z \delta(x+y+z-1) \int_\Delta^\infty \d h
+        {h-\Delta \over 2 h^3 } =
+
+    = (-i4\pi^2)\int_0^1\d x \d y\d z \delta(x+y+z-1) {1\over 4\Delta} =
+
+    = (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over \Delta} =
+
+    = (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+         (1-z)^2m^2 - xyq^2}
