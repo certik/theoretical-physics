@@ -404,7 +404,48 @@ So the expressions for the form factors are:
          \left[2m^2 z(1-z)\over m^2(1-z)^2 - q^2 xy \right]
             +O(\alpha^2)
 
-$F_1$ needs to be renormalized, but neither the ultraviolet nor the infrared
+$F_1$ contains both ultraviolet and infrared divergencies. To cure the infrared
+divergence, we add a term $\mu^2 z$ to $\Delta$. To cure the ultraviolet
+divergence, we make the substitution:
+
+.. math::
+
+    F_1(q^2) \to F_1(q^2) - \delta F_1(0)
+
+where $\delta F_1$ is the first order (in $\alpha$) correction to $F_1$ (i.e.
+$F_1 = 1 + \delta F_1 + O(\alpha^2)$):
+
+.. math::
+
+    \delta F_1(0) = {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+        \left[\log {z \Lambda^2\over\Delta (q^2=0)} + {1\over\Delta (q^2=0)}
+            (1-4z+z^2)m^2\right]
+
+so the corrected $F_1$ is:
+
+.. math::
+
+    F_1(q^2) = 1 + {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+        \left[\log {z \Lambda^2\over\Delta} + {1\over\Delta}
+            \left((1-x)(1-y)q^2 + (1-4z+z^2)m^2\right)+\right.
+
+        \left.-\log {z \Lambda^2\over\Delta (q^2=0)} - {1\over\Delta (q^2=0)}
+        (1-4z+z^2)m^2\right]
+        +O(\alpha^2) =
+
+    = 1 + {\alpha\over 2\pi} \int_0^1 \d x \,\d y \,\d z\,
+        \delta(x+y+z-1)
+        \left[\log {m^2 (1-z)^2\over m^2(1-z)^2 - q^2 x y} +
+            \left((1-x)(1-y)q^2 + (1-4z+z^2)m^2\over
+            m^2(1-z)^2 - q^2 x y +\mu^2z
+            \right)+\right.
+
+        \left.-{(1-4z+z^2)m^2\over m^2 (1-z)^2 + \mu^2 z}\right]
+        +O(\alpha^2)
+
+Neither the ultraviolet nor the infrared
 divergence affects $F_2(q^2)$, so we just set $q=0$:
 
 .. math::
