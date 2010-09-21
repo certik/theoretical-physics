@@ -204,3 +204,95 @@ thus:
 
     = (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
          (1-z)^2m^2 - xyq^2}
+
+This integral has an infrared divergence. We can cure this by pretending that
+the photon has a small nonzero mass $\mu$, then in the denominator of the
+photon propagator we need to change:
+
+.. math::
+
+    (k-p)^2 \to (k-p)^2 - \mu^2
+
+This denominator is multiplied by $z$ later on, so at the end we need to do the
+change:
+
+.. math::
+
+    \Delta \to \Delta + z\mu^2
+
+and we get:
+
+.. math::
+
+    (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+         (1-z)^2m^2 - xyq^2} \to
+
+    \to (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+         (1-z)^2m^2 - xyq^2 + z\mu^2}
+
+for $q^2=0$ we get:
+
+.. math::
+
+    (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+         (1-z)^2m^2 - xyq^2 + z\mu^2} \to
+
+    \to (-i\pi^2)\int_0^1\d x \d y\d z {\delta(x+y+z-1) \over
+         (1-z)^2m^2 + z\mu^2} =
+
+    = (-i\pi^2)\int_0^1\d z\int_0^{1-z} \d y{1 \over
+         (1-z)^2m^2 + z\mu^2} =
+
+    = (-i\pi^2)\int_0^1\d z {1-z \over (1-z)^2m^2 + z\mu^2}
+
+We can use the following integral:
+
+.. math::
+
+    \int_{0}^{1} \frac{1 - z}{1 - 2 z + z^{2} + z \mu^{2}}\,dz = \frac{1}{2}
+    \operatorname{log}\left(\mu^{-2}\right) +
+    \frac{\operatorname{atan}\left(\frac{1}{\sqrt{-1 +
+    \frac{4}{\mu^{2}}}}\right)}{\sqrt{-1 + \frac{4}{\mu^{2}}}} -
+    \frac{\operatorname{atan}\left(\frac{1 - \frac{2}{\mu^{2}}}{\sqrt{-1 +
+    \frac{4}{\mu^{2}}}}\right)}{\sqrt{-1 + \frac{4}{\mu^{2}}}}
+
+that is equal to $\half\log({1\over\mu^2})$ in the limit $\mu\to0$.
+
+here are a few special cases for $\mu = 1$, $\mu=1/2$ and $\mu=1/3$:
+
+.. math::
+
+    \int_{0}^{1} \frac{1 - z}{1 - z + z^{2}}\,dz = \frac{1}{9} \pi \sqrt{3}
+
+    \int_{0}^{1} \frac{1 - z}{1 - \frac{7}{4} z + z^{2}}\,dz = \frac{1}{2} \operatorname{log}\left(4\right) + \frac{1}{15} \sqrt{15} \operatorname{atan}\left(\frac{1}{15} \sqrt{15}\right) + \frac{1}{15} \sqrt{15} \operatorname{atan}\left(\frac{7}{15} \sqrt{15}\right)
+
+    \int_{0}^{1} \frac{1 - z}{1 - \frac{17}{9} z + z^{2}}\,dz = \frac{1}{2} \operatorname{log}\left(9\right) + \frac{1}{35} \sqrt{35} \operatorname{atan}\left(\frac{1}{35} \sqrt{35}\right) + \frac{1}{35} \sqrt{35} \operatorname{atan}\left(\frac{17}{35} \sqrt{35}\right)
+
+
+Code::
+
+    >>> from sympy import log, atan, var, sqrt, Eq, Integral, S
+    >>> var("z m mu")
+    >>> F = -log(z*(1 - 2/m) + 1/m + z**2/m)/2 + \
+            atan((1 - 2/m + 2*z/m)/sqrt(-1 + 4/m))/sqrt(-1 + 4/m)
+    >>> f = F.diff(z).simplify()
+    >>> print f
+    (1 - z)/(1 - 2*z + m*z + z**2)
+    >>> integ_f_0_1 = F.subs(z, 1) - F.subs(z, 0)
+    >>> e = Eq(Integral(f.subs(m, mu**2), (z, 0, 1)), integ_f_0_1.subs(m, mu**2))
+    >>> print e
+    Integral((1 - z)/(1 - 2*z + z**2 + z*mu**2), (z, 0, 1)) == log(mu**(-2))/2 + atan((-1 + 4/mu**2)**(-1/2))/(-1 + 4/mu**2)**(1/2) - atan((1 - 2/mu**2)/(-1 + 4/mu**2)**(1/2))/(-1 + 4/mu**2)**(1/2)
+    >>> print e.subs(mu, 1)
+    Integral((1 - z)/(1 - z + z**2), (z, 0, 1)) == pi*3**(1/2)/9
+    >>> print e.subs(mu, S(1)/2)
+    Integral((1 - z)/(1 - 7*z/4 + z**2), (z, 0, 1)) == log(4)/2 + 15**(1/2)*atan(15**(1/2)/15)/15 + 15**(1/2)*atan(7*15**(1/2)/15)/15
+    >>> print e.subs(mu, S(1)/3)
+    Integral((1 - z)/(1 - 17*z/9 + z**2), (z, 0, 1)) == log(9)/2 + 35**(1/2)*atan(35**(1/2)/35)/35 + 35**(1/2)*atan(17*35**(1/2)/35)/35
+
+Then for $m=1$ and small $\mu$ we get:
+
+.. math::
+
+    (-i\pi^2)\int_0^1\d z {1-z \over (1-z)^2m^2 + z\mu^2} =
+
+    = (-i\pi^2)\half\log{1\over\mu^2}
