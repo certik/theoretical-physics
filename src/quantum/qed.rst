@@ -574,6 +574,18 @@ So the total value of $a_e$ is:
 
     a_e = 0.00115965218242334 + O(\alpha^5)
 
+Let's state the experimental value again for comparison (see above):
+
+.. math::
+
+    a_e = 0.00115965218073\pm0.00000000000028
+
+At this level of accuracy, the uncertainty of the exact value of $\alpha$ as
+well as other corrections coming from the Standar Model come into play, so one
+should not take the numbers above too seriously, but one can roughly say, that
+the agreement between the QED prediction and experiment is about 8 significant
+figures.
+
 Code::
 
     >>> from sympy import pi, zeta, S, log, sum, var, oo
