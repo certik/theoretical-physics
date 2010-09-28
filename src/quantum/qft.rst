@@ -1826,39 +1826,64 @@ fermions it changes a sign).
 Nonrelativistic Propagator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Nonrelativistic limits of the propagators are obtained by assuming $|{\bf p}|/m
-\ll 1$ (we substitute $\omega=p_0-m$):
+Nonrelativistic limits of the propagators are obtained by assuming
+$|{\bf p}|/mc \ll 1$, and using the well-known expansion:
 
 .. math::
 
-    \tilde D(p) = {i\over p^2-m^2+i\epsilon}
-    = {i\over p_0^2-{\bf p}^2-m^2+i\epsilon}
-    = {i\over \left(p_0-\sqrt{{\bf p}^2+m^2}\right)\left(p_0
-        +\sqrt{{\bf p}^2+m^2}\right)+i\epsilon}
+    E = \sqrt{{\bf p}^2c^2 + m^2c^4}
+        \approx mc^2+{{\bf p}^2\over 2m}
+
+we also substitute $\omega=p_0 c-mc^2$:
+
+.. math::
+
+    \tilde D(p) = {i\over p^2-m^2c^2+i\epsilon}
+    = {i\over p_0^2-{\bf p}^2-m^2c^2+i\epsilon}
+    = {i\over {1\over c^2}\left(p_0^2c^2-{\bf p}^2c^2-m^2c^4\right)+i\epsilon}
+    =
+
+    = {i\over {1\over c^2}\left(p_0c-\sqrt{{\bf p}^2c^2+m^2c^4}\right)
+        \left(p_0 c +\sqrt{{\bf p}^2c^2+m^2c^4}\right)+i\epsilon}
     \approx
 
     \approx
-    {i\over \left(p_0-m-{{\bf p}^2\over 2m}\right)
-        \left(p_0+m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+    {i\over {1\over c^2}\left(p_0c-mc^2-{{\bf p}^2\over 2m}\right)
+        \left(p_0c+mc^2+{{\bf p}^2\over 2m}\right) + i\epsilon}
     =
-    {i\over \left(\omega-{{\bf p}^2\over 2m}\right)
-        \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+
+    =
+    {i\over {1\over c^2}\left(\omega-{{\bf p}^2\over 2m}\right)
+        \left(\omega+2mc^2+{{\bf p}^2\over 2m}\right) + i\epsilon}
 
 the behavior of the propagator in the vicinity of its positive frequency pole
-$\omega\approx{{\bf p}^2\over 2m}$ is (remember $\omega \to 0$ in the
-nonrelativistic limit):
+$\omega\approx{{\bf p}^2\over 2m}$ is (we use the approximation
+$2mc^2 + {{\bf p}^2\over m} = 2mc^2\left(1+\half\left(|{\bf p}|\over mc\right)^2\right) \approx 2mc^2$):
 
 .. math::
 
     \tilde D(p) \approx
-    {i\over \left(\omega-{{\bf p}^2\over 2m}\right)
-        \left(\omega+2m+{{\bf p}^2\over 2m}\right) + i\epsilon}
+    {i\over {1\over c^2}\left(\omega-{{\bf p}^2\over 2m}\right)
+        \left(\omega+2mc^2+{{\bf p}^2\over 2m}\right) + i\epsilon}
     \approx
-    {i\over \left(\omega-{{\bf p}^2\over 2m}\right) 2m + i\epsilon}
+    {i\over {1\over c^2}\left(\omega-{{\bf p}^2\over 2m}\right)
+        \left(2mc^2+{{\bf p}^2\over m}\right) + i\epsilon}
+    \approx
+
+    \approx
+    {i\over {1\over c^2}\left(\omega-{{\bf p}^2\over 2m}\right) 2mc^2
+        + i\epsilon}
+    =
+    {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i{\epsilon\over 2m}}
     =
     {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i\epsilon'}
 
-Similarly for fermions:
+where $\omega=p_0 c-mc^2 = E - mc^2$ is the nonrelativistic energy (total
+energy minus the rest mass energy) and ${{\bf p}^2\over 2m}=\omega_{\bf p}$ is
+the nonrelativistic energy of a noninteracting particle with momentum ${\bf
+p}$.
+
+Similarly for fermions (we set $c=1$):
 
 .. math::
 
