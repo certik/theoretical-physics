@@ -1883,6 +1883,44 @@ energy minus the rest mass energy) and ${{\bf p}^2\over 2m}=\omega_{\bf p}$ is
 the nonrelativistic energy of a noninteracting particle with momentum ${\bf
 p}$.
 
+Another, maybe easier to remember, way of deriving it is by noting:
+
+.. math::
+
+    p_0 c = E = mc^2 + \omega
+
+    \sqrt{{\bf p}^2c^2 + m^2c^4} = E_{\bf p} = mc^2+{{\bf p}^2\over 2m} + \cdots
+
+    E - E_{\bf p} = \omega - {{\bf p}^2\over 2m} - \cdots \approx
+        \omega - {{\bf p}^2\over 2m}
+
+    E + E_{\bf p} = \omega + 2mc^2 + {{\bf p}^2\over 2m} + \cdots \approx 2mc^2
+
+and then calculating:
+
+.. math::
+
+    \tilde D(p) = {i\over p^2-m^2c^2+i\epsilon}
+    = {i\over p_0^2-{\bf p}^2-m^2c^2+i\epsilon}
+    = {i\over {1\over c^2}\left(p_0^2c^2-{\bf p}^2c^2-m^2c^4\right)+i\epsilon}
+    =
+
+    = {i\over {1\over c^2}\left(E^2 - E_{\bf p}^2\right)+i\epsilon}
+    = {i\over {1\over c^2}(E - E_{\bf p})(E + E_{\bf p})+i\epsilon}
+    =
+
+    = {i\over {1\over c^2}\left(\omega - {{\bf p}^2\over 2m}-\cdots\right)
+        \left(\omega + 2mc^2 + {{\bf p}^2\over 2m} + \cdots\right)+i\epsilon}
+    \approx
+    {i\over {1\over c^2}\left(\omega - {{\bf p}^2\over 2m}\right)
+        2mc^2+i\epsilon}
+    =
+
+    =
+    {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i{\epsilon\over 2m}}
+    =
+    {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i\epsilon'}
+
 Similarly for fermions (we set $c=1$):
 
 .. math::
