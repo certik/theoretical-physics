@@ -923,6 +923,32 @@ Example 3 --- Yukawa potential in Born approximation:
             {1\over\left(4k^2\sin^2\left(\theta\over2\right)
             + \alpha^2\right)^2}
 
+    \sigma
+        = \int {\d\sigma\over\d\Omega} \d\Omega
+        = \int {\d\sigma\over\d\Omega} \sin\theta \d \theta\d\phi
+        =
+
+        = \left(2mV_0\over \hbar^2\right)^2\int
+        {1\over\left(4k^2\sin^2\left(\theta\over2\right) + \alpha^2\right)^2}
+        \sin\theta \d \theta\d\phi =
+
+        = \left(2mV_0\over \hbar^2\right)^2 2\pi\int_0^\pi
+        {\sin\theta\d\theta\over
+            \left(4k^2\sin^2\left(\theta\over2\right) + \alpha^2\right)^2} =
+
+        = \left(2mV_0\over \hbar^2\right)^2 2\pi\int_0^\pi
+        {\sin\theta\d\theta\over
+            \left(2k^2(1-\cos\theta) + \alpha^2\right)^2} =
+
+        = \left(2mV_0\over \hbar^2\right)^2 2\pi\int_{-1}^1
+        {\d y\over \left(2k^2(1+y) + \alpha^2\right)^2} =
+
+        = \left(2mV_0\over \hbar^2\right)^2 2\pi
+            \int_{\alpha^2}^{4k^2+\alpha^2} {2k^2\d z\over z^2} =
+
+        = \left(2mV_0\over \hbar^2\right)^2 2\pi 2k^2
+            \left({1\over\alpha^2} - {1\over 4k^2 + \alpha^2}\right)
+
 
 Example 4 --- Coulomb potential in Born approximation:
 
