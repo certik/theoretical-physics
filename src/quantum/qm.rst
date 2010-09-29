@@ -907,14 +907,14 @@ Example 3 --- Yukawa potential in Born approximation:
 
 .. math::
 
-    V(r) = V_0 {e^{-\alpha r}\over r}
+    V(r) = -V_0 {e^{-\alpha r}\over r}
 
-    \tilde V({\bf q}) = {4\pi V_0\over |{\bf q}|^2 + \alpha^2}
+    \tilde V({\bf q}) = -{4\pi V_0\over |{\bf q}|^2 + \alpha^2}
 
     f(\theta,\phi) = {m\over2\pi\hbar^2} \braket{{\bf k'}|T|{\bf k}}
         = {m\over2\pi\hbar^2} \tilde V({\bf q})
-        = {m\over2\pi\hbar^2} {4\pi V_0\over |{\bf q}|^2 + \alpha^2}
-        = {2m\over\hbar^2} {V_0\over |{\bf q}|^2 + \alpha^2}
+        = -{m\over2\pi\hbar^2} {4\pi V_0\over |{\bf q}|^2 + \alpha^2}
+        = -{2m\over\hbar^2} {V_0\over |{\bf q}|^2 + \alpha^2}
 
     {\d\sigma\over\d\Omega} = |f(\theta, \phi)|^2
         = \left(2mV_0\over \hbar^2\right)^2
