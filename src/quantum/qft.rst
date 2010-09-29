@@ -1827,63 +1827,10 @@ Nonrelativistic Propagator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Nonrelativistic limits of the propagators are obtained by assuming
-$|{\bf p}|/mc \ll 1$, and using the well-known expansion:
-
-.. math::
-
-    E = \sqrt{{\bf p}^2c^2 + m^2c^4}
-        \approx mc^2+{{\bf p}^2\over 2m}
-
-we also substitute $\omega=p_0 c-mc^2$:
-
-.. math::
-
-    \tilde D(p) = {i\over p^2-m^2c^2+i\epsilon}
-    = {i\over p_0^2-{\bf p}^2-m^2c^2+i\epsilon}
-    = {i\over {1\over c^2}\left(p_0^2c^2-{\bf p}^2c^2-m^2c^4\right)+i\epsilon}
-    =
-
-    = {i\over {1\over c^2}\left(p_0c-\sqrt{{\bf p}^2c^2+m^2c^4}\right)
-        \left(p_0 c +\sqrt{{\bf p}^2c^2+m^2c^4}\right)+i\epsilon}
-    \approx
-
-    \approx
-    {i\over {1\over c^2}\left(p_0c-mc^2-{{\bf p}^2\over 2m}\right)
-        \left(p_0c+mc^2+{{\bf p}^2\over 2m}\right) + i\epsilon}
-    =
-
-    =
-    {i\over {1\over c^2}\left(\omega-{{\bf p}^2\over 2m}\right)
-        \left(\omega+2mc^2+{{\bf p}^2\over 2m}\right) + i\epsilon}
-
-the behavior of the propagator in the vicinity of its positive frequency pole
-$\omega\approx{{\bf p}^2\over 2m}$ is (we use the approximation
-$2mc^2 + {{\bf p}^2\over m} = 2mc^2\left(1+\half\left(|{\bf p}|\over mc\right)^2\right) \approx 2mc^2$):
-
-.. math::
-
-    \tilde D(p) \approx
-    {i\over {1\over c^2}\left(\omega-{{\bf p}^2\over 2m}\right)
-        \left(\omega+2mc^2+{{\bf p}^2\over 2m}\right) + i\epsilon}
-    \approx
-    {i\over {1\over c^2}\left(\omega-{{\bf p}^2\over 2m}\right)
-        \left(2mc^2+{{\bf p}^2\over m}\right) + i\epsilon}
-    \approx
-
-    \approx
-    {i\over {1\over c^2}\left(\omega-{{\bf p}^2\over 2m}\right) 2mc^2
-        + i\epsilon}
-    =
-    {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i{\epsilon\over 2m}}
-    =
-    {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i\epsilon'}
-
-where $\omega=p_0 c-mc^2 = E - mc^2$ is the nonrelativistic energy (total
-energy minus the rest mass energy) and ${{\bf p}^2\over 2m}=\omega_{\bf p}$ is
-the nonrelativistic energy of a noninteracting particle with momentum ${\bf
-p}$.
-
-Another, maybe easier to remember, way of deriving it is by noting:
+$|{\bf p}|/mc \ll 1$, and then expressing the propagator using the
+nonrelativistic energy $\omega$ (total
+energy minus the rest mass energy) by using the
+well-known relations:
 
 .. math::
 
@@ -1896,7 +1843,9 @@ Another, maybe easier to remember, way of deriving it is by noting:
 
     E + E_{\bf p} = \omega + 2mc^2 + {{\bf p}^2\over 2m} + \cdots \approx 2mc^2
 
-and then calculating:
+Where $E$ is the total energy, $\omega$ is the nonrelativistic energy, $E_{\bf
+p}$ is the relativistic energy of a noninteracting particle (kinetic energy).
+Now we can rewrite the propagator:
 
 .. math::
 
@@ -1920,6 +1869,10 @@ and then calculating:
     {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i{\epsilon\over 2m}}
     =
     {1\over2m}{i\over\omega-{{\bf p}^2\over 2m} + i\epsilon'}
+
+
+As you can see, we are interested in the behavior of the propagator in the
+vicinity of its positive frequency pole $\omega\approx{{\bf p}^2\over 2m}$.
 
 Similarly for fermions (we set $c=1$):
 
