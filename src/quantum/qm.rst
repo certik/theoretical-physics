@@ -910,6 +910,32 @@ Example 3 --- Yukawa potential in Born approximation:
             + \alpha^2\right)^2}
 
 
+Example 4 --- Coulomb potential in Born approximation:
+
+.. math::
+
+    \alpha \to 0
+
+    V_0 \to {Z Z' e^2 \over 4\pi \epsilon_0}
+
+    {\d\sigma\over\d\Omega}
+        = \left(2mZZ' e^2\over \hbar^2 4\pi\epsilon_0\right)^2
+            {1\over\left(4k^2\sin^2\left(\theta\over2\right)\right)^2}
+        = \left(mZZ' e^2\over \hbar^2 2\pi\epsilon_0\right)^2
+            {1\over16k^4\sin^4{\theta\over2}}
+
+    E = {p^2\over 2m} = {\hbar^2k^2\over 2m}
+
+    {\d\sigma\over\d\Omega}
+        = \left(ZZ' e^2\over 16\pi\epsilon_0 E\right)^2
+            {1\over\sin^4{\theta\over2}}
+        = \left(ZZ'\alpha\hbar c\over 4 E\right)^2
+            {1\over\sin^4{\theta\over2}}
+
+By setting $E=\half m v_0^2$ we obtain the classical Rutherford cross-section
+formula.
+
+
 Systematic Perturbation Theory in QM
 ====================================
 
