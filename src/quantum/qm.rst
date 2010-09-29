@@ -646,29 +646,24 @@ Both $G_+$ and $G_-$ are well-defined and unique. One can calculate both Green f
 
     G_+({\bf r}, {\bf r'}) = \braket{{\bf r}|G_+|{\bf r'}}=\bra{{\bf r}}{1\over E_k-H_0+i\epsilon}\ket{{\bf r'}}=
 
+    =\int{\d^3k'\over(2\pi)^3} {\braket{{\bf r}|{\bf k'}}\braket{\bf{k'}|\bf{r'}}\over E_k-E_{k'}+i\epsilon}
+    =\int{\d^3k'\over(2\pi)^3} {e^{i{\bf k'}\cdot({\bf r}-{\bf r'})}\over E_k-E_{k'}+i\epsilon}
+    ={2m\over\hbar^2}\int{\d^3k'\over(2\pi)^3} {e^{i{\bf k'}\cdot({\bf r}-{\bf r'})}\over k^2-{k'}^2+i\epsilon}=
+
+    ={4\pi m\over(2\pi)^3\hbar^2i|{\bf r}-{\bf r'}|} \int_{-\infty}^\infty\d^3k' k'{e^{i k'|{\bf r}-{\bf r'}|}\over k^2-{k'}^2+i\epsilon}
+    ={4\pi m\over(2\pi)^3\hbar^2i|{\bf r}-{\bf r'}|} (2\pi i)k{e^{i k|{\bf r}-{\bf r'}|}\over 2k}=
 
 
-.. math::
+    ={me^{i k|{\bf r}-{\bf r'}|}\over2\pi\hbar^2|{\bf r}-{\bf r'}|}
 
-    =\int\d^3k' {\braket{{\bf r}|{\bf k'}}\braket{\bf{k'}|\bf{r'}}\over E_k-E_{k'}+i\epsilon} =\int\d^3k' {e^{i{\bf k'}\cdot({\bf r}-{\bf r'})}\over E_k-E_{k'}+i\epsilon} ={2m\over\hbar^2}\int\d^3k' {e^{i{\bf k'}\cdot({\bf r}-{\bf r'})}\over k^2-{k'}^2+i\epsilon}=
-
-
-
-.. math::
-
-    ={4\pi m\over\hbar^2i|{\bf r}-{\bf r'}|} \int_{-\infty}^\infty\d^3k' k'{e^{i k'|{\bf r}-{\bf r'}|}\over k^2-{k'}^2+i\epsilon} ={4\pi m\over\hbar^2i|{\bf r}-{\bf r'}|} (2\pi i)k{e^{i k|{\bf r}-{\bf r'}|}\over 2k}=
-
-
+Similarly:
 
 .. math::
 
-    ={4\pi^2 me^{i k|{\bf r}-{\bf r'}|}\over\hbar^2|{\bf r}-{\bf r'}|}
-
-
-
-.. math::
-
-    G_-({\bf r}, {\bf r'}) = \braket{{\bf r}|G_-|{\bf r'}}=\bra{{\bf r}}{1\over E_k-H_0-i\epsilon}\ket{{\bf r'}} =\cdots ={4\pi^2 me^{-i k|{\bf r}-{\bf r'}|}\over\hbar^2|{\bf r}-{\bf r'}|}
+    G_-({\bf r}, {\bf r'})
+    = \braket{{\bf r}|G_-|{\bf r'}}
+    =\bra{{\bf r}}{1\over E_k-H_0-i\epsilon}\ket{{\bf r'}} =\cdots
+    ={me^{-i k|{\bf r}-{\bf r'}|}\over2\pi\hbar^2|{\bf r}-{\bf r'}|}
 
 
 Assuming $|{\bf r'}|\ll|{\bf r}|$, we can taylor expand $|{\bf r}-{\bf r'}|$:
@@ -677,27 +672,23 @@ Assuming $|{\bf r'}|\ll|{\bf r}|$, we can taylor expand $|{\bf r}-{\bf r'}|$:
 
     |{\bf r}-{\bf r'}| =e^{-{\bf r'}\cdot\nabla}|{\bf r}| =\left(1-{\bf r'}\cdot\nabla+\left(-{\bf r'}\cdot\nabla\right)^2 +O\left(r'^3\right) \right)|{\bf r}| =|{\bf r}|-{\bf r'}\cdot\nabla|{\bf r}|+O\left(r'^2\right) =
 
+    =r-{\bf r'}\cdot{\bf \hat r}+O\left(r'^2\right)
 
+so:
 
 .. math::
 
-    =r-{\bf r'}\cdot{\bf \hat r}+O\left(r'^2\right)
+    e^{i k|{\bf r}-{\bf r'}|} \approx e^{ikr} e^{-i k{\bf r'}\cdot{\bf\hat r}}
 
+    |{\bf r}-{\bf r'}| \approx r
 
 and simplify the result even further:
 
 .. math::
 
-    G_+({\bf r}, {\bf r'}) ={4\pi^2 m\over\hbar^2}{e^{ikr}\over r} e^{-i k{\bf r'}\cdot{\bf\hat r}}
+    G_+({\bf r}, {\bf r'}) ={m\over2\pi\hbar^2}{e^{ikr}\over r} e^{-i k{\bf r'}\cdot{\bf\hat r}}
 
-
-
-.. math::
-
-    G_-({\bf r}, {\bf r'}) ={4\pi^2 m\over\hbar^2}{e^{-ikr}\over r} e^{i k{\bf r'}\cdot{\bf\hat r}}
-
-
-Note: both functions may be divided by the factor $(2\pi)^3$ due to the momentum integration.
+    G_-({\bf r}, {\bf r'}) ={m\over2\pi\hbar^2}{e^{-ikr}\over r} e^{i k{\bf r'}\cdot{\bf\hat r}}
 
 Let's get back to the solution of the Schrödinger equation:
 
@@ -771,33 +762,18 @@ and in a coordinate representation:
     =e^{i{\bf k}\cdot{\bf r}} +\int\d^3 r'\d^3k' G_+({\bf r}, {\bf r'}) e^{i{\bf k'}\cdot{\bf r'}} \braket{{\bf k'}|T|{\bf k}}
 
 
-Plugging the representation of the Green function for $|{\bf r'}|\ll|{\bf r}|$ in:
+Plugging the representation of the Green function for $|{\bf r'}|\ll|{\bf r}|$
+in:
 
 .. math::
 
-    \psi({\bf r}) =e^{i{\bf k}\cdot{\bf r}} + {4\pi^2 m\over\hbar^2}{e^{ikr}\over r} \int\d^3 r'\d^3k' e^{-i k{\bf r'}\cdot{\bf\hat r}} e^{i{\bf k'}\cdot{\bf r'}} \braket{{\bf k'}|T|{\bf k}}=
+    \psi({\bf r}) =e^{i{\bf k}\cdot{\bf r}} + {m\over2\pi\hbar^2}{e^{ikr}\over r} \int\d^3 r'\d^3k' e^{-i k{\bf r'}\cdot{\bf\hat r}} e^{i{\bf k'}\cdot{\bf r'}} \braket{{\bf k'}|T|{\bf k}}=
 
+    =e^{i{\bf k}\cdot{\bf r}} + {m\over2\pi\hbar^2}{e^{ikr}\over r} \int\d^3 r'\d^3k' e^{i {\bf r'}\cdot({\bf k'}-k{\bf\hat r})} \braket{{\bf k'}|T|{\bf k}}=
 
+    =e^{i{\bf k}\cdot{\bf r}} + {m\over2\pi\hbar^2}{e^{ikr}\over r} \int\d^3k' \delta({\bf k'}-k{\bf\hat r}) \braket{{\bf k'}|T|{\bf k}}=
 
-.. math::
-
-    =e^{i{\bf k}\cdot{\bf r}} + {4\pi^2 m\over\hbar^2}{e^{ikr}\over r} \int\d^3 r'\d^3k' e^{i {\bf r'}\cdot({\bf k'}-k{\bf\hat r})} \braket{{\bf k'}|T|{\bf k}}=
-
-
-
-.. math::
-
-    =e^{i{\bf k}\cdot{\bf r}} + {4\pi^2 m\over\hbar^2}{e^{ikr}\over r} \int\d^3k' \delta({\bf k'}-k{\bf\hat r}) \braket{{\bf k'}|T|{\bf k}}=
-
-
-
-.. math::
-
-    =e^{i{\bf k}\cdot{\bf r}} + {4\pi^2 m\over\hbar^2}{e^{ikr}\over r} \braket{k{\bf\hat r}|T|{\bf k}}=
-
-
-
-.. math::
+    =e^{i{\bf k}\cdot{\bf r}} + {m\over2\pi\hbar^2}{e^{ikr}\over r} \braket{k{\bf\hat r}|T|{\bf k}}=
 
     =e^{i{\bf k}\cdot{\bf r}} + f(\theta,\phi)\, {e^{ikr}\over r}
 
@@ -806,7 +782,8 @@ where the scattering amplitude $f(\theta,\phi)$ is:
 
 .. math::
 
-    f(\theta,\phi)= {4\pi^2 m\over\hbar^2} \braket{k{\bf\hat r}|T|{\bf k}} = {4\pi^2 m\over\hbar^2} \braket{{\bf k'}|T|{\bf k}}
+    f(\theta,\phi)= {m\over2\pi\hbar^2} \braket{k{\bf\hat r}|T|{\bf k}}
+        = {m\over2\pi\hbar^2} \braket{{\bf k'}|T|{\bf k}}
 
 
 Where ${\bf k'}=k{\bf\hat r}$ is the final momentum.
