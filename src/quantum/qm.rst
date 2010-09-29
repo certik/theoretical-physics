@@ -860,7 +860,23 @@ We can also write it as:
         \approx\int\d^3r e^{-i{\bf q}\cdot{\bf r}}V({\bf r})
         = \tilde V({\bf q})
 
-where $\bf q=k'-k$. Given the $\tilde V({\bf q})$ we can then calculate the
+where $\bf q=k'-k$. Note that for $\bf |k'|\approx |k|$ we can write
+$|{\bf q}|$ using the angle $\theta$ between the vectors $\bf k'$ and $\bf k$:
+
+.. math::
+
+    |{\bf q}| = |{\bf k}' - {\bf k}|
+        = \sqrt{k'^2 + k^2 - 2k'k\cos\theta}
+        \approx \sqrt{k^2 + k^2 - 2k^2\cos\theta}
+        =
+
+        = \sqrt{2k^2 (1 -\cos\theta)}
+        = \sqrt{4k^2 \sin^2 {\theta\over 2}}
+        = 2k\sin\left(\theta\over2\right)
+
+
+
+Given the $\tilde V({\bf q})$ we can then calculate the
 scattering potential $V({\bf r})$ by the Fourier transform:
 
 .. math::
@@ -894,8 +910,6 @@ Example 3 --- Yukawa potential in Born approximation:
     V(r) = V_0 {e^{-\alpha r}\over r}
 
     \tilde V({\bf q}) = {4\pi V_0\over |{\bf q}|^2 + \alpha^2}
-
-    |{\bf q}| = |{\bf k}' - {\bf k}| = 2k\sin\left(\theta\over2\right)
 
     f(\theta,\phi) = {m\over2\pi\hbar^2} \braket{{\bf k'}|T|{\bf k}}
         = {m\over2\pi\hbar^2} \tilde V({\bf q})
