@@ -853,20 +853,58 @@ Let's write the explicit formula for the transition matrix:
 
 .. math::
 
-    =\int\d^3r e^{i({\bf k}-{\bf k'})\cdot{\bf r}}V({\bf r}) +\int\d^3r\d^3r'e^{-i{\bf k'}\cdot{\bf r}} V({\bf r}) {e^{i k|{\bf r}-{\bf r'}|}\over|{\bf r}-{\bf r'}|} V({\bf r'})e^{i{\bf k}\cdot{\bf r'}}+\cdots=
+    =\int\d^3r e^{i({\bf k}-{\bf k'})\cdot{\bf r}}V({\bf r})
+    +\int\d^3r\d^3r'e^{-i{\bf k'}\cdot{\bf r}} V({\bf r}) {e^{i k|{\bf r}-{\bf
+    r'}|}\over|{\bf r}-{\bf r'}|} V({\bf r'})e^{i{\bf k}\cdot{\bf r'}}+\cdots
 
+
+Born Approximation
+~~~~~~~~~~~~~~~~~~
 
 The Born approximation is just the first term:
 
 .. math::
 
-    \braket{{\bf k'}|T|{\bf k}} \approx\int\d^3r e^{i({\bf k}-{\bf k'})\cdot{\bf r}}V({\bf r}) =\int \d r\, \d\theta\,\d\phi\, e^{iqr\cos\theta}V(r) r^2\sin\theta =
+    \braket{{\bf k'}|T|{\bf k}}
+        \approx\int\d^3r e^{i({\bf k}-{\bf k'})\cdot{\bf r}}V({\bf r})
+        = \int \d r\, \d\theta\,\d\phi\, e^{iqr\cos\theta}V(r) r^2\sin\theta =
 
+    = 4\pi\int_0^\infty rV(r)\sin(qr)\,\d r
 
+We can also write it as:
 
 .. math::
 
-    =4\pi\int_0^\infty rV(r)\sin(qr)\,\d r
+    \braket{{\bf k'}|T|{\bf k}}
+        \approx\int\d^3r e^{-i{\bf q}\cdot{\bf r}}V({\bf r})
+        = \tilde V({\bf q})
+
+where $\bf q=k'-k$. Given the $\tilde V({\bf q})$ we can then calculate the
+scattering potential $V({\bf r})$ by the Fourier transform:
+
+.. math::
+
+    V({\bf r}) = \int {\d^3 q\over (2\pi)^3} \tilde V({\bf q})
+        e^{i{\bf q}\cdot {\bf r}}
+
+Example 1:
+
+.. math::
+
+    \tilde V({\bf q}) = - {g^2\over |{\bf q}|^2 + m_{\phi}^2}
+
+    V({\bf r}) = \int {\d^3 q\over (2\pi)^3} {-g^2\over |{\bf q}|^2 +
+        m_{\phi}^2} e^{i{\bf q}\cdot {\bf r}} = \cdots =
+        - {g^2\over 4\pi} {1\over r} e^{-m_\phi r}
+
+Example 2:
+
+.. math::
+
+    \tilde V({\bf q}) = {e^2\over |{\bf q}|^2}
+
+    V({\bf r}) = \int {\d^3 q\over (2\pi)^3} {e^2\over |{\bf q}|^2}
+        e^{i{\bf q}\cdot {\bf r}} = \cdots = {e^2\over 4\pi r}
 
 
 Systematic Perturbation Theory in QM
