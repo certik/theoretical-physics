@@ -792,13 +792,17 @@ The differential cross section ${\d\sigma\over\d\Omega}$ is defined as the proba
 
 .. math::
 
-    {\d\sigma\over\d\Omega}= {1\over|{\bf j}_i|}{\d n\over\d\Omega} = {r^2\over|{\bf j}_i|}{\d n\over r^2\d\Omega} = {r^2\over|{\bf j}_i|}{\d n\over \d S} = {r^2\over|{\bf j}_i|}\,{\bf j}_o\cdot {\bf n} = {r^2\over|{\bf j}_i|}\,{\bf j}_o\cdot {\bf \hat r} =
+    {\d\sigma\over\d\Omega}
+        = {1\over|{\bf j}_i|}{\d n\over\d\Omega}
+        = {r^2\over|{\bf j}_i|}{\d n\over r^2\d\Omega}
+        = {r^2\over|{\bf j}_i|}{\d n\over \d S}
+        = {r^2\over|{\bf j}_i|}\,{\bf j}_o\cdot {\bf n}
+        = {r^2\over|{\bf j}_i|}\,{\bf j}_o\cdot {\bf \hat r} =
 
-
-
-.. math::
-
-    = {r^2\over{\hbar k\over m}}\,{\hbar k\over m}\left({1\over r^2} +{i\over k r^3}\right)|f(\theta, \phi)|^2 = \left(1 +{i\over k r}\right)|f(\theta, \phi)|^2 \to |f(\theta, \phi)|^2
+    = {r^2\over{\hbar k\over m}}\,{\hbar k\over m}\left({1\over r^2}
+            +{i\over k r^3}\right)|f(\theta, \phi)|^2
+    = \left(1 +{i\over k r}\right)|f(\theta, \phi)|^2
+    \to |f(\theta, \phi)|^2
 
 
 where we used $|{\bf j}_i|={\hbar k\over m}$ and
@@ -882,6 +886,28 @@ Example 2:
 
     V({\bf r}) = \int {\d^3 q\over (2\pi)^3} {e^2\over |{\bf q}|^2}
         e^{i{\bf q}\cdot {\bf r}} = \cdots = {e^2\over 4\pi r}
+
+Example 3 --- Yukawa potential in Born approximation:
+
+.. math::
+
+    V(r) = V_0 {e^{-\alpha r}\over r}
+
+    \tilde V({\bf q}) = {4\pi V_0\over |{\bf q}|^2 + \alpha^2}
+
+    |{\bf q}| = |{\bf k}' - {\bf k}| = 2k\sin\left(\theta\over2\right)
+
+    f(\theta,\phi) = {m\over2\pi\hbar^2} \braket{{\bf k'}|T|{\bf k}}
+        = {m\over2\pi\hbar^2} \tilde V({\bf q})
+        = {m\over2\pi\hbar^2} {4\pi V_0\over |{\bf q}|^2 + \alpha^2}
+        = {2m\over\hbar^2} {V_0\over |{\bf q}|^2 + \alpha^2}
+
+    {\d\sigma\over\d\Omega} = |f(\theta, \phi)|^2
+        = \left(2mV_0\over \hbar^2\right)^2
+            {1\over\left(|{\bf q}|^2 + \alpha^2\right)^2}
+        = \left(2mV_0\over \hbar^2\right)^2
+            {1\over\left(4k^2\sin^2\left(\theta\over2\right)
+            + \alpha^2\right)^2}
 
 
 Systematic Perturbation Theory in QM
