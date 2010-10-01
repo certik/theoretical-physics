@@ -1836,16 +1836,36 @@ well-known relations:
 
     p_0 c = E = mc^2 + \omega
 
-    \sqrt{{\bf p}^2c^2 + m^2c^4} = E_{\bf p} = mc^2+{{\bf p}^2\over 2m} + \cdots
+    \sqrt{{\bf p}^2c^2 + m^2c^4} = E_{\bf p} = mc^2+{{\bf p}^2\over 2m} +
+        O\left({1\over mc^2}\left(p^2\over m\right)^2\right)
 
-    E - E_{\bf p} = \omega - {{\bf p}^2\over 2m} - \cdots \approx
-        \omega - {{\bf p}^2\over 2m}
+we use them to simplify $E^2 - E_{\bf p}^2$ in the limit $c \to \infty$:
 
-    E + E_{\bf p} = \omega + 2mc^2 + {{\bf p}^2\over 2m} + \cdots \approx 2mc^2
+.. math::
+
+    {1\over c^2}(E^2 - E_{\bf p}^2)
+        = {1\over c^2}(E - E_{\bf p})(E + E_{\bf p})
+        =
+
+        = {1\over c^2}\left(\omega-{{\bf p}^2\over 2m} +
+        O\left({1\over mc^2}\left(p^2\over m\right)^2\right)
+        \right)
+            \left(2mc^2 + \omega + {{\bf p}^2\over 2m} +
+            O\left({1\over mc^2}\left(p^2\over m\right)^2\right)
+            \right)
+        =
+
+        =2m\left(\omega-{{\bf p}^2\over 2m} + {\omega\over 2mc^2}
+            \left(\omega-{{\bf p}^2\over 2m}\right) +
+            O\left({1\over mc^2}\left(p^2\over m\right)^2\right)
+            \right)
+        \to
+
+        \to 2m\left(\omega-{{\bf p}^2\over 2m}\right)
 
 Where $E$ is the total energy, $\omega$ is the nonrelativistic energy, $E_{\bf
 p}$ is the relativistic energy of a noninteracting particle (kinetic energy).
-Now we can rewrite the propagator:
+Now we can rewrite the propagator of a scalar boson:
 
 .. math::
 
@@ -1855,14 +1875,8 @@ Now we can rewrite the propagator:
     =
 
     = {i\over {1\over c^2}\left(E^2 - E_{\bf p}^2\right)+i\epsilon}
-    = {i\over {1\over c^2}(E - E_{\bf p})(E + E_{\bf p})+i\epsilon}
-    =
-
-    = {i\over {1\over c^2}\left(\omega - {{\bf p}^2\over 2m}-\cdots\right)
-        \left(\omega + 2mc^2 + {{\bf p}^2\over 2m} + \cdots\right)+i\epsilon}
-    \approx
-    {i\over {1\over c^2}\left(\omega - {{\bf p}^2\over 2m}\right)
-        2mc^2+i\epsilon}
+    \to
+    {i\over 2m\left(\omega - {{\bf p}^2\over 2m}\right)+i\epsilon}
     =
 
     =
