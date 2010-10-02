@@ -245,8 +245,10 @@ We write $x, y, z$ and $t$ as components of one 4-vector
 
 .. math::
 
-     x^\mu = \mat{t\cr x\cr y\cr z\cr}
+     x^\mu = \mat{ct\cr x\cr y\cr z\cr}
 
+In this section, you can imagine $c=1$, but we'll need it later, so we put it
+in right now, so that we don't need to rederive all equations again.
 Now we need to connect the Newtonian equations to geometry. To do that, we
 reformulate the Newton's second law:
 
@@ -285,17 +287,15 @@ So using $x^0$ instead of $t$, we endup with the following equations:
 
     {\d^2x^0\over\d\lambda^2}=0
 
-
-.. math::
-
-     {\d^2 x^i\over\d\lambda^2} + \delta^{ij}\partial_j\phi \left({\d x^0\over\d\lambda}\right)^2 =0
+    {\d^2 x^i\over\d\lambda^2} + {1\over c^2}\delta^{ij}\partial_j\phi
+        \left({\d x^0\over\d\lambda}\right)^2 =0
 
 But this is exactly the geodesic equation for the following Christoffel symbols:
 
 .. math::
     :label: Chris-newton
 
-    \Gamma^i_{00} = \delta^{ij}\partial_j\phi
+    \Gamma^i_{00} = {1\over c^2}\delta^{ij}\partial_j\phi
 
 and all other components are zero.
 
@@ -307,27 +307,24 @@ the Riemann tensor:
 
 .. math::
 
-    R^j{}_{0k0} = -R^j{}_{00k} = \delta^{ji}\partial_i\partial_k\phi
+    R^j{}_{0k0} = -R^j{}_{00k} = {1\over c^2}\delta^{ji}\partial_i\partial_k\phi
 
 we calculate the $R_{\alpha\beta}$ by contracting:
 
 .. math::
 
-    R_{00} = R^\mu{}_{0\mu0} = R^i{}_{0i0} = \delta^{ij}\partial_i\partial_j\phi
+    R_{00} = R^\mu{}_{0\mu0} = R^i{}_{0i0} = {1\over c^2}\delta^{ij}\partial_i\partial_j\phi
 
 
 .. math::
 
     R_{ij} = 0
 
-and we see that the Newton gravitation law is
+comparing with xxx we see that the Newton gravitation law is
 
 .. math::
 
-    R_{00} = 4\pi G\rho
-
-
-.. math::
+    R_{00} = {4\pi G\over c^2}\rho
 
     R_{ij} = 0
 
@@ -337,10 +334,7 @@ matter curves the geometry using the equations:
 
 .. math::
 
-    R_{00} = 4\pi G\rho
-
-
-.. math::
+    R_{00} = {4\pi G\over c^2}\rho
 
     R_{ij} = 0
 
@@ -354,6 +348,14 @@ things. The particles then move on the geodesics:
 Both equations now have the same form in all coordinate systems (inertial or
 not) and it is clear how to transform them --- only the Christoffel symbols
 (and Ricci tensor) change and we have a formula for their transformation.
+
+Obviously this works for any value of $c$ (as it cancels out in the final
+equations of motion) and at this level we don't really need it yet, so we can
+set $c=1$ and forget about it. In the next section we will need some constant
+in the metric to send to infinity in order to obtain the correct Christoffel
+symbols, and we can conveniently just use $c$. Later on we introduce special
+relativity and we need to introduce a speed of light and it turns out that we
+can again just use $c$ for that without any loss of generality.
 
 Metrics
 -------
