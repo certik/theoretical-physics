@@ -314,6 +314,47 @@ or equivalently (using the fact $U^\beta\partial_\beta U^\alpha=
 
     {\d^2 x^\alpha\over\d\lambda^2} + \Gamma^\alpha_{\beta\gamma} {\d x^\beta\over\d\lambda}{\d x^\gamma\over\d\lambda} = 0
 
+Let's determine all possible reparametrizations that leave the geodesic
+equation invariant:
+
+.. math::
+
+    \lambda' = f(\lambda)
+
+    {\d x^\alpha\over\d\lambda} ={\d \lambda'\over\d\lambda}
+        {\d x^\alpha\over\d\lambda'} = f'(\lambda){\d x^\alpha\over\d\lambda'}
+
+    {\d^2 x^\alpha\over\d\lambda^2} ={\d \over\d\lambda}
+        \left( f'(\lambda){\d x^\alpha\over\d\lambda'} \right)
+        = f''(\lambda) {\d x^\alpha\over\d\lambda'} +
+        f'(\lambda){\d \over\d\lambda}{\d x^\alpha\over\d\lambda'}
+        =
+
+        = f''(\lambda) {\d x^\alpha\over\d\lambda'} +
+        f'^2(\lambda){\d \over\d\lambda'}{\d x^\alpha\over\d\lambda'}
+        =
+
+        = f''(\lambda) {\d x^\alpha\over\d\lambda'} +
+        f'^2(\lambda){\d^2 x^\alpha\over\d\lambda'^2}
+
+Substituting into the geodesic equation, we get:
+
+.. math::
+
+    f''(\lambda) {\d x^\alpha\over\d\lambda'} +
+    f'^2(\lambda)\left( {\d^2 x^\alpha\over\d\lambda'^2} +
+        \Gamma^\alpha_{\beta\gamma} {\d x^\beta\over\d\lambda'}
+        {\d x^\gamma\over\d\lambda'} \right) = 0
+
+So we can see that the equation is invariant as long as $f''(\lambda) = 0$,
+which gives:
+
+.. math::
+
+    f(\lambda) = a \lambda + b
+
+This is called an affine reparametrization.
+
 
 .. index:: curvature
 
