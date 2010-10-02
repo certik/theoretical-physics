@@ -320,7 +320,7 @@ we calculate the $R_{\alpha\beta}$ by contracting:
 
     R_{ij} = 0
 
-comparing with xxx we see that the Newton gravitation law is
+comparing with :eq:`grav` we see that the Newton gravitation law is
 
 .. math::
 
@@ -706,6 +706,48 @@ or
 
 So the Newton's second law *is* the equation of geodesics.
 
+In the above, we
+have set $c=1$ in the Christoffel symbols themselves (see the last paragraph
+from the last section) and introduced another constant $c$ in the metric
+itself. As we can see, the metric will become infinite with this approach in
+the limit $c\to\infty$. Another approach is to store this $c$ in the $x^\mu$
+vector itself, then the metric stays finite (in fact becomes a diagonal matrix
+$\diag(\pm 1, 1, 1, 1)$, thus it gives all the Christoffel symbols equal to
+zero, in the limit), but the vector becomes infinite in the limit.
+
+Either way our formalism breaks down, and thus we need to keep $c$ finite and
+only do the limit in the final equations (after we don't need differential
+geometry anymore). When needed, we can also carefully neglect higher terms in
+$c$, that will not appear in the final equations after doing the limit, but one
+needs to make sure that no mistake is made.
+
+It is customary to put the constant
+$c$ into the vector $x^\mu$ and so we will do so too from this point on.
+
+Conclusion About Metric
+-----------------------
+
+We will use the convention to keep $c$ in the 4-vector and the simplest metric
+that generates the correct Christoffel symbols is the following:
+
+.. math::
+
+    g_{\mu\nu} = \mat{\pm 1 -{2\phi\over c^2} & 0 & 0 & 0\cr 0 & 1-{2\phi\over c^2} & 0 & 0\cr 0 & 0 & 1-{2\phi\over c^2} & 0\cr 0 & 0 & 0 & 1-{2\phi\over c^2}\cr}
+
+In the limit $c\to\infty$ we get the following nonzero Christoffel symbols (for
+both signs in $\pm 1$ above):
+
+.. math::
+
+    \Gamma^i_{00} = {1\over c^2}\delta^{ij}\partial_j\phi
+
+all other symbols contain higher powers of $c$ and thus will not contribute in
+the limit $c\to\infty$. The remaining $c^2$ in $\Gamma^i_{00}$ will cancel with
+the $c$ in $x^0=ct$ in the final equations.
+
+As seen above, there is some freedom in which metric we can use in order to
+obtain the correct Christoffel symbols, but the above metric is the simplest,
+so we'll use it from now on.
 
 Obsolete section
 ----------------
