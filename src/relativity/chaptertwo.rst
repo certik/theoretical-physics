@@ -979,8 +979,8 @@ no metrics in our Newtonian spacetime. However for $c$ large, everything is
 fine.
 
 
-Intertial frames
-----------------
+Inertial frames
+---------------
 
 
 What is an inertial frame? Inertial frame is such a frame
@@ -1021,7 +1021,7 @@ sign, the other with a minus sign) have all the Christoffel symbols zero:
 Such a metrics corresponds to an inertial frame then.
 
 What are the (coordinate) transformations, that transform from one
-intertial frame to another? Those are all transformations that start with an
+inertial frame to another? Those are all transformations that start with an
 inertial frame metrics (an example of such a metrics is given above), transform
 it using the transformation matrix and the resulting metrics is also inertial.
 In particular, let $x^\mu$ be inertial, thus $g_{\mu\nu}$ is an inertial
@@ -1940,7 +1940,7 @@ $g_{00}=c^2$ and the other one with $g_{00}=-c^2$?) Possible answer: there is
 no transformation to convert a metrics with signature +4 to signature +2, so
 one has to choose one and then all other inertial frames have the same one.
 
-What are all the allowed transformations between intertial frames? If we assume
+What are all the allowed transformations between inertial frames? If we assume
 that the inertial frames are given with one given metrics (see the previous
 question), then the answer is: representation of the O(3, 1) group if
 $g_{00}=-c^2$ or O(4) group if $g_{00}=c^2$. But if one frame is $g_{00}=-c^2$
