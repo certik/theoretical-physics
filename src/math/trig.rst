@@ -55,6 +55,52 @@ Spherical coordinates (radial, zenith, azimuth) $(\rho,\theta,\phi)$:
 Note: this meaning of $(\theta,\phi)$ is mostly used in the USA and in many
 books. In Europe people usually use different symbols, like $(\phi,\theta)$, $(\vartheta,\varphi)$ and others.
 
+Example
+~~~~~~~
+
+When evaluating integrals of the type:
+
+.. math::
+
+    l(x, y) = \int_0^{2\pi} \sqrt{(x-r\cos\phi)^2 + (y-r\sin\phi)^2} \,\d \phi
+
+we write $x$ and $y$ using polar coordinates:
+
+.. math::
+
+    x = r' \cos \phi'
+
+    y = r' \sin \phi'
+
+and then use the $2\pi$ periodicity of $\cos x$:
+
+.. math::
+
+    l(x, y)
+    = \int_0^{2\pi} \sqrt{(x-r\cos\phi)^2 + (y-r\sin\phi)^2} \,\d \phi =
+
+    = \int_0^{2\pi} \sqrt{x^2 + y^2 + r^2 - 2r(x\cos\phi + y\sin\phi)} \,\d \phi =
+
+    = \int_0^{2\pi} \sqrt{r'^2 + r^2
+        - 2rr'(\cos\phi'\cos\phi + \sin\phi'\sin\phi)} \,\d \phi =
+
+    = \int_0^{2\pi} \sqrt{r'^2 + r^2
+        - 2rr'\cos(\phi-\phi')} \,\d \phi =
+
+    = \int_0^{2\pi} \sqrt{r'^2 + r^2 - 2rr'\cos\phi} \,\d \phi =
+
+comparing to:
+
+.. math::
+
+    l(0, y) = \int_0^{2\pi} \sqrt{y^2 + r^2 - 2ry\sin\phi} \,\d \phi
+
+we can see that because the integral is symmetric, we can just set $x=0$ and
+then replace $y \to r'$. The above method does everything algebraically, but
+you can use this symmetry argument to remember what to do, or even skip the
+calculation if you are sure that you didn't make a mistake in the "symmetry
+argument".
+
 .. index:: delta function
 
 Argument function, atan2
