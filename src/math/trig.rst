@@ -34,8 +34,8 @@ constant $\alpha$:
 
     = \int_0^T f(x) \d x
 
-Polar and Spherical Coordinates
--------------------------------
+Polar Coordinates
+-----------------
 
 
 Polar coordinates (radial, azimuth) $(r,\phi)$ are defined by
@@ -45,15 +45,6 @@ Polar coordinates (radial, azimuth) $(r,\phi)$ are defined by
 
     \begin{eqnarray*} x&=&r\cos\phi \\ y&=&r\sin\phi \\ \end{eqnarray*}
 
-Spherical coordinates (radial, zenith, azimuth) $(\rho,\theta,\phi)$:
-
-.. math::
-    :nowrap:
-
-    \begin{eqnarray*} x&=&\rho\sin\theta\cos\phi \\ y&=&\rho\sin\theta\sin\phi \\ z&=&\rho\cos\theta \\ \end{eqnarray*}
-
-Note: this meaning of $(\theta,\phi)$ is mostly used in the USA and in many
-books. In Europe people usually use different symbols, like $(\phi,\theta)$, $(\vartheta,\varphi)$ and others.
 
 Example
 ~~~~~~~
@@ -100,6 +91,48 @@ then replace $y \to r'$. The above method does everything algebraically, but
 you can use this symmetry argument to remember what to do, or even skip the
 calculation if you are sure that you didn't make a mistake in the "symmetry
 argument".
+
+Spherical Coordinates
+---------------------
+
+Spherical coordinates (radial, zenith, azimuth) $(\rho,\theta,\phi)$:
+
+.. math::
+    :nowrap:
+
+    \begin{eqnarray*} x&=&\rho\sin\theta\cos\phi \\ y&=&\rho\sin\theta\sin\phi \\ z&=&\rho\cos\theta \\ \end{eqnarray*}
+
+Note: this meaning of $(\theta,\phi)$ is mostly used in the USA and in many
+books. In Europe people usually use different symbols, like $(\phi,\theta)$,
+$(\vartheta,\varphi)$ and others.
+
+The motivation is to first write $x$ and $y$ using polar coordinates:
+
+.. math::
+
+    x = \rho_{xy}\cos\phi
+
+    y = \rho_{xy}\sin\phi
+
+and then write $z$ and the projection $\rho_{xy}$ of $\rho$ onto the plane
+$x-y$ using polar coordinates:
+
+.. math::
+
+    z = \rho\cos\theta
+
+    \rho_{xy} = \rho\sin\theta
+
+so by combining these two we get:
+
+.. math::
+
+    x = \rho_{xy}\cos\phi = \rho\sin\theta\cos\phi
+
+    y = \rho_{xy}\sin\phi = \rho\sin\theta\sin\phi
+
+    z = \rho\cos\theta
+
 
 .. index:: delta function
 
