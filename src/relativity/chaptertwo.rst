@@ -226,6 +226,101 @@ Note about units:
 
     [\phi] = \rm m^2\,s^{-2}
 
+Example
+~~~~~~~
+
+Calculate the force acting on a test particle inside a sphere shell of radius
+$R$ and surface mass distribution $\sigma(\theta, \phi)=1$. We need to solve
+
+.. math::
+    :label: grav-example1
+
+    \nabla^2\phi = 4\pi G\rho
+
+with
+
+.. math::
+
+    \rho(x, y, z) = \sigma(\theta, \phi) {\delta(R-r)\over r^2}
+
+    r = \sqrt{x^2 + y^2 + z^2}
+
+the Green function of :eq:`grav-example1` is
+
+.. math::
+
+    G({\bf x}, {\bf y}) = {1\over |{\bf x} - {\bf y}|}
+
+so the solution is:
+
+.. math::
+
+    \phi = \int G({\bf x}, {\bf y}) 4\pi G \rho({\bf y}) \d^3 y
+        = 4\pi G \int {\rho({\bf y})\over |{\bf x} - {\bf y}|} \d^3 y
+        =
+
+    = 4\pi G \int {\sigma(\theta, \phi){\delta(R-r)\over r^2} r^2\sin\theta
+        \over \sqrt{
+            (x-r\sin\theta\cos\phi)^2 +
+            (y-r\sin\theta\sin\phi)^2 +
+            (z-r\cos\theta)^2
+            }} \d \theta \d \phi \d r =
+
+    = 4\pi G \int {\delta(R-r)\sin\theta
+        \over \sqrt{
+            (x-r\sin\theta\cos\phi)^2 +
+            (y-r\sin\theta\sin\phi)^2 +
+            (z-r\cos\theta)^2
+            }} \d \theta \d \phi \d r =
+
+    = 4\pi G \int {\sin\theta
+        \over \sqrt{
+            (x-R\sin\theta\cos\phi)^2 +
+            (y-R\sin\theta\sin\phi)^2 +
+            (z-R\cos\theta)^2
+            }} \d \theta \d \phi =
+
+    = 4\pi G \int {\sin\theta
+        \over \sqrt{x^2 + y^2 + z^2 + R^2
+            -2R(x\sin\theta\cos\phi + y\sin\theta\sin\phi + z\cos\theta)
+            }} \d \theta \d \phi
+
+for symmetry reasons we can set $x=0$, $y=0$ and get
+
+.. math::
+
+    \phi(0, 0, z)
+    = 4\pi G \int_0^{2\pi} \d\phi \int_0^\pi \d\theta {\sin\theta
+        \over \sqrt{z^2 + R^2 -2Rz\cos\theta }} =
+
+    = 8\pi^2 G \int_0^\pi \d\theta {\sin\theta
+        \over \sqrt{z^2 + R^2 -2Rz\cos\theta }} =
+
+    = 8\pi^2 G \int_{-1}^1 {\d y \over \sqrt{z^2 + R^2 -2Rzy }} =
+
+    = -{4\pi^2 G\over R z} \int_{(R-z)^2}^{(R+z)^2} {\d u \over \sqrt{u}} =
+
+    = -{4\pi^2 G\over R z} \Big[2\sqrt u\Big]_{(R-z)^2}^{(R+z)^2} =
+
+    = -{4\pi^2 G\over R z} \Big[2|R+z| - 2|R-z|\Big] =
+
+    = -{4\pi^2 G\over R z} \Big[4z\Big] =
+
+    = -{16\pi^2 G\over R}
+
+This must hold for all $x$ and $y$ (less than $R$), so:
+
+.. math::
+
+    \phi(x, y, z) = -{16\pi^2 G\over R}
+
+And the force acting on a test particle is
+
+.. math::
+
+    {\bf F} = -m\nabla\phi(t, x, y, z) = -m\nabla
+        \left(-{16\pi^2 G\over R}\right) = 0
+
 
 Differential Geometry Formulation
 ---------------------------------
