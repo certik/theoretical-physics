@@ -286,7 +286,9 @@ so the solution is:
             -2R(x\sin\theta\cos\phi + y\sin\theta\sin\phi + z\cos\theta)
             }} \d \theta \d \phi
 
-for symmetry reasons we can set $x=0$, $y=0$ and get
+for symmetry reasons we can set $x=0$, $y=0$ (it can also be done more exactly,
+as shown in :ref:`spherical-int-example`):
+
 
 .. math::
 
@@ -323,49 +325,6 @@ And the force is
         \left(-{16\pi^2 G\over R}\right) = 0
 
 So the force acting on a test particle inside the shell is zero.
-
-Note about the simplification of the square root for $x=0$ and $y=0$, we can do
-that more exactly by
-introducing polar coordinates for $x$, $y$ and $z$:
-
-.. math::
-
-    x = r'\sin\theta' \cos \phi'
-
-    y = r'\sin\theta' \sin \phi'
-
-    z = r'\cos\theta'
-
-and we get:
-
-.. math::
-
-    \sqrt{x^2 + y^2 + z^2 + R^2
-            -2R(x\sin\theta\cos\phi + y\sin\theta\sin\phi + z\cos\theta)
-            } =
-
-    = \sqrt{r'^2 + R^2 -2Rr'(
-        \sin\theta'\cos\phi'\sin\theta\cos\phi
-        + \sin\theta'\sin\phi'\sin\theta\sin\phi
-        + \cos\theta'\cos\theta)
-            } =
-
-    = \sqrt{r'^2 + R^2 -2Rr'(
-        \sin\theta'\sin\theta \cos(\phi-\phi') + \cos\theta'\cos\theta)
-            } =
-
-I think that we can introduce different spherical coordinates in the first
-place in such a way, so that effectively $\cos(\phi-\phi')=0$ and then we get:
-
-.. math::
-
-    = \sqrt{r'^2 + R^2 -2Rr'(
-        \sin\theta'\sin\theta + \cos\theta'\cos\theta)
-            } =
-
-    = \sqrt{r'^2 + R^2 -2Rr'\cos(\theta-\theta')}
-
-And we just shift the definition of $\theta$.
 
 Differential Geometry Formulation
 ---------------------------------

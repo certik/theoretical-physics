@@ -133,6 +133,8 @@ so by combining these two we get:
 
     z = \rho\cos\theta
 
+.. _spherical-int-example:
+
 Example
 ~~~~~~~
 
