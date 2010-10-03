@@ -229,8 +229,9 @@ Note about units:
 Example
 ~~~~~~~
 
-Calculate the force acting on a test particle inside a sphere shell of radius
-$R$ and surface mass distribution $\sigma(\theta, \phi)=1$. We need to solve
+Calculate the force acting on a test particle inside an infinitely thin
+spherical shell of radius $R$ and surface mass distribution $\sigma(\theta,
+\phi)=1$. We need to solve
 
 .. math::
     :label: grav-example1
@@ -314,12 +315,14 @@ This must hold for all $x$ and $y$ (less than $R$), so:
 
     \phi(x, y, z) = -{16\pi^2 G\over R}
 
-And the force acting on a test particle is
+And the force is
 
 .. math::
 
     {\bf F} = -m\nabla\phi(t, x, y, z) = -m\nabla
         \left(-{16\pi^2 G\over R}\right) = 0
+
+So the force acting on a test particle inside the shell is zero.
 
 
 Differential Geometry Formulation
