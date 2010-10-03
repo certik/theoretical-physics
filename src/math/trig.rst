@@ -1,3 +1,39 @@
+Periodic Functions
+------------------
+
+A function $f(x)$ is periodic with period $T$:
+
+.. math::
+
+    f(x+T) = f(x)
+
+Then you can shift the integration limits by the period $T$:
+
+.. math::
+
+    \int_a^b f(x) \d x
+        = \int_a^b f(x+T) \d x
+        = \int_{a+T}^{b+T} f(x) \d x
+
+If you integrate $f(x)$ from $0$ to $T$, you can shift $x$ in $f(x)$ by any
+constant $\alpha$:
+
+.. math::
+
+    \int_0^T f(x+\alpha) \d x =
+
+    = \int_\alpha^{T+\alpha} f(x) \d x =
+
+    = \int_\alpha^0 f(x) \d x
+    + \int_0^T f(x) \d x
+    + \int_T^{T+\alpha} f(x) \d x =
+
+    = -\int_0^\alpha f(x) \d x
+    + \int_0^T f(x) \d x
+    + \int_0^\alpha f(x) \d x =
+
+    = \int_0^T f(x) \d x
+
 Polar and Spherical Coordinates
 -------------------------------
 
