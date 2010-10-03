@@ -133,6 +133,79 @@ so by combining these two we get:
 
     z = \rho\cos\theta
 
+Example
+~~~~~~~
+
+When evaluating integrals of the type:
+
+.. math::
+
+    l(x, y, z) = \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+        \sqrt{(x-r\sin\theta\cos\phi)^2
+        + (y-r\sin\theta\sin\phi)^2
+        + (z-r\cos\theta)^2
+          } \,\sin\theta
+
+we write $x$ and $y$ using polar coordinates:
+
+.. math::
+
+    x = \rho_{xy} \cos \phi'
+
+    y = \rho_{xy} \sin \phi'
+
+and simplify:
+
+.. math::
+
+    l(x, y, z) = \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+        \sqrt{(x-r\sin\theta\cos\phi)^2
+        + (y-r\sin\theta\sin\phi)^2
+        + (z-r\cos\theta)^2
+          } \,\sin\theta =
+
+    = \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+        \sqrt{x^2 + y^2 + z^2 + r^2 -2r(
+            x\sin\theta\cos\phi
+            +y\sin\theta\sin\phi
+            +z\cos\theta
+        )
+          } \,\sin\theta =
+
+    = \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+        \sqrt{\rho_{xy} + z^2 + r^2 -2r(
+            \rho_{xy}\cos\phi'\sin\theta\cos\phi
+            +\rho_{xy}\sin\phi'\sin\theta\sin\phi
+            +z\cos\theta
+        )
+          } \,\sin\theta =
+
+    = \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+        \sqrt{\rho_{xy} + z^2 + r^2 -2r(
+            \rho_{xy}\cos(\phi-\phi')\sin\theta
+            +z\cos\theta
+        )
+          } \,\sin\theta =
+
+    = \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+        \sqrt{\rho_{xy} + z^2 + r^2 -2r(
+            \rho_{xy}\cos\phi\sin\theta
+            +z\cos\theta
+        )
+          } \,\sin\theta
+
+
+comparing to:
+
+.. math::
+
+    l(0, 0, z)
+    = \int_0^\pi\d\theta \int_0^{2\pi} \d\phi
+        \sqrt{z^2 + r^2 -2rz\cos\theta } \,\sin\theta =
+
+we can see that because the integral is symmetric, we can just set $x=0$,
+$y=0$ and then replace $z \to \rho$.
+
 
 .. index:: delta function
 
