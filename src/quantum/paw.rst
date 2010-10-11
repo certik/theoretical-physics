@@ -228,8 +228,8 @@ the augmentation sphere.
 Kohn Sham Equations
 -------------------
 
-We multiply the original equations by $T^\dag$ from the left and use the smooth
-wavefunctions:
+We multiply the original equations by $T^\dag$ from the left and introduce the
+smooth wavefunctions:
 
 .. math::
 
@@ -239,12 +239,41 @@ wavefunctions:
 
     T^\dag H T\ket{\tilde\psi_n} = \epsilon_n T^\dag T \ket{\tilde\psi_n}
 
+The orthogonality of wavefunctions is:
+
+.. math::
+
+    \braket{\psi_n | \psi_m} = \delta_{nm}
+
+    \braket{\tilde \psi_n | T^\dag T | \tilde \psi_m} = \delta_{nm}
+
 The overlap operator $T^\dag T$ can be written as:
 
 .. math::
 
     T^\dag T = \cdots = \one + \sum_a \sum_{i,j}
-        \ket{\tilde p_i^a}\left(
-            \braket{\phi_i^a | \phi_j^a}
+        \ket{\tilde p_i^a} Q_{ij} \bra{\tilde p_j^a}
+
+where
+
+.. math::
+
+    Q_{ij} = \braket{\phi_i^a | \phi_j^a}
             -\braket{\tilde \phi_i^a | \tilde\phi_j^a}
-        \right)\bra{\tilde p_j^a}
+
+The transformed Hamiltonian is
+
+.. math::
+
+    H =-\half\nabla^2 + V_H({\bf r}) + V_{xc}({\bf r}) + v({\bf r})
+
+    T^\dag H T = \cdots =
+        -\half\nabla^2 + V_H(\tilde n) + V_{xc}(\tilde n) +
+            \sum_a \sum_{ij}\ket{\tilde p_i^a} H_{ij}^a \bra{\tilde p_j^a}
+
+where
+
+.. math::
+
+    H_{ij}^a = \braket{\phi_i^a |-\half \nabla^2 + v_{\mbox{eff}} | \phi_j^a}
+            -\braket{\tilde \phi_i^a |-\half \nabla^2 + \tilde v_{\mbox{eff}} | \tilde\phi_j^a}
