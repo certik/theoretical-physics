@@ -175,6 +175,112 @@ and we substitute this to :eq:`radial2`:
 
     -\half u''+ \left(V + {l(l+1)\over 2 r^2}\right) u = \epsilon u
 
+Perturbative Correction to Energy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We introduce $P$ and $Q$ by $P(r) = u(r)$ and $Q(r) = P'(r) = u'(r)$. The
+radial Schrödinger equation is then:
+
+.. math::
+
+    P'(r) = Q(r)
+
+    Q'(r) = -2\left(E - V(r) - {l(l+1)\over 2 r^2}\right)P(r)
+
+Let $P_1$ and $Q_1$ represent the radial wave function and its derivative at
+$E_1$ and $P_2$, $Q_2$ at $E_2$, so the following holds:
+
+.. math::
+
+    Q_1'(r) = -2\left(E_1 - V(r) - {l(l+1)\over 2 r^2}\right)P_1(r)
+
+    Q_2'(r) = -2\left(E_2 - V(r) - {l(l+1)\over 2 r^2}\right)P_2(r)
+
+Now we evaluate $(Q_2 P_1 - P_2 Q_1)'$ using the relations above:
+
+.. math::
+
+    (Q_2 P_1 - P_2 Q_1)' = Q_2' P_1 + Q_2 P_1' - P_2'Q_1 - P_2 Q_1'
+    = Q_2' P_1 + Q_2 Q_1' - Q_2'Q_1 - P_2 Q_1'
+    = Q_2' P_1 - P_2 Q_1'
+    = 2 (E_1 - E_2) P_1 P_2
+
+We integrate the last formula on the intervals $(0, a_c)$ and $(a_c, \infty)$:
+
+.. math::
+
+    [Q_2 P_1 - P_2 Q_1]^{a_c}_0
+        = 2 (E_1 - E_2) \int^{a_c}_0 P_1(r) P_2(r) \,\d r
+
+    [Q_2 P_1 - P_2 Q_1]^\infty_{a_c}
+        = 2 (E_1 - E_2) \int^\infty_{a_c} P_1(r) P_2(r) \,\d r
+
+On the interval $(0, a_c)$ we know the exact solution corresponding to the
+energies $E_1$ and $E_2$ by integrating outwards (the solution will eventually
+diverge for large $r$ except for the eigenvalues, but we only need it up to
+$a_c$) and we know that $P_1(0) = P_2(0) = 0$, so we get:
+
+.. math::
+
+    Q_2(a_c^-) P_1(a_c^-) - P_2(a_c^-) Q_1(a_c^-)
+        = 2 (E_1 - E_2) \int^{a_c}_0 P_1(r) P_2(r) \,\d r
+
+where $a_c^-$ means that we need the values at $a_c$ when integrating the
+equation from the left (the value will generally be different when integrating
+the equation from the right, unless the energy is an eigenvalue).
+Similarly on the other interval where $P_1(\infty) = P_2(\infty)=0$:
+
+.. math::
+
+    -(Q_2(a_c^+) P_1(a_c^+) - P_2(a_c^+) Q_1(a_c^+))
+        = 2 (E_1 - E_2) \int^\infty_{a_c} P_1(r) P_2(r) \,\d r
+
+Taking the sum of the last two expressions:
+
+.. math::
+
+    2 (E_1 - E_2) \int^\infty_0 P_1(r) P_2(r) \,\d r
+        = Q_2(a_c^-) P_1(a_c^-) - P_2(a_c^-) Q_1(a_c^-)
+            -(Q_2(a_c^+) P_1(a_c^+) - P_2(a_c^+) Q_1(a_c^+))
+
+Now we use the fact that $P_1(a_c^-) = P_1(a_c^+)$ and
+$P_2(a_c^-) = P_2(a_c^+)$, because we match the two solutions from the left and
+right, so that the function is continuous (it's derivative will have a jump
+though):
+
+.. math::
+
+    2 (E_1 - E_2) \int^\infty_0 P_1(r) P_2(r) \,\d r
+        = P_1(a_c) (Q_2(a_c^-)-Q_2(a_c^+)) - P_2(a_c)(Q_1(a_c^-)-Q_1(a_c^+))
+
+By requiring, that the energy $E_2$ is an eigenvalue, it follows that there is
+no jump in the derivative, so we set $Q_2(a_c^-)=Q_2(a_c^+)$ and we get:
+
+.. math::
+
+    2 (E_1 - E_2) \int^\infty_0 P_1(r) P_2(r) \,\d r
+        = -P_2(a_c)(Q_1(a_c^-)-Q_1(a_c^+))
+
+that gives us an exact formula for the eigenvalue $E_2$:
+
+.. math::
+
+    E_2 = E_1 +
+    {P_2(a_c)(Q_1(a_c^-)-Q_1(a_c^+))\over 2\int^\infty_0 P_1(r) P_2(r) \,\d r}
+
+We approximate the value of $P_2(a_c)$ by $P_1(a_c)$ as well as the integral
+$\int^\infty_0 P_1(r) P_2(r) \,\d r$ by $\int^\infty_0 P_1^2(r) \,\d r$ and we
+get an approximation for the eigenenergy:
+
+.. math::
+
+    E_2 \approx E_1 +
+        {P_1(a_c)(Q_1(a_c^-)-Q_1(a_c^+))\over 2\int^\infty_0 P_1^2(r) \,\d r}
+
+We use this approximation iteratively until the convergence is achieved (the
+discontinuity in $Q(r)$ at $r=a_c$ is small enough, or equivalently, the
+correction to the energy is small enough).
+
 Weak Formulation
 ~~~~~~~~~~~~~~~~
 
