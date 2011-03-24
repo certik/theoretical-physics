@@ -559,8 +559,21 @@ expressing $R_l(kr)$ using $\delta_l$ and solving for it we get:
 
 .. math::
 
-    \tan\delta_l = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l
-        n_l(ka)}
+    \tan\delta_l
+        = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l n_l(ka)}
+        = {-k j_{l+1}(ka) +kl{j_l(ka)\over ka} - \gamma_l j_l(ka)
+            \over -k n_{l+1}(ka)+kl{n_l(ka)\over ka} - \gamma_l n_l(ka)}
+        =
+
+        = {ka j_{l+1}(ka) -l j_l(ka) + a j_l(ka) \gamma_l
+            \over ka n_{l+1}(ka) -l n_l(ka) + a n_l(ka) \gamma_l}
+
+where we used the following relations:
+
+.. math::
+
+    j_l'(z) = -j_{l+1}(z) + l{j_l(z)\over z}
+    n_l'(z) = -n_{l+1}(z) + l{n_l(z)\over z}
 
 Now we can use these $\delta_l$ in the formula for the total cross section.
 
