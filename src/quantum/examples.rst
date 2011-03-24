@@ -586,7 +586,7 @@ calculating $\gamma_l$:
         =
 
         = k {j_l'(ka) - \tan\delta_l\, n_l'(ka) \over
-                j_l(ka) - \tan\delta_l\, n_l(ka)) }
+                j_l(ka) - \tan\delta_l\, n_l(ka) }
 
 and solving for $\delta$ we get:
 
