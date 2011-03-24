@@ -609,7 +609,14 @@ where we used the following relations:
 
     n_l'(z) = -n_{l+1}(z) + l{n_l(z)\over z}
 
-Now we can use these $\delta_l$ in the formula for the total cross section.
+Now we can use these $\delta_l$ in the formula for the total cross section. We
+can define a reduced phase-shift $\eta_l$ by
+
+.. math::
+
+    \delta_l = (n-l-1) \pi + \eta_l
+
+where $n-l-1$ is the number of radial nodes and $0 \le \eta_l \le \pi$.
 
 The problem can now be formulated in two ways. Either to solve the radial
 equation for a potential with finite reach and then "measure" those phase
