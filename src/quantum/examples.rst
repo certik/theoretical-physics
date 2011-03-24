@@ -516,8 +516,20 @@ where
 
     C_l = \sqrt{A_l^2 + B_l^2}
 
-but we will not need these expressions with $A_l$ and $B_l$ anymore, just $C_l$
-and $\delta_l$ is important.
+The $C_l$ and $\delta_l$ are physical variables, so we express $A_l$ and $B_l$
+using them:
+
+.. math::
+
+    A_l = C_l \cos\delta_l
+
+    B_l = C_l \sin\delta_l
+
+and write the exact solution $R_{El}$ as:
+
+.. math::
+
+    R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) + \sin\delta_l\, n_l(kr))
 
 
 We can then compare this to $\phi \approx e^{ikz} + f(\theta, \phi)
