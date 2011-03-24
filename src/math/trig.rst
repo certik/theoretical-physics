@@ -285,6 +285,8 @@ The following useful relations hold:
     \atan2(ky, kx) = \atan2(y, x)
         \quad\quad\quad\mbox{for $k>0$}
 
+    \atan2(\sin x, \cos x) = x
+
 We now prove them. The following works for all $x, y$ except for $x=y=0$:
 
 .. math::
@@ -338,6 +340,26 @@ following works for all $x\neq 0$:
     =\begin{cases}{y\over x}&y=0;x<0;\cr
         {y\over x}&\rm otherwise\cr\end{cases}
         ={y\over x}
+
+Finally:
+
+.. math::
+
+    \atan2(\sin x, \cos x)
+        =\begin{cases}\pi &x=\pi;\cr
+            2\,\atan{\sin x\over\sqrt{\cos^2x+\sin^2x}+\cos x}&
+                \rm otherwise\cr\end{cases}
+        =
+
+        =\begin{cases}\pi &x=\pi;\cr
+            2\,\atan{\sin x\over1+\cos x}&
+                \rm otherwise\cr\end{cases}
+        =
+
+        =\begin{cases}x &x=\pi;\cr
+            2\,\atan\left(\tan {x\over 2}\right)&
+                \rm otherwise\cr\end{cases}
+        = x
 
 In the above, we used the following double angle formulas:
 
@@ -454,6 +476,15 @@ where
 
     \delta = \atan2\left({B\over\sqrt{A^2+B^2}}, {A\over\sqrt{A^2+B^2}}\right)
     =\atan2(B, A)
+
+Another application
+
+.. math::
+
+    \atan2(\cos x, -\sin x)
+        = \atan2\left(\sin\left(x+{\pi\over2}\right),
+            \cos\left(x+{\pi\over2}\right)\right)
+        = x + {\pi\over2}
 
 Multiple Argument Formulas
 --------------------------
