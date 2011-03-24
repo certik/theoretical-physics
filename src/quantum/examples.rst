@@ -505,14 +505,15 @@ so we get for large $r$:
     \to A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
         + B_l{1\over kr}\cos\left(kr-{l\pi\over 2}\right) =
 
-    = \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
-    = C_l {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
+    = \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}
+        +\atan2(B_l, A_l)\right)
+    = C_l {1\over kr}\sin\left(kr-{l\pi\over 2}-\delta_l\right)
 
 where
 
 .. math::
 
-    \delta_l = \atan2(B_l, A_l)
+    \delta_l = -\atan2(B_l, A_l) = \atan2(-B_l, A_l)
 
     C_l = \sqrt{A_l^2 + B_l^2}
 
@@ -523,13 +524,13 @@ using them:
 
     A_l = C_l \cos\delta_l
 
-    B_l = C_l \sin\delta_l
+    B_l = -C_l \sin\delta_l
 
 and write the exact solution $R_{El}$ as:
 
 .. math::
 
-    R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) + \sin\delta_l\, n_l(kr))
+    R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))
 
 
 We can then compare this to $\phi \approx e^{ikz} + f(\theta, \phi)
@@ -567,7 +568,27 @@ derivative ($(\log u)'={u'\over u}$) at the point $r=a$:
     = \left.{\d\over\d r} \log R_l(kr)\right|_{r=a}
     = {\left.{\d R_l(kr)\over\d r} \right|_{r=a}\over R_l(kr)}
 
-expressing $R_l(kr)$ using $\delta_l$ and solving for it we get:
+expressing $R_{El}(kr)$ and $R_{El}'(kr)$ using $\delta_l$:
+
+.. math::
+
+    R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))
+
+    R_{El}'(r) = C_l k (\cos\delta_l\, j_l'(kr) - \sin\delta_l\, n_l'(kr))
+
+calculating $\gamma_l$:
+
+.. math::
+
+    \gamma_l = {R_{El}'(a)\over R_{El}(a)}
+        = {C_l k (\cos\delta_l\, j_l'(kr) - \sin\delta_l\, n_l'(kr)) \over
+                C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr)) }
+        =
+
+        = {k j_l'(kr) - \tan\delta_l\, k n_l'(kr) \over
+                j_l(kr) - \tan\delta_l\, n_l(kr)) }
+
+and solving for $\delta$ we get:
 
 .. math::
 
@@ -585,6 +606,7 @@ where we used the following relations:
 .. math::
 
     j_l'(z) = -j_{l+1}(z) + l{j_l(z)\over z}
+
     n_l'(z) = -n_{l+1}(z) + l{n_l(z)\over z}
 
 Now we can use these $\delta_l$ in the formula for the total cross section.
