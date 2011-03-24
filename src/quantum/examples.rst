@@ -478,10 +478,17 @@ If $V=0$, the radial equation is:
 
 .. math::
 
-    -{1\over2}R''(r)-{1\over r}R'(r)+{l(l+1)\over2r^2} R(r)=ER(r)
+    -{1\over2}R_{El}''(r)-{1\over r}R_{El}'(r)+{l(l+1)\over2r^2} R_{El}(r)
+        = E R_{El}(r)
 
 The general solution is a linear combination of the spherical Bessel functions
-$j_l(kr)$ and $n_l(kr)$, whose asymptotic expansion for $r\to\infty$ is:
+$j_l(kr)$ and $n_l(kr)$:
+
+.. math::
+
+    R_{El}(r) = A_l j_l(kr) + B_l n_l(kr)
+
+where $k=\sqrt{2E}$ and $E > 0$ is a continuous spectrum. The asymptotic expansion for $r\to\infty$ is:
 
 .. math::
 
@@ -493,7 +500,9 @@ so we get for large $r$:
 
 .. math::
 
-    R_l(kr) = A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
+    R_{El}(r) = A_l j_l(kr) + B_l n_l(kr) \to
+
+    \to A_l {1\over kr}\sin\left(kr-{l\pi\over 2}\right)
         + B_l{1\over kr}\cos\left(kr-{l\pi\over 2}\right) =
 
     = \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
@@ -506,6 +515,10 @@ where
     \delta_l = \atan2(B_l, A_l)
 
     C_l = \sqrt{A_l^2 + B_l^2}
+
+but we will not need these expressions with $A_l$ and $B_l$ anymore, just $C_l$
+and $\delta_l$ is important.
+
 
 We can then compare this to $\phi \approx e^{ikz} + f(\theta, \phi)
 {e^{ikr}\over r}$, by expanding $e^{ikz} = e^{ikr\cos\theta}=
@@ -529,7 +542,8 @@ the full potential
 
 .. math::
 
-    -{1\over2}R''(r)-{1\over r}R'(r)+\left(V+{l(l+1)\over2r^2}\right)R(r)=ER(r)
+    -{1\over2}R_{nl}''(r)-{1\over r}R_{nl}'(r)+\left(V+{l(l+1)\over2r^2}\right)
+        R_{nl}(r)=ER_{nl}(r)
 
 and then fit it to the above asymptotic solution for V=0. We require that the
 value and the slope must be continuous. In particular, we take the logarithmic
@@ -537,8 +551,9 @@ derivative ($(\log u)'={u'\over u}$) at the point $r=a$:
 
 .. math::
 
-    \gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a} =
-    \left.{\d\over\d r} \log R_l(kr)\right|_{r=a}
+    \gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a}
+    = \left.{\d\over\d r} \log R_l(kr)\right|_{r=a}
+    = {\left.{\d R_l(kr)\over\d r} \right|_{r=a}\over R_l(kr)}
 
 expressing $R_l(kr)$ using $\delta_l$ and solving for it we get:
 
