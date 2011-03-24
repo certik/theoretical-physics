@@ -581,12 +581,12 @@ calculating $\gamma_l$:
 .. math::
 
     \gamma_l = {R_{El}'(a)\over R_{El}(a)}
-        = {C_l k (\cos\delta_l\, j_l'(kr) - \sin\delta_l\, n_l'(kr)) \over
-                C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr)) }
+        = {C_l k (\cos\delta_l\, j_l'(ka) - \sin\delta_l\, n_l'(ka)) \over
+                C_l (\cos\delta_l\, j_l(ka) - \sin\delta_l\, n_l(ka)) }
         =
 
-        = {k j_l'(kr) - \tan\delta_l\, k n_l'(kr) \over
-                j_l(kr) - \tan\delta_l\, n_l(kr)) }
+        = {k j_l'(ka) - \tan\delta_l\, k n_l'(ka) \over
+                j_l(ka) - \tan\delta_l\, n_l(ka)) }
 
 and solving for $\delta$ we get:
 
