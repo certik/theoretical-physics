@@ -585,7 +585,7 @@ calculating $\gamma_l$:
                 C_l (\cos\delta_l\, j_l(ka) - \sin\delta_l\, n_l(ka)) }
         =
 
-        = {k j_l'(ka) - \tan\delta_l\, k n_l'(ka) \over
+        = k {j_l'(ka) - \tan\delta_l\, n_l'(ka) \over
                 j_l(ka) - \tan\delta_l\, n_l(ka)) }
 
 and solving for $\delta$ we get:
