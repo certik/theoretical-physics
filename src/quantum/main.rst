@@ -11,4 +11,5 @@ Quantum Field Theory and Quantum Mechanics
     qm.rst
     examples.rst
     radial.rst
+    dft.rst
     paw.rst
