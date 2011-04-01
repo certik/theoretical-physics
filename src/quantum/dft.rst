@@ -501,7 +501,7 @@ where
 
     \mu=\sqrt{1+\beta^2}
 
-    \beta={(3\pi^2n)^{1\over3}\over c}
+    \beta={(3\pi^2n)^{1\over3}\over c} = -{4\pi\over 3c} \epsilon_x^{LD}
 
     A = {\beta\mu-\log(\beta+\mu)\over\beta^2}
 
@@ -520,16 +520,20 @@ We now calculate $V_x^{RLD}$:
     =\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}\over\d n}R
         +n\epsilon_x^{LD}{\d R\over\d \beta}{\d\beta\over\d n}
 
-where the derivatives can be evaluated as follows:
+where the derivative ${\d\beta\over\d n}$ can be evaluated as follows:
 
 .. math::
-
-    {\d \epsilon_x^{LD}\over\d n} = ... = {\epsilon_x^{LD}\over 3n}
 
     {\d \beta\over\d n}
         = {\d \over \d n}{(3\pi^2n)^{1\over3}\over c}
         = {1 \over 3n}{(3\pi^2n)^{1\over3}\over c}
         = {\beta\over 3n}
+
+And ${\d \epsilon_x^{LD}\over\d n}$ in exactly the same manner:
+
+.. math::
+
+    {\d \epsilon_x^{LD}\over\d n} = ... = {\epsilon_x^{LD}\over 3n}
 
 So we can write
 
@@ -564,13 +568,14 @@ where
 
     =-6 A \left({1\over\mu} - {A\over\beta}\right)
 
-where we used:
+where we used the derivative of $A(\beta)$, which after a tedious, but
+straightforward differentiation is:
 
 .. math::
 
     A'(\beta) = \cdots = 2\left({1\over\mu} - {A\over\beta}\right)
 
-Plugging this back in, we get after simplification:
+Plugging this back in, we get:
 
 .. math::
 
