@@ -492,18 +492,18 @@ by MacDonald and Vosko:
     \epsilon_x^{RLD}(n) = \epsilon_x^{LD}(n)R
 
     R = 1-{3\over2}\left(\beta\mu-\ln(\beta+\mu)\over\beta^2\right)^2
+    = 1-{3\over2} A^2
+
 
 where
 
 .. math::
 
-  \mu=\sqrt{1+\beta^2}
+    \mu=\sqrt{1+\beta^2}
 
-and
+    \beta={(3\pi^2n)^{1\over3}\over c}
 
-.. math::
-
-  \beta={(3\pi^2n)^{1\over3}\over c}
+    A = {\beta\mu-\log(\beta+\mu)\over\beta^2}
 
 We now calculate $V_x^{RLD}$:
 
@@ -554,16 +554,58 @@ So we can write
 
     =
     V_x^{LD}\left(R+{1\over4}\beta{\d R\over\d\beta}\right)
-    =
 
 where
 
 .. math::
 
-  {\d R\over\d \beta}= -6{\beta\mu-\ln(\beta+\mu)\over\beta^2}\left({1\over\mu}- {\beta\mu-\ln(\beta+\mu)\over\beta^3}\right)
+    {\d R\over\d \beta}= -{3\over 2} 2 A A' = -3AA'
+    =
 
+    =-6 A \left({1\over\mu} - {A\over\beta}\right)
 
+where we used:
 
+.. math::
+
+    A'(\beta) = \cdots = 2\left({1\over\mu} - {A\over\beta}\right)
+
+Plugging this back in, we get after simplification:
+
+.. math::
+
+    V_x^{RLD} = V_x^{LD}\left(R+{1\over4}\beta{\d R\over\d\beta}\right)
+    =
+
+    =
+    V_x^{LD}\left(1-{3\over 2}A^2 +{1\over4}\beta(-6A)
+    \left({1\over\mu} - {A\over\beta}\right)
+    \right)
+    =
+
+    =
+    V_x^{LD}\left(1-{3\over 2}A^2 + {6\over4} A^2-{6\over4}\beta {A\over\mu}
+    \right)
+    =
+
+    =
+    V_x^{LD}\left(1-{3\over2}{\beta\over\mu} A
+    \right)
+    =
+
+    =
+    V_x^{LD}\left(1-{3\over2}{\beta\over\mu} \left(
+        \beta\mu - \log(\beta+\mu) \over \beta^2\right)
+    \right)
+    =
+
+    =
+    V_x^{LD}\left(1-{3\over2} \left(
+        \beta\mu - \log(\beta+\mu) \over \beta\mu\right)
+    \right)
+    =
+
+    = V_x^{LD}\left({3\log(\beta+\mu) \over 2\beta\mu}-\half\right)
 
 For $c\to\infty$ we get $\beta\to0$, $R\to1$ and $V_x^{RLD}\to
 {4\over3}\epsilon_x^{LD}=V_x^{LD}$ as expected, because
