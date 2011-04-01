@@ -69,7 +69,10 @@ called the particle (or charge or electron) density and is therefore given by:
 
   =N\int \braket{\Psi|{\bf r}_1,{\bf r}_2,\cdots,{\bf r}_N}\delta({\bf r}-{\bf r}_1) \braket{{\bf r}_1,{\bf r}_2,\cdots,{\bf r}_N|\Psi} \,\d^3 r_1\,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_{N}=
 
-  =N\int \Psi^*({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \Psi ({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_N  \label{chargedensity}
+.. math::
+    :label: chargedensity
+
+    =N\int \Psi^*({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \Psi ({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_N
 
 Thus $\int_\Omega n({\bf r})\,\d^3r$ gives the number of particles (and also
 the amount of charge) in the region of integration $\Omega$. Obviously $\int
@@ -78,7 +81,9 @@ n({\bf r})\,\d^3r=N$.
 The energy of the system is given by
 
 .. math::
-  E=\braket{\Psi|\hat H|\Psi}= \braket{\Psi|\hat T|\Psi}+\braket{\Psi|\hat U|\Psi}+\braket{\Psi|\hat V|\Psi}= T+U+V  \label{Emanybody}
+    :label: Emanybody
+
+    E=\braket{\Psi|\hat H|\Psi}= \braket{\Psi|\hat T|\Psi}+\braket{\Psi|\hat U|\Psi}+\braket{\Psi|\hat V|\Psi}= T+U+V
 
 where
 
@@ -93,7 +98,10 @@ where
 
   =N\int \Psi^*({\bf r_1},{\bf r_2},\cdots,{\bf r_N})v({\bf r_1}) \Psi({\bf r_1},{\bf r_2},\cdots,{\bf r_N})\,\d^3 r_1\,\d^3 r_2\cdots\d^3 r_N=
 
-  =\int v({\bf r}) n({\bf r})\d^3 r=V[n]  \label{V[n]}
+.. math::
+    :label: V[n]
+
+    =\int v({\bf r}) n({\bf r})\d^3 r=V[n]
 
 It needs to be stressed, that $E$ generally is *not* a functional of $n$
 alone, only the $V[n]$ is. In the next section we show however, that if the
@@ -133,7 +141,7 @@ density $n$ giving rise to the map
   D: \Psi \to n
 
 which is also bijective, because to every $\Psi$ we can compute $n$ from
-(\ref{chargedensity}) and two different $\Psi$ and $\Psi'$ give two different
+:eq:`chargedensity` and two different $\Psi$ and $\Psi'$ give two different
 $n$ and $n'$, because different $\Psi$ and $\Psi'$ give
 
 .. math::
@@ -287,12 +295,13 @@ where
 From :eq:`euler` we get
 
 .. math::
+    :label: noninteract
 
-    \mu={\delta E_s[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+{\delta V_s[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+v_s({\bf r})  \label{noninteract}
+    \mu={\delta E_s[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+{\delta V_s[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+v_s({\bf r})
 
 Solution to this equation gives the density $n_s$.
 
-Now we want to express the energy in (\ref{Emanybody}) using $T_s$ and $E_H$
+Now we want to express the energy in :eq:`Emanybody` using $T_s$ and $E_H$
 for convenience, where $E_H$ is the classical electrostatic interaction energy
 of the charge distribution $n({\bf r})$:
 
@@ -306,7 +315,10 @@ or equivalently
 
   E_H[n]=\half\int\int {n({\bf r})n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r\d^3r'
 
-  V_H({\bf r})={\delta E_H\over\delta n({\bf r})}=\half\int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'  \label{V_H}
+.. math::
+    :label: V_H
+
+  V_H({\bf r})={\delta E_H\over\delta n({\bf r})}=\half\int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
 
 So from :eq:`Efunct` we get
 
@@ -324,13 +336,13 @@ the exchange and correlation energy functional. From :eq:`euler`
 
   \mu={\delta E[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+ {\delta E_H[n]\over\delta n({\bf r})}+ {\delta E_{xc}[n]\over\delta n({\bf r})}+ {\delta V[n]\over\delta n({\bf r})}
 
-From (\ref{V_H}) we have
+From :eq:`V_H` we have
 
 .. math::
 
   {\delta E_H\over\delta n({\bf r})}=V_H({\bf r})
 
-from (\ref{V[n]}) we get
+from :eq:`V[n]` we get
 
 .. math::
 
@@ -339,17 +351,19 @@ from (\ref{V[n]}) we get
 we define
 
 .. math::
+    :label: Vxcpot
 
-  {\delta E_{xc}[n]\over\delta n({\bf r})}=V_{xc}({\bf r})  \label{Vxcpot}
+    {\delta E_{xc}[n]\over\delta n({\bf r})}=V_{xc}({\bf r})
 
 so we arrive at
 
 .. math::
+    :label: interact
 
-  \mu={\delta E[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r})  \label{interact}
+    \mu={\delta E[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r})
 
-Solution to this equation gives the density $n$. Comparing (\ref{interact}) to
-(\ref{noninteract}) we see that if we choose
+Solution to this equation gives the density $n$. Comparing :eq:`interact` to
+:eq`noninteract` we see that if we choose
 
 .. math::
 
@@ -402,7 +416,7 @@ background, density $n=\rm const$) with the same local density:
 .. math::
   \epsilon_{xc}({\bf r};n)\approx\epsilon_{xc}^{LD}(n({\bf r}))
 
-The xc potential $V_{xc}$ defined by (\ref{Vxcpot}) is then
+The xc potential $V_{xc}$ defined by :eq:`Vxcpot` is then
 
 .. math::
   V_{xc}({\bf r};n)={\delta E_{xc}[n]\over\delta n({\bf r})}= \epsilon_{xc}({\bf r}';n)+ \int n({\bf r}'){\delta \epsilon_{xc}({\bf r}';n)\over\delta n({\bf r})}\d^3r'
@@ -410,7 +424,9 @@ The xc potential $V_{xc}$ defined by (\ref{Vxcpot}) is then
 which in the LDA becomes
 
 .. math::
-  V_{xc}({\bf r};n) =\epsilon_{xc}^{LD}(n)+n{\d \epsilon_{xc}^{LD}(n)\over \d n}= {\d \over \d n}\left(n\epsilon_{xc}^{LD}(n)\right)= V_{xc}^{LD}(n)  \label{Vxcld}
+    :label: Vxcld
+
+    V_{xc}({\bf r};n) =\epsilon_{xc}^{LD}(n)+n{\d \epsilon_{xc}^{LD}(n)\over \d n}= {\d \over \d n}\left(n\epsilon_{xc}^{LD}(n)\right)= V_{xc}^{LD}(n)
 
 The xc energy density $\epsilon_{xc}^{LD}$ of the homogeneous gas can be
 computed exactly:
@@ -444,7 +460,7 @@ parameter, which gives the mean distance between electrons (in atomic units):
 .. math::
   r_s=\left(3\over4\pi n\right)^{1\over3}
 
-The xc potential is then computed from (\ref{Vxcld}):
+The xc potential is then computed from :eq:`Vxcld`:
 
 .. math::
 
