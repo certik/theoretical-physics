@@ -407,6 +407,9 @@ can always be written in the form
 
 where the $\epsilon_{xc}({\bf r}';n)$ is called the xc energy density.
 
+LDA
+~~~
+
 Unfortunately, no one knows $\epsilon_{xc}({\bf r}';n)$ exactly (yet). The most
 simple approximation is the *local density approximation* (LDA), for which the
 xc energy density $\epsilon_{xc}$ at $\bf r$ is taken as that of a homogeneous
@@ -483,6 +486,9 @@ functionals or a linear response type functionals, but this topic is still
 evolving. The conclusion is, that the LDA is a good approximation to start
 with, and only when we are not satisfied, we will have to try some more
 accurate and modern approximation.
+
+RLDA
+~~~~
 
 Relativistic corrections to the energy-density functional (RLDA) were proposed
 by MacDonald and Vosko:
