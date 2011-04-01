@@ -466,7 +466,7 @@ The xc potential is then computed from :eq:`Vxcld`:
 
   V_{xc}^{LD}=V_x^{LD}+V_c^{LD}
 
-  V_x^{LD}=-{1\over\pi}(3\pi^2 n)^{1\over3}
+  V_x^{LD}=-{1\over\pi}(3\pi^2 n)^{1\over3} = {4\over 3}\epsilon_x^{LD}
 
   V_c^{LD}={A\over2}\left\{ \ln\left(y^2\over Y(y)\right)+{2b\over Q}\arctan\left(Q\over 2y+b\right)+ \right.
 
@@ -484,13 +484,14 @@ evolving. The conclusion is, that the LDA is a good approximation to start
 with, and only when we are not satisfied, we will have to try some more
 accurate and modern approximation.
 
-RLDA: Relativistic corrections to the energy-density functional were proposed
-by MacDonald and Vosko and basically are just a change in
-$\epsilon_x^{LD}(n)\rightarrow\epsilon_x^{LD}(n)R$:
+Relativistic corrections to the energy-density functional (RLDA) were proposed
+by MacDonald and Vosko:
 
 .. math::
 
-  R = \left[1-{3\over2}\left(\beta\mu-\ln(\beta+\mu)\over\beta^2\right)^2\right]
+    \epsilon_x^{RLD}(n) = \epsilon_x^{LD}(n)R
+
+    R = 1-{3\over2}\left(\beta\mu-\ln(\beta+\mu)\over\beta^2\right)^2
 
 where
 
@@ -504,24 +505,65 @@ and
 
   \beta={(3\pi^2n)^{1\over3}\over c}
 
-We also need to calculate these derivatives:
+We now calculate $V_x^{RLD}$:
+
+.. math::
+    :label: RLDA
+
+    V_x^{RLD}
+    =\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}R\over\d n}=
+
+    =\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}\over\d n}R
+        +n\epsilon_x^{LD}{\d R\over\d n}
+        =
+
+    =\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}\over\d n}R
+        +n\epsilon_x^{LD}{\d R\over\d \beta}{\d\beta\over\d n}
+
+where the derivatives can be evaluated as follows:
+
+.. math::
+
+    {\d \epsilon_x^{LD}\over\d n} = ... = {\epsilon_x^{LD}\over 3n}
+
+    {\d \beta\over\d n}
+        = {\d \over \d n}{(3\pi^2n)^{1\over3}\over c}
+        = {1 \over 3n}{(3\pi^2n)^{1\over3}\over c}
+        = {\beta\over 3n}
+
+So we can write
+
+.. math::
+
+    V_x^{RLD}
+    =\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}\over\d n}R
+        +n\epsilon_x^{LD}{\d R\over\d \beta}{\d\beta\over\d n}
+    =
+
+    =\epsilon_x^{LD}R+n{\epsilon_x^{LD}\over 3n}R
+        +n\epsilon_x^{LD}{\d R\over\d \beta}{\beta\over 3n}
+    =
+
+    =
+    {4\over3}\epsilon_x^{LD}R+{1\over3}\epsilon_x^{LD}{\d R\over\d\beta}\beta
+    =
+
+    =
+    {4\over3}\epsilon_x^{LD}\left(R+{1\over4}\beta{\d R\over\d\beta}\right)
+    =
+
+    =
+    V_x^{LD}\left(R+{1\over4}\beta{\d R\over\d\beta}\right)
+    =
+
+where
 
 .. math::
 
   {\d R\over\d \beta}= -6{\beta\mu-\ln(\beta+\mu)\over\beta^2}\left({1\over\mu}- {\beta\mu-\ln(\beta+\mu)\over\beta^3}\right)
 
-  {\d \beta\over\d n}={\beta\over 3n}
 
-  {\d \epsilon_x^{LD}\over\d n}={\epsilon_x^{LD}\over 3n}
 
-So
-
-.. math::
-    :label: RLDA
-
-    V_x^{RLD}=\epsilon_x^{LD}R+n{\d \epsilon_x^{LD}R\over\d n}=
-    {4\over3}\epsilon_x^{LD}R+{1\over3}\epsilon_x^{LD}{\d R\over\d\beta}\beta
-    \label{RLDA}
 
 For $c\to\infty$ we get $\beta\to0$, $R\to1$ and $V_x^{RLD}\to
 {4\over3}\epsilon_x^{LD}=V_x^{LD}$ as expected, because
