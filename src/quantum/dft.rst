@@ -205,7 +205,7 @@ The term
   \braket{\Psi[n]|\hat T+\hat U|\Psi[n]}\equiv F[n]
 
 in :eq:`Efunct` is universal in the sense that it doesn't depend on $\hat
-V_0$. It can be proven \cite{DFT}, that $F[n]$ is a functional of $n$ for
+V_0$. It can be proven [DFT]_, that $F[n]$ is a functional of $n$ for
 degenerated ground states too, so :eq:`Emin` stays true as well.
 
 The ground state densities in :eq:`Efunct` and :eq:`Emin` are called
@@ -215,10 +215,10 @@ r})$. One may ask a question if all possible functions are v-representable
 (this is called the v-representability problem). The question is relevant,
 because we need to know which functions to take into account in the
 minimization process :eq:`Emin`. Even though not every function is
-v-representable \cite{DFT}, every density defined on a grid (finite of
+v-representable [DFT]_, every density defined on a grid (finite of
 infinite) which is strictly positive, normalized and consistent with the Pauli
 principle is ensemble v-representable. Ensemble v-representation is just a
-simple generalization of the above, for details see \cite{DFT}.
+simple generalization of the above, for details see [DFT]_.
 
 The functional $E_{v_0}[n]$ in :eq:`Emin` depends on the particle number $N$,
 so in order to get $n$, we need to solve the variational formulation
@@ -443,7 +443,7 @@ by
 the rest of $\epsilon_{xc}^{LD}$ is hidden in $\epsilon_c^{LD}(n)$ for which
 there doesn't exist an analytic formula, but the correlation energies are known
 exactly from quantum Monte Carlo (QMC) calculations by Ceperley and
-Alder\cite{pickett}. The energies were fitted by Vosko, Wilkes and Nussair
+Alder [pickett]_. The energies were fitted by Vosko, Wilkes and Nussair
 (VWN) with $\epsilon_c^{LD}(n)$ and they got accurate results with errors less
 than $0.05\rm\,mRy$ in $\epsilon_c^{LD}$, which means that $\epsilon_c^{LD}(n)$
 is virtually known exactly. VWN result:
@@ -537,3 +537,12 @@ Code::
     beta
     >>> limit((beta*sqrt(1+beta**2) - log(beta+sqrt(1+beta**2)))/beta**2, beta, 0)
     0
+
+
+References
+----------
+
+.. [DFT] R. M. Dreizler, E. K. U. Gross: Density functional theory: an approach to the quantum many-body problem
+.. [pickett] W. E. Pickett, Pseudopotential methods in condensed matter applications, Computer Physics reports, Volume 9, Issue 3, April 1989, Pages 115-197, ISSN 0167-7977, DOI: 10.1016/0167-7977(89)90002-6. (http://www.sciencedirect.com/science/article/B6X3V-46R02CR-1J/2/804d9ecaa49469aa5e1050dc007f4a61)
+
+
