@@ -281,6 +281,17 @@ We use this approximation iteratively until the convergence is achieved (the
 discontinuity in $Q(r)$ at $r=a_c$ is small enough, or equivalently, the
 correction to the energy is small enough).
 
+For Dirac equation, one obtains a similar formula:
+
+.. math::
+
+    E_2 \approx E_1 +
+        c {P_1(a_c)(Q_1(a_c^-)-Q_1(a_c^+))\over \int^\infty_0 P_1^2(r)
+            +Q_1^2(r) \,\d r}
+
+So it is just the previous formula multiplied by $2c$ and the normalization is
+calculated using both $P$ and $Q$ (as usual for the Dirac equation).
+
 Weak Formulation
 ~~~~~~~~~~~~~~~~
 
