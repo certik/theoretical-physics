@@ -318,7 +318,7 @@ or equivalently
 .. math::
     :label: V_H
 
-  V_H({\bf r})={\delta E_H\over\delta n({\bf r})}=\half\int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
+    V_H({\bf r})={\delta E_H\over\delta n({\bf r})}=\half\int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
 
 So from :eq:`Efunct` we get
 
