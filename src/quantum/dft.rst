@@ -513,3 +513,11 @@ For $c\to\infty$ we get $\beta\to0$, $R\to1$ and $V_x^{RLD}\to
 .. math::
 
   \lim_{\beta\to0}{\beta\sqrt{1+\beta^2}-\ln(\beta+\sqrt{1+\beta^2})\over \beta^2} = 0
+
+Code::
+
+    >>> from sympy import limit, var, sqrt, log
+    >>> var("beta")
+    beta
+    >>> limit((beta*sqrt(1+beta**2) - log(beta+sqrt(1+beta**2)))/beta**2, beta, 0)
+    0
