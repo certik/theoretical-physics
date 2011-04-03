@@ -634,6 +634,164 @@ Code::
     0
 
 
+DFT As a Nonlinear Problem
+--------------------------
+
+The task is to find such a charge density $n$, so that all the equations below
+hold (e.g. are self-consistent):
+
+.. math::
+
+    V = -{Z\over r} + V_H + V_{xc}
+
+    \left(-\nabla^2+V\right)\phi_m = \epsilon_m\phi_m,\quad\quad m = 1, 2, \dots, 4
+
+    n = \sum_{m=1}^4 \phi_m^2
+
+    V_{xc} = f(n)
+
+    \nabla^2 V_H = n
+
+This is a standard nonlinear problem, except that the Jacobian is dense, as
+shown below.
+
+Reformulation
+~~~~~~~~~~~~~
+
+Let's write everything in terms of $\phi_m(x)$ explicitly:
+
+.. math::
+
+    n(x) = %n(y^{(1)}, \dots, y^{(4)}) = \sum_{m=1}^4 \phi_m^2(x)
+
+    V_{xc}(x) = f(n(x)) = f\left( \sum_{m=1}^4\phi_m^2(x) \right)
+
+    V_H(x) = \half \int_\Omega {n(x')\over|x' - x|}\d x'=
+    \half \int_\Omega {
+    \sum_{m=1}^4 \phi_m^2(x')
+    \over|x' - x|}\d x'
+
+    V(x) = -{Z\over r} + V_H(x) + V_{xc}(x)=
+
+    =-{Z\over r}+
+    \half \int_\Omega {
+    \sum_{m=1}^4 \phi_m^2(x')
+    \over|x' - x|}\d x'
+    +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
+
+Now we can write everything as just one (nonlinear)
+equation:
+
+.. math::
+
+    \left(-\nabla^2
+    -{Z\over r}+
+    \half \int_\Omega {
+    \sum_{m=1}^4 \phi_m^2(x')
+    \over|x' - x|}\d x'
+    +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
+    \right)\phi_n = \epsilon_n\phi_n,\quad\quad n = 1, 2, \dots, 4
+
+FE Discretization
+~~~~~~~~~~~~~~~~~
+
+The correspondig discrete problem has the form
+
+.. math::
+
+    \int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
+    -{Z\over r}+
+    \half \int_\Omega {
+    \sum_{m=1}^4 \phi_m^2(x')
+    \over|x' - x|}\d x'
+    +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
+    \right]
+    \phi_n(x) v_i(x)  \d x=
+
+    =\int_\Omega
+    \epsilon_n\phi_n(x) v_i(x) \d x,\quad\quad n = 1, 2, \dots, 4;\quad
+    i = 1, 2, \dots, N
+
+where
+
+.. math::
+
+    \phi_n = \phi_n({\bf Y}^{(n)}) = \sum_{j=1}^N y_j^{(n)} v_j(x)
+
+Here ${\bf Y}^{(n)} = (y_1^{(n)}, y_2^{(n)}, \dots, y_N^{(n)})^T$ is the vector
+of unknown coefficients for the $n$-th wavefunction $\phi_n(x)$. Our equation
+can then be written in the compact form
+
+.. math::
+
+    {\bf F}({\bf Y}^{(n)}) = {\bf 0},\quad\quad n = 1, 2, \dots, 4
+
+where ${\bf F} = (F_1, F_2, \dots, F_N)^T$ with
+
+.. math::
+
+    F_i({\bf Y}^{(n)}) =
+    \int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
+    -{Z\over r}+
+    \half \int_\Omega {
+    \sum_{m=1}^4 \phi_m^2(x')
+    \over|x' - x|}\d x'
+    +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
+    \right]
+    \phi_n(x) v_i(x)  \d x-
+
+    -\int_\Omega
+    \epsilon_n\phi_n(x) v_i(x) \d x
+
+Jacobian
+~~~~~~~~
+
+The Jacobi matrix has the elements:
+
+.. math::
+
+    J_{ik} = {\partial F_i\over\partial y_k^{(s)}}
+
+The only possible dense term is:
+
+.. math::
+
+    {\partial\over\partial y_k^{(s)}}\int_\Omega \int_\Omega {
+    \sum_{m=1}^4 \phi_m^2(x')
+    \over|x' - x|}\d x'\,\phi_n(x) v_i(x) \d x =
+
+    =
+    {\partial\over\partial y_k^{(s)}}\int_\Omega \int_\Omega {
+    \sum_{m=1}^4 \left(\sum_{j=1}^N y_j^{(m)} v_j(x')\right)^2
+    \over|x' - x|}\d x'\, \left(\sum_{j=1}^N y_j^{(n)} v_j(x)\right)  v_i(x) \d x =
+
+    =
+    \int_\Omega \int_\Omega {
+    2 \left(\sum_{j=1}^N y_j^{(s)} v_j(x')\right)v_k(x')
+    \over|x' - x|}\d x'\, \left(\sum_{j=1}^N y_j^{(n)} v_j(x)\right)  v_i(x) \d x +
+
+    +
+    \int_\Omega \int_\Omega {
+    \sum_{m=1}^4 \left(\sum_{j=1}^N y_j^{(m)} v_j(x')\right)^2
+    \over|x' - x|}\d x'\, \delta_{ns}v_k(x)  v_i(x) \d x
+
+Now we can see that we have in there the following term:
+
+.. math::
+
+    \int_\Omega \int_\Omega {v_k(x') v_i(x)\over |x'-x|}\d x'\d x
+
+which is dense in $(ki)$, as can be easily seen be fixing $i$ and writing
+
+.. math::
+
+    \int_\Omega \int_\Omega {v_k(x')\over |x'-x|}\d x' v_i(x)\d x
+
+so for each $k$ there is some contribution from the integral $\int_\Omega
+{v_k(x')\over |x'-x|}\d x'$ for such $x$ where $v_i(x)$ is nonzero, thus
+making the Jacobian $J_{ik}$ dense.
+
+
 References
 ----------
 
