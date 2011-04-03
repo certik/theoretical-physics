@@ -793,3 +793,223 @@ or
     ={xy\over z}
 
 Which obviously is true.
+
+
+Green Functions
+---------------
+
+Green functions are an excellent tool for working with a solution to any ODE or
+PDE. In this text we explain how it works and then show how one can calculate
+them using FEM.
+
+Introduction
+~~~~~~~~~~~~
+
+Let's put any ODE or PDE in the form:
+
+.. math::
+    :label: pde
+
+    Lu(x)=f(x)
+
+Here $L$ is a differential operator and $x$ can have any dimension, e.g. 1D
+(ODE), 2D, 3D or more (PDE). Then we can express the solution as
+
+.. math::
+    :label: solution
+
+    u(x) = L^{-1}f(x) = \int G(x, x')f(x')\d x'
+
+where $G(x, x')$ is a Green function, that needs to satisfy the equation:
+
+.. math::
+    :label: green
+
+    LG(x, x')=\delta(x-x')
+
+Remember, that $L$ acts on $x$ only, so we can check, that :eq:`solution`
+indeed solves the PDE :eq:`pde`:
+
+.. math::
+
+    Lu(x)
+    = L\int G(x, x')f(x')\d x'
+    = \int LG(x, x')f(x')\d x'
+    = \int \delta(x-x')f(x')\d x'
+    = f(x)
+
+Boundary Conditions
+~~~~~~~~~~~~~~~~~~~
+
+The equation :eq:`green` doesn't determine the Green function uniquely,
+because one can add to it any solution of the homogeneous equation $Lu(x)=0$.
+We can use this freedom to solve :eq:`green` for any boundary condition, for
+example using FEM (more on that below). So we prescribe a boundary condition
+and find the Green function (by solving :eq:`green`) that satisfies the
+boundary condition. It can be shown, that $u(x)$ determined from
+:eq:`solution` then also needs to satisfy the same boundary condition.
+
+Examples
+~~~~~~~~
+
+Poisson Equation in 3D
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. math::
+
+    \nabla^2u(x)=f(x)
+
+    \nabla^2G(x, x')=\delta(x-x')
+
+with boundary condition $G(x) = 0$ at infinity. Then:
+
+.. math::
+
+    G(x, x')=-{1\over4\pi}{1\over|x-x'| }
+
+and
+
+.. math::
+
+    u(x) = -{1\over4\pi}\int {f(x')\over|x-x'| }\d x'
+
+Poisson Equation in 2D
+^^^^^^^^^^^^^^^^^^^^^^
+
+Let ${\bf x}=(x, y)$ and we want to solve:
+
+.. math::
+
+    \nabla^2u({\bf x})=f({\bf x})
+
+So we have:
+
+.. math::
+
+    \nabla^2G({\bf x}, {\bf x'})=\delta({\bf x}-{\bf x'})
+
+The solution is:
+
+.. math::
+
+    G({\bf x}, {\bf x'})
+    ={1\over2\pi}\log|{\bf x}-{\bf x'}|
+    ={1\over4\pi}\log|{\bf x}-{\bf x'}|^2
+    ={1\over4\pi}\log((x-x')^2+(y-y')^2)
+
+
+Helmholtz Equation in 3D
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. math::
+
+    (\nabla^2+k^2)u(x)=f(x)
+
+    (\nabla^2+k^2)G(x, x')=\delta(x-x')
+
+with boundary condition $G(x) = 0$ at infinity. Then:
+
+.. math::
+
+    G(x, x')=-{1\over4\pi}{e^{ik|x-x'| }\over|x-x'| }
+
+    u(x) = -{1\over4\pi}\int {f(x')e^{ik|x-x'| }\over|x-x'| }\d x'
+
+Helmholtz Equation in 1D
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. math::
+
+    \left({\d^2\over\d x^2}+1\right)u(x)=f(x)
+
+    \left({\d^2\over\d x^2}+1\right)G(x, x')=\delta(x-x')
+
+with boundary conditions $u(0)=u({\pi\over2})=0$. Then:
+
+.. math::
+
+    G(x, x')=
+    \begin{cases}
+    -\sin x\cos x'&\quad x<x'\cr
+    -\cos x\sin x'&\quad x>x'\cr
+    \end{cases}
+
+and
+
+.. math::
+
+     u(x) = \int G(x, x')f(x')\d x'
+    =-\cos x\int_0^xf(x')\sin x'\d x'
+    -\sin x\int_x^{\pi\over2}f(x')\cos x'\d x'
+
+To show that this really works, let's take for example $f(x)=3\sin2x$. Then
+
+.. math::
+
+    u(x)
+    =-\cos x\int_0^x3\sin 2x'\sin x'\d x'
+    -\sin x\int_x^{\pi\over2}3\sin 2x'\cos x'\d x'
+
+We can use SymPy to evaluate the integrals::
+
+    In [1]: u = -cos(x)*integrate(3*sin(2*y)*sin(y), (y, 0, x)) - \
+        sin(x)*integrate(3*sin(2*y)*cos(y), (y, x, pi/2))
+
+    In [2]: u
+    Out[2]:
+    -(cos(x)*sin(2*x) - 2*cos(2*x)*sin(x))*cos(x) - (sin(x)*sin(2*x)
+        + 2*cos(x)*cos(2*x))*sin(x)
+
+    In [3]: simplify(u)
+    Out[3]:
+         2                  2
+    - cos (x)*sin(2*x) - sin (x)*sin(2*x)
+
+    In [4]: trigsimp(_)
+    Out[4]: -sin(2*x)
+
+And we get
+
+.. math::
+
+    u(x)=-\sin 2x
+
+We can easily check, that $u''+u=3\sin2x$::
+
+    >>> u = -sin(2*x)
+    >>> u.diff(x, 2) + u
+    3*sin(2*x)
+
+and since $f(x) = 3\sin2x$, we have verified, that $u(x)=-\sin 2x$ is the correct
+solution.
+
+Finite Element Method
+^^^^^^^^^^^^^^^^^^^^^
+
+Let's show it on the Laplace equation. We want to solve:
+
+.. math::
+
+    \nabla^2G(x, x')=\delta(x-x')
+
+We will treat $x'$ as a parameter, so we define $g_{x'}(x)\equiv G(x, x')$:
+
+.. math::
+
+    \nabla^2g_{x'}(x)=\delta(x-x')
+
+We set $g_{x'}(x)=0$ on the boundary and we get:
+
+.. math::
+
+    -\int\nabla g_{x'}(x) \cdot \nabla v(x) \d x = \int v(x)\delta(x-x')\d x
+
+    -\int\nabla g_{x'}(x) \cdot \nabla v(x) \d x = v(x')
+
+So we choose $x'$ and then solve for $g_{x'}(x)$ using FEM and we get the
+Green function $G(x, x')$ for all $x$ and one particular $x'$. We can then
+evaluate the integral :eq:`solution` numerically -- one would have to use FEM
+for all $x'$ that are needed in the integral, so that is not efficient, but it
+should work. One will then be able to play with Green functions and be able to
+calculate them numerically for any boundary condition (which is not possible
+analytically).
