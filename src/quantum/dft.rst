@@ -678,15 +678,33 @@ where we have introduced the occupation numbers $f_{nl}$ by
 
     f_{nl} = 4\pi\,2\sum_m |Y_{lm}|^2
 
-It must hold:
+Normalization of the charge density is:
+
+.. math::
+
+    Z = \int n({\bf r}) \d^3 x
+        = \int n(r) \, r^2\d\Omega \d r
+        = 4\pi\int n(r) \, r^2 \d r
+        =
+
+        = 4\pi\int {1\over 4\pi} \sum_{nl} f_{nl} R_{nl}^2\, r^2\d\Omega \d r
+        =
+
+        = \sum_{nl} f_{nl}\int R_{nl}^2\, r^2 \d r
+        =
+
+        = \sum_{nl} f_{nl}
+
+So we can see, that it must hold:
 
 .. math::
 
     \sum_{nl} f_{nl} = Z
 
-where $Z$ is the atomic number (number of electrons).
-
-Assuming all $m$ states are occupied, this can be simplified to:
+where $Z$ is the atomic number (number of electrons), and as such, $f_{nl}$ are
+indeed the occupation numbers (integers). The factor $4\pi$ is
+explicitly factored out, as it cancels with the spherical harmonics:
+assuming all $m$ states are occupied, this can be simplified to:
 
 .. math::
 
