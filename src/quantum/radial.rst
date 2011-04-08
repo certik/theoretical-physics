@@ -100,6 +100,16 @@ Schrödinger equation:
 
     -{1\over2}R''-{1\over\rho}R'+{l(l+1)R\over2\rho^2}+VR=ER
 
+Normalization:
+
+.. math::
+
+    1 = \int |\psi|^2 \d^3 x
+      = \int R^2 |Y|^2 \d^3 x
+      = \int R^2 |Y|^2 \rho^2\d\Omega\d \rho
+      = \int R^2 \rho^2 \d\rho \int |Y|^2 \d\Omega
+      = \int R^2 \rho^2 \d \rho
+
 From the Lagrangian
 ~~~~~~~~~~~~~~~~~~~
 
