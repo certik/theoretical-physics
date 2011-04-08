@@ -74,7 +74,7 @@ by writing the Laplace operator in spherical coordinates as:
 
 .. math::
 
-     \nabla^2f =  {\partial^2 f\over\partial\rho^2} +{2\over \rho}{\partial^2 f\over\partial\rho^2} -{L^2 f\over \rho^2}
+     \nabla^2f =  {\partial^2 f\over\partial\rho^2} +{2\over \rho}{\partial f\over\partial\rho} -{L^2 f\over \rho^2}
 
 
 .. math::
