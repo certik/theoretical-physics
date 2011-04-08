@@ -638,6 +638,9 @@ Code::
 Radial DFT Problem
 ------------------
 
+Kohn-Sham Equations
+~~~~~~~~~~~~~~~~~~~
+
 For spherically symmetric potentials, we write all eigenfunctions as:
 
 .. math::
@@ -645,7 +648,7 @@ For spherically symmetric potentials, we write all eigenfunctions as:
     \psi_{nlm} = R_{nl} Y_{lm}
 
 
-and we need to solve the following Kohn Sham equations:
+and we need to solve the following Kohn-Sham equations:
 
 .. math::
 
@@ -733,6 +736,14 @@ strictly speaking not physically valid in the DFT formalism, but in practice
 this approach is often used. One can also prescribe fractional occupation
 numbers (in the Dirac case).
 
+Poisson Equation
+~~~~~~~~~~~~~~~~
+
+Poisson equation becomes:
+
+.. math::
+
+    V_H''(r) + {2\over r} V_H'(r) = n(r)
 
 DFT As a Nonlinear Problem
 --------------------------
