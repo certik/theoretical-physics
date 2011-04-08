@@ -667,23 +667,14 @@ down):
     n({\bf r}) = \sum_{nlm}2|\psi_{nlm}|^2
         = \sum_{nlm}R_{nl}^2 2|Y_{lm}|^2
         = \sum_{nl}R_{nl}^2 2\sum_m|Y_{lm}|^2
+        = {1\over 4\pi}\sum_{nl}f_{nl} R_{nl}^2
 
-Assuming all $m$ states are occupied, this can be simplified to:
-
-.. math::
-
-        n({\bf r})
-        = \sum_{nl}R_{nl}^2 2{2l+1\over 4\pi}
-        = {1\over 4\pi}\sum_{nl}2(2l+1)R_{nl}^2
-
-In practice, this is done by introducing an occupation number $f_{nl}$,
-which for the ground DFT state (and all $m$ states occupied) is equal to:
+where we have introduced the occupation numbers $f_{nl}$ by
 
 .. math::
 
-    f_{nl} = 2 (2l+1)
+    f_{nl} = 4\pi\,2\sum_m |Y_{lm}|^2
 
-If not all $m$ states are occupied, then the last shell will have lower number.
 It must hold:
 
 .. math::
@@ -691,6 +682,14 @@ It must hold:
     \sum_{nl} f_{nl} = Z
 
 where $Z$ is the atomic number (number of electrons).
+
+Assuming all $m$ states are occupied, this can be simplified to:
+
+.. math::
+
+    f_{nl} = 4\pi\,2\sum_m |Y_{lm}|^2
+        = 4\pi\,2{2l+1\over 4\pi}
+        = 2(2l+1)
 
 We can also use this machinery to prescribe "chemical occupation numbers", that
 don't necessarily correspond to the DFT ground state. For example for $U$ atom
