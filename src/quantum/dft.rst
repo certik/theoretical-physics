@@ -761,7 +761,7 @@ Poisson equation becomes:
 
 .. math::
 
-    V_H''(r) + {2\over r} V_H'(r) = n(r)
+    V_H''(r) + {2\over r} V_H'(r) = -4\pi n(r)
 
 DFT As a Nonlinear Problem
 --------------------------
