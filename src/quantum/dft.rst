@@ -470,6 +470,34 @@ can always be written in the form
 
 where the $\epsilon_{xc}({\bf r}';n)$ is called the xc energy density.
 
+Total Energy
+------------
+
+We already derived all the necessary things above, so we just summarize it here.
+The total energy is given by:
+
+.. math::
+
+    E[n]=(T+U)[n]+V[n]=T_s[n]+E_H[n]+(T-T_s+U-E_H)[n]+V[n]=
+
+    =T_s[n]+E_H[n]+E_{xc}[n]+V[n]
+
+where
+
+.. math::
+
+    E_H[n] = \half\int V_H({\bf r}) n({\bf r}) \d^3r
+
+    E_{xc}[n]=\int \epsilon_{xc}({\bf r};n) n({\bf r}) \d^3r
+
+    V[n]=\int v({\bf r}) n({\bf r}) \d^3r
+
+All these expressions are exact (no approximation has been made so far).
+
+
+XC Approximations
+-----------------
+
 LDA
 ~~~
 
