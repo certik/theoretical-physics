@@ -876,7 +876,7 @@ where
 
     E_{xc}[n]=\int \epsilon_{xc}(r;n) n(r) \d^3r
 
-    V[n]=\int v(r) n(r) \d^3r = \int \left(-{Z\over r}\right) n(r) \d^3r
+    V[n]=\int v(r) n(r) \d^3r = -\int {Z\over r} n(r) \d^3r
 
 doing the integrals a bit we get:
 
@@ -886,11 +886,12 @@ doing the integrals a bit we get:
             -4\pi\int \left(V_H(r) + V_{xc}(r) -{Z\over r}\right)_{in} n(r)
                 r^2\,\d r
 
-    E_H[n] = \half4\pi\int V_H(r) n(r)r^2\, \d r
+    E_H[n] = 2\pi\int V_H(r) n(r)r^2\, \d r
 
     E_{xc}[n]=4\pi\int \epsilon_{xc}(r;n) n(r)r^2\, \d r
 
     V[n]=-4\pi \int {Z\over r} n(r)r^2\, \d r
+        =-4\pi Z \int n(r)r\, \d r
 
 We can also express everything using the charge density $\rho(r) = -n(r)$:
 
@@ -900,11 +901,12 @@ We can also express everything using the charge density $\rho(r) = -n(r)$:
             +4\pi\int \left(V_H(r) + V_{xc}(r) -{Z\over r}\right)_{in} \rho(r)
                 r^2\,\d r
 
-    E_H[n] = -\half4\pi\int V_H(r) \rho(r)r^2\, \d r
+    E_H[n] = -2\pi\int V_H(r) \rho(r)r^2\, \d r
 
     E_{xc}[n]=-4\pi\int \epsilon_{xc}(r;n) \rho(r)r^2\, \d r
 
     V[n]=4\pi \int {Z\over r} \rho(r)r^2\, \d r
+        =4\pi Z \int \rho(r)r\, \d r
 
 DFT As a Nonlinear Problem
 --------------------------
