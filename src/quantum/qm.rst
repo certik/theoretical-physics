@@ -1190,59 +1190,87 @@ The SI units of the above quantities are:
 
     [\phi] = \rm V={kg\,m^2\over A\,s^3}=M
 
-
-
-.. math::
-
     [A_\mu]={[\phi]\over [c]}=\rm{V\,s\over m} = {kg\, m\over A\,s^2}=M
-
-
-
-.. math::
 
     [c]=\rm {m\over s} = 1
 
-
-
-.. math::
-
     [e]=\rm C = A\, s=1
-
-
-
-.. math::
 
     [\hbar]=\rm J\,s = {m^2\,kg\over s}=1
 
-
-
-.. math::
-
     [\partial_\mu]=\rm {1\over m}=M
-
-
-
-.. math::
 
     [F_{\mu\nu}]=[\partial_\mu A_\nu]=\rm {kg\over A\,s^2}=M^2
 
-
-
-.. math::
-
     [\L]=[F_{\mu\nu}]^2=\rm {kg^2\over A^2\,s^4}=M^4
 
-
-
-.. math::
-
     [\psi]=\rm {kg^{1\over2}\over A\,m\,s}=M^{3\over2}
-
 
 The SI units are useful for checking that the $c$, $e$ and $\hbar$ constants are at correct places in the expression.
 
 .. index::
     pair: tensors; QFT
+
+Atomic Units
+------------
+
+Hartree atomic units are defined using the relations:
+
+.. math::
+
+    \hbar = m = e = 4\pi\epsilon_0 = 1
+
+so for example for the Bohr radius we get:
+
+.. math::
+
+    a_0 = {4\pi\epsilon_0 \hbar^2 \over m e^2} = 1
+
+for fine structure constant ($\alpha=1/137.036...$) we get:
+
+.. math::
+
+    \alpha = {e^2\over 4\pi\epsilon_0 \hbar c} = {1\over c}
+
+from which we calculate the speed of light $c$ in atomic units as:
+
+.. math::
+
+    c = {1\over\alpha}
+
+Energy is measured in Hartrees, one Hartree being
+
+.. math::
+
+    1{\rm\,Ha} = {\hbar^2\over m a_0^2} = 1{\rm\,(a.u.)} = 27.211\rm\,eV
+
+Hamiltonian and the corresponding spectrum of the Hydrogen atom:
+
+.. math::
+
+    H = -{\hbar^2\over 2m} \nabla^2 - {1\over 4\pi\epsilon_0} {e^2\over r}
+
+    E_n = -{\hbar^2\over m a_0^2} {1\over 2n^2}
+
+become in atomic units:
+
+.. math::
+
+    H = -{1\over 2} \nabla^2 - {1\over r}
+
+    E_n = -{1\over 2n^2}
+
+Poisson equation (Gauss's law)
+
+.. math::
+
+    \nabla^2\phi = -{\rho\over\epsilon_0}
+
+becomes:
+
+.. math::
+
+    \nabla^2\phi = -{4\pi\rho}
 
 Tensors in Special Relativity and QFT
 -------------------------------------
