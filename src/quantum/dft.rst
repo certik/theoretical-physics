@@ -4,6 +4,7 @@ Density Functional Theory (DFT)
 Many Body Schrödinger Equation
 ------------------------------
 
+We use (Hartree) atomic units in this whole section about DFT.
 We use the Born-Oppenheimer approximation, which says that the nuclei of the
 treated atoms are seen as fixed. A stationary electronic state (for $N$
 electrons) is then described by a wave function
@@ -52,7 +53,7 @@ Integrating $|\Psi|^2$ over the first $N-1$ electrons is the probability
 density that the $N$-th electron is at the position ${\bf r}_N$. Thus the
 probability density $n({\bf r})$ that any of the N electrons (i.e the first, or
 the second, or the third, \dots, or the $N$-th) is at the position $\bf r$ is
-called the particle (or charge or electron) density and is therefore given by:
+called the particle (or number) density and is therefore given by:
 
 .. math::
   n({\bf r})= \int \Psi^*({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \Psi ({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_N+
@@ -74,9 +75,30 @@ called the particle (or charge or electron) density and is therefore given by:
 
     =N\int \Psi^*({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \Psi ({\bf r},{\bf r}_2,\cdots,{\bf r}_N) \,\d^3 r_2\,\d^3 r_3\cdots\d^3 r_N
 
-Thus $\int_\Omega n({\bf r})\,\d^3r$ gives the number of particles (and also
-the amount of charge) in the region of integration $\Omega$. Obviously $\int
+Thus $\int_\Omega n({\bf r})\,\d^3r$ gives the number of particles
+in the region of integration $\Omega$. Obviously $\int
 n({\bf r})\,\d^3r=N$.
+
+Note that the number density $n({\bf r})$ and potential $V({\bf r})$ in the
+Schroedinger equation is related to the electron charge density $\rho({\bf r})$
+and electrostatic potential energy $\phi({\bf r})$ by:
+
+.. math::
+
+    \rho({\bf r}) = q n({\bf r})
+
+    q\phi({\bf r}) = V({\bf r})
+
+where $q$ is the particle elementary charge,
+which for electrons is $q=-e=-1$ in atomic units.
+The amount of electronic charge in the region $\Omega$ is given by:
+
+.. math::
+
+    Q
+        = \int_\Omega \rho({\bf r})\,\d^3r
+        = q\int_\Omega n({\bf r})\,\d^3r
+        = -\int_\Omega n({\bf r})\,\d^3r
 
 The energy of the system is given by
 
@@ -303,22 +325,61 @@ Solution to this equation gives the density $n_s$.
 
 Now we want to express the energy in :eq:`Emanybody` using $T_s$ and $E_H$
 for convenience, where $E_H$ is the classical electrostatic interaction energy
-of the charge distribution $n({\bf r})$:
+of the charge distribution $\rho({\bf r})$, defined using following relations
+- we start with a Poisson equation in atomic units
 
 .. math::
 
-  \nabla^2 V_H=n({\bf r})
+  \nabla^2 \phi_H({\bf r})=-4\pi \rho({\bf r})
 
-or equivalently
+and substitute $\rho({\bf r}) = q n({\bf r})$,
+$V_H({\bf r}) = q \phi_H({\bf r})$ and we use the fact that $q^2=1$ in atomic
+units:
 
 .. math::
 
-  E_H[n]=\half\int\int {n({\bf r})n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r\d^3r'
+  \nabla^2 V_H({\bf r})=-4\pi q^2 n({\bf r}) = -4\pi n({\bf r})
+
+or equivalently by expressing $V_H$ using the Green function:
 
 .. math::
     :label: V_H
 
-    V_H({\bf r})={\delta E_H\over\delta n({\bf r})}=\half\int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
+    V_H({\bf r})
+        = -{1\over 4\pi} \int {-4\pi n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
+        = \int {n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r'
+
+and finally $E_H$ is related to $V_H$ using:
+
+.. math::
+
+    V_H({\bf r})={\delta E_H\over\delta n({\bf r})}
+
+so we get:
+
+.. math::
+
+    E_H[n]=\half\int\int {n({\bf r})n({\bf r'})\over|{\bf r}-{\bf r'}|} \d^3r\d^3r'
+
+Using the rules for functional differentiation, we can check that:
+
+.. math::
+
+    V_H({\bf r})
+        ={\delta E_H\over\delta n({\bf r})}
+        ={\delta \over\delta n({\bf r})}
+            \half\int\int {n({\bf r'})n({\bf r''})\over|{\bf r'}-{\bf r''}|}
+            \d^3r'\d^3r''
+        =
+
+        =\int {n({\bf r'})\over|{\bf r}-{\bf r'}|}
+            \d^3r'
+
+Using the above relations, we can see that
+
+.. math::
+
+    E_H[n]=\half\int V_H({\bf r}) n({\bf r}) \d^3r
 
 So from :eq:`Efunct` we get
 
@@ -363,7 +424,7 @@ so we arrive at
     \mu={\delta E[n]\over\delta n({\bf r})}= {\delta T_s[n]\over\delta n({\bf r})}+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r})
 
 Solution to this equation gives the density $n$. Comparing :eq:`interact` to
-:eq`noninteract` we see that if we choose
+:eq:`noninteract` we see that if we choose
 
 .. math::
 
