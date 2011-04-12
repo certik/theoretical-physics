@@ -293,14 +293,15 @@ gas):
 
   \hat H_s=\hat T+\hat V_s
 
-Then the many-body ground state wavefunction can be decomposed into single
-particle orbitals
+the Schrödinger then becomes:
 
 .. math::
 
-  \ket{\Psi ({\bf r_1},{\bf r_2},\cdots,{\bf r_N})}= \ket{\psi_1({\bf r})}\ket{\psi_2({\bf r})}\cdots\ket{\psi_N({\bf r})}
+    (-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi_i({\bf r})
 
-and
+    n_s({\bf r})=\sum_i^N|\psi_i({\bf r})|^2
+
+and the total energy is:
 
 .. math::
 
@@ -313,6 +314,39 @@ where
   T_s[n]=\braket{\Psi[n]|\hat T|\Psi[n]}= \sum_i\braket{\psi_i|-\half\nabla^2|\psi_i}
 
   V_s[n]=\braket{\Psi[n]|\hat V|\Psi[n]}=\int v_s({\bf r})n({\bf r})\d^3r
+
+So:
+
+.. math::
+
+    E_s[n] = \sum_i\braket{\psi_i|-\half\nabla^2|\psi_i} +
+        \int v_s({\bf r})n({\bf r})\d^3r
+        =
+
+        = \sum_i\int \psi_i^* \left(-\half\nabla^2\right)\psi_i\,\d^3 r +
+            \int v_s({\bf r})\sum_i\psi_i^* \psi_i\, \d^3r
+        =
+
+        = \sum_i\int \psi_i^* \left(-\half\nabla^2 + v_s({\bf r})\right)
+            \psi_i\,\d^3 r
+        =
+
+        = \sum_i \epsilon_i\int \psi_i^* \psi_i\,\d^3 r =
+
+        = \sum_i \epsilon_i
+
+The total energy is the sum of eigenvalues (energies of the individual
+independent particles) as expected. From the last equation it follows:
+
+.. math::
+
+    T_s[n] = \sum_i\braket{\psi_i|-\half\nabla^2|\psi_i}
+        = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r
+
+In other words, the kinetic energy of the noninteracting particles is equal to
+the sum of eigenvalues minus the potential energy coming from the total
+effective potential $v_s$ used to construct the single particle orbitals
+$\psi_i$.
 
 From :eq:`euler` we get
 
@@ -436,7 +470,8 @@ this auxiliary non-interacting system
 .. math::
     :label: KSeq
 
-    (-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf r})+V_{xc}({\bf r})+v({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi({\bf r})
+    (-\half\nabla^2+v_s({\bf r}))\psi_i({\bf r}) \equiv(-\half\nabla^2+V_H({\bf
+    r})+V_{xc}({\bf r})+v({\bf r}))\psi_i({\bf r}) =\epsilon_i\psi_i({\bf r})
 
 which yield the orbitals $\psi_i$ that reproduce the density $n({\bf r})$ of the original interacting system
 
@@ -485,6 +520,8 @@ The total energy is given by:
 where
 
 .. math::
+
+    T_s[n] = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r
 
     E_H[n] = \half\int V_H({\bf r}) n({\bf r}) \d^3r
 
