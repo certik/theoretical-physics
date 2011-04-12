@@ -13,6 +13,10 @@ http://github.com/certik/theoretical-physics
 Build
 -----
 
+Install prerequisites::
+
+    sudo apt-get install python-sphinx
+
 To build the book, do::
 
     make web
