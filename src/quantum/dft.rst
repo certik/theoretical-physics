@@ -742,7 +742,7 @@ and we need to solve the following Kohn-Sham equations:
 .. math::
 
     -{1\over2}R_{nl}'' - {1\over r}R_{nl}' +
-        \left(V + {l(l+1)R\over2 r^2}\right)R_{nl} = E_{nl} R_{nl}
+        \left(V + {l(l+1)R\over2 r^2}\right)R_{nl} = \epsilon_{nl} R_{nl}
 
 With normalization:
 
@@ -851,6 +851,32 @@ Poisson equation becomes:
 .. math::
 
     V_H''(r) + {2\over r} V_H'(r) = -4\pi n(r)
+
+Total Energy
+~~~~~~~~~~~~
+
+The total energy is given by:
+
+.. math::
+
+    E[n]= T_s[n]+E_H[n]+E_{xc}[n]+V[n]
+
+where
+
+.. math::
+
+    T_s[n] = \sum_{nl} f_{nl}\epsilon_{nl}
+        -\int (V_H(r) + V_{xc}(r) + v(r))_{in} n(r) \d^3 r
+        =
+
+        = \sum_{nl} f_{nl}\epsilon_{nl}
+            -\int \left(V_H(r) + V_{xc}(r) -{Z\over r}\right)_{in} n(r) \d^3 r
+
+    E_H[n] = \half\int V_H(r) n(r) \d^3r
+
+    E_{xc}[n]=\int \epsilon_{xc}(r;n) n(r) \d^3r
+
+    V[n]=\int v(r) n(r) \d^3r = \int \left(-{Z\over r}\right) n(r) \d^3r
 
 DFT As a Nonlinear Problem
 --------------------------
