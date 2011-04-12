@@ -924,7 +924,7 @@ hold (e.g. are self-consistent):
 
     V_{xc} = f(n)
 
-    \nabla^2 V_H = n
+    \nabla^2 V_H = -4\pi n
 
 This is a standard nonlinear problem, except that the Jacobian is dense, as
 shown below.
@@ -936,19 +936,19 @@ Let's write everything in terms of $\phi_m(x)$ explicitly:
 
 .. math::
 
-    n(x) = %n(y^{(1)}, \dots, y^{(4)}) = \sum_{m=1}^4 \phi_m^2(x)
+    n(x) = \sum_{m=1}^4 \phi_m^2(x)
 
     V_{xc}(x) = f(n(x)) = f\left( \sum_{m=1}^4\phi_m^2(x) \right)
 
-    V_H(x) = \half \int_\Omega {n(x')\over|x' - x|}\d x'=
-    \half \int_\Omega {
+    V_H(x) = \int_\Omega {n(x')\over|x' - x|}\d x'=
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
 
     V(x) = -{Z\over r} + V_H(x) + V_{xc}(x)=
 
     =-{Z\over r}+
-    \half \int_\Omega {
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
     +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
@@ -960,7 +960,7 @@ equation:
 
     \left(-\nabla^2
     -{Z\over r}+
-    \half \int_\Omega {
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
     +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
@@ -975,7 +975,7 @@ The correspondig discrete problem has the form
 
     \int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
     -{Z\over r}+
-    \half \int_\Omega {
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
     +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
@@ -1007,7 +1007,7 @@ where ${\bf F} = (F_1, F_2, \dots, F_N)^T$ with
     F_i({\bf Y}^{(n)}) =
     \int_\Omega \nabla\phi_n(x)\cdot\nabla v_i(x)+\left[
     -{Z\over r}+
-    \half \int_\Omega {
+    \int_\Omega {
     \sum_{m=1}^4 \phi_m^2(x')
     \over|x' - x|}\d x'
     +f\left( \sum_{m=1}^4\phi_m^2(x) \right)
