@@ -58,6 +58,23 @@ either left ($f(a)$) or right ($f(a+h)$) hand side of the interval $h$:
         = h \left(1-\half\nabla_h - {1\over 12}\nabla_h^2-{1\over24}
             \nabla_h^3+\cdots\right) f(a+h)
 
+Code::
+
+    >>> from sympy import var, simplify, integrate
+    >>> var("nabla t h")
+    (nabla, t, h)
+    >>> s = integrate((1-nabla)**(-t/h), (t, 0, h))
+    >>> simplify(s)
+    h*nabla/(-log(1 - nabla) + nabla*log(1 - nabla))
+    >>> s.series(nabla, 0, 5)
+    h + h*nabla/2 + 5*h*nabla**2/12 + 3*h*nabla**3/8 + 251*h*nabla**4/720 + O(nabla**5)
+    >>> s2 = s*(1-nabla)
+    >>> simplify(s2)
+    -h*nabla/log(1 - nabla)
+    >>> s2.series(nabla, 0, 5)
+    h - h*nabla/2 - h*nabla**2/12 - h*nabla**3/24 - 19*h*nabla**4/720 + O(nabla**5)
+
+
 Keeping terms only to third-order, we obtain:
 
 .. math::
