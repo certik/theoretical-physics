@@ -10,5 +10,6 @@ Mathematics
     trig.rst
     other.rst
     feynman-parameters.rst
+    ode.rst
     la.rst
     differential-geometry.rst
