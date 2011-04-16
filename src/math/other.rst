@@ -1013,3 +1013,60 @@ for all $x'$ that are needed in the integral, so that is not efficient, but it
 should work. One will then be able to play with Green functions and be able to
 calculate them numerically for any boundary condition (which is not possible
 analytically).
+
+
+
+Binomial Coefficients
+---------------------
+
+For $n$ and $k$ integers, the binomial coefficients are defined by:
+
+.. math::
+
+    \binom{n}{k} = {n!\over k! (n-k)!} =
+        {n (n-1) \cdots (n-k+1)\over k!}
+
+For $r$ real, one just uses the second formula as a definition:
+
+.. math::
+
+    \binom{r}{k} = {r (r-1) \cdots (r-k+1)\over k!}
+
+Example:
+
+.. math::
+
+    \binom{-n}{k}
+        = {(-n) (-n-1) \cdots (-n-k+1)\over k!}
+        = (-1)^{k} {n (n+1) \cdots (n+k-1)\over k!}
+        = (-1)^{k}\binom{n+k-1}{k}
+
+The binomial formula is for $n$ integer:
+
+.. math::
+
+    (x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}
+
+and for $r$ real and $|x| < |y|$ this can be generalized to:
+
+.. math::
+
+    (x+y)^r = \sum_{k=0}^\infty \binom{r}{k} x^k y^{r-k}
+
+Example: (for $|x| < 1$)
+
+.. math::
+
+    (1 + x)^{-n} = \sum_{k=0}^\infty \binom{-n}{k} x^k
+        = \sum_{k=0}^\infty (-1)^k\binom{n+k-1}{k} x^k
+        = \sum_{k=0}^\infty \binom{n+k-1}{k} (-x)^k
+
+so:
+
+.. math::
+
+    (1 - x)^{-n} = \sum_{k=0}^\infty \binom{n+k-1}{k} x^k
+
+    (1 - x)^{-1} = \sum_{k=0}^\infty \binom{1+k-1}{k} x^k
+        = \sum_{k=0}^\infty \binom{k}{k} x^k
+        = \sum_{k=0}^\infty x^k
