@@ -128,3 +128,59 @@ Code::
     -59*f1 - 9*f3 + 37*f2 + 55*f0
     >>> 24*(f0 - nabla1/2 - nabla2/12 - nabla3/24)
     f3 - 5*f2 + 9*f0 + 19*f1
+
+Integrating ODE
+---------------
+
+Set of linear ODEs can be written in the form:
+
+.. math::
+    :label: ode_eq
+
+    {\d y\over\d r} = G y
+
+For example for the Schrödinger we have
+
+.. math::
+
+    y = \begin{pmatrix}
+        P \\
+        Q
+        \end{pmatrix}
+
+    G = \begin{pmatrix}
+        0 & 1 \\
+        -2(E-V) - {l(l+1)\over r^2} & 0 \\
+        \end{pmatrix}
+
+Now we need to choose a grid $r = r(t)$, where $t$ is some uniform grid. For
+example $r = r_0 (e^t-1)$:
+
+.. math::
+
+    r_i = r_0 (e^{t_i} - 1)
+
+    t_i = (i-1)h
+
+where $i = 1, 2, 3, \dots, N$. We also need the derivative, for the exampe
+above we get:
+
+.. math::
+
+    {\d r\over\d t} = r_0 e^t
+
+Now we substitute this into :eq:`ode_eq`:
+
+.. math::
+
+    {\d y\over\d t} = {\d r\over\d t} G y
+
+We can integrate this system from $a$ to $a+h$ on a uniform grid $t_i$:
+
+.. math::
+
+    y(a+h) = y(a) + \int_a^{a+h} {\d r\over\d t} G y\,\d t
+        = y(a) + \int_a^{a+h} f(t)\,\d t
+
+where $f(t) = {\d r\over\d t} G y$ and we use some method to approximate the
+integral, see the previous section.
