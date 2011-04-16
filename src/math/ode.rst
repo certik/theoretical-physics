@@ -111,7 +111,20 @@ Similarly:
     \int_a^{a+h} f(t) \,\d t
         = - {h\nabla_h\over\log(1-\nabla_h)}f(a+h)
         \approx h \left(1-\half\nabla_h - {1\over 12}\nabla_h^2-{1\over24}
-            \nabla_h^3\right) f(a)
+            \nabla_h^3\right) f(a+h)
         =
 
         = {h\over24}\left(9f(a+h) +19f(a) -5f(a-h) +f(a-2h)\right)
+
+Code::
+
+    >>> from sympy import var
+    >>> var("f0 f1 f2 f3")
+    (f0, f1, f2, f3)
+    >>> nabla1 = f0 - f1
+    >>> nabla2 = f0 - 2*f1 + f2
+    >>> nabla3 = f0 - 3*f1 + 3*f2 - f3
+    >>> 24*(f0 + nabla1/2 + 5*nabla2/12 + 3*nabla3/8)
+    -59*f1 - 9*f3 + 37*f2 + 55*f0
+    >>> 24*(f0 - nabla1/2 - nabla2/12 - nabla3/24)
+    f3 - 5*f2 + 9*f0 + 19*f1
