@@ -326,16 +326,38 @@ This must hold for all $r$, so we get the following set of equations for $k=0,
 
     4\pi n_k+V_{k+2} (k+2)(k+3) = 0
 
+from which we express $V_k$ for all $k \ge 2$.
+We already know the values for $k=1$ and
+$k=0$ from earlier, so overall we get:
+
+.. math::
+
+    V_0 = 4\pi\int_0^\infty r n(r) \d r
+
+    V_1 = 0
+
+    V_{k+2} = -{4\pi n_k\over (k+2)(k+3)}
+
 in particular:
 
 .. math::
 
-    4\pi n_0+6V_2 = 0
+    V_2 = - {4\pi n_0\over 6} = -{2\pi\over 3} n_0
 
-    4\pi n_1+12V_3 = 0
+    V_3 = - {4\pi n_1\over 12} = -{\pi\over 3} n_1
 
-    4\pi n_2+20V_4 = 0
+    V_4 = - {4\pi n_2\over 20} = -{\pi\over 5} n_2
 
-    4\pi n_3+30V_5 = 0
+    V_5 = - {4\pi n_3\over 30} = -{2\pi\over 15} n_3
 
     \cdots
+
+So we get the following series expansion for $V$ and $V'$:
+
+.. math::
+
+    V = V_0 -{2\pi\over 3} n_0 r^2 -{\pi\over 3} n_1 r^3-{\pi\over 5} n_2 r^4
+        -{2\pi\over 15} n_3 r^5 - \cdots
+
+    V' = -{4\pi\over 3} n_0 r -\pi n_1 r^2-{4\pi\over 5} n_2 r^3
+        -{2\pi\over 3} n_3 r^4 - \cdots
