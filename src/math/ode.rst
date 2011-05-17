@@ -191,6 +191,7 @@ Radial Poisson Equation
 Radial Poisson equation is:
 
 .. math::
+    :label: poisson-V
 
     V''(r) + {2\over r} V'(r) = -4\pi n(r)
 
@@ -208,6 +209,11 @@ So the Poisson equation can also be written as:
     :label: poisson-rV
 
     (rV)'' = -4\pi r\, n
+
+Now we determine the values of $V(0)$, $V'(0)$ and the behavior of
+$V(\infty)$ and $V'(\infty)$. The equation determines $V$ up to an
+arbitrary constant, so we set $V(\infty) = 0$ and now the potential $V$ is
+determined uniquely.
 
 The 3D integral of the (number) density is equal to the total (numeric) charge, which is equal to $Z$ (number of electrons). We can then use the Poisson equation to rewrite the integral in terms of $V$:
 
@@ -250,9 +256,86 @@ Integrating :eq:`poisson-rV` directly, we get:
 
     [V + rV']_0^\infty = -4\pi\int_0^\infty r n(r) \d r
 
-Assuming $V'$ goes to zero in infinity faster than $r$, and requiring $V$ to
+We already know that $V'$ behaves like $-{Z\over r^2}$ in infinity,
+so $rV'$ vanishes. Requiring $V$ itself to
 vanish in infinity, the left hand side simplifies to $-V(0)$ and we get:
 
 .. math::
 
     V(0) = 4\pi\int_0^\infty r n(r) \d r
+
+Last thing to determine is $V'(0)$. To do that, we expand the charge density
+and potential (and it's derivatives) into a series around the origin:
+
+.. math::
+
+    n(r) = n_0 + n_1 r + n_2 r^2 + \cdots = \sum_{k=0}^\infty n_k r^k
+
+    V(r) = V_0 + V_1 r + V_2 r^2 + \cdots = \sum_{k=0}^\infty V_k r^k
+
+    V'(r) = \sum_{k=1}^\infty V_k k r^{k-1}
+
+    V''(r) = \sum_{k=2}^\infty V_k k(k-1) r^{k-2}
+
+And substitute into the equation :eq:`poisson-V`:
+
+.. math::
+
+    \sum_{k=2}^\infty V_k k(k-1) r^{k-2} +
+        {2\over r}\sum_{k=1}^\infty V_k k r^{k-1} =
+        -4\pi \sum_{k=0}^\infty n_k r^k
+
+    \sum_{k=2}^\infty V_k k(k-1) r^{k-2} + {2\over r} V_1 +
+        {2\over r}\sum_{k=2}^\infty V_k k r^{k-1} =
+        -4\pi \sum_{k=0}^\infty n_k r^k
+
+    \sum_{k=2}^\infty V_k k(k-1) r^{k-2} + {2\over r} V_1 +
+        \sum_{k=2}^\infty 2V_k k r^{k-2} =
+        -4\pi \sum_{k=0}^\infty n_k r^k
+
+    {2\over r} V_1 +
+        \sum_{k=2}^\infty V_k k\left((k-1) +2\right)r^{k-2}
+        =
+        -4\pi \sum_{k=0}^\infty n_k r^k
+
+    {2\over r} V_1 +
+        \sum_{k=2}^\infty V_k k(k+1)r^{k-2}
+        =
+        -4\pi \sum_{k=0}^\infty n_k r^k
+
+    {2\over r} V_1 +
+        \sum_{l=0}^\infty V_{l+2} (l+2)(l+3)r^l
+        =
+        -4\pi \sum_{k=0}^\infty n_k r^k
+
+    {2\over r} V_1
+        =
+        -\sum_{k=0}^\infty \left(4\pi n_k+V_{k+2} (k+2)(k+3)\right) r^k
+
+We now multiply the whole equation by $r$ and then set $r=0$. We get
+$V_1 = 0$, so $V'(0) = V_1 = 0$. We put it back into the equation to get:
+
+.. math::
+
+    \sum_{k=0}^\infty \left(4\pi n_k+V_{k+2} (k+2)(k+3)\right) r^k = 0
+
+This must hold for all $r$, so we get the following set of equations for $k=0,
+1, \cdots$:
+
+.. math::
+
+    4\pi n_k+V_{k+2} (k+2)(k+3) = 0
+
+in particular:
+
+.. math::
+
+    4\pi n_0+6V_2 = 0
+
+    4\pi n_1+12V_3 = 0
+
+    4\pi n_2+20V_4 = 0
+
+    4\pi n_3+30V_5 = 0
+
+    \cdots
