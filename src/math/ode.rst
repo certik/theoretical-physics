@@ -205,6 +205,7 @@ The left hand side can be written as:
 So the Poisson equation can also be written as:
 
 .. math::
+    :label: poisson-rV
 
     (rV)'' = -4\pi r\, n
 
@@ -240,3 +241,18 @@ integration constant), we get for $r\to\infty$:
 .. math::
 
     V(r) = {Z\over r}
+
+Integrating :eq:`poisson-rV` directly, we get:
+
+.. math::
+
+    [(rV)']_0^\infty = -4\pi\int_0^\infty r n(r) \d r
+
+    [V + rV']_0^\infty = -4\pi\int_0^\infty r n(r) \d r
+
+Assuming $V'$ goes to zero in infinity faster than $r$, and requiring $V$ to
+vanish in infinity, the left hand side simplifies to $-V(0)$ and we get:
+
+.. math::
+
+    V(0) = 4\pi\int_0^\infty r n(r) \d r
