@@ -184,3 +184,59 @@ We can integrate this system from $a$ to $a+h$ on a uniform grid $t_i$:
 
 where $f(t) = {\d r\over\d t} G y$ and we use some method to approximate the
 integral, see the previous section.
+
+Radial Poisson Equation
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Radial Poisson equation is:
+
+.. math::
+
+    V''(r) + {2\over r} V'(r) = -4\pi n(r)
+
+The left hand side can be written as:
+
+.. math::
+
+    V'' + {2\over r} V'
+        = {1\over r} \left(r V'' + 2V'\right)
+        = {1\over r} \left(r V\right)''
+
+So the Poisson equation can also be written as:
+
+.. math::
+
+    (rV)'' = -4\pi r\, n
+
+The 3D integral of the (number) density is equal to the total (numeric) charge, which is equal to $Z$ (number of electrons). We can then use the Poisson equation to rewrite the integral in terms of $V$:
+
+.. math::
+
+    Z = \int n({\bf x}) \d^3 x
+        = \int n(r) r^2\d\Omega\d r
+        = \int_0^\infty 4\pi n(r) r^2\d r =
+
+        = -\int_0^\infty (rV)'' r\d r =
+
+        = \int_0^\infty (rV)'\d r - [(rV)'r]_0^\infty =
+
+        = [rV]_0^\infty - [(rV)'r]_0^\infty =
+
+        = [rV - (rV)'r]_0^\infty =
+
+        = -[V'r^2]_0^\infty =
+
+        = -\lim_{r\to\infty} V'(r)r^2
+
+So in the limit $r\to\infty$, we get the equation:
+
+.. math::
+
+    V'(r) = -{Z\over r^2}
+
+by integrating (and requiring that $V$ vanished in infinity to get rid of the
+integration constant), we get for $r\to\infty$:
+
+.. math::
+
+    V(r) = {Z\over r}
