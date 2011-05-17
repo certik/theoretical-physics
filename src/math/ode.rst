@@ -361,3 +361,23 @@ So we get the following series expansion for $V$ and $V'$:
 
     V' = -{4\pi\over 3} n_0 r -\pi n_1 r^2-{4\pi\over 5} n_2 r^3
         -{2\pi\over 3} n_3 r^4 - \cdots
+
+Analytic Testing Example
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Good analytic testing solution, that satisfies the asymptotic relations is:
+
+.. math::
+
+    V(r) = Z \,{\mbox{erf}(\alpha r) \over r}
+
+    V'(r) = -Z\, {\mbox{erf}(\alpha r) \over r^2} +
+                {2 Z \alpha\over r\sqrt\pi } e^{-\alpha^2 r^2}
+
+    r V = Z \,\mbox{erf}(\alpha r)
+
+    (rV)' = {2 Z\alpha\over \sqrt\pi } e^{-\alpha^2 r^2}
+
+    (rV)'' = -{4\alpha^3 r Z\over \sqrt\pi } e^{-\alpha^2 r^2}
+
+    n = {Z\alpha^3 \over \pi^{3\over2} } e^{-\alpha^2 r^2}
