@@ -1,6 +1,6 @@
 #! /bin/sh
 
-set +e
+set -e
 
 git checkout gh-pages
 rm -rf dev
