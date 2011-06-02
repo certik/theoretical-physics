@@ -186,7 +186,7 @@ where $f(t) = {\d r\over\d t} G y$ and we use some method to approximate the
 integral, see the previous section.
 
 Radial Poisson Equation
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 Radial Poisson equation is:
 
@@ -363,7 +363,7 @@ So we get the following series expansion for $V$ and $V'$:
         -{2\pi\over 3} n_3 r^4 - \cdots
 
 Analytic Testing Example
-^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Good analytic testing solution, that satisfies the asymptotic relations is:
 
