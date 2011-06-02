@@ -529,6 +529,14 @@ where
 
     V[n]=\int v({\bf r}) n({\bf r}) \d^3r
 
+This is the variational (fast converging) form of the total energy. Slowly
+converging form is:
+
+.. math::
+
+    E[n] = \sum_i \epsilon_i - E_H[n] + E_{xc}[n]
+            -\int V_{xc}({\bf r};n) n({\bf r}) \d^3r
+
 All these expressions are exact (no approximation has been made so far).
 
 
