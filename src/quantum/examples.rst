@@ -560,12 +560,12 @@ the full potential
 
 and then fit it to the above asymptotic solution for V=0. We require that the
 value and the slope must be continuous. In particular, we take the logarithmic
-derivative ($(\log u)'={u'\over u}$) at the point $r=a$:
+derivative ($(\log |u|)'={u'\over u}$) at the point $r=a$:
 
 .. math::
 
-    \gamma_l \equiv \left.{\d\over\d r} \log u\right|_{r=a}
-    = \left.{\d\over\d r} \log R_l(kr)\right|_{r=a}
+    \gamma_l \equiv \left.{\d\over\d r} \log |u|\right|_{r=a}
+    = \left.{\d\over\d r} \log |R_l(kr)|\right|_{r=a}
     = {\left.{\d R_l(kr)\over\d r} \right|_{r=a}\over R_l(kr)}
 
 expressing $R_{El}(kr)$ and $R_{El}'(kr)$ using $\delta_l$:
