@@ -544,8 +544,8 @@ from the derivation of the expression for $T_s[n]$. Then we use the calculated
 charge density to express $E_H[n]$, $E_{xc}[n]$ and $V[n]$.
 
 If one is not careful about the potential associated with the eigenvalues,
-i.e., confusing $V_{in}$ with $V_{out}$, one gets a slow converging formula for
-total energy. By expanding $v_s$ using :eq:`V_in`:
+i.e., confusing $V_{in}$ with $V_{out}$, one gets a slowly converging formula
+for the total energy. By expanding $v_s$ using :eq:`V_in`:
 
 .. math::
 
