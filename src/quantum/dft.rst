@@ -461,8 +461,9 @@ Solution to this equation gives the density $n$. Comparing :eq:`interact` to
 :eq:`noninteract` we see that if we choose
 
 .. math::
+    :label: V_in
 
-  v_s\equiv V_H+V_{xc}+v
+    v_s\equiv V_H+V_{xc}+v
 
 then $n_s({\bf r})\equiv n({\bf r})$. So we solve the Kohn-Sham equations of
 this auxiliary non-interacting system
@@ -536,12 +537,38 @@ where
 
     V[n]=\int v({\bf r}) n({\bf r}) \d^3r
 
-This is the variational (fast converging) form of the total energy. Slowly
-converging form is:
+This is the variational (fast converging) form of the total energy.
+Another expression for the total energy, which is equivalent to the above if we
+are in self-consistency, but converges much slower with the SCF iterations, can
+be obtained by expanding $v_s$ using :eq:`V_in`:
 
 .. math::
 
-    E[n] = \sum_i \epsilon_i - E_H[n] + E_{xc}[n]
+    \int v_s n({\bf r})\d^3 r
+        = \int (V_H + V_{xc} + v) n({\bf r})\d^3 r
+        = 2 \half\int V_H n({\bf r})\d^3 r
+        + \int V_{xc} n({\bf r})\d^3 r
+        + \int v n({\bf r})\d^3 r =
+
+        = 2 E_H[n] + \int V_{xc} n({\bf r})\d^3 r + V[n]
+
+So $T_s$ is equal to:
+
+.. math::
+
+    T_s[n] = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r =
+
+        = \sum_i \epsilon_i - 2 E_H[n] - \int V_{xc} n({\bf r})\d^3 r - V[n]
+
+And then the slowly converging form of total energy is:
+
+.. math::
+
+    E[n] = T_s[n]+E_H[n]+E_{xc}[n]+V[n]
+        = \sum_i \epsilon_i - 2 E_H[n] - \int V_{xc} n({\bf r})\d^3 r - V[n]
+            +E_H[n]+E_{xc}[n]+V[n] =
+
+        = \sum_i \epsilon_i - E_H[n] + E_{xc}[n]
             -\int V_{xc}({\bf r};n) n({\bf r}) \d^3r
 
 All these expressions are exact (no approximation has been made so far).
