@@ -537,10 +537,15 @@ where
 
     V[n]=\int v({\bf r}) n({\bf r}) \d^3r
 
-This is the variational (fast converging) form of the total energy.
-Another expression for the total energy, which is equivalent to the above if we
-are in self-consistency, but converges much slower with the SCF iterations, can
-be obtained by expanding $v_s$ using :eq:`V_in`:
+This is the correct, quadratically convergent expression for the total energy.
+We use the whole input potential $V_{in}\equiv v_s$ and its associated
+eigenvalues $\epsilon_i$ to calculate the kinetic energy $T_s[n]$, this follows
+from the derivation of the expression for $T_s[n]$. Then we use the calculated
+charge density to express $E_H[n]$, $E_{xc}[n]$ and $V[n]$.
+
+If one is not careful about the potential associated with the eigenvalues,
+i.e., confusing $V_{in}$ with $V_{out}$, one gets a slow converging formula for
+total energy. By expanding $v_s$ using :eq:`V_in`:
 
 .. math::
 
@@ -571,16 +576,23 @@ And then the slowly converging form of total energy is:
         = \sum_i \epsilon_i - E_H[n] + E_{xc}[n]
             -\int V_{xc}({\bf r};n) n({\bf r}) \d^3r
 
-All these expressions are exact (no approximation has been made so far).
-
+The reason it is slowly converging is because the new formula for kinetic
+energy is mixing $V_{in}$ with $V_{out}$, so it is not as precise (see above)
+and converges much slower with SCF iterations. Once self-consistency has been
+achieved (i.e. $V_{in}=V_{out}$), the two expressions for total energy are
+equivalent.
 
 XC Approximations
 -----------------
 
+All the expressions above are exact (no approximation has been made so far).
+Unfortunately, no one knows $\epsilon_{xc}({\bf r}';n)$ exactly (yet). As such,
+various approximations for it exist.
+
 LDA
 ~~~
 
-Unfortunately, no one knows $\epsilon_{xc}({\bf r}';n)$ exactly (yet). The most
+The most
 simple approximation is the *local density approximation* (LDA), for which the
 xc energy density $\epsilon_{xc}$ at $\bf r$ is taken as that of a homogeneous
 electron gas (the nuclei are replaced by a uniform positively charged
