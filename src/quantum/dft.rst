@@ -503,7 +503,14 @@ can always be written in the form
 
   E_{xc}[n]=\int n({\bf r}')\epsilon_{xc}({\bf r}';n)\d^3r'
 
-where the $\epsilon_{xc}({\bf r}';n)$ is called the xc energy density.
+where the $\epsilon_{xc}({\bf r}';n)$ is called the XC energy density.
+The XC potential is defined as:
+
+.. math::
+
+    V_{xc}({\bf r};n) = {\delta E_{xc}[n]\over\delta n({\bf r})}
+        = \epsilon_{xc}({\bf r};n)+ \int n({\bf r}')
+            {\delta \epsilon_{xc}({\bf r}';n)\over\delta n({\bf r})}\d^3r'
 
 Total Energy
 ------------
@@ -558,7 +565,7 @@ background, density $n=\rm const$) with the same local density:
 The xc potential $V_{xc}$ defined by :eq:`Vxcpot` is then
 
 .. math::
-  V_{xc}({\bf r};n)={\delta E_{xc}[n]\over\delta n({\bf r})}= \epsilon_{xc}({\bf r}';n)+ \int n({\bf r}'){\delta \epsilon_{xc}({\bf r}';n)\over\delta n({\bf r})}\d^3r'
+  V_{xc}({\bf r};n)={\delta E_{xc}[n]\over\delta n({\bf r})}= \epsilon_{xc}({\bf r};n)+ \int n({\bf r}'){\delta \epsilon_{xc}({\bf r}';n)\over\delta n({\bf r})}\d^3r'
 
 which in the LDA becomes
 
