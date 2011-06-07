@@ -507,13 +507,14 @@ so we get for large $r$:
 
     = \sqrt{A_l^2 + B_l^2} {1\over kr}\sin\left(kr-{l\pi\over 2}
         +\atan2(B_l, A_l)\right)
-    = C_l {1\over kr}\sin\left(kr-{l\pi\over 2}-\delta_l\right)
+    = C_l {1\over kr}\sin\left(kr-{l\pi\over 2}+\delta_l\right)
 
 where
 
 .. math::
+    :label: deltaCeq
 
-    \delta_l = -\atan2(B_l, A_l) = \atan2(-B_l, A_l)
+    \delta_l = \atan2(B_l, A_l)
 
     C_l = \sqrt{A_l^2 + B_l^2}
 
@@ -521,16 +522,18 @@ The $C_l$ and $\delta_l$ are physical variables, so we express $A_l$ and $B_l$
 using them:
 
 .. math::
+    :label: ABeq
 
     A_l = C_l \cos\delta_l
 
-    B_l = -C_l \sin\delta_l
+    B_l = C_l \sin\delta_l
 
 and write the exact solution $R_{El}$ as:
 
 .. math::
+    :label: Rnlas
 
-    R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))
+    R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) + \sin\delta_l\, n_l(kr))
 
 
 We can then compare this to $\phi \approx e^{ikz} + f(\theta, \phi)
@@ -559,47 +562,77 @@ the full potential
         R_{nl}(r)=ER_{nl}(r)
 
 and then fit it to the above asymptotic solution for V=0. We require that the
-value and the slope must be continuous. In particular, we take the logarithmic
+value and the slope must be continuous, so we use :eq:`Rnlas` and $R_{nl}$ must
+satisfy the following two equations (for the value and the derivative)
+at the point $r=a$:
+
+.. math::
+    :label: R_conditions
+
+    R_{El}(a)
+        = A j_l(ka) + B n_l(ka))
+        = C_l (\cos\delta_l\, j_l(ka) + \sin\delta_l\, n_l(ka))
+
+    R_{El}'(a)
+        = k A j_l'(ka) + k B n_l'(ka))
+        = C_l k (\cos\delta_l\, j_l'(ka) + \sin\delta_l\, n_l'(ka))
+
+This is a set of two equations for two unknowns $C_l$ and $\delta_l$.
+The solution is:
+
+.. math::
+    :label: ABsol
+
+    D = k(j_l(ka) n_l'(ka) - j_l'(ka) n_l(ka))
+
+    A = {R_{El}(a) k n_l'(ka) - R_{El}'(a) n_l(ka) \over D}
+
+    B = -{R_{El}(a) k j_l'(ka) - R_{El}'(a) j_l(ka) \over D}
+
+And one can calculate $C_l$ and $\delta_l$ from :eq:`deltaCeq`.
+Code::
+
+    >>> from sympy import var, solve
+    >>> var("R Rp j jp n np A B k")
+    (R, Rp, j, jp, n, np, A, B, k)
+    >>> eq1 = R - A*j - B*n
+    >>> eq2 = Rp - k*A*jp - k*B*np
+    >>> solve([eq1, eq2], [A, B])
+    {A: (R*k*np - Rp*n)/(k*(j*np - jp*n)), B: (-R*jp*k + Rp*j)/(k*(j*np - jp*n))}
+
+Another approach to calculate $\delta_l$ is to
+take the logarithmic
 derivative ($(\log |u|)'={u'\over u}$) at the point $r=a$:
 
 .. math::
 
-    \gamma_l \equiv \left.{\d\over\d r} \log |u|\right|_{r=a}
-    = \left.{\d\over\d r} \log |R_l(kr)|\right|_{r=a}
-    = {\left.{\d R_l(kr)\over\d r} \right|_{r=a}\over R_l(kr)}
-
-expressing $R_{El}(kr)$ and $R_{El}'(kr)$ using $\delta_l$:
-
-.. math::
-
-    R_{El}(r) = C_l (\cos\delta_l\, j_l(kr) - \sin\delta_l\, n_l(kr))
-
-    R_{El}'(r) = C_l k (\cos\delta_l\, j_l'(kr) - \sin\delta_l\, n_l'(kr))
-
-calculating $\gamma_l$:
-
-.. math::
-
-    \gamma_l = {R_{El}'(a)\over R_{El}(a)}
-        = {C_l k (\cos\delta_l\, j_l'(ka) - \sin\delta_l\, n_l'(ka)) \over
-                C_l (\cos\delta_l\, j_l(ka) - \sin\delta_l\, n_l(ka)) }
+    \gamma_l \equiv \left.{\d\over\d r} \log |R_l(r)|\right|_{r=a}
+    = {R_{El}'(a)\over R_{El}(a)}
+        = {C_l k (\cos\delta_l\, j_l'(ka) + \sin\delta_l\, n_l'(ka)) \over
+                C_l (\cos\delta_l\, j_l(ka) + \sin\delta_l\, n_l(ka)) }
         =
 
-        = k {j_l'(ka) - \tan\delta_l\, n_l'(ka) \over
-                j_l(ka) - \tan\delta_l\, n_l(ka) }
+.. math::
+    :label: gamma_xx
 
-and solving for $\delta$ we get:
+    = k {j_l'(ka) + \tan\delta_l\, n_l'(ka) \over
+            j_l(ka) + \tan\delta_l\, n_l(ka) }
+
+and solving for $\delta_l$ we get:
 
 .. math::
 
     \tan\delta_l
-        = {k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l n_l(ka)}
-        = {-k j_{l+1}(ka) +kl{j_l(ka)\over ka} - \gamma_l j_l(ka)
+        = -{k j_l'(ka) - \gamma_l j_l(ka)\over k n_l'(ka)-\gamma_l n_l(ka)}
+        = -{-k j_{l+1}(ka) +kl{j_l(ka)\over ka} - \gamma_l j_l(ka)
             \over -k n_{l+1}(ka)+kl{n_l(ka)\over ka} - \gamma_l n_l(ka)}
         =
 
-        = {ka j_{l+1}(ka) -l j_l(ka) + a j_l(ka) \gamma_l
-            \over ka n_{l+1}(ka) -l n_l(ka) + a n_l(ka) \gamma_l}
+.. math::
+    :label: delta_l
+
+    = -{ka j_{l+1}(ka) -l j_l(ka) + a j_l(ka) \gamma_l
+        \over ka n_{l+1}(ka) -l n_l(ka) + a n_l(ka) \gamma_l}
 
 where we used the following relations:
 
@@ -608,6 +641,9 @@ where we used the following relations:
     j_l'(z) = -j_{l+1}(z) + l{j_l(z)\over z}
 
     n_l'(z) = -n_{l+1}(z) + l{n_l(z)\over z}
+
+The disadvantage of :eq:`delta_l` is that we only know $\tan\delta_l$, while in
+:eq:`ABsol` we know $\delta_l$ directly using the $\atan2$ function.
 
 Now we can use these $\delta_l$ in the formula for the total cross section. We
 can define a reduced phase-shift $\eta_l$ by
