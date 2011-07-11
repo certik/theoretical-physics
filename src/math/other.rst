@@ -1070,3 +1070,28 @@ so:
     (1 - x)^{-1} = \sum_{k=0}^\infty \binom{1+k-1}{k} x^k
         = \sum_{k=0}^\infty \binom{k}{k} x^k
         = \sum_{k=0}^\infty x^k
+
+Wigner D Function
+-----------------
+
+The Wigner D-function gives the matrix elements of the rotation operator $R$ in
+the jm-representation. For the Euler angles $\alpha$, $\beta$, $\gamma$, the
+D-function is defined as:
+
+.. math::
+
+    \braket{j,m| R(\alpha, \beta, \gamma) |j',m'} =
+        \delta_{jj'} D(j, m, m', \alpha, \beta, \gamma)
+
+Where the rotation operator $R(\alpha, \beta, \gamma)$ is as defined using the
+$z$-$y$-$z$ convention.  (The $j$, $m$ and $m'$ parameters must be integer or
+half integer numbers.)
+
+The Wigner D-function can always be written using the Wigner small-d function
+as:
+
+.. math::
+
+    D(j, m, m', \alpha, \beta, \gamma)
+        = e^{-i m \alpha} d(j, m, m', \beta) e^{-i m' \gamma}
+
