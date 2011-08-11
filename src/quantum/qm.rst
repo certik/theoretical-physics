@@ -101,6 +101,170 @@ Now we make the substitution $\psi=e^{-imc^2t}\varphi$, which states, that we se
     j^i=c\bar\psi\gamma^i\psi=c\psi^\dagger\alpha^i\psi=c\varphi^\dagger\alpha^i\varphi
 
 
+Derivation of the Pauli equation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We start from the Dirac equation:
+
+.. math::
+
+    H\psi = W\psi
+
+where:
+
+.. math::
+
+    H=c{\boldsymbol\alpha}\cdot({\bf p}-e{\bf A})+\beta mc^2+e\phi\,.
+
+    W = E + mc^2
+
+$W$ is the relativistic energy, $E$ is the nonrelativistic energy,
+$e\phi=V$ is the potential. The matrices
+${\boldsymbol\alpha}$ and $\beta$ are given by:
+
+.. math::
+
+    \alpha^i = \gamma^0\gamma^i
+
+    \beta = \gamma^0
+
+so written explicitly:
+
+.. math::
+
+    \alpha = \begin{pmatrix}
+        0 & {\boldsymbol\sigma} \\
+        {\boldsymbol\sigma} & 0 \\
+        \end{pmatrix}
+
+    \beta = \begin{pmatrix}
+        \one & 0 \\
+        0 & -\one \\
+        \end{pmatrix}
+
+And the Dirac equation is:
+
+.. math::
+
+    \begin{pmatrix}
+        V+mc^2 & c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+        c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) & V-mc^2 \\
+        \end{pmatrix}
+    \begin{pmatrix}
+        \psi^L \\
+        \psi^S \\
+    \end{pmatrix}
+    =
+    W
+    \begin{pmatrix}
+        \psi^L \\
+        \psi^S \\
+    \end{pmatrix}
+
+After introducing $E$ we get:
+
+.. math::
+
+    \begin{pmatrix}
+        V & c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+        c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) & V-2mc^2 \\
+        \end{pmatrix}
+    \begin{pmatrix}
+        \psi^L \\
+        \psi^S \\
+    \end{pmatrix}
+    =
+    E
+    \begin{pmatrix}
+        \psi^L \\
+        \psi^S \\
+    \end{pmatrix}
+
+We put everything on the left hand side:
+
+.. math::
+
+    \begin{pmatrix}
+        V -E & c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+        c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) & V-E-2mc^2 \\
+        \end{pmatrix}
+    \begin{pmatrix}
+        \psi^L \\
+        \psi^S \\
+    \end{pmatrix}
+    = 0
+
+We put $c$ next to $\psi^S$:
+
+.. math::
+
+    \begin{pmatrix}
+        V -E & {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+        c{\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) & {V-E\over c}-2mc \\
+        \end{pmatrix}
+    \begin{pmatrix}
+        \psi^L \\
+        c\psi^S \\
+    \end{pmatrix}
+    = 0
+
+And we divide the second equation by $c$:
+
+.. math::
+
+    \begin{pmatrix}
+        V -E & {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \\
+        {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) & {V-E\over c^2}-2m \\
+        \end{pmatrix}
+    \begin{pmatrix}
+        \psi^L \\
+        c\psi^S \\
+    \end{pmatrix}
+    = 0
+
+Now we express $c\psi^L$ from the second equation:
+
+.. math::
+
+    c\psi^L ={ {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \psi^L \over
+        2m - {V-E\over c^2}}
+
+And substitute into the first equation:
+
+.. math::
+
+    \left(
+    V - E +{\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
+        2m - {V-E\over c^2}}
+    \right) \psi^L = 0
+
+So we get the following equation (so far this is an exact equation for the
+first two components of the Dirac equation, no approximation has been made):
+
+.. math::
+
+    \left(
+    {\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
+        2m - {V-E\over c^2}} + V
+    \right) \psi^L = E \psi^L
+
+By doing the nonrelativistic approximation ${V-E\over c^2} \ll 2m$ we obtain
+the Pauli equation:
+
+.. math::
+
+    \left(
+    {\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
+        2m} + V
+    \right) \psi^L = E \psi^L
+
+We can see, that the quantity
+
+.. math::
+
+    M = m - {V-E\over 2c^2}
+
+can be interpreted as relativistic mass.
 
 
 Nonrelativistic Limit in the Lagrangian
