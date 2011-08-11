@@ -762,8 +762,8 @@ in 3D this can also be written as:
 
     {\bf x} \cdot \nabla f({\bf x}) = k f({\bf x})
 
-Example
-~~~~~~~
+Example 1
+~~~~~~~~~
 
 The function $f(x, y, z) = {xy\over z}$ is homogeneous of degree 1, because:
 
@@ -792,7 +792,30 @@ or
     z\left(-{xy\over z^2}\right)
     ={xy\over z}
 
-Which obviously is true.
+Which is true.
+
+Example 2
+~~~~~~~~~
+
+The function $V(r) = -{Z \over r}$ is homogeneous of degree -1, because:
+
+.. math::
+
+    V(\lambda r) = -{Z\over \lambda r} = \lambda^{-1} V(r)
+
+and the Euler equation is:
+
+.. math::
+
+    r{\d V\over\d r} = -V
+
+or
+
+.. math::
+
+    r{Z\over r^2} = -\left(-{Z\over r}\right)
+
+Which is true.
 
 
 Green Functions
