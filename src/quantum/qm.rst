@@ -266,6 +266,22 @@ We can see, that the quantity
 
 can be interpreted as relativistic mass.
 
+Using the relations between the Pauli matrices, we can further simplify:
+
+.. math::
+
+    \left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2
+        = \left({\bf p}-e{\bf A}\right)^2-{e\hbar}{\boldsymbol\sigma}
+            \cdot{\nabla\times{\bf A}}
+
+We introduce the magnetic field ${\bf B} = {\nabla\times{\bf A}}$ and get:
+
+.. math::
+
+    \left(
+    {\left({\bf p}-e{\bf A}\right)^2 \over 2m} + V
+    -{e\hbar\over 2m}{\boldsymbol\sigma}\cdot{\bf B}
+    \right) \psi^L = E \psi^L
 
 Nonrelativistic Limit in the Lagrangian
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
