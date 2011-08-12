@@ -222,11 +222,11 @@ And we divide the second equation by $c$:
     \end{pmatrix}
     = 0
 
-Now we express $c\psi^L$ from the second equation:
+Now we express $c\psi^S$ from the second equation:
 
 .. math::
 
-    c\psi^L ={ {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \psi^L \over
+    c\psi^S ={ {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A}) \psi^L \over
         2m - {V-E\over c^2}}
 
 And substitute into the first equation:
