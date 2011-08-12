@@ -271,10 +271,49 @@ Using the relations between the Pauli matrices, we can further simplify:
 .. math::
 
     \left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2
-        = \left({\bf p}-e{\bf A}\right)^2-{e\hbar}{\boldsymbol\sigma}
-            \cdot{\nabla\times{\bf A}}
+        = \left({\bf p}-e{\bf A}\right)^2+i{\boldsymbol\sigma}
+            \cdot{({\bf p}-e{\bf A})\times({\bf p}-e{\bf A})} =
 
-We introduce the magnetic field ${\bf B} = {\nabla\times{\bf A}}$ and get:
+        = \left({\bf p}-e{\bf A}\right)^2+i{\boldsymbol\sigma}
+            \cdot\left({\bf p}\times{\bf p}-e{\bf A}\times{\bf p}
+                -e{\bf p}\times{\bf A}+e^2{\bf A}\times{\bf A}\right) =
+
+        = \left({\bf p}-e{\bf A}\right)^2-ie{\boldsymbol\sigma}
+            \cdot\left({\bf A}\times{\bf p} +{\bf p}\times{\bf A}\right) =
+
+        = \left({\bf p}-e{\bf A}\right)^2-ie{\boldsymbol\sigma}
+            \cdot\left({\bf A}\times{\bf p}-{\bf A}\times{\bf p}
+            -i\hbar(\nabla\times{\bf A})\right) =
+
+        = \left({\bf p}-e{\bf A}\right)^2-{e\hbar}{\boldsymbol\sigma}
+            \cdot(\nabla\times{\bf A}) =
+
+        = \left({\bf p}-e{\bf A}\right)^2-{e\hbar}{\boldsymbol\sigma}
+            \cdot{\bf B}
+
+At the end, we have introduced the magnetic field ${\bf B} = {\nabla\times{\bf A}}$.
+In the above, one has to be careful, because ${\bf p}$ and ${\bf A}$ don't
+commute and also the operator ${\bf p}$ acts on everything on the right. We
+used the formula
+${\bf p}\times{\bf A}=-{\bf A}\times{\bf p}-i\hbar(\nabla\times{\bf A})$,
+that can be proven by:
+
+.. math::
+
+    ({\bf p}\times{\bf A} \psi)_i =
+        \epsilon_{ijk}p_j A_k \psi =
+
+        = -i\hbar\epsilon_{ijk}\partial_j (A_k \psi) =
+
+        = -i\hbar\epsilon_{ijk}((\partial_j A_k)\psi + A_k\partial_j \psi) =
+
+        = -i\hbar\epsilon_{ijk}((\partial_j A_k)\psi - A_j\partial_k \psi) =
+
+        = \epsilon_{ijk}(-i\hbar(\partial_j A_k)\psi - A_j p_k \psi) =
+
+        = -i\hbar((\nabla\times{\bf A})\psi)_i - ({\bf A}\times{\bf p} \psi)_i
+
+Putting this into the Pauli equation, we get:
 
 .. math::
 
