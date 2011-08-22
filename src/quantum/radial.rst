@@ -846,3 +846,48 @@ then:
 
     \hbar c \braket{i|-{\d\over\d\rho}+{\kappa\over\rho}|j} =
         \hbar c\int -B_i B_j' + B_i {\kappa\over\rho} B_j \,\d\rho
+
+Other Forms of Dirac Equations
+------------------------------
+
+The radial Dirac equations are:
+
+.. math::
+
+    \hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
+    \ket{P, Q} = \left(\begin{array}{c} P(\rho) \\ Q(\rho)\end{array}\right)
+
+    \hat H = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+After substitution $S = f(r)P$ and $T = f(r)Q$, we get:
+
+.. math::
+
+    \hat H \ket{P, Q} = \epsilon \ket{P, Q}
+
+    f\hat H {1\over f} \ket{S, T} = \epsilon {1\over f}\ket{S, T}
+
+where:
+
+.. math::
+
+    f\hat H {1\over f}= f\left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right){1\over f}
+        =
+
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-f{\d\over\d\rho}{1\over f}+{\kappa\over\rho}\right) \\
+        \hbar c \left(f{\d\over\d\rho}{1\over f}+{\kappa\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+and after using:
+
+.. math::
+
+    f{\d\over\d\rho}{1\over f} = {\d\over\d\rho} - {f'\over f}
