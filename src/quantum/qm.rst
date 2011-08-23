@@ -101,7 +101,7 @@ Now we make the substitution $\psi=e^{-imc^2t}\varphi$, which states, that we se
     j^i=c\bar\psi\gamma^i\psi=c\psi^\dagger\alpha^i\psi=c\varphi^\dagger\alpha^i\varphi
 
 
-Derivation of the Pauli equation
+Derivation of the Pauli Equation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We start from the Dirac equation:
