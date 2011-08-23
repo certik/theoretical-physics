@@ -930,3 +930,83 @@ and we get the radial Dirac equation for $g$ and $f$:
         V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa-1\over\rho}\right) \\
         \hbar c \left({\d\over\d\rho}+{\kappa+1\over\rho}\right) & V(\rho) - 2mc^2 \\
         \end{array}\right)
+
+Example II
+~~~~~~~~~~
+
+For $f(r) = \rho$ we get
+
+.. math::
+
+    {f'\over f} = {1\over \rho}
+
+and
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa+1\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa-1\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example III
+~~~~~~~~~~~
+
+For $f(r) = \rho^n$ we get
+
+.. math::
+
+    {f'\over f} = {n\over \rho}
+
+and
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa+n\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa-n\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example I is just a special case for $n=-1$, Example II for $n=1$.
+
+Example IV
+~~~~~~~~~~
+
+For $f(r) = \tanh \rho$ we get
+
+.. math::
+
+    {f'\over f} = {1\over \sinh\rho\cosh\rho}
+
+and
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{1\over \sinh\rho\cosh\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{1\over \sinh\rho\cosh\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example V
+~~~~~~~~~
+
+For $f(r) = \tanh^n \rho$ we get
+
+.. math::
+
+    {f'\over f} = {n\over \sinh\rho\cosh\rho}
+
+and
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{n\over \sinh\rho\cosh\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{n\over \sinh\rho\cosh\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example IV is just a special case for $n=1$.
