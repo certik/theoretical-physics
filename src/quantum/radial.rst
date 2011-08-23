@@ -993,11 +993,11 @@ and
 Example V
 ~~~~~~~~~
 
-For $f(r) = \tanh^n \rho$ we get
+For $f(r) = \tanh^n k\rho$ we get
 
 .. math::
 
-    {f'\over f} = {n\over \sinh\rho\cosh\rho}
+    {f'\over f} = {nk\over \sinh k\rho\cosh k\rho}
 
 and
 
@@ -1005,8 +1005,10 @@ and
 
     f\hat H {1\over f}
     = \left(\begin{array}{cc}
-        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{n\over \sinh\rho\cosh\rho}\right) \\
-        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{n\over \sinh\rho\cosh\rho}\right) & V(\rho) - 2mc^2 \\
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{nk\over
+        \sinh k\rho\cosh k\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{nk\over \sinh
+        k\rho\cosh k\rho}\right) & V(\rho) - 2mc^2 \\
         \end{array}\right)
 
-Example IV is just a special case for $n=1$.
+Example IV is just a special case for $n=1$, $k=1$.
