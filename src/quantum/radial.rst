@@ -869,7 +869,9 @@ After substitution $S = f(r)P$ and $T = f(r)Q$, we get:
 
     \hat H \ket{P, Q} = \epsilon \ket{P, Q}
 
-    f\hat H {1\over f} \ket{S, T} = \epsilon {1\over f}\ket{S, T}
+    \hat H {1\over f} \ket{S, T} = \epsilon {1\over f}\ket{S, T}
+
+    f\hat H {1\over f} \ket{S, T} = \epsilon \ket{S, T}
 
 where:
 
@@ -891,3 +893,40 @@ and after using:
 .. math::
 
     f{\d\over\d\rho}{1\over f} = {\d\over\d\rho} - {f'\over f}
+
+we get:
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa\over\rho}+{f'\over f}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa\over\rho}-{f'\over f}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
+
+Example I
+~~~~~~~~~
+
+In order to obtain equations for $g$ and $f$, related to $P$ and $Q$ by:
+
+.. math::
+
+    P = \rho g
+
+    Q = \rho f
+
+so $f(r) = {1\over \rho}$ and
+
+.. math::
+
+    {f'\over f} = -{1\over \rho}
+
+and we get the radial Dirac equation for $g$ and $f$:
+
+.. math::
+
+    f\hat H {1\over f}
+    = \left(\begin{array}{cc}
+        V(\rho) & \hbar c \left(-{\d\over\d\rho}+{\kappa-1\over\rho}\right) \\
+        \hbar c \left({\d\over\d\rho}+{\kappa+1\over\rho}\right) & V(\rho) - 2mc^2 \\
+        \end{array}\right)
