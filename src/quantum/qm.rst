@@ -234,8 +234,10 @@ And substitute into the first equation:
 .. math::
 
     \left(
-    V - E +{\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
-        2m - {V-E\over c^2}}
+    V - E +
+    {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})
+        {1 \over 2m - {V-E\over c^2}}
+        {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})
     \right) \psi^L = 0
 
 So we get the following equation (so far this is an exact equation for the
@@ -244,10 +246,14 @@ first two components of the Dirac equation, no approximation has been made):
 .. math::
 
     \left(
-    {\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
-        2m - {V-E\over c^2}} + V
+    {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})
+        {1 \over 2m - {V-E\over c^2}}
+        {\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})
+    + V
     \right) \psi^L = E \psi^L
 
+Note that the first operator ${\bf p}$ (on the left hand side) acts among other
+things on the $V$ in the denominator.
 By doing the nonrelativistic approximation ${V-E\over c^2} \ll 2m$ we obtain
 the Pauli equation:
 
