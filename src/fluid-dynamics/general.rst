@@ -260,7 +260,7 @@ $nm = \rho\gamma - {E\over c^2}$ into
         v^i
         \right) = 0
 
-For $\mu=i$ we get:
+The equation :eq:`conv1` for $\mu=i$ gives:
 
 .. math::
 
@@ -287,7 +287,8 @@ and
 :eq:`energy-relat` are the correct relativistic equations for the perfect fluid
 (no approximations were done). We can take either :eq:`continuity-relat3` or
 :eq:`energy-relat2` as the equation of continuity (both give the same
-nonrelativistic equation of continuity).  Their Newtonian limit is:
+nonrelativistic equation of continuity).  Their Newtonian limit is obtained by
+$c\to\infty$ (which implies $\gamma\to1$):
 
 .. math::
 
@@ -312,7 +313,7 @@ those are the Euler equations, also sometimes written as:
     {\partial E\over\partial t}
         + \nabla\cdot\left({\bf v}\left(E + p \right)\right) = 0
 
-The middle equation can be further simplified by expanding the parentheses
+The momentum equation can be further simplified by expanding the parentheses
 and using the continuity equation:
 
 .. math::
@@ -330,6 +331,55 @@ and using the continuity equation:
     \rho\left({\partial {\bf v}\over\partial t} + {\bf v}\nabla \cdot
         {\bf v}\right)
         + \nabla p = 0
+
+Alternative Derivation
+^^^^^^^^^^^^^^^^^^^^^^
+
+We can also take the non-relativistic limit in the stress energy tensor:
+
+.. math::
+
+    T^{00} \to \rho c^2
+
+    T^{0i} = T^{i0} \to {1\over c} \rho c^2 v^i
+
+    T^{ij} \to \rho v^iv^j + p \delta^{ij}
+
+and plug it into the equation :eq:`conv1`. For $\mu=0$ we get the equation of
+continuity:
+
+.. math::
+
+    \partial_\nu T^{0\nu} = 0
+
+    \partial_0 T^{00} + \partial_i T^{0i} = 0
+
+    \partial_t\left({1\over c} \rho c^2\right)
+        + \partial_i\left({1\over c}\rho c^2 v^i \right) = 0
+
+    \partial_t \rho + \partial_i\left(\rho v^i \right) = 0
+
+and for $\mu=i$ we get the momentum equation:
+
+.. math::
+
+    \partial_\nu T^{i\nu} = 0
+
+    \partial_0 T^{i0} + \partial_j T^{ij} = 0
+
+    \partial_t \left({1\over c^2}\rho c^2 v^i\right)
+        + \partial_j \left(
+        \rho v^iv^j + p \delta^{ij}
+        \right) = 0
+
+    \partial_t \left(\rho v^i\right)
+        + \partial_j \left(
+        \rho v^iv^j + p \delta^{ij}
+        \right) = 0
+
+However, in order to derive the equation for energy $E$, one needs to take into
+account the full relativistic stress energy tensor, see the previous section
+for details.
 
 Energy Equation
 ~~~~~~~~~~~~~~~
@@ -440,8 +490,60 @@ so:
 Navier-Stokes Equations
 -----------------------
 
-When we write the relativistic conservation law in a nonrelativistic limit (for
-a general fluid), we get the Cauchy momentum equation:
+We start with the following nonrelativistic components of the stress energy
+tensor:
+
+.. math::
+
+    T^{00} \to \rho c^2
+
+    T^{0i} = T^{i0} \to {1\over c} \rho c^2 v^i
+
+    T^{ij} \to \rho v^iv^j - \sigma^{ij}
+
+where $\sigma^{ij} = -p \delta^{ij} + \mathds{T}$ (more below)
+and plug it into the equation :eq:`conv1`. For $\mu=0$ we get the equation of
+continuity as for perfect fluids:
+
+.. math::
+
+    \partial_\nu T^{0\nu} = 0
+
+    \partial_0 T^{00} + \partial_i T^{0i} = 0
+
+    \partial_t\left({1\over c} \rho c^2\right)
+        + \partial_i\left({1\over c}\rho c^2 v^i \right) = 0
+
+    \partial_t \rho + \partial_i\left(\rho v^i \right) = 0
+
+and for $\mu=i$ we get the momentum equation:
+
+.. math::
+
+    \partial_\nu T^{i\nu} = f^i
+
+    \partial_0 T^{i0} + \partial_j T^{ij} = f^i
+
+    \partial_t \left({1\over c^2}\rho c^2 v^i\right)
+        + \partial_j \left(
+        \rho v^iv^j - \sigma^{ij}
+        \right) = f^i
+
+    \partial_t \left(\rho v^i\right)
+        + \partial_j \left(
+        \rho v^iv^j - \sigma^{ij}
+        \right) = f^i
+
+By using the continuity equation in the momentum equation (as in perfect
+fluids), we get:
+
+.. math::
+
+    \rho\left(\partial_t v^i + v^i \partial_j v^j\right)
+        - \partial_j\sigma^{ij}
+        = f^i
+
+This is sometimes called the Cauchy momentum equation:
 
 .. math::
 
