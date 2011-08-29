@@ -312,6 +312,25 @@ those are the Euler equations, also sometimes written as:
     {\partial E\over\partial t}
         + \nabla\cdot\left({\bf v}\left(E + p \right)\right) = 0
 
+The middle equation can be further simplified by expanding the parentheses
+and using the continuity equation:
+
+.. math::
+
+    {\partial (\rho{\bf v})\over\partial t} + \nabla \cdot
+        (\rho {\bf v}{\bf v}^T) + \nabla p = 0
+
+    \underbrace{\left(
+    {\partial \rho\over \partial t} + \nabla\cdot(\rho{\bf v})\right)}_0
+    {\bf v} +
+    \rho\left({\partial {\bf v}\over\partial t} + {\bf v}\nabla \cdot
+        {\bf v}\right)
+        + \nabla p = 0
+
+    \rho\left({\partial {\bf v}\over\partial t} + {\bf v}\nabla \cdot
+        {\bf v}\right)
+        + \nabla p = 0
+
 Energy Equation
 ~~~~~~~~~~~~~~~
 
