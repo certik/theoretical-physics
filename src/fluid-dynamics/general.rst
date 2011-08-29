@@ -543,7 +543,7 @@ immediately get:
 
 .. math::
 
-    {v^2\over 2} + gz + {p\over\rho}={\rm const.}
+    gz + {p\over\rho}={\rm const.}
 
 The last equation then holds everywhere in the (nonmoving) fluid (as opposed to
 the previous equation that only holds along the streamline).
