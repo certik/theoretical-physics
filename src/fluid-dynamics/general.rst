@@ -564,7 +564,7 @@ and we get the Navier-Stokes equations:
 Those are the most general equations. If we assume some more things about the
 fluid, they can be further simplified.
 
-For Newtonean fluids, we want $\mathds{T}$ to be isotropic, linear in strain
+For Newtonian fluids, we want $\mathds{T}$ to be isotropic, linear in strain
 rates and it's divergence zero for fluid at rest. It follows that the only way
 to write the tensor under these conditions is:
 
