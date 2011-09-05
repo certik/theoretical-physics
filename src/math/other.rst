@@ -526,7 +526,7 @@ The relation :eq:`lcomplete` is a special case of an addition theorem for spheri
 .. math::
     :label: lsum
 
-       \sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {4\pi\over 2l+1}P_l(\cos\gamma)
+       \sum_{m=-l}^lY_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= {2l+1\over 4\pi}P_l(\cos\gamma)
 
 where $\gamma$ is the angle between the unit vectors given by ${\bf\hat r}=(\theta,\phi)$ and ${\bf\hat r'}=(\theta',\phi')$:
 
