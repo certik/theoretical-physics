@@ -151,3 +151,13 @@ $f({\bf x})$ can be calculated by:
             \d^3 y
 
     \nabla^2 W_{fj}({\bf x}) = -4\pi f({\bf x})\psi_j^*({\bf x})
+
+Spherical Symmetry
+------------------
+
+In the central field approximation, we average the integral for $V_H$ over the
+angles:
+
+.. math::
+
+    V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
