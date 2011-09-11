@@ -9,6 +9,7 @@ Mathematics
     transforms.rst
     trig.rst
     other.rst
+    spherical-harmonics.rst
     feynman-parameters.rst
     wigner.rst
     ode.rst
