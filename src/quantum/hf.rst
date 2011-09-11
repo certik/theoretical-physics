@@ -152,16 +152,6 @@ $f({\bf x})$ can be calculated by:
 
     \nabla^2 W_{fj}({\bf x}) = -4\pi f({\bf x})\psi_j^*({\bf x})
 
-Spherical Symmetry
-------------------
-
-In the central field approximation, we average the integral for $V_H$ over the
-angles:
-
-.. math::
-
-    V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
-
 Exchange Integral
 -----------------
 
@@ -295,3 +285,204 @@ And we get:
         P_{n'l'}(r')
         P_{nl}(r')
         \d r \d r'
+
+Nonlocal Exchange Potential
+---------------------------
+
+Similarly, we calculate:
+
+.. math::
+
+    \sum_{j=1}^Z\int {\psi_i({\bf x'})\psi_j^*({\bf x'})\over|{\bf x}-{\bf x'}|}
+            \d^3 x'\,\,\psi_j({\bf x}) =
+
+    = \sum_{n'l'm'}\sum_{k,q}\int
+        {P_{nl}(r')\over r'} Y_{lm}(\Omega')
+        {P_{n'l'}(r')\over r'} Y_{l'm'}^*(\Omega')
+        {P_{n'l'}(r)\over r} Y_{l'm'}(\Omega)
+
+        {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+        r'^2 \d r' \d \Omega' =
+
+    = \sum_{n'l'm'}\sum_{k,q}
+            Y_{l'm'}(\Omega)
+            Y_{kq}(\Omega)
+            {P_{n'l'}(r)\over r}
+            {4\pi\over 2k+1}
+        \int Y_{lm}(\Omega') Y_{l'm'}^*(\Omega') Y_{kq}^*(\Omega')
+            \d \Omega'
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'  =
+
+    = \sum_{n'l'm'}\sum_{k}
+            Y_{l'm'}(\Omega)
+            Y_{k, m-m'}(\Omega)
+            {P_{n'l'}(r)\over r}
+            \sqrt{4\pi\over 2k+1}
+        c^k(l, m, l', m')
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'
+
+Now we simplify this using the identities:
+
+.. math::
+
+    \sum_{m'}
+        Y_{l'm'}(\Omega)
+        Y_{l'm'}^*(\Omega')
+    = {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
+
+    \sum_{q}
+        Y_{kq}(\Omega)
+        Y_{kq}^*(\Omega')
+    = {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
+
+    P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
+        = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
+            \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
+            P_\lambda({\bf x}\cdot{\bf x}') =
+
+    = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
+        \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
+        {4\pi \over 2\lambda+1}
+        \sum_{\mu=-\lambda}^\lambda
+        Y_{\lambda\mu}^*(\Omega')
+        Y_{\lambda\mu}(\Omega)
+
+and we get:
+
+.. math::
+
+    \sum_{n'l'm'}\sum_{k,q}
+            Y_{l'm'}(\Omega)
+            Y_{kq}(\Omega)
+            {P_{n'l'}(r)\over r}
+            {4\pi\over 2k+1}
+        \int Y_{lm}(\Omega') Y_{l'm'}^*(\Omega') Y_{kq}^*(\Omega')
+            \d \Omega'
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'  =
+
+    = \sum_{n'l'}\sum_{k}
+            {P_{n'l'}(r)\over r}
+            {4\pi\over 2k+1}
+        \int Y_{lm}(\Omega')
+            {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
+            {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
+            \d \Omega'
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'  =
+
+    = \sum_{n'l'}\sum_{k}
+        \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
+        \sum_{\mu=-\lambda}^\lambda
+            {P_{n'l'}(r)\over r}
+            {4\pi\over 2k+1}
+        \int Y_{lm}(\Omega')
+            {2l'+1\over 4\pi}
+            {2k+1\over 4\pi}
+            \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
+
+            {4\pi \over 2\lambda+1}
+            Y_{\lambda\mu}^*(\Omega')
+            Y_{\lambda\mu}(\Omega)
+            \d \Omega'
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'  =
+
+    = \sum_{n'l'}\sum_{k}
+        \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
+        \sum_{\mu=-\lambda}^\lambda
+            {P_{n'l'}(r)\over r}
+            {4\pi\over 2k+1}
+            {2l'+1\over 4\pi}
+            {2k+1\over 4\pi}
+            \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
+
+            {4\pi \over 2\lambda+1}
+            Y_{\lambda\mu}(\Omega)
+            \delta_{l\lambda}
+            \delta_{m\mu}
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'  =
+
+    = \sum_{n'l'}\sum_{k}
+            {P_{n'l'}(r)\over r}
+            {4\pi\over 2k+1}
+            {2l'+1\over 4\pi}
+            {2k+1\over 4\pi}
+            \sqrt{2l+1\over 2l'+1} c^k(l', 0, l, 0)
+            {4\pi \over 2l+1}
+            Y_{lm}(\Omega)
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'  =
+
+    = \sum_{n'l'}\sum_{k}
+            {P_{n'l'}(r)\over r}
+            \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+            Y_{lm}(\Omega)
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'  =
+
+    =
+    {Y_{lm}(\Omega)\over r}
+    \sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
+            \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'\,
+            P_{n'l'}(r)
+
+Spherical Symmetry
+------------------
+
+In the central field approximation, we average the integral for $V_H$ over the
+angles:
+
+.. math::
+
+    V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
+
+Using the above integrals, the HF equations become:
+
+.. math::
+
+    -\half P_{nl}(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
+
+            -\sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
+                    \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+                \int
+                {r_{<}^k\over r_{>}^{k+1}}
+                P_{nl}(r')
+                P_{n'l'}(r')
+                \d r'\,
+                    P_{n'l'}(r)
+        = \epsilon_{nl} P_{nl}(r)
