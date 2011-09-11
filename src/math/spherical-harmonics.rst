@@ -256,7 +256,7 @@ and
         (2l+1) \delta_{k0}
 
 Wigner 3j Symbols
------------------
+=================
 
 Relation between the Wigner $3j$ symbols and Clebsch-Gordan coefficients:
 
