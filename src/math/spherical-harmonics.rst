@@ -29,6 +29,12 @@ they also obey the completeness relation
 
        \sum_{l=0}^\infty {2l+1\over2}P_l(x')P_l(x)=\delta(x-x')
 
+and orthogonality relation:
+
+.. math::
+
+    \int_{-1}^1 P_k(x) P_l(x) \d x = {2\delta_{kl} \over 2k+1}
+
 The spherical harmonics are ortonormal:
 
 .. math::
@@ -69,6 +75,19 @@ Relations between complex conjugates is:
     Y_{l m}^*(\Omega) = (-1)^m Y_{l,-m}(\Omega)
 
     (-1)^m Y_{l,-m}^*(\Omega) = Y_{lm}(\Omega)
+
+Examples
+~~~~~~~~
+
+.. math::
+
+    \int_{-1}^1 P_k(x) \d x
+        = \int_{-1}^1 P_k(x) P_0(x) \d x
+        = 2\delta_{k0}
+
+    \int Y_{k0}(\Omega) \d \Omega
+        = \int Y_{k0}(\Omega) \sqrt{4\pi} Y_{00}(\Omega) \d \Omega
+        = \sqrt{4\pi} \delta_{k0}
 
 
 Gaunt Coefficients
@@ -171,21 +190,130 @@ above result, for example:
         \begin{pmatrix} l_1 & l_2 & l_3 \\ 0 & 0 & 0 \end{pmatrix}
         \begin{pmatrix} l_1 & l_2 & l_3 \\ m_1 & m_2 & m_3 \end{pmatrix}
 
-This is the most symmetric relation. Another relation is:
+This is the most symmetric relation. It is useful to incorporate
+the selection rule $m_1 + m_2 + m_3 = 0$ of the $3j$ symbols into the formula
+and we get:
 
 .. math::
 
     c^k(l, m, l', m') =
         \sqrt{4\pi \over 4k+1}
-    \int Y_{lm}^*(\Omega) Y_{l'm'}(\Omega) Y_{k, m-m'}(\Omega) \d\Omega =
+    \int Y_{lm}^*(\Omega) Y_{k, m-m'}(\Omega) Y_{l'm'}(\Omega) \d\Omega =
 
     = (-1)^{-m}
         \sqrt{4\pi \over 4k+1}
-        \sqrt{(2l+1)(2l'+1)(2k+1)\over 4\pi}
-        \begin{pmatrix} l & l' & k \\ 0 & 0 & 0 \end{pmatrix}
-        \begin{pmatrix} l & l' & k \\ -m & m' & m-m' \end{pmatrix} =
+        \sqrt{(2l+1)(2k+1)(2l'+1)\over 4\pi}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix} =
 
     = (-1)^{-m}
         \sqrt{(2l+1)(2l'+1)}
-        \begin{pmatrix} l & l' & k \\ 0 & 0 & 0 \end{pmatrix}
-        \begin{pmatrix} l & l' & k \\ -m & m' & m-m' \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix}
+
+From the other selection rules of the $3j$ symbols it follows, that
+the $c^k(l, m, l', m')$ coefficients are nonzero only when:
+
+.. math::
+
+    |l-l'| \le k \le l + l'
+
+    l+l'+k = \mbox{even integer}
+
+Examples
+~~~~~~~~
+
+.. math::
+
+    c^0(l, m, l', m')
+        =\sqrt{4\pi}
+    \int Y_{lm}^*(\Omega) Y_{00}(\Omega) Y_{l'm'}(\Omega) \d\Omega
+        =\delta_{l l'}\delta_{m m'}
+
+and
+
+.. math::
+
+    \sum_{m=-l}^l c^k(l, m, l, m)
+        = \sum_m
+        \sqrt{4\pi \over 4k+1}
+        \int Y_{lm}^*(\Omega) Y_{k0}(\Omega) Y_{lm}(\Omega) \d\Omega =
+
+        =
+        \sqrt{4\pi \over 4k+1}
+        \int \sum_m |Y_{lm}(\Omega)|^2 Y_{k0}(\Omega) \d\Omega =
+
+        =
+        \sqrt{4\pi \over 4k+1}
+        {2l+1\over 4\pi} \int Y_{k0}(\Omega) \d\Omega =
+
+        =
+        \sqrt{4\pi \over 4k+1}
+        {2l+1\over 4\pi}
+        \sqrt{4\pi} \delta_{k0} =
+
+        =
+        (2l+1) \delta_{k0}
+
+Wigner 3j Symbols
+-----------------
+
+Relation between the Wigner $3j$ symbols and Clebsch-Gordan coefficients:
+
+.. math::
+
+    \begin{pmatrix} j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3 \end{pmatrix}
+        = {(-1)^{j_1-j_2-m_3}\over \sqrt{2j_3+1}}
+            (j_1 m_1 j_2 m_2 | j_3 -m_3)
+
+    (j_1 m_1 j_2 m_2 | j_3 m_3)
+        = (-1)^{j_1-j_2+m_3}\sqrt{2j_3+1}
+        \begin{pmatrix} j_1 & j_2 & j_3 \\ m_1 & m_2 & -m_3 \end{pmatrix}
+
+They are nonzero only when:
+
+.. math::
+
+    m_1 + m_2 + m_3 = 0
+
+    j_1+j_2+j_3 = \mbox{integer (or even integer if $m_1=m_2=m_3=0$)}
+
+    |m_i| \le j_i
+
+    |j_1-j_2| \le j_3 \le j_1+j_2
+
+They have lots of symmetries. The $3j$ symbol is invariant for an even
+permutation of columns:
+
+.. math::
+
+    \begin{pmatrix} j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3 \end{pmatrix} =
+
+        = \begin{pmatrix} j_2 & j_3 & j_1 \\ m_2 & m_3 & m_1 \end{pmatrix} =
+
+        = \begin{pmatrix} j_3 & j_1 & j_2 \\ m_3 & m_1 & m_2 \end{pmatrix}
+
+For an odd permutation of columns it changes sign if $j_1+j_2+j+3$ is an odd
+integer:
+
+.. math::
+
+    \begin{pmatrix} j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3 \end{pmatrix} =
+
+        = (-1)^{j_1+j_2+j_3}
+        \begin{pmatrix} j_2 & j_1 & j_3 \\ m_2 & m_1 & m_3 \end{pmatrix} =
+
+        = (-1)^{j_1+j_2+j_3}
+        \begin{pmatrix} j_1 & j_3 & j_2 \\ m_1 & m_3 & m_2 \end{pmatrix} =
+
+        = (-1)^{j_1+j_2+j_3}
+        \begin{pmatrix} j_3 & j_2 & j_1 \\ m_3 & m_2 & m_1 \end{pmatrix}
+
+and the same if you change the sign of the second row:
+
+.. math::
+
+    \begin{pmatrix} j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3 \end{pmatrix} =
+
+        = (-1)^{j_1+j_2+j_3}
+        \begin{pmatrix} j_1 & j_2 & j_3 \\ -m_1 & -m_2 & -m_3 \end{pmatrix}
