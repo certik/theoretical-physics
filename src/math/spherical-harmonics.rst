@@ -91,7 +91,7 @@ Examples
 
 
 Gaunt Coefficients
-------------------
+==================
 
 We use the Wigner-Eckart theorem:
 
