@@ -317,3 +317,60 @@ and the same if you change the sign of the second row:
 
         = (-1)^{j_1+j_2+j_3}
         \begin{pmatrix} j_1 & j_2 & j_3 \\ -m_1 & -m_2 & -m_3 \end{pmatrix}
+
+
+.. index:: multipole expansion
+
+Multipole expansion
+===================
+
+Assuming $r' \ll r$:
+
+
+.. math::
+
+    {1\over |{\bf r}-{\bf r'}|} ={1\over \sqrt{({\bf r}-{\bf r'})^2}} ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}} ={1\over r\sqrt{1-2\left(r'\over r\right){\bf\hat r}\cdot {\bf\hat r'} + \left(r'\over r\right)^2}} =
+
+    ={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+    ={1\over r}\left( P_0({\bf\hat r}\cdot {\bf\hat r'}) + P_1({\bf\hat r}\cdot {\bf\hat r'}){r'\over r} + P_2({\bf\hat r}\cdot {\bf\hat r'})\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+    ={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+    ={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)
+
+We can also use the formula:
+
+.. math::
+
+    \sum_m \braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
+        ={2l+1 \over 4\pi} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}
+
+and rewrite the expansion using spherical harmonics:
+
+.. math::
+
+    {1\over |{\bf r}-{\bf r'}|} ={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+    ={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
+    ={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
+
+Assuming $r' \gg r$ we get:
+
+.. math::
+
+    {1\over |{\bf r}-{\bf r'}|} ={1\over r'}\sum_{l=0}^\infty\left(r\over r'\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+    = {1\over r'}\sum_{l,m}\left(r\over r'\right)^l
+    {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
+
+We can combine the two formulas by introducing $r_{>} = \max(r, r')$ and
+$r_{<} = \min(r, r')$ and then for any $r$ and $r'$ we get:
+
+.. math::
+
+    {1\over |{\bf r}-{\bf r'}|}
+        ={1\over r_{>}}\sum_{l=0}^\infty\left(r_{<}\over r_{>}\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
+
+        = {1\over r_{>}}\sum_{l,m}\left(r_{<}\over r_{>}\right)^l
+            {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
