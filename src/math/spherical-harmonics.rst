@@ -66,9 +66,9 @@ Relations between complex conjugates is:
 
 .. math::
 
-    Y_{l m}^*(\Omega) = (-1)^m Y_{l; -m}(\Omega)
+    Y_{l m}^*(\Omega) = (-1)^m Y_{l,-m}(\Omega)
 
-    (-1)^m Y_{l; -m}^*(\Omega) = Y_{lm}(\Omega)
+    (-1)^m Y_{l,-m}^*(\Omega) = Y_{lm}(\Omega)
 
 
 Gaunt Coefficients
@@ -171,4 +171,21 @@ above result, for example:
         \begin{pmatrix} l_1 & l_2 & l_3 \\ 0 & 0 & 0 \end{pmatrix}
         \begin{pmatrix} l_1 & l_2 & l_3 \\ m_1 & m_2 & m_3 \end{pmatrix}
 
-This is the most symmetric relation.
+This is the most symmetric relation. Another relation is:
+
+.. math::
+
+    c^k(l, m, l', m') =
+        \sqrt{4\pi \over 4k+1}
+    \int Y_{lm}^*(\Omega) Y_{l'm'}(\Omega) Y_{k, m-m'}(\Omega) \d\Omega =
+
+    = (-1)^{-m}
+        \sqrt{4\pi \over 4k+1}
+        \sqrt{(2l+1)(2l'+1)(2k+1)\over 4\pi}
+        \begin{pmatrix} l & l' & k \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & l' & k \\ -m & m' & m-m' \end{pmatrix} =
+
+    = (-1)^{-m}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & l' & k \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & l' & k \\ -m & m' & m-m' \end{pmatrix}
