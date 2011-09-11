@@ -271,4 +271,27 @@ And we get:
         P_{n'l'}(r)
         P_{n'l'}(r')
         P_{nl}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k}
+        c^k(l, m, l', m')
+        c^k(l, m, l', m')
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r)
+        P_{n'l'}(r)
+        P_{n'l'}(r')
+        P_{nl}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k=|l-l'|}^{l+l'}
+        \left(
+        c^k(l, m, l', m')
+        \right)^2
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r)
+        P_{n'l'}(r)
+        P_{n'l'}(r')
+        P_{nl}(r')
         \d r \d r'

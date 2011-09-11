@@ -255,6 +255,32 @@ and
         =
         (2l+1) \delta_{k0}
 
+and:
+
+.. math::
+
+    c^k(l, -m, l', -m') =
+
+    = (-1)^{m}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ m & -m+m' & -m' \end{pmatrix} =
+
+    = (-1)^{m}(-1)^{l+k+l'}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix} =
+
+    = (-1)^{-m}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix} =
+
+    c^k(l, m, l', m')
+
+Where we used the fact, that $l+k+l'$ is an even integer and
+$(-1)^m=(-1)^{-m}$.
+
 Wigner 3j Symbols
 =================
 
