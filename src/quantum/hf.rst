@@ -161,3 +161,114 @@ angles:
 .. math::
 
     V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
+
+Exchange Integral
+-----------------
+
+Let's calculate the exchange integral
+
+.. math::
+
+    \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_j^*({\bf x}')\psi_i({\bf x}')
+        \over |{\bf x} - {\bf x}'|} \d^3 x \d^3 x'
+
+for the particular choice of the functions $\psi$:
+
+.. math::
+
+    \psi_i({\bf x}) = {P_{nl}(r)\over r} Y_{lm}(\Omega)
+
+    \psi_j({\bf x}) = {P_{n'l'}(r)\over r} Y_{l'm'}(\Omega)
+
+We use multipole expansion:
+
+.. math::
+
+    {1\over |{\bf x}-{\bf x}'|}
+        = \sum_{k,q}{r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+
+And we get:
+
+.. math::
+
+    \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_j^*({\bf x}')\psi_i({\bf x}')
+        \over |{\bf x} - {\bf x}'|} \d^3 x \d^3 x' =
+
+    = \int
+        {P_{nl}(r)\over r} Y_{lm}^*(\Omega)
+        {P_{n'l'}(r)\over r} Y_{l'm'}(\Omega)
+        {P_{n'l'}(r')\over r'} Y_{l'm'}^*(\Omega')
+        {P_{nl}(r')\over r'} Y_{lm}(\Omega')
+
+        \sum_{k,q}{r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+        r^2 r'^2 \d r \d r' \d \Omega \d \Omega' =
+
+    =
+    \sum_{k,q}
+    \int
+        Y_{lm}^*(\Omega)
+        Y_{l'm'}(\Omega)
+        Y_{kq}(\Omega)
+        \d \Omega
+      \int
+        Y_{l'm'}^*(\Omega')
+        Y_{lm}(\Omega')
+        Y_{kq}^*(\Omega')
+        \d \Omega'
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}
+        P_{nl}(r)
+        P_{n'l'}(r)
+        P_{n'l'}(r')
+        P_{nl}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k,q}
+    \int
+        Y_{lm}^*(\Omega)
+        Y_{l'm'}(\Omega)
+        Y_{kq}(\Omega)
+        \d \Omega
+        (-1)^{m+m'+q}
+      \int
+        Y_{l',-m'}(\Omega')
+        Y_{l,-m}^*(\Omega')
+        Y_{k,-q}(\Omega')
+        \d \Omega'
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}
+        P_{nl}(r)
+        P_{n'l'}(r)
+        P_{n'l'}(r')
+        P_{nl}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k}
+        c^k(l, m, l', m') \sqrt{2k+1\over 4\pi}
+        (-1)^{m+m'+m-m'}
+        c^k(l, -m, l', -m') \sqrt{2k+1\over 4\pi}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}
+        P_{nl}(r)
+        P_{n'l'}(r)
+        P_{n'l'}(r')
+        P_{nl}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k}
+        c^k(l, m, l', m')
+        c^k(l, -m, l', -m')
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r)
+        P_{n'l'}(r)
+        P_{n'l'}(r')
+        P_{nl}(r')
+        \d r \d r'

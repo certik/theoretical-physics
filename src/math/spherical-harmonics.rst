@@ -373,4 +373,7 @@ $r_{<} = \min(r, r')$ and then for any $r$ and $r'$ we get:
         ={1\over r_{>}}\sum_{l=0}^\infty\left(r_{<}\over r_{>}\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
 
         = {1\over r_{>}}\sum_{l,m}\left(r_{<}\over r_{>}\right)^l
+            {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}') =
+
+        = \sum_{l,m}{r_{<}^l\over r_{>}^{l+1}}
             {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
