@@ -283,10 +283,13 @@ Example III
 Where we used the fact, that $l+k+l'$ is an even integer and
 $(-1)^m=(-1)^{-m}$.
 
+.. _five_spherical_harmonics:
+
 Example IV
 ~~~~~~~~~~
 
 .. math::
+    :label: five_spherical_harmonics
 
     \sum_{m'}\sum_{q}\int
             Y_{l'm'}(\Omega)
@@ -358,8 +361,8 @@ Where we used the following identities:
         Y_{\lambda\mu}^*(\Omega')
         Y_{\lambda\mu}(\Omega)
 
-Note: using the integral of 3 spherical harmonics directly at the
-beginning:
+Note: using the integral of 3 spherical harmonics directly in
+:eq:`five_spherical_harmonics`:
 
 .. math::
 

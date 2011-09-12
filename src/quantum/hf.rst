@@ -306,66 +306,11 @@ Similarly, we calculate:
         r'^2 \d r' \d \Omega' =
 
     = \sum_{n'l'm'}\sum_{k,q}
-            Y_{l'm'}(\Omega)
-            Y_{kq}(\Omega)
             {P_{n'l'}(r)\over r}
             {4\pi\over 2k+1}
         \int Y_{lm}(\Omega') Y_{l'm'}^*(\Omega') Y_{kq}^*(\Omega')
-            \d \Omega'
-        \int
-        {r_{<}^k\over r_{>}^{k+1}}
-        P_{nl}(r')
-        P_{n'l'}(r')
-        \d r'  =
-
-    = \sum_{n'l'm'}\sum_{k}
-            Y_{l'm'}(\Omega)
-            Y_{k, m-m'}(\Omega)
-            {P_{n'l'}(r)\over r}
-            \sqrt{4\pi\over 2k+1}
-        c^k(l, m, l', m')
-        \int
-        {r_{<}^k\over r_{>}^{k+1}}
-        P_{nl}(r')
-        P_{n'l'}(r')
-        \d r'
-
-Now we simplify this using the identities:
-
-.. math::
-
-    \sum_{m'}
-        Y_{l'm'}(\Omega)
-        Y_{l'm'}^*(\Omega')
-    = {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
-
-    \sum_{q}
-        Y_{kq}(\Omega)
-        Y_{kq}^*(\Omega')
-    = {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
-
-    P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
-        = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
-            \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
-            P_\lambda({\bf x}\cdot{\bf x}') =
-
-    = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
-        \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
-        {4\pi \over 2\lambda+1}
-        \sum_{\mu=-\lambda}^\lambda
-        Y_{\lambda\mu}^*(\Omega')
-        Y_{\lambda\mu}(\Omega)
-
-and we get:
-
-.. math::
-
-    \sum_{n'l'm'}\sum_{k,q}
             Y_{l'm'}(\Omega)
             Y_{kq}(\Omega)
-            {P_{n'l'}(r)\over r}
-            {4\pi\over 2k+1}
-        \int Y_{lm}(\Omega') Y_{l'm'}^*(\Omega') Y_{kq}^*(\Omega')
             \d \Omega'
         \int
         {r_{<}^k\over r_{>}^{k+1}}
@@ -376,73 +321,9 @@ and we get:
     = \sum_{n'l'}\sum_{k}
             {P_{n'l'}(r)\over r}
             {4\pi\over 2k+1}
-        \int Y_{lm}(\Omega')
-            {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
-            {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
-            \d \Omega'
-        \int
-        {r_{<}^k\over r_{>}^{k+1}}
-        P_{nl}(r')
-        P_{n'l'}(r')
-        \d r'  =
-
-    = \sum_{n'l'}\sum_{k}
-        \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
-        \sum_{\mu=-\lambda}^\lambda
-            {P_{n'l'}(r)\over r}
-            {4\pi\over 2k+1}
-        \int Y_{lm}(\Omega')
-            {2l'+1\over 4\pi}
             {2k+1\over 4\pi}
-            \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
-
-            {4\pi \over 2\lambda+1}
-            Y_{\lambda\mu}^*(\Omega')
-            Y_{\lambda\mu}(\Omega)
-            \d \Omega'
-        \int
-        {r_{<}^k\over r_{>}^{k+1}}
-        P_{nl}(r')
-        P_{n'l'}(r')
-        \d r'  =
-
-    = \sum_{n'l'}\sum_{k}
-        \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
-        \sum_{\mu=-\lambda}^\lambda
-            {P_{n'l'}(r)\over r}
-            {4\pi\over 2k+1}
-            {2l'+1\over 4\pi}
-            {2k+1\over 4\pi}
-            \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
-
-            {4\pi \over 2\lambda+1}
-            Y_{\lambda\mu}(\Omega)
-            \delta_{l\lambda}
-            \delta_{m\mu}
-        \int
-        {r_{<}^k\over r_{>}^{k+1}}
-        P_{nl}(r')
-        P_{n'l'}(r')
-        \d r'  =
-
-    = \sum_{n'l'}\sum_{k}
-            {P_{n'l'}(r)\over r}
-            {4\pi\over 2k+1}
-            {2l'+1\over 4\pi}
-            {2k+1\over 4\pi}
-            \sqrt{2l+1\over 2l'+1} c^k(l', 0, l, 0)
-            {4\pi \over 2l+1}
-            Y_{lm}(\Omega)
-        \int
-        {r_{<}^k\over r_{>}^{k+1}}
-        P_{nl}(r')
-        P_{n'l'}(r')
-        \d r'  =
-
-    = \sum_{n'l'}\sum_{k}
-            {P_{n'l'}(r)\over r}
-            \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
-            Y_{lm}(\Omega)
+                \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+                Y_{lm}(\Omega)
         \int
         {r_{<}^k\over r_{>}^{k+1}}
         P_{nl}(r')
@@ -459,6 +340,9 @@ and we get:
         P_{n'l'}(r')
         \d r'\,
             P_{n'l'}(r)
+
+Where we used the result of the integral in
+:ref:`five_spherical_harmonics`.
 
 Spherical Symmetry
 ------------------
