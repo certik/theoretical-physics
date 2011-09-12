@@ -220,8 +220,8 @@ the $c^k(l, m, l', m')$ coefficients are nonzero only when:
 
     l+l'+k = \mbox{even integer}
 
-Examples
-~~~~~~~~
+Example I
+~~~~~~~~~
 
 .. math::
 
@@ -230,7 +230,8 @@ Examples
     \int Y_{lm}^*(\Omega) Y_{00}(\Omega) Y_{l'm'}(\Omega) \d\Omega
         =\delta_{l l'}\delta_{m m'}
 
-and
+Example II
+~~~~~~~~~~
 
 .. math::
 
@@ -255,7 +256,8 @@ and
         =
         (2l+1) \delta_{k0}
 
-and:
+Example III
+~~~~~~~~~~~
 
 .. math::
 
@@ -280,6 +282,104 @@ and:
 
 Where we used the fact, that $l+k+l'$ is an even integer and
 $(-1)^m=(-1)^{-m}$.
+
+Example IV
+~~~~~~~~~~
+
+.. math::
+
+    \sum_{m'}\sum_{q}\int
+            Y_{l'm'}(\Omega)
+            Y_{l'm'}^*(\Omega')
+            Y_{kq}(\Omega)
+            Y_{kq}^*(\Omega')
+            Y_{lm}(\Omega')
+            \d \Omega' =
+
+    =\int
+            {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
+            {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
+            Y_{lm}(\Omega')
+            \d \Omega' =
+
+    =\int
+            {2l'+1\over 4\pi}
+            {2k+1\over 4\pi}
+            \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
+                \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
+                {4\pi \over 2\lambda+1}
+                \sum_{\mu=-\lambda}^\lambda
+                Y_{\lambda\mu}^*(\Omega')
+                Y_{\lambda\mu}(\Omega)
+            Y_{lm}(\Omega')
+            \d \Omega' =
+
+    =
+            {2l'+1\over 4\pi}
+            {2k+1\over 4\pi}
+            \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
+                \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
+                {4\pi \over 2\lambda+1}
+                \sum_{\mu=-\lambda}^\lambda
+                Y_{\lambda\mu}(\Omega)
+            \delta_{\lambda l}
+            \delta_{\mu m}
+            =
+
+    =
+            {2k+1\over 4\pi}
+                \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+                Y_{lm}(\Omega)
+
+
+Where we used the following identities:
+
+.. math::
+
+    \sum_{m'}
+        Y_{l'm'}(\Omega)
+        Y_{l'm'}^*(\Omega')
+    = {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
+
+    \sum_{q}
+        Y_{kq}(\Omega)
+        Y_{kq}^*(\Omega')
+    = {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
+
+    P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
+        = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
+            \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
+            P_\lambda({\bf x}\cdot{\bf x}') =
+
+    = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
+        \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
+        {4\pi \over 2\lambda+1}
+        \sum_{\mu=-\lambda}^\lambda
+        Y_{\lambda\mu}^*(\Omega')
+        Y_{\lambda\mu}(\Omega)
+
+Note: using the integral of 3 spherical harmonics directly at the
+beginning:
+
+.. math::
+
+    \sum_{m'}\sum_{q}\int
+            Y_{l'm'}(\Omega)
+            Y_{l'm'}^*(\Omega')
+            Y_{kq}(\Omega)
+            Y_{kq}^*(\Omega')
+            Y_{lm}(\Omega')
+            \d \Omega' =
+
+    =\sum_{m'}
+            Y_{l'm'}(\Omega)
+            Y_{k, m-m'}(\Omega)
+            \sqrt{4\pi\over 2k+1}
+            c^k(l, m, l', m')
+
+doesn't directly lead to the final result, as it is not obvious how to simplify
+things further.
+
 
 Wigner 3j Symbols
 =================
