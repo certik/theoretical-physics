@@ -41,6 +41,7 @@ This can be proven by induction, see [Adams]_.
 We can now calculate the integral of three Legendre polynomials:
 
 .. math::
+    :label: int_three_legendre_polys
 
     \int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x =
 
@@ -57,7 +58,57 @@ We can now calculate the integral of three Legendre polynomials:
         {2n+1\over 2s+1}
         {2\over 2n+1} \delta_{nm} =
 
-    = {A(s-k) A(s-m) A(s-l)\over A(s)} {2\over 2s+1}
+    = 2 {A(s-k) A(s-l) A(s-m)\over A(s)} {1\over 2s+1} =
+
+    = 2 {
+            {1\over2^{s-k}}\binom{2s-2k}{s-k}
+            {1\over2^{s-l}}\binom{2s-2l}{s-l}
+            {1\over2^{s-m}}\binom{2s-2m}{s-m}
+            \over
+            {1\over2^{s}}\binom{2s}{s}
+        } {1\over 2s+1} =
+
+    = 2 {2^s\over2^{s-k+s-l+s-m}} {
+            \binom{2s-2k}{s-k}
+            \binom{2s-2l}{s-l}
+            \binom{2s-2m}{s-m}
+            \over
+            \binom{2s}{s}
+        } {1\over 2s+1} =
+
+    = 2 {
+            \binom{2s-2k}{s-k}
+            \binom{2s-2l}{s-l}
+            \binom{2s-2m}{s-m}
+            \over
+            \binom{2s}{s}
+        } {1\over 2s+1} =
+
+    = 2 {
+            {(2s-2k)! \over ((s-k)!)^2}
+            {(2s-2l)! \over ((s-l)!)^2}
+            {(2s-2m)! \over ((s-m)!)^2}
+            {(s!)^2 \over (2s)!}
+        } {1\over 2s+1} =
+
+    = 2 {(2s-2k)! (2s-2l)! (2s-2m)! \over (2s+1)!}
+        \left[{s! \over (s-k)! (s-l)! (s-m)!}\right]^2
+       =
+
+    = 2 \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
+
+As such, we can write the series expansion as:
+
+.. math::
+
+    P_k(x) P_l(x) = \sum_{m=|k-l|}^{k+l}
+        {2m+1\over 2}\int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x\,\,
+        P_m(x) =
+
+    = \sum_{m=|k-l|}^{k+l}
+        \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
+        (2m+1) P_m(x)
+
 
 .. [Adams] Adams, J. C. (1878). On the Expression of the Product of Any Two Legendre’s Coefficients by Means of a Series of Legendre's Coefficients.  Proceedings of the Royal Society of London, 27, 63-71.
 
@@ -180,13 +231,7 @@ and also evaluate the left hand side explicitly:
     = \sqrt{(2j+1)(2k+1)(2j'+1)\over 4\pi}
         \begin{pmatrix} j & k & j' \\ 0 & 0 & 0 \end{pmatrix}^2
 
-where we used:
-
-.. math::
-
-        \int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x =
-        2\begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
-
+where we used :eq:`int_three_legendre_polys`.
 Comparing these two results, we get:
 
 .. math::
@@ -396,6 +441,10 @@ Where we used the following identities:
     = {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
 
     P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
+    = \sum_{\lambda=|l'-k|}^{l'+k}
+        \begin{pmatrix} k & l' & \lambda \\ 0 & 0 & 0 \end{pmatrix}^2
+        (2\lambda+1) P_\lambda({\bf x}\cdot{\bf x}') =
+
         = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
             \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
             P_\lambda({\bf x}\cdot{\bf x}') =
