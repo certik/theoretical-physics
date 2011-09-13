@@ -372,7 +372,48 @@ Example III
     c^k(l, m, l', m')
 
 Where we used the fact, that $l+k+l'$ is an even integer and
-$(-1)^m=(-1)^{-m}$.
+$(-1)^m=(-1)^{-m}$. $c^k$ is not symmetric in $l m$ and $l' m'$:
+
+.. math::
+
+    c^k(l', m', l, m)
+
+    = (-1)^{-m'}
+        \sqrt{(2l'+1)(2l+1)}
+        \begin{pmatrix} l' & k & l \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l' & k & l \\ -m' & m'-m & m \end{pmatrix} =
+
+    = (-1)^{-m'}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ m & m'-m & -m' \end{pmatrix} =
+
+    = (-1)^{-m'}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix} =
+
+    = (-1)^{m-m'} (-1)^{-m}
+        \sqrt{(2l+1)(2l'+1)}
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix} =
+
+    = (-1)^{m-m'} c^k(l, m, l', m')
+
+Few other identities:
+
+.. math::
+
+    c^k(l, 0, l', 0)
+        = \sqrt{(2l+1)(2l'+1)}
+            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+
+    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        = {c^k(l, 0, l', 0) \over \sqrt{(2l+1)(2l'+1)}}
+        = {c^{l'}(l, 0, k, 0) \over \sqrt{(2l+1)(2k+1)}}
+        = {c^{l}(l', 0, k, 0) \over \sqrt{(2l'+1)(2k+1)}}
+
+    c^k(l, 0, l', 0) = c^k(l', 0, l, 0)
 
 .. _five_spherical_harmonics:
 
@@ -475,8 +516,8 @@ Note: using the integral of 3 spherical harmonics directly in
             \sqrt{4\pi\over 2k+1}
             c^k(l, m, l', m')
 
-doesn't directly lead to the final result, as it is not obvious how to simplify
-things further.
+doesn't straightforwardly lead to the final result, as it is not obvious how to
+simplify things further.
 
 
 Wigner 3j Symbols
