@@ -131,7 +131,20 @@ where $P_l^m$ are associated Legendre polynomials defined by
 
        P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)
 
-and $P_l$ are Legendre polynomials.
+and $P_l$ are Legendre polynomials. Sometimes the spherical harmonics are
+written as:
+
+.. math::
+
+    Y_{lm}(\theta,\phi) = \Theta_{lm}(\theta) \Phi_m(\phi)
+
+where:
+
+.. math::
+
+    \Phi_m(\phi) &= {1\over\sqrt{2\pi}} e^{im\phi} \\
+    \Theta_{lm}(\theta) &= \sqrt{{2l+1\over2}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)
+
 The spherical harmonics are ortonormal:
 
 .. math::
@@ -352,6 +365,36 @@ Example III
 
 .. math::
 
+    c^k(l, m, l', m') =
+        \sqrt{4\pi \over 4k+1}
+    \int Y_{lm}^*(\Omega) Y_{k, m-m'}(\Omega) Y_{l'm'}(\Omega) \d\Omega =
+
+    = \sqrt{4\pi \over 4k+1}
+    \int \Theta_{lm}\Phi_m^* \Theta_{k, m-m'}\Phi_{m-m'} \Theta_{l'm'}\Phi_{m'}
+        \sin\theta \d\theta \d\phi =
+
+    = \sqrt{4\pi \over 4k+1}
+    \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+    \int_0^{2\pi} \Phi_m^* \Phi_{m-m'} \Phi_{m'} \d\phi =
+
+    = \sqrt{4\pi \over 4k+1}
+    \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+    \left(1\over\sqrt{2\pi}\right)^3
+    \int_0^{2\pi} e^{-im\phi} e^{i(m-m')\phi} e^{im'\phi} \d\phi =
+
+    = \sqrt{4\pi \over 4k+1}
+    \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+    \left(1\over\sqrt{2\pi}\right)^3
+    \int_0^{2\pi} \!\!\!\d\phi =
+
+    = \sqrt{2\over 4k+1}
+    \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
+
+Example IV
+~~~~~~~~~~
+
+.. math::
+
     c^k(l, -m, l', -m') =
 
     = (-1)^{m}
@@ -417,8 +460,8 @@ Few other identities:
 
 .. _five_spherical_harmonics:
 
-Example IV
-~~~~~~~~~~
+Example V
+~~~~~~~~~
 
 .. math::
     :label: five_spherical_harmonics
