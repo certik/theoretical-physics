@@ -1029,3 +1029,115 @@ so:
     (1 - x)^{-1} = \sum_{k=0}^\infty \binom{1+k-1}{k} x^k
         = \sum_{k=0}^\infty \binom{k}{k} x^k
         = \sum_{k=0}^\infty x^k
+
+Triangle Inequality
+-------------------
+
+Triangle inequality (condition) means that none of the three
+quantities $a$, $b$, $c$ is greater than the sum of the other two:
+
+.. math::
+    :label: trig_three
+
+    a + b \ge c
+
+    b + c \ge a
+
+    c + a \ge b
+
+This is equivalent to just one equation:
+
+.. math::
+    :label: trig_one
+
+    |a-b| \le c \le a+b
+
+we can do any permutation of the symbols, i.e. the above equation is equivalent
+to any of these:
+
+.. math::
+
+    |b-c| \le a \le b+c
+
+    |c-a| \le b \le c+a
+
+So instead of stating the three inequalities :eq:`trig_three` it is more
+convenient to just write :eq:`trig_one`, using any permutation that we like.
+
+To show, that :eq:`trig_three` implies :eq:`trig_one` we rewrite
+:eq:`trig_three`:
+
+.. math::
+
+    a + b \ge c
+
+    c \ge a-b
+
+    c \ge b-a
+
+so
+
+.. math::
+
+    a + b \ge c
+
+    c \ge |a-b|
+
+and we get :eq:`trig_one`.
+To show, that :eq:`trig_one` implies :eq:`trig_three` we rewrite
+:eq:`trig_one` for $a\ge b$ first:
+
+.. math::
+
+    a \ge b
+
+    |a-b| \le c \le a+b
+
+so:
+
+.. math::
+
+    a \ge b
+
+    a-b \le c \le a+b
+
+rearranging:
+
+.. math::
+
+    a + b \ge c
+
+    b + c \ge a
+
+    a \ge b
+
+since $c$ is positive, if $a\ge b$ then also $c+a\ge b$ and we get
+:eq:`trig_three`. Finally, for $a < b$:
+
+.. math::
+
+    a < b
+
+    |a-b| \le c \le a+b
+
+so:
+
+.. math::
+
+    a < b
+
+    -(a-b) \le c \le a+b
+
+rearranging:
+
+.. math::
+
+    a + b \ge c
+
+    b > a
+
+    c + a \ge b
+
+
+since $c$ is positive, if $b > a$ then also $b+c\ge a$ and we get
+:eq:`trig_three`.
