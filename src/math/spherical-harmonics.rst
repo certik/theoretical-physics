@@ -1,22 +1,9 @@
-.. index:: spherical harmonics
+.. index:: Legendre polynomials
 
-Spherical Harmonics
-===================
+Legendre Polynomials
+====================
 
-
-Are defined by
-
-.. math::
-
-       Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}
-
-where $P_l^m$ are associated Legendre polynomials defined by
-
-.. math::
-
-       P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)
-
-and $P_l$ are Legendre polynomials defined by the formula
+Legendre polynomials $P_l(x)$ defined by the Rodrigues's formula
 
 .. math::
 
@@ -35,6 +22,65 @@ and orthogonality relation:
 
     \int_{-1}^1 P_k(x) P_l(x) \d x = {2\delta_{kl} \over 2k+1}
 
+Two Legendre polynomials can be expanded in a series:
+
+.. math::
+
+    P_k(x) P_l(x) = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+        {2n+1\over 2s+1} P_n(x)
+
+where $s={k+l+n\over 2}$ and
+
+.. math::
+
+    A(m) = {1\cdot3\cdot5 \cdot \dots \cdot (2m-1) \over
+        1\cdot 2\cdot 3\cdot \dots \cdot m} =
+            {(2m)!\over 2^m (m!)^2} = {1\over 2^m}\binom{2m}{m}
+
+This can be proven by induction, see [Adams]_.
+We can now calculate the integral of three Legendre polynomials:
+
+.. math::
+
+    \int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x =
+
+    = \int_{-1}^1
+        \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+        {2n+1\over 2s+1} P_n(x)
+        P_m(x) \d x =
+
+    = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+        {2n+1\over 2s+1}
+        \int_{-1}^1 P_n(x) P_m(x) \d x =
+
+    = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
+        {2n+1\over 2s+1}
+        {2\over 2n+1} \delta_{nm} =
+
+    = {A(s-k) A(s-m) A(s-l)\over A(s)} {2\over 2s+1}
+
+.. [Adams] Adams, J. C. (1878). On the Expression of the Product of Any Two Legendre’s Coefficients by Means of a Series of Legendre's Coefficients.  Proceedings of the Royal Society of London, 27, 63-71.
+
+
+.. index:: spherical harmonics
+
+Spherical Harmonics
+===================
+
+
+Are defined by
+
+.. math::
+
+       Y_{lm}(\theta,\phi)=\sqrt{{2l+1\over4\pi}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)\,e^{im\phi}
+
+where $P_l^m$ are associated Legendre polynomials defined by
+
+.. math::
+
+       P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)
+
+and $P_l$ are Legendre polynomials.
 The spherical harmonics are ortonormal:
 
 .. math::
