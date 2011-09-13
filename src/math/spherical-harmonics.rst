@@ -294,7 +294,11 @@ above result, for example:
         \begin{pmatrix} l_1 & l_2 & l_3 \\ 0 & 0 & 0 \end{pmatrix}
         \begin{pmatrix} l_1 & l_2 & l_3 \\ m_1 & m_2 & m_3 \end{pmatrix}
 
-This is the most symmetric relation. It is useful to incorporate
+This is the most symmetric relation. It was first obtained by [Gaunt]_
+(equation (9), p. 194, where he expanded the $3j$ symbols, so his formula is
+more complex but equivalent to the above).
+
+It is useful to incorporate
 the selection rule $m_1 + m_2 + m_3 = 0$ of the $3j$ symbols into the formula
 and we get:
 
@@ -323,6 +327,9 @@ the $c^k(l, m, l', m')$ coefficients are nonzero only when:
     |l-l'| \le k \le l + l'
 
     l+l'+k = \mbox{even integer}
+
+.. [Gaunt] Gaunt, J. A. (1929). The Triplets of Helium. Philosophical Transactions of the Royal Society of London, 228, 151-196.
+
 
 Example I
 ~~~~~~~~~
