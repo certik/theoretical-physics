@@ -342,7 +342,17 @@ Similarly, we calculate:
             P_{n'l'}(r)
 
 Where we used the result of the integral in
-:ref:`five_spherical_harmonics`.
+:ref:`five_spherical_harmonics`. Note that:
+
+.. math::
+    :label: using3j
+
+    \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+        = \sqrt{2l'+1\over 2l+1}
+            \sqrt{(2l'+1)(2l+1)}
+            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        = (2l'+1)
+            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
 
 Spherical Symmetry
 ------------------
@@ -370,3 +380,23 @@ Using the above integrals, the HF equations become:
                 \d r'\,
                     P_{n'l'}(r)
         = \epsilon_{nl} P_{nl}(r)
+
+or using :eq:`using3j`:
+
+.. math::
+
+    -\half P_{nl}(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
+
+            -\sum_{n'l'}
+                (2l'+1)
+                \sum_{k=|l-l'|}^{k=l+l'}
+                    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \int
+                {r_{<}^k\over r_{>}^{k+1}}
+                P_{nl}(r')
+                P_{n'l'}(r')
+                \d r'\,
+                    P_{n'l'}(r)
+        = \epsilon_{nl} P_{nl}(r)
+
