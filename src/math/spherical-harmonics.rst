@@ -465,10 +465,41 @@ Few other identities:
 
     c^k(l, 0, l', 0) = c^k(l', 0, l, 0)
 
-.. _five_spherical_harmonics:
-
 Example V
 ~~~~~~~~~
+
+.. math::
+
+    \sum_{m'} \left(c^k(l, m, l', m')\right)^2 =
+
+        = \sum_{m'}
+        (2l+1)(2l'+1)
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix}^2 =
+
+        =
+        (2l+1)(2l'+1)
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        \sum_{m'}
+        \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix}^2 =
+
+        =
+        (2l+1)(2l'+1)
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        {1\over 2l+1} =
+
+        =
+        (2l'+1)
+        \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        =
+
+        =\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+
+
+.. _five_spherical_harmonics:
+
+Example VI
+~~~~~~~~~~
 
 .. math::
     :label: five_spherical_harmonics
