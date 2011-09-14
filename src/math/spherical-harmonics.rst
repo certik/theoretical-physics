@@ -675,6 +675,72 @@ Orthogonality relations:
             \over
         2j+1}
 
+As a special case, we get:
+
+.. math::
+
+    \sum_{m'}
+    \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix}^2
+    =
+        {1 \over 2l+1}
+
+Here is a script to check that the last equation works::
+
+    from sympy import S
+    from sympy.physics.wigner import wigner_3j
+
+    def doit(l, k, lp, m):
+        s = 0
+        for mp in range(-lp, lp+1):
+            s += wigner_3j(l, k, lp, -m, m-mp, mp)**2
+        print "%2d %2d %2d %2d  " % (l, k, lp, m), s, " ", S(1)/(2*l+1)
+
+    k = 4
+    lp = 3
+    print " l  k  lp m:  lhs   rhs"
+    for l in range(1, 6):
+        for m in range(-l, l+1):
+            doit(l, k, lp, m)
+
+it prints::
+
+     l  k  lp m:  lhs   rhs
+     1  4  3 -1   1/3   1/3
+     1  4  3  0   1/3   1/3
+     1  4  3  1   1/3   1/3
+     2  4  3 -2   1/5   1/5
+     2  4  3 -1   1/5   1/5
+     2  4  3  0   1/5   1/5
+     2  4  3  1   1/5   1/5
+     2  4  3  2   1/5   1/5
+     3  4  3 -3   1/7   1/7
+     3  4  3 -2   1/7   1/7
+     3  4  3 -1   1/7   1/7
+     3  4  3  0   1/7   1/7
+     3  4  3  1   1/7   1/7
+     3  4  3  2   1/7   1/7
+     3  4  3  3   1/7   1/7
+     4  4  3 -4   1/9   1/9
+     4  4  3 -3   1/9   1/9
+     4  4  3 -2   1/9   1/9
+     4  4  3 -1   1/9   1/9
+     4  4  3  0   1/9   1/9
+     4  4  3  1   1/9   1/9
+     4  4  3  2   1/9   1/9
+     4  4  3  3   1/9   1/9
+     4  4  3  4   1/9   1/9
+     5  4  3 -5   1/11   1/11
+     5  4  3 -4   1/11   1/11
+     5  4  3 -3   1/11   1/11
+     5  4  3 -2   1/11   1/11
+     5  4  3 -1   1/11   1/11
+     5  4  3  0   1/11   1/11
+     5  4  3  1   1/11   1/11
+     5  4  3  2   1/11   1/11
+     5  4  3  3   1/11   1/11
+     5  4  3  4   1/11   1/11
+     5  4  3  5   1/11   1/11
+
 
 .. index:: multipole expansion
 
