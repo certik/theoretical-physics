@@ -664,6 +664,17 @@ and the same if you change the sign of the second row:
         = (-1)^{j_1+j_2+j_3}
         \begin{pmatrix} j_1 & j_2 & j_3 \\ -m_1 & -m_2 & -m_3 \end{pmatrix}
 
+Orthogonality relations:
+
+.. math::
+
+    \sum_{m_1 m_2}
+    \begin{pmatrix} j_1 & j_2 & j \\ m_1 & m_2 & m \end{pmatrix}
+    \begin{pmatrix} j_1 & j_2 & j' \\ m_1 & m_2 & m' \end{pmatrix} =
+        {\delta_{jj'}\delta_{mm'}
+            \over
+        2j+1}
+
 
 .. index:: multipole expansion
 
