@@ -678,13 +678,14 @@ Orthogonality relations:
 As a special case, we get:
 
 .. math::
+    :label: 3j-square-sum
 
     \sum_{m'}
     \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix}^2
     =
         {1 \over 2l+1}
 
-Here is a script to check that the last equation works::
+Here is a script to check that the equation :eq:`3j-square-sum` works::
 
     from sympy import S
     from sympy.physics.wigner import wigner_3j
