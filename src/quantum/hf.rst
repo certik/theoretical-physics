@@ -368,7 +368,7 @@ Using the above integrals, the HF equations become:
 
 .. math::
 
-    -\half P_{nl}(r) +
+    -\half P_{nl}''(r) +
         \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
 
             -\sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
@@ -385,7 +385,7 @@ or using :eq:`using3j`:
 
 .. math::
 
-    -\half P_{nl}(r) +
+    -\half P_{nl}''(r) +
         \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
 
             -\sum_{n'l'}
