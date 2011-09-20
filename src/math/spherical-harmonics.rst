@@ -527,8 +527,8 @@ Example VI
             \d \Omega' =
 
     =\int
-            {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
-            {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
+            {2l'+1\over 4\pi} P_{l'}({\bf \hat x}\cdot{\bf \hat x}')
+            {2k+1\over 4\pi} P_k({\bf \hat x}\cdot{\bf \hat x}')
             Y_{lm}(\Omega')
             \d \Omega' =
 
@@ -569,21 +569,21 @@ Where we used the following identities:
     \sum_{m'}
         Y_{l'm'}(\Omega)
         Y_{l'm'}^*(\Omega')
-    = {2l'+1\over 4\pi} P_{l'}({\bf x}\cdot{\bf x}')
+    = {2l'+1\over 4\pi} P_{l'}({\bf \hat x}\cdot{\bf \hat x}')
 
     \sum_{q}
         Y_{kq}(\Omega)
         Y_{kq}^*(\Omega')
-    = {2k+1\over 4\pi} P_k({\bf x}\cdot{\bf x}')
+    = {2k+1\over 4\pi} P_k({\bf \hat x}\cdot{\bf \hat x}')
 
-    P_k({\bf x}\cdot{\bf x}')P_{l'}({\bf x}\cdot{\bf x}')
+    P_k({\bf \hat x}\cdot{\bf \hat x}')P_{l'}({\bf \hat x}\cdot{\bf \hat x}')
     = \sum_{\lambda=|l'-k|}^{l'+k}
         \begin{pmatrix} k & l' & \lambda \\ 0 & 0 & 0 \end{pmatrix}^2
-        (2\lambda+1) P_\lambda({\bf x}\cdot{\bf x}') =
+        (2\lambda+1) P_\lambda({\bf \hat x}\cdot{\bf \hat x}') =
 
         = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
             \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
-            P_\lambda({\bf x}\cdot{\bf x}') =
+            P_\lambda({\bf \hat x}\cdot{\bf \hat x}') =
 
     = \sum_{\lambda=|l'-k|}^{\lambda=l'+k}
         \sqrt{2\lambda+1\over 2l'+1} c^k(l', 0, \lambda, 0)
