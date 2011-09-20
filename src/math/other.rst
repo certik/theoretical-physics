@@ -1142,10 +1142,82 @@ rearranging:
 since $c$ is positive, if $b > a$ then also $b+c\ge a$ and we get
 :eq:`trig_three`.
 
+Gamma Function
+--------------
+
+Gamma function $\Gamma(z)$ is defined as:
+
+.. math::
+
+    \Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \d t
+
+Integrating by parts we get:
+
+.. math::
+
+    \Gamma(z)
+        = \int_0^\infty t^{z-1} e^{-t} \d t
+        = (z-1)\int_0^\infty t^{z-2} e^{-t} \d t-[t^{z-1}e^{-t}]_0^\infty
+        = (z-1)\Gamma(z-1)
+
+So for integer $n$ we get:
+
+.. math::
+    :label: gamma_fact
+
+    \Gamma(n+1) = n\Gamma(n) = n(n-1)\Gamma(n-1)
+        = n(n-1)(n-2)\cdots 2\cdot1\cdot\Gamma(1) =
+
+        = n(n-1)(n-2)\cdots 1
+        = n!
+
+and
+
+.. math::
+    :label: gamma_double_fact
+
+    \Gamma(n+\half) = (n-\half)\Gamma(n-\half)
+        = (n-\half)(n-1-\half)\Gamma(n-1-\half)
+        = (n-\half)(n-1-\half)\cdots\half\Gamma(\half) =
+
+        = {2n-1\over2}{2n-3\over2}{2n-5\over2}\cdots{1\over2}\Gamma(\half)
+        = {(2n-1)!!\over 2^n}\Gamma(\half)
+        = {(2n-1)!!\over 2^n}\sqrt\pi
+
+Where we used:
+
+.. math::
+
+    \Gamma(1)
+        = \int_0^\infty t^{1-1} e^{-t} \d t
+        = \int_0^\infty e^{-t} \d t
+        = [-e^{-t}]_0^\infty
+        = 1
+
+    \Gamma(\half)
+        = \int_0^\infty t^{{1\over2}-1} e^{-t} \d t
+        = \int_0^\infty {e^{-t}\over\sqrt t} \d t
+        = \sqrt\pi
+
+Factorial
+---------
+
+The factorial $n!$ is defined as
+
+.. math::
+
+    n! = n(n-1)(n-2)\cdots 3\cdot2\cdot 1
+
+By :eq:`gamma_fact` it can be written using the Gamma function as:
+
+.. math::
+
+    n! = \Gamma(n+1)
+
 Double Factorial
 ----------------
 
-The double factorial is defined by:
+The double factorial $n!!$ is defined as:
 
 .. math::
 
@@ -1158,9 +1230,20 @@ One can rewrite double factorial using a factorial as:
 
 .. math::
 
-    (2k)!! = 2^k k!
+    (2k)!! = 2\cdot4\cdot6\cdots (2k)
+        = 2^k (1\cdot2\cdot3\cdots k)
+        = 2^k k!
 
-    (2k-1)!! = {(2k)!\over (2k)!!} = {(2k)!\over 2^k k!}
+    (2k-1)!!
+        = 1\cdot3\cdot5\cdots(2k-1)
+        = {1\cdot2\cdot3\cdot4\cdot5\cdots(2k) \over 2\cdot4\cdot6\cdots (2k)}
+        = {(2k)!\over (2k)!!} = {(2k)!\over 2^k k!}
+
+For odd $n$ it can be written using the Gamma function, see :eq:`gamma_double_fact`:
+
+.. math::
+
+    (2k-1)!! = {1\over\sqrt\pi} 2^k \Gamma\left(k+\half\right)
 
 Example
 ~~~~~~~
@@ -1172,3 +1255,9 @@ Example
         = {(2n-1)!!\over n!}
         = {(2n)!\over 2^n (n!)^2}
         = {1\over 2^n}\binom{2n}{n}
+
+    B(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
+        2\cdot 4\cdot\cdot6 \dots \cdot 2n}
+        = {(2n-1)!!\over (2n)!!}
+        = {(2n)!\over (2^n n!)^2}
+        = {1\over 4^n}\binom{2n}{n}
