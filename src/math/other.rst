@@ -1197,6 +1197,17 @@ Where we used:
     \Gamma(\half)
         = \int_0^\infty t^{{1\over2}-1} e^{-t} \d t
         = \int_0^\infty {e^{-t}\over\sqrt t} \d t
+        = \int_0^\infty {e^{-x^2}\over x} 2x\, \d x
+        = 2\int_0^\infty e^{-x^2} \d x =
+
+        = \int_{-\infty}^\infty e^{-x^2} \d x
+        = \sqrt{
+            \int_{-\infty}^\infty e^{-x^2} \d x
+            \int_{-\infty}^\infty e^{-y^2} \d y
+            }
+        = \sqrt{2\pi \int_0^\infty e^{-r^2} r\d r} =
+
+        = \sqrt{2\pi \int_0^\infty e^{-u} \half\d u}
         = \sqrt\pi
 
 Factorial
