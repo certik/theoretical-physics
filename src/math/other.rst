@@ -1141,3 +1141,34 @@ rearranging:
 
 since $c$ is positive, if $b > a$ then also $b+c\ge a$ and we get
 :eq:`trig_three`.
+
+Double Factorial
+----------------
+
+The double factorial is defined by:
+
+.. math::
+
+    n!! = \begin{cases}
+        n(n-2)(n-4)(n-6)\cdots 5\cdot3\cdot1\quad\quad\mbox{for odd $n=2k+1$} \\
+        n(n-2)(n-4)(n-6)\cdots 6\cdot4\cdot2\quad\quad\mbox{for even $n=2k$}
+    \end{cases}
+
+One can rewrite double factorial using a factorial as:
+
+.. math::
+
+    (2k)!! = 2^k k!
+
+    (2k-1)!! = {(2k)!\over (2k)!!} = {(2k)!\over 2^k k!}
+
+Example
+~~~~~~~
+
+.. math::
+
+    A(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
+        1\cdot 2\cdot 3\cdot \dots \cdot n}
+        = {(2n-1)!!\over n!}
+        = {(2n)!\over 2^n (n!)^2}
+        = {1\over 2^n}\binom{2n}{n}
