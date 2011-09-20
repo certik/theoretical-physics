@@ -26,18 +26,70 @@ Two Legendre polynomials can be expanded in a series:
 
 .. math::
 
-    P_k(x) P_l(x) = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
-        {2n+1\over 2s+1} P_n(x)
+    P_k(x) P_l(x)
+        = \sum_{m=|k-l|}^{k+l}
+        \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
+        (2m+1) P_m(x)
 
-where $s={k+l+n\over 2}$ and
+This was first proven by [Adams]_, where he shows:
 
 .. math::
 
-    A(m) = {1\cdot3\cdot5 \cdot \dots \cdot (2m-1) \over
-        1\cdot 2\cdot 3\cdot \dots \cdot m} =
-            {(2m)!\over 2^m (m!)^2} = {1\over 2^m}\binom{2m}{m}
+    P_k(x) P_l(x) = \sum_{m=|k-l|}^{k+l} {A(s-k) A(s-l) A(s-m)\over A(s)}
+        {2m+1\over 2s+1} P_m(x)
 
-This can be proven by induction, see [Adams]_.
+where $s={k+l+m\over 2}$ and
+
+.. math::
+
+    A(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
+        1\cdot 2\cdot 3\cdot \dots \cdot n} =
+            {(2n)!\over 2^n (n!)^2} = {1\over 2^n}\binom{2n}{n}
+
+The coefficient in the expansion can then be written using a $3j$ symbol as:
+
+.. math::
+
+    {A(s-k) A(s-l) A(s-m)\over A(s)} {1\over 2s+1} =
+
+    = {
+            {1\over2^{s-k}}\binom{2s-2k}{s-k}
+            {1\over2^{s-l}}\binom{2s-2l}{s-l}
+            {1\over2^{s-m}}\binom{2s-2m}{s-m}
+            \over
+            {1\over2^{s}}\binom{2s}{s}
+        } {1\over 2s+1} =
+
+    = {2^s\over2^{s-k+s-l+s-m}} {
+            \binom{2s-2k}{s-k}
+            \binom{2s-2l}{s-l}
+            \binom{2s-2m}{s-m}
+            \over
+            \binom{2s}{s}
+        } {1\over 2s+1} =
+
+    = {
+            \binom{2s-2k}{s-k}
+            \binom{2s-2l}{s-l}
+            \binom{2s-2m}{s-m}
+            \over
+            \binom{2s}{s}
+        } {1\over 2s+1} =
+
+    = {
+            {(2s-2k)! \over ((s-k)!)^2}
+            {(2s-2l)! \over ((s-l)!)^2}
+            {(2s-2m)! \over ((s-m)!)^2}
+            {(s!)^2 \over (2s)!}
+        } {1\over 2s+1} =
+
+    = {(2s-2k)! (2s-2l)! (2s-2m)! \over (2s+1)!}
+        \left[{s! \over (s-k)! (s-l)! (s-m)!}\right]^2
+       =
+
+    = \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
+
+So we will be just using the $3j$ symbol form from now on.
 We can now calculate the integral of three Legendre polynomials:
 
 .. math::
@@ -46,58 +98,20 @@ We can now calculate the integral of three Legendre polynomials:
     \int_{-1}^1 P_k(x) P_l(x) P_m(x) \d x =
 
     = \int_{-1}^1
-        \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
-        {2n+1\over 2s+1} P_n(x)
-        P_m(x) \d x =
+        \sum_{n=|k-l|}^{k+l}
+        \begin{pmatrix} k & l & n \\ 0 & 0 & 0 \end{pmatrix}^2
+        (2n+1) P_n(x)
+    P_m(x) \d x =
 
-    = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
-        {2n+1\over 2s+1}
-        \int_{-1}^1 P_n(x) P_m(x) \d x =
-
-    = \sum_{n=0}^{k+l} {A(s-k) A(s-n) A(s-l)\over A(s)}
-        {2n+1\over 2s+1}
-        {2\over 2n+1} \delta_{nm} =
-
-    = 2 {A(s-k) A(s-l) A(s-m)\over A(s)} {1\over 2s+1} =
-
-    = 2 {
-            {1\over2^{s-k}}\binom{2s-2k}{s-k}
-            {1\over2^{s-l}}\binom{2s-2l}{s-l}
-            {1\over2^{s-m}}\binom{2s-2m}{s-m}
-            \over
-            {1\over2^{s}}\binom{2s}{s}
-        } {1\over 2s+1} =
-
-    = 2 {2^s\over2^{s-k+s-l+s-m}} {
-            \binom{2s-2k}{s-k}
-            \binom{2s-2l}{s-l}
-            \binom{2s-2m}{s-m}
-            \over
-            \binom{2s}{s}
-        } {1\over 2s+1} =
-
-    = 2 {
-            \binom{2s-2k}{s-k}
-            \binom{2s-2l}{s-l}
-            \binom{2s-2m}{s-m}
-            \over
-            \binom{2s}{s}
-        } {1\over 2s+1} =
-
-    = 2 {
-            {(2s-2k)! \over ((s-k)!)^2}
-            {(2s-2l)! \over ((s-l)!)^2}
-            {(2s-2m)! \over ((s-m)!)^2}
-            {(s!)^2 \over (2s)!}
-        } {1\over 2s+1} =
-
-    = 2 {(2s-2k)! (2s-2l)! (2s-2m)! \over (2s+1)!}
-        \left[{s! \over (s-k)! (s-l)! (s-m)!}\right]^2
-       =
+    =
+        \sum_{n=|k-l|}^{k+l}
+        \begin{pmatrix} k & l & n \\ 0 & 0 & 0 \end{pmatrix}^2
+        (2n+1) {2\delta_{nm}\over 2n+1}
+    =
 
     = 2 \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
 
-As such, we can write the series expansion as:
+This is consistent with the series expansion:
 
 .. math::
 
