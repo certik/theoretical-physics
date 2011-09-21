@@ -400,3 +400,27 @@ or using :eq:`using3j`:
                     P_{n'l'}(r)
         = \epsilon_{nl} P_{nl}(r)
 
+
+FEM
+---
+
+The weak formulation is ($u(r) = P_{nl}(r)$):
+
+.. math::
+
+    \int_0^\infty \half u'(r) v'(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r) \d r+
+
+            -\sum_{n'l'}
+                (2l'+1)
+                \sum_{k=|l-l'|}^{k=l+l'}
+                    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \int_0^\infty
+                \int_0^\infty
+                {r_{<}^k\over r_{>}^{k+1}}
+                u(r')v(r)
+                P_{n'l'}(r')
+                P_{n'l'}(r)
+                \d r'\,
+                \d r
+        = \epsilon \int_0^\infty u(r)v(r)\d r
