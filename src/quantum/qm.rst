@@ -1719,3 +1719,122 @@ and for the lower indices:
 .. math::
 
     D_j = \partial_j + {i\over\hbar}e A_j=-{i\over\hbar}(i\hbar\partial_j-eA_j) ={i\over\hbar}(i\hbar\partial^j-eA^j) ={i\over\hbar}({\bf p}-e{\bf A})
+
+Adding Angular Momenta
+----------------------
+
+Angular momenta are added using the Clebsch-Gordan coefficients (or
+equivalently $3j$ symbols):
+
+.. math::
+    :label: angular_momenta_adding
+
+    \ket{j_1 j_2 j_3 m_3} =
+        \sum_{m_1 m_2} (j_1 m_1 j_2 m_2 | j_3 m_3 ) \ket{j_1 m_1 j_2 m_2} =
+
+        = \sum_{m_1 m_2}
+            (-1)^{j_1-j_2+m_3}\sqrt{2j_3+1}
+            \begin{pmatrix} j_1 & j_2 & j_3 \\ m_1 & m_2 & -m_3 \end{pmatrix}
+            \ket{j_1 m_1 j_2 m_2}
+
+Spin Orbit Coupling
+~~~~~~~~~~~~~~~~~~~
+
+This is just a special case of :eq:`angular_momenta_adding` for:
+
+.. math::
+
+    j_1 = l
+
+    m_1 = m
+
+    j_2 = \half
+
+    m_2 = s
+
+So the kets $\ket{j_1 m_1 j_2 m_2}$ can be written as:
+
+.. math::
+
+    \ket{j_1 m_1 j_2 m_2} = \ket{l m \half s}
+        = Y_{lm} \Phi_s
+
+Where:
+
+.. math::
+
+    \Phi_{1\over2} = \begin{pmatrix}1\\0\end{pmatrix}
+
+    \Phi_{-{1\over2}} = \begin{pmatrix}0\\1\end{pmatrix}
+
+Where $s$ is a spin, $s=\pm\half$. Then we get:
+
+.. math::
+
+    \ket{l \half j_3 m_3}
+        = \sum_{m=-l}^l \sum_{s=-\half}^\half
+            (-1)^{l-\half+m_3}\sqrt{2j_3+1}
+            \begin{pmatrix} l & \half & j_3 \\ m & s & -m_3 \end{pmatrix}
+            \ket{l m \half s}
+        =
+
+        = (-1)^{l-\half+m_3}\sqrt{2j_3+1}
+        \sum_{m=-l}^l
+            \left(
+            \begin{pmatrix} l & \half & j_3 \\ m & -\half & -m_3 \end{pmatrix}
+            \ket{l m \half (-\half)}\right.
+            +
+
+            +\left.
+            \begin{pmatrix} l & \half & j_3 \\ m & \half & -m_3 \end{pmatrix}
+            \ket{l m \half \half}\right)=
+
+        =(-1)^{l-\half+m_3}\sqrt{2j_3+1} \left(
+            \begin{pmatrix} l & \half & j_3 \\ m_3+\half & -\half & -m_3 \end{pmatrix}
+            \ket{l (m_3+\half) \half (-\half)}\right.
+            +
+
+            +\left.
+            \begin{pmatrix} l & \half & j_3 \\ m_3-\half & \half & -m_3 \end{pmatrix}
+            \ket{l (m_3-\half) \half \half}\right)=
+
+        =(-1)^{l-\half+m_3}\sqrt{2j_3+1} \begin{pmatrix}
+            \begin{pmatrix} l & \half & j_3 \\ m_3-\half & \half & -m_3 \end{pmatrix}
+            Y_{l, m_3-\half} \\
+            \begin{pmatrix} l & \half & j_3 \\ m_3+\half & -\half & -m_3 \end{pmatrix}
+            Y_{l, m_3+\half}
+            \end{pmatrix}
+
+These are called spin-angular functions or spin spherical harmonics.
+Using the triangle selection rule of the $3j$ symbols, we can see that there
+are only two options for $j_3$:
+
+.. math::
+
+    j_3 = l+\half
+
+    j_3 = l-\half
+
+So we get:
+
+.. math::
+
+    \ket{(j_3-\half) \half j_3 m_3}
+        =(-1)^{j_3-\half-\half+m_3}\sqrt{2j_3+1} \begin{pmatrix}
+            \begin{pmatrix} j_3-\half & \half & j_3 \\ m_3-\half & \half & -m_3 \end{pmatrix}
+            Y_{j_3-\half, m_3-\half} \\
+            \begin{pmatrix} j_3-\half & \half & j_3 \\ m_3+\half & -\half & -m_3 \end{pmatrix}
+            Y_{j_3-\half, m_3+\half}
+            \end{pmatrix}
+
+and
+
+.. math::
+
+    \ket{(j_3+\half) \half j_3 m_3}
+        =(-1)^{j_3+\half-\half+m_3}\sqrt{2j_3+1} \begin{pmatrix}
+            \begin{pmatrix} j_3+\half & \half & j_3 \\ m_3-\half & \half & -m_3 \end{pmatrix}
+            Y_{j_3+\half, m_3-\half} \\
+            \begin{pmatrix} j_3+\half & \half & j_3 \\ m_3+\half & -\half & -m_3 \end{pmatrix}
+            Y_{j_3+\half, m_3+\half}
+            \end{pmatrix}
