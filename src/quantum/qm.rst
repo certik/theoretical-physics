@@ -1815,7 +1815,7 @@ are only two options for $j_3$:
 
     j_3 = l-\half
 
-So we get:
+So we get for $j_3=l+\half$:
 
 .. math::
 
@@ -1825,9 +1825,19 @@ So we get:
             Y_{j_3-\half, m_3-\half} \\
             \begin{pmatrix} j_3-\half & \half & j_3 \\ m_3+\half & -\half & -m_3 \end{pmatrix}
             Y_{j_3-\half, m_3+\half}
+            \end{pmatrix} =
+
+        = {1\over \sqrt{2j_3}}\begin{pmatrix}
+              \sqrt{j_3+m_3}\, Y_{j_3-\half, m_3-\half} \\
+              \sqrt{j_3-m_3}\, Y_{j_3-\half, m_3+\half}
+            \end{pmatrix} =
+
+        = {1\over\sqrt{2l+1}}\begin{pmatrix}
+              \sqrt{l+m_3+\half}\, Y_{l, m_3-\half} \\
+              \sqrt{l-m_3+\half}\, Y_{l, m_3+\half}
             \end{pmatrix}
 
-and
+and $j_3=l-\half$:
 
 .. math::
 
@@ -1837,4 +1847,28 @@ and
             Y_{j_3+\half, m_3-\half} \\
             \begin{pmatrix} j_3+\half & \half & j_3 \\ m_3+\half & -\half & -m_3 \end{pmatrix}
             Y_{j_3+\half, m_3+\half}
+            \end{pmatrix} =
+
+        =(-1)^{j_3+m_3}\sqrt{2j_3+1} \begin{pmatrix}
+              (-1)^{2j_3+1}(-1)^{j_3-m_3}\sqrt{j_3-m_3+1 \over (2j_3+1)(2j_3+2)}
+            Y_{j_3+\half, m_3-\half} \\
+              (-1)^{j_3+m_3}\sqrt{j_3+m_3+1 \over (2j_3+1)(2j_3+2)}
+            Y_{j_3+\half, m_3+\half}
+            \end{pmatrix} =
+
+        = \begin{pmatrix}
+              (-1)^{4j_3+1}\sqrt{j_3-m_3+1 \over 2j_3+2}
+            Y_{j_3+\half, m_3-\half} \\
+              \sqrt{j_3+m_3+1 \over 2j_3+2}
+            Y_{j_3+\half, m_3+\half}
+            \end{pmatrix} =
+
+        = {1\over\sqrt{2j_3+2}}\begin{pmatrix}
+              -\sqrt{j_3-m_3+1}\, Y_{j_3+\half, m_3-\half} \\
+               \sqrt{j_3+m_3+1}\, Y_{j_3+\half, m_3+\half}
+            \end{pmatrix} =
+
+        = {1\over\sqrt{2l+1}}\begin{pmatrix}
+              -\sqrt{l-m_3+\half}\, Y_{l, m_3-\half} \\
+               \sqrt{l+m_3+\half}\, Y_{l, m_3+\half}
             \end{pmatrix}
