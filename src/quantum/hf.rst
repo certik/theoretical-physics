@@ -424,3 +424,166 @@ The weak formulation is ($u(r) = P_{nl}(r)$):
                 \d r'\,
                 \d r
         = \epsilon \int_0^\infty u(r)v(r)\d r
+
+The radial double integral can be done in the following way:
+
+.. math::
+
+    \int_0^\infty
+    \int_0^\infty
+    {r_{<}^k\over r_{>}^{k+1}}
+    u(r')v(r)
+    f(r')
+    g(r)
+    \d r'\,
+    \d r
+    = \int_0^\infty g(r) v(r) {Y^k(r)\over r}
+
+where:
+
+.. math::
+
+    Y^k(r) = r
+    \int_0^\infty
+    {r_{<}^k\over r_{>}^{k+1}}
+    u(r')
+    f(r')
+    \d r'
+    = r
+    \int_0^r
+    {r'^k\over r^{k+1}}
+    u(r')
+    f(r')
+    \d r'
+    +
+    r \int_r^\infty
+    {r^k\over r'^{k+1}}
+    u(r')
+    f(r')
+    \d r'
+    =
+
+    =
+    {1\over r^k}
+    \int_0^r
+    {x^k}
+    u(x)
+    f(x)
+    \d x
+    +
+    r^{k+1}
+    \int_r^\infty
+    {1\over x^{k+1}}
+    u(x)
+    f(x)
+    \d x
+    =Z^k(r)
+    +
+    r^{k+1}
+    \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x
+
+where:
+
+.. math::
+
+    Z^k(r) =
+    {1\over r^k}
+    \int_0^r
+    {x^k}
+    u(x)
+    f(x)
+    \d x
+
+    {\d Z^k(r) \over \d r}= -{k\over r} Z^k(r) + u(r) f(r)
+
+    Z^k(0) = 0
+
+Now we differentiate $Y^k(r)$:
+
+.. math::
+
+    {\d Y^k(r) \over \d r} = {\d Z^k(r) \over \d r}
+        + {k+1\over r} r^{k+1}
+        \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x
+        -u(r) f(r)
+    =
+
+    =
+    -{k\over r} Z^k(r) + u(r) f(r)
+        + {k+1\over r} r^{k+1}
+        \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x
+        -u(r) f(r) =
+
+    =
+    -{k\over r} Z^k(r)
+        + {k+1\over r} r^{k+1}
+        \int_r^\infty {1\over x^{k+1}} u(x) f(x) \d x =
+
+    =
+    -{k\over r} Z^k(r)
+        + {k+1\over r} (Y^k(r) - Z^k(r)) =
+
+    =
+    -{2k+1\over r} Z^k(r) + {k+1\over r} Y^k(r)
+
+Also $Y^k(\infty) = Z^k(\infty)$, so we get the following set of differential
+equations with boundary conditions:
+
+.. math::
+
+    \left({\d\over\d r} - {k+1\over r}\right) Y^k(r) = -{2k+1\over r} Z^k(r)
+
+    \left({\d\over\d r} + {k\over r}\right) Z^k(r) = u(r) f(r)
+
+    Y^k(\infty) = Z^k(\infty)
+
+    Z^k(0) = 0
+
+Expressing $Z^k$ from the first equation:
+
+.. math::
+
+    Z^k(r) = -{r\over 2k+1}\left({\d\over\d r} - {k+1\over r}\right) Y^k(r) =
+
+    =-{r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k(r)
+
+and substituting into the second equation we get:
+
+.. math::
+
+    -\left({\d\over\d r} + {k\over r}\right)
+        \left({r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k\right)
+        = u(r) f(r)
+
+    -{r\over 2k+1}\left({\d^2\over\d r^2} - {k(k+1)\over r^2}\right)
+        Y^k(r)
+        = u(r) f(r)
+
+    \left({\d^2\over\d r^2} - {k(k+1)\over r^2}\right) Y^k(r)
+        = -{2k+1\over r}u(r) f(r)
+
+With boundary condition on the left:
+
+.. math::
+
+    Z^k(0) = {k+1\over 2k+1} Y^k(0) = 0
+
+    Y^k(0) = 0
+
+and on the right:
+
+.. math::
+
+    Z^k(r)
+        =-{r\over 2k+1}{\d Y^k(r)\over \d r} + {k+1\over 2k+1} Y^k(r)
+        = Y^k(r)
+
+    -{r\over 2k+1}{\d Y^k(r)\over \d r} - {k\over 2k+1} Y^k(r) = 0
+
+    {\d Y^k(r)\over \d r} + {k\over r} Y^k(r) = 0
+
+so for $r\to\infty$:
+
+.. math::
+
+    \left.{\d Y^k(r)\over \d r}\right|_{r=\infty} = 0
