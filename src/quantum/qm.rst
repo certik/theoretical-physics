@@ -1827,6 +1827,20 @@ So we get for $j_3=l+\half$:
             Y_{j_3-\half, m_3+\half}
             \end{pmatrix} =
 
+        =(-1)^{j_3+m_3-1}\sqrt{2j_3+1} \begin{pmatrix}
+            (-1)^{j_3+m_3-1}\sqrt{j_3+m_3\over 2 j_3 (2j_3+1)}
+            Y_{j_3-\half, m_3-\half} \\
+            (-1)^{2j_3} (-1)^{j_3-m_3-1}\sqrt{j_3-m_3\over 2 j_3 (2j_3+1)}
+            Y_{j_3-\half, m_3+\half}
+            \end{pmatrix} =
+
+        = \begin{pmatrix}
+            \sqrt{j_3+m_3\over 2 j_3}
+            Y_{j_3-\half, m_3-\half} \\
+            (-1)^{4j_3}\sqrt{j_3-m_3\over 2 j_3}
+            Y_{j_3-\half, m_3+\half}
+            \end{pmatrix} =
+
         = {1\over \sqrt{2j_3}}\begin{pmatrix}
               \sqrt{j_3+m_3}\, Y_{j_3-\half, m_3-\half} \\
               \sqrt{j_3-m_3}\, Y_{j_3-\half, m_3+\half}

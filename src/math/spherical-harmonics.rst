@@ -784,6 +784,39 @@ Examples
 
 .. math::
 
+    \begin{pmatrix} j_3-\half & \half & j_3 \\
+        m_3-\half & \half & -m_3 \end{pmatrix} =
+    \begin{pmatrix} j_3 & j_3-\half & \half \\
+        -m_3 & m_3-\half & \half \end{pmatrix} =
+        \left.
+    \begin{pmatrix} j+\half & j & \half \\ m & -m-\half & \half \end{pmatrix}
+    \right|_{j=j_3-\half;m=-m_3}
+    =
+
+    = (-1)^{j_3-\half+m_3-\half}\sqrt{j_3-\half+m_3+\half\over
+        (2 j_3-1+1) (2j_3-1+2)}
+    = (-1)^{j_3+m_3-1}\sqrt{j_3+m_3\over 2 j_3 (2j_3+1)}
+
+
+
+    \begin{pmatrix} j_3-\half & \half & j_3 \\
+        m_3+\half & -\half & -m_3 \end{pmatrix} =
+        (-1)^{j_3-\half + \half + j_3}
+    \begin{pmatrix} j_3 & j_3-\half & \half \\
+        m_3 & -m_3-\half & \half \end{pmatrix} =
+        (-1)^{2j_3}
+        \left.
+    \begin{pmatrix} j+\half & j & \half \\ m & -m-\half & \half \end{pmatrix}
+    \right|_{j=j_3-\half;m=m_3}
+    =
+
+    = (-1)^{2j_3}
+    (-1)^{j_3-\half-m_3-\half}\sqrt{j_3-\half-m_3+\half\over
+        (2 j_3-1+1) (2j_3-1+2)}
+    = (-1)^{2j_3} (-1)^{j_3-m_3-1}\sqrt{j_3-m_3\over 2 j_3 (2j_3+1)}
+
+
+
     \begin{pmatrix} j_3+\half & \half & j_3 \\
         m_3-\half & \half & -m_3 \end{pmatrix} =
         (-1)^{j_3+\half+\half+j_3}
