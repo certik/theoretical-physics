@@ -757,6 +757,29 @@ it prints::
      5  4  3  5   1/11   1/11
 
 
+Values of the $3j$ coefficients for a few special cases (use the symmetries
+above to obtain values for permuted symbols):
+
+.. math::
+
+    \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}
+        &= (-1)^s \sqrt{(2s-2k)! (2s-2l)! (2s-2m)! \over (2s+1)!}
+            {s! \over (s-k)! (s-l)! (s-m)!}
+            \quad\quad\mbox{for $2s=k+l+m$ even} \\
+    \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}
+        &= 0
+            \quad\quad\mbox{for $2s=k+l+m$ odd} \\
+    \begin{pmatrix} j+\half & j & \half \\ m & -m-\half & \half \end{pmatrix}
+        &= (-1)^{j-m-\half} \sqrt{j-m+\half
+            \over (2j+1)(2j+2)} \\
+    \begin{pmatrix} j+1 & j & 1 \\ m & -m-1 & 1 \end{pmatrix}
+        &= (-1)^{j-m-1} \sqrt{(j-m)(j-m+1)
+            \over (2j+1)(2j+2)(2j+3)} \\
+    \begin{pmatrix} j+1 & j & 1 \\ m & -m & 0 \end{pmatrix}
+        &= (-1)^{j-m-1} \sqrt{2(j+m+1)(j-m+1)
+            \over (2j+1)(2j+2)(2j+3)}
+
+
 .. index:: multipole expansion
 
 Multipole expansion
