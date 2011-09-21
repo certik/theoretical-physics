@@ -779,6 +779,42 @@ above to obtain values for permuted symbols):
         &= (-1)^{j-m-1} \sqrt{2(j+m+1)(j-m+1)
             \over (2j+1)(2j+2)(2j+3)}
 
+Examples
+~~~~~~~~
+
+.. math::
+
+    \begin{pmatrix} j_3+\half & \half & j_3 \\
+        m_3-\half & \half & -m_3 \end{pmatrix} =
+        (-1)^{j_3+\half+\half+j_3}
+    \begin{pmatrix} j_3+\half & j_3 & \half \\
+        m_3-\half & -m_3 & \half \end{pmatrix} =
+        (-1)^{2j_3+1}
+        \left.
+    \begin{pmatrix} j+\half & j & \half \\ m & -m-\half & \half \end{pmatrix}
+    \right|_{j=j_3;m=m_3-\half}
+    =
+
+    =(-1)^{2j_3+1}(-1)^{j_3-m_3+\half-\half}\sqrt{j_3-m_3+\half+\half \over
+        (2j_3+1)(2j_3+2)}
+    =(-1)^{2j_3+1}(-1)^{j_3-m_3}\sqrt{j_3-m_3+1 \over (2j_3+1)(2j_3+2)}
+
+
+
+
+    \begin{pmatrix} j_3+\half & \half & j_3 \\
+        m_3+\half & -\half & -m_3 \end{pmatrix} =
+    \begin{pmatrix} j_3+\half & j_3 & \half \\
+        -m_3-\half & m_3 & \half \end{pmatrix} =
+        \left.
+    \begin{pmatrix} j+\half & j & \half \\ m & -m-\half & \half \end{pmatrix}
+    \right|_{j=j_3;m=-m_3-\half}
+    =
+
+    =(-1)^{j_3+m_3+\half-\half}\sqrt{j_3+m_3+\half+\half \over
+        (2j_3+1)(2j_3+2)}
+    =(-1)^{j_3+m_3}\sqrt{j_3+m_3+1 \over (2j_3+1)(2j_3+2)}
+
 
 .. index:: multipole expansion
 
