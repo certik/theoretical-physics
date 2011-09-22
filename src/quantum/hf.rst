@@ -158,8 +158,8 @@ $f({\bf x})$ can be calculated by:
 
     \nabla^2 W_{fj}({\bf x}) = -4\pi f({\bf x})\psi_j^*({\bf x})
 
-Exchange Integral
------------------
+Exchange Integral in Spherical Symmetry
+---------------------------------------
 
 Let's calculate the exchange integral
 
@@ -292,8 +292,8 @@ And we get:
         P_{nl}(r')
         \d r \d r'
 
-Nonlocal Exchange Potential
----------------------------
+Nonlocal Exchange Potential in Spherical Symmetry
+-------------------------------------------------
 
 Similarly, we calculate:
 
@@ -348,7 +348,8 @@ Similarly, we calculate:
             P_{n'l'}(r)
 
 Functions with different spins don't contribute to the sum, so there is no
-multiplication by 2.
+multiplication by 2. We assumed closed shells atoms (we summed over all $m'$ in
+the above).
 
 Where we used the result of the integral in
 :ref:`five_spherical_harmonics`. Note that:
@@ -363,8 +364,8 @@ Where we used the result of the integral in
         = (2l'+1)
             \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
 
-Spherical Symmetry
-------------------
+Hartree Potential in Spherical Symmetry
+---------------------------------------
 
 In the central field approximation, we average the integral for $V_H$ over the
 angles:
@@ -391,6 +392,9 @@ And $V_H(r)$ is then the solution of the radial Poisson equation:
 
     V_H''(r) + {2\over r}V_H'(r) = -4\pi n(r)
 
+
+Radial Hartre-Fock Equations
+----------------------------
 
 Using the above integrals, the HF equations become:
 
