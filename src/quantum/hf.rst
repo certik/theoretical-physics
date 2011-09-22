@@ -140,6 +140,12 @@ The Hartree potential can be calculated by solving the Poisson equation:
 
     \nabla^2V_H({\bf x}) = -4\pi n({\bf x})
 
+where:
+
+.. math::
+
+    n({\bf x}) = \sum_{i=1}^Z |\psi_i({\bf x})|^2
+
 The application of the exchange potential $\hat V_x$ on any function
 $f({\bf x})$ can be calculated by:
 
@@ -364,6 +370,25 @@ angles:
 
     V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
 
+so in particular, the charge density becomes:
+
+.. math::
+
+    n(r) = {1\over 4\pi} \sum_{nl} f_{nl} \left(P_{nl}(r)\over r\right)^2
+
+where $f_{nl}$ are the occupation numbers, for closed shells:
+
+.. math::
+
+    f_{nl} = 2(2l+1)
+
+And $V_H(r)$ is then the solution of the radial Poisson equation:
+
+.. math::
+
+    V_H''(r) + {2\over r}V_H'(r) = -4\pi n(r)
+
+
 Using the above integrals, the HF equations become:
 
 .. math::
@@ -400,6 +425,25 @@ or using :eq:`using3j`:
                     P_{n'l'}(r)
         = \epsilon_{nl} P_{nl}(r)
 
+This can be written as:
+
+.. math::
+
+    -\half P_{nl}''(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
+
+            -\sum_{n'l'}
+                \half f_{n'l'}
+                \sum_{k=|l-l'|}^{k=l+l'}
+                    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \int
+                {r_{<}^k\over r_{>}^{k+1}}
+                P_{nl}(r')
+                P_{n'l'}(r')
+                \d r'\,
+                    P_{n'l'}(r)
+        = \epsilon_{nl} P_{nl}(r)
+
 
 FEM
 ---
@@ -408,11 +452,12 @@ The weak formulation is ($u(r) = P_{nl}(r)$):
 
 .. math::
 
-    \int_0^\infty \half u'(r) v'(r) +
-        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r) \d r+
+    \int_0^\infty \left( \half u'(r) v'(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r)
+            \right) \d r+
 
             -\sum_{n'l'}
-                (2l'+1)
+                \half f_{n'l'}
                 \sum_{k=|l-l'|}^{k=l+l'}
                     \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
                 \int_0^\infty
