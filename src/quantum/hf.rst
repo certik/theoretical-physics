@@ -347,6 +347,9 @@ Similarly, we calculate:
         \d r'\,
             P_{n'l'}(r)
 
+Functions with different spins don't contribute to the sum, so there is no
+multiplication by 2.
+
 Where we used the result of the integral in
 :ref:`five_spherical_harmonics`. Note that:
 
@@ -433,9 +436,9 @@ This can be written as:
         \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
 
             -\sum_{n'l'}
-                \half f_{n'l'}
+                f_{n'l'}
                 \sum_{k=|l-l'|}^{k=l+l'}
-                    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
                 \int
                 {r_{<}^k\over r_{>}^{k+1}}
                 P_{nl}(r')
@@ -457,9 +460,9 @@ The weak formulation is ($u(r) = P_{nl}(r)$):
             \right) \d r+
 
             -\sum_{n'l'}
-                \half f_{n'l'}
+                f_{n'l'}
                 \sum_{k=|l-l'|}^{k=l+l'}
-                    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
                 \int_0^\infty
                 \int_0^\infty
                 {r_{<}^k\over r_{>}^{k+1}}
