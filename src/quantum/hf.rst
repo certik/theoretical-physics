@@ -364,6 +364,135 @@ Where we used the result of the integral in
         = (2l'+1)
             \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
 
+Occupation Numbers
+------------------
+
+We have a sum over $N$ electron states like this:
+
+.. math::
+
+    \sum_{i=1}^N A_i({\bf x}) = \sum_{nlms} A_{nlms}({\bf x})
+
+where $A_{nlms}({\bf x})$ are some functions that depend on the state numbers
+(for example squares of the wavefunctions). Then there are two options ---
+either there is a way to sum over the $m$ and $s$ degrees of freedom, so that
+the sum can be written exactly as:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) = \sum_{nlms} B_{nl}({\bf x})
+
+where $B_{nl}$ (that don't depend on $m$ and $s$) will in general be different
+to $A_{nlms}$, but the sum will be the same. Or we have to approximate the sum
+(for example by averaging over the angles, or in some other way) as:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) \to \sum_{nlms} B_{nl}({\bf x})
+
+In either case, the occupation numbers $f_{nl}$ are simply the number of times
+the functions $B_{nl}({\bf x})$ appear in the sum for the given $n$ and $l$:
+
+.. math::
+
+    \sum_{nlms} B_{nl}({\bf x}) = \sum_{nl} f_{nl} B_{nl}({\bf x})
+
+So for closed shells atoms, it is always:
+
+.. math::
+
+    f_{nl} = 2(2l+1)
+
+because there are two spins, and $2l+1$ possibilities for $m$, for open shell
+atoms, $f_{nl}$ is anything between $0$ and $2l+1$.
+
+Example I
+~~~~~~~~~
+
+As an example, let's say that after some calculation for closed shell systems
+we get exactly:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) = \sum_{nl} 2(2l+1) B_{nl}({\bf x})
+
+Then because there are exactly $2(2l+1)$ states in the $nl$ shell, we write the
+above as:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) = \sum_{nl} 2(2l+1) B_{nl}({\bf x})
+        = \sum_{nl} f_{nl} B_{nl}({\bf x})
+
+Then we do similar calculation for the open shell system, and we have to use
+some approximations to get the following formula, where the $B_{nl}({\bf x})$
+happen to be exactly the same as for the closed shell system:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) \to \sum_{nlm} 2 B_{nl}({\bf x})
+
+Then we denote by $f_{nl}$ the number of electrons in the shell $nl$ (at least
+one of them will be open, for which $nl$ we have $f_{nl} < 2(2l+1)$), and we
+can write the above as:
+
+.. math::
+
+    \sum_{nlms} A_{nlms}({\bf x}) \to \sum_{nlm} 2 B_{nl}({\bf x})
+        = \sum_{nl} f_{nl} B_{nl}({\bf x})
+
+Example II
+~~~~~~~~~~
+
+The usual chemical occupation numbers for the Uranium atom are:
+
+.. math::
+
+    f_{1l} & = 2 (2l+1)    \\
+    f_{2l} & = 2 (2l+1)    \\
+    f_{3l} & = 2 (2l+1)    \\
+    f_{4l} & = 2 (2l+1)    \\
+    f_{5l} & = 2 (2l+1)\quad\quad\mbox{for $l\le2$}    \\
+    f_{53} & = 3    \\
+    f_{60} & = 2    \\
+    f_{61} & = 6    \\
+    f_{62} & = 1    \\
+    f_{70} & = 2    \\
+
+So the $n=5$, $l=3$ and $n=6$, $l=2$ shells are open, all others are closed.
+By summing all these $f_{nl}$, we get 92 states as expected:
+
+.. math::
+
+    \sum_{nl} f_{nl} = 2 + (2+6) + (2+6+10) + (2+6+10+14) + (2+6+10) +
+
+        + 3 + 2 + 6 + 1 + 2 = 92
+
+Code::
+
+    def f_nl(n, l):
+        if n < 5 or (n == 5 and l <= 2):
+            return 2*(2*l+1)
+        else:
+            d = {
+                (5, 3): 3,
+                (6, 0): 2,
+                (6, 1): 6,
+                (6, 2): 1,
+                (7, 0): 2,
+                }
+            if (n, l) in d:
+                return d[n, l]
+            else:
+                return 0
+
+    print "Sum f_nl =", sum([f_nl(n, l) for n in range(8) for l in range(n)])
+
+prints::
+
+    Sum f_nl = 92
+
+
 Hartree Potential in Spherical Symmetry
 ---------------------------------------
 
