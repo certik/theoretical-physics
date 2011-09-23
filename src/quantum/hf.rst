@@ -509,11 +509,19 @@ For both open and closed shell atoms we get exactly:
             |{\bf x}-{\bf y}|} \d\Omega' \d r' =
 
         = 2\sum_{nlm}\sum_{l'm'}\int {r_<^{l'}\over r_>^{l'+1}}
+            {4\pi\over 2l'+1}
             Y_{lm}^*(\Omega')Y_{lm}(\Omega')
             Y_{l'm'}^*(\Omega)Y_{l'm'}(\Omega') P_{nl}^2(r') \d\Omega' \d r' =
 
         = 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
-            Y_{l'0}^*(\Omega) c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+            {4\pi\over 2l'+1}
+            Y_{l'0}^*(\Omega) \sqrt{2l'+1\over 4\pi}
+                c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+
+        = 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
+            \sqrt{4\pi\over 2l'+1}
+            Y_{l'0}^*(\Omega)
+                c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
 
 For closed shell atoms we continue simplifying:
 
@@ -521,16 +529,23 @@ For closed shell atoms we continue simplifying:
 
     V_H({\bf x}) = \cdots =
 
+        = 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
+            \sqrt{4\pi\over 2l'+1}
+            Y_{l'0}^*(\Omega)
+                c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+
         = 2\sum_{nl}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
-            Y_{l'0}^*(\Omega) (2l+1)\delta_{l'0} P_{nl}^2(r') \d r' =
+            \sqrt{4\pi\over 2l'+1}
+            Y_{l'0}^*(\Omega)
+                (2l+1)\delta_{l'0} P_{nl}^2(r') \d r' =
 
         = 2\sum_{nl}\int {1\over r_>}
-            Y_{00}^*(\Omega) (2l+1) P_{nl}^2(r') \d r' =
+            \sqrt{4\pi} Y_{00}^*(\Omega) (2l+1) P_{nl}^2(r') \d r' =
 
-        = \sum_{nl}2(2l+1) {1\over\sqrt{4\pi}}\int {1\over r_>}
+        = \sum_{nl}2(2l+1) \int {1\over r_>}
             P_{nl}^2(r') \d r' =
 
-        = \sum_{nl} f_{nl} {1\over\sqrt{4\pi}}\int {1\over r_>}
+        = \sum_{nl} f_{nl} \int {1\over r_>}
             P_{nl}^2(r') \d r'
 
 For open shell atoms we have to use the central field approximation, we average
@@ -541,16 +556,21 @@ the integral for $V_H$ over the angles:
     V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
         = \cdots =
 
-    = {1\over 4\pi} \int
-        2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
-            Y_{l'0}^*(\Omega) c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' \d \Omega =
+    ={1\over 4\pi} \int 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
+            \sqrt{4\pi\over 2l'+1}
+            Y_{l'0}^*(\Omega)
+                c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' \d \Omega =
 
-    = {1\over \sqrt{4\pi}}
-        2\sum_{nlm}\int {1\over r_>} c^0(l, m, l, m) P_{nl}^2(r') \d r' =
+    ={1\over 4\pi} 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
+            \sqrt{4\pi\over 2l'+1}
+            \sqrt{4\pi}\delta_{l'0}
+                c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
 
-    = \sum_{nlm} 2 {1\over \sqrt{4\pi}}\int {1\over r_>} P_{nl}^2(r') \d r' =
+    = 2\sum_{nlm}\int {1\over r_>} c^0(l, m, l, m) P_{nl}^2(r') \d r' =
 
-    = \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_>} P_{nl}^2(r') \d r'
+    = \sum_{nlm} 2 \int {1\over r_>} P_{nl}^2(r') \d r' =
+
+    = \sum_{nl} f_{nl} \int {1\over r_>} P_{nl}^2(r') \d r'
 
 We got the same expression for both open shell (with central field
 approximation) and closed shell (no approximation) atoms. The radial charge
@@ -565,14 +585,18 @@ So we got:
 .. math::
 
     V_H(r) =
-       \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_>} P_{nl}^2(r') \d r'
+       \sum_{nl} f_{nl} \int {1\over r_>} P_{nl}^2(r') \d r'
        =
 
-       =\sqrt{4\pi}\int {n(r')\over r_>} r'^2 \d r'
+       =\int {4\pi n(r') r'^2 \over r_>} \d r'
 
 This is equivalent to solving the following radial Poisson equation:
 
 .. math::
+
+    (V_H(r) r)'' = -{1\over r} 4\pi n(r) r^2
+
+    V_H''(r) r + 2V_H'(r) = - 4\pi n(r) r
 
     V_H''(r) + {2\over r}V_H'(r) = -4\pi n(r)
 
