@@ -814,8 +814,8 @@ and substituting into the second equation we get:
         Y^k(r)
         = u(r) f(r)
 
-    \left({\d^2\over\d r^2} - {k(k+1)\over r^2}\right) Y^k(r)
-        = -{2k+1\over r}u(r) f(r)
+    \left(-{\d^2\over\d r^2} + {k(k+1)\over r^2}\right) Y^k(r)
+        = {2k+1\over r}u(r) f(r)
 
 With boundary condition on the left:
 
