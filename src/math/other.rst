@@ -860,6 +860,103 @@ $x_> = \max(x, x')$:
     G(x, x') = H(x-x') (x'-x) +\half(x-x')
         = \half(x_< - x_>)
 
+Radial Poisson Equation
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Let's write $r_>$ and $r_<$ using the Heaviside step function:
+
+.. math::
+
+    r_> = \max(r, r')
+        =
+    \begin{cases}
+    r&\quad\mbox{for $r>r'$}\cr
+    r'&\quad\mbox{for $r<r'$}\cr
+    \end{cases}
+    = H(r-r') r + H(r'-r)r' =
+
+    = H(r-r') r + (1-H(r-r'))r'
+    = H(r-r') (r-r') + r'
+
+and:
+
+.. math::
+
+    r_< = \min(r, r')
+        =
+    \begin{cases}
+    r'&\quad\mbox{for $r>r'$}\cr
+    r&\quad\mbox{for $r<r'$}\cr
+    \end{cases}
+    = H(r-r') r' + H(r'-r)r =
+
+    = H(r-r') r' + (1-H(r-r'))r
+    = H(r-r') (r'-r) + r
+
+Then we can differentiate:
+
+.. math::
+
+    {\partial\over\partial r} r_>
+        = \delta(r-r')(r-r') + H(r-r')
+        = H(r-r')
+
+    {\partial^2\over\partial r^2} r_>
+        = \delta(r-r')
+
+    {\partial\over\partial r} r_<
+        = \delta(r-r')(r'-r) - H(r-r') + 1
+        = 1-H(r-r') = H(r'-r)
+
+    {\partial^2\over\partial r^2} r_<
+        = -\delta(r-r')
+
+Given:
+
+.. math::
+    :label: rad_integral_u
+
+    u(r) = \int_0^\infty {f(r') r'^2 \over r_>} \d r'
+
+The Green function is
+
+.. math::
+
+    G(r, r') = {r'^2\over r_>}
+
+Let's differentiate:
+
+.. math::
+
+    {\partial\over\partial r} G(r, r') = -{r'^2\over r_>^2}
+            {\partial\over\partial r} r_>
+    = -{r'^2\over r_>^2} H(r-r')
+    = -{r'^2\over r^2} H(r-r')
+
+and
+
+.. math::
+
+    {\partial^2\over\partial r^2} G(r, r') = +{2\over r}{r'^2\over r^2}
+        H(r-r') -{r'^2\over r^2} \delta(r-r')
+
+So we get:
+
+.. math::
+
+    -{\partial^2\over\partial r^2} G(r, r')
+        -{2\over r}{\partial\over\partial r} G(r, r')
+        =-{2\over r}{r'^2\over r^2} H(r-r') +{r'^2\over r^2} \delta(r-r')
+            +{2\over r}{r'^2\over r^2} H(r-r')
+        ={r'^2\over r^2} \delta(r-r') = \delta(r-r')
+
+So $u(r)$ from :eq:`rad_integral_u` is a solution to the radial Poisson
+equation:
+
+.. math::
+
+    -{\d^2\over\d r^2} u(r) - {2\over r}{\d\over\d r}u(r) = f(r)
+
 Helmholtz Equation in 1D
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
