@@ -518,63 +518,67 @@ For both open and closed shell atoms we get exactly:
             Y_{l'0}^*(\Omega) \sqrt{2l'+1\over 4\pi}
                 c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
 
-        = 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
+        = 2\sum_{nl}\sum_{l'=0}^{2l}\int {r_<^{l'}\over r_>^{l'+1}}
             \sqrt{4\pi\over 2l'+1}
             Y_{l'0}^*(\Omega)
-                c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+                \sum_m c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
 
-For closed shell atoms we continue simplifying:
+        = 2\sum_{nl}\int {1\over r_>}
+            \sqrt{4\pi}
+            Y_{00}^*(\Omega)
+                \sum_m c^0(l, m, l, m) P_{nl}^2(r') \d r' +
+
+        + 2\sum_{nl}\sum_{l'=1}^{2l}\int {r_<^{l'}\over r_>^{l'+1}}
+            \sqrt{4\pi\over 2l'+1}
+            Y_{l'0}^*(\Omega)
+                \sum_m c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+
+        = \sum_{nl}2\sum_m c^0(l, m, l, m) \int {1\over r_>}
+                 P_{nl}^2(r') \d r' +
+
+        + 2\sum_{nl}\sum_{l'=1}^{2l}\int {r_<^{l'}\over r_>^{l'+1}}
+            \sqrt{4\pi\over 2l'+1}
+            Y_{l'0}^*(\Omega)
+                \sum_m c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+
+        = \sum_{nl}2\sum_m \int {1\over r_>}
+                 P_{nl}^2(r') \d r' +
+
+        + 2\sum_{nl}\sum_{l'=1}^{2l}\int {r_<^{l'}\over r_>^{l'+1}}
+            \sqrt{4\pi\over 2l'+1}
+            Y_{l'0}^*(\Omega)
+                \sum_m c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+
+        = \sum_{nl} f_{nl} \int {1\over r_>} P_{nl}^2(r') \d r' +
+
+        + 2\sum_{nl}\sum_{l'=1}^{2l}
+            \sqrt{4\pi\over 2l'+1}
+            Y_{l'0}^*(\Omega)\sum_m c^{l'}(l, m, l, m)
+          \int {r_<^{l'}\over r_>^{l'+1}} P_{nl}^2(r') \d r'
+
+For closed shell atoms we use the fact, that
 
 .. math::
 
-    V_H({\bf x}) = \cdots =
+        \sum_{m=-l}^l c^{l'}(l, m, l, m) = (2l+1) \delta_{l' 0}
 
-        = 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
-            \sqrt{4\pi\over 2l'+1}
-            Y_{l'0}^*(\Omega)
-                c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
-
-        = 2\sum_{nl}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
-            \sqrt{4\pi\over 2l'+1}
-            Y_{l'0}^*(\Omega)
-                (2l+1)\delta_{l'0} P_{nl}^2(r') \d r' =
-
-        = 2\sum_{nl}\int {1\over r_>}
-            \sqrt{4\pi} Y_{00}^*(\Omega) (2l+1) P_{nl}^2(r') \d r' =
-
-        = \sum_{nl}2(2l+1) \int {1\over r_>}
-            P_{nl}^2(r') \d r' =
-
-        = \sum_{nl} f_{nl} \int {1\over r_>}
-            P_{nl}^2(r') \d r'
-
-For open shell atoms we have to use the central field approximation, we average
+and the second term disappears, and for open shell atoms
+we have to use the central field approximation: we average
 the integral for $V_H$ over the angles:
 
 .. math::
 
     V_H({\bf x}) \to V_H(r) = {1\over 4\pi} \int V_H({\bf x})\, \d \Omega
-        = \cdots =
 
-    ={1\over 4\pi} \int 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
-            \sqrt{4\pi\over 2l'+1}
-            Y_{l'0}^*(\Omega)
-                c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' \d \Omega =
+and using the fact, that
 
-    ={1\over 4\pi} 2\sum_{nlm}\sum_{l'}\int {r_<^{l'}\over r_>^{l'+1}}
-            \sqrt{4\pi\over 2l'+1}
-            \sqrt{4\pi}\delta_{l'0}
-                c^{l'}(l, m, l, m) P_{nl}^2(r') \d r' =
+.. math::
 
-    = 2\sum_{nlm}\int {1\over r_>} c^0(l, m, l, m) P_{nl}^2(r') \d r' =
+    \int Y_{l'0}^*(\Omega)\, \d \Omega = \sqrt{4\pi} \delta_{l' 0}
 
-    = \sum_{nlm} 2 \int {1\over r_>} P_{nl}^2(r') \d r' =
-
-    = \sum_{nl} f_{nl} \int {1\over r_>} P_{nl}^2(r') \d r'
-
-We got the same expression for both open shell (with central field
-approximation) and closed shell (no approximation) atoms. The radial charge
-density is:
+the second term disappears as well. We got the same expression for both open
+shell (with central field approximation) and closed shell (no approximation)
+atoms.  The radial charge density is:
 
 .. math::
 
@@ -586,8 +590,6 @@ So we got:
 
     V_H(r) =
        \sum_{nl} f_{nl} \int {1\over r_>} P_{nl}^2(r') \d r'
-       =
-
        =\int {4\pi n(r') r'^2 \over r_>} \d r'
 
 This is equivalent to solving the following radial Poisson equation:
@@ -664,7 +666,7 @@ with:
 .. math::
 
     V_H(r) =
-       \sum_{nl} f_{nl} {1\over \sqrt{4\pi}}\int {1\over r_>} P_{nl}^2(r') \d r'
+       \sum_{nl} f_{nl} \int {1\over r_>} P_{nl}^2(r') \d r'
 
 FEM
 ---
