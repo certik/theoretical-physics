@@ -292,77 +292,6 @@ And we get:
         P_{nl}(r')
         \d r \d r'
 
-Nonlocal Exchange Potential in Spherical Symmetry
--------------------------------------------------
-
-Similarly, we calculate:
-
-.. math::
-
-    \sum_{j=1}^Z\int {\psi_i({\bf x'})\psi_j^*({\bf x'})\over|{\bf x}-{\bf x'}|}
-            \d^3 x'\,\,\psi_j({\bf x}) =
-
-    = \sum_{n'l'm'}\sum_{k,q}\int
-        {P_{nl}(r')\over r'} Y_{lm}(\Omega')
-        {P_{n'l'}(r')\over r'} Y_{l'm'}^*(\Omega')
-        {P_{n'l'}(r)\over r} Y_{l'm'}(\Omega)
-
-        {r_{<}^k\over r_{>}^{k+1}}
-            {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
-        r'^2 \d r' \d \Omega' =
-
-    = \sum_{n'l'm'}\sum_{k,q}
-            {P_{n'l'}(r)\over r}
-            {4\pi\over 2k+1}
-        \int Y_{lm}(\Omega') Y_{l'm'}^*(\Omega') Y_{kq}^*(\Omega')
-            Y_{l'm'}(\Omega)
-            Y_{kq}(\Omega)
-            \d \Omega'
-        \int
-        {r_{<}^k\over r_{>}^{k+1}}
-        P_{nl}(r')
-        P_{n'l'}(r')
-        \d r'  =
-
-    = \sum_{n'l'}\sum_{k}
-            {P_{n'l'}(r)\over r}
-            {4\pi\over 2k+1}
-            {2k+1\over 4\pi}
-                \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
-                Y_{lm}(\Omega)
-        \int
-        {r_{<}^k\over r_{>}^{k+1}}
-        P_{nl}(r')
-        P_{n'l'}(r')
-        \d r'  =
-
-    =
-    {Y_{lm}(\Omega)\over r}
-    \sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
-            \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
-        \int
-        {r_{<}^k\over r_{>}^{k+1}}
-        P_{nl}(r')
-        P_{n'l'}(r')
-        \d r'\,
-            P_{n'l'}(r)
-
-Functions with different spins don't contribute to the sum, so there is no
-multiplication by 2. We assumed closed shells atoms (we summed over all $m'$ in
-the above).
-
-Where we used the result of the integral in
-:ref:`five_spherical_harmonics`. Note that:
-
-.. math::
-    :label: using3j
-
-    \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
-        = \sqrt{2l'+1\over 2l+1}
-            \sqrt{(2l'+1)(2l+1)}
-            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
-        = (2l'+1)
-            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
 
 Occupation Numbers
 ------------------
@@ -602,47 +531,105 @@ This is equivalent to solving the following radial Poisson equation:
 
     V_H''(r) + {2\over r}V_H'(r) = -4\pi n(r)
 
+Nonlocal Exchange Potential in Spherical Symmetry
+-------------------------------------------------
+
+Similarly, we calculate:
+
+.. math::
+
+    \sum_{j=1}^Z\int {\psi_i({\bf x'})\psi_j^*({\bf x'})\over|{\bf x}-{\bf x'}|}
+            \d^3 x'\,\,\psi_j({\bf x}) =
+
+    = \sum_{n'l'm'}\sum_{k,q}\int
+        {P_{nl}(r')\over r'} Y_{lm}(\Omega')
+        {P_{n'l'}(r')\over r'} Y_{l'm'}^*(\Omega')
+        {P_{n'l'}(r)\over r} Y_{l'm'}(\Omega)
+
+        {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+        r'^2 \d r' \d \Omega' =
+
+    = \sum_{n'l'm'}\sum_{k,q}
+            {P_{n'l'}(r)\over r}
+            {4\pi\over 2k+1}
+        \int Y_{lm}(\Omega') Y_{l'm'}^*(\Omega') Y_{kq}^*(\Omega')
+            Y_{l'm'}(\Omega)
+            Y_{kq}(\Omega)
+            \d \Omega'
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'  =
+
+    = \sum_{n'l'}\sum_{k}
+            {P_{n'l'}(r)\over r}
+            {4\pi\over 2k+1}
+            {2k+1\over 4\pi}
+                \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+                Y_{lm}(\Omega)
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'  =
+
+    =
+    {Y_{lm}(\Omega)\over r}
+    \sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
+            \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'\,
+            P_{n'l'}(r) =
+
+    =
+    {Y_{lm}(\Omega)\over r}
+    \sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
+        (2l'+1)
+            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'\,
+            P_{n'l'}(r) =
+
+    =
+    {Y_{lm}(\Omega)\over r}
+    \sum_{n'l'} f_{n'l'} \sum_{k=|l-l'|}^{k=l+l'}
+        \half
+            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        \int
+        {r_{<}^k\over r_{>}^{k+1}}
+        P_{nl}(r')
+        P_{n'l'}(r')
+        \d r'\,
+            P_{n'l'}(r)
+
+Functions with different spins don't contribute to the sum, so there is no
+multiplication by 2. We assumed closed shells atoms (we summed over all $m'$ in
+the above). We used the result of the integral in
+:ref:`five_spherical_harmonics` and also:
+
+.. math::
+    :label: using3j
+
+    \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+        = \sqrt{2l'+1\over 2l+1}
+            \sqrt{(2l'+1)(2l+1)}
+            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        = (2l'+1)
+            \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+
 
 Radial Hartre-Fock Equations
 ----------------------------
 
 Using the above integrals, the HF equations become:
-
-.. math::
-
-    -\half P_{nl}''(r) +
-        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
-
-            -\sum_{n'l'}\sum_{k=|l-l'|}^{k=l+l'}
-                    \sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
-                \int
-                {r_{<}^k\over r_{>}^{k+1}}
-                P_{nl}(r')
-                P_{n'l'}(r')
-                \d r'\,
-                    P_{n'l'}(r)
-        = \epsilon_{nl} P_{nl}(r)
-
-or using :eq:`using3j`:
-
-.. math::
-
-    -\half P_{nl}''(r) +
-        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)P_{nl}(r) +
-
-            -\sum_{n'l'}
-                (2l'+1)
-                \sum_{k=|l-l'|}^{k=l+l'}
-                    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
-                \int
-                {r_{<}^k\over r_{>}^{k+1}}
-                P_{nl}(r')
-                P_{n'l'}(r')
-                \d r'\,
-                    P_{n'l'}(r)
-        = \epsilon_{nl} P_{nl}(r)
-
-This can be written as:
 
 .. math::
 
