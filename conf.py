@@ -32,6 +32,7 @@ latex_preamble = r"""
 \def\degrees{^\circ}
 \def\d{{\rm d}}
 
+\def\sign{\mathop{\mathrm{sign}}}
 \def\L{{\mathcal L}}
 \def\H{{\mathcal H}}
 \def\M{{\mathcal M}}

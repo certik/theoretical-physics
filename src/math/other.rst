@@ -811,68 +811,54 @@ boundary condition. It can be shown, that $u(x)$ determined from
 Examples
 ~~~~~~~~
 
-Poisson Equation in 3D
+Poisson Equation in 1D
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. math::
-
-    \nabla^2u(x)=f(x)
-
-    \nabla^2G(x, x')=\delta(x-x')
-
-with boundary condition $G(x) = 0$ at infinity. Then:
+Poisson equation:
 
 .. math::
 
-    G(x, x')=-{1\over4\pi}{1\over|x-x'| }
+    -{\d^2\over\d x^2} u(x) = f(x)
 
-and
-
-.. math::
-
-    u(x) = -{1\over4\pi}\int {f(x')\over|x-x'| }\d x'
-
-Poisson Equation in 2D
-^^^^^^^^^^^^^^^^^^^^^^
-
-Let ${\bf x}=(x, y)$ and we want to solve:
+We calculate the Green function using the Fourier transform:
 
 .. math::
 
-    \nabla^2u({\bf x})=f({\bf x})
+    -{\partial^2\over\partial x^2} G(x, x') = \delta(x-x')
 
-So we have:
+    -(ik)^2 \tilde G(k, x') = {e^{ikx'}\over\sqrt{2\pi}}
 
-.. math::
+    \tilde G(k, x') = {e^{ikx'}\over\sqrt{2\pi}\,k^2}
 
-    \nabla^2G({\bf x}, {\bf x'})=\delta({\bf x}-{\bf x'})
+    G(x, x') = -\half (x-x') \sign(x-x')
+        = -\half (x-x') (2H(x-x')-1)
+        = H(x-x') (x'-x) +\half(x-x')
 
-The solution is:
-
-.. math::
-
-    G({\bf x}, {\bf x'})
-    ={1\over2\pi}\log|{\bf x}-{\bf x'}|
-    ={1\over4\pi}\log|{\bf x}-{\bf x'}|^2
-    ={1\over4\pi}\log((x-x')^2+(y-y')^2)
-
-
-Helmholtz Equation in 3D
-^^^^^^^^^^^^^^^^^^^^^^^^
+Check:
 
 .. math::
 
-    (\nabla^2+k^2)u(x)=f(x)
+    {\partial\over\partial x} G(x, x')
+        = \delta(x-x') (x'-x) + H(x-x') (-1) + \half
+        = - H(x-x') + \half
 
-    (\nabla^2+k^2)G(x, x')=\delta(x-x')
+    {\partial^2\over\partial x^2} G(x, x')
+        = - \delta(x-x')
 
-with boundary condition $G(x) = 0$ at infinity. Then:
+Then:
 
 .. math::
 
-    G(x, x')=-{1\over4\pi}{e^{ik|x-x'| }\over|x-x'| }
+    u(x) = \int G(x, x') f(x') \d x'
+        = \int \left(H(x-x') (x'-x) +\half(x-x')\right) f(x') \d x'
 
-    u(x) = -{1\over4\pi}\int {f(x')e^{ik|x-x'| }\over|x-x'| }\d x'
+The green function can also be written using $x_<=\min(x, x')$ and
+$x_> = \max(x, x')$:
+
+.. math::
+
+    G(x, x') = H(x-x') (x'-x) +\half(x-x')
+        = \half(x_< - x_>)
 
 Helmholtz Equation in 1D
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -892,6 +878,7 @@ with boundary conditions $u(0)=u({\pi\over2})=0$. Then:
     -\sin x\cos x'&\quad x<x'\cr
     -\cos x\sin x'&\quad x>x'\cr
     \end{cases}
+    =-\sin x_< \cos x_>
 
 and
 
@@ -941,6 +928,69 @@ We can easily check, that $u''+u=3\sin2x$::
 
 and since $f(x) = 3\sin2x$, we have verified, that $u(x)=-\sin 2x$ is the correct
 solution.
+
+Poisson Equation in 2D
+^^^^^^^^^^^^^^^^^^^^^^
+
+Let ${\bf x}=(x, y)$ and we want to solve:
+
+.. math::
+
+    \nabla^2u({\bf x})=f({\bf x})
+
+So we have:
+
+.. math::
+
+    \nabla^2G({\bf x}, {\bf x'})=\delta({\bf x}-{\bf x'})
+
+The solution is:
+
+.. math::
+
+    G({\bf x}, {\bf x'})
+    ={1\over2\pi}\log|{\bf x}-{\bf x'}|
+    ={1\over4\pi}\log|{\bf x}-{\bf x'}|^2
+    ={1\over4\pi}\log((x-x')^2+(y-y')^2)
+
+Poisson Equation in 3D
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. math::
+
+    \nabla^2u(x)=f(x)
+
+    \nabla^2G(x, x')=\delta(x-x')
+
+with boundary condition $G(x) = 0$ at infinity. Then:
+
+.. math::
+
+    G(x, x')=-{1\over4\pi}{1\over|x-x'| }
+
+and
+
+.. math::
+
+    u(x) = -{1\over4\pi}\int {f(x')\over|x-x'| }\d x'
+
+Helmholtz Equation in 3D
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. math::
+
+    (\nabla^2+k^2)u(x)=f(x)
+
+    (\nabla^2+k^2)G(x, x')=\delta(x-x')
+
+with boundary condition $G(x) = 0$ at infinity. Then:
+
+.. math::
+
+    G(x, x')=-{1\over4\pi}{e^{ik|x-x'| }\over|x-x'| }
+
+    u(x) = -{1\over4\pi}\int {f(x')e^{ik|x-x'| }\over|x-x'| }\d x'
+
 
 Finite Element Method
 ^^^^^^^^^^^^^^^^^^^^^
