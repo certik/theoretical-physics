@@ -802,11 +802,56 @@ Boundary Conditions
 
 The equation :eq:`green` doesn't determine the Green function uniquely,
 because one can add to it any solution of the homogeneous equation $Lu(x)=0$.
-We can use this freedom to solve :eq:`green` for any boundary condition, for
-example using FEM (more on that below). So we prescribe a boundary condition
+We can use this freedom to solve :eq:`green` for any boundary condition.
+So we prescribe a boundary condition
 and find the Green function (by solving :eq:`green`) that satisfies the
 boundary condition. It can be shown, that $u(x)$ determined from
 :eq:`solution` then also needs to satisfy the same boundary condition.
+
+Symmetry
+~~~~~~~~
+
+We write the equation for Green functions at two different points $x_1$
+and $x_2$:
+
+.. math::
+
+    L G(x, x_1) = \delta(x-x_1)
+
+    L G(x, x_2) = \delta(x-x_2)
+
+and multiply the first equation by $G(x, x_2)$, second by $G(x, x_1)$:
+
+.. math::
+
+    G(x, x_2) L G(x, x_1) = \delta(x-x_1) G(x, x_2)
+
+    G(x, x_1) L G(x, x_2) = \delta(x-x_2) G(x, x_1)
+
+substract them and integrate over $x$:
+
+.. math::
+
+    G(x, x_2) L G(x, x_1) - G(x, x_1) L G(x, x_2)
+        = \delta(x-x_1) G(x, x_2) - \delta(x-x_2) G(x, x_1)
+
+    \int \left(G(x, x_2) L G(x, x_1) - G(x, x_1) L G(x, x_2) \right) \d x
+        = \int \left(\delta(x-x_1) G(x, x_2) - \delta(x-x_2) G(x, x_1)
+            \right)\d x
+
+    \int \left(G(x, x_2) L G(x, x_1) - G(x, x_1) L G(x, x_2) \right) \d x
+        = G(x_1, x_2) - G(x_2, x_1)
+
+Assuming that the operator $L$ is Hermitean, we get:
+
+.. math::
+
+    \int \left((L G(x, x_2)) G(x, x_1) - G(x, x_1) L G(x, x_2) \right) \d x
+        = G(x_1, x_2) - G(x_2, x_1)
+
+    0 = G(x_1, x_2) - G(x_2, x_1)
+
+So the Green function is symmetric for Hermitean operators $L$.
 
 Examples
 ~~~~~~~~
