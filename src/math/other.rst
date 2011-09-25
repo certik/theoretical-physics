@@ -1011,11 +1011,69 @@ Helmholtz Equation in 1D
 
     \left({\d^2\over\d x^2}+1\right)G(x, x')=\delta(x-x')
 
-with boundary conditions $u(0)=u({\pi\over2})=0$. Then:
+with boundary conditions $u(0)=u({\pi\over2})=0$.
+We use the Fourier transform:
 
 .. math::
 
-    G(x, x')=
+    \left((ik)^2+1\right)\tilde G(k, x')={e^{ikx'}\over\sqrt{2\pi}}
+
+    \tilde G(k, x')={e^{ikx'}\over \sqrt{2\pi} (1-k^2)}
+
+    G(x, x') = \half\sign(x-x')\sin(x-x')
+
+Check:
+
+.. math::
+
+    {\partial\over\partial x} G(x, x') = \delta(x-x')\sin(x-x')
+        +\half\sign(x-x')\cos(x-x') =
+
+        = \half\sign(x-x')\cos(x-x')
+
+    {\partial^2\over\partial x^2} G(x, x') = \delta(x-x')\cos(x-x')
+        -\half\sign(x-x')\sin(x-x') =
+
+        = -\half\sign(x-x')\sin(x-x') + \delta(x-x')
+
+    {\partial^2\over\partial x^2} G(x, x')
+    +{\partial\over\partial x} G(x, x') = \delta(x-x')
+
+The general solution of the homogeneous equation is:
+
+.. math::
+
+    u(x) = C_1 \sin x + C_2 \cos x
+
+so the general Green function is:
+
+.. math::
+
+    G(x, x') = \half\sign(x-x')\sin(x-x') + C_1 \sin (x+x')
+        + C_2 \cos (x+x')
+
+Satisfying the boundary conditions (for all $x' \ne 0$):
+
+.. math::
+
+    G(0, x') = G({\pi\over 2}, x') = 0
+
+we get:
+
+.. math::
+
+    C_1 & = -\half \\
+    C_2 & = 0
+
+and:
+
+.. math::
+
+    G(x, x') = \half\sign(x-x')\sin(x-x') -\half \sin (x+x') =
+
+    =-H(x'-x)\sin x\cos x' - H(x - x') \cos x \sin x' =
+
+    =
     \begin{cases}
     -\sin x\cos x'&\quad x<x'\cr
     -\cos x\sin x'&\quad x>x'\cr
