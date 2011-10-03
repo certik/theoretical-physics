@@ -837,8 +837,37 @@ and on the right:
 
     {\d Y^k(r)\over \d r} + {k\over r} Y^k(r) = 0
 
-so for $r\to\infty$:
+which for $r\to\infty$ becomes:
 
 .. math::
 
     \left.{\d Y^k(r)\over \d r}\right|_{r=\infty} = 0
+
+but in practise, it's better to use the Newton (Robin) boundary condition. The
+weak formulation is:
+
+.. math::
+
+    \int_0^{r_{max}} Y^k{}'(r) v'(r) + {k(k+1)\over r^2} Y^k(r) v(r) \d r
+        -[Y^k{}'(r)v(r)]_0^{r_{max}}
+        = \int_0^{r_{max}} {2k+1\over r}u(r)f(r)v(r) \d r
+
+The boundary term can be simplified using the boundary conditions as:
+
+.. math::
+
+        -[Y^k{}'(r)v(r)]_0^{r_{max}}
+        = -Y^k{}'(r_{max})v(r_{max}) + Y^k{}'(0) v(0)
+        = -Y^k{}'(r_{max})v(r_{max})
+        = {k\over r_{max}} Y^k(r_{max})v(r_{max})
+
+so we get
+
+.. math::
+
+    \int_0^{r_{max}} Y^k{}'(r) v'(r) + {k(k+1)\over r^2} Y^k(r) v(r) \d r
+        + {k\over r_{max}} Y^k(r_{max})v(r_{max})
+        = \int_0^{r_{max}} {2k+1\over r}u(r)f(r)v(r) \d r
+
+where the test functions $v(r)$ have the constrain $v(0)=0$ on the left
+boundary and no constrain on the right.
