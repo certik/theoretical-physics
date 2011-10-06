@@ -123,8 +123,24 @@ This is consistent with the series expansion:
         \begin{pmatrix} k & l & m \\ 0 & 0 & 0 \end{pmatrix}^2
         (2m+1) P_m(x)
 
+Any function $f(x)$ (where $-1\le x \le 1$) can be expanded as:
 
-Legendre polynomials are the coefficients of the following expansion:
+.. math::
+
+    f(x) = \sum_{l=0}^\infty f_l P_l(x)
+
+    f_l = {(2l+1)\over 2} \int_{-1}^1 f(x) P_l(x) \d x
+
+For the following choice of $f(x)$ we get (for $|t| < 1$):
+
+.. math::
+
+    f(x) = {1\over\sqrt{1-2xt+t^2}}
+
+    f_l = {(2l+1)\over 2} \int_{-1}^1 {P_l(x)\over\sqrt{1-2xt+t^2}} \d x
+        = t^l
+
+So the Legendre polynomials are the coefficients of the following expansion:
 
 .. math::
 
