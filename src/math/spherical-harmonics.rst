@@ -124,7 +124,44 @@ This is consistent with the series expansion:
         (2m+1) P_m(x)
 
 
+Legendre polynomials are the coefficients of the following expansion:
+
+.. math::
+
+    {1\over\sqrt{1-2xt+t^2}} = \sum_{l=0}^\infty P_l(x) t^l
+
+
 .. [Adams] Adams, J. C. (1878). On the Expression of the Product of Any Two Legendre’s Coefficients by Means of a Series of Legendre's Coefficients.  Proceedings of the Royal Society of London, 27, 63-71.
+
+Example
+~~~~~~~
+
+Very important is the following multipole expansion:
+
+.. math::
+    :label: legendre_expansion
+
+    {1\over |{\bf r}-{\bf r'}|}
+        ={1\over \sqrt{({\bf r}-{\bf r'})^2}}
+        ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}}
+        ={1\over r_>\sqrt{1-2\left(r_<\over r_>\right){\bf\hat r}\cdot {\bf\hat
+            r'} + \left(r<\over r_>\right)^2}} =
+
+    ={1\over r_>}\sum_{l=0}^\infty\left(r_<\over r_>\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'})
+    =\sum_{l=0}^\infty {r_<^l\over r_>^{l+1}} P_l({\bf\hat r}\cdot {\bf\hat r'})
+
+Where $r_{>} = \max(r, r')$ and
+$r_{<} = \min(r, r')$.
+Assuming $r > r'$, we get for the first few terms:
+
+.. math::
+
+    {1\over |{\bf r}-{\bf r'}|}
+    ={1\over r}\left( P_0({\bf\hat r}\cdot {\bf\hat r'}) + P_1({\bf\hat r}\cdot {\bf\hat r'}){r'\over r} + P_2({\bf\hat r}\cdot {\bf\hat r'})\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+    ={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
+
+    ={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)
 
 
 .. index:: spherical harmonics
@@ -851,59 +888,21 @@ Examples
 
 .. index:: multipole expansion
 
-Multipole expansion
+Multipole Expansion
 ===================
 
-Assuming $r' \ll r$:
-
+Using :eq:`legendre_expansion` we get:
 
 .. math::
 
-    {1\over |{\bf r}-{\bf r'}|} ={1\over \sqrt{({\bf r}-{\bf r'})^2}} ={1\over \sqrt{r^2-2{\bf r}\cdot {\bf r'} + r'^2}} ={1\over r\sqrt{1-2\left(r'\over r\right){\bf\hat r}\cdot {\bf\hat r'} + \left(r'\over r\right)^2}} =
+    {1\over |{\bf r}-{\bf r'}|}
+        =\sum_{l=0}^\infty{r_{<}^l\over r_{>}^{l+1}} P_l({\bf\hat r}\cdot {\bf\hat r'})
+        = \sum_{l,m}{r_{<}^l\over r_{>}^{l+1}}
+            {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
 
-    ={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
-
-    ={1\over r}\left( P_0({\bf\hat r}\cdot {\bf\hat r'}) + P_1({\bf\hat r}\cdot {\bf\hat r'}){r'\over r} + P_2({\bf\hat r}\cdot {\bf\hat r'})\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
-
-    ={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
-
-    ={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)
-
-We can also use the formula:
+where we used the formula:
 
 .. math::
 
     \sum_m \braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
         ={2l+1 \over 4\pi} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}
-
-and rewrite the expansion using spherical harmonics:
-
-.. math::
-
-    {1\over |{\bf r}-{\bf r'}|} ={1\over r}\sum_{l=0}^\infty\left(r'\over r\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
-
-    ={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r}'}
-    ={1\over r}\sum_{l,m}\left(r'\over r\right)^l {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
-
-Assuming $r' \gg r$ we get:
-
-.. math::
-
-    {1\over |{\bf r}-{\bf r'}|} ={1\over r'}\sum_{l=0}^\infty\left(r\over r'\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
-
-    = {1\over r'}\sum_{l,m}\left(r\over r'\right)^l
-    {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
-
-We can combine the two formulas by introducing $r_{>} = \max(r, r')$ and
-$r_{<} = \min(r, r')$ and then for any $r$ and $r'$ we get:
-
-.. math::
-
-    {1\over |{\bf r}-{\bf r'}|}
-        ={1\over r_{>}}\sum_{l=0}^\infty\left(r_{<}\over r_{>}\right)^l P_l({\bf\hat r}\cdot {\bf\hat r'}) =
-
-        = {1\over r_{>}}\sum_{l,m}\left(r_{<}\over r_{>}\right)^l
-            {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}') =
-
-        = \sum_{l,m}{r_{<}^l\over r_{>}^{l+1}}
-            {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
