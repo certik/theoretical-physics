@@ -131,20 +131,72 @@ Any function $f(x)$ (where $-1\le x \le 1$) can be expanded as:
 
     f_l = {(2l+1)\over 2} \int_{-1}^1 f(x) P_l(x) \d x
 
-For the following choice of $f(x)$ we get (for $|t| < 1$):
+For the following choice of $f(x)$ we get (for $|t| \le 1$):
 
 .. math::
 
     f(x) = {1\over\sqrt{1-2xt+t^2}}
 
     f_l = {(2l+1)\over 2} \int_{-1}^1 {P_l(x)\over\sqrt{1-2xt+t^2}} \d x
+        = {(2l+1)\over 2} \int_{|1+t|}^{|1-t|}
+                 {P_l\left(1-R^2-t^2\over 2 t\right)\over R}
+                 \left(-{R\over t}\right) \d R
+        =
+
+        = {(2l+1)\over 2 t} \int_{|1-t|}^{|1+t|}
+                 P_l\left(1-R^2-t^2\over 2 t\right) \d R
+        = {(2l+1)\over 2 t} \int_{1-t}^{1+t}
+                 P_l\left(1-R^2-t^2\over 2 t\right) \d R
+        =
+
         = t^l
 
-So the Legendre polynomials are the coefficients of the following expansion:
+Code::
+
+    >>> from sympy import var, legendre, integrate
+    >>> var("l R t")
+    (l, R, t)
+    >>> f = (2*l+1) / (2*t) * integrate(legendre(l, (1-R**2+t**2) / (2*t)),
+    ...         (R, 1-t, 1+t))
+    >>> for _l in range(20): print _l, f.subs(l, _l).doit().simplify()
+    ...
+    0 1
+    1 t
+    2 t**2
+    3 t**3
+    4 t**4
+    5 t**5
+    6 t**6
+    7 t**7
+    8 t**8
+    9 t**9
+    10 t**10
+    11 t**11
+    12 t**12
+    13 t**13
+    14 t**14
+    15 t**15
+    16 t**16
+    17 t**17
+    18 t**18
+    19 t**19
+
+
+So the Legendre polynomials are the coefficients of the following expansion
+for $|t| \le 1$:
 
 .. math::
 
     {1\over\sqrt{1-2xt+t^2}} = \sum_{l=0}^\infty P_l(x) t^l
+
+Note that for $|t| > 1$ we get:
+
+.. math::
+
+    {1\over\sqrt{1-2xt+t^2}}
+    = {1\over |t|}{1\over\sqrt{1-2x{1\over t}+\left({1\over t}\right)^2}}
+    = {1\over |t|}\sum_{l=0}^\infty P_l(x) \left({1\over t}\right)^l
+    = \sign t \sum_{l=0}^\infty P_l(x) t^{-l-1}
 
 
 .. [Adams] Adams, J. C. (1878). On the Expression of the Product of Any Two Legendre’s Coefficients by Means of a Series of Legendre's Coefficients.  Proceedings of the Royal Society of London, 27, 63-71.
