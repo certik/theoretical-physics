@@ -201,8 +201,8 @@ Note that for $|t| > 1$ we get:
 
 .. [Adams] Adams, J. C. (1878). On the Expression of the Product of Any Two Legendre’s Coefficients by Means of a Series of Legendre's Coefficients.  Proceedings of the Royal Society of London, 27, 63-71.
 
-Example
-~~~~~~~
+Example I
+~~~~~~~~~
 
 Very important is the following multipole expansion:
 
@@ -230,6 +230,107 @@ Assuming $r > r'$, we get for the first few terms:
     ={1\over r}\left( 1 + {\bf\hat r}\cdot {\bf\hat r'} {r'\over r} + \half\left(3({\bf\hat r}\cdot {\bf\hat r'})^2-1\right)\left(r'\over r\right)^2 + O\left(r'^3\over r^3\right) \right) =
 
     ={1\over r} +{{\bf r}\cdot {\bf r'}\over r^3} +{3({\bf r}\cdot {\bf r'})^2-r^2r'^2\over 2r^5} + O\left(r'^3\over r^4\right)
+
+Example II
+~~~~~~~~~~
+
+Let's find the expansion of
+
+.. math::
+
+    f(x) = {e^{\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}}
+
+for $|t| \le 1$ and $0 \le \alpha \le 1$. We get:
+
+.. math::
+
+    f_l = {(2l+1)\over 2} \int_{-1}^1
+        {P_l(x)e^{\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}} \d x
+        = {(2l+1)\over 2} \int_{|1+t|}^{|1-t|}
+                 {P_l\left(1-R^2-t^2\over 2 t\right)e^{\alpha R}\over R}
+                 \left(-{R\over t}\right) \d R
+        =
+
+        = {(2l+1)\over 2 t} \int_{|1-t|}^{|1+t|}
+                 P_l\left(1-R^2-t^2\over 2 t\right) e^{\alpha R} \d R
+        = {(2l+1)\over 2 t} \int_{1-t}^{1+t}
+                 P_l\left(1-R^2-t^2\over 2 t\right) e^{\alpha R} \d R
+
+Here is the result for the first few $l$:
+
+.. math::
+
+    f_0 = {e^{\alpha(1+t)}-e^{\alpha(1-t)} \over 2 \alpha t}
+
+    f_1 = \frac{3}{2} \frac{\left(- \alpha^{2} t e^{2 \alpha t} - \alpha^{2} t + \alpha t e^{2 \alpha t} + \alpha t + \alpha e^{2 \alpha t} - \alpha - e^{2 \alpha t} + 1\right) e^{- \alpha t + \alpha}}{\alpha^{3} t^{2}} 
+
+    f_2 = \frac{5}{2} \frac{\left(\alpha^{4} t^{2} e^{2 \alpha t} - \alpha^{4} t^{2} - 3 \alpha^{3} t^{2} e^{2 \alpha t} + 3 \alpha^{3} t^{2} - 3 \alpha^{3} t e^{2 \alpha t} - 3 \alpha^{3} t + 3 \alpha^{2} t^{2} e^{2 \alpha t} - 3 \alpha^{2} t^{2} + 9 \alpha^{2} t e^{2 \alpha t} + 9 \alpha^{2} t + X\right) e^{- \alpha t + \alpha}}{\alpha^{5} t^{3}} 
+
+    X = 3 \alpha^{2} e^{2 \alpha t} - 3 \alpha^{2} - 9 \alpha t e^{2 \alpha t} - 9 \alpha t - 9 \alpha e^{2 \alpha t} + 9 \alpha + 9 e^{2 \alpha t} -9
+
+Expanding in $\alpha$ up to
+$\operatorname{\mathcal{O}}\left(\alpha^{6}\right)$ we get:
+
+.. math::
+
+    f_0 = 1 + \alpha + \frac{1}{2} \alpha^{2} + \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{6} \alpha^{3} + \frac{1}{6} \alpha^{3} t^{2} + \frac{1}{24} \alpha^{4} + \frac{1}{12} \alpha^{4} t^{2} + \frac{1}{120} \alpha^{4} t^{4} + \frac{1}{120} \alpha^{5} + \frac{1}{36} \alpha^{5} t^{2} + \frac{1}{120} \alpha^{5} t^{4} + \operatorname{\mathcal{O}}\left(\alpha^{6}\right) 
+
+    f_1 = t - \frac{1}{2} \alpha^{2} t + \frac{1}{10} \alpha^{2} t^{3} - \frac{1}{3} \alpha^{3} t - \frac{1}{8} \alpha^{4} t - \frac{1}{20} \alpha^{4} t^{3} + \frac{1}{280} \alpha^{4} t^{5} - \frac{1}{30} \alpha^{5} t - \frac{1}{30} \alpha^{5} t^{3} + \operatorname{\mathcal{O}}\left(\alpha^{6}\right) 
+
+    f_2 = t^{2} - \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{14} \alpha^{2} t^{4} + \frac{1}{24} \alpha^{4} t^{2} - \frac{1}{84} \alpha^{4} t^{4} + \frac{1}{504} \alpha^{4} t^{6} + \frac{1}{45} \alpha^{5} t^{2} + \operatorname{\mathcal{O}}\left(\alpha^{6}\right) 
+
+Or in $t$:
+
+.. math::
+
+    f_l & = e^\alpha g_l \\
+    g_0 & = 1 + \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{120} \alpha^{4} t^{4} + \frac{1}{5040} \alpha^{6} t^{6} + \frac{1}{362880} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right) \\
+    g_1 & = t - \alpha t + \frac{1}{10} \alpha^{2} t^{3} - \frac{1}{10} \alpha^{3} t^{3} + \frac{1}{280} \alpha^{4} t^{5} - \frac{1}{280} \alpha^{5} t^{5} + \frac{1}{15120} \alpha^{6} t^{7} - \frac{1}{15120} \alpha^{7} t^{7} + \frac{1}{1330560} \alpha^{8} t^{9} - \frac{1}{1330560} \alpha^{9} t^{9} + \operatorname{\mathcal{O}}\left(t^{10}\right) \\
+    g_2 & = t^{2} - \alpha t^{2} + \frac{1}{3} \alpha^{2} t^{2} + \frac{1}{14} \alpha^{2} t^{4} - \frac{1}{14} \alpha^{3} t^{4} + \frac{1}{42} \alpha^{4} t^{4} + \frac{1}{504} \alpha^{4} t^{6}
+    - \frac{1}{504} \alpha^{5} t^{6} + \frac{1}{1512} \alpha^{6} t^{6} + \frac{1}{33264} \alpha^{6} t^{8} + \\
+    &  \quad \quad - \frac{1}{33264} \alpha^{7} t^{8} + \frac{1}{99792} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right)  \\
+    g_3 & = t^{3} - \alpha t^{3} + \frac{2}{5} \alpha^{2} t^{3} + \frac{1}{18} \alpha^{2} t^{5} - \frac{1}{15} \alpha^{3} t^{3} - \frac{1}{18} \alpha^{3} t^{5} + \frac{1}{45} \alpha^{4} t^{5} + \frac{1}{792} \alpha^{4} t^{7} - \frac{1}{270} \alpha^{5} t^{5} - \frac{1}{792} \alpha^{5} t^{7} + \\
+    &  \quad \quad + \frac{1}{1980} \alpha^{6} t^{7} + \frac{1}{61776} \alpha^{6} t^{9} - \frac{1}{11880} \alpha^{7} t^{7} - \frac{1}{61776} \alpha^{7} t^{9} + \frac{1}{154440} \alpha^{8} t^{9} - \frac{1}{926640} \alpha^{9} t^{9} + \operatorname{\mathcal{O}}\left(t^{10}\right) \\
+    g_4 & = t^{4} - \alpha t^{4} + \frac{3}{7} \alpha^{2} t^{4} + \frac{1}{22} \alpha^{2} t^{6} - \frac{2}{21} \alpha^{3} t^{4} - \frac{1}{22} \alpha^{3} t^{6} + \frac{1}{105} \alpha^{4} t^{4} + \frac{3}{154} \alpha^{4} t^{6} + \frac{1}{1144} \alpha^{4} t^{8} - \frac{1}{231} \alpha^{5} t^{6} - \frac{1}{1144} \alpha^{5} t^{8} + \\
+    & \quad \quad + \frac{1}{2310} \alpha^{6} t^{6} + \frac{3}{8008} \alpha^{6} t^{8} - \frac{1}{12012} \alpha^{7} t^{8} + \frac{1}{120120} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right) \\
+
+
+
+
+Code::
+
+    >>> from sympy import var, legendre, integrate, exp, latex
+    >>> var("l R t alpha")
+    (l, R, t, alpha)
+    >>> 
+    >>> f = (2*l+1) / (2*t) * integrate(legendre(l, (1-R**2+t**2) / (2*t)) \
+    ...         * exp(alpha*R),
+    ...         (R, 1-t, 1+t))
+    >>> 
+    >>> for _l in range(3):
+    ...     print "f_%d =" %_l, latex(f.subs(l, _l).doit().simplify()), "\n"
+    ... 
+    f_0 = \frac{- \frac{e^{\alpha \left(- t + 1\right)}}{\alpha} + \frac{e^{\alpha \left(t + 1\right)}}{\alpha}}{2 t} 
+
+    f_1 = \frac{3}{2} \frac{\left(- \alpha^{2} t e^{2 \alpha t} - \alpha^{2} t + \alpha t e^{2 \alpha t} + \alpha t + \alpha e^{2 \alpha t} - \alpha - e^{2 \alpha t} + 1\right) e^{- \alpha t + \alpha}}{\alpha^{3} t^{2}} 
+
+    f_2 = \frac{5}{2} \frac{\left(\alpha^{4} t^{2} e^{2 \alpha t} - \alpha^{4} t^{2} - 3 \alpha^{3} t^{2} e^{2 \alpha t} + 3 \alpha^{3} t^{2} - 3 \alpha^{3} t e^{2 \alpha t} - 3 \alpha^{3} t + 3 \alpha^{2} t^{2} e^{2 \alpha t} - 3 \alpha^{2} t^{2} + 9 \alpha^{2} t e^{2 \alpha t} + 9 \alpha^{2} t + 3 \alpha^{2} e^{2 \alpha t} - 3 \alpha^{2} - 9 \alpha t e^{2 \alpha t} - 9 \alpha t - 9 \alpha e^{2 \alpha t} + 9 \alpha + 9 e^{2 \alpha t} -9\right) e^{- \alpha t + \alpha}}{\alpha^{5} t^{3}} 
+    >>> 
+    >>> for _l in range(5):
+    ...     result = f.subs(l, _l).doit().simplify() / exp(alpha)
+    ...     print "g_%d =" %_l, latex(result.series(t, 0, 10)), "\n"
+    ... 
+    g_0 = 1 + \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{120} \alpha^{4} t^{4} + \frac{1}{5040} \alpha^{6} t^{6} + \frac{1}{362880} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
+
+    g_1 = t - \alpha t + \frac{1}{10} \alpha^{2} t^{3} - \frac{1}{10} \alpha^{3} t^{3} + \frac{1}{280} \alpha^{4} t^{5} - \frac{1}{280} \alpha^{5} t^{5} + \frac{1}{15120} \alpha^{6} t^{7} - \frac{1}{15120} \alpha^{7} t^{7} + \frac{1}{1330560} \alpha^{8} t^{9} - \frac{1}{1330560} \alpha^{9} t^{9} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
+
+    g_2 = t^{2} - \alpha t^{2} + \frac{1}{3} \alpha^{2} t^{2} + \frac{1}{14} \alpha^{2} t^{4} - \frac{1}{14} \alpha^{3} t^{4} + \frac{1}{42} \alpha^{4} t^{4} + \frac{1}{504} \alpha^{4} t^{6} - \frac{1}{504} \alpha^{5} t^{6} + \frac{1}{1512} \alpha^{6} t^{6} + \frac{1}{33264} \alpha^{6} t^{8} - \frac{1}{33264} \alpha^{7} t^{8} + \frac{1}{99792} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
+
+    g_3 = t^{3} - \alpha t^{3} + \frac{2}{5} \alpha^{2} t^{3} + \frac{1}{18} \alpha^{2} t^{5} - \frac{1}{15} \alpha^{3} t^{3} - \frac{1}{18} \alpha^{3} t^{5} + \frac{1}{45} \alpha^{4} t^{5} + \frac{1}{792} \alpha^{4} t^{7} - \frac{1}{270} \alpha^{5} t^{5} - \frac{1}{792} \alpha^{5} t^{7} + \frac{1}{1980} \alpha^{6} t^{7} + \frac{1}{61776} \alpha^{6} t^{9} - \frac{1}{11880} \alpha^{7} t^{7} - \frac{1}{61776} \alpha^{7} t^{9} + \frac{1}{154440} \alpha^{8} t^{9} - \frac{1}{926640} \alpha^{9} t^{9} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
+
+    g_4 = t^{4} - \alpha t^{4} + \frac{3}{7} \alpha^{2} t^{4} + \frac{1}{22} \alpha^{2} t^{6} - \frac{2}{21} \alpha^{3} t^{4} - \frac{1}{22} \alpha^{3} t^{6} + \frac{1}{105} \alpha^{4} t^{4} + \frac{3}{154} \alpha^{4} t^{6} + \frac{1}{1144} \alpha^{4} t^{8} - \frac{1}{231} \alpha^{5} t^{6} - \frac{1}{1144} \alpha^{5} t^{8} + \frac{1}{2310} \alpha^{6} t^{6} + \frac{3}{8008} \alpha^{6} t^{8} - \frac{1}{12012} \alpha^{7} t^{8} + \frac{1}{120120} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
+
+
 
 
 .. index:: spherical harmonics
