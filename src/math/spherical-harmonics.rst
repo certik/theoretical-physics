@@ -238,23 +238,23 @@ Let's find the expansion of
 
 .. math::
 
-    f(x) = {e^{\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}}
+    f(x) = {e^{-\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}}
 
-for $|t| \le 1$ and $0 \le \alpha \le 1$. We get:
+for $|t| \le 1$. We get:
 
 .. math::
 
     f_l = {(2l+1)\over 2} \int_{-1}^1
-        {P_l(x)e^{\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}} \d x
+        {P_l(x)e^{-\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}} \d x
         = {(2l+1)\over 2} \int_{|1+t|}^{|1-t|}
-                 {P_l\left(1-R^2-t^2\over 2 t\right)e^{\alpha R}\over R}
+                 {P_l\left(1-R^2-t^2\over 2 t\right)e^{-\alpha R}\over R}
                  \left(-{R\over t}\right) \d R
         =
 
         = {(2l+1)\over 2 t} \int_{|1-t|}^{|1+t|}
-                 P_l\left(1-R^2-t^2\over 2 t\right) e^{\alpha R} \d R
+                 P_l\left(1-R^2-t^2\over 2 t\right) e^{-\alpha R} \d R
         = {(2l+1)\over 2 t} \int_{1-t}^{1+t}
-                 P_l\left(1-R^2-t^2\over 2 t\right) e^{\alpha R} \d R
+                 P_l\left(1-R^2-t^2\over 2 t\right) e^{-\alpha R} \d R
 
 Here is the result for the first few $l$:
 
@@ -330,7 +330,28 @@ Code::
 
     g_4 = t^{4} - \alpha t^{4} + \frac{3}{7} \alpha^{2} t^{4} + \frac{1}{22} \alpha^{2} t^{6} - \frac{2}{21} \alpha^{3} t^{4} - \frac{1}{22} \alpha^{3} t^{6} + \frac{1}{105} \alpha^{4} t^{4} + \frac{3}{154} \alpha^{4} t^{6} + \frac{1}{1144} \alpha^{4} t^{8} - \frac{1}{231} \alpha^{5} t^{6} - \frac{1}{1144} \alpha^{5} t^{8} + \frac{1}{2310} \alpha^{6} t^{6} + \frac{3}{8008} \alpha^{6} t^{8} - \frac{1}{12012} \alpha^{7} t^{8} + \frac{1}{120120} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
 
+Example III
+~~~~~~~~~~~
 
+.. math::
+
+    {e^{-{|{\bf r}-{\bf r'}|\over D}}\over |{\bf r}-{\bf r'}|}
+        = {e^{-r_>\sqrt{1-2\left(r_<\over r_>\right)
+                {\bf\hat r}\cdot {\bf\hat r'}
+            +\left(r_<\over r_>\right)^2}\over D}\over
+                r_>\sqrt{1-2\left(r_<\over r_>\right)
+                        {\bf\hat r}\cdot {\bf\hat r'}
+                +\left(r_<\over r_>\right)^2}}
+        = {1\over r_>}
+            {e^{-\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}}
+
+where:
+
+.. math::
+
+    \alpha & = {r_>\over D} \\
+    x & = {\bf\hat r}\cdot {\bf\hat r'} \\
+    t & = {r_<\over r_>}
 
 
 .. index:: spherical harmonics
