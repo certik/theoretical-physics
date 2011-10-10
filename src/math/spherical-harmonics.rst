@@ -283,36 +283,30 @@ $\operatorname{\mathcal{O}}\left(t^{7}\right)$ we get:
 
 Code::
 
-    >>> from sympy import var, legendre, integrate, exp, latex
+    >>> from sympy import var, legendre, integrate, exp, latex, cse
     >>> var("l R t alpha")
     (l, R, t, alpha)
     >>> 
     >>> f = (2*l+1) / (2*t) * integrate(legendre(l, (1-R**2+t**2) / (2*t)) \
-    ...         * exp(alpha*R),
+    ...         * exp(-alpha*R),
     ...         (R, 1-t, 1+t))
     >>> 
     >>> for _l in range(3):
-    ...     print "f_%d =" %_l, latex(f.subs(l, _l).doit().simplify()), "\n"
+    ...     print "f_%d & =" %_l, latex(f.subs(l, _l).doit().simplify()), "\\\\"
     ... 
-    f_0 = \frac{- \frac{e^{\alpha \left(- t + 1\right)}}{\alpha} + \frac{e^{\alpha \left(t + 1\right)}}{\alpha}}{2 t} 
-
-    f_1 = \frac{3}{2} \frac{\left(- \alpha^{2} t e^{2 \alpha t} - \alpha^{2} t + \alpha t e^{2 \alpha t} + \alpha t + \alpha e^{2 \alpha t} - \alpha - e^{2 \alpha t} + 1\right) e^{- \alpha t + \alpha}}{\alpha^{3} t^{2}} 
-
-    f_2 = \frac{5}{2} \frac{\left(\alpha^{4} t^{2} e^{2 \alpha t} - \alpha^{4} t^{2} - 3 \alpha^{3} t^{2} e^{2 \alpha t} + 3 \alpha^{3} t^{2} - 3 \alpha^{3} t e^{2 \alpha t} - 3 \alpha^{3} t + 3 \alpha^{2} t^{2} e^{2 \alpha t} - 3 \alpha^{2} t^{2} + 9 \alpha^{2} t e^{2 \alpha t} + 9 \alpha^{2} t + 3 \alpha^{2} e^{2 \alpha t} - 3 \alpha^{2} - 9 \alpha t e^{2 \alpha t} - 9 \alpha t - 9 \alpha e^{2 \alpha t} + 9 \alpha + 9 e^{2 \alpha t} -9\right) e^{- \alpha t + \alpha}}{\alpha^{5} t^{3}} 
-    >>> 
+    f_0 & = \frac{\left(e^{2 \alpha t} -1\right) e^{- \alpha t - \alpha}}{2 \alpha t} \\
+    f_1 & = \frac{3}{2} \frac{\left(\alpha^{2} t e^{2 \alpha t} + \alpha^{2} t + \alpha t e^{2 \alpha t} + \alpha t - \alpha e^{2 \alpha t} + \alpha - e^{2 \alpha t} + 1\right) e^{- \alpha t - \alpha}}{\alpha^{3} t^{2}} \\
+    f_2 & = \frac{5}{2} \frac{\left(\alpha^{4} t^{2} e^{2 \alpha t} - \alpha^{4} t^{2} + 3 \alpha^{3} t^{2} e^{2 \alpha t} - 3 \alpha^{3} t^{2} - 3 \alpha^{3} t e^{2 \alpha t} - 3 \alpha^{3} t + 3 \alpha^{2} t^{2} e^{2 \alpha t} - 3 \alpha^{2} t^{2} - 9 \alpha^{2} t e^{2 \alpha t} - 9 \alpha^{2} t + 3 \alpha^{2} e^{2 \alpha t} - 3 \alpha^{2} - 9 \alpha t e^{2 \alpha t} - 9 \alpha t + 9 \alpha e^{2 \alpha t} - 9 \alpha + 9 e^{2 \alpha t} -9\right) e^{- \alpha t - \alpha}}{\alpha^{5} t^{3}} \\
     >>> for _l in range(5):
-    ...     result = f.subs(l, _l).doit().simplify() / exp(alpha)
-    ...     print "g_%d =" %_l, latex(result.series(t, 0, 10)), "\n"
+    ...     result = f.subs(l, _l).doit().simplify() / exp(-alpha)
+    ...     print "g_%d & =" %_l, latex(result.series(t, 0, 7)), "\\\\"
     ... 
-    g_0 = 1 + \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{120} \alpha^{4} t^{4} + \frac{1}{5040} \alpha^{6} t^{6} + \frac{1}{362880} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
+    g_0 & = 1 + \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{120} \alpha^{4} t^{4} + \frac{1}{5040} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
+    g_1 & = t + \alpha t + \frac{1}{10} \alpha^{2} t^{3} + \frac{1}{10} \alpha^{3} t^{3} + \frac{1}{280} \alpha^{4} t^{5} + \frac{1}{280} \alpha^{5} t^{5} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
+    g_2 & = t^{2} + \alpha t^{2} + \frac{1}{3} \alpha^{2} t^{2} + \frac{1}{14} \alpha^{2} t^{4} + \frac{1}{14} \alpha^{3} t^{4} + \frac{1}{42} \alpha^{4} t^{4} + \frac{1}{504} \alpha^{4} t^{6} + \frac{1}{504} \alpha^{5} t^{6} + \frac{1}{1512} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
+    g_3 & = t^{3} + \alpha t^{3} + \frac{2}{5} \alpha^{2} t^{3} + \frac{1}{18} \alpha^{2} t^{5} + \frac{1}{15} \alpha^{3} t^{3} + \frac{1}{18} \alpha^{3} t^{5} + \frac{1}{45} \alpha^{4} t^{5} + \frac{1}{270} \alpha^{5} t^{5} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
+    g_4 & = t^{4} + \alpha t^{4} + \frac{3}{7} \alpha^{2} t^{4} + \frac{1}{22} \alpha^{2} t^{6} + \frac{2}{21} \alpha^{3} t^{4} + \frac{1}{22} \alpha^{3} t^{6} + \frac{1}{105} \alpha^{4} t^{4} + \frac{3}{154} \alpha^{4} t^{6} + \frac{1}{231} \alpha^{5} t^{6} + \frac{1}{2310} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
 
-    g_1 = t - \alpha t + \frac{1}{10} \alpha^{2} t^{3} - \frac{1}{10} \alpha^{3} t^{3} + \frac{1}{280} \alpha^{4} t^{5} - \frac{1}{280} \alpha^{5} t^{5} + \frac{1}{15120} \alpha^{6} t^{7} - \frac{1}{15120} \alpha^{7} t^{7} + \frac{1}{1330560} \alpha^{8} t^{9} - \frac{1}{1330560} \alpha^{9} t^{9} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
-
-    g_2 = t^{2} - \alpha t^{2} + \frac{1}{3} \alpha^{2} t^{2} + \frac{1}{14} \alpha^{2} t^{4} - \frac{1}{14} \alpha^{3} t^{4} + \frac{1}{42} \alpha^{4} t^{4} + \frac{1}{504} \alpha^{4} t^{6} - \frac{1}{504} \alpha^{5} t^{6} + \frac{1}{1512} \alpha^{6} t^{6} + \frac{1}{33264} \alpha^{6} t^{8} - \frac{1}{33264} \alpha^{7} t^{8} + \frac{1}{99792} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
-
-    g_3 = t^{3} - \alpha t^{3} + \frac{2}{5} \alpha^{2} t^{3} + \frac{1}{18} \alpha^{2} t^{5} - \frac{1}{15} \alpha^{3} t^{3} - \frac{1}{18} \alpha^{3} t^{5} + \frac{1}{45} \alpha^{4} t^{5} + \frac{1}{792} \alpha^{4} t^{7} - \frac{1}{270} \alpha^{5} t^{5} - \frac{1}{792} \alpha^{5} t^{7} + \frac{1}{1980} \alpha^{6} t^{7} + \frac{1}{61776} \alpha^{6} t^{9} - \frac{1}{11880} \alpha^{7} t^{7} - \frac{1}{61776} \alpha^{7} t^{9} + \frac{1}{154440} \alpha^{8} t^{9} - \frac{1}{926640} \alpha^{9} t^{9} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
-
-    g_4 = t^{4} - \alpha t^{4} + \frac{3}{7} \alpha^{2} t^{4} + \frac{1}{22} \alpha^{2} t^{6} - \frac{2}{21} \alpha^{3} t^{4} - \frac{1}{22} \alpha^{3} t^{6} + \frac{1}{105} \alpha^{4} t^{4} + \frac{3}{154} \alpha^{4} t^{6} + \frac{1}{1144} \alpha^{4} t^{8} - \frac{1}{231} \alpha^{5} t^{6} - \frac{1}{1144} \alpha^{5} t^{8} + \frac{1}{2310} \alpha^{6} t^{6} + \frac{3}{8008} \alpha^{6} t^{8} - \frac{1}{12012} \alpha^{7} t^{8} + \frac{1}{120120} \alpha^{8} t^{8} + \operatorname{\mathcal{O}}\left(t^{10}\right) 
 
 Example III
 ~~~~~~~~~~~
