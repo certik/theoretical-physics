@@ -220,21 +220,22 @@ So the maximum voltage is:
 
         = {24\sqrt 5\over125} {\mu_0 m v\over a^2}
 
-If we drop the magnet from height $h$ above the coil into it, then:
+If we drop the magnet from height $h$ above the coil into it, then its speed
+will be $v_0 = \sqrt{2hg}$ in the middle of the coil, when $t=0$. Then:
 
 .. math::
 
-    z = -h + \half g t^2
+    z = v_0 t + \half g t^2
 
-    v = g t
+    v = v_0 + g t
 
 And we get for the voltage dependence:
 
 .. math::
 
     V = - {\mu_0\over 2} {3va^2mz\over (a^2 + z^2)^{5\over2}}
-        =- {\mu_0\over 2} {3gta^2m(-h + \half g t^2)\over
-             (a^2 + (-h + \half g t^2)^2)^{5\over2}}
+        =- {\mu_0\over 2} {3(v_0+gt)a^2m(v_0 t + \half g t^2)\over
+             (a^2 + (v_0 t + \half g t^2)^2)^{5\over2}}
 
 The time difference between the maximum and minimum is the time difference
 between $z=-{a\over2}$ and $z=+{a\over2}$, so:
