@@ -195,17 +195,53 @@ with the max value:
 
     {z\over(a^2+z^2)^{5\over 2}} =
     {{a\over 2}\over(a^2+\left({a\over 2}\right)^2)^{5\over 2}} =
-    {{a 2^5} \over2 (5a^2)^{5\over 2}} =
-    {2^4 \over 5^{5\over 2} a^4}
+    {16\sqrt 5 \over 125 a^4}
+
+Code::
+
+    >>> from sympy import var, solve, S, refine, Q
+    >>> var("a z")
+    (a, z)
+    >>> f = z / (a**2+z**2)**(S(5)/2)
+    >>> solve(f.diff(z), z)
+    [-a/2, a/2]
+    >>> f.subs(z, a/2)
+    16*sqrt(5)*a/(125*(a**2)**(5/2))
+    >>> refine(f.subs(z, a/2), Q.positive(a))
+    16*sqrt(5)/(125*a**4)
+
 
 So the maximum voltage is:
 
 .. math::
 
-    V = - {\mu_0\over 2} {3va^2mz\over (a^2 + z^2)^{5\over2}}
-        = - {\mu_0\over 2} {3va^2{2^4 \over 5^{5\over 2} a^4}}
+    V = {\mu_0\over 2} {3va^2mz\over (a^2 + z^2)^{5\over2}}
+        = {\mu_0\over 2} {3mva^2 {16\sqrt 5 \over 125 a^4}} =
 
-        = - {3 \cdot 2^3\mu_0 v\over 5^{5\over 2} a^2}
+        = {24\sqrt 5\over125} {\mu_0 m v\over a^2}
+
+If we drop the magnet from height $h$ above the coil into it, then:
+
+.. math::
+
+    z = -h + \half g t^2
+
+    v = g t
+
+And we get for the voltage dependence:
+
+.. math::
+
+    V = - {\mu_0\over 2} {3va^2mz\over (a^2 + z^2)^{5\over2}}
+        =- {\mu_0\over 2} {3gta^2m(-h + \half g t^2)\over
+             (a^2 + (-h + \half g t^2)^2)^{5\over2}}
+
+The time difference between the maximum and minimum is the time difference
+between $z=-{a\over2}$ and $z=+{a\over2}$, so:
+
+.. math::
+
+    \Delta t = \sqrt{2h+a\over g} - \sqrt{2h-a\over g}
 
 Semiconductor Device Physics
 ============================
