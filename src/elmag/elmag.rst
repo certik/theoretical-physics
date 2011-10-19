@@ -72,6 +72,44 @@ sources are automatically satisfied by the four potential):
 
 where we have employed the Lorentz gauge $\partial_\alpha A^\alpha=0$.
 
+Examples
+--------
+
+Magnetic Dipole
+~~~~~~~~~~~~~~~
+
+.. math::
+
+    {\bf A}({\bf r}) = {\mu_0\over 4\pi} {{\bf m}\times{\bf r}\over r^3}
+
+    {\bf B}({\bf r}) = \nabla\times {\bf A}
+    = {\mu_0\over 4\pi} \nabla\times
+        \left({{\bf m}\times{\bf r}\over r^3}\right) =
+
+    = {\mu_0\over 4\pi} \left({\bf m}\nabla\cdot\left({\bf r}\over r^3\right)
+        -{\bf m}\cdot\nabla\left({\bf r}\over r^3\right)
+        \right) =
+
+    = {\mu_0\over 4\pi} \left({\bf m}\left(\left(\nabla{1\over r^3}\right)
+            \cdot{\bf r}+{1\over r^3}\nabla\cdot{\bf r}\right)
+        -{\bf m}\cdot\left(\left(\nabla{1\over r^3}\right)
+            {\bf r}+{1\over r^3}\nabla{\bf r}\right)\right)
+        =
+
+    = {\mu_0\over 4\pi} \left({\bf m}\left(\left(-{3{\bf r}\over r^5}\right)
+            \cdot{\bf r}+{1\over r^3}3\right)
+        -{\bf m}\cdot\left(\left(-{3{\bf r}\over r^5}\right)
+            {\bf r}+{1\over r^3}\one\right)\right)
+        =
+
+    = {\mu_0\over 4\pi} \left({\bf m}\left(-{3\over r^3}+{3\over r^3}\right)
+        +{\bf m}\cdot\left({3{\bf r}{\bf r}\over r^5}-{\one\over r^3}\right)
+        \right)
+        =
+
+    = {\mu_0\over 4\pi} \left({3{\bf r}({\bf m}\cdot{\bf r})\over r^5}
+        -{{\bf m}\over r^3}\right)
+
 Semiconductor Device Physics
 ============================
 
