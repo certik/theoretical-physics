@@ -110,6 +110,103 @@ Magnetic Dipole
     = {\mu_0\over 4\pi} \left({3{\bf r}({\bf m}\cdot{\bf r})\over r^5}
         -{{\bf m}\over r^3}\right)
 
+Bar Magnet in a Coil
+~~~~~~~~~~~~~~~~~~~~
+
+We throw a magnet through a coil and calculate the voltage on the coil.
+We approximate the bar magnet by a magnetic dipole.
+
+Geometry:
+
+.. math::
+
+    {\bf v} = (0, 0, v)
+
+    {\bf l} = (a\cos\phi, a\sin\phi, z)
+
+    {\bf m} = (0, 0, m)
+
+Field of the dipole:
+
+.. math::
+
+    {\bf E} = 0
+
+    {\bf B}({\bf r}) = {\mu_0\over 4\pi} \left({3{\bf r}({\bf m}\cdot{\bf r})\over r^5}
+        -{{\bf m}\over r^3}\right)
+
+so:
+
+.. math::
+
+    V = \oint \left({\bf E} + {\bf v}\times{\bf B}\right) \cdot {\d{\bf l}} =
+
+        = \oint {\bf v}\times{\bf B} \cdot {\d{\bf l}} =
+
+        = \int_0^{2\pi} {\bf v}\times{\bf B} \cdot {\d{\bf l}\over \d\phi}
+            \d\phi =
+
+        = \int_0^{2\pi} {\mu_0\over 4\pi}
+            {3(va\sin\theta, -va\cos\theta, 0)mz\over (a^2 + z^2)^{5\over2}}
+        \cdot (-a\sin\phi, a\cos\phi, 0)
+            \d\phi =
+
+        = -\int_0^{2\pi} {\mu_0\over 4\pi}
+            {3va^2mz\over (a^2 + z^2)^{5\over2}}
+            \d\phi =
+
+        = - {\mu_0\over 2} {3va^2mz\over (a^2 + z^2)^{5\over2}}
+
+where we used:
+
+.. math::
+
+        {\bf v}\times{\bf B}({\bf l})
+        = {\mu_0\over 4\pi}{\bf v}\times
+            \left({3{\bf l}({\bf m}\cdot{\bf l})\over l^5}
+        -{{\bf m}\over l^3}\right) =
+
+        = {\mu_0\over 4\pi}
+            \left({3({\bf v}\times{\bf l})({\bf m}\cdot{\bf l})\over l^5}
+        -{{\bf v}\times{\bf m}\over l^3}\right) =
+
+        = {\mu_0\over 4\pi}
+            {3({\bf v}\times{\bf l})({\bf m}\cdot{\bf l})\over l^5}
+            =
+
+        = {\mu_0\over 4\pi}
+            {3(va\sin\theta, -va\cos\theta, 0)mz\over (a^2 + z^2)^{5\over2}}
+
+The function
+
+.. math::
+
+    {z\over(a^2+z^2)^{5\over 2}}
+
+has a maximum and minimum for:
+
+.. math::
+
+    z = \pm{a\over 2}
+
+with the max value:
+
+.. math::
+
+    {z\over(a^2+z^2)^{5\over 2}} =
+    {{a\over 2}\over(a^2+\left({a\over 2}\right)^2)^{5\over 2}} =
+    {{a 2^5} \over2 (5a^2)^{5\over 2}} =
+    {2^4 \over 5^{5\over 2} a^4}
+
+So the maximum voltage is:
+
+.. math::
+
+    V = - {\mu_0\over 2} {3va^2mz\over (a^2 + z^2)^{5\over2}}
+        = - {\mu_0\over 2} {3va^2{2^4 \over 5^{5\over 2} a^4}}
+
+        = - {3 \cdot 2^3\mu_0 v\over 5^{5\over 2} a^2}
+
 Semiconductor Device Physics
 ============================
 
