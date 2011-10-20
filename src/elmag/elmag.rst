@@ -491,6 +491,72 @@ Code::
     >>> -N*mu0*Q_m*d/sqrt(a**2+d**2)
     -0.02132647889395681
 
+RC Circuit
+~~~~~~~~~~
+
+Let's consider resistor (with voltage $V=RI$) and capacitor (with voltage
+$V={Q\over C}$ and current $I(t) = Q'(t)$) in a series. Voltage on the battery
+is $V$, then the equation for the circuit is:
+
+.. math::
+
+    RI(t) + {Q(t)\over C} = V
+
+with initial condition $Q(0) = 0$. We differentiate it:
+
+.. math::
+
+    RI'(t) + {I(t)\over C} = 0
+
+and the initial condition follows from the first equation $I(0) = {V\over R}$.
+The solution is:
+
+.. math::
+
+    I(t) = {V\over R} e^{-{t\over RC}}
+
+Now we calculate the charge (using the initial condition for the charge above
+for the lower bound of the integral):
+
+.. math::
+
+    Q(t) = \int_0^t I(t') \d t'
+         = {V\over R} \int_0^t e^{-{t'\over RC}} \d t'
+         = {V\over R} \left[-RC e^{-{t'\over RC}}\right]_0^t =
+
+         = {V\over R} \left[-RC e^{-{t\over RC}}+RC\right]
+         = VC \left(1-e^{-{t\over RC}}\right)
+
+The voltage on the resistor is:
+
+.. math::
+
+    R I(t) = R {V\over R} e^{-{t\over RC}} = V e^{-{t\over RC}}
+
+The voltage on the capacitor is:
+
+.. math::
+
+    {Q(t)\over C} = {VC \left(1-e^{-{t\over RC}}\right) \over C}
+        = V \left(1-e^{-{t\over RC}}\right)
+
+Half life of the capacitor is defined as the time $\tau$ so that the charge is
+half of the total charge, and we get:
+
+.. math::
+
+    Q(\tau) = \half Q(\infty)
+
+    VC \left(1-e^{-{\tau\over RC}}\right) = \half VC
+
+    1-e^{-{\tau\over RC}} = \half
+
+    \half = e^{-{\tau\over RC}}
+
+    \log \half = -{\tau\over RC}
+
+    \tau = -RC \log \half = RC\log 2
+
 
 Semiconductor Device Physics
 ============================
