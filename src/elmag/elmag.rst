@@ -357,7 +357,7 @@ will be $v_0 = \sqrt{2hg}$ in the middle of the coil, when $t=0$. Then:
 
     v = v_0 + g t
 
-And we get for the voltage dependence:
+And we get for the voltage dependence for dipole:
 
 .. math::
 
@@ -371,6 +371,91 @@ between $z=-{a\over2}$ and $z=+{a\over2}$, so:
 .. math::
 
     \Delta t = \sqrt{2h+a\over g} - \sqrt{2h-a\over g}
+
+The total flux doesn't depend on the particular dependence of $z(t)$ and
+$v(t)$:
+
+.. math::
+
+    \Phi = \int_0^\infty V(t) \d t =
+
+        = - {3\mu_0 m\over 2} \int_0^\infty{v(t)a^2z(t)
+                \over (a^2 + z(t)^2)^{5\over2}} \d t =
+
+        = - {3\mu_0 m\over 2} \int_0^\infty{{\d z\over\d t}a^2z(t)
+                \over (a^2 + z(t)^2)^{5\over2}} \d t =
+
+        = - {3\mu_0 m\over 2} \int_0^\infty{a^2z
+                \over (a^2 + z^2)^{5\over2}} \d z =
+
+        = - {3\mu_0 m\over 4} \int_{a^2}^\infty{a^2
+                \over u^{5\over2}} \d u =
+
+        = - {3\mu_0 m a^2\over 4} \left(-{2\over 3}\right)
+            \left[1\over u^{3\over2}\right]_{a^2}^\infty =
+
+        = - {3\mu_0 m a^2\over 4} \left(-{2\over 3}\right)
+            \left[-1\over a^3\right] =
+
+        = - {\mu_0 m \over 2a}
+
+For the voltage dependence of two monopoles, we get:
+
+.. math::
+
+    V = -{Q_m a^2 v \over 2} \left(
+            {1 \over (a^2+(z-d)^2)^{3\over2}}
+            -
+            {1 \over (a^2+(z+d)^2)^{3\over2}}
+            \right) =
+
+    = -{Q_m a^2 (v_0+gt) \over 2} \left(
+            {1 \over (a^2+(v_0 t + \half g t^2-d)^2)^{3\over2}}
+            -
+            {1 \over (a^2+(v_0 t + \half g t^2+d)^2)^{3\over2}}
+            \right)
+
+The total flux doesn't depend on the particular dependence of $z(t)$ and
+$v(t)$:
+
+.. math::
+
+    \Phi = \int_0^\infty V(t) \d t =
+
+        =-\int_0^\infty {Q_m a^2 v(t) \over 2} \left(
+            {1 \over (a^2+(z(t)-d)^2)^{3\over2}}
+            -
+            {1 \over (a^2+(z(t)+d)^2)^{3\over2}}
+            \right)
+            \d t =
+
+        =-\int_0^\infty {Q_m a^2 {\d z\over \d t} \over 2} \left(
+            {1 \over (a^2+(z(t)-d)^2)^{3\over2}}
+            -
+            {1 \over (a^2+(z(t)+d)^2)^{3\over2}}
+            \right)
+            \d t =
+
+        =-\int_0^\infty {Q_m a^2 \over 2} \left(
+            {1 \over (a^2+(z-d)^2)^{3\over2}}
+            -
+            {1 \over (a^2+(z+d)^2)^{3\over2}}
+            \right)
+            \d z =
+
+        =- {Q_m a^2 \over 2} \left(
+            \int_0^\infty{1 \over (a^2+(z-d)^2)^{3\over2}} \d z
+            -
+            \int_0^\infty{1 \over (a^2+(z+d)^2)^{3\over2}} \d z
+            \right) =
+
+        =- {Q_m a^2 \over 2} \left(
+            {1\over a^2}\left(1 + {d\over\sqrt{a^2 + d^2}}\right)
+            -
+            {1\over a^2}\left(1 - {d\over\sqrt{a^2 + d^2}}\right)
+            \right) =
+
+        =- Q_m {d\over\sqrt{a^2 + d^2}}
 
 Semiconductor Device Physics
 ============================
