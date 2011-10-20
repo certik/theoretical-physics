@@ -119,7 +119,7 @@ see them, just their behavior outside the magnet):
 
 .. math::
 
-    {\bf B}({\bf x}) = {Q_m\over 4\pi} \left(
+    {\bf B}({\bf x}) = {\mu_0 Q_m\over 4\pi} \left(
         {{\bf x}-{\bf p}_1 \over |{\bf x}-{\bf p}_1|^3}
         -
         {{\bf x}-{\bf p}_2 \over |{\bf x}-{\bf p}_2|^3}
@@ -206,7 +206,7 @@ Field of two monopoles:
 
     {\bf E} = 0
 
-    {\bf B}({\bf x}) = {Q_m\over 4\pi} \left(
+    {\bf B}({\bf x}) = {\mu_0 Q_m\over 4\pi} \left(
         {{\bf x}-{\bf p}_1 \over |{\bf x}-{\bf p}_1|^3}
         -
         {{\bf x}-{\bf p}_2 \over |{\bf x}-{\bf p}_2|^3}
@@ -223,13 +223,13 @@ we will need:
 .. math::
 
     {\bf v}\times{\bf B}({\bf l})
-        = {Q_m\over 4\pi} \left(
+        = {\mu_0 Q_m\over 4\pi} \left(
         {{\bf v}\times({\bf l}-{\bf p}_1) \over |{\bf l}-{\bf p}_1|^3}
         -
         {{\bf v}\times({\bf l}-{\bf p}_2) \over |{\bf l}-{\bf p}_2|^3}
         \right) =
 
-        = {Q_m\over 4\pi} \left(
+        = {\mu_0 Q_m\over 4\pi} \left(
         {(0, 0, v)\times(a\cos\phi, a\sin\phi, z-d) \over
             (a^2+(z-d)^2)^{3\over2}}
         -
@@ -237,7 +237,7 @@ we will need:
             (a^2+(z+d)^2)^{3\over2}}
         \right) =
 
-        = {Q_m a v \over 4\pi} \left(
+        = {\mu_0 Q_m a v \over 4\pi} \left(
         {1 \over (a^2+(z-d)^2)^{3\over2}}
         -
         {1 \over (a^2+(z+d)^2)^{3\over2}}
@@ -249,7 +249,7 @@ and
 
     {\bf v}\times{\bf B}\cdot{\d{\bf l}\over \d\phi} =
 
-    = {Q_m a v \over 4\pi} \left(
+    = {\mu_0 Q_m a v \over 4\pi} \left(
     {1 \over (a^2+(z-d)^2)^{3\over2}}
     -
     {1 \over (a^2+(z+d)^2)^{3\over2}}
@@ -257,7 +257,7 @@ and
         \cdot
     (-a\sin\phi, a\cos\phi, 0) =
 
-    = -{Q_m a^2 v \over 4\pi} \left(
+    = -{\mu_0 Q_m a^2 v \over 4\pi} \left(
     {1 \over (a^2+(z-d)^2)^{3\over2}}
     -
     {1 \over (a^2+(z+d)^2)^{3\over2}}
@@ -291,14 +291,14 @@ For two monopoles we get
 .. math::
 
         V = \cdots
-        = -\int_0^{2\pi} {Q_m a^2 v \over 4\pi} \left(
+        = -\int_0^{2\pi} {\mu_0 Q_m a^2 v \over 4\pi} \left(
             {1 \over (a^2+(z-d)^2)^{3\over2}}
             -
             {1 \over (a^2+(z+d)^2)^{3\over2}}
             \right)
             \d\phi =
 
-        = -{Q_m a^2 v \over 2} \left(
+        = -{\mu_0 Q_m a^2 v \over 2} \left(
             {1 \over (a^2+(z-d)^2)^{3\over2}}
             -
             {1 \over (a^2+(z+d)^2)^{3\over2}}
@@ -403,13 +403,13 @@ For the voltage dependence of two monopoles, we get:
 
 .. math::
 
-    V = -{Q_m a^2 v \over 2} \left(
+    V = -{\mu_0 Q_m a^2 v \over 2} \left(
             {1 \over (a^2+(z-d)^2)^{3\over2}}
             -
             {1 \over (a^2+(z+d)^2)^{3\over2}}
             \right) =
 
-    = -{Q_m a^2 (v_0+gt) \over 2} \left(
+    = -{\mu_0 Q_m a^2 (v_0+gt) \over 2} \left(
             {1 \over (a^2+(v_0 t + \half g t^2-d)^2)^{3\over2}}
             -
             {1 \over (a^2+(v_0 t + \half g t^2+d)^2)^{3\over2}}
@@ -422,40 +422,43 @@ $v(t)$:
 
     \Phi = \int_0^\infty V(t) \d t =
 
-        =-\int_0^\infty {Q_m a^2 v(t) \over 2} \left(
+        =-\int_0^\infty {\mu_0 Q_m a^2 v(t) \over 2} \left(
             {1 \over (a^2+(z(t)-d)^2)^{3\over2}}
             -
             {1 \over (a^2+(z(t)+d)^2)^{3\over2}}
             \right)
             \d t =
 
-        =-\int_0^\infty {Q_m a^2 {\d z\over \d t} \over 2} \left(
+        =-\int_0^\infty {\mu_0 Q_m a^2 {\d z\over \d t} \over 2} \left(
             {1 \over (a^2+(z(t)-d)^2)^{3\over2}}
             -
             {1 \over (a^2+(z(t)+d)^2)^{3\over2}}
             \right)
             \d t =
 
-        =-\int_0^\infty {Q_m a^2 \over 2} \left(
+        =-\int_0^\infty {\mu_0 Q_m a^2 \over 2} \left(
             {1 \over (a^2+(z-d)^2)^{3\over2}}
             -
             {1 \over (a^2+(z+d)^2)^{3\over2}}
             \right)
             \d z =
 
-        =- {Q_m a^2 \over 2} \left(
+        =- {\mu_0 Q_m a^2 \over 2} \left(
             \int_0^\infty{1 \over (a^2+(z-d)^2)^{3\over2}} \d z
             -
             \int_0^\infty{1 \over (a^2+(z+d)^2)^{3\over2}} \d z
             \right) =
 
-        =- {Q_m a^2 \over 2} \left(
+        =- {\mu_0 Q_m a^2 \over 2} \left(
             {1\over a^2}\left(1 + {d\over\sqrt{a^2 + d^2}}\right)
             -
             {1\over a^2}\left(1 - {d\over\sqrt{a^2 + d^2}}\right)
             \right) =
 
-        =- Q_m {d\over\sqrt{a^2 + d^2}}
+        =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}}
+
+Note that in the limit $d\to 0$, we get the magnetic moment $m = 2 d Q_m$ and
+the last formula for two monopoles flux becomes the dipole flux.
 
 Semiconductor Device Physics
 ============================
