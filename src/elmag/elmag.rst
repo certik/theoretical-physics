@@ -491,6 +491,29 @@ Code::
     >>> -N*mu0*Q_m*d/sqrt(a**2+d**2)
     -0.02132647889395681
 
+For a single loop with $a=1.25\rm\,cm$ we get:
+
+.. math::
+
+    \Phi =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -4.44\times 10^{-5}
+
+and for a single loop with $a=1.8\rm\,cm$ we get:
+
+.. math::
+
+    \Phi =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -3.82\times 10^{-5}
+
+Code::
+
+    >>> a = 1.25*cm
+    >>> -mu0*Q_m*d/sqrt(a**2+d**2)
+    -4.438304942066266e-05
+    >>> a = 1.8*cm
+    >>> -mu0*Q_m*d/sqrt(a**2+d**2)
+    -3.820879326816195e-05
+
+
+
 RC Circuit
 ~~~~~~~~~~
 
