@@ -110,11 +110,37 @@ Magnetic Dipole
     = {\mu_0\over 4\pi} \left({3{\bf r}({\bf m}\cdot{\bf r})\over r^5}
         -{{\bf m}\over r^3}\right)
 
+Bar Magnet
+----------
+
+A good model of a bar magnet of the length $L$ and width $W$ is a combination
+of two magnetic monopoles (that sit inside the magnet, so one cannot actually
+see them, just their behavior outside the magnet):
+
+.. math::
+
+    {\bf B}({\bf x}) = {Q_m\over 4\pi} \left(
+        {{\bf x}-{\bf p}_1 \over |{\bf x}-{\bf p}_1|^3}
+        -
+        {{\bf x}-{\bf p}_2 \over |{\bf x}-{\bf p}_2|^3}
+        \right)
+
+where:
+
+.. math::
+
+    {\bf p}_1 = (0, 0, d)
+
+    {\bf p}_2 = (0, 0, -d)
+
+    d = {L-W\over 2}
+
 Bar Magnet in a Coil
 ~~~~~~~~~~~~~~~~~~~~
 
 We throw a magnet through a coil and calculate the voltage on the coil.
-We approximate the bar magnet by a magnetic dipole.
+We use two model of the bar magnet: a magnetic dipole and two monopoles $2d$
+apart.
 
 Geometry:
 
@@ -124,7 +150,7 @@ Geometry:
 
     {\bf l} = (a\cos\phi, a\sin\phi, z)
 
-    {\bf m} = (0, 0, m)
+    {\d{\bf l}\over \d\phi} = (-a\sin\phi, a\cos\phi, 0)
 
 Field of the dipole:
 
@@ -135,7 +161,109 @@ Field of the dipole:
     {\bf B}({\bf r}) = {\mu_0\over 4\pi} \left({3{\bf r}({\bf m}\cdot{\bf r})\over r^5}
         -{{\bf m}\over r^3}\right)
 
-so:
+    {\bf m} = (0, 0, m)
+
+we will need:
+
+.. math::
+
+    {\bf v}\times{\bf B}({\bf l})
+    = {\mu_0\over 4\pi}{\bf v}\times
+        \left({3{\bf l}({\bf m}\cdot{\bf l})\over l^5}
+    -{{\bf m}\over l^3}\right) =
+
+    = {\mu_0\over 4\pi}
+        \left({3({\bf v}\times{\bf l})({\bf m}\cdot{\bf l})\over l^5}
+    -{{\bf v}\times{\bf m}\over l^3}\right) =
+
+    = {\mu_0\over 4\pi}
+        {3({\bf v}\times{\bf l})({\bf m}\cdot{\bf l})\over l^5}
+        =
+
+    = {\mu_0\over 4\pi}
+        {3(va\sin\theta, -va\cos\theta, 0)mz\over (a^2 + z^2)^{5\over2}} =
+
+    = {3\mu_0 m\over 4\pi}
+        {a v z\over (a^2 + z^2)^{5\over2}} (\sin\theta, -\cos\theta, 0)
+
+and
+
+.. math::
+
+    {\bf v}\times{\bf B}\cdot{\d{\bf l}\over \d\phi} =
+
+    = {3\mu_0 m\over 4\pi}
+        {a v z\over (a^2 + z^2)^{5\over2}} (\sin\theta, -\cos\theta, 0)
+        \cdot
+    (-a\sin\phi, a\cos\phi, 0) =
+
+    = -{3\mu_0 m\over 4\pi}
+        {a^2 v z\over (a^2 + z^2)^{5\over2}}
+
+Field of two monopoles:
+
+.. math::
+
+    {\bf E} = 0
+
+    {\bf B}({\bf x}) = {Q_m\over 4\pi} \left(
+        {{\bf x}-{\bf p}_1 \over |{\bf x}-{\bf p}_1|^3}
+        -
+        {{\bf x}-{\bf p}_2 \over |{\bf x}-{\bf p}_2|^3}
+        \right)
+
+    {\bf p}_1 = (0, 0, d)
+
+    {\bf p}_2 = (0, 0, -d)
+
+    d = {L-W\over 2}
+
+we will need:
+
+.. math::
+
+    {\bf v}\times{\bf B}({\bf l})
+        = {Q_m\over 4\pi} \left(
+        {{\bf v}\times({\bf l}-{\bf p}_1) \over |{\bf l}-{\bf p}_1|^3}
+        -
+        {{\bf v}\times({\bf l}-{\bf p}_2) \over |{\bf l}-{\bf p}_2|^3}
+        \right) =
+
+        = {Q_m\over 4\pi} \left(
+        {(0, 0, v)\times(a\cos\phi, a\sin\phi, z-d) \over
+            (a^2+(z-d)^2)^{3\over2}}
+        -
+        {(0, 0, v)\times(a\cos\phi, a\sin\phi, z+d) \over
+            (a^2+(z+d)^2)^{3\over2}}
+        \right) =
+
+        = {Q_m a v \over 4\pi} \left(
+        {1 \over (a^2+(z-d)^2)^{3\over2}}
+        -
+        {1 \over (a^2+(z+d)^2)^{3\over2}}
+        \right) (\sin\phi, -\cos\phi, 0)
+
+and
+
+.. math::
+
+    {\bf v}\times{\bf B}\cdot{\d{\bf l}\over \d\phi} =
+
+    = {Q_m a v \over 4\pi} \left(
+    {1 \over (a^2+(z-d)^2)^{3\over2}}
+    -
+    {1 \over (a^2+(z+d)^2)^{3\over2}}
+    \right) (\sin\phi, -\cos\phi, 0)
+        \cdot
+    (-a\sin\phi, a\cos\phi, 0) =
+
+    = -{Q_m a^2 v \over 4\pi} \left(
+    {1 \over (a^2+(z-d)^2)^{3\over2}}
+    -
+    {1 \over (a^2+(z+d)^2)^{3\over2}}
+    \right)
+
+Now we can calculate the voltage:
 
 .. math::
 
@@ -144,40 +272,40 @@ so:
         = \oint {\bf v}\times{\bf B} \cdot {\d{\bf l}} =
 
         = \int_0^{2\pi} {\bf v}\times{\bf B} \cdot {\d{\bf l}\over \d\phi}
-            \d\phi =
+            \d\phi
 
-        = \int_0^{2\pi} {\mu_0\over 4\pi}
-            {3(va\sin\theta, -va\cos\theta, 0)mz\over (a^2 + z^2)^{5\over2}}
-        \cdot (-a\sin\phi, a\cos\phi, 0)
-            \d\phi =
-
-        = -\int_0^{2\pi} {\mu_0\over 4\pi}
-            {3va^2mz\over (a^2 + z^2)^{5\over2}}
-            \d\phi =
-
-        = - {\mu_0\over 2} {3va^2mz\over (a^2 + z^2)^{5\over2}}
-
-where we used:
+for the dipole we get
 
 .. math::
 
-        {\bf v}\times{\bf B}({\bf l})
-        = {\mu_0\over 4\pi}{\bf v}\times
-            \left({3{\bf l}({\bf m}\cdot{\bf l})\over l^5}
-        -{{\bf m}\over l^3}\right) =
+        V = \cdots
+        = -\int_0^{2\pi} {3\mu_0 m\over 4\pi}
+        {a^2 v z\over (a^2 + z^2)^{5\over2}}
+            \d\phi =
 
-        = {\mu_0\over 4\pi}
-            \left({3({\bf v}\times{\bf l})({\bf m}\cdot{\bf l})\over l^5}
-        -{{\bf v}\times{\bf m}\over l^3}\right) =
+        = -{3\mu_0 m\over 2}
+        {a^2 v z\over (a^2 + z^2)^{5\over2}}
 
-        = {\mu_0\over 4\pi}
-            {3({\bf v}\times{\bf l})({\bf m}\cdot{\bf l})\over l^5}
-            =
+For two monopoles we get
 
-        = {\mu_0\over 4\pi}
-            {3(va\sin\theta, -va\cos\theta, 0)mz\over (a^2 + z^2)^{5\over2}}
+.. math::
 
-The function
+        V = \cdots
+        = -\int_0^{2\pi} {Q_m a^2 v \over 4\pi} \left(
+            {1 \over (a^2+(z-d)^2)^{3\over2}}
+            -
+            {1 \over (a^2+(z+d)^2)^{3\over2}}
+            \right)
+            \d\phi =
+
+        = -{Q_m a^2 v \over 2} \left(
+            {1 \over (a^2+(z-d)^2)^{3\over2}}
+            -
+            {1 \over (a^2+(z+d)^2)^{3\over2}}
+            \right)
+
+
+For the dipole, the function
 
 .. math::
 
