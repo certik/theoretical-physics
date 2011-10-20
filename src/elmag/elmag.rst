@@ -473,11 +473,12 @@ Note that in the limit $d\to 0$, we get the magnetic moment $m = 2 d Q_m$ and
 the last formula for two monopoles flux becomes the dipole flux.
 
 As a particular example, consider a coil with $N=500$ loops, $a=1.4\rm\,cm$,
-$d=1.8\rm\,cm$, $Q_m=43$. Then the total flux from the second peak is:
+$d=1.8\rm\,cm$, $Q_m=43\rm\,A\cdot m$. Then the total flux from the second peak
+is:
 
 .. math::
 
-    \Phi =- {N\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -0.021
+    \Phi =- {N\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -0.021 \rm\, V\cdot s
 
 Code::
 
@@ -496,12 +497,14 @@ For a single loop with $a=1.25\rm\,cm$ we get:
 .. math::
 
     \Phi =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -4.44\times 10^{-5}
+        \rm\, V\cdot s
 
 and for a single loop with $a=1.8\rm\,cm$ we get:
 
 .. math::
 
     \Phi =- {\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -3.82\times 10^{-5}
+        \rm\, V\cdot s
 
 Code::
 
