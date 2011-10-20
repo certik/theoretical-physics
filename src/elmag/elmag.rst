@@ -111,7 +111,7 @@ Magnetic Dipole
         -{{\bf m}\over r^3}\right)
 
 Bar Magnet
-----------
+~~~~~~~~~~
 
 A good model of a bar magnet of the length $L$ and width $W$ is a combination
 of two magnetic monopoles (that sit inside the magnet, so one cannot actually
@@ -471,6 +471,26 @@ $v(t)$:
 
 Note that in the limit $d\to 0$, we get the magnetic moment $m = 2 d Q_m$ and
 the last formula for two monopoles flux becomes the dipole flux.
+
+As a particular example, consider a coil with $N=500$ loops, $a=1.4\rm\,cm$,
+$d=1.8\rm\,cm$, $Q_m=43$. Then the total flux from the second peak is:
+
+.. math::
+
+    \Phi =- {N\mu_0 Q_m d\over\sqrt{a^2 + d^2}} = -0.021
+
+Code::
+
+    >>> from math import pi, sqrt
+    >>> mu0 = 4*pi*1e-7
+    >>> cm = 0.01
+    >>> Q_m = 43.
+    >>> d = 1.8*cm
+    >>> a = 1.4*cm
+    >>> N = 500
+    >>> -N*mu0*Q_m*d/sqrt(a**2+d**2)
+    -0.02132647889395681
+
 
 Semiconductor Device Physics
 ============================
