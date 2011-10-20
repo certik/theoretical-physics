@@ -135,6 +135,18 @@ where:
 
     d = {L-W\over 2}
 
+The magnetic moment vector is:
+
+.. math::
+
+    {\bf m} = Q_m ({\bf p}_1 - {\bf p}_2)
+
+and its magnitude then is:
+
+.. math::
+
+    m = 2 Q_m d
+
 Bar Magnet in a Coil
 ~~~~~~~~~~~~~~~~~~~~
 
