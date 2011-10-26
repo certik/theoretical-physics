@@ -147,6 +147,26 @@ and its magnitude then is:
 
     m = 2 Q_m d
 
+The permeability is:
+
+.. math::
+
+    \mu_0 = 4\pi \cdot 10^{-7}{\rm\,H\cdot m^{-1}}
+        = 4\pi \cdot 10^{-7}{\rm\,V\cdot s\cdot A^{-1}\cdot m^{-1}}
+
+For a typical bar magnet, we have for example:
+
+.. math::
+
+    L &= 5{\rm\,cm} \\
+    W &= 1{\rm\,cm} \\
+    Q_m &= 3.3{\rm\,A\cdot m} \\
+    d &= {L-W\over2} = 0.02{\rm\,m} \\
+    m &= 2 Q_m d = 2\times 3.3\times 0.02{\rm\,A\cdot m^2}
+        = 0.132 {\rm\,A\cdot m^2}
+
+The unit of ${\bf B}$ is Tesla: $\rm 1 T = V\cdot s \cdot m^{-2}$.
+
 Bar Magnet in a Coil
 ~~~~~~~~~~~~~~~~~~~~
 
