@@ -234,6 +234,13 @@ Euler-Lagrange equations are:
     {\d \over \d t} \left({m {\bf v}\over\sqrt{1-{v^2\over c^2}}}\right)
          = e\left({\bf E} + {\bf v}\times {\bf B}\right)
 
+For continuous case (current), the force due to the magnetic field is:
+
+.. math::
+
+    {\bf F} = \int {\bf j}\times {\bf B} \d^3 x
+        = I \int \d {\bf l}\times {\bf B}
+
 Hamiltonian
 ~~~~~~~~~~~
 
@@ -615,6 +622,102 @@ For $x=y=0$ we get:
          =(0, 0, -1) {\mu_0 I\over 2} {
              r^2 \over (r^2 + z^2)^{3\over 2} }
 
+Ampère's Force Law
+~~~~~~~~~~~~~~~~~~
+
+The force on a wire 1 due to a magnetic field of a wire 2 is:
+
+.. math::
+
+    {\bf F} = I_1 \int \d {\bf l}_1 \times {\bf B}({\bf l}_1)
+
+    {\bf B}({\bf x})
+         ={\mu_0\over 4\pi}\int I_2(t)\d{\bf l}_2 \times {{\bf x} - {\bf l}_2
+                \over |{\bf x} - {\bf l}_2|^3 }
+
+
+Where ${\bf B}({\bf x})$ is the magnetic field produced by the wire 2.
+Combining these two equations we get:
+
+.. math::
+
+    {\bf F} = I_1 \int \d {\bf l}_1 \times {\bf B}({\bf l}_1) =
+
+        = I_1 \int \d {\bf l}_1 \times \left(
+         {\mu_0\over 4\pi}\int I_2(t)\d{\bf l}_2 \times {{\bf l}_1 - {\bf l}_2
+                \over |{\bf l}_1 - {\bf l}_2|^3 }\right) =
+
+        = {\mu_o I_1 I_2\over 4\pi} \int \int {\d {\bf l}_1 \times (
+         \d{\bf l}_2 \times ({\bf l}_1 - {\bf l}_2))
+                \over |{\bf l}_1 - {\bf l}_2|^3 } =
+
+        = {\mu_o I_1 I_2\over 4\pi} \int \int {
+            \d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+            ({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+                \over |{\bf l}_1 - {\bf l}_2|^3 }
+
+Parallel Straight Wires
+^^^^^^^^^^^^^^^^^^^^^^^
+
+We calculate the force between two parallel straight infinite wires:
+
+.. math::
+
+    {\bf l}_1 = ({d\over 2}, 0, l_1)
+
+    \d{\bf l}_1 = (0, 0, \d l_1)
+
+    {\bf l}_2 = (-{d\over 2}, 0, l_2)
+
+    \d{\bf l}_2 = (0, 0, \d l_2)
+
+    {\bf l}_1 - {\bf l}_2 = (d, 0, l_1-l_2)
+
+    \d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+    ({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+        = (0, 0, \d l_2) (l_1-l_2)\d l_1 - (d, 0, l1-l2)\d l_2 \d l_1
+        = (-d, 0, 0)\d l_1 \d l_2
+
+    {\bf F}
+        = {\mu_o I_1 I_2\over 4\pi} \int \int {
+            \d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+            ({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+                \over |{\bf l}_1 - {\bf l}_2|^3 } =
+
+        = {\mu_o I_1 I_2\over 4\pi} \int \int {
+            (-d, 0, 0)\d l_1 \d l_2
+                \over (d^2 + (l_1 - l_2)^2)^{3\over 2} } =
+
+        = (-1, 0, 0){\mu_o I_1 I_2\over 4\pi} \int \d l_1
+            \int_{-\infty}^\infty \d l_2 {
+            d
+                \over (d^2 + (l_1 - l_2)^2)^{3\over 2} } =
+
+        = (-1, 0, 0){\mu_o I_1 I_2\over 4\pi} \int \d l_1
+            {2\over d} =
+
+        = (-1, 0, 0){\mu_o I_1 I_2\over 2\pi d} \int \d l_1
+
+Where we used the value of the folowing integral:
+
+.. math::
+
+    \int_{-\infty}^\infty \d l_2 {d \over (d^2 + (l_1 - l_2)^2)^{3\over 2} }
+        = \int_{-\infty}^\infty \d x {d \over (d^2 + x^2)^{3\over 2} } =
+
+        = \left[x\over d \sqrt{d^2 + x^2}\right]_{-\infty}^\infty
+        = \left[\sign x\over d \sqrt{\left(d\over x\right)^2 + 1}
+            \right]_{-\infty}^\infty =
+
+        = {1\over d} - \left(-{1\over d}\right) = {2\over d}
+
+As such, the direction of the force on the first wire (at coordinates $({d\over
+2}, 0, 0)$ going in the $z$ direction) will be to the left and the force per
+unit length is:
+
+.. math::
+
+    F_m = {\mu_o I_1 I_2\over 2\pi d}
 
 Magnetic Dipole
 ~~~~~~~~~~~~~~~
