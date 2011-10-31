@@ -370,7 +370,36 @@ One can simplify:
             \partial^\alpha A^\beta
              - \partial_\beta A_\alpha
             \partial^\alpha A^\beta
-            )
+            ) =
+
+        =\half \partial_\alpha A_\beta \partial^\alpha A^\beta
+             - \half\partial_\beta A_\alpha \partial^\alpha A^\beta =
+
+        =\half \partial_\alpha A_\beta \partial^\alpha A^\beta
+               -\half (\partial^\alpha A_\alpha)^2
+             - \half\partial_\beta (A_\alpha \partial^\alpha A^\beta
+               -A^\beta\partial^\alpha A_\alpha)
+
+The 4-divergence
+$\partial_\beta (A_\alpha \partial^\alpha A^\beta -A^\beta\partial^\alpha A_\alpha)$
+doesn't change Euler-Lagrange equations, so we can ignore it. As such, an
+equivalent Lagrangian is:
+
+.. math::
+
+    \L(A^\alpha, \partial^\beta A^\alpha)
+        = -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+               +{1\over 2\mu_0} (\partial^\alpha A_\alpha)^2 - j_\alpha A^\alpha
+
+The expression ${1\over 4} F_{\alpha\beta} F^{\alpha\beta}$ is independent of
+gauge and so is the above Lagrangian. If we choose Lorentz gauge
+$\partial^\alpha A_\alpha=0$, then it simplifies even further:
+
+.. math::
+
+    \L(A^\alpha, \partial^\beta A^\alpha)
+        = -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+               - j_\alpha A^\alpha
 
 The E.-L. equations are:
 
