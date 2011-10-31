@@ -311,6 +311,39 @@ The Hamiltonian is:
 Maxwell's Equations
 -------------------
 
+The action for the field is:
+
+.. math::
+
+    S = \int \L(\phi_k, \partial^\alpha\phi_k) \d^4 x
+
+The action $S$ is a scalar (Lorentz invariant), so
+$\L(\phi_k, \partial^\mu\phi_k)$ must be a
+scalar too. The Euler-Lagrange equations are:
+
+.. math::
+
+    \partial^\beta{\partial\L\over \partial(\partial^\beta\phi_k)}
+        = {\partial\L\over\partial\phi_k}
+
+
+For electromagnetic field $\phi_k = A^\mu$ and the Lagrangian is:
+
+.. math::
+
+    \L(A^\alpha, \partial^\beta A^\alpha)
+        = -{1\over 4} F_{\alpha\beta} F^{\alpha\beta} +\mu_0 j_\alpha A^\alpha
+
+The E.-L. equations are:
+
+.. math::
+
+    \partial^\beta{\partial\L\over \partial(\partial^\beta A^\alpha)}
+        = {\partial\L\over\partial A^\alpha}
+
+    \partial^\beta F_{\alpha\beta} = \mu_0 j_\alpha
+
+
 The Maxwell's equations are:
 
 .. math::
