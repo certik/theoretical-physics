@@ -416,15 +416,101 @@ sources are automatically satisfied by the four potential):
 
 .. math::
 
-    \partial_\alpha F^{\beta\alpha} =
-        \partial_\alpha (\partial^\beta A^\alpha - \partial^\alpha A^\beta) =
-        -\partial_\alpha \partial^\alpha A^\beta =
+    \partial_\alpha F^{\alpha\beta} =
+        \partial_\alpha (\partial^\alpha A^\beta - \partial^\beta A^\alpha) =
+        \partial_\alpha \partial^\alpha A^\beta =
         \mu_0 j^\beta
 
 where we have employed the Lorentz gauge $\partial_\alpha A^\alpha=0$.
+The solution to this equation is:
+
+.. math::
+
+    A^\beta({\bf x}, t) = {\mu_0\over 4\pi}\int
+         {j^\beta({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+
+For scalar potential ($\beta=0$) we get:
+
+.. math::
+
+    {\phi({\bf x}, t)\over c} = {\mu_0\over 4\pi}\int
+         {c \rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+
+    \phi({\bf x}, t) = {\mu_0 c^2\over 4\pi}\int
+         {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+        = {1\over 4\pi\epsilon_0}\int
+         {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+
+And for vector potential ($\beta=i$) we get:
+
+.. math::
+
+    {\bf A}({\bf x}, t) = {\mu_0\over 4\pi}\int
+         {{\bf j}({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
 
 Examples
 --------
+
+Biot-Savart Law
+~~~~~~~~~~~~~~~
+
+Maxwell's equations in Lorentz gauge:
+
+.. math::
+
+    \partial_\alpha\partial^\alpha A^\beta = \mu_0 j^\beta
+
+have the solution for the vector potential:
+
+.. math::
+
+    {\bf A}({\bf x}, t) = {\mu_0\over 4\pi}\int
+         {{\bf j}({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+
+Assuming ${ |{\bf x} - {\bf y}| \over c} \ll t$:
+
+.. math::
+
+    {\bf A}({\bf x}, t) = {\mu_0\over 4\pi}\int
+         {{\bf j}({\bf y},t) \over |{\bf x} - {\bf y}| }\d^3 y
+
+The magnetic field is then:
+
+.. math::
+
+    {\bf B} = \nabla \times {\bf A}
+         =\nabla \times {\mu_0\over 4\pi}\int
+         {{\bf j}({\bf y},t) \over |{\bf x} - {\bf y}| }\d^3 y =
+
+         ={\mu_0\over 4\pi}\int \left(\nabla {1\over
+                 |{\bf x} - {\bf y}| }\right)\times {\bf j}({\bf y},t)\d^3 y =
+
+         ={\mu_0\over 4\pi}\int \left(-{{\bf x} - {\bf y}\over
+                 |{\bf x} - {\bf y}|^3 }\right)\times {\bf j}({\bf y},t)\d^3 y =
+
+         ={\mu_0\over 4\pi}\int {\bf j}({\bf y},t) \times {{\bf x} - {\bf y}
+                \over |{\bf x} - {\bf y}|^3 } \d^3 y
+
+If the current can be approximated by an infinitely-narrow wire, we get:
+
+.. math::
+
+    {\bf j}({\bf y},t) \d^3 y = I(t) \d {\bf l}
+
+and:
+
+.. math::
+
+    {\bf B}
+         ={\mu_0\over 4\pi}\int I(t)\d{\bf l} \times {{\bf x} - {\bf y}
+                \over |{\bf x} - {\bf y}|^3 }
+
 
 Magnetic Dipole
 ~~~~~~~~~~~~~~~
