@@ -692,7 +692,7 @@ We calculate the force between two parallel straight infinite wires:
 
     \d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
     ({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
-        = (0, 0, \d l_2) (l_1-l_2)\d l_1 - (d, 0, l1-l2)\d l_2 \d l_1
+        = (0, 0, \d l_2) (l_1-l_2)\d l_1 - (d, 0, l_1-l_2)\d l_2 \d l_1
         = (-d, 0, 0)\d l_1 \d l_2
 
     {\bf F}
@@ -735,6 +735,68 @@ unit length is:
 .. math::
 
     F_m = {\mu_o I_1 I_2\over 2\pi d}
+
+Perpendicular Straight Wires
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We calculate the force between two perpendicular straight infinite wires:
+
+.. math::
+
+    {\bf l}_1 = ({d\over 2}, 0, l_1)
+
+    \d{\bf l}_1 = (0, 0, \d l_1)
+
+    {\bf l}_2 = (-{d\over 2}, l_2, 0)
+
+    \d{\bf l}_2 = (0, \d l_2, 0)
+
+    {\bf l}_1 - {\bf l}_2 = (d, -l_2, l_1)
+
+    \d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+    ({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+        = (0, \d l_2, 0) l_1\d l_1
+        = (0, l_1, 0)\d l_1 \d l_2
+
+    {\bf F}
+        = {\mu_o I_1 I_2\over 4\pi} \int \int {
+            \d {\bf l}_2 (\d {\bf l}_1 \cdot ({\bf l}_1 - {\bf l}_2)) -
+            ({\bf l}_1 - {\bf l}_2) (\d {\bf l}_2 \cdot\d {\bf l}_1)
+                \over |{\bf l}_1 - {\bf l}_2|^3 } =
+
+        = {\mu_o I_1 I_2\over 4\pi} \int \int {
+            (0, l_1, 0)\d l_1 \d l_2
+                \over (d^2 + l_1^2 + l_2^2)^{3\over 2} } =
+
+        = (0, 1, 0){\mu_o I_1 I_2\over 4\pi} \int_{-\infty}^\infty \d l_1
+            \int_{-\infty}^\infty \d l_2 {
+            l_1
+                \over (d^2 + l_1^2 +l_2^2)^{3\over 2} } =
+
+        = (-1, 0, 0){\mu_o I_1 I_2\over 4\pi} \int_{-\infty}^\infty \d l_1
+            {2 l_1\over d^2 + l_1^2}
+            =
+
+        = 0
+
+The integral is an odd functin of $l_1$, so it is zero.  We used the value of
+the folowing integral (but in fact it is already seen before this integral is
+needed that the double integral must be zero):
+
+.. math::
+
+    \int_{-\infty}^\infty \d l_2 {l_1 \over (d^2 + l_1^2 + l_2^2)^{3\over 2} }
+
+        = \left[l_1 l_2\over (d^2+l_1^2) \sqrt{d^2 +l_1^2 + l_2^2}
+            \right]_{-\infty}^\infty
+        = \left[l_1 \sign l_2\over (d^2+l_1^2)
+            \sqrt{\left(d\over l_2\right)^2 + \left(l_1\over l_2\right)^2 + 1}
+            \right]_{-\infty}^\infty =
+
+        = {l_1\over d^2+l_1^2} - \left(-{l_1\over d^2 + l_1^2}\right)
+        = {2 l_1\over d^2 + l_1^2}
+
+As such, there will be no net force.
 
 Magnetic Dipole
 ~~~~~~~~~~~~~~~
