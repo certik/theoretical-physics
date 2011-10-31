@@ -484,7 +484,7 @@ The magnetic field is then:
 
 .. math::
 
-    {\bf B} = \nabla \times {\bf A}
+    {\bf B}({\bf x}, t) = \nabla \times {\bf A}({\bf x}, t)
          =\nabla \times {\mu_0\over 4\pi}\int
          {{\bf j}({\bf y},t) \over |{\bf x} - {\bf y}| }\d^3 y =
 
@@ -507,9 +507,45 @@ and:
 
 .. math::
 
-    {\bf B}
-         ={\mu_0\over 4\pi}\int I(t)\d{\bf l} \times {{\bf x} - {\bf y}
-                \over |{\bf x} - {\bf y}|^3 }
+    {\bf B}({\bf x}, t)
+         ={\mu_0\over 4\pi}\int I(t)\d{\bf l} \times {{\bf x} - {\bf l}
+                \over |{\bf x} - {\bf l}|^3 }
+
+Example: Straight Wire
+^^^^^^^^^^^^^^^^^^^^^^
+
+Let's assume infinite straight wire carrying constant current $I$:
+
+.. math::
+
+    {\bf l} = (0, 0, z+l)
+
+    \d {\bf l} = (0, 0, 1)
+
+    {\bf x} = (x, y, z)
+
+    {\bf x}-{\bf l} = (x, y, z-z+l) = (x, y, l)
+
+    {\bf B}({\bf x})
+         ={\mu_0 I\over 4\pi}\int \d{\bf l} \times {{\bf x} - {\bf l}
+                \over |{\bf x} - {\bf l}|^3 } =
+
+         ={\mu_0 I\over 4\pi} 2\int_0^\infty (0, 0, 1) \times
+             {(x, y, l) \d l
+                \over (x^2 + y^2 + l^2)^{3\over 2} } =
+
+         =(y, -x, 0) {\mu_0 I \over 2\pi}\int_0^\infty {\d l
+                \over (x^2 + y^2 + l^2)^{3\over 2} } =
+
+         =(y, -x, 0) {\mu_0 I \over 2\pi} {1\over x^2+y^2}
+
+For $y=0$:
+
+.. math::
+
+    {\bf B}(x, 0, z)
+         =(0, -x, 0) {\mu_0 I \over 2\pi} {1\over x^2}
+         =(0, -1, 0) {\mu_0 I \over 2\pi x}
 
 
 Magnetic Dipole
