@@ -153,6 +153,20 @@ The Euler-Lagrange equations are:
     m {\d v^\mu \over \d \tau}
          = e F^{\mu\alpha} v_\alpha
 
+In components:
+
+.. math::
+
+    m {\d v^0 \over \d \tau}
+         = e F^{0\alpha} v_\alpha
+         = -e {E^i\over c} \gamma v_i
+
+    m {\d v^i \over \d \tau}
+         = e F^{i\alpha} v_\alpha
+         = e \left(-{E^i\over c} v_0 - \epsilon^{ij}{}_k B^k v_j\right)
+         = e \left({E^i\over c} v^0 + \epsilon^i{}_{jk} B^k v^j\right)
+         = e\gamma \left(E^i + ({\bf v}\times{\bf B})^i\right)
+
 Using coordinate time $t$ and coordinates ${\bf x}$ instead of the proper time
 $\tau$ and 4-vector $x^\mu$, we need to rewrite the action:
 
