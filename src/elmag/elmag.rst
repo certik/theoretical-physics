@@ -396,6 +396,7 @@ gauge and so is the above Lagrangian. If we choose Lorentz gauge
 $\partial^\alpha A_\alpha=0$, then it simplifies even further:
 
 .. math::
+    :label: lagrangian_A
 
     \L(A^\alpha, \partial^\beta A^\alpha)
         = -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
@@ -463,6 +464,52 @@ sources are automatically satisfied by the four potential):
         \mu_0 j^\beta
 
 where we have employed the Lorentz gauge $\partial_\alpha A^\alpha=0$.
+This equation is the E.-L. equation that follows from Lagrangian
+:eq:`lagrangian_A`:
+
+.. math::
+
+    \partial^\mu {\partial\over\partial (\partial^\mu A^\nu)}
+    \left(
+        -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+               - j_\alpha A^\alpha
+        \right)
+    ={\partial\over\partial A^\nu}
+        \left(
+        -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+               - j_\alpha A^\alpha\right)
+
+    \partial^\mu {\partial\over\partial (\partial^\mu A^\nu)}
+    \left(
+        {1\over 2\mu_0} g_{\delta\alpha} g_{\epsilon\beta}
+        \partial^\delta A^\epsilon \partial^\alpha A^\beta
+        \right)
+    ={\partial\over\partial A^\nu} j_\alpha A^\alpha
+
+    {1\over 2\mu_0} \partial^\mu g_{\delta\alpha} g_{\epsilon\beta}
+    \left(
+        \delta^\delta_\mu \delta^\epsilon_\nu \partial^\alpha A^\beta
+        +
+        \partial^\delta A^\epsilon \delta^\alpha_\mu \delta^\beta_\nu
+        \right)
+    = j_\alpha \delta^\alpha_\nu
+
+    {1\over 2\mu_0} \partial^\mu
+    \left(  g_{\mu\alpha} g_{\nu\beta}
+        \partial^\alpha A^\beta
+        +g_{\delta\mu} g_{\epsilon\nu}
+        \partial^\delta A^\epsilon
+        \right)
+    = j_\nu
+
+    {1\over 2\mu_0} \partial^\mu
+    \left(\partial_\mu A_\nu + \partial_\mu A_\nu \right)
+    = j_\nu
+
+    {1\over \mu_0} \partial^\mu \partial_\mu A_\nu = j_\nu
+
+    \partial^\mu \partial_\mu A_\nu = \mu_0 j_\nu
+
 The solution to this equation is:
 
 .. math::
