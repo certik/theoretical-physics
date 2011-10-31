@@ -332,7 +332,33 @@ For electromagnetic field $\phi_k = A^\mu$ and the Lagrangian is:
 .. math::
 
     \L(A^\alpha, \partial^\beta A^\alpha)
-        = -{1\over 4} F_{\alpha\beta} F^{\alpha\beta} +\mu_0 j_\alpha A^\alpha
+        = -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta} - j_\alpha A^\alpha
+
+One can simplify:
+
+.. math::
+
+    {1\over 4} F_{\alpha\beta} F^{\alpha\beta}
+        ={1\over 4}(\partial_\alpha A_\beta - \partial_\beta A_\alpha)
+            (\partial^\alpha A^\beta - \partial^\beta A^\alpha) =
+
+        ={1\over 4}(
+            \partial_\alpha A_\beta
+            \partial^\alpha A^\beta
+             - \partial_\beta A_\alpha
+            \partial^\alpha A^\beta
+            -\partial_\alpha A_\beta
+             \partial^\beta A^\alpha
+             + \partial_\beta A_\alpha
+              \partial^\beta A^\alpha
+            ) =
+
+        ={1\over 2}(
+            \partial_\alpha A_\beta
+            \partial^\alpha A^\beta
+             - \partial_\beta A_\alpha
+            \partial^\alpha A^\beta
+            )
 
 The E.-L. equations are:
 
@@ -341,14 +367,14 @@ The E.-L. equations are:
     \partial^\beta{\partial\L\over \partial(\partial^\beta A^\alpha)}
         = {\partial\L\over\partial A^\alpha}
 
-    \partial^\beta F_{\alpha\beta} = \mu_0 j_\alpha
+    \partial^\beta F_{\beta\alpha} = \mu_0 j_\alpha
 
 
 The Maxwell's equations are:
 
 .. math::
 
-    \partial_\alpha F^{\beta\alpha} = \mu_0 j^\beta
+    \partial_\alpha F^{\alpha\beta} = \mu_0 j^\beta
 
     \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta} = 0
 
