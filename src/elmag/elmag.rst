@@ -5,7 +5,7 @@ Lagrangian for a relativistic charged particle is:
 
 .. math::
 
-    L({\bf x}, {\bf v}, t)
+    L({\bf x}, {\bf v}={\bf \dot x}, t)
          = -m c^2\sqrt{1-{v^2\over c^2}} - e\phi + e{\bf v}\cdot {\bf A}
 
 the particle's canonical momentum is:
@@ -15,13 +15,33 @@ the particle's canonical momentum is:
     p_i = {\partial L(t)\over\partial v_i}
         =-mc^2 {1\over 2\sqrt{1-{v^2\over c^2}}}\left(-2v_i\over c^2\right)
              + e A_i
-        ={m{\bf v}\over\sqrt{1-{v^2\over c^2}}} + e A_i
+        ={m v_i\over\sqrt{1-{v^2\over c^2}}} + e A_i
 
     {\bf p} = {m{\bf v}\over\sqrt{1-{v^2\over c^2}}} + e{\bf A}
 
-solving for ${\bf v}$ we obtain:
+Euler-Lagrange equations are:
 
 .. math::
+
+    {\d \over \d t} {\partial L\over \partial v_i}
+         = {\partial L \over \partial x_i}
+
+    {\d \over \d t} p_i = {\partial L \over \partial x_i}
+
+    {\d \over \d t} \left({m v_i\over\sqrt{1-{v^2\over c^2}}} + e A_i\right)
+         = {\partial \over \partial x_i}\left(-m c^2\sqrt{1-{v^2\over c^2}}
+             - e\phi + e{\bf v}\cdot {\bf A}\right)
+
+    {\d \over \d t} \left({m v_i\over\sqrt{1-{v^2\over c^2}}}\right)
+         + e {\d A_i\over \d t}
+         = -e{\partial \phi\over \partial x_i}
+           +e{\bf v}\cdot{\partial {\bf A}\over \partial x_i}
+
+Expressing ${\bf v}$ in terms of ${\bf p}$ we get:
+
+.. math::
+
+    {\bf p} = {m{\bf v}\over\sqrt{1-{v^2\over c^2}}} + e{\bf A}
 
     {\bf p} - e{\bf A} = {m{\bf v}\over\sqrt{1-{v^2\over c^2}}}
 
