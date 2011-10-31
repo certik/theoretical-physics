@@ -1,13 +1,21 @@
 Maxwell's Equations
 ===================
 
+The 4-vector potential ${\bf A}$ is:
+
+.. math::
+
+    A^\alpha = \left({\phi\over c}, {\bf A}\right)
+
 Lagrangian for a relativistic charged particle is:
 
 .. math::
 
     L({\bf x}, {\bf v}={\bf \dot x}, t) =
 
-         = -\gamma m c^2 - e\phi + e{\bf v}\cdot {\bf A} =
+         = -{m c^2\over\gamma} + {e\over\gamma}v_\alpha A^\alpha =
+
+         = -{m c^2\over\gamma} + {e\over\gamma}(-c\gamma A^0 +\gamma v_i A^i) =
 
          = -m c^2\sqrt{1-{v^2\over c^2}} - e\phi + e{\bf v}\cdot {\bf A}
 
