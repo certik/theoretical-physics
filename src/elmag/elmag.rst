@@ -5,20 +5,26 @@ Lagrangian for a relativistic charged particle is:
 
 .. math::
 
-    L({\bf x}, {\bf v}={\bf \dot x}, t)
+    L({\bf x}, {\bf v}={\bf \dot x}, t) =
+
+         = -\gamma m c^2 - e\phi + e{\bf v}\cdot {\bf A} =
+
          = -m c^2\sqrt{1-{v^2\over c^2}} - e\phi + e{\bf v}\cdot {\bf A}
 
-the particle's canonical momentum is:
+the particle's canonical momentum ${\bf P}$ is:
 
 .. math::
 
-    p_i = {\partial L(t)\over\partial v_i}
+    P_i = {\partial L(t)\over\partial v_i}
         =-mc^2 {1\over 2\sqrt{1-{v^2\over c^2}}}\left(-2v_i\over c^2\right)
              + e A_i
         ={m v_i\over\sqrt{1-{v^2\over c^2}}} + e A_i
 
-    {\bf p} = {m{\bf v}\over\sqrt{1-{v^2\over c^2}}} + e{\bf A}
+    {\bf P} = {m{\bf v}\over\sqrt{1-{v^2\over c^2}}} + e{\bf A}
+        = \gamma m{\bf v} + e{\bf A}
+        = {\bf p} + e{\bf A}
 
+where ${\bf p} = {\bf P}-e{\bf A} = \gamma m{\bf v}$ is the kinetic momentum.
 Euler-Lagrange equations are:
 
 .. math::
@@ -26,7 +32,7 @@ Euler-Lagrange equations are:
     {\d \over \d t} {\partial L\over \partial v_i}
          = {\partial L \over \partial x_i}
 
-    {\d \over \d t} p_i = {\partial L \over \partial x_i}
+    {\d \over \d t} P_i = {\partial L \over \partial x_i}
 
     {\d \over \d t} \left({m v_i\over\sqrt{1-{v^2\over c^2}}} + e A_i\right)
          = {\partial \over \partial x_i}\left(-m c^2\sqrt{1-{v^2\over c^2}}
@@ -37,34 +43,34 @@ Euler-Lagrange equations are:
          = -e{\partial \phi\over \partial x_i}
            +e{\bf v}\cdot{\partial {\bf A}\over \partial x_i}
 
-Expressing ${\bf v}$ in terms of ${\bf p}$ we get:
+Expressing ${\bf v}$ in terms of ${\bf P}$ we get:
 
 .. math::
 
-    {\bf p} = {m{\bf v}\over\sqrt{1-{v^2\over c^2}}} + e{\bf A}
+    {\bf P} = {m{\bf v}\over\sqrt{1-{v^2\over c^2}}} + e{\bf A}
 
-    {\bf p} - e{\bf A} = {m{\bf v}\over\sqrt{1-{v^2\over c^2}}}
+    {\bf P} - e{\bf A} = {m{\bf v}\over\sqrt{1-{v^2\over c^2}}}
 
-    p_i - e A_i = {m v_i\over\sqrt{1-{v^2\over c^2}}}
+    P_i - e A_i = {m v_i\over\sqrt{1-{v^2\over c^2}}}
 
-    (p_i - e A_i)^2\left(1-{v^2\over c^2}\right) = m^2 v_i^2
+    (P_i - e A_i)^2\left(1-{v^2\over c^2}\right) = m^2 v_i^2
 
-    (p_i - e A_i)^2\left(1-{(v_1^2 + v_2^2 + v_3^3)^2\over c^2}\right)
+    (P_i - e A_i)^2\left(1-{(v_1^2 + v_2^2 + v_3^3)^2\over c^2}\right)
         = m^2 v_i^2
 
-    v_i^2 = {(p_i - e A_i)^2 c^2 \over m c^2 + ({\bf p} - e{\bf A})^2}
+    v_i^2 = {(P_i - e A_i)^2 c^2 \over m c^2 + ({\bf P} - e{\bf A})^2}
 
-    |v_i| = {|p_i - e A_i| \over \sqrt {m + {1\over c^2 } ({\bf p} - e{\bf A})^2}}
+    |v_i| = {|P_i - e A_i| \over \sqrt {m + {1\over c^2 } ({\bf P} - e{\bf A})^2}}
 
-    v_i = {p_i - e A_i \over \sqrt {m + {1\over c^2 } ({\bf p} - e{\bf A})^2}}
+    v_i = {P_i - e A_i \over \sqrt {m + {1\over c^2 } ({\bf P} - e{\bf A})^2}}
 
-    {\bf v} = {{\bf p} - e{\bf A}\over\sqrt{m^2 +
-        {1\over c^2}({\bf p} - e{\bf A})^2}}
+    {\bf v} = {{\bf P} - e{\bf A}\over\sqrt{m^2 +
+        {1\over c^2}({\bf P} - e{\bf A})^2}}
 
-    {\bf v} = {c({\bf p} - e{\bf A})\over\sqrt{m^2c^2 + ({\bf p} - e{\bf A})^2}}
+    {\bf v} = {c({\bf P} - e{\bf A})\over\sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2}}
 
 The system of equations was solved for $v_i$ using the code
-(in there $v1s = v_1^2$, $vs=v^2$ and $P1 = p_1 - eA_1$)::
+(in there $v1s = v_1^2$, $vs=v^2$ and $P1 = P_1 - eA_1$)::
 
     >>> from sympy import var, solve
     >>> var("P1 P2 P3 m c v1s v2s v3s")
@@ -78,34 +84,34 @@ The system of equations was solved for $v_i$ using the code
      v3s: P3**2*c**2/(P1**2 + P2**2 + P3**2 + c**2*m**2)}
 
 And the absolute value was removed by using the fact, that $v_i$ has the same
-sign as $p_i - e A_i$ which follows from the second equation.
+sign as $p_i = P_i - e A_i$ which follows from the second equation.
 
 The Hamiltonian is:
 
 .. math::
 
-    H({\bf x}, {\bf p}, t) = {\bf v} \cdot {\bf p} - L =
+    H({\bf x}, {\bf P}, t) = {\bf v} \cdot {\bf P} - L =
 
-        = {\bf v} \cdot {\bf p}
+        = {\bf v} \cdot {\bf P}
         +m c^2\sqrt{1-{v^2\over c^2}} + e\phi - e{\bf v}\cdot {\bf A} =
 
-        = {\bf v} \cdot ({\bf p}-e{\bf A})
+        = {\bf v} \cdot ({\bf P}-e{\bf A})
         +m c^2\sqrt{1-{v^2\over c^2}} + e\phi =
 
-        = {c({\bf p} - e{\bf A})\cdot({\bf p}-e{\bf A})\over\sqrt{m^2c^2 +
-        ({\bf p} - e{\bf A})^2}}
-        +m c^2\sqrt{1-{1\over c^2}\left({c({\bf p} - e{\bf A})\over\sqrt{m^2c^2 + ({\bf p} - e{\bf A})^2}}\right)^2} + e\phi =
+        = {c({\bf P} - e{\bf A})\cdot({\bf P}-e{\bf A})\over\sqrt{m^2c^2 +
+        ({\bf P} - e{\bf A})^2}}
+        +m c^2\sqrt{1-{1\over c^2}\left({c({\bf P} - e{\bf A})\over\sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2}}\right)^2} + e\phi =
 
-        = {c({\bf p} - e{\bf A})^2\over\sqrt{m^2c^2 + ({\bf p} - e{\bf A})^2}}
-        +m c^2\sqrt{1-{({\bf p} - e{\bf A})^2\over m^2c^2 + ({\bf p} - e{\bf A})^2}} + e\phi =
+        = {c({\bf P} - e{\bf A})^2\over\sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2}}
+        +m c^2\sqrt{1-{({\bf P} - e{\bf A})^2\over m^2c^2 + ({\bf P} - e{\bf A})^2}} + e\phi =
 
-        = {c({\bf p} - e{\bf A})^2\over\sqrt{m^2c^2 + ({\bf p} - e{\bf A})^2}}
-        +m c^2\sqrt{m^2 c^2 \over m^2c^2 + ({\bf p} - e{\bf A})^2} + e\phi =
+        = {c({\bf P} - e{\bf A})^2\over\sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2}}
+        +m c^2\sqrt{m^2 c^2 \over m^2c^2 + ({\bf P} - e{\bf A})^2} + e\phi =
 
-        = {c\left(({\bf p} - e{\bf A})^2+m^2c^2\right)\over
-            \sqrt{m^2c^2 + ({\bf p} - e{\bf A})^2}} + e\phi =
+        = {c\left(({\bf P} - e{\bf A})^2+m^2c^2\right)\over
+            \sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2}} + e\phi =
 
-        = c\sqrt{m^2c^2 + ({\bf p} - e{\bf A})^2} + e\phi
+        = c\sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2} + e\phi
 
 The Maxwell's equations are:
 
