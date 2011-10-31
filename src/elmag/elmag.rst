@@ -125,8 +125,8 @@ particle is:
 
 .. math::
 
-    L(x^\mu, v^\mu) = -m c^2 + e v_\alpha A^\alpha
-        = -m c \sqrt {v_\alpha v^\alpha} + e v_\alpha A^\alpha
+    L(x^\mu, v^\mu) = -\half m v^2 - e v_\alpha A^\alpha
+        = -\half m v_\alpha v^\alpha - e v_\alpha A^\alpha
 
 The Euler-Lagrange equations are:
 
@@ -134,6 +134,11 @@ The Euler-Lagrange equations are:
 
     {\d \over \d \tau} {\partial L\over \partial v_\mu}
          = {\partial L \over \partial x_\mu}
+
+    {\d \over \d \tau} {\partial \over \partial v_\mu}
+        \left(\half m g^{\alpha\beta} v_\alpha v_\beta
+            + e v_\alpha A^\alpha\right)
+         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
 
     {\d \over \d \tau}
         \left(m v^\mu + e A^\mu\right)
