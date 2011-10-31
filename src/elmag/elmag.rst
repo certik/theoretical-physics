@@ -43,6 +43,62 @@ Euler-Lagrange equations are:
          = -e{\partial \phi\over \partial x_i}
            +e{\bf v}\cdot{\partial {\bf A}\over \partial x_i}
 
+    {\d \over \d t} \left({m v_i\over\sqrt{1-{v^2\over c^2}}}\right)
+         = e\left(-{\partial \phi\over \partial x_i}
+           -{\d A_i\over \d t}
+           +v_j{\partial A_j\over \partial x_i}\right)
+
+    {\d \over \d t} \left({m v_i\over\sqrt{1-{v^2\over c^2}}}\right)
+         = e\left(-{\partial \phi\over \partial x_i}
+           -{\partial A_i\over \partial t}-v_j{\partial A_i\over\partial x_j}
+           +v_j{\partial A_j\over \partial x_i}\right)
+
+    {\d \over \d t} \left({m {\bf v}\over\sqrt{1-{v^2\over c^2}}}\right)
+         = e\left({\bf E} + {\bf v}\times {\bf B}\right)
+
+The Maxwell's equations are:
+
+.. math::
+
+    \partial_\alpha F^{\beta\alpha} = \mu_0 j^\beta
+
+    \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta} = 0
+
+and the Lorentz force is:
+
+.. math::
+
+    {\d p_\alpha\over\d \tau} = e F_{\alpha\beta} u^\beta
+
+where:
+
+.. math::
+
+    j^\alpha = (c\rho, {\bf j})
+
+    F_{\alpha\beta} = \left(\begin{array}{cccc}
+    0 & {E_1\over c} & {E_2\over c} & {E_3\over c} \\
+    -{E_1\over c} & 0 & -B_3 & B_2 \\
+    -{E_2\over c} & B_3 & 0 & -B_1 \\
+    -{E_3\over c} & -B_2 & B_1 & 0 \\
+    \end{array}\right)
+
+This corresponds to:
+
+.. math::
+
+    \nabla\cdot{\bf E} = c^2\mu_0 \rho
+
+    \nabla\times{\bf B} = \mu_0 {\bf j} + {1\over c^2}{\partial{\bf E}
+        \over \partial t}
+
+    \nabla\cdot{\bf B} = 0
+
+    \nabla\times{\bf E} = -{\partial{\bf B}\over\partial t}
+
+Hamiltonian
+-----------
+
 Expressing ${\bf v}$ in terms of ${\bf P}$ we get:
 
 .. math::
@@ -113,45 +169,6 @@ The Hamiltonian is:
 
         = c\sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2} + e\phi
 
-The Maxwell's equations are:
-
-.. math::
-
-    \partial_\alpha F^{\beta\alpha} = \mu_0 j^\beta
-
-    \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta} = 0
-
-and the Lorentz force is:
-
-.. math::
-
-    {\d p_\alpha\over\d \tau} = q F_{\alpha\beta} u^\beta
-
-where:
-
-.. math::
-
-    j^\alpha = (c\rho, {\bf j})
-
-    F_{\alpha\beta} = \left(\begin{array}{cccc}
-    0 & {E_1\over c} & {E_2\over c} & {E_3\over c} \\
-    -{E_1\over c} & 0 & -B_3 & B_2 \\
-    -{E_2\over c} & B_3 & 0 & -B_1 \\
-    -{E_3\over c} & -B_2 & B_1 & 0 \\
-    \end{array}\right)
-
-This corresponds to:
-
-.. math::
-
-    \nabla\cdot{\bf E} = c^2\mu_0 \rho
-
-    \nabla\times{\bf B} = \mu_0 {\bf j} + {1\over c^2}{\partial{\bf E}
-        \over \partial t}
-
-    \nabla\cdot{\bf B} = 0
-
-    \nabla\times{\bf E} = -{\partial{\bf B}\over\partial t}
 
 Four Potential
 --------------
