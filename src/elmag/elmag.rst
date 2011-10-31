@@ -525,26 +525,43 @@ Let's assume infinite straight wire carrying constant current $I$:
 
 .. math::
 
-    {\bf l} = (0, 0, z+l)
+    {\bf l} = (0, 0, l)
 
-    \d {\bf l} = (0, 0, 1)
+    \d {\bf l} = (0, 0, 1)\d l
 
     {\bf x} = (x, y, z)
 
-    {\bf x}-{\bf l} = (x, y, z-z+l) = (x, y, l)
+    {\bf x}-{\bf l} = (x, y, z-l)
 
     {\bf B}({\bf x})
          ={\mu_0 I\over 4\pi}\int \d{\bf l} \times {{\bf x} - {\bf l}
                 \over |{\bf x} - {\bf l}|^3 } =
 
-         ={\mu_0 I\over 4\pi} 2\int_0^\infty (0, 0, 1) \times
-             {(x, y, l) \d l
-                \over (x^2 + y^2 + l^2)^{3\over 2} } =
+         ={\mu_0 I\over 4\pi} \int_{-\infty}^\infty (0, 0, 1) \times
+             {(x, y, z-l) \d l
+                \over (x^2 + y^2 + (z-l)^2)^{3\over 2} } =
 
-         =(y, -x, 0) {\mu_0 I \over 2\pi}\int_0^\infty {\d l
-                \over (x^2 + y^2 + l^2)^{3\over 2} } =
+         =(y, -x, 0) {\mu_0 I \over 4\pi}\int_{-\infty}^\infty {\d l
+                \over (x^2 + y^2 + (z-l)^2)^{3\over 2} } =
+
+         =(y, -x, 0) {\mu_0 I \over 4\pi} {2\over x^2+y^2} =
 
          =(y, -x, 0) {\mu_0 I \over 2\pi} {1\over x^2+y^2}
+
+Where we used the value of the folowing integral:
+
+.. math::
+
+    \int_{-\infty}^\infty {\d l \over (x^2+y^2 + (z - l)^2)^{3\over 2} }
+        = \int_{-\infty}^\infty {\d u \over (x^2+y^2 + u^2)^{3\over 2} } =
+
+        = \left[u\over (x^2+y^2) \sqrt{x^2+y^2 + u^2}\right]_{-\infty}^\infty
+        = \left[\sign u\over (x^2+y^2) \sqrt{
+            \left(x\over u\right)^2 + \left(y\over u\right)^2 + 1}
+            \right]_{-\infty}^\infty =
+
+        = {1\over x^2+y^2} - \left(-{1\over x^2+y^2}\right) = {2\over x^2+y^2}
+
 
 For $y=0$:
 
