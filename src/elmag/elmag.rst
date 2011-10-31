@@ -78,7 +78,7 @@ Comparing to the above, we get:
 
     F^{0i} = -{E^i\over c}
 
-    F^{ij} = \epsilon^{ij}{}_k B^k
+    F^{ij} = -\epsilon^{ij}{}_k B^k
 
 so we get:
 
@@ -86,17 +86,17 @@ so we get:
 
     F^{\mu\nu} = \left(\begin{array}{cccc}
     0 & -{E^1\over c} & -{E^2\over c} & -{E^3\over c} \\
-    {E^1\over c} & 0 & B^3 & -B^2 \\
-    {E^2\over c} & -B^3 & 0 & B^1 \\
-    {E^3\over c} & B^2 & -B^1 & 0 \\
+    {E^1\over c} & 0 & -B^3 & B^2 \\
+    {E^2\over c} & B^3 & 0 & -B^1 \\
+    {E^3\over c} & -B^2 & B^1 & 0 \\
     \end{array}\right)
 
     F_{\mu\nu} = g_{\mu\alpha}g_{\nu\beta}F^{\alpha\beta}
         = \left(\begin{array}{cccc}
     0 & {E^1\over c} & {E^2\over c} & {E^3\over c} \\
-    -{E^1\over c} & 0 & B^3 & -B^2 \\
-    -{E^2\over c} & -B^3 & 0 & B^1 \\
-    -{E^3\over c} & B^2 & -B^1 & 0 \\
+    -{E^1\over c} & 0 & -B^3 & B^2 \\
+    -{E^2\over c} & B^3 & 0 & -B^1 \\
+    -{E^3\over c} & -B^2 & B^1 & 0 \\
     \end{array}\right)
 
 
