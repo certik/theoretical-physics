@@ -798,6 +798,72 @@ needed that the double integral must be zero):
 
 As such, there will be no net force.
 
+Infinitely Long Wire and a Square Loop
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We calculate the net force on a square loop with current $I_1$ of side $a$,
+whose center is $d$ far from an infinitely long wire with current $I_2$:
+
+The wire has coordinates $(0, 0, z)$ and the magnetic field from it is (see the
+example above):
+
+.. math::
+
+    {\bf B}(x, 0, z) = (0, -1, 0) {\mu_0 I \over 2\pi x}
+
+The four sides of the loop are ($0 \le l_1 \le a$):
+
+.. math::
+
+    {\bf l}_1 = (d-{a\over 2}+l_1, 0, {a\over2})
+
+    {\bf l}_1 = (d+{a\over 2}, 0, {a\over2}-l_1)
+
+    {\bf l}_1 = (d+{a\over 2}-l_1, 0, -{a\over2})
+
+    {\bf l}_1 = (d-{a\over 2}, 0, -{a\over2}+l_1)
+
+and the differentials are:
+
+.. math::
+
+    \d {\bf l}_1 = (1, 0, 0) \d l_1
+
+    \d {\bf l}_1 = (0, 0, -1) \d l_1
+
+    \d {\bf l}_1 = (-1, 0, 0) \d l_1
+
+    \d {\bf l}_1 = (0, 0, 1) \d l_1
+
+The net force on the loop is:
+
+.. math::
+
+    {\bf F} = I_1 \int \d {\bf l}_1 \times {\bf B}
+        = I_1 \int \d {\bf l}_1 \times (0, -1, 0) {\mu_0 I_2 \over 2\pi
+            ({\bf l}_1)_x} =
+
+        = {\mu_0 I_1 I_2\over 2\pi}\left(
+            \int_0^a {(0, 0, 1)\d l_1\over d-{a\over 2} + l_1}
+            +\int_0^a {(1, 0, 0)\d l_1\over d+{a\over 2}}
+            +\int_0^a {(0, 0, -1)\d l_1\over d+{a\over 2}-l_1}
+            +\int_0^a {(-1, 0, 0)\d l_1\over d-{a\over 2}}
+            \right) =
+
+        = {\mu_0 I_1 I_2\over 2\pi}\left(
+            (0, 0, 1)\left[\log \left| d-{a\over 2} + l_1 \right|
+                -\log \left|d + {a\over 2} - l_1\right| \right]_0^a
+            +(1, 0, 0)\left({a\over d + {a\over 2}}-{a\over d - {a\over 2}}
+                \right)\right) =
+
+        = {\mu_0 I_1 I_2\over 2\pi}\left(
+            (0, 0, 1) \cdot 0 +
+            (1, 0, 0){a^2\over d^2 - \left({a\over 2}\right)^2}
+                \right) =
+
+        = (1, 0, 0){\mu_0 I_1 I_2\over 2\pi}
+            {a^2\over d^2 - \left({a\over 2}\right)^2}
+
 Magnetic Dipole
 ~~~~~~~~~~~~~~~
 
