@@ -80,6 +80,16 @@ Comparing to the above, we get:
 
     F^{ij} = -\epsilon^{ij}{}_k B^k
 
+In particular:
+
+.. math::
+
+    F^{12} = -\epsilon^{12}{}_k B^k = -\epsilon^{12}{}_3 B^3 = - B^3
+
+    F^{13} = -\epsilon^{13}{}_k B^k = -\epsilon^{13}{}_2 B^2 = + B^2
+
+    F^{23} = -\epsilon^{23}{}_k B^k = -\epsilon^{23}{}_1 B^1 = - B^1
+
 so we get:
 
 .. math::
