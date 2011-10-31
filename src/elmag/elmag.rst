@@ -1,17 +1,163 @@
 Maxwell's Equations
 ===================
 
-The 4-vector potential ${\bf A}$ is:
+Electromagnetic Field
+---------------------
+
+The electromagnetic field is described by the 4-potential $A^\alpha$
+with components:
 
 .. math::
 
     A^\alpha = \left({\phi\over c}, {\bf A}\right)
 
-Lagrangian for a relativistic charged particle is:
+where $\phi$ is the electrostatic scalar potential and ${\bf A}$ is the vector
+potential. The actual physical field (that can be measured) is given by the
+electromagnetic field strength tensor:
 
 .. math::
 
-    L({\bf x}, {\bf v}={\bf \dot x}, t) =
+    F^{\mu\nu} =  \partial^\mu A^\nu - \partial^\nu A^\mu
+
+As such $F^{\mu\nu}$ is invariant under any gauge transformation:
+
+.. math::
+
+    A^\alpha \to A^\alpha + \partial^\alpha \psi
+
+where $\psi$ is a gauge function:
+
+.. math::
+
+    F^{\mu\nu} \to  \partial^\mu (A^\nu+\partial^\nu\psi)
+         - \partial^\nu (A^\mu+\partial^\mu\psi)
+        = \partial^\mu A^\nu - \partial^\nu A^\mu
+            +\partial^\mu \partial^\nu\psi - \partial^\nu \partial^\mu\psi
+        = \partial^\mu A^\nu - \partial^\nu A^\mu
+        = F^{\mu\nu}
+
+The field strength tensor is antisymmetric, so it has 6 independent components
+(we use metric tensor with signature -2):
+
+.. math::
+
+    F^{0i} = \partial^0 A^i - \partial^i A^0
+        = {1\over c}{\partial A^i\over \partial t} +
+            {\partial\over\partial x_i} {\phi\over c}
+        = -{1\over c}\left(-{\partial\phi\over\partial x_i}
+                -{\partial A^i\over \partial t} \right)
+
+
+    F^{ij} = \partial^i A^j - \partial^j A^i
+        = -{\partial A^j\over\partial x_i} +{\partial A^i\over\partial x_j}
+        = -(\delta^i{}_l\delta^j{}_m - \delta^i{}_m\delta^j{}_l)
+            {\partial A^m\over\partial x_l}
+        = -\epsilon^{ij}{}_k\epsilon^k{}_{lm} {\partial A^m\over\partial x_l}
+
+There is freedom in how we label the components. The standard way is to express
+them using physical fields ${\bf E}$ and ${\bf B}$ that are introduced by:
+
+.. math::
+
+    {\bf E} = -\nabla\phi - {\partial {\bf A}\over\partial t}
+
+    {\bf B} = \nabla\times{\bf A}
+
+or in components:
+
+.. math::
+
+    E^i = -{\partial\phi\over\partial x_i}
+                -{\partial A^i\over \partial t}
+
+    B^k = \epsilon^k{}_{lm} \nabla^l A^m
+
+Comparing to the above, we get:
+
+.. math::
+
+    F^{0i} = -{E^i\over c}
+
+    F^{ij} = \epsilon^{ij}{}_k B^k
+
+so we get:
+
+.. math::
+
+    F^{\mu\nu} = \left(\begin{array}{cccc}
+    0 & -{E^1\over c} & -{E^2\over c} & -{E^3\over c} \\
+    {E^1\over c} & 0 & B^3 & -B^2 \\
+    {E^2\over c} & -B^3 & 0 & B^1 \\
+    {E^3\over c} & B^2 & -B^1 & 0 \\
+    \end{array}\right)
+
+    F_{\mu\nu} = g_{\mu\alpha}g_{\nu\beta}F^{\alpha\beta}
+        = \left(\begin{array}{cccc}
+    0 & {E^1\over c} & {E^2\over c} & {E^3\over c} \\
+    -{E^1\over c} & 0 & B^3 & -B^2 \\
+    -{E^2\over c} & -B^3 & 0 & B^1 \\
+    -{E^3\over c} & B^2 & -B^1 & 0 \\
+    \end{array}\right)
+
+
+Electromagnetic Force on a Charged Particle (Lorentz Force)
+-----------------------------------------------------------
+
+The action is:
+
+.. math::
+
+    S = \int L(x^\mu, v^\mu) \d \tau
+
+The action $S$ is a scalar (Lorentz invariant), so $L(x^\mu, v^\mu)$ must be a
+scalar too as $\tau$ is a proper time.  Lagrangian for a relativistic charged
+particle is:
+
+.. math::
+
+    L(x^\mu, v^\mu) = -m c^2 + e v_\alpha A^\alpha
+        = -m c \sqrt {v_\alpha v^\alpha} + e v_\alpha A^\alpha
+
+The Euler-Lagrange equations are:
+
+.. math::
+
+    {\d \over \d \tau} {\partial L\over \partial v_\mu}
+         = {\partial L \over \partial x_\mu}
+
+    {\d \over \d \tau}
+        \left(m v^\mu + e A^\mu\right)
+         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+    m {\d v^\mu \over \d \tau}
+         = e \left(-{\d A^\mu\over\d\tau}
+            + v_\alpha \partial^\mu A^\alpha\right)
+
+    m {\d v^\mu \over \d \tau}
+         = e \left(-v_\alpha \partial^\alpha A^\mu
+            + v_\alpha \partial^\mu A^\alpha\right)
+
+    m {\d v^\mu \over \d \tau}
+         = e (\partial^\mu A^\alpha - \partial^\alpha A^\mu) v_\alpha
+
+    m {\d v^\mu \over \d \tau}
+         = e F^{\mu\alpha} v_\alpha
+
+Using coordinate time $t$ and coordinates ${\bf x}$ instead of the proper time
+$\tau$ and 4-vector $x^\mu$, we need to rewrite the action:
+
+.. math::
+
+    S = \int L(x^\mu, v^\mu) \d \tau
+      = \int {1\over\gamma}L(x^\mu, v^\mu) \d t
+      = \int L_{coord}({\bf x}, {\bf v}) \d t
+
+where $L_{coord}({\bf x}, {\bf v})$ is the Lagrangian expressed in coordinates
+${\bf x}$ and ${\bf v}$ (and thus is not Lorentz invariant):
+
+.. math::
+
+    L_{coord}({\bf x}, {\bf v}) = {1\over\gamma}L(x^\mu, v^\mu) =
 
          = -{m c^2\over\gamma} + {e\over\gamma}v_\alpha A^\alpha =
 
@@ -37,10 +183,10 @@ Euler-Lagrange equations are:
 
 .. math::
 
-    {\d \over \d t} {\partial L\over \partial v_i}
-         = {\partial L \over \partial x_i}
+    {\d \over \d t} {\partial L_{coord}\over \partial v_i}
+         = {\partial L_{coord} \over \partial x_i}
 
-    {\d \over \d t} P_i = {\partial L \over \partial x_i}
+    {\d \over \d t} P_i = {\partial L_{coord} \over \partial x_i}
 
     {\d \over \d t} \left({m v_i\over\sqrt{1-{v^2\over c^2}}} + e A_i\right)
          = {\partial \over \partial x_i}\left(-m c^2\sqrt{1-{v^2\over c^2}}
@@ -64,48 +210,8 @@ Euler-Lagrange equations are:
     {\d \over \d t} \left({m {\bf v}\over\sqrt{1-{v^2\over c^2}}}\right)
          = e\left({\bf E} + {\bf v}\times {\bf B}\right)
 
-The Maxwell's equations are:
-
-.. math::
-
-    \partial_\alpha F^{\beta\alpha} = \mu_0 j^\beta
-
-    \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta} = 0
-
-and the Lorentz force is:
-
-.. math::
-
-    {\d p_\alpha\over\d \tau} = e F_{\alpha\beta} u^\beta
-
-where:
-
-.. math::
-
-    j^\alpha = (c\rho, {\bf j})
-
-    F_{\alpha\beta} = \left(\begin{array}{cccc}
-    0 & {E_1\over c} & {E_2\over c} & {E_3\over c} \\
-    -{E_1\over c} & 0 & -B_3 & B_2 \\
-    -{E_2\over c} & B_3 & 0 & -B_1 \\
-    -{E_3\over c} & -B_2 & B_1 & 0 \\
-    \end{array}\right)
-
-This corresponds to:
-
-.. math::
-
-    \nabla\cdot{\bf E} = c^2\mu_0 \rho
-
-    \nabla\times{\bf B} = \mu_0 {\bf j} + {1\over c^2}{\partial{\bf E}
-        \over \partial t}
-
-    \nabla\cdot{\bf B} = 0
-
-    \nabla\times{\bf E} = -{\partial{\bf B}\over\partial t}
-
 Hamiltonian
------------
+~~~~~~~~~~~
 
 Expressing ${\bf v}$ in terms of ${\bf P}$ we get:
 
@@ -178,26 +284,51 @@ The Hamiltonian is:
         = c\sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2} + e\phi
 
 
-Four Potential
---------------
+Maxwell's Equations
+-------------------
 
-The four potential is defined by:
-
-.. math::
-
-    A^\alpha = \left({\phi\over c}, {\bf A}\right)
-
-    F_{\alpha\beta} = \partial_\alpha A_\beta - \partial_\beta A_\alpha
-
-this corresponds to:
+The Maxwell's equations are:
 
 .. math::
 
-    {\bf E} = -\nabla\phi - {\partial {\bf A}\over\partial t}
+    \partial_\alpha F^{\beta\alpha} = \mu_0 j^\beta
 
-    {\bf B} = \nabla\times{\bf A}
+    \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta} = 0
 
-The Maxwell's equations can then be written as (note that the two eq. without
+and the Lorentz force is:
+
+.. math::
+
+    {\d p_\alpha\over\d \tau} = e F_{\alpha\beta} u^\beta
+
+where:
+
+.. math::
+
+    j^\alpha = (c\rho, {\bf j})
+
+    F_{\alpha\beta} = \left(\begin{array}{cccc}
+    0 & {E_1\over c} & {E_2\over c} & {E_3\over c} \\
+    -{E_1\over c} & 0 & -B_3 & B_2 \\
+    -{E_2\over c} & B_3 & 0 & -B_1 \\
+    -{E_3\over c} & -B_2 & B_1 & 0 \\
+    \end{array}\right)
+
+This corresponds to:
+
+.. math::
+
+    \nabla\cdot{\bf E} = c^2\mu_0 \rho
+
+    \nabla\times{\bf B} = \mu_0 {\bf j} + {1\over c^2}{\partial{\bf E}
+        \over \partial t}
+
+    \nabla\cdot{\bf B} = 0
+
+    \nabla\times{\bf E} = -{\partial{\bf B}\over\partial t}
+
+
+The Maxwell's equations can be written as (note that the two eq. without
 sources are automatically satisfied by the four potential):
 
 .. math::
