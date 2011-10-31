@@ -547,6 +547,74 @@ For $y=0$:
          =(0, -x, 0) {\mu_0 I \over 2\pi} {1\over x^2}
          =(0, -1, 0) {\mu_0 I \over 2\pi x}
 
+Example: Circular Loop
+^^^^^^^^^^^^^^^^^^^^^^
+
+Let's assume a circular:
+
+.. math::
+
+    {\bf l} = (r\cos\phi, r\sin\phi, 0)
+
+    {\d {\bf l}\over\d \phi} = (-r\sin\phi, r\cos\phi, 0)
+
+    {\bf x} = (x, y, z)
+
+    {\bf x}-{\bf l} = (x-r\cos\phi, y-r\sin\phi, z)
+
+    {\bf B}({\bf x})
+         ={\mu_0 I\over 4\pi}\int \d{\bf l} \times {{\bf x} - {\bf l}
+                \over |{\bf x} - {\bf l}|^3 } =
+
+         ={\mu_0 I\over 4\pi} \int_0^{2\pi} (-r\sin\phi, r\cos\phi, 0) \times
+             {(x-r\cos\phi, y-r\sin\phi, z) \d \phi
+                \over ((x-r\cos\phi)^2 + (y-r\sin\phi)^2 + z^2)^{3\over 2} } =
+
+         ={\mu_0 I\over 4\pi} \int_0^{2\pi} {
+                 (-z\cos\phi, -z\sin\phi, (x-r\cos\phi)\cos\phi+
+                    (y-r\sin\phi)\sin\phi)
+             r\d \phi
+                \over ((x-r\cos\phi)^2 + (y-r\sin\phi)^2 + z^2)^{3\over 2} } =
+
+         ={\mu_0 I\over 4\pi} \int_0^{2\pi} {
+                 (-z\cos\phi, -z\sin\phi, x\cos\phi+y\sin\phi-r)
+             r\d \phi
+                \over (x^2+y^2+z^2+r^2-2xr\cos\phi-2yr\sin\phi)^{3\over 2} }
+
+Due to the symmetry of the problem, we can set $y=0$:
+
+.. math::
+
+    {\bf B}(x, 0, z)
+         ={\mu_0 I\over 4\pi} \int_0^{2\pi} {
+                 (-z\cos\phi, -z\sin\phi, x\cos\phi-r)
+             r\d \phi
+                \over (x^2+z^2+r^2-2xr\cos\phi)^{3\over 2} } =
+
+         ={\mu_0 I\over 4\pi} \int_0^{2\pi} {
+                 (-z\cos\phi, 0, x\cos\phi-r)
+             r\d \phi
+                \over (x^2+z^2+r^2-2xr\cos\phi)^{3\over 2} }
+
+In the last equation we used the fact, that $\sin\phi$ is odd and $\cos\phi$ is
+even on the interval $(0, 2\pi)$.
+For $x=y=0$ we get:
+
+.. math::
+
+    {\bf B}(0, 0, z)
+         ={\mu_0 I\over 4\pi} \int_0^{2\pi} {
+                 (-z\cos\phi, 0, -r)
+             r\d \phi
+                \over (r^2 + z^2)^{3\over 2} } =
+
+         =(0, 0, -1) {\mu_0 I\over 4\pi} \int_0^{2\pi} {
+             r^2\d \phi
+                \over (r^2 + z^2)^{3\over 2} } =
+
+         =(0, 0, -1) {\mu_0 I\over 2} {
+             r^2 \over (r^2 + z^2)^{3\over 2} }
+
 
 Magnetic Dipole
 ~~~~~~~~~~~~~~~
