@@ -720,6 +720,68 @@ For $x=y=0$ we get:
          =(0, 0, -1) {\mu_0 I\over 2} {
              r^2 \over (r^2 + z^2)^{3\over 2} }
 
+Helmholtz Coil
+^^^^^^^^^^^^^^
+
+Helmholtz coil is a set of two circular loops of radius $r$, that are $d$
+apart, where $d=r$. Let's calculate the magnetic field on the axis.
+Magnetic field of the first coil is:
+
+.. math::
+
+    {\bf B}_1(0, 0, z) = (0, 0, -1) {\mu_0 I\over 2} {
+             r^2 \over (r^2 + z^2)^{3\over 2} }
+
+Second coil is positioned $d$ above the first one:
+
+.. math::
+
+    {\bf B}_2(0, 0, z) = (0, 0, -1) {\mu_0 I\over 2} {
+             r^2 \over (r^2 + (z-d)^2)^{3\over 2} }
+
+The total magnetic field is:
+
+.. math::
+
+    {\bf B}(0, 0, z) = {\bf B}_1(0, 0, z) + {\bf B}_2(0, 0, z) =
+
+    = (0, 0, -1) {\mu_0 I\over 2} {
+             r^2 \over (r^2 + z^2)^{3\over 2} }
+    + (0, 0, -1) {\mu_0 I\over 2} {
+             r^2 \over (r^2 + (z-d)^2)^{3\over 2} } =
+
+    = (0, 0, -1) {\mu_0 I r^2\over 2} \left(
+             {1 \over (r^2 + z^2)^{3\over 2} } +
+             {1 \over (r^2 + (z-d)^2)^{3\over 2} }\right)
+
+The field in the middle:
+
+.. math::
+
+    {\bf B}(0, 0, {d\over 2})
+    = (0, 0, -1) {\mu_0 I r^2\over 2} \left(
+             {1 \over (r^2 + \left(d\over 2\right)^2)^{3\over 2} } +
+             {1 \over (r^2 + \left(d\over 2\right)^2)^{3\over 2} }\right) =
+
+    = (0, 0, -1) {\mu_0 I r^2
+             \over (r^2 + \left(d\over 2\right)^2)^{3\over 2} }
+
+For $r=d$ we get:
+
+.. math::
+
+    {\bf B}(0, 0, {d\over 2})
+    = (0, 0, -1) {\mu_0 I r^2
+             \over (r^2 + \left(r\over 2\right)^2)^{3\over 2} } =
+
+    = (0, 0, -1) {\mu_0 I
+             \over r (1 + \left(1\over 2\right)^2)^{3\over 2} } =
+
+    = (0, 0, -1) {\mu_0 I 4^{3\over 2}
+             \over r 5^{3\over 2} } =
+
+    = (0, 0, -1) {8 \over 5 \sqrt 5} {\mu_0 I \over r}
+
 Ampère's Force Law
 ~~~~~~~~~~~~~~~~~~
 
