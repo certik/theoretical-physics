@@ -1,7 +1,7 @@
-.. index:: newtonian physics
+.. index:: Relativity
 
-Newtonian Physics
-=================
+Relativity
+==========
 
 Introduction: Why Tensors
 -------------------------
