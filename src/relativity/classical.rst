@@ -97,3 +97,85 @@ where $I$ is the moment of inertia about the axis of rotation:
         \cdot {\bf n} =
 
       = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
+
+Cylinder
+^^^^^^^^
+
+Solid cylinder of radius $R$, height $h$ and mass $m$. We'll use cylindrical
+coordinates. First for rotation about the $z$ axis:
+
+.. math::
+
+    V = \pi R^2 h
+
+    {\bf n} = (0, 0, 1)
+
+    {\bf r} = (\rho\cos\phi, \rho\sin\phi, z)
+
+    {\bf r} \cdot {\bf n} = z
+
+    r^2 = \rho^2 + z^2
+
+
+    I = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
+      = \int {m\over V} (\rho^2+z^2 - z^2) \d^3 r =
+
+      = \int {m\over V} \rho^2 \d^3 r
+      = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_{-{h\over2}}^{h\over2}
+        \d z
+         \rho^2 \rho =
+
+      = {m\over V} 2\pi {R^4\over 4} h
+      = {m\over \pi R^2 h} 2\pi {R^4\over 4} h
+      = \half m R^2
+
+Code::
+
+    >>> from sympy import var, integrate, pi
+    >>> var("m V R rho z phi h")
+    (m, V, R, rho, z, phi, h)
+    >>> I = m/V * integrate(rho**2 * rho, (rho, 0, R), (phi, 0, 2*pi), (z, -h/2, h/2))
+    >>> I.subs(V, pi * R**2 * h)
+    R**2*m/2
+
+
+And about the $x$ axis:
+
+.. math::
+
+    {\bf n} = (1, 0, 0)
+
+    {\bf r} = (\rho\cos\phi, \rho\sin\phi, z)
+
+    {\bf r} \cdot {\bf n} = \rho\cos\phi
+
+    r^2 = \rho^2 + z^2
+
+
+    I = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
+      = \int {m\over V} (\rho^2+z^2 - \rho^2\cos^2\phi) \d^3 r =
+
+      = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_{-{h\over2}}^{h\over2}
+        \d z (\rho^2+z^2 - \rho^2\cos^2\phi)\rho =
+
+      = {m\over V}\left({\pi R^4 h\over 2}+{\pi R^2 h^3\over 12}
+                    -{\pi R^4 h\over 4}\right) =
+
+      = {m\over \pi R^2 h}\left({\pi R^4 h\over 2}+{\pi R^2 h^3\over 12}
+                    -{\pi R^4 h\over 4}\right) =
+
+      = {m\over 12} (6R^2 + h^2 - 3R^2) =
+
+      = {m\over 12} (3R^2 + h^2)
+
+Code::
+
+    >>> from sympy import var, integrate, pi, cos
+    >>> var("m V R rho z phi h")
+    (m, V, R, rho, z, phi, h)
+    >>> I = m/V * integrate((rho**2+z**2-rho**2*cos(phi)**2) * rho, (rho, 0, R), (phi, 0, 2*pi), (z, -h/2, h/2))
+    >>> I.subs(V, pi * R**2 * h).simplify()
+    m*(3*R**2 + h**2)/12
+
+Special cases are a rod of length $h$ (set $R=0$ above) and a thin solid disk
+of radius $R$ and mass $m$ (set $h=0$ above).
