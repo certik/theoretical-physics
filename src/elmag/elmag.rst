@@ -560,6 +560,47 @@ And for vector potential ($\beta=i$) we get:
          {{\bf j}({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
             \over |{\bf x} - {\bf y}| }\d^3 y
 
+Particle Field Interaction
+--------------------------
+
+.. math::
+
+    \L(A^\alpha, \partial^\beta A^\alpha)
+        = -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta} - j_\alpha A^\alpha
+
+    \rho = q \delta({\bf r} - {\bf s})
+
+    {\bf j} = \rho {\bf v} = q \delta({\bf r} - {\bf s}) {\bf v}
+
+    j^\mu = \rho v^\mu = \gamma \rho (c, {\bf v})
+
+    L = \int \L \d^3 x
+      = \int -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta}
+            - j_\alpha A^\alpha \d^3 x =
+
+      = \int -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta}
+            - \rho v_\alpha A^\alpha \d^3 x =
+
+      = \int -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta} \d^3 x
+            - q v_\alpha A^\alpha =
+
+Finally we add the Lagrangian for the free particle:
+
+.. math::
+
+    L = -\half m v_\alpha v^\alpha + \int -{1\over 4\mu_0} F_{\alpha\beta}
+        F^{\alpha\beta} \d^3 x - q v_\alpha A^\alpha
+
+Note that:
+
+.. math::
+
+    v_\alpha A^\alpha = - \gamma \phi + \gamma {\bf v} \cdot {\bf A}
+
+Considered as the function of $A^\alpha$, this Lagrangian implies the Maxwell's
+equations, considered as a function of $x^\alpha$ (and $v^\alpha$), it implies
+the particle equation of motion (with Lorentz force).
+
 Examples
 --------
 
