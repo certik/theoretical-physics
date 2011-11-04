@@ -141,6 +141,25 @@ The Euler-Lagrange equations are:
          = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
 
     {\d \over \d \tau}
+        \left(
+            \half m g^{\alpha\beta} (\delta_{\alpha\mu} v_\beta
+            + v_\alpha \delta_{\beta\mu})
+            + e \delta_{\alpha\mu} A^\alpha\right)
+         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+    {\d \over \d \tau}
+        \left(
+            \half m (g^{\mu\beta} v_\beta + g^{\alpha\mu} v_\alpha)
+            + e A^\mu\right)
+         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+    {\d \over \d \tau}
+        \left(
+            \half m (v^\mu + v^\mu)
+            + e A^\mu\right)
+         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+    {\d \over \d \tau}
         \left(m v^\mu + e A^\mu\right)
          = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
 
