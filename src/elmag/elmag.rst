@@ -939,6 +939,20 @@ unit length is:
 
     F_m = {\mu_o I_1 I_2\over 2\pi d}
 
+Because the second wire is at the coordinates $(-{d\over
+2}, 0, 0)$ and the force on the first wire is in the direction
+$(-1, 0, 0)$, the force between the wires is attractive, as long as $I_1$ and
+$I_2$ have the same sign (either both currents go up, or both down)
+and repulsive if $I_1$ and $I_2$ have opposite signs.
+
+Let $d=1\rm\,m$, $I_1 = I_2 = 1\rm\, A$, then the force is attractive and
+(we also use $\mu_0 = 4\pi \cdot 10^{-7}$):
+
+.. math::
+
+    F_m = {4\pi \cdot 10^{-7} \over 2\pi} {\rm\, N \cdot m^{-1}}
+        = 2 \cdot 10^{-7} {\rm\, N \cdot m^{-1}}
+
 Perpendicular Straight Wires
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
