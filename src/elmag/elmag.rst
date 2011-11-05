@@ -904,6 +904,33 @@ Then we get:
                 -\cos {eB\over m} t,
                 0\right)
 
+So the radius of the circle is $R = {v m\over eB}$.
+Let the electrons by accelerated by the electric potential $V$:
+
+.. math::
+
+    \half m v^2 = e V
+
+So the initial velocity is:
+
+.. math::
+
+    v = \sqrt{2eV\over m}
+
+and we get for the radius:
+
+.. math::
+
+    R = {v m\over eB}
+        = {m\over eB} \sqrt{2eV\over m}
+        = {1\over B} \sqrt{2mV\over e}
+
+from which the electron charge versus mass ratio is:
+
+.. math::
+
+    {e\over m} = {2V \over R^2 B^2}
+
 Ampère's Force Law
 ~~~~~~~~~~~~~~~~~~
 
