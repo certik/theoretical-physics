@@ -785,7 +785,7 @@ Helmholtz Coil
 
 Helmholtz coil is a set of two circular loops of radius $r$, that are $d$
 apart, where $d=r$. Let's calculate the magnetic field on the axis.
-Magnetic field of the first coil is:
+Magnetic field of the first coil is (see the previous example):
 
 .. math::
 
@@ -841,6 +841,21 @@ For $r=d$ we get:
              \over r 5^{3\over 2} } =
 
     = (0, 0, -1) {8 \over 5 \sqrt 5} {\mu_0 I \over r}
+
+For $r=0.15\rm\, m$ and $N=130$ turns we get the magnitude of the field as
+(we use SI units, so $I$ is in $A$ and $B$ in tesla):
+
+.. math::
+
+    B = {8 \over 5 \sqrt 5} {\mu_0 N I \over r}
+      = {8 \over 5 \sqrt 5} {4\pi 10^{-7} \cdot 130 I \over 0.15}
+      = 7.79\cdot 10^{-4} I
+
+Code::
+
+    >>> from math import pi, sqrt
+    >>> "%e" % (8*4*pi*1e-7*130 / (5*sqrt(5)*0.15))
+    '7.792861e-04'
 
 Ampère's Force Law
 ~~~~~~~~~~~~~~~~~~
