@@ -840,7 +840,15 @@ For $r=d$ we get:
     = (0, 0, -1) {\mu_0 I 4^{3\over 2}
              \over r 5^{3\over 2} } =
 
-    = (0, 0, -1) {8 \over 5 \sqrt 5} {\mu_0 I \over r}
+    = (0, 0, -1) {8 \over 5 \sqrt 5} {\mu_0 I \over r} =
+
+    = (0, 0, -1) B
+
+where the magnitude of ${\bf B}$ is:
+
+.. math::
+
+    B = {8 \over 5 \sqrt 5} {\mu_0 I \over r}
 
 For $r=0.15\rm\, m$ and $N=130$ turns we get the magnitude of the field as
 (we use SI units, so $I$ is in $A$ and $B$ in tesla):
@@ -856,6 +864,45 @@ Code::
     >>> from math import pi, sqrt
     >>> "%e" % (8*4*pi*1e-7*130 / (5*sqrt(5)*0.15))
     '7.792861e-04'
+
+Equation of motion for an electron in this field is:
+
+.. math::
+
+    m {\d^2 {\bf x}\over \d t^2} = e\left({\bf v} \times {\bf B}\right)
+
+    m {\d^2 {\bf x}\over \d t^2} = eB\, (v_y, -v_x, 0)
+
+The general solution is:
+
+.. math::
+
+    {\bf x} = {v m\over eB} \left(x + \cos {eB\over m} (t-t_0),
+                y -\sin {eB\over m} (t-t_0),
+                z\right)
+
+So the electron is moving in a circle with a center $(x, y, z)$,
+$t_0$ depends on the initial direction of the velocity and $v$ is the magnitude
+of the initial velocity. There can also be a possible movement in the $z$
+direction, but for the following initial conditions there is none:
+
+.. math::
+
+    {\bf x}_0 = (0, 0, 0)
+
+    {\bf v}_0 = (0, -v, 0)
+
+Then we get:
+
+.. math::
+
+    {\bf x} = {v m\over eB} \left(-1+\cos {eB\over m} t,
+                -\sin {eB\over m} t,
+                0\right)
+
+    {\bf v} = v \left(-\sin {eB\over m} t,
+                -\cos {eB\over m} t,
+                0\right)
 
 Ampère's Force Law
 ~~~~~~~~~~~~~~~~~~
