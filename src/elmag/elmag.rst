@@ -930,6 +930,54 @@ from which the electron charge versus mass ratio is:
 .. math::
 
     {e\over m} = {2V \over R^2 B^2}
+        = {2V \over R^2\left({8 \over 5 \sqrt 5} {\mu_0 N I \over r}\right)^2}=
+
+        = {125 V r^2 \over 32 \mu_0^2 R^2 N^2 I^2}
+
+For $r=0.15\rm\, m$, $N=130$, $V=300\rm\,V$, $R=0.05\rm\,m$, $I=1.48\rm\,A$
+we get:
+
+.. math::
+
+    {e\over m} = 1.80 \cdot 10^{11}\rm\,C\cdot kg^{-1}
+
+Code::
+
+    >>> from math import pi
+    >>> r = 0.15
+    >>> N = 130
+    >>> V = 300
+    >>> R = 0.05
+    >>> I = 1.48
+    >>> mu0 = 4*pi*1e-7
+    >>> "%e" % (125 * V * r**2 / (32 * mu0**2 * R**2 * N**2 * I**2))
+    '1.804238e+11'
+
+Reference value is:
+
+.. math::
+
+    {e\over m} = 1.7588 \cdot 10^{11}\rm\,C\cdot kg^{-1}
+
+Code::
+
+    >>> e = 1.6021766e-19
+    >>> c = 299792458
+    >>> eV = e
+    >>> KeV = 1e3 * eV
+    >>> m = 510.998910 * KeV / c**2
+    >>> m
+    9.109382795192204e-31
+    >>> "%e" % (e / m)
+    '1.758820e+11'
+
+We can use the experimental value to calculate the electron rest mass energy:
+
+.. math::
+
+    m c^2 = {c^2 \over 1.804238\cdot 10^{11}}{\rm\, eV}
+        = 498.1356 {\rm\, KeV}
+
 
 Ampère's Force Law
 ~~~~~~~~~~~~~~~~~~
