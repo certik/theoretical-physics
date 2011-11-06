@@ -179,3 +179,51 @@ Code::
 
 Special cases are a rod of length $h$ (set $R=0$ above) and a thin solid disk
 of radius $R$ and mass $m$ (set $h=0$ above).
+
+Sphere
+^^^^^^
+
+Solid sphere of radius $R$ and mass $m$. We'll use spherical
+coordinates. All axes are equivalent, so we use
+rotation about the $z$ axis:
+
+.. math::
+
+    V = {4\over3} \pi R^3
+
+    {\bf n} = (0, 0, 1)
+
+    {\bf r} = (\rho\cos\phi\sin\theta, \rho\sin\phi\sin\theta, \rho\cos\theta)
+
+    {\bf r} \cdot {\bf n} = \rho\cos\theta
+
+    r^2 = \rho^2
+
+
+    I = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
+      = \int {m\over V} (\rho^2 - \rho^2\cos^2\theta) \d^3 r =
+
+      = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_0^\pi
+        \d \theta
+         \rho^2(1-\cos^2\theta) \rho^2\sin\theta =
+
+      = {m\over V} \int_0^{2\pi}\d\phi \int_0^R\d R \int_0^\pi
+        \d \theta
+         \rho^4\sin^3\theta =
+
+      = {m\over V} 2\pi {R^5\over 5} {4\over 3} =
+
+      = {m\over V} {8\over 15}\pi R^5
+      = {m\over {4\over 3}\pi R^3} {8\over 15}\pi R^5
+      = {2\over 5} m R^2
+
+Code::
+
+    >>> from sympy import var, integrate, pi, sin
+    >>> var("m V R rho theta phi")
+    (m, V, R, rho, theta, phi)
+    >>> I = m/V * integrate(rho**4 * sin(theta)**3, (rho, 0, R), (phi, 0, 2*pi), (theta, 0, pi))
+    >>> I
+    8*pi*R**5*m/(15*V)
+    >>> I.subs(V, 4*pi*R**3/3)
+    2*R**2*m/5
