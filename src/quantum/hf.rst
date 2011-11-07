@@ -842,8 +842,8 @@ the above). We used the result of the integral in
             \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
 
 
-Radial Hartre-Fock Equations
-----------------------------
+Radial Hartree-Fock Equations
+-----------------------------
 
 Using the above integrals, the HF equations become:
 
