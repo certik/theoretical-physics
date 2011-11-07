@@ -893,6 +893,24 @@ with:
     V_H(r) = \sum_{nl} f_{nl} {Y^0(P_{nl}^2(r), r) \over r}
         = {Y^0(4\pi n(r) r^2, r) \over r}
 
+Total Energy
+------------
+
+The total energy is:
+
+.. math::
+
+    E = \sum_a 2(2l_a+1) \left( \epsilon_a
+        -\sum_b (2l_b+1) \left( R_0(a, b, a, b)-\sum_l
+            \half \begin{pmatrix} l_a & l & l_b \\ 0 & 0 & 0 \end{pmatrix}^2
+            R_l(a, b, b, a)\right) \right)
+
+where:
+
+.. math::
+
+    R_l(a, b, c, d) = \int_0^\infty P_a(r) P_c(r) {Y^l(P_b(r) P_d(r), r)\over r} \d r
+
 Example: Helium
 ~~~~~~~~~~~~~~~
 
