@@ -903,7 +903,39 @@ The total energy is:
     E = \sum_a 2(2l_a+1) \left( \epsilon_a
         -\sum_b (2l_b+1) \left( R_0(a, b, a, b)-\sum_l
             \half \begin{pmatrix} l_a & l & l_b \\ 0 & 0 & 0 \end{pmatrix}^2
-            R_l(a, b, b, a)\right) \right)
+            R_l(a, b, b, a)\right) \right) =
+
+      = \sum_{nl} f_{nl} \left( \epsilon_{nl}
+        -\sum_{n'l'} \half f_{n'l'} \left( R_0(nl, n'l', nl, n'l')-\sum_k
+            \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+            R_l(nl, n'l', n'l', nl)\right) \right) =
+
+      = \sum_{nl} f_{nl} \epsilon_{nl}
+        -\sum_{nl}\sum_{n'l'} \half f_{nl} f_{n'l'}
+            \left(
+        \int_0^\infty P_{nl}^2(r) {Y^0(P_{n'l'}^2(r), r)\over r} \d r
+            -\sum_k
+            \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \int_0^\infty P_{nl}(r) P_{n'l'}(r)
+                        {Y^l(P_{nl}(r) P_{n'l'}(r), r)\over r} \d r
+            \right) =
+
+      = \sum_{nl} f_{nl} \epsilon_{nl}
+        -\half
+        \int_0^\infty 4\pi n(r) r^2 {Y^0(4\pi n(r) r^2, r)\over r} \d r +
+
+            +\sum_{nl}\sum_{n'l'} \half f_{nl} f_{n'l'} \sum_k
+            \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \int_0^\infty P_{nl}(r) P_{n'l'}(r)
+                        {Y^l(P_{nl}(r) P_{n'l'}(r), r)\over r} \d r
+            =
+
+      = \sum_{nl} f_{nl} \epsilon_{nl}
+        -2\pi \int_0^\infty V_H(r) n(r) r^2 \d r
+            +\sum_{nl}\sum_{n'l'} \half f_{nl} f_{n'l'} \sum_k
+            \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \int_0^\infty P_{nl}(r) P_{n'l'}(r)
+                        {Y^l(P_{nl}(r) P_{n'l'}(r), r)\over r} \d r
 
 where:
 
