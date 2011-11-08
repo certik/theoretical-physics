@@ -331,6 +331,68 @@ where:
     x & = {\bf\hat r}\cdot {\bf\hat r'} \\
     t & = {r_<\over r_>}
 
+Example IV
+~~~~~~~~~~
+
+.. math::
+
+    V(|{\bf r}_1-{\bf r}_2|)
+        = {e^{-{|{\bf r}_1-{\bf r}_2|\over D}}\over |{\bf r}_1-{\bf r}_2|}
+
+The potential $V$ is a function of $r1$, $r2$ and $\cos\theta$ only:
+
+.. math::
+
+    V(|{\bf r}_1-{\bf r}_2|)
+        = V\left(\sqrt{r_1^2 - 2 {\bf r_1} \cdot {\bf r_2} + r_2^2}\right)
+        = V\left(\sqrt{r_1^2 - 2 r_1 r_2\cos\theta + r_2^2}\right)
+        = V(r_1, r_2, \cos\theta)
+
+So we expand in the $\cos\theta$ variable using the Legendre expansion:
+
+.. math::
+
+    V(|{\bf r}_1-{\bf r}_2|)
+        = V(r_1, r_2, \cos\theta)
+        = \sum_{l=0}^\infty V_l(r_1, r_2) P_l(\cos\theta)
+
+where $V_l(r_1, r_2)$ only depends on $r1$ and $r_2$:
+
+.. math::
+
+    V_l(r_1, r_2) = {2l+1\over 2}\int_{-1}^1 V(|{\bf r}_1-{\bf r}_2|)
+        P_l(\cos\theta) \d(\cos\theta) =
+
+        = {2l+1\over 2}\int_{-1}^1
+            {e^{-{|{\bf r}_1-{\bf r}_2|\over D}}\over |{\bf r}_1-{\bf r}_2|}
+            P_l(\cos\theta) \d(\cos\theta) =
+
+        = {2l+1\over 2 r_1 r_2}\int_{|r_1 - r_2|}^{r1+r2}
+            e^{-{r\over D}}
+            P_l\left(r_1^2 - r^2 + r_2^2 \over 2 r_1 r_2 \right) \d r
+
+In the limit $D\to\infty$ we get:
+
+.. math::
+
+    V_l(r_1, r_2) \to {r_<^l\over r_>^{l+1}}
+
+In general, the $V_l(r_1, r_2)$ expressions are complicated. For the first few
+$l$ we get:
+
+.. math::
+
+    V_0(r_1, r_2) = {D\over 2 r_1 r_2}\left(e^{-{|r_1 - r_2|\over D}} -
+        e^{-{r_1 + r_2\over D}}\right)
+
+    V_1(r_1, r_2) =
+        \frac{3}{2} \frac{D \left(- D^{2} e^{2 \frac{r_{2}}{D}} + D^{2} - D
+        r_{1} e^{2 \frac{r_{2}}{D}} + D r_{1} + D r_{2} e^{2 \frac{r_{2}}{D}} +
+        D r_{2} + r_{1} r_{2} e^{2 \frac{r_{2}}{D}} + r_{1} r_{2}\right) e^{-
+        \frac{r_{1}}{D} - \frac{r_{2}}{D}}}{r_{1}^{2} r_{2}^{2}}
+
+In $V_1(r_1, r_2)$ we assume $r_1 \ge r_2$.
+
 
 .. index:: spherical harmonics
 
