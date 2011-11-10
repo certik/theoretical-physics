@@ -587,7 +587,7 @@ which for $r\to\infty$ becomes:
     \left.{\d Y^k(r)\over \d r}\right|_{r=\infty} = 0
 
 but in practise, it's better to use the former Newton (Robin) boundary
-condition. We have obtain one second order equation for $Y^k(r)$
+condition. We have obtained one second order equation for $Y^k(r)$
 
 .. math::
 
