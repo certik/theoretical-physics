@@ -339,7 +339,7 @@ Example IV
     V(|{\bf r}_1-{\bf r}_2|)
         = {e^{-{|{\bf r}_1-{\bf r}_2|\over D}}\over |{\bf r}_1-{\bf r}_2|}
 
-The potential $V$ is a function of $r1$, $r2$ and $\cos\theta$ only:
+The potential $V$ is a function of $r_1$, $r_2$ and $\cos\theta$ only:
 
 .. math::
 
@@ -356,7 +356,7 @@ So we expand in the $\cos\theta$ variable using the Legendre expansion:
         = V(r_1, r_2, \cos\theta)
         = \sum_{l=0}^\infty V_l(r_1, r_2) P_l(\cos\theta)
 
-where $V_l(r_1, r_2)$ only depends on $r1$ and $r_2$:
+where $V_l(r_1, r_2)$ only depends on $r_1$ and $r_2$:
 
 .. math::
 
@@ -367,7 +367,7 @@ where $V_l(r_1, r_2)$ only depends on $r1$ and $r_2$:
             {e^{-{|{\bf r}_1-{\bf r}_2|\over D}}\over |{\bf r}_1-{\bf r}_2|}
             P_l(\cos\theta) \d(\cos\theta) =
 
-        = {2l+1\over 2 r_1 r_2}\int_{|r_1 - r_2|}^{r1+r2}
+        = {2l+1\over 2 r_1 r_2}\int_{|r_1 - r_2|}^{r_1+r_2}
             e^{-{r\over D}}
             P_l\left(r_1^2 - r^2 + r_2^2 \over 2 r_1 r_2 \right) \d r
 
