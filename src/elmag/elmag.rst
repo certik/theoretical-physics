@@ -4,22 +4,190 @@ Maxwell's Equations
 Electromagnetic Field
 ---------------------
 
-The electromagnetic field is described by the 4-potential $A^\alpha$
-with components:
+The electromagnetic field is fully described by a vector field called the
+4-potential $A^\alpha$. It has four components that we can label any way we
+want, the traditional way is to use:
 
 .. math::
 
     A^\alpha = \left({\phi\over c}, {\bf A}\right)
 
-where $\phi$ is the electrostatic scalar potential and ${\bf A}$ is the vector
-potential. The actual physical field (that can be measured) is given by the
-electromagnetic field strength tensor:
+where $\phi$ is called the electrostatic scalar potential, ${\bf A}$ is called
+the vector potential and $c$ is the speed of light.
+The Lagrangian density for the free (noninteracting) field is:
+
+.. math::
+
+    \L = -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+
+The Lagrangian for a (charged) particle is:
+
+.. math::
+
+    L(x^\mu, v^\mu) = -\half m v_\alpha v^\alpha
+
+it produces the following charge density:
+
+.. math::
+
+    \rho = q \delta({\bf r} - {\bf s})
+
+The interaction between the charged particle (or in general any charged body)
+with some charge density and the electromagnetic field is given by the
+Lagrangian density:
+
+.. math::
+
+    \L = -j_\alpha A^\alpha
+
+where:
+
+.. math::
+
+    j^\mu = \rho v^\mu = \gamma \rho (c, {\bf v})
+
+There are several approaches how to obtain the above Lagrangians from some
+other assumptions, but ultimately the exact form of the Lagrangians has to be
+given by experiment. It is our only assumption and we derive everything else
+from it.
+All together, the Lagrangian of a charged particle and an electromagnetic field
+is:
+
+.. math::
+    :label: lagem
+
+    L(x^\mu, v^\mu, A^\mu, \partial_\nu A^\mu)
+      =-\half m v_\alpha v^\alpha
+        -\int {1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+            \d^3 x
+            - \int j_\alpha A^\alpha \d^3 x =
+
+      =-\half m v_\alpha v^\alpha
+        -\int {1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+            \d^3 x
+            - \int \rho v_\alpha A^\alpha \d^3 x =
+
+      =-\half m v_\alpha v^\alpha
+        -\int {1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+            \d^3 x
+            - q v_\alpha A^\alpha
+
+Note that:
+
+.. math::
+
+    v_\alpha A^\alpha = - \gamma \phi + \gamma {\bf v} \cdot {\bf A}
+
+The Euler-Lagrange equations for the electromagnetic field (in terms of $A^\mu$
+and $\partial_\nu A^\mu$) are:
+
+.. math::
+
+    \partial^\mu {\partial\over\partial (\partial^\mu A^\nu)}
+    \left(
+        -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+               - j_\alpha A^\alpha
+        \right)
+    ={\partial\over\partial A^\nu}
+        \left(
+        -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
+               - j_\alpha A^\alpha\right)
+
+    \partial^\mu {\partial\over\partial (\partial^\mu A^\nu)}
+    \left(
+        {1\over 2\mu_0} g_{\delta\alpha} g_{\epsilon\beta}
+        \partial^\delta A^\epsilon \partial^\alpha A^\beta
+        \right)
+    ={\partial\over\partial A^\nu} j_\alpha A^\alpha
+
+    {1\over 2\mu_0} \partial^\mu g_{\delta\alpha} g_{\epsilon\beta}
+    \left(
+        \delta^\delta_\mu \delta^\epsilon_\nu \partial^\alpha A^\beta
+        +
+        \partial^\delta A^\epsilon \delta^\alpha_\mu \delta^\beta_\nu
+        \right)
+    = j_\alpha \delta^\alpha_\nu
+
+    {1\over 2\mu_0} \partial^\mu
+    \left(  g_{\mu\alpha} g_{\nu\beta}
+        \partial^\alpha A^\beta
+        +g_{\delta\mu} g_{\epsilon\nu}
+        \partial^\delta A^\epsilon
+        \right)
+    = j_\nu
+
+    {1\over 2\mu_0} \partial^\mu
+    \left(\partial_\mu A_\nu + \partial_\mu A_\nu \right)
+    = j_\nu
+
+    {1\over \mu_0} \partial^\mu \partial_\mu A_\nu = j_\nu
+
+.. math::
+    :label: Aeq1
+
+    \partial^\mu \partial_\mu A_\nu = \mu_0 j_\nu
+
+Equations for the particle (in terms of $x^\mu$ and $v^\mu$) are:
+
+.. math::
+
+    {\d \over \d \tau} {\partial L\over \partial v_\mu}
+         = {\partial L \over \partial x_\mu}
+
+    {\d \over \d \tau} {\partial \over \partial v_\mu}
+        \left(\half m g^{\alpha\beta} v_\alpha v_\beta
+            + q v_\alpha A^\alpha\right)
+         = q v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+    {\d \over \d \tau}
+        \left(
+            \half m g^{\alpha\beta} (\delta_{\alpha\mu} v_\beta
+            + v_\alpha \delta_{\beta\mu})
+            + q \delta_{\alpha\mu} A^\alpha\right)
+         = q v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+    {\d \over \d \tau}
+        \left(
+            \half m (g^{\mu\beta} v_\beta + g^{\alpha\mu} v_\alpha)
+            + q A^\mu\right)
+         = q v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+    {\d \over \d \tau}
+        \left(
+            \half m (v^\mu + v^\mu)
+            + q A^\mu\right)
+         = q v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+    {\d \over \d \tau}
+        \left(m v^\mu + q A^\mu\right)
+         = q v_\alpha {\partial A^\alpha \over \partial x_\mu}
+
+    m {\d v^\mu \over \d \tau}
+         = q \left(-{\d A^\mu\over\d\tau}
+            + v_\alpha \partial^\mu A^\alpha\right)
+
+    m {\d v^\mu \over \d \tau}
+         = q \left(-v_\alpha \partial^\alpha A^\mu
+            + v_\alpha \partial^\mu A^\alpha\right)
+
+    m {\d v^\mu \over \d \tau}
+         = q (\partial^\mu A^\alpha - \partial^\alpha A^\mu) v_\alpha
+
+.. math::
+    :label: lorentz_rel
+
+    m {\d v^\mu \over \d \tau}
+         = q F^{\mu\alpha} v_\alpha
+
+Where $F^{\mu\nu}$ is called the electromagnetic field strength tensor:
 
 .. math::
 
     F^{\mu\nu} =  \partial^\mu A^\nu - \partial^\nu A^\mu
 
-As such $F^{\mu\nu}$ is invariant under any gauge transformation:
+The only way to measure the electric field is through its interaction with the
+charge particle. As such, the actual physical field (that can be measured) is
+$F^{\mu\nu}$, which is invariant under any gauge transformation:
 
 .. math::
 
@@ -35,6 +203,110 @@ where $\psi$ is a gauge function:
             +\partial^\mu \partial^\nu\psi - \partial^\nu \partial^\mu\psi
         = \partial^\mu A^\nu - \partial^\nu A^\mu
         = F^{\mu\nu}
+
+In other words, two different $A^\mu$ related by the gauge transformation
+represent the exact same physical electromagnetic field (as given by the field
+tensor). As such, we can modify the Lagrangian by applying the gauge
+transformation to the field $A^\mu$: this changes the equations of motion for
+the field (thus the numerical values for $A^\mu$ will be different), but
+doesn't change the equation of motion for the particle, so the change will not
+have any physical effect (cannot be measured).
+
+In order to obtain a gauge
+invariant Lagrangian, we need to express it using $F^{\mu\nu}$ using the
+following identity:
+
+.. math::
+
+    {1\over 4} F_{\alpha\beta} F^{\alpha\beta}
+        ={1\over 4}(\partial_\alpha A_\beta - \partial_\beta A_\alpha)
+            (\partial^\alpha A^\beta - \partial^\beta A^\alpha) =
+
+        ={1\over 4}(
+            \partial_\alpha A_\beta
+            \partial^\alpha A^\beta
+             - \partial_\beta A_\alpha
+            \partial^\alpha A^\beta
+            -\partial_\alpha A_\beta
+             \partial^\beta A^\alpha
+             + \partial_\beta A_\alpha
+              \partial^\beta A^\alpha
+            ) =
+
+        ={1\over 2}(
+            \partial_\alpha A_\beta
+            \partial^\alpha A^\beta
+             - \partial_\beta A_\alpha
+            \partial^\alpha A^\beta
+            ) =
+
+        =\half \partial_\alpha A_\beta \partial^\alpha A^\beta
+             - \half\partial_\beta A_\alpha \partial^\alpha A^\beta =
+
+        =\half \partial_\alpha A_\beta \partial^\alpha A^\beta
+               -\half (\partial^\alpha A_\alpha)^2
+             - \half\partial_\beta (A_\alpha \partial^\alpha A^\beta
+               -A^\beta\partial^\alpha A_\alpha)
+
+The 4-divergence
+$\partial_\beta (A_\alpha \partial^\alpha A^\beta -A^\beta\partial^\alpha A_\alpha)$
+doesn't change Euler-Lagrange equations, so we can ignore it.
+We can see, that in the Lorenz gauge $\partial^\alpha A_\alpha=0$ the term
+${1\over 4} F_{\alpha\beta} F^{\alpha\beta}$ (which is gauge invariant)
+simplifies to the term $\partial_\alpha A_\beta \partial^\alpha A^\beta$ in the
+Lagrangian :eq:`lagem`. The gauge invariant Lagrangian is:
+
+.. math::
+    :label: lagem2
+
+    L(x^\mu, v^\mu, A^\mu, \partial_\nu A^\mu)
+      =-\half m v_\alpha v^\alpha
+        -\int {1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta} \d^3 x
+            - \int j_\alpha A^\alpha \d^3 x
+
+The E.-L. equation for the particle doesn't change, the equation for the field
+becomes:
+
+.. math::
+
+    \partial^\mu (\partial_\mu A_\nu-\partial_\nu A_\mu) = \mu_0 j_\nu
+
+.. math::
+    :label: Feq1
+
+    \partial^\mu F_{\mu\nu} = \mu_0 j_\nu
+
+Which in Lorenz gauge simplifies to equation :eq:`Aeq1`.
+In order to write equations of motion in terms of $F^{\mu\nu}$ only, we
+need another equation for it:
+
+.. math::
+    :label: Feq2
+
+    \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta}
+        = \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma
+            (\partial_\alpha A_\beta - \partial_\beta A_\alpha) =
+
+        = \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma
+            \partial_\alpha A_\beta
+            -\epsilon^{\alpha\beta\gamma\delta}\partial_\gamma
+            \partial_\beta A_\alpha = 0
+
+We used the fact, that the partial derivatives are symmetric in the indices
+$\gamma\alpha$ and $\gamma\beta$ while
+$\epsilon^{\alpha\beta\gamma\delta}$ is antisymmetric.
+
+Maxwell's Equations
+-------------------
+
+Maxwell's equations are the equations for the electromagnetic field in terms of
+the physical field strengh tensor, equations :eq:`Feq1` and :eq:`Feq2`:
+
+.. math::
+
+    \partial^\mu F_{\mu\nu} = \mu_0 j_\nu
+
+    \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta} = 0
 
 The field strength tensor is antisymmetric, so it has 6 independent components
 (we use metric tensor with signature -2):
@@ -109,87 +381,80 @@ so we get:
     -{E^3\over c} & -B^2 & B^1 & 0 \\
     \end{array}\right)
 
-
-Electromagnetic Force on a Charged Particle (Lorentz Force)
------------------------------------------------------------
-
-The action is:
+In terms of $\bf E$ and $\bf B$ fields, the Maxwell's equations become:
 
 .. math::
 
-    S = \int L(x^\mu, v^\mu) \d \tau
+    \nabla\cdot{\bf E} = c^2\mu_0 \rho
 
-The action $S$ is a scalar (Lorentz invariant), so $L(x^\mu, v^\mu)$ must be a
-scalar too as $\tau$ is a proper time.  Lagrangian for a relativistic charged
-particle is:
+    \nabla\times{\bf B} = \mu_0 {\bf j} + {1\over c^2}{\partial{\bf E}
+        \over \partial t}
 
-.. math::
+    \nabla\cdot{\bf B} = 0
 
-    L(x^\mu, v^\mu) = -\half m v^2 - e v_\alpha A^\alpha
-        = -\half m v_\alpha v^\alpha - e v_\alpha A^\alpha
+    \nabla\times{\bf E} = -{\partial{\bf B}\over\partial t}
 
-The Euler-Lagrange equations are:
+In Lorenz gauge, the equation for the 4-potential is :eq:`Aeq1`:
 
 .. math::
 
-    {\d \over \d \tau} {\partial L\over \partial v_\mu}
-         = {\partial L \over \partial x_\mu}
+    \partial^\mu \partial_\mu A_\nu = \mu_0 j_\nu
 
-    {\d \over \d \tau} {\partial \over \partial v_\mu}
-        \left(\half m g^{\alpha\beta} v_\alpha v_\beta
-            + e v_\alpha A^\alpha\right)
-         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+The solution to this equation is:
 
-    {\d \over \d \tau}
-        \left(
-            \half m g^{\alpha\beta} (\delta_{\alpha\mu} v_\beta
-            + v_\alpha \delta_{\beta\mu})
-            + e \delta_{\alpha\mu} A^\alpha\right)
-         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+.. math::
 
-    {\d \over \d \tau}
-        \left(
-            \half m (g^{\mu\beta} v_\beta + g^{\alpha\mu} v_\alpha)
-            + e A^\mu\right)
-         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+    A^\beta({\bf x}, t) = {\mu_0\over 4\pi}\int
+         {j^\beta({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
 
-    {\d \over \d \tau}
-        \left(
-            \half m (v^\mu + v^\mu)
-            + e A^\mu\right)
-         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+For scalar potential ($\beta=0$) we get:
 
-    {\d \over \d \tau}
-        \left(m v^\mu + e A^\mu\right)
-         = e v_\alpha {\partial A^\alpha \over \partial x_\mu}
+.. math::
+
+    {\phi({\bf x}, t)\over c} = {\mu_0\over 4\pi}\int
+         {c \rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+
+    \phi({\bf x}, t) = {\mu_0 c^2\over 4\pi}\int
+         {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+        = {1\over 4\pi\epsilon_0}\int
+         {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+
+And for vector potential ($\beta=i$) we get:
+
+.. math::
+    :label: Avec_sol
+
+    {\bf A}({\bf x}, t) = {\mu_0\over 4\pi}\int
+         {{\bf j}({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+
+Lorentz Force
+-------------
+
+The equation for the charge particle :eq:`lorentz_rel` is:
+
+.. math::
 
     m {\d v^\mu \over \d \tau}
-         = e \left(-{\d A^\mu\over\d\tau}
-            + v_\alpha \partial^\mu A^\alpha\right)
-
-    m {\d v^\mu \over \d \tau}
-         = e \left(-v_\alpha \partial^\alpha A^\mu
-            + v_\alpha \partial^\mu A^\alpha\right)
-
-    m {\d v^\mu \over \d \tau}
-         = e (\partial^\mu A^\alpha - \partial^\alpha A^\mu) v_\alpha
-
-    m {\d v^\mu \over \d \tau}
-         = e F^{\mu\alpha} v_\alpha
+         = q F^{\mu\alpha} v_\alpha
 
 In components:
 
 .. math::
 
     m {\d v^0 \over \d \tau}
-         = e F^{0\alpha} v_\alpha
-         = -e {E^i\over c} \gamma v_i
+         = q F^{0\alpha} v_\alpha
+         = -q {E^i\over c} \gamma v_i
 
     m {\d v^i \over \d \tau}
-         = e F^{i\alpha} v_\alpha
-         = e \left(-{E^i\over c} v_0 - \epsilon^{ij}{}_k B^k v_j\right)
-         = e \left({E^i\over c} v^0 + \epsilon^i{}_{jk} B^k v^j\right)
-         = e\gamma \left(E^i + ({\bf v}\times{\bf B})^i\right)
+         = q F^{i\alpha} v_\alpha
+         = q \left(-{E^i\over c} v_0 - \epsilon^{ij}{}_k B^k v_j\right)
+         = q \left({E^i\over c} v^0 + \epsilon^i{}_{jk} B^k v^j\right)
+         = q\gamma \left(E^i + ({\bf v}\times{\bf B})^i\right)
 
 Using coordinate time $t$ and coordinates ${\bf x}$ instead of the proper time
 $\tau$ and 4-vector $x^\mu$, we need to rewrite the action:
@@ -266,7 +531,7 @@ For continuous case (current), the force due to the magnetic field is:
         = I \int \d {\bf l}\times {\bf B}
 
 Hamiltonian
-~~~~~~~~~~~
+-----------
 
 Expressing ${\bf v}$ in terms of ${\bf P}$ we get:
 
@@ -339,281 +604,19 @@ The Hamiltonian is:
         = c\sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2} + e\phi
 
 
-Maxwell's Equations
--------------------
-
-The action for the field is:
-
-.. math::
-
-    S = \int \L(\phi_k, \partial^\alpha\phi_k) \d^4 x
-
-The action $S$ is a scalar (Lorentz invariant), so
-$\L(\phi_k, \partial^\mu\phi_k)$ must be a
-scalar too. The Euler-Lagrange equations are:
-
-.. math::
-
-    \partial^\beta{\partial\L\over \partial(\partial^\beta\phi_k)}
-        = {\partial\L\over\partial\phi_k}
-
-
-For electromagnetic field $\phi_k = A^\mu$ and the Lagrangian is:
-
-.. math::
-
-    \L(A^\alpha, \partial^\beta A^\alpha)
-        = -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta} - j_\alpha A^\alpha
-
-One can simplify:
-
-.. math::
-
-    {1\over 4} F_{\alpha\beta} F^{\alpha\beta}
-        ={1\over 4}(\partial_\alpha A_\beta - \partial_\beta A_\alpha)
-            (\partial^\alpha A^\beta - \partial^\beta A^\alpha) =
-
-        ={1\over 4}(
-            \partial_\alpha A_\beta
-            \partial^\alpha A^\beta
-             - \partial_\beta A_\alpha
-            \partial^\alpha A^\beta
-            -\partial_\alpha A_\beta
-             \partial^\beta A^\alpha
-             + \partial_\beta A_\alpha
-              \partial^\beta A^\alpha
-            ) =
-
-        ={1\over 2}(
-            \partial_\alpha A_\beta
-            \partial^\alpha A^\beta
-             - \partial_\beta A_\alpha
-            \partial^\alpha A^\beta
-            ) =
-
-        =\half \partial_\alpha A_\beta \partial^\alpha A^\beta
-             - \half\partial_\beta A_\alpha \partial^\alpha A^\beta =
-
-        =\half \partial_\alpha A_\beta \partial^\alpha A^\beta
-               -\half (\partial^\alpha A_\alpha)^2
-             - \half\partial_\beta (A_\alpha \partial^\alpha A^\beta
-               -A^\beta\partial^\alpha A_\alpha)
-
-The 4-divergence
-$\partial_\beta (A_\alpha \partial^\alpha A^\beta -A^\beta\partial^\alpha A_\alpha)$
-doesn't change Euler-Lagrange equations, so we can ignore it. As such, an
-equivalent Lagrangian is:
-
-.. math::
-
-    \L(A^\alpha, \partial^\beta A^\alpha)
-        = -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
-               +{1\over 2\mu_0} (\partial^\alpha A_\alpha)^2 - j_\alpha A^\alpha
-
-The expression ${1\over 4} F_{\alpha\beta} F^{\alpha\beta}$ is independent of
-gauge and so is the above Lagrangian. If we choose Lorentz gauge
-$\partial^\alpha A_\alpha=0$, then it simplifies even further:
-
-.. math::
-    :label: lagrangian_A
-
-    \L(A^\alpha, \partial^\beta A^\alpha)
-        = -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
-               - j_\alpha A^\alpha
-
-The E.-L. equations are:
-
-.. math::
-
-    \partial^\beta{\partial\L\over \partial(\partial^\beta A^\alpha)}
-        = {\partial\L\over\partial A^\alpha}
-
-    \partial^\beta F_{\beta\alpha} = \mu_0 j_\alpha
-
-
-The Maxwell's equations are:
-
-.. math::
-
-    \partial_\alpha F^{\alpha\beta} = \mu_0 j^\beta
-
-    \epsilon^{\alpha\beta\gamma\delta}\partial_\gamma F_{\alpha\beta} = 0
-
-and the Lorentz force is:
-
-.. math::
-
-    {\d p_\alpha\over\d \tau} = e F_{\alpha\beta} u^\beta
-
-where:
-
-.. math::
-
-    j^\alpha = (c\rho, {\bf j})
-
-    F_{\alpha\beta} = \left(\begin{array}{cccc}
-    0 & {E_1\over c} & {E_2\over c} & {E_3\over c} \\
-    -{E_1\over c} & 0 & -B_3 & B_2 \\
-    -{E_2\over c} & B_3 & 0 & -B_1 \\
-    -{E_3\over c} & -B_2 & B_1 & 0 \\
-    \end{array}\right)
-
-This corresponds to:
-
-.. math::
-
-    \nabla\cdot{\bf E} = c^2\mu_0 \rho
-
-    \nabla\times{\bf B} = \mu_0 {\bf j} + {1\over c^2}{\partial{\bf E}
-        \over \partial t}
-
-    \nabla\cdot{\bf B} = 0
-
-    \nabla\times{\bf E} = -{\partial{\bf B}\over\partial t}
-
-
-The Maxwell's equations can be written as (note that the two eq. without
-sources are automatically satisfied by the four potential):
-
-.. math::
-
-    \partial_\alpha F^{\alpha\beta} =
-        \partial_\alpha (\partial^\alpha A^\beta - \partial^\beta A^\alpha) =
-        \partial_\alpha \partial^\alpha A^\beta =
-        \mu_0 j^\beta
-
-where we have employed the Lorentz gauge $\partial_\alpha A^\alpha=0$.
-This equation is the E.-L. equation that follows from Lagrangian
-:eq:`lagrangian_A`:
-
-.. math::
-
-    \partial^\mu {\partial\over\partial (\partial^\mu A^\nu)}
-    \left(
-        -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
-               - j_\alpha A^\alpha
-        \right)
-    ={\partial\over\partial A^\nu}
-        \left(
-        -{1\over 2\mu_0} \partial_\alpha A_\beta \partial^\alpha A^\beta
-               - j_\alpha A^\alpha\right)
-
-    \partial^\mu {\partial\over\partial (\partial^\mu A^\nu)}
-    \left(
-        {1\over 2\mu_0} g_{\delta\alpha} g_{\epsilon\beta}
-        \partial^\delta A^\epsilon \partial^\alpha A^\beta
-        \right)
-    ={\partial\over\partial A^\nu} j_\alpha A^\alpha
-
-    {1\over 2\mu_0} \partial^\mu g_{\delta\alpha} g_{\epsilon\beta}
-    \left(
-        \delta^\delta_\mu \delta^\epsilon_\nu \partial^\alpha A^\beta
-        +
-        \partial^\delta A^\epsilon \delta^\alpha_\mu \delta^\beta_\nu
-        \right)
-    = j_\alpha \delta^\alpha_\nu
-
-    {1\over 2\mu_0} \partial^\mu
-    \left(  g_{\mu\alpha} g_{\nu\beta}
-        \partial^\alpha A^\beta
-        +g_{\delta\mu} g_{\epsilon\nu}
-        \partial^\delta A^\epsilon
-        \right)
-    = j_\nu
-
-    {1\over 2\mu_0} \partial^\mu
-    \left(\partial_\mu A_\nu + \partial_\mu A_\nu \right)
-    = j_\nu
-
-    {1\over \mu_0} \partial^\mu \partial_\mu A_\nu = j_\nu
-
-    \partial^\mu \partial_\mu A_\nu = \mu_0 j_\nu
-
-The solution to this equation is:
-
-.. math::
-
-    A^\beta({\bf x}, t) = {\mu_0\over 4\pi}\int
-         {j^\beta({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
-            \over |{\bf x} - {\bf y}| }\d^3 y
-
-For scalar potential ($\beta=0$) we get:
-
-.. math::
-
-    {\phi({\bf x}, t)\over c} = {\mu_0\over 4\pi}\int
-         {c \rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
-            \over |{\bf x} - {\bf y}| }\d^3 y
-
-    \phi({\bf x}, t) = {\mu_0 c^2\over 4\pi}\int
-         {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
-            \over |{\bf x} - {\bf y}| }\d^3 y
-        = {1\over 4\pi\epsilon_0}\int
-         {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
-            \over |{\bf x} - {\bf y}| }\d^3 y
-
-And for vector potential ($\beta=i$) we get:
-
-.. math::
-
-    {\bf A}({\bf x}, t) = {\mu_0\over 4\pi}\int
-         {{\bf j}({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
-            \over |{\bf x} - {\bf y}| }\d^3 y
-
-Particle Field Interaction
---------------------------
-
-.. math::
-
-    \L(A^\alpha, \partial^\beta A^\alpha)
-        = -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta} - j_\alpha A^\alpha
-
-    \rho = q \delta({\bf r} - {\bf s})
-
-    {\bf j} = \rho {\bf v} = q \delta({\bf r} - {\bf s}) {\bf v}
-
-    j^\mu = \rho v^\mu = \gamma \rho (c, {\bf v})
-
-    L = \int \L \d^3 x
-      = \int -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta}
-            - j_\alpha A^\alpha \d^3 x =
-
-      = \int -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta}
-            - \rho v_\alpha A^\alpha \d^3 x =
-
-      = \int -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta} \d^3 x
-            - q v_\alpha A^\alpha =
-
-Finally we add the Lagrangian for the free particle:
-
-.. math::
-
-    L = -\half m v_\alpha v^\alpha + \int -{1\over 4\mu_0} F_{\alpha\beta}
-        F^{\alpha\beta} \d^3 x - q v_\alpha A^\alpha
-
-Note that:
-
-.. math::
-
-    v_\alpha A^\alpha = - \gamma \phi + \gamma {\bf v} \cdot {\bf A}
-
-Considered as the function of $A^\alpha$, this Lagrangian implies the Maxwell's
-equations, considered as a function of $x^\alpha$ (and $v^\alpha$), it implies
-the particle equation of motion (with Lorentz force).
-
 Examples
 --------
 
 Biot-Savart Law
 ~~~~~~~~~~~~~~~
 
-Maxwell's equations in Lorentz gauge:
+Maxwell's equations in Lorenz gauge :eq:`Aeq1`:
 
 .. math::
 
     \partial_\alpha\partial^\alpha A^\beta = \mu_0 j^\beta
 
-have the solution for the vector potential:
+have the solution for the vector potential :eq:`Avec_sol`:
 
 .. math::
 
