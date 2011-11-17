@@ -212,6 +212,19 @@ the field (thus the numerical values for $A^\mu$ will be different), but
 doesn't change the equation of motion for the particle, so the change will not
 have any physical effect (cannot be measured).
 
+By choosing $\psi$ as a solution to the equation
+$\partial_\mu\partial^\mu\psi=-\partial_\mu A^\mu$, we get:
+
+.. math::
+
+    \partial_\mu (A^\mu + \partial^\mu \psi)
+        = \partial_\mu A^\mu + \partial_\mu\partial^\mu \psi
+        = \partial_\mu A^\mu - \partial_\mu A^\mu
+        = 0
+
+So for any 4-potential we can find $\psi$ such that the transformed 4-potential
+$A^\mu$ obeys the Lorenz gauge condition $\partial_\mu A^\mu=0$.
+
 In order to obtain a gauge
 invariant Lagrangian, we need to express it using $F^{\mu\nu}$ using the
 following identity:
