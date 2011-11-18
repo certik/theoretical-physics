@@ -616,6 +616,70 @@ The Hamiltonian is:
 
         = c\sqrt{m^2c^2 + ({\bf P} - e{\bf A})^2} + e\phi
 
+Electromagnetic Stress Tensor
+-----------------------------
+
+The stress tensor is calculated from the Lagrangian:
+
+.. math::
+
+    \L = -{1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta}
+        =-{1\over 2\mu_0}(\partial_\alpha A_\beta \partial^\alpha A^\beta
+            -\partial_\beta A_\alpha \partial^\alpha A^\beta)
+
+using the Noether formula:
+
+.. math::
+
+    T^\mu{}_\nu = {\partial\L\over\partial(\partial_\mu A_\alpha)}
+                    \partial_\nu A_\alpha
+                    -\delta^\mu{}_\nu \L =
+
+        = -{1\over\mu_0} F^{\mu\alpha}
+            \partial_\nu A_\alpha+{1\over 4\mu_0}\delta^\mu{}_\nu
+                F_{\alpha\beta} F^{\alpha\beta}
+
+We raise the $\nu$ index:
+
+.. math::
+
+    T^{\mu\nu} = g^{\nu\lambda} T^\mu{}_\lambda
+        = -{1\over\mu_0} F^{\mu\alpha}
+            \partial^\nu A_\alpha+{1\over 4\mu_0}g^{\mu\nu}
+                F_{\alpha\beta} F^{\alpha\beta}
+
+This tensor is not symmetric under the exchange of the $\mu\nu$ indices. To
+make it symmetric, we add a total derivative term
+$\partial_\alpha K^{\alpha\mu\nu}$, where $K^{\alpha\mu\nu}$ is antisymmetric
+in its first two indices. This guarantees that
+$\partial_\mu \partial_\alpha K^{\alpha\mu\nu}=0$ so that the new stress energy
+tensor is still conserved. We choose
+$K^{\alpha\mu\nu}={1\over\mu_0} F^{\mu\alpha} A^\nu$ and get:
+
+.. math::
+
+    T^{\mu\nu} +\partial_\alpha K^{\alpha\mu\nu}
+        = -{1\over\mu_0} F^{\mu\alpha}
+            \partial^\nu A_\alpha+{1\over 4\mu_0}g^{\mu\nu}
+                F_{\alpha\beta} F^{\alpha\beta}
+                +{1\over\mu_0}\partial_\alpha ( F^{\mu\alpha} A^\nu) =
+
+        = {1\over\mu_0}F^{\mu\alpha}
+                (\partial_\alpha A^\nu - \partial^\nu A_\alpha)
+            +{1\over 4\mu_0}g^{\mu\nu}
+                F_{\alpha\beta} F^{\alpha\beta}
+                +{1\over\mu_0}(\partial_\alpha F^{\mu\alpha}) A^\nu =
+
+        = {1\over\mu_0}F^{\mu\alpha} F_\alpha{}^\nu
+            +{1\over 4\mu_0}g^{\mu\nu}
+                F_{\alpha\beta} F^{\alpha\beta} =
+
+        = -{1\over\mu_0}\left(F^{\mu\alpha} F^\nu{}_\alpha
+            -{1\over 4}g^{\mu\nu}
+                F_{\alpha\beta} F^{\alpha\beta}\right)
+
+where we used $\partial_\alpha F^{\mu\alpha} = 0$.
+
 
 Examples
 --------
