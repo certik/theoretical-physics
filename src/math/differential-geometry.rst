@@ -667,7 +667,58 @@ These are tensor expressions and so even though we derived them in a local
 inertial frame, they hold in all coordinates. The last identity is called
 a Bianchi identity.
 
+The Ricci tensor is defined as:
+
 .. math::
+
+    R_{\mu\nu} = R^\lambda{}_{\mu\lambda\nu} = g^{\lambda\sigma}
+        R_{\sigma\mu\lambda\nu}
+
+From the last equality we can see that it is symmetric in $\mu\nu$. A Ricci
+scalar is defined as:
+
+.. math::
+
+    R = R^\mu{}_\mu = g^{\mu\nu} R_{\mu\nu}
+
+The Einstein tensor is defined as:
+
+.. math::
+
+    G_{\mu\nu} = R_{\mu\nu} - \half R g_{\mu\nu}
+
+It is symmetric in $\mu\nu$ due to the symmetry of the metric and Ricci
+tensors. By contracting the Bianchi identity twice, we can show that Einstein
+tensor has zero divergence:
+
+.. math::
+
+    g^{\lambda\alpha} g^{\nu\beta}\left(
+    \nabla_\lambda R_{\mu\nu\alpha\beta}
+    +\nabla_\mu R_{\nu\lambda\alpha\beta}
+    +\nabla_\nu R_{\lambda\mu\alpha\beta}\right) =
+
+    = \nabla^\alpha g^{\nu\beta} R_{\mu\nu\alpha\beta}
+    +\nabla_\mu g^{\lambda\alpha} R^\beta{}_{\lambda\alpha\beta}
+    +\nabla^\beta g^{\lambda\alpha} R_{\lambda\mu\alpha\beta} =
+
+    = \nabla^\alpha g^{\nu\beta} R_{\nu\mu\beta\alpha}
+    -\nabla_\mu g^{\lambda\alpha} R^\beta{}_{\lambda\beta\alpha}
+    +\nabla^\beta R^\alpha{}_{\mu\alpha\beta} =
+
+    = \nabla^\alpha R^\beta{}_{\mu\beta\alpha}
+    -\nabla_\mu g^{\lambda\alpha} R_{\lambda\alpha}
+    +\nabla^\beta R_{\mu\beta} =
+
+    = \nabla^\alpha R_{\mu\alpha}
+    -\nabla_\mu R^\alpha{}_\alpha
+    +\nabla^\beta R_{\mu\beta} =
+
+    = 2\nabla^\alpha R_{\mu\alpha} -\nabla_\mu R =
+
+    = 2\nabla^\alpha\left(R_{\mu\alpha} -\half g_{\mu\alpha} R \right) =
+
+    = 2\nabla^\alpha G_{\mu\alpha} = 0
 
 
 .. index::
