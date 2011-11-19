@@ -848,7 +848,103 @@ As seen above, there is some freedom in which metric we can use in order to
 obtain the correct Christoffel symbols, but the above metric is the simplest,
 so we'll use it from now on.
 
-Obsolete section
+Einstein's Equations
+--------------------
+
+Einstein's equations are derived from the Hilbert action:
+
+.. math::
+
+    S_H = \int R \sqrt{ |\det g_{\mu\nu}| } \d^4 x
+        = \int g^{\mu\nu} R_{\mu\nu} \sqrt{ |\det g| } \d^4 x
+
+The Lagrangian density $R \sqrt{ |\det g_{\mu\nu}| }$ has to be given, that's
+our assumption and everything else is derived from it. In principle it can have
+other terms, for example
+$\alpha_1 R^2 + \alpha_2 R_{\mu\nu} R^{\mu\nu} + \alpha_3 g^{\mu\nu} \nabla_\mu R \nabla_\nu R + \cdots$
+and there are a lot of possibilities and ultimately the exact form of the
+Lagrangian has to be decided by experiment.
+The Hilbert action is the simplest possible action and it already gives a
+theory which agrees with experiment, so that will be our starting point.
+
+Varying it with respect to the metric $g^{\mu\nu}$ we get:
+
+.. math::
+
+    \delta S_H = \delta \int R \sqrt{ |\det g| } \d^4 x =
+
+        = \int
+            (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
+            +g^{\mu\nu} (\delta R_{\mu\nu}) \sqrt{ |\det g| }
+            +R (\delta \sqrt{ |\det g| })
+            \d^4 x=
+
+        = \int
+            (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
+            +g^{\mu\nu} \left(
+                \nabla_\lambda(\delta \Gamma^\lambda_{\nu\mu})
+                -\nabla_\nu(\delta \Gamma^\lambda_{\lambda\mu})
+                \right)\sqrt{ |\det g| }
+            +R (
+            -\half \sqrt{ |\det g| }\, g_{\mu\nu} (\delta g^{\mu\nu}))
+            \d^4 x=
+
+        = \int
+            (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
+            + \left(
+                \nabla_\lambda g^{\mu\nu}(\delta \Gamma^\lambda_{\nu\mu})
+                -\nabla_\nu g^{\mu\nu}(\delta \Gamma^\lambda_{\lambda\mu})
+                \right)\sqrt{ |\det g| }
+            -\half R g_{\mu\nu} \sqrt{ |\det g| }\,
+                (\delta g^{\mu\nu})
+            \d^4 x=
+
+        = \int
+            (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
+            -\half R g_{\mu\nu} \sqrt{ |\det g| }\,
+                (\delta g^{\mu\nu})
+            \d^4 x=
+
+        = \int \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
+                (\delta g^{\mu\nu}) \sqrt{ |\det g| }
+            \d^4 x
+
+Where we used the fact, that the four divergence doesn't contribute to the
+integral. By setting $\delta S_H=0$, we get:
+
+.. math::
+
+    {1\over\sqrt{ |\det g| }}{\delta S_H\over\delta g^{\mu\nu}}
+        = R_{\mu\nu} -\half R g_{\mu\nu} = 0
+
+Combining the Hilbert action $S_H$ with the action for matter $S_M$ we get:
+
+.. math::
+
+    S = {c^4\over 8\pi G} S_H + S_M
+
+Varying this action as above we get:
+
+.. math::
+
+    {1\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
+        ={c^4\over 8\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right) 
+        +
+    {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0
+
+We set:
+
+.. math::
+
+    T_{\mu\nu} = - {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
+
+and we obtain the Einstein's equations:
+
+.. math::
+
+    R_{\mu\nu} -\half R g_{\mu\nu} = {8\pi G \over c^4} T_{\mu\nu}
+
+Obsolete Section
 ----------------
 
 
