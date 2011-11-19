@@ -685,7 +685,7 @@ the formula:
 
 .. math::
 
-    T_{\mu\nu} = - {1\over\sqrt{ |\det g| }}{\delta S_{EM}\over
+    T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_{EM}\over
             \delta g^{\mu\nu}}
 
 So we write the action:
@@ -737,7 +737,7 @@ And we get:
 
 .. math::
 
-    2 T_{\mu\nu} = {1\over \mu_0} \left(
+    T_{\mu\nu} = {1\over \mu_0} \left(
             F_{\mu\beta} F_\nu{}^\beta
             -{1\over 4} F_{\alpha\beta} F^{\alpha\beta}
             g_{\mu\nu} \right)

@@ -936,28 +936,31 @@ Combining the Hilbert action $S_H$ with the action for matter $S_M$ we get:
 
 .. math::
 
-    S = {c^4\over 8\pi G} S_H + S_M
+    S = {c^4\over 16\pi G} S_H + S_M
 
 Varying this action as above we get:
 
 .. math::
 
     {1\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
-        ={c^4\over 8\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right) 
+        ={c^4\over 16\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right) 
         +
     {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0
 
-We set:
+so:
 
 .. math::
 
-    T_{\mu\nu} = - {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
+    R_{\mu\nu} -\half R g_{\mu\nu} =
+        -{16\pi G \over c^4}
+        {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} 
+    ={8\pi G \over c^4} T_{\mu\nu}
 
-and we obtain the Einstein's equations:
+Where we set:
 
 .. math::
 
-    R_{\mu\nu} -\half R g_{\mu\nu} = {8\pi G \over c^4} T_{\mu\nu}
+    T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
 
 Obsolete Section
 ----------------
