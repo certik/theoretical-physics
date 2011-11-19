@@ -343,7 +343,11 @@ More generally, $\delta$-variation can by applied to any function $g$ which cont
 
 .. math::
 
-       \delta\partial_\mu\phi=\left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon h) \right|_{\varepsilon=0}= \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon h) \right|_{\varepsilon=0}=\partial_\mu\delta\phi
+    \delta\partial_\mu\phi
+        = \left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon h) \right|_{\varepsilon=0}
+        = \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon h) \right|_{\varepsilon=0}
+        =\partial_\mu h
+        =\partial_\mu \delta\phi
 
 
 This notation allows us a very convinient computation, as shown in the following examples. First, when computing a variation of some integral, when can interchange $\delta$ and $\int$:
@@ -398,7 +402,7 @@ Lagrangian density $\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)$:
 .. math::
 
     0 = \delta I = \delta \int \L \,\d^4x^\mu
-    = \int \partial \L \,\d^4x^\mu
+    = \int \delta \L \,\d^4x^\mu
     = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
         +
         { \partial \L\over\partial (\partial_\nu \eta_\rho)}
@@ -469,6 +473,20 @@ sequence $\delta_\alpha(x) \to \delta(x)$ (for example $\delta_\alpha(x) =
        =\int3f^2(x)\lim_{\alpha\to\infty}\delta_\alpha(x-t)\d x= \int3f^2(x)\delta(x-t)\d x=3f^2(t)
 
 As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That's why such obvious manipulations with $\delta_\alpha$ are tacitly implied.
+
+Another example with a metric as a function of coordinates
+$g_{\mu\nu} = g_{\mu\nu}(x^\mu)$:
+
+.. math::
+
+    \delta g_{\mu\nu}
+        = \delta g_{\mu\nu}(x^\mu)
+        = \left.{\d\over\d\varepsilon} g_{\mu\nu}(x^\mu+\varepsilon
+                (\delta x^\mu)) \right|_{\varepsilon=0}
+        = \left.{\d\over\d\varepsilon}
+                (x^\sigma+\varepsilon(\delta x^\sigma)) \right|_{\varepsilon=0}
+            \partial_\sigma g_{\mu\nu}
+        = (\delta x^\sigma) \partial_\sigma g_{\mu\nu}
 
 .. index:: dirac notation
 
