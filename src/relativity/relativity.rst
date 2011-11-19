@@ -909,7 +909,22 @@ Varying it with respect to the metric $g^{\mu\nu}$ we get:
                 (\delta g^{\mu\nu}) \sqrt{ |\det g| }
             \d^4 x
 
-Where we used the fact, that the four divergence doesn't contribute to the
+Where we used the following identities:
+
+.. math::
+
+    \delta \sqrt{ |\det g| } =
+            -\half \sqrt{ |\det g| }\, g_{\mu\nu} (\delta g^{\mu\nu})
+
+    \delta R^\rho{}_{\mu\lambda\nu} =
+                \nabla_\lambda(\delta \Gamma^\rho_{\nu\mu})
+                -\nabla_\nu(\delta \Gamma^\rho_{\lambda\mu})
+
+    \delta R_{\mu\nu} = \delta R^\lambda{}_{\mu\lambda\nu} =
+                \nabla_\lambda(\delta \Gamma^\lambda_{\nu\mu})
+                -\nabla_\nu(\delta \Gamma^\lambda_{\lambda\mu})
+
+and the fact that the four divergence doesn't contribute to the
 integral. By setting $\delta S_H=0$, we get:
 
 .. math::
