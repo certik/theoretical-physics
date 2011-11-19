@@ -489,29 +489,79 @@ By setting the variation $\delta\tau=0$ we obtain the geodesic equation:
 
 .. index:: curvature
 
-Curvature
----------
+Riemann Curvature Tensor
+------------------------
 
-
-Curvature means that we take a vector $V^\mu$, parallel transport it around
-a closed loop (which is just applying a commutator of the covariant derivatives $[\nabla_\alpha, \nabla_\beta]V^\mu$), see how it changes and
-that's the curvature:
+Curvature means that we take a vector $V^\mu$, parallel transport it around a
+closed loop (which is just applying a commutator of the covariant derivatives
+$[\nabla_\alpha, \nabla_\beta]V^\mu$) and see how it changes. We express the
+result in terms of the vector $V^\mu$:
 
 .. math::
 
     [\nabla_\alpha, \nabla_\beta]V^\mu\equiv R^\mu{}_{\nu\alpha\beta}V^\nu
 
-That's all there is to it. Expanding the left hand side:
+The coefficients $R^\mu{}_{\nu\alpha\beta}$ form a tensor called Riemann
+curvature tensor.
+Expanding the left hand side:
 
 .. math::
 
-    [\nabla_\alpha, \nabla_\beta]V^\mu=\left(\partial_\alpha\Gamma^\mu_{\beta\nu} -\partial_\beta\Gamma^\mu_{\alpha\nu} +\Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta\nu} -\Gamma^\mu_{\beta\sigma}\Gamma^\sigma_{\alpha\nu}\right)V^\nu
+    [\nabla_\alpha, \nabla_\beta]V^\mu
+        =\nabla_\alpha \nabla_\beta V^\mu - \nabla_\alpha \nabla_\beta V^\mu =
 
-we get
+        =\nabla_\alpha \nabla_\beta V^\mu - (\alpha \leftrightarrow \beta) =
+
+        =\partial_\alpha \nabla_\beta V^\mu
+            - \Gamma^\sigma_{\alpha \beta} \nabla_\sigma V^\mu
+            + \Gamma^\mu_{\alpha \sigma} \nabla_\beta V^\sigma
+            - (\alpha \leftrightarrow \beta) =
+
+        =\partial_\alpha
+            \left(\partial_\beta V^\mu +\Gamma^\mu_{\beta\sigma} V^\sigma\right)
+            - \Gamma^\sigma_{\alpha \beta}
+            \left(\partial_\sigma V^\mu +\Gamma^\mu_{\sigma\nu} V^\nu\right)
+            + \Gamma^\mu_{\alpha \sigma}
+            \left(\partial_\beta V^\sigma +\Gamma^\sigma_{\beta\nu} V^\nu\right)
+            - (\alpha \leftrightarrow \beta) =
+
+        =\partial_\alpha
+            \left(\partial_\beta V^\mu +\Gamma^\mu_{\beta\sigma} V^\sigma\right)
+            + \Gamma^\mu_{\alpha \sigma}
+            \left(\partial_\beta V^\sigma +\Gamma^\sigma_{\beta\nu} V^\nu\right)
+            - (\alpha \leftrightarrow \beta) =
+
+        = \partial_\alpha \partial_\beta V^\mu
+                + \partial_\alpha\Gamma^\mu_{\beta\sigma} V^\sigma
+                + \Gamma^\mu_{\beta\sigma} \partial_\alpha V^\sigma
+            + \Gamma^\mu_{\alpha \sigma} \partial_\beta V^\sigma
+                +\Gamma^\mu_{\alpha \sigma}\Gamma^\sigma_{\beta\nu} V^\nu
+            - (\alpha \leftrightarrow \beta) =
+
+        = \partial_\alpha\Gamma^\mu_{\beta\sigma} V^\sigma
+            +\Gamma^\mu_{\alpha \sigma}\Gamma^\sigma_{\beta\nu} V^\nu
+            - (\alpha \leftrightarrow \beta) =
+
+        = \left(\partial_\alpha\Gamma^\mu_{\beta\nu}
+            +\Gamma^\mu_{\alpha \sigma}\Gamma^\sigma_{\beta\nu}
+            - (\alpha \leftrightarrow \beta) \right) V^\nu
+
+Where we have used the fact that all terms symmetric in
+$\alpha\beta$ (in particular $\Gamma^\sigma_{\alpha\beta}$ and
+$\partial_\alpha \partial_\beta V^\mu$ and
+$\Gamma^\mu_{\beta\sigma} \partial_\alpha V^\sigma + \Gamma^\mu_{\alpha \sigma} \partial_\beta V^\sigma$) get canceled by the
+same term in the $(\alpha \leftrightarrow \beta)$. We get
 
 .. math::
 
-    R^\mu{}_{\nu\alpha\beta}=\partial_\alpha\Gamma^\mu_{\beta\nu} -\partial_\beta\Gamma^\mu_{\alpha\nu} +\Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta\nu} -\Gamma^\mu_{\beta\sigma}\Gamma^\sigma_{\alpha\nu}
+    R^\mu{}_{\nu\alpha\beta}
+        = \partial_\alpha\Gamma^\mu_{\beta \nu}
+        + \Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
+          - (\alpha \leftrightarrow \beta)
+        = \partial_\alpha\Gamma^\mu_{\beta \nu}
+        - \partial_\beta \Gamma^\mu_{\alpha\nu}
+        + \Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
+        - \Gamma^\mu_{\beta \sigma}\Gamma^\sigma_{\alpha\nu}
 
 .. index::
     pair: Lie; derivative
