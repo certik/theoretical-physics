@@ -366,7 +366,7 @@ maximizes the proper time:
         = \int \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
             {\d x^\nu\over\d\lambda}} \d\lambda
 
-We apply a variation:
+We vary this action with respect to $x^\mu$:
 
 .. math::
 
