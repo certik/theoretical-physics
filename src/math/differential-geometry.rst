@@ -563,6 +563,113 @@ same term in the $(\alpha \leftrightarrow \beta)$. We get
         + \Gamma^\mu_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
         - \Gamma^\mu_{\beta \sigma}\Gamma^\sigma_{\alpha\nu}
 
+In order to see all the symmetries, that the Riemann tensor has, we lower the
+first index
+
+.. math::
+
+    R_{\mu\nu\alpha\beta} = g_{\mu\lambda} R^\lambda{}_{\nu\alpha\beta}
+        = g_{\mu\lambda} \left(
+        \partial_\alpha\Gamma^\lambda_{\beta \nu}
+        + \Gamma^\lambda_{\alpha\sigma}\Gamma^\sigma_{\beta \nu}
+          - (\alpha \leftrightarrow \beta)
+        \right)
+
+
+and use local inertial frame coordinates, where all Christoffel
+symbols vanish (not their derivatives though):
+
+.. math::
+
+    R_{\mu\nu\alpha\beta}
+        = g_{\mu\lambda} \left(
+        \partial_\alpha\Gamma^\lambda_{\beta \nu}
+          - (\alpha \leftrightarrow \beta)
+        \right)
+
+        = g_{\mu\lambda}\left(\partial_\alpha\left(
+            \half g^{\lambda\sigma}(
+                 \partial_\beta g_{\sigma\nu}
+                +\partial_\nu g_{\sigma\beta}
+                -\partial_\sigma g_{\beta\nu}
+                )\right)
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half g_{\mu\lambda}g^{\lambda\sigma} \left(\partial_\alpha\left(
+                 \partial_\beta g_{\sigma\nu}
+                +\partial_\nu g_{\sigma\beta}
+                -\partial_\sigma g_{\beta\nu}
+                \right)
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \delta_\mu{}^\sigma \left(\partial_\alpha\left(
+                 \partial_\beta g_{\sigma\nu}
+                +\partial_\nu g_{\sigma\beta}
+                -\partial_\sigma g_{\beta\nu}
+                \right)
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \left(
+                 \partial_\alpha\partial_\beta g_{\mu\nu}
+                +\partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\alpha\partial_\mu g_{\beta\nu}
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \left(
+                \partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\alpha\partial_\mu g_{\beta\nu}
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \left(
+                \partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\alpha\partial_\mu g_{\beta\nu}
+                -\partial_\beta\partial_\nu g_{\mu\alpha}
+                +\partial_\beta\partial_\mu g_{\alpha\nu}
+                \right)
+
+We will also need:
+
+.. math::
+
+    \nabla_\lambda R_{\mu\nu\alpha\beta}
+        = \half \partial_\lambda \left(
+                \partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\alpha\partial_\mu g_{\beta\nu}
+          - (\alpha \leftrightarrow \beta)
+                \right) =
+
+        = \half \left(
+                \partial_\lambda\partial_\alpha\partial_\nu g_{\mu\beta}
+                -\partial_\lambda\partial_\alpha\partial_\mu g_{\beta\nu}
+                -\partial_\lambda\partial_\beta\partial_\nu g_{\mu\alpha}
+                +\partial_\lambda\partial_\beta\partial_\mu g_{\alpha\nu}
+                \right)
+
+Using these expressions for the curvature tensor in a local inertial frame, we
+derive the following 5 symmetries of the curvature tensor by simply
+substituting for the left hand side and verify that it is equal to the right
+hand side:
+
+.. math::
+
+    R_{\mu\nu\alpha\beta} &= -R_{\mu\nu\beta\alpha} \\
+    R_{\mu\nu\alpha\beta} &= -R_{\nu\mu\alpha\beta} \\
+    R_{\mu\nu\alpha\beta} &= R_{\alpha\beta\mu\nu} \\
+    R_{\mu\nu\alpha\beta} + R_{\mu\alpha\beta\nu} + R_{\mu\beta\nu\alpha} &= 0\\
+    \nabla_\lambda R_{\mu\nu\alpha\beta} +\nabla_\mu R_{\nu\lambda\alpha\beta} +\nabla_\nu R_{\lambda\mu\alpha\beta} &= 0
+
+These are tensor expressions and so even though we derived them in a local
+inertial frame, they hold in all coordinates. The last identity is called
+a Bianchi identity.
+
+.. math::
+
+
 .. index::
     pair: Lie; derivative
 
