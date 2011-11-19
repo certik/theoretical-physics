@@ -680,6 +680,68 @@ $K^{\alpha\mu\nu}={1\over\mu_0} F^{\mu\alpha} A^\nu$ and get:
 
 where we used $\partial_\alpha F^{\mu\alpha} = 0$.
 
+Another way to derive the stress energy tensor is from general relativity using
+the formula:
+
+.. math::
+
+    T_{\mu\nu} = - {1\over\sqrt{ |\det g| }}{\delta S_{EM}\over
+            \delta g^{\mu\nu}}
+
+So we write the action:
+
+.. math::
+
+    S_{EM} = -\int {1\over 4\mu_0} F_{\alpha\beta} F^{\alpha\beta}
+        \sqrt{ |\det g| }\d^4 x
+        = -\int {1\over 4\mu_0} g^{\alpha\lambda} g^{\beta\rho} F_{\alpha\beta}
+            F_{\lambda\rho}
+        \sqrt{ |\det g| }\d^4 x
+
+And vary with respect to $g^{\mu\nu}$:
+
+.. math::
+
+    \delta S_{EM}
+        = -\delta \int {1\over 4\mu_0} g^{\alpha\lambda} g^{\beta\rho}
+            F_{\alpha\beta} F_{\lambda\rho} \sqrt{ |\det g| }\d^4 x =
+
+        = -{1\over 4\mu_0} \int  \left(\delta (g^{\alpha\lambda} g^{\beta\rho})
+            F_{\alpha\beta} F_{\lambda\rho} \sqrt{ |\det g| }
+            + g^{\alpha\mu} g^{\beta\rho}
+            F_{\alpha\beta} F_{\lambda\rho} \left(\delta \sqrt{ |\det g| }
+            \right)
+            \right)\d^4 x =
+
+        = -{1\over 4\mu_0} \int  \left(2(\delta g^{\alpha\lambda}) g^{\beta\rho}
+            F_{\alpha\beta} F_{\lambda\rho} \sqrt{ |\det g| }
+            + g^{\alpha\lambda} g^{\beta\rho}
+            F_{\alpha\beta} F_{\lambda\rho} \left(-\half \sqrt{ |\det g| }
+            g_{\mu\nu} (\delta g^{\mu\nu})
+            \right)
+            \right)\d^4 x =
+
+        = -{1\over 4\mu_0} \int  \left(2(\delta g^{\alpha\lambda})
+            F_{\alpha\beta} F_\lambda{}^\beta
+            -\half F_{\alpha\beta} F^{\alpha\beta}
+            g_{\mu\nu} (\delta g^{\mu\nu})
+            \right) \sqrt{ |\det g| } \d^4 x =
+
+        = -{1\over 2\mu_0} \int  \left(
+            F_{\mu\beta} F_\nu{}^\beta
+            -{1\over 4} F_{\alpha\beta} F^{\alpha\beta}
+            g_{\mu\nu}
+            \right) (\delta g^{\mu\nu}) \sqrt{ |\det g| } \d^4 x
+
+And we get:
+
+.. math::
+
+    2 T_{\mu\nu} = {1\over \mu_0} \left(
+            F_{\mu\beta} F_\nu{}^\beta
+            -{1\over 4} F_{\alpha\beta} F^{\alpha\beta}
+            g_{\mu\nu} \right)
+
 
 Examples
 --------
