@@ -488,6 +488,22 @@ $g_{\mu\nu} = g_{\mu\nu}(x^\mu)$:
             \partial_\sigma g_{\mu\nu}
         = (\delta x^\sigma) \partial_\sigma g_{\mu\nu}
 
+And an example of varying with respect to a metric:
+
+.. math::
+
+    \delta \sqrt{ |\det g_{\mu\nu}| }
+        =\sqrt{ |\det g_{\mu\nu}| }\, \delta \log \sqrt{ |\det g_{\mu\nu}| }
+        =\half \sqrt{ |\det g_{\mu\nu}| }\, \delta \log |\det g_{\mu\nu}| =
+
+        =\half \sqrt{ |\det g_{\mu\nu}| }\, \delta \Tr \log g_{\mu\nu}
+        =\half \sqrt{ |\det g_{\mu\nu}| }\, \Tr \delta \log g_{\mu\nu} =
+
+        =\half \sqrt{ |\det g_{\mu\nu}| }\, \Tr g^{\mu\nu} \delta g_{\mu\nu}
+        =\half \sqrt{ |\det g_{\mu\nu}| }\, g^{\mu\nu} \delta g_{\mu\nu} =
+
+        =-\half \sqrt{ |\det g_{\mu\nu}| }\, g_{\mu\nu} \delta g^{\mu\nu}
+
 .. index:: dirac notation
 
 Dirac Notation
