@@ -962,6 +962,161 @@ Where we set:
 
     T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
 
+
+Continuous Distribution of Matter
+---------------------------------
+
+The action is:
+
+.. math::
+
+    S_M = -\int \rho c^2 \sqrt{ |\det g| } \d^4 x
+
+But it isn't suitable for applying variations because $\rho$ and $v^\alpha$ are
+not independent quantities. So we write it in terms of a 4-momentum vector
+density $p^\mu$:
+
+.. math::
+
+    p^\mu = \rho v^\alpha \sqrt{ |\det g| }
+
+so $\sqrt{p_\mu p^\mu} = \rho c \sqrt{ |\det g| }$ and
+
+.. math::
+
+    S_M = -\int \rho c^2 \sqrt{ |\det g| } \d^4 x
+        = -\int c \sqrt{p_\mu p^\mu} \d^4 x
+
+We vary $S_M$ with respect to $g^{\mu\nu}$:
+
+.. math::
+
+    \delta S_M
+        = - \delta \int c \sqrt{p_\mu p^\mu} \d^4 x =
+
+        = - \int c {\delta(g^{\mu\nu} p_\mu p_\nu)
+            \over 2\sqrt{p_\alpha p^\alpha}} \d^4 x =
+
+        = - \int c { p_\mu p_\nu
+            \over 2\sqrt{p_\alpha p^\alpha}} \delta(g^{\mu\nu})\d^4 x
+
+And the stress energy tensor is:
+
+.. math::
+
+    T_{\mu\nu}
+        = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} =
+
+        = {2\over\sqrt{ |\det g| }} c { p_\mu p_\nu
+            \over 2\sqrt{p_\alpha p^\alpha}} =
+
+        = {2\over\sqrt{ |\det g| }} c { \rho v_\mu \rho v_\nu
+            \sqrt{ |\det g| }^2
+            \over 2 \rho c \sqrt{ |\det g| } } =
+
+        = \rho v_\mu v_\nu
+
+Now we vary $S_M$ with respect to $x^\mu$:
+
+.. math::
+
+    \delta S_M
+        = - \delta \int c \sqrt{p_\mu p^\mu} \d^4 x =
+
+        = - \int c {\delta(g^{\mu\nu} p_\mu p_\nu)
+            \over 2\sqrt{p_\alpha p^\alpha}} \d^4 x =
+
+        = - \int c { 2 g^{\mu\nu} p_\mu (\delta p_\nu)
+            \over 2\sqrt{p_\alpha p^\alpha}} \d^4 x =
+
+        = - \int c { p_\mu \over \sqrt{p_\alpha p^\alpha}}
+            (\delta p^\mu) \d^4 x =
+
+        = - \int c { p_\mu \over \sqrt{p_\alpha p^\alpha}}
+            \partial_\nu \left(p^\nu(\delta x^\mu) - p^\mu (\delta x^\nu)\right)
+                \d^4 x =
+
+        = \int c \partial_\nu \left({ p_\mu \over \sqrt{p_\alpha p^\alpha}}
+                \right)
+            \left(p^\nu(\delta x^\mu) - p^\mu (\delta x^\nu)\right)
+                \d^4 x =
+
+        = \int c \left(
+            \partial_\nu \left({ p_\mu \over \sqrt{p_\alpha p^\alpha}} \right)
+            -\partial_\mu \left({ p_\nu \over \sqrt{p_\alpha p^\alpha}} \right)
+            \right)
+            p^\nu(\delta x^\mu)
+                \d^4 x =
+
+        = \int c \left(
+            \nabla_\nu \left({ p_\mu \over \sqrt{p_\alpha p^\alpha}} \right)
+            -\nabla_\mu \left({ p_\nu \over \sqrt{p_\alpha p^\alpha}} \right)
+            \right)
+            p^\nu(\delta x^\mu)
+                \d^4 x =
+
+        = \int \left( \nabla_\nu v_\mu -\nabla_\mu v_\nu \right)
+            \rho v^\nu (\delta x^\mu) \sqrt{ |\det g| }
+                \d^4 x =
+
+        = \int \rho (\nabla_\nu v_\mu) v^\nu (\delta x^\mu) \sqrt{ |\det g| }
+                \d^4 x
+
+So the equation of motion is the geodesic:
+
+.. math::
+
+    \rho (\nabla_\nu v_\mu) v^\nu = 0
+
+Charged matter has the interaction action:
+
+.. math::
+
+    S_q = -\int \rho_{EM} v^\mu A_\mu \sqrt{ |\det g| } \d^4 x
+        = -\int J^\mu A_\mu \d^4 x
+
+where we have introduced the 4-current charge density:
+
+.. math::
+
+    J^\mu = \rho_{EM} v^\mu \sqrt{ |\det g| }
+
+We vary $S_q$ with respect to $x^\mu$:
+
+.. math::
+
+    \delta S_q
+        = - \delta \int J^\mu A_\mu \d^4 x =
+
+        = - \int (\delta J^\mu) A_\mu \d^4 x =
+
+        = - \int \partial_\nu \left(J^\nu (\delta x^\mu)
+            - J^\mu (\delta x^\nu)\right) A_\mu \d^4 x =
+
+        = \int \left(J^\nu (\delta x^\mu)
+            - J^\mu (\delta x^\nu)\right) \partial_\nu A_\mu \d^4 x =
+
+        = \int J^\nu (\delta x^\mu) (\partial_\nu A_\mu -\partial_\mu A_\nu)
+            \d^4 x =
+
+        = \int \rho_{EM} v^\nu  (\partial_\nu A_\mu -\partial_\mu A_\nu)
+            (\delta x^\mu) \sqrt{ |\det g| }
+            \d^4 x =
+
+        = -\int \rho_{EM} v^\nu  F_{\mu\nu} (\delta x^\mu) \sqrt{ |\det g| }
+            \d^4 x
+
+So the combined action $S_M + S_q$ yields:
+
+.. math::
+
+    \rho (\nabla_\nu v_\mu) v^\nu
+        -\rho_{EM} v^\nu  F_{\mu\nu} = 0
+
+Varying $S_q$ with respect to $A^\mu$ yields $\rho_{EM} v^\mu$ which ends up on
+the right hand side of the Maxwell's equations as a 4-current when varying the
+$S_{EM}$ action.
+
 Obsolete Section
 ----------------
 
