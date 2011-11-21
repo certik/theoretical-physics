@@ -855,8 +855,8 @@ Einstein's equations are derived from the Hilbert action:
 
 .. math::
 
-    S_H = \int R \sqrt{ |\det g_{\mu\nu}| } \d^4 x
-        = \int g^{\mu\nu} R_{\mu\nu} \sqrt{ |\det g| } \d^4 x
+    S_H = {c^4\over 16\pi G} \int R \sqrt{ |\det g_{\mu\nu}| } \d^4 x
+        = {c^4\over 16\pi G} \int g^{\mu\nu} R_{\mu\nu} \sqrt{ |\det g| } \d^4 x
 
 The Lagrangian density $R \sqrt{ |\det g_{\mu\nu}| }$ has to be given, that's
 our assumption and everything else is derived from it. In principle it can have
@@ -871,15 +871,15 @@ Varying it with respect to the metric $g^{\mu\nu}$ we get:
 
 .. math::
 
-    \delta S_H = \delta \int R \sqrt{ |\det g| } \d^4 x =
+    \delta S_H = \delta {c^4\over 16\pi G} \int R \sqrt{ |\det g| } \d^4 x =
 
-        = \int
+        = {c^4\over 16\pi G} \int
             (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
             +g^{\mu\nu} (\delta R_{\mu\nu}) \sqrt{ |\det g| }
             +R (\delta \sqrt{ |\det g| })
             \d^4 x=
 
-        = \int
+        = {c^4\over 16\pi G} \int
             (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
             +g^{\mu\nu} \left(
                 \nabla_\lambda(\delta \Gamma^\lambda_{\nu\mu})
@@ -889,7 +889,7 @@ Varying it with respect to the metric $g^{\mu\nu}$ we get:
             -\half \sqrt{ |\det g| }\, g_{\mu\nu} (\delta g^{\mu\nu}))
             \d^4 x=
 
-        = \int
+        = {c^4\over 16\pi G} \int
             (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
             + \left(
                 \nabla_\lambda g^{\mu\nu}(\delta \Gamma^\lambda_{\nu\mu})
@@ -899,13 +899,13 @@ Varying it with respect to the metric $g^{\mu\nu}$ we get:
                 (\delta g^{\mu\nu})
             \d^4 x=
 
-        = \int
+        = {c^4\over 16\pi G} \int
             (\delta g^{\mu\nu}) R_{\mu\nu} \sqrt{ |\det g| }
             -\half R g_{\mu\nu} \sqrt{ |\det g| }\,
                 (\delta g^{\mu\nu})
             \d^4 x=
 
-        = \int \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
+        = {c^4\over 16\pi G} \int \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
                 (\delta g^{\mu\nu}) \sqrt{ |\det g| }
             \d^4 x
 
@@ -929,31 +929,31 @@ integral. By setting $\delta S_H=0$, we get:
 
 .. math::
 
-    {1\over\sqrt{ |\det g| }}{\delta S_H\over\delta g^{\mu\nu}}
-        = R_{\mu\nu} -\half R g_{\mu\nu} = 0
+    {2\over\sqrt{ |\det g| }}{\delta S_H\over\delta g^{\mu\nu}}
+        = {c^4\over 8\pi G}(R_{\mu\nu} -\half R g_{\mu\nu}) = 0
 
 Combining the Hilbert action $S_H$ with the action for matter $S_M$ we get:
 
 .. math::
 
-    S = {c^4\over 16\pi G} S_H + S_M
+    S = S_H + S_M
 
 Varying this action as above we get:
 
 .. math::
 
-    {1\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
-        ={c^4\over 16\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right) 
+    {2\over\sqrt{ |\det g| }}{\delta S\over\delta g^{\mu\nu}}
+        ={c^4\over 8\pi G} \left( R_{\mu\nu} -\half R g_{\mu\nu} \right)
         +
-    {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0
+    {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} = 0
 
 so:
 
 .. math::
 
     R_{\mu\nu} -\half R g_{\mu\nu} =
-        -{16\pi G \over c^4}
-        {1\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} 
+        -{8\pi G \over c^4}
+        {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} 
     ={8\pi G \over c^4} T_{\mu\nu}
 
 Where we set:
