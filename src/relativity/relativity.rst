@@ -974,31 +974,33 @@ The action is:
 
 But it isn't suitable for applying variations because $\rho$ and $v^\alpha$ are
 not independent quantities. So we write it in terms of a 4-momentum vector
-density $p^\mu$:
+density $\textgoth{p}^\mu$:
 
 .. math::
 
-    p^\mu = \rho v^\alpha \sqrt{ |\det g| }
+    p^\mu = \rho v^\mu
 
-so $\sqrt{p_\mu p^\mu} = \rho c \sqrt{ |\det g| }$ and
+    \textgoth{p}^\mu = p^\mu \sqrt{ |\det g| } = \rho v^\mu \sqrt{ |\det g| }
+
+so $\sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} = \rho c \sqrt{ |\det g| }$ and
 
 .. math::
 
     S_M = -\int \rho c^2 \sqrt{ |\det g| } \d^4 x
-        = -\int c \sqrt{p_\mu p^\mu} \d^4 x
+        = -\int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x
 
 We vary $S_M$ with respect to $g^{\mu\nu}$:
 
 .. math::
 
     \delta S_M
-        = - \delta \int c \sqrt{p_\mu p^\mu} \d^4 x =
+        = - \delta \int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x =
 
-        = - \int c {\delta(g^{\mu\nu} p_\mu p_\nu)
-            \over 2\sqrt{p_\alpha p^\alpha}} \d^4 x =
+        = - \int c {\delta(g^{\mu\nu} \textgoth{p}_\mu \textgoth{p}_\nu)
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
 
-        = - \int c { p_\mu p_\nu
-            \over 2\sqrt{p_\alpha p^\alpha}} \delta(g^{\mu\nu})\d^4 x
+        = - \int c { \textgoth{p}_\mu \textgoth{p}_\nu
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \delta(g^{\mu\nu})\d^4 x
 
 And the stress energy tensor is:
 
@@ -1007,8 +1009,8 @@ And the stress energy tensor is:
     T_{\mu\nu}
         = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} =
 
-        = {2\over\sqrt{ |\det g| }} c { p_\mu p_\nu
-            \over 2\sqrt{p_\alpha p^\alpha}} =
+        = {2\over\sqrt{ |\det g| }} c { \textgoth{p}_\mu \textgoth{p}_\nu
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} =
 
         = {2\over\sqrt{ |\det g| }} c { \rho v_\mu \rho v_\nu
             \sqrt{ |\det g| }^2
@@ -1021,38 +1023,39 @@ Now we vary $S_M$ with respect to $x^\mu$:
 .. math::
 
     \delta S_M
-        = - \delta \int c \sqrt{p_\mu p^\mu} \d^4 x =
+        = - \delta \int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x =
 
-        = - \int c {\delta(g^{\mu\nu} p_\mu p_\nu)
-            \over 2\sqrt{p_\alpha p^\alpha}} \d^4 x =
+        = - \int c {\delta(g^{\mu\nu} \textgoth{p}_\mu \textgoth{p}_\nu)
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
 
-        = - \int c { 2 g^{\mu\nu} p_\mu (\delta p_\nu)
-            \over 2\sqrt{p_\alpha p^\alpha}} \d^4 x =
+        = - \int c { 2 g^{\mu\nu} \textgoth{p}_\mu (\delta \textgoth{p}_\nu)
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
 
-        = - \int c { p_\mu \over \sqrt{p_\alpha p^\alpha}}
-            (\delta p^\mu) \d^4 x =
+        = - \int c { \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+            (\delta \textgoth{p}^\mu) \d^4 x =
 
-        = - \int c { p_\mu \over \sqrt{p_\alpha p^\alpha}}
-            \partial_\nu \left(p^\nu(\delta x^\mu) - p^\mu (\delta x^\nu)\right)
+        = - \int c { \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+            \partial_\nu \left(\textgoth{p}^\nu(\delta x^\mu) - \textgoth{p}^\mu (\delta x^\nu)\right)
                 \d^4 x =
 
-        = \int c \partial_\nu \left({ p_\mu \over \sqrt{p_\alpha p^\alpha}}
+        = \int c \partial_\nu \left({ \textgoth{p}_\mu \over
+        \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
                 \right)
-            \left(p^\nu(\delta x^\mu) - p^\mu (\delta x^\nu)\right)
+            \left(\textgoth{p}^\nu(\delta x^\mu) - \textgoth{p}^\mu (\delta x^\nu)\right)
                 \d^4 x =
 
         = \int c \left(
-            \partial_\nu \left({ p_\mu \over \sqrt{p_\alpha p^\alpha}} \right)
-            -\partial_\mu \left({ p_\nu \over \sqrt{p_\alpha p^\alpha}} \right)
+            \partial_\nu \left({ \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+            -\partial_\mu \left({ \textgoth{p}_\nu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
             \right)
-            p^\nu(\delta x^\mu)
+            \textgoth{p}^\nu(\delta x^\mu)
                 \d^4 x =
 
         = \int c \left(
-            \nabla_\nu \left({ p_\mu \over \sqrt{p_\alpha p^\alpha}} \right)
-            -\nabla_\mu \left({ p_\nu \over \sqrt{p_\alpha p^\alpha}} \right)
+            \nabla_\nu \left({ \textgoth{p}_\mu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
+            -\nabla_\mu \left({ \textgoth{p}_\nu \over \sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \right)
             \right)
-            p^\nu(\delta x^\mu)
+            \textgoth{p}^\nu(\delta x^\mu)
                 \d^4 x =
 
         = \int \left( \nabla_\nu v_\mu -\nabla_\mu v_\nu \right)
@@ -1073,30 +1076,35 @@ Charged matter has the interaction action:
 .. math::
 
     S_q = -\int \rho_{EM} v^\mu A_\mu \sqrt{ |\det g| } \d^4 x
-        = -\int J^\mu A_\mu \d^4 x
+        = -\int j^\mu A_\mu \sqrt{ |\det g| }\d^4 x
+        = -\int \textgoth{j}^\mu A_\mu \d^4 x
 
-where we have introduced the 4-current charge density:
+where we have introduced the 4-current $j^\mu$ and 4-current density
+$\textgoth{j}^\mu$:
 
 .. math::
 
-    J^\mu = \rho_{EM} v^\mu \sqrt{ |\det g| }
+    j^\mu = \rho_{EM} v^\mu
+
+    \textgoth{j}^\mu = j^\mu \sqrt{ |\det g| }
+        = \rho_{EM} v^\mu \sqrt{ |\det g| }
 
 We vary $S_q$ with respect to $x^\mu$:
 
 .. math::
 
     \delta S_q
-        = - \delta \int J^\mu A_\mu \d^4 x =
+        = - \delta \int \textgoth{j}^\mu A_\mu \d^4 x =
 
-        = - \int (\delta J^\mu) A_\mu \d^4 x =
+        = - \int (\delta \textgoth{j}^\mu) A_\mu \d^4 x =
 
-        = - \int \partial_\nu \left(J^\nu (\delta x^\mu)
-            - J^\mu (\delta x^\nu)\right) A_\mu \d^4 x =
+        = - \int \partial_\nu \left(\textgoth{j}^\nu (\delta x^\mu)
+            - \textgoth{j}^\mu (\delta x^\nu)\right) A_\mu \d^4 x =
 
-        = \int \left(J^\nu (\delta x^\mu)
-            - J^\mu (\delta x^\nu)\right) \partial_\nu A_\mu \d^4 x =
+        = \int \left(\textgoth{j}^\nu (\delta x^\mu)
+            - \textgoth{j}^\mu (\delta x^\nu)\right) \partial_\nu A_\mu \d^4 x =
 
-        = \int J^\nu (\delta x^\mu) (\partial_\nu A_\mu -\partial_\mu A_\nu)
+        = \int \textgoth{j}^\nu (\delta x^\mu) (\partial_\nu A_\mu -\partial_\mu A_\nu)
             \d^4 x =
 
         = \int \rho_{EM} v^\nu  (\partial_\nu A_\mu -\partial_\mu A_\nu)
