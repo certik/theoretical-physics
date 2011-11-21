@@ -970,9 +970,9 @@ The action is:
 
 .. math::
 
-    S_M = -\int \rho c^2 \sqrt{ |\det g| } \d^4 x
+    S_M = -\int \rho c \sqrt{v_\mu v^\mu} \sqrt{ |\det g| } \d^4 x
 
-But it isn't suitable for applying variations because $\rho$ and $v^\alpha$ are
+But it isn't suitable for applying variations because $\rho$ and $v^\mu$ are
 not independent quantities. So we write it in terms of a 4-momentum vector
 density $\textgoth{p}^\mu$:
 
@@ -982,11 +982,15 @@ density $\textgoth{p}^\mu$:
 
     \textgoth{p}^\mu = p^\mu \sqrt{ |\det g| } = \rho v^\mu \sqrt{ |\det g| }
 
-so $\sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} = \rho c \sqrt{ |\det g| }$ and
+    \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu}
+        = \sqrt{\rho v_\mu \sqrt{ |\det g| } \rho v^\mu \sqrt{ |\det g| }}
+        = \rho \sqrt{v_\mu v^\mu} \sqrt{ |\det g| }
+
+and the action becomes:
 
 .. math::
 
-    S_M = -\int \rho c^2 \sqrt{ |\det g| } \d^4 x
+    S_M = -\int \rho c \sqrt{v_\mu v^\mu} \sqrt{ |\det g| } \d^4 x
         = -\int c \sqrt{\textgoth{p}_\mu \textgoth{p}^\mu} \d^4 x
 
 We vary $S_M$ with respect to $g^{\mu\nu}$:
@@ -1000,7 +1004,16 @@ We vary $S_M$ with respect to $g^{\mu\nu}$:
             \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \d^4 x =
 
         = - \int c { \textgoth{p}_\mu \textgoth{p}_\nu
-            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} \delta(g^{\mu\nu})\d^4 x
+            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}}
+            \delta(g^{\mu\nu})\d^4 x =
+
+        = - \int c { \rho v_\mu \rho v_\nu
+            \sqrt{ |\det g| }^2
+            \over 2 \rho c \sqrt{ |\det g| } }
+             \delta(g^{\mu\nu})\d^4 x =
+
+        = - \int \half \rho v_\mu v_\nu
+             \delta(g^{\mu\nu}) \sqrt{ |\det g| } \d^4 x
 
 And the stress energy tensor is:
 
@@ -1009,12 +1022,9 @@ And the stress energy tensor is:
     T_{\mu\nu}
         = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} =
 
-        = {2\over\sqrt{ |\det g| }} c { \textgoth{p}_\mu \textgoth{p}_\nu
-            \over 2\sqrt{\textgoth{p}_\alpha \textgoth{p}^\alpha}} =
-
-        = {2\over\sqrt{ |\det g| }} c { \rho v_\mu \rho v_\nu
-            \sqrt{ |\det g| }^2
-            \over 2 \rho c \sqrt{ |\det g| } } =
+        = - {2\over\sqrt{ |\det g| }} \left(
+                -\half \rho v_\mu v_\nu \sqrt{ |\det g| }
+            \right)=
 
         = \rho v_\mu v_\nu
 
