@@ -962,6 +962,13 @@ Where we set:
 
     T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
 
+This is a definition of the stress energy tensor corresponding to the action
+$S_M$. If this action contains electromagnetic field, we get an electromagnetic
+stress energy tensor. For continous matter, we get the stress energy tensor for
+continous matter, see the next section. The right hand side of the Einstein's
+equations contains the sum of all stress energy tensors (for all fields in the
+Lagrangian).
+
 
 Continuous Distribution of Matter
 ---------------------------------
@@ -1131,9 +1138,9 @@ So the combined action $S_M + S_q$ yields:
     \rho (\nabla_\nu v_\mu) v^\nu
         -\rho_{EM} v^\nu  F_{\mu\nu} = 0
 
-Varying $S_q$ with respect to $A^\mu$ yields $\rho_{EM} v^\mu$ which ends up on
-the right hand side of the Maxwell's equations as a 4-current when varying the
-$S_{EM}$ action.
+Varying $S_q$ with respect to $A^\mu$ yields the 4-current $j^\mu = \rho_{EM}
+v^\mu$ which ends up on the right hand side of the Maxwell's equations when
+varying the $S_{EM}$ action.
 
 Obsolete Section
 ----------------
@@ -1157,7 +1164,7 @@ metrics tensor, so that I can easily derive things in exactly the same way as
 in general relativity. To do that, we will have to work in the regime $c$ is
 finite and only at the end do the limit $c\to\infty$.
 
-We start with Einstein equations:
+We start with Einstein's equations:
 
 .. math::
 
