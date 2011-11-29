@@ -953,7 +953,7 @@ so:
 
     R_{\mu\nu} -\half R g_{\mu\nu} =
         -{8\pi G \over c^4}
-        {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}} 
+        {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
     ={8\pi G \over c^4} T_{\mu\nu}
 
 Where we set:
@@ -963,7 +963,34 @@ Where we set:
     T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}
 
 This is a definition of the stress energy tensor corresponding to the action
-$S_M$. If this action contains electromagnetic field, we get an electromagnetic
+$S_M=\int \L_M \sqrt{ |\det g| }\d^4 x$. We can also write it in terms of the
+Lagrangian $\L_M$ directly as:
+
+.. math::
+
+    T_{\mu\nu} = - {2\over\sqrt{ |\det g| }}{\delta S_M\over\delta g^{\mu\nu}}=
+
+        = - {2\over\sqrt{ |\det g| }}{\delta \int \L_M \sqrt{ |\det g| }\d^4 x
+                \over\delta g^{\mu\nu}} =
+
+        = - {2\over\sqrt{ |\det g| }}{\int (\delta \L_M) \sqrt{ |\det g| }
+            + \L_M \left(\delta \sqrt{ |\det g| }\right)\d^4 x
+                \over\delta g^{\mu\nu}} =
+
+        = - {2\over\sqrt{ |\det g| }}{\int \left({\delta \L_M
+            \over\delta g^{\mu\nu}}(\delta g^{\mu\nu})\right) \sqrt{ |\det g| }
+            + \L_M \left(-\half
+                \sqrt{ |\det g| }\, g_{\mu\nu} (\delta g^{\mu\nu})\right)\d^4 x
+                \over\delta g^{\mu\nu}} =
+
+        = - {2\over\sqrt{ |\det g| }}\left({\delta \L_M
+            \over\delta g^{\mu\nu}} \sqrt{ |\det g| }
+            - \half \L_M \sqrt{ |\det g| }\, g_{\mu\nu} \right) =
+
+        = - 2 {\delta \L_M \over\delta g^{\mu\nu}}
+            + g_{\mu\nu} \L_M
+
+If this action contains electromagnetic field, we get an electromagnetic
 stress energy tensor. For continous matter, we get the stress energy tensor for
 continous matter, see the next section. The right hand side of the Einstein's
 equations contains the sum of all stress energy tensors (for all fields in the
