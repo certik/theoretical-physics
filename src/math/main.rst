@@ -11,6 +11,7 @@ Mathematics
     other.rst
     spherical-harmonics.rst
     feynman-parameters.rst
+    groups.rst
     wigner.rst
     ode.rst
     la.rst
