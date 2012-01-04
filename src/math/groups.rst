@@ -122,9 +122,9 @@ and it can be shown [Elliott]_ (eq. 4.28, page 63):
 
 .. math::
 
-    m_\alpha={1\over g}\sum_{x\in G} \chi^{(\alpha)*}(x)\chi^{(\alpha)}(x)=
+    m_\alpha={1\over g}\sum_{x\in G} \chi^{(\alpha)*}(x)\chi(x)=
 
-    = {1\over g}\sum_{p} c_p\chi^{(\alpha)*}_p\chi^{(\alpha)}_p
+    = {1\over g}\sum_{p} c_p\chi^{(\alpha)*}_p\chi_p
 
 where $c_p$ is the number of elements in the class $p$, $g$ is the number of
 elements in $G$ (the order of the group).
