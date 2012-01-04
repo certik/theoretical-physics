@@ -129,6 +129,103 @@ and it can be shown [Elliott]_ (eq. 4.28, page 63):
 where $c_p$ is the number of elements in the class $p$, $g$ is the number of
 elements in $G$ (the order of the group).
 
+Example
+^^^^^^^
+
+Consider the $S_3$ permutation group. The character table is:
+
+.. math::
+
+    \begin{array}{c|ccc}
+    S_3    & e & 3 (1 2) & 2 (1 2 3) \\
+    \hline
+     A_1   & 1 &   1     &  1 \\
+     A_2   & 1 &  -1     &  1 \\
+      E    & 2 &   0     & -1 \\
+    \end{array}
+
+From the table we read $c_1 = 1$, $c_2 = 3$, $c_3 = 2$ and
+$g = c_1 + c_2 + c_3 = 1 + 3 + 2 = 6$. There are 3 classes and 3 irreducible
+representaitons.
+
+Case I
+    We are given a representation given by the following matrices:
+
+    .. math::
+
+        e = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix},\quad\quad
+        a = \half\begin{pmatrix} 1 & -\sqrt{3} \\ -\sqrt{3} & -1 \end{pmatrix},
+            \quad\quad
+        b = \half\begin{pmatrix} 1 & \sqrt{3} \\ \sqrt{3} & -1 \end{pmatrix},
+
+        c = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix},\quad\quad
+        d = \half\begin{pmatrix} -1 & \sqrt{3} \\ -\sqrt{3} & -1 \end{pmatrix},
+            \quad\quad
+        f = \half\begin{pmatrix} -1 & -\sqrt{3} \\ \sqrt{3} & -1 \end{pmatrix}.
+
+    These 6 matrices belong to the following three classes
+    $\{e\}$, $\{a, b, c\}$, $\{d, f\}$ and the corresponding characters for
+    each class are:
+
+    .. math::
+
+        \chi_1 &= 2 \\
+        \chi_2 &= 0 \\
+        \chi_3 &= -1
+
+    and we get:
+
+    .. math::
+
+        m_1 &= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot1\cdot 0
+            + 2\cdot1\cdot (-1)) = 0 \\
+        m_2 &= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot(-1)\cdot 0
+            + 2\cdot1\cdot (-1)) = 0\\
+        m_3 &= {1\over 6} (1\cdot 2\cdot 2 + 3\cdot 0\cdot 0
+            + 2\cdot(-1)\cdot (-1)) = 1\\
+
+    So this representation is irreducible and it is equivalent to
+    $m_1 A_1 \oplus m_2 A_2 \oplus m_3 E = E$.
+
+Case II
+    We are given a representation given by the following matrices:
+
+    .. math::
+
+        e = d = f = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix},\quad\quad
+        a = b = c = \half\begin{pmatrix} -1 & -\sqrt{3} \\ -\sqrt{3} & 1
+            \end{pmatrix}.
+
+    These 6 matrices belong to the following three classes
+    $\{e\}$, $\{a, b, c\}$, $\{d, f\}$ and the corresponding characters for
+    each class are:
+
+    .. math::
+
+        \chi_1 &= 2 \\
+        \chi_2 &= 0 \\
+        \chi_3 &= 2
+
+    and we get:
+
+    .. math::
+
+        m_1 &= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot1\cdot 0
+            + 2\cdot1\cdot 2) = 1 \\
+        m_2 &= {1\over 6} (1\cdot 1\cdot 2 + 3\cdot(-1)\cdot 0
+            + 2\cdot1\cdot 2) = 1\\
+        m_3 &= {1\over 6} (1\cdot 2\cdot 2 + 3\cdot 0\cdot 0
+            + 2\cdot(-1)\cdot 2) = 0\\
+
+    So this representation is reducible and it is equivalent to
+    $m_1 A_1 \oplus m_2 A_2 \oplus m_3 E = A_1 \oplus A_2$.
+    The matrices are equivalent to:
+
+    .. math::
+
+        e = d = f = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix},\quad\quad
+        a = b = c = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
+
 
 Other facts
 ~~~~~~~~~~~
