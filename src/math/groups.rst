@@ -244,6 +244,16 @@ Regular representation of $G$:
 
             \# G = \sum p_i^2\,.
 
+Element Order
+    The order $n$ of an element $g$ is the least integer for which $g^n=e$.
+    The order $n$ can be determined from the group multiplication table for
+    example.
+    Theorem: $n$ must divide the size (order) of the group (for finite groups).
+    Example: For a group of six elements, the only possible orders are 1, 2, 3
+    and 6.
+    Note: the element order is the same for the whole conjugacy class because:
+    $x^n = \left(c y c^{-1}\right)^n = c y^n c^{-1} = c e c^{-1} = e$.
+
 Schur's lemma
     (a) Be $r$ an IR of $G$. If $[r(a),T]=0$, $\forall a\in G$, then
     $T=cI$.
@@ -436,8 +446,8 @@ by $-I$. $3(2_\perp)$ means three different two-fold axes $2_\perp$.
 Construction and usage of the character table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For simpler groups the character tables can be constructed using the following
-four rules:
+For simpler groups the character tables can be fully constructed by the
+following rules:
 
 #. The sum of the squares of the dimensions $n_i$ of the irreducible
    representations is equal to the order $g$ of the point group:
@@ -449,8 +459,8 @@ four rules:
    The dimension $n_\mu$ is given by the character of the identity matrix
    (first column) $n_\mu = \chi^\mu(E)$, so the sum of squares of the first
    column is $g$. It is customary to put the characters of the one dimensional
-   representation ($\chi^1(C_i)=1$) into the first row, so , so the first row
-   is filled with 1s.
+   representation ($\chi^1(C_i)=1$) into the first row, so the first row
+   is filled with 1s. Also, $n_i$ must divide $g$.
 #. The number of irreducible representations $r$ (rows) is equal to the number
    of classes $k$ (columns)
 #. The rows must satisfy
@@ -466,8 +476,40 @@ four rules:
             \sum_{\nu=1}^k \chi^\nu(C_i) \chi^\nu(C_j)^* = {g\over g_i}
                 \delta_{ij}
 
+#. Characters of all one-dimensional representation must be roots of unity,
+   equal to $\chi = e^{2\pi i k\over n}$, where $n$ is the element order, which
+   must divide the group size $g$ (and it is the same for the whole conjugacy
+   class). In general, $k$ is any integer (for faithful representation it would
+   be $k=1$).
+   This follows from the fact, that the character is also the one-dimensional
+   representation matrix and they all commute, thus the group is Abelian.
+   Also, the characters (=representation matrices) must respect the group
+   operations, so for example if for two group elements $g_1^2=g_2$, then their
+   characters must also obey $\chi_1^2 = \chi_2$.
+
+#. Character of an element is the complex conjugate of its inverse. If they
+   both belong to the same conjugacy class, the character must be real. If the
+   character is complex, it means that its inverse is not from the same
+   conjugacy class and then there must be a complex conjugate for another
+   conjugacy class from the same irreducible representation.
+
+#. Characters come in complex conjugate pairs, since complex conjugate of a
+   representation is also a representation. If there is only one representation
+   of the dimension $d$, then it must be real (since it is its own conjugate).
+   If there are two representations of dimension $d$ and one is complex, then
+   the other one must be its complex conjugate. Anothe way to look at this is
+   that if we conjugate each entry of the character table, then we must get the
+   same character table (up to a possible reordering of rows within the same
+   dimension).
+
+#. If there is one dimensional representation $A_1$ (with characters $\chi_1$)
+   and any other representation $T$ of dimension $d$ (with characters $\chi$),
+   then there must be a representation of dimension $d$ with characters
+   $\chi_1\chi$ (corresponding to the tensor product $A_1 \otimes T$).
+
 There exists a systematic approach that works for any group, but it is
-complicated (see for example [Dixon67]_, [Blokker72]_ and [Cannon69]_).
+complicated (see for example [Dixon67]_, [Blokker72]_, [Cannon69]_
+and [Chillag86]_).
 
 The notation for irreducible representation:
 One-dimensional irreducible representations are labeled either $A$ or $B$
@@ -478,11 +520,11 @@ is no symmetry axis, all one-dimensional representations are labeled $A$.
 For general information, see [Elliott]_ (sec. 4.15, page 67) and [Bishop]_, page
 128.
 
-Example
-^^^^^^^
+Example I
+^^^^^^^^^
 
-Let's take the group $C_{3v}$, which has three classes $E$, $2C_3$ and
-$3\sigma_v$.
+Let's take the group $C_{3v}$, which has three classes $E$ (1 element),
+$C_3$ (2 elements) and $\sigma_v$ (3 elements).
 
 So $g_1=1$, $g_2=2$ and $g_3=3$ and the order is
 $g=g_1+g_2+g_3=6$. Therefore it has three irreducible representations, whose
@@ -557,7 +599,8 @@ The rule 4. generates the following equations for all $i$ and $j$:
 Both of the above solutions for $(a, b, c, d)$ satisfy all of these equations,
 so the column equations are redundant.
 
-The final character table is:
+Now we use the rule 5. and see that the second solution is not a root of unity,
+so we discard it. The final character table is:
 
 .. math::
 
@@ -685,6 +728,326 @@ This prints::
     Equation 3 from columns conditions, result: 0
     Equation 4 from columns conditions, result: 0
     Equation 5 from columns conditions, result: 0
+
+Example II
+^^^^^^^^^^
+
+We derive the character table for $C_{3v}$ again, using another approach.
+First we determine the element orders, that must divide the size of the group
+(possible values are 1, 2, 3, 6). Element order of the class $E$ is 1, because
+$E^2=1$. The element order of $C_3$ is 3, because $C_3^3 = 1$. Finally, the
+element order of $\sigma_v$ is 2, because $\sigma_v^2=1$.
+
+.. math::
+
+    \begin{array}{c|ccc}
+    C_{3v} & E & 2 C_3 & 3 \sigma_v \\
+    \mbox{class sizes} & 1 & 2 & 3 \\
+    \mbox{element orders} & 1 & 3 & 2 \\
+    \hline
+     A_1      & 1 &   1   & 1 \\
+     A_2      & 1 &   a   & b \\
+      E       & 2 &   c   & d \\
+    \end{array}
+
+Rule 7: The characters of the representation $A_2$ must be real, because
+otherwise $A_1$ would have to be a complex conjugate. $E$ is the only
+representation of dimension 2, so it must be real as well.
+
+Rule 5: $A_2$ is Abelian, with element orders 1, 3 and 2. As such, we must
+have:
+
+.. math::
+
+    a = e^{2\pi i k\over 3} \\
+    b = e^{2\pi i l\over 2} \\
+
+Where $k$ and $l$ are unknown integers.
+However, since both $a$ and $b$ is real, the only solution is $k=0$
+(corresponding to $a=1$) and $l=0, 1$ (corresponding to $b=\pm 1$).
+
+Rule 3 gives:
+
+.. math::
+
+    1 + 2a + 3b = 0
+
+And plugging in $a=1$ this implies $b=-1$, consistent with the previous
+paragraph.
+
+Rule 8: multiplying $A_2$ by $E$ must give characters of dimension 2, which is
+$E$, so we get:
+
+.. math::
+
+    +1 \cdot c &= c \\
+    -1 \cdot d &= d \\
+
+From which $d=0$. Rule 3 gives:
+
+.. math::
+
+    2 + 2c + 3d = 0
+
+Where we use $d=0$ and we get $c=-1$. The final character table is:
+
+.. math::
+
+    \begin{array}{c|ccc}
+    C_{3v} & E & 2 C_3 & 3 \sigma_v \\
+    \hline
+     A_1      & 1 &   1   & 1 \\
+     A_2      & 1 &   1   & -1 \\
+      E       & 2 &   -1   & 0 \\
+    \end{array}
+
+Example III
+^^^^^^^^^^^
+
+We derive the character table for $C_2$.
+
+.. math::
+
+    \begin{array}{c|ccc}
+    C_2 & E & C_2 \\
+    \mbox{class sizes} & 1 & 1 \\
+    \mbox{element orders} & 1 & 2 \\
+    \hline
+     A_1      & 1 &   1 \\
+     A_2      & 1 &   a \\
+    \end{array}
+
+We have two classes, group order is 2, so we must have two representations of
+dimension 1. Using the rule 3. we get:
+
+.. math::
+
+    1 + a = 0
+
+so $a=-1$ and the final character table is:
+
+.. math::
+
+    \begin{array}{c|ccc}
+    C_2 & E & C_2 \\
+    \hline
+     A_1      & 1 &   1 \\
+     A_2      & 1 &   -1 \\
+    \end{array}
+
+Example IV
+^^^^^^^^^^
+
+We derive the character table for $C_3$.
+
+.. math::
+
+    \begin{array}{c|ccc}
+    C_3 & E & C_3 & C_3^2 \\
+    \mbox{class sizes} & 1 & 1 & 1 \\
+    \mbox{element orders} & 1 & 3 & 3 \\
+    \hline
+    \end{array}
+
+We have 3 classes and representations, group order is 3, so they must be one
+dimensional:
+
+.. math::
+
+    \begin{array}{c|ccc}
+    C_3 & E & C_3 & C_3^2 \\
+    \mbox{class sizes} & 1 & 1 & 1 \\
+    \mbox{element orders} & 1 & 3 & 3 \\
+    \hline
+     A_1      & 1 &   1   & 1 \\
+     A_2      & 1 &   a   & b \\
+     A_3      & 1 &   c   & d \\
+    \end{array}
+
+Rule 3 says:
+
+.. math::
+
+    1 + a + b = 0
+
+Rule 5 says:
+
+.. math::
+
+    a &= \omega^k \\
+    b &= \omega^l \\
+
+where $\omega = e^{2\pi i \over 3}$, so:
+
+.. math::
+
+    1 + \omega^k + \omega^l = 0
+
+Which has only two solutions: $k=1$, $l=2$ and $k=2$, $l=1$. If we choose the
+first solution, we get $a=\omega$ and $b=\omega^2=\bar\omega$. Using the rule
+7. it follows that $c=\bar a = \bar\omega=\omega^2$ and $d=\bar b = \omega$.
+If we choose the second solution, we get the pairs $a, b$ and $c, d$
+interchanged, however, we can reorder the rows, so these two options are
+equivalent. The final character table is:
+
+.. math::
+
+    \begin{array}{c|ccc}
+    C_3 & E & C_3 & C_3^2 \\
+    \hline
+     A_1      & 1 &   1   & 1 \\
+     A_2      & 1 &   \omega   & \omega^2 \\
+     A_3      & 1 &   \omega^2   & \omega \\
+    \end{array}
+
+    \omega = e^{2\pi i \over 3} = {-1+i\sqrt 3 \over 2}
+
+Example V
+^^^^^^^^^
+
+Group $C_4$:
+
+.. math::
+
+    \begin{array}{c|cccc}
+    C_4 & E & C_4 & C_4^2 & C_4^3 \\
+    \mbox{class sizes} & 1 & 1 & 1 & 1\\
+    \mbox{element orders} & 1 & 4 & 2 & 4 \\
+    \hline
+     A_1      & 1 &   1   & 1 & 1 \\
+     A_2      & 1 &   a   & b & c \\
+     A_3      & 1 &       &   &   \\
+     A_4      & 1 &       &   &   \\
+    \end{array}
+
+Rule 5 gives:
+
+.. math::
+
+    a &= i^k    \\
+    b &= (-1)^l \\
+    c &= i^m    \\
+
+Rule 3 gives:
+
+.. math::
+    :label: xxy
+
+    1 + a + b + c = 0
+
+Using the rule 7. we know that at least one of $A_2$, $A_3$ and $A_4$ must be
+real, so let it be $A_2$.
+The only real solutions of the equation :eq:`xxy` are $a=1$, $b=-1$, $c=-1$
+and permutations. The representation however must be isomorphic to the $C_4$
+group, so in particular $a^2 = b$, from which $b=1$ and then
+$a=-1$ and $c=-1$.
+
+The group operations give:
+
+.. math::
+
+    a^2 &= b \\
+    a b &= c \\
+    a c &= 1 \\
+
+which gives:
+
+.. math::
+
+    2k &= l \\
+    k +l &= m \\
+    k + m &= 0, 4, 8, 12, ... \\
+
+The possible solutions are:
+
+.. math::
+
+    \begin{array}{ccc}
+    k & l & m \\
+    \hline
+    2 & 0 & 2 \\
+    1 & 2 & 3 \\
+    3 & 2 & 1 \\
+    \end{array}
+
+The first solution is real and it is equal to $A_2$. The other two solutions
+are complex conjugate and they must be solutions of $A_3$ and $A_4$,
+because $A_3$ and $A_4$ cannot be real (otherwise they would have to be equal
+to $A_2$ and the orthogonality relation for columns would not hold). The final
+character table is:
+
+.. math::
+
+    \begin{array}{c|cccc}
+    C_4 & E & C_4 & C_4^2 & C_4^3 \\
+    \hline
+     A_1      & 1 &   1   &  1   &  1 \\
+     A_2      & 1 &  -1   &  1   & -1 \\
+     A_3      & 1 &   i   & -1   & -i \\
+     A_4      & 1 &  -i   & -1   &  i \\
+    \end{array}
+
+Example VI
+^^^^^^^^^^
+
+Group $T$:
+
+.. math::
+
+    \begin{array}{c|cccc}
+    T & E & 4 C_3 & 4 C_3^2 & 3 C_2 \\
+    \mbox{class sizes} & 1 & 4 & 4 & 3\\
+    \mbox{element orders} & 1 & 3 & 3 & 2 \\
+    \hline
+     A_1      & 1 &   1   & 1 & 1 \\
+     A_2      & 1 &   a   & b & c \\
+     A_3      & 1 &       &   &   \\
+     T        & 3 &   d   & e & f \\
+    \end{array}
+
+The group size is 1 + 4 + 4 + 3 = 12, so the only possible option
+for dimensions of the 4 representations is 1, 1, 1 and 3.
+
+Rule 5 gives:
+
+.. math::
+
+    a &= \omega^k    \\
+    b &= \omega^l \\
+    c &= (-1)^m    \\
+
+where $\omega = e^{2\pi i \over 3}$.
+Rule 3 gives:
+
+.. math::
+
+    1 + 4 \omega^k + 4 \omega^l + 3 (-1)^m = 0
+
+The only solution is $m=0$, $k=1$ and $l=2$ (and $k$ with $l$ interchanged).
+This fully determines $A_2$ and $A_3$. The last row is determined from column
+orthogonality conditions (we compare the given column with the first column):
+
+.. math::
+
+    1 + \omega + \omega^2 + 3 d & = 0 \\
+    1 + \omega^2 + \omega + 3 e & = 0 \\
+    1 + 1 + 1 + 3 f & = 0 \\
+
+Using the relation $1 + \omega + \omega^2=0$ we get $d = 0$, $e=0$
+and $f=-1$.
+
+The final character table is:
+
+.. math::
+
+    \begin{array}{c|cccc}
+    T & E & 4 C_3 & 4 C_3^2 & 3 C_2 \\
+    \hline
+     A_1      & 1 &   1   & 1 & 1 \\
+     A_2      & 1 &   \omega   & \omega^2 & 1 \\
+     A_3      & 1 &   \omega^2 & \omega  &  1  \\
+     T        & 3 &    0   &  0  &  -1  \\
+    \end{array}
 
 
 Applications of finite groups
@@ -888,5 +1251,7 @@ Articles:
 .. [Blokker72] Blokker, E. International journal of quantum chemistry VI, 925, (1972)
 
 .. [Cannon69] Cannon, J.J. Communications of the association for computing machinery, **12**, 3 (1969)
+
+.. [Chillag86] Chillag, D. (1986). Character Values of Finite Groups as Eigenvalues Of Nonnegative Integer Matrices. Proceedings of the American Mathematical Society, 97(3), 565-567.
 
 .. [Dixon67] Dixon, J.D. Numerische Mathematik **10**, 446 (1967)
