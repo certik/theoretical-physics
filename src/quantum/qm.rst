@@ -1889,11 +1889,15 @@ and $j_3=l-\half$:
 
 The last formula is the spin spherical harmonics given in terms of $l,m_3$, the
 second last formula is in terms of $j_3, m_3$ (both are used).
+The spin spherical harmonics is usually denoted by $\chi_\kappa^{m_3}$
+or $y^{m_3}_{j_3 l}$. See the next section for the definition of $\kappa$.
 
 Kappa
 ^^^^^
 
-The two cases $j_3 = l \pm \half$ are unified by introducing $\kappa$.
+In order to define the state, one needs to specify both $j_3$ and $l$
+(distinguishng the two cases $j_3 = l \pm \half$). This can be unified
+into just one integer $\kappa$, where
 $-\hbar \kappa$ is defined as the eigenvalue of the operator:
 
 .. math::
@@ -1958,7 +1962,8 @@ Code::
     >>> k.subs(l, j+S(1)/2).expand()
     j + 1/2
 
-Some useful relations with $\kappa$ that follow from the above for both cases $j_3 = l \pm 1$:
+Some useful relations with $\kappa$ that follow from the above for both cases
+$j_3 = l \pm \half$:
 
 .. math::
 
@@ -1970,13 +1975,14 @@ In order to enumerate all possibilities, one needs to count all integers except 
 
 .. math::
 
-    \begin{array}{rrr}
-        \kappa & l & j_3 - l \\
+    \begin{array}{rrrr}
+        \kappa & l & j_3 & j_3 - l \\
         \hline
-        -1 & 0 & \half \\
-         1 & 1 & -\half \\
-        -2 & 1 & \half \\
-         2 & 2 & -\half \\
-        -3 & 2 & \half \\
-         3 & 3 & -\half \\
+        -1 & 0 & 0.5 &  0.5 \\
+         1 & 1 & 0.5 & -0.5 \\
+        -2 & 1 & 1.5 &  0.5 \\
+         2 & 2 & 1.5 & -0.5 \\
+        -3 & 2 & 2.5 &  0.5 \\
+         3 & 3 & 2.5 & -0.5 \\
+         \cdots & &  &      \\
     \end{array}
