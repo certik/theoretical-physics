@@ -1737,8 +1737,8 @@ equivalently $3j$ symbols):
             \begin{pmatrix} j_1 & j_2 & j_3 \\ m_1 & m_2 & -m_3 \end{pmatrix}
             \ket{j_1 m_1 j_2 m_2}
 
-Spin Orbit Coupling
-~~~~~~~~~~~~~~~~~~~
+Spin Orbit Coupling (Spin Spherical Harmonics)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is just a special case of :eq:`angular_momenta_adding` for:
 
@@ -1886,3 +1886,97 @@ and $j_3=l-\half$:
               -\sqrt{l-m_3+\half}\, Y_{l, m_3-\half} \\
                \sqrt{l+m_3+\half}\, Y_{l, m_3+\half}
             \end{pmatrix}
+
+The last formula is the spin spherical harmonics given in terms of $l,m_3$, the
+second last formula is in terms of $j_3, m_3$ (both are used).
+
+Kappa
+^^^^^
+
+The two cases $j_3 = l \pm \half$ are unified by introducing $\kappa$.
+$-\hbar \kappa$ is defined as the eigenvalue of the operator:
+
+.. math::
+
+    K = {\bsigma \cdot {\bf L}} + \hbar
+        = \left({2\over \hbar^2} {\bf S} \cdot {\bf L} + 1 \right) \hbar
+        = \left({1\over \hbar^2}\left({\bf J}^2 - {\bf L}^2 - {\bf S}^2\right)
+            + 1 \right) \hbar
+
+Then:
+
+.. math::
+
+    K \psi
+        = \left({1\over \hbar^2}\left({\bf J}^2 - {\bf L}^2 - {\bf S}^2\right)
+            + 1 \right) \hbar \psi =
+
+        = \left(j_3 (j_3+1) - l(l+1)-s(s+1) + 1 \right) \hbar \psi =
+
+        = \left(j_3 (j_3+1) - l(l+1) + {1\over 4} \right) \hbar \psi =
+
+        = -\kappa \hbar \psi
+
+from which
+
+.. math::
+
+    \kappa = -j_3 (j_3+1) + l(l+1) - {1\over 4} =
+
+    = \begin{cases}
+        -j_3 (j_3+1) + (j_3-\half)(j_3-\half+1) - {1\over 4}; & \text{for $j_3=l+\half$} \\
+        -j_3 (j_3+1) + (j_3+\half)(j_3+\half+1) - {1\over 4}; & \text{for $j_3=l-\half$} \\
+        \end{cases} =
+
+    = \begin{cases}
+        -(j_3+\half); & \text{for $j_3=l+\half$} \\
+        +(j_3+\half); & \text{for $j_3=l-\half$}
+        \end{cases} =
+
+    = \begin{cases}
+        -l -1; & \text{for $j_3=l+\half$} \\
+        l; & \text{for $j_3=l-\half$}
+        \end{cases}
+
+The opposite relation is:
+
+.. math::
+
+    l = \begin{cases}
+        -\kappa -1; & \text{for $\kappa < 0$, equivalently  $j_3=l+\half$} \\
+        \kappa; & \text{for $\kappa > 0$, equivalently $j_3=l-\half$}
+        \end{cases}
+
+Code::
+
+    >>> from sympy import var, S
+    >>> var("j l")
+    (j, l)
+    >>> k = -j*(j+1) + l*(l+1) - S(1)/4
+    >>> k.subs(l, j-S(1)/2).expand()
+    -j - 1/2
+    >>> k.subs(l, j+S(1)/2).expand()
+    j + 1/2
+
+Some useful relations with $\kappa$ that follow from the above for both cases $j_3 = l \pm 1$:
+
+.. math::
+
+    l(l+1) = \kappa (\kappa+1)
+
+    | \kappa | = j_3 + \half
+
+In order to enumerate all possibilities, one needs to count all integers except zero: $\kappa=-1, 1, -2, 2, -3, 3, \dots$:
+
+.. math::
+
+    \begin{array}{rrr}
+        \kappa & l & j_3 - l \\
+        \hline
+        -1 & 0 & \half \\
+         1 & 1 & -\half \\
+        -2 & 1 & \half \\
+         2 & 2 & -\half \\
+        -3 & 2 & \half \\
+         3 & 3 & -\half \\
+    \end{array}
