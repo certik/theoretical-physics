@@ -1851,7 +1851,12 @@ So we get for $j_3=l+\half$:
               \sqrt{l-m_3+\half}\, Y_{l, m_3+\half}
             \end{pmatrix}
 
-and $j_3=l-\half$:
+The allowed values for $m_3$ are $m_3 = -l-\half, -l+\half, -l+\half +1, \dots,
+l-\half, l+\half$,
+total of $2l+2$ values. For the case $l=\pm(l+\half)$, the spherical harmonic
+is not defined ($m > l$) but its coefficient (the square root
+$\sqrt{l \pm m_3 + \half}$) is zero, so the whole element is defined as zero.
+For $j_3=l-\half$:
 
 .. math::
 
@@ -1886,6 +1891,10 @@ and $j_3=l-\half$:
               -\sqrt{l-m_3+\half}\, Y_{l, m_3-\half} \\
                \sqrt{l+m_3+\half}\, Y_{l, m_3+\half}
             \end{pmatrix}
+
+The allowed values for $m_3$ are $m_3 = -l+\half, -l+\half +1, \dots, l-\half$,
+total of $2l$ values (in particular, values
+$m_3=\pm (l-\half)$ are not allowed).
 
 The last formula is the spin spherical harmonics given in terms of $l,m_3$, the
 second last formula is in terms of $j_3, m_3$ (both are used).
@@ -1975,14 +1984,23 @@ In order to enumerate all possibilities, one needs to count all integers except 
 
 .. math::
 
-    \begin{array}{rrrr}
-        \kappa & l & j_3 & j_3 - l \\
+    \begin{array}{rrrrc}
+        \kappa & l & j_3 & j_3 - l & \mbox{degeneracy} \\
         \hline
-        -1 & 0 & 0.5 &  0.5 \\
-         1 & 1 & 0.5 & -0.5 \\
-        -2 & 1 & 1.5 &  0.5 \\
-         2 & 2 & 1.5 & -0.5 \\
-        -3 & 2 & 2.5 &  0.5 \\
-         3 & 3 & 2.5 & -0.5 \\
+        -1 & 0 & 0.5 &  0.5 & 2 \\
+         1 & 1 & 0.5 & -0.5 & 2 \\
+        -2 & 1 & 1.5 &  0.5 & 4 \\
+         2 & 2 & 1.5 & -0.5 & 4 \\
+        -3 & 2 & 2.5 &  0.5 & 6 \\
+         3 & 3 & 2.5 & -0.5 & 6 \\
+        -4 & 3 & 3.5 &  0.5 & 8 \\
+         4 & 4 & 3.5 & -0.5 & 8 \\
          \cdots & &  &      \\
     \end{array}
+
+Last column lists the degeneracy of the individual states for each $\kappa$,
+that is equal to $2j_3+1=2|\kappa|$ (which is equal to $2l+2$ for $j_3=l+\half$
+and $2l$ for $j_3=l-\half$, see the previous section), that is 2, 4, 6, 8 for
+$j_3=0.5, 1.5, 2.5, 3.5$ (or equivalently $\kappa=\pm 1, \pm 2, \pm 3, \pm 4$)
+respectively.  All states together with the given $l$ have total degeneracy
+$2l+2+2l=2(2l+1)$, that is 2, 6, 10, 14 for $l=0, 1, 2, 3$ respectively.
