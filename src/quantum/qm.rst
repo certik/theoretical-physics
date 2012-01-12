@@ -1856,6 +1856,7 @@ l-\half, l+\half$,
 total of $2l+2$ values. For the case $l=\pm(l+\half)$, the spherical harmonic
 is not defined ($m > l$) but its coefficient (the square root
 $\sqrt{l \pm m_3 + \half}$) is zero, so the whole element is defined as zero.
+
 For $j_3=l-\half$:
 
 .. math::
@@ -1893,8 +1894,8 @@ For $j_3=l-\half$:
             \end{pmatrix}
 
 The allowed values for $m_3$ are $m_3 = -l+\half, -l+\half +1, \dots, l-\half$,
-total of $2l$ values (in particular, values
-$m_3=\pm (l-\half)$ are not allowed).
+total of $2l$ values (in particular, the values
+$m_3=\pm (l+\half)$ are not allowed).
 
 The last formula is the spin spherical harmonics given in terms of $l,m_3$, the
 second last formula is in terms of $j_3, m_3$ (both are used).
