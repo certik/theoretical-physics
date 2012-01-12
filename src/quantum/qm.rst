@@ -1899,7 +1899,7 @@ $m_3=\pm (l-\half)$ are not allowed).
 The last formula is the spin spherical harmonics given in terms of $l,m_3$, the
 second last formula is in terms of $j_3, m_3$ (both are used).
 The spin spherical harmonics is usually denoted by $\chi_\kappa^{m_3}$
-or $y^{m_3}_{j_3 l}$. See the next section for the definition of $\kappa$.
+or $y^{j_3, m_3}_l$. See the next section for the definition of $\kappa$.
 
 Kappa
 ^^^^^
@@ -1984,23 +1984,34 @@ In order to enumerate all possibilities, one needs to count all integers except 
 
 .. math::
 
-    \begin{array}{rrrrc}
-        \kappa & l & j_3 & j_3 - l & \mbox{degeneracy} \\
+    \begin{array}{rrrrcc}
+        \kappa & l & j_3 & j_3 - l & \mbox{degeneracy} & \mbox{label} \\
         \hline
-        -1 & 0 & 0.5 &  0.5 & 2 \\
-         1 & 1 & 0.5 & -0.5 & 2 \\
-        -2 & 1 & 1.5 &  0.5 & 4 \\
-         2 & 2 & 1.5 & -0.5 & 4 \\
-        -3 & 2 & 2.5 &  0.5 & 6 \\
-         3 & 3 & 2.5 & -0.5 & 6 \\
-        -4 & 3 & 3.5 &  0.5 & 8 \\
-         4 & 4 & 3.5 & -0.5 & 8 \\
+        -1 & 0 & 0.5 &  0.5 & 2 & s_{1/2} \\
+         1 & 1 & 0.5 & -0.5 & 2 & p_{1/2} \\
+        -2 & 1 & 1.5 &  0.5 & 4 & p_{3/2} \\
+         2 & 2 & 1.5 & -0.5 & 4 & d_{3/2} \\
+        -3 & 2 & 2.5 &  0.5 & 6 & d_{5/2} \\
+         3 & 3 & 2.5 & -0.5 & 6 & f_{5/2} \\
+        -4 & 3 & 3.5 &  0.5 & 8 & f_{7/2} \\
+         4 & 4 & 3.5 & -0.5 & 8 & g_{7/2} \\
+        -5 & 4 & 4.5 &  0.5 & 10 & g_{9/2} \\
+         5 & 5 & 4.5 & -0.5 & 10 & h_{9/2} \\
+        -6 & 5 & 5.5 &  0.5 & 12 & h_{11/2} \\
+         6 & 6 & 5.5 & -0.5 & 12 & i_{11/2} \\
          \cdots & &  &      \\
     \end{array}
 
-Last column lists the degeneracy of the individual states for each $\kappa$,
-that is equal to $2j_3+1=2|\kappa|$ (which is equal to $2l+2$ for $j_3=l+\half$
+The degeneracy of the individual states for each $\kappa$
+is equal to $2j_3+1=2|\kappa|$ (which is equal to $2l+2$ for $j_3=l+\half$
 and $2l$ for $j_3=l-\half$, see the previous section), that is 2, 4, 6, 8 for
 $j_3=0.5, 1.5, 2.5, 3.5$ (or equivalently $\kappa=\pm 1, \pm 2, \pm 3, \pm 4$)
 respectively.  All states together with the given $l$ have total degeneracy
 $2l+2+2l=2(2l+1)$, that is 2, 6, 10, 14 for $l=0, 1, 2, 3$ respectively.
+
+The states are labeled by a letter corresponding to $l=0, 1, 2, 3, \dots$
+(s, p, d, f, g, h, i, j, k,
+l, m, n, o, q, r, t, u, v, w, x, y, z, a, b, c, e, F,
+G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
+A, B, C, D, E) with a subscript equal to the
+total angular momentum $j_3=n/2$ with $n=1, 3, 5, 7, \dots$.
