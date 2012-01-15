@@ -109,3 +109,4 @@ only picked those that we actually read):
 #. M.E. Peskin & D.V. Schroeder: An Introduction to Quantum Field Theory
 #. J.W. Negele, H. Orland: Quantum Many-Particle Systems
 #. X-G. Wen: Quantum Field Theory of Many-Body Systems
+#. Dirac, P.A.M.: General Theory of Relativity
