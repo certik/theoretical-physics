@@ -382,3 +382,66 @@ $g_{\mu\nu}$ (through the covariant derivative).
 Finally, the last equation determines $x^\mu$ and $v^\mu$ from the given fields
 $A^\mu$ (through the electromagnetic field tensor) and $g_{\mu\nu}$ (through
 the covariant derivative).
+
+Conservation
+------------
+
+We apply covariant 4-divergence and use Bianci identities on the first
+equation:
+
+.. math::
+
+    0 = \nabla_\mu T^{\mu\nu} = \nabla_\mu (T^{\mu\nu}_M + T^{\mu\nu}_{EM})
+
+So the total stress energy tensor is conserved. This fact makes the equations
+of motion (that follow from the action principle) not all independent. The
+third equation can be derived from the fist two as follows.
+
+We calculate:
+
+.. math::
+
+    \nabla_\mu T^{\mu\nu}_{M} = \nabla_\mu (\rho v^\mu v^\nu)
+
+    \nabla_\mu T^{\mu\nu}_{EM} = F^{\alpha\nu} \rho_{EM} v_\alpha
+
+and we get:
+
+.. math::
+
+    \nabla_\mu (\rho v^\mu v^\nu) + F^{\alpha\nu} \rho_{EM} v_\alpha = 0
+
+    \nabla_\mu (\rho v^\mu) v^\nu
+    + \rho v^\mu \nabla_\mu v^\nu
+        + F^{\alpha\nu} \rho_{EM} v_\alpha = 0
+
+The first term vanishes, because:
+
+.. math::
+
+    v_\nu \nabla_\mu (\rho v^\mu) v^\nu
+    + v_\nu \rho v^\mu \nabla_\mu v^\nu
+        + v_\nu F^{\alpha\nu} \rho_{EM} v_\alpha = 0
+
+    v_\nu \nabla_\mu (\rho v^\mu) v^\nu
+        + v_\nu F^{\alpha\nu} \rho_{EM} v_\alpha = 0
+
+    c^2 \nabla_\mu (\rho v^\mu) + v_\nu F^{\alpha\nu} \rho_{EM} v_\alpha = 0
+
+    c^2 \nabla_\mu (\rho v^\mu) = 0
+
+where we used $v_\nu \nabla_\mu v^\nu=0$ (follows from differentiating
+$c^2 = v_\nu v^\nu$)
+and $v_\nu F^{\alpha\nu}
+v_\alpha=0$ (contracting symmetric and antisymmetric tensors). We are left
+with:
+
+.. math::
+
+    \rho v^\mu \nabla_\mu v^\nu + F^{\alpha\nu} \rho_{EM} v_\alpha = 0
+
+    \rho v^\mu \nabla_\mu v^\nu = -F^{\alpha\nu} \rho_{EM} v_\alpha
+
+    \rho v^\mu \nabla_\mu v^\nu = F^{\nu\alpha} \rho_{EM} v_\alpha
+
+Which is the third equation.
