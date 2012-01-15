@@ -995,6 +995,99 @@ $V_\mu U^\mu$ is conserved along the geodesics, because:
 where the first term is both symmetric and antisymmetric in $(\mu, \nu)$, thus
 zero, and the second term is the geodesics equation, thus also zero.
 
+Symmetry and Antisymmetry
+-------------------------
+
+Every tensor can be decomposed into symmetric and antisymmetric parts:
+
+.. math::
+
+    T_{\alpha\beta} = \half(T_{\alpha\beta} + T_{\beta\alpha})
+        + \half(T_{\alpha\beta} - T_{\beta\alpha})
+
+In particular, for a symmetric tensor $S_{\alpha\beta}=S_{\beta\alpha}$ we get:
+
+.. math::
+
+    S_{\alpha\beta} = \half(S_{\alpha\beta} + S_{\beta\alpha})
+
+and for antisymmetric tensor $A_{\alpha\beta}=-A_{\beta\alpha}$ we get:
+
+.. math::
+
+    A_{\alpha\beta} = \half(A_{\alpha\beta} - A_{\beta\alpha})
+
+When contracting a symmetric tensor with an antisymmetric tensor we get zero:
+
+.. math::
+
+    S_{\alpha\beta} A^{\alpha\beta} =
+
+        = \half S_{\alpha\beta} (A^{\alpha\beta} - A^{\beta\alpha}) =
+
+        = \half (S_{\alpha\beta} A^{\alpha\beta} - S_{\alpha\beta}
+            A^{\beta\alpha}) =
+
+        = \half (S_{\alpha\beta} A^{\alpha\beta} - S_{\beta\alpha}
+            A^{\beta\alpha}) =
+
+        = \half (S_{\alpha\beta} A^{\alpha\beta} - S_{\alpha\beta}
+            A^{\alpha\beta}) =
+
+        = 0
+
+When contracting a general tensor $T$ with a symmetric tensor $S$,
+only the symmetric part of $T$ contributes:
+
+.. math::
+
+    T_{\alpha\beta} S^{\alpha\beta} =
+
+        = \half(T_{\alpha\beta} + T_{\beta\alpha})S^{\alpha\beta}
+        + \half(T_{\alpha\beta} - T_{\beta\alpha})S^{\alpha\beta} =
+
+        = \half(T_{\alpha\beta} + T_{\beta\alpha})S^{\alpha\beta}
+
+When contracting a general tensor $T$ with an antisymmetric tensor $A$,
+only the antisymmetric part of $T$ contributes:
+
+.. math::
+
+    T_{\alpha\beta} A^{\alpha\beta} =
+
+        = \half(T_{\alpha\beta} + T_{\beta\alpha})A^{\alpha\beta}
+        + \half(T_{\alpha\beta} - T_{\beta\alpha})A^{\alpha\beta} =
+
+        = \half(T_{\alpha\beta} - T_{\beta\alpha})A^{\alpha\beta}
+
+Example
+~~~~~~~
+
+We want to rewrite:
+
+.. math::
+
+    2\partial_\nu g_{\mu\lambda} {\d x^\mu\over\d s} {\d x^\nu\over\d s}
+
+So we write the left part as a sum of symmetric and antisymmetric parts:
+
+.. math::
+
+    (\partial_\nu g_{\mu\lambda} + \partial_\mu g_{\nu\lambda}
+    +\partial_\nu g_{\mu\lambda} - \partial_\mu g_{\nu\lambda})
+    {\d x^\mu\over\d s} {\d x^\nu\over\d s}
+
+Here $\partial_\nu g_{\mu\lambda} - \partial_\mu g_{\nu\lambda}$ is
+antisymmetric and ${\d x^\mu\over\d s} {\d x^\nu\over\d s}$ is symmetric in
+$\mu,\nu$, so the contraction is zero. The final result is:
+
+.. math::
+
+    (\partial_\nu g_{\mu\lambda} + \partial_\mu g_{\nu\lambda})
+    {\d x^\mu\over\d s} {\d x^\nu\over\d s}
+
+
+
 .. index::
     pair: divergence; operator
 
