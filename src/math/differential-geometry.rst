@@ -311,6 +311,7 @@ or equivalently (using the fact $U^\beta\partial_\beta U^\alpha=
 {\d x^\alpha\over\d\lambda} = {\d^2 x^\alpha\over\d\lambda^2}$):
 
 .. math::
+    :label: geodesic-equation
 
     {\d^2 x^\alpha\over\d\lambda^2} + \Gamma^\alpha_{\beta\gamma} {\d x^\beta\over\d\lambda}{\d x^\gamma\over\d\lambda} = 0
 
@@ -356,7 +357,7 @@ which gives:
 This is called an affine reparametrization.
 
 Another way to derive the geodesic equation is by finding a curve that
-maximizes the proper time:
+extremizes the proper time:
 
 .. math::
 
@@ -365,12 +366,22 @@ maximizes the proper time:
         = \int \sqrt{-{1\over c^2} g_{\mu\nu} \d x^\mu \d x^\nu}
         = \int \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
             {\d x^\nu\over\d\lambda}} \d\lambda
+        = \int K \d\lambda
+
+Here $\lambda$ can be *any* parametrization. We have introduced $K$ to make the
+formulas shorter:
+
+.. math::
+
+    K = \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
+            {\d x^\nu\over\d\lambda}}
 
 We vary this action with respect to $x^\mu$:
 
 .. math::
 
-    \delta \tau
+    \delta \tau = \delta \int K \d\lambda =
+
         = \delta \int \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
             {\d x^\nu\over\d\lambda}} \d\lambda =
 
@@ -380,111 +391,122 @@ We vary this action with respect to $x^\mu$:
         {\d x^\nu\over\d\lambda}
      +g_{\mu\nu} {\d x^\mu\over\d \lambda}\left(\delta {\d x^\nu\over\d\lambda}
         \right)
-            \right) \over 2
-            \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
-            {\d x^\nu\over\d\lambda}}} \d\lambda =
+            \right) \over 2 K } \d\lambda =
 
         = {1\over c^2}\int {\left(-\half
      (\delta g_{\mu\nu}) {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
      - g_{\mu\nu} \left(\delta {\d x^\mu\over\d \lambda}\right)
         {\d x^\nu\over\d\lambda}
-            \right) \over
-            \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
-            {\d x^\nu\over\d\lambda}}} \d\lambda =
+            \right) \over K } \d\lambda =
 
         = {1\over c^2}\int {\left(-\half
      (\delta x^\alpha) \partial_\alpha g_{\mu\nu}
         {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
-     - g_{\mu\nu} {\d (\delta x^\mu)\over\d \lambda}
+     - g_{\alpha\nu} {\d (\delta x^\alpha)\over\d \lambda}
         {\d x^\nu\over\d\lambda}
-            \right) \over
-            \sqrt{-{1\over c^2} g_{\mu\nu} {\d x^\mu\over\d \lambda}
-            {\d x^\nu\over\d\lambda}}} \d\lambda =
+            \right) \over K} \d\lambda =
 
-        = {1\over c^2}\int \left(-\half
+        = {1\over c^2}\int \left({-\half
      (\delta x^\alpha) \partial_\alpha g_{\mu\nu}
-        {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
-     - g_{\mu\nu} {\d (\delta x^\mu)\over\d \tau}
-        {\d x^\nu\over\d\tau}
-            \right) \d\tau =
+        {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+            \over
+            K }
+     + {\d\over\d\lambda}\left({g_{\alpha\nu}
+        {\d x^\nu\over\d\lambda}
+            \over K}\right)(\delta x^\alpha)\right) \d\lambda =
 
-        = {1\over c^2}\int \left(-\half
-     (\delta x^\alpha) \partial_\alpha g_{\mu\nu}
-        {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
-     + {\d \over\d \tau}\left(g_{\mu\nu}
-        {\d x^\nu\over\d\tau}\right)(\delta x^\mu)
-            \right) \d\tau =
+        = {1\over c^2}\int {1\over K} \left(
+        K{\d\over\d\lambda}\left({g_{\alpha\nu}
+        {\d x^\nu\over\d\lambda}
+            \over K}\right)
+        -\half \partial_\alpha g_{\mu\nu}
+        {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+            \right) (\delta x^\alpha) \d\lambda =
 
-        = {1\over c^2}\int \left(-\half
-         \partial_\alpha g_{\mu\nu}
-        {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
-     + {\d \over\d \tau}\left(g_{\alpha\nu}
-        {\d x^\nu\over\d\tau}\right)
-            \right)(\delta x^\alpha) \d\tau =
-
-        = {1\over c^2}\int \left(-\half
-         \partial_\alpha g_{\mu\nu}
-        {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
-     + {\d x^\mu\over\d \tau}(\partial_\mu g_{\alpha\nu})
-        {\d x^\nu\over\d\tau}
-     + g_{\alpha\nu}
-        {\d^2 x^\nu\over\d\tau^2}
-            \right)(\delta x^\alpha) \d\tau =
-
-        = {1\over c^2}\int \left(-\half
-         \partial_\alpha g_{\mu\nu}
-        {\d x^\mu\over\d \tau}{\d x^\nu\over\d\tau}
-     + \half{\d x^\mu\over\d \tau}(\partial_\mu g_{\alpha\nu})
-        {\d x^\nu\over\d\tau}
-     + \half{\d x^\mu\over\d \tau}(\partial_\nu g_{\alpha\mu})
-        {\d x^\nu\over\d\tau}
-     + g_{\alpha\nu}
-        {\d^2 x^\nu\over\d\tau^2}
-            \right)(\delta x^\alpha) \d\tau =
-
-        = {1\over c^2}\int \left(
+        = {1\over c^2}\int {1\over K} \left(
+        K{\d\over\d\lambda}\left(1\over K\right)+
+        {\d g_{\alpha\nu} \over\d\lambda}
+        {\d x^\nu\over\d\lambda}
+        +
         g_{\alpha\nu}
-            {\d^2 x^\nu\over\d\tau^2}
-        +\half(-
-         \partial_\alpha g_{\mu\nu}
-     + \partial_\mu g_{\alpha\nu}
-     + \partial_\nu g_{\alpha\mu})
-     {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
-            \right)(\delta x^\alpha) \d\tau =
+        {\d^2 x^\nu\over\d\lambda^2}
+        -\half \partial_\alpha g_{\mu\nu}
+        {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+            \right) (\delta x^\alpha) \d\lambda =
 
-        = {1\over c^2}\int \left(
+        = {1\over c^2}\int {1\over K} \left(
+        K{\d\over\d\lambda}\left(1\over K\right)+
         g_{\alpha\nu}
-            {\d^2 x^\nu\over\d\tau^2}
-        +\half(-
-         \partial_\alpha g_{\mu\nu}
-     + \partial_\mu g_{\alpha\nu}
-     + \partial_\nu g_{\alpha\mu})
-     {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
-            \right)g^{\alpha\rho}(\delta x_\rho) \d\tau =
+        {\d^2 x^\nu\over\d\lambda^2}
+        +\partial_\mu g_{\alpha\nu}
+        {\d x^\mu\over\d\lambda}
+        {\d x^\nu\over\d\lambda}
+        -\half \partial_\alpha g_{\mu\nu}
+        {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+            \right) (\delta x^\alpha) \d\lambda =
 
-        = {1\over c^2}\int \left(
+        = {1\over c^2}\int {1\over K} \left(
+        K{\d\over\d\lambda}\left(1\over K\right)+
+        g_{\alpha\nu}
+        {\d^2 x^\nu\over\d\lambda^2}
+        +\half(\partial_\mu g_{\alpha\nu}+\partial_\nu g_{\alpha\mu}
+        - \partial_\alpha g_{\mu\nu})
+        {\d x^\mu\over\d \lambda}{\d x^\nu\over\d\lambda}
+            \right) (\delta x^\alpha) \d\lambda =
+
+        = {1\over c^2}\int {1\over K} \left(
+        K{\d\over\d\lambda}\left(1\over K\right)+
+        g_{\alpha\nu}
+            {\d^2 x^\nu\over\d\lambda^2}
+        +\half(
+       \partial_\mu g_{\alpha\nu}
+     + \partial_\nu g_{\alpha\mu}
+     - \partial_\alpha g_{\mu\nu}
+       )
+     {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda}
+            \right)g^{\alpha\rho}(\delta x_\rho) \d\lambda =
+
+        = {1\over c^2}\int {1\over K} \left(
+            K{\d\over\d\lambda}\left(1\over K\right)g^{\alpha\rho}+
             \delta_\nu{}^\rho
-            {\d^2 x^\nu\over\d\tau^2}
-        +\half g^{\alpha\rho}(-
-         \partial_\alpha g_{\mu\nu}
-     + \partial_\mu g_{\alpha\nu}
-     + \partial_\nu g_{\alpha\mu})
-     {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
-            \right)(\delta x_\rho) \d\tau =
+            {\d^2 x^\nu\over\d\lambda^2}
+        +\half g^{\alpha\rho} (
+       \partial_\mu g_{\alpha\nu}
+     + \partial_\nu g_{\alpha\mu}
+     - \partial_\alpha g_{\mu\nu}
+       )
+     {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda}
+            \right)(\delta x_\rho) \d\lambda =
 
-        = {1\over c^2}\int \left(
-            {\d^2 x^\rho\over\d\tau^2}
+        = {1\over c^2}\int {1\over K} \left(
+        K{\d\over\d\lambda}\left(1\over K\right)g^{\alpha\rho}+
+            {\d^2 x^\rho\over\d\lambda^2}
         +\Gamma^\rho_{\mu\nu}
-     {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau}
-            \right)(\delta x_\rho) \d\tau
+     {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda}
+            \right)(\delta x_\rho) \d\lambda
 
 By setting the variation $\delta\tau=0$ we obtain the geodesic equation:
 
 .. math::
+    :label: geodesic-equation2
 
-        {\d^2 x^\rho\over\d\tau^2}
+        K{\d\over\d\lambda}\left(1\over K\right)g^{\alpha\rho}+
+            {\d^2 x^\rho\over\d\lambda^2}
         +\Gamma^\rho_{\mu\nu}
-     {\d x^\mu\over\d \tau} {\d x^\nu\over\d\tau} = 0
+     {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda} = 0
+
+We have a freedom of choosing $\lambda$, so we choose
+such parametrization so that $\d\lambda = \d\tau$, which makes $K=1$ and
+we recover :eq:`geodesic-equation`:
+
+.. math::
+
+            {\d^2 x^\rho\over\d\lambda^2}
+        +\Gamma^\rho_{\mu\nu}
+     {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda} = 0
+
+Note that the equation :eq:`geodesic-equation2` is parametrization
+invariant, but :eq:`geodesic-equation` is not.
 
 
 .. index:: curvature
