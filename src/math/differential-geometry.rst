@@ -1126,6 +1126,19 @@ Here $\half (\partial_\mu A_\nu - \partial_\nu A_\mu)$ is the antisymmetric
 part (the only one that contributes, because $F^{\mu\nu}$ is antisymmetric) of
 $\partial_\mu A_\nu$.
 
+Example III
+~~~~~~~~~~~
+
+Let $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$. Then we
+get
+
+.. math::
+
+    F_{\mu\nu} v^\mu v^\nu = 0\,,
+
+because $F_{\mu\nu}$ is an antisymmetric tensor, while $v^\mu v^\nu$ is a
+symmetric tensor.
+
 .. index::
     pair: divergence; operator
 
