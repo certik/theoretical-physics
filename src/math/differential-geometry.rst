@@ -1082,8 +1082,8 @@ only the antisymmetric part of $T$ contributes:
 
         = \half(T_{\alpha\beta} - T_{\beta\alpha})A^{\alpha\beta}
 
-Example
-~~~~~~~
+Example I
+~~~~~~~~~
 
 We want to rewrite:
 
@@ -1108,7 +1108,23 @@ $\mu,\nu$, so the contraction is zero. The final result is:
     (\partial_\nu g_{\mu\lambda} + \partial_\mu g_{\nu\lambda})
     {\d x^\mu\over\d s} {\d x^\nu\over\d s}
 
+Example II
+~~~~~~~~~~
 
+Let $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$. Then we
+can simplify:
+
+.. math::
+
+    F^{\mu\nu} F_{\mu\nu} =
+    F^{\mu\nu} (\partial_\mu A_\nu - \partial_\nu A_\mu) =
+
+    =2 F^{\mu\nu} \half (\partial_\mu A_\nu - \partial_\nu A_\mu)
+    =2 F^{\mu\nu} \partial_\mu A_\nu
+
+Here $\half (\partial_\mu A_\nu - \partial_\nu A_\mu)$ is the antisymmetric
+part (the only one that contributes, because $F^{\mu\nu}$ is antisymmetric) of
+$\partial_\mu A_\nu$.
 
 .. index::
     pair: divergence; operator
