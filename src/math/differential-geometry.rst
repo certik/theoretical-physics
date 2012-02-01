@@ -1487,7 +1487,7 @@ The transformation matrix (Jacobian) is calculated by differentiating
         = \mat{
     \sin\theta\cos\phi & \rho\cos\theta\cos\phi & -\rho\sin\theta\sin\phi \cr
     \sin\theta\sin\phi & \rho\cos\theta\sin\phi &  \rho\sin\theta\cos\phi \cr
-    \cos\phi           & -\rho\sin\theta        &  0                      \cr}
+    \cos\theta         & -\rho\sin\theta        &  0                      \cr}
 
 The inverse Jacobian is calculated by inverting the matrix
 :eq:`jacobian_spherical`:
@@ -1554,7 +1554,7 @@ coordinates $x^i$:
 
      = \left({\partial (x, y, z)\over\partial(\rho, \theta, \phi)}\right)^T \mat{1 & 0 & 0\cr 0 & 1 & 0\cr 0 & 0 & 1\cr} {\partial (x, y, z)\over\partial(\rho, \theta, \phi)}=
 
-    = \mat{ \sin\theta\cos\phi & \sin\theta\sin\phi & \cos\theta \cr \rho\cos\theta\cos\phi & \rho\cos\theta\sin\phi & -\rho\sin\theta \cr -\rho\sin\theta\sin\phi & \rho\sin\theta\cos\phi & 0 \cr } \mat{1 & 0 & 0\cr 0 & 1 & 0\cr 0 & 0 & 1\cr} \mat{\sin\theta\cos\phi & \rho\cos\theta\cos\phi & -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi & \rho\cos\theta\sin\phi & \rho\sin\theta\cos\phi \cr \cos\phi & -\rho\sin\theta & 0 \cr} =
+    = \mat{ \sin\theta\cos\phi & \sin\theta\sin\phi & \cos\theta \cr \rho\cos\theta\cos\phi & \rho\cos\theta\sin\phi & -\rho\sin\theta \cr -\rho\sin\theta\sin\phi & \rho\sin\theta\cos\phi & 0 \cr } \mat{1 & 0 & 0\cr 0 & 1 & 0\cr 0 & 0 & 1\cr} \mat{\sin\theta\cos\phi & \rho\cos\theta\cos\phi & -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi & \rho\cos\theta\sin\phi & \rho\sin\theta\cos\phi \cr \cos\theta & -\rho\sin\theta & 0 \cr} =
 
      = \mat{1 & 0 & 0\cr 0 & \rho^2 & 0\cr 0 & 0 & \rho^2\sin^2\theta\cr}
 
