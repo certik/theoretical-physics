@@ -1466,54 +1466,98 @@ and for $\partial_\phi\varphi=0$, we get:
 Spherical Coordinates
 ---------------------
 
+The relation between cartesian coordinates $\hat x^a=(x, y, z)$
+and spherical coordinates $x^i=(\rho, \theta, \phi)$ is:
 
+.. math::
+    :label: spherical_coord
+
+    x &= \rho\sin\theta\cos\phi \\
+    y &= \rho\sin\theta\sin\phi \\
+    z &= \rho\cos\theta         \\
+
+The transformation matrix (Jacobian) is calculated by differentiating
+:eq:`spherical_coord`:
+
+.. math::
+    :label: jacobian_spherical
+
+    {\partial \hat x\over\partial x}
+        = {\partial (x, y, z)\over\partial(\rho, \theta, \phi)}
+        = \mat{
+    \sin\theta\cos\phi & \rho\cos\theta\cos\phi & -\rho\sin\theta\sin\phi \cr
+    \sin\theta\sin\phi & \rho\cos\theta\sin\phi &  \rho\sin\theta\cos\phi \cr
+    \cos\phi           & -\rho\sin\theta        &  0                      \cr}
+
+The inverse Jacobian is calculated by inverting the matrix
+:eq:`jacobian_spherical`:
 
 .. math::
 
-    x = \rho\sin\theta\cos\phi
+    {\partial x\over\partial \hat x}
+        = {\partial(\rho, \theta, \phi)\over\partial(x, y, z)}
+        = \mat{
+    \sin\theta\cos\phi             & \sin\theta\sin\phi
+            & \cos\theta             \cr
+    {\cos\theta\cos\phi\over\rho}  & {\cos\theta\sin\phi\over\rho}
+            & -{\sin\theta\over\rho} \cr
+    -{\sin\phi\over\rho\sin\theta} & {\cos\phi\over\rho\sin\theta}
+            & 0                      \cr }
 
+We expressed the above Jacobians using $\rho$, $\theta$, $\phi$ and we can
+use :eq:`spherical_coord` to express them using $x$, $y$, $z$. Code::
+
+    from sympy import var, sin, cos, zeros, Matrix, simplify, latex
+    var("rho theta phi")
+    x_hat = Matrix([
+        rho * sin(theta) * cos(phi),
+        rho * sin(theta) * sin(phi),
+        rho * cos(theta)])
+    x = Matrix([rho, theta, phi])
+
+    M = zeros(3, 3)
+    for i in range(3):
+        for j in range(3):
+            M[i, j] = x_hat[i].diff(x[j])
+
+    N = M.inv(method="ADJ")
+    one = sin(phi)**2*sin(theta)**2 - cos(phi)**2*cos(theta)**2 + \
+            cos(phi)**2 + cos(theta)**2
+    one_simple = one.subs(sin(phi)**2, 1-cos(phi)**2).expand().simplify()
+    N.simplify()
+    # one_simple is equal to 1, but simplify() can't do this automatically yet:
+    N = N.subs(one, one_simple)
+
+    print "J =", latex(M)
+    print
+    print "J^{-1} =", latex(N)
+
+Output:
 
 .. math::
 
-    y = \rho\sin\theta\sin\phi
+    J = \left[\begin{smallmatrix}\sin{\left (\theta \right )} \cos{\left (\phi \right )} & \rho \cos{\left (\phi \right )} \cos{\left (\theta \right )} & - \rho \sin{\left (\phi \right )} \sin{\left (\theta \right )}\\\sin{\left (\phi \right )} \sin{\left (\theta \right )} & \rho \sin{\left (\phi \right )} \cos{\left (\theta \right )} & \rho \sin{\left (\theta \right )} \cos{\left (\phi \right )}\\\cos{\left (\theta \right )} & - \rho \sin{\left (\theta \right )} & 0\end{smallmatrix}\right]
+
+    J^{-1} = \left[\begin{smallmatrix}\sin{\left (\theta \right )} \cos{\left (\phi \right )} & \sin{\left (\phi \right )} \sin{\left (\theta \right )} & \cos{\left (\theta \right )}\\\frac{\cos{\left (\phi \right )} \cos{\left (\theta \right )}}{\rho} & \frac{\sin{\left (\phi \right )} \cos{\left (\theta \right )}}{\rho} & - \frac{\sin{\left (\theta \right )}}{\rho}\\- \frac{\sin{\left (\phi \right )}}{\rho \sin{\left (\theta \right )}} & \frac{\cos{\left (\phi \right )}}{\rho \sin{\left (\theta \right )}} & 0\end{smallmatrix}\right]
 
 
-.. math::
 
-    z = \rho\cos\theta
-
-The transformation matrix is
-
-.. math::
-
-     {\partial (x, y, z)\over\partial(\rho, \theta, \phi)} = \mat{\sin\theta\cos\phi & \rho\cos\theta\cos\phi & -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi & \rho\cos\theta\sin\phi & \rho\sin\theta\cos\phi \cr \cos\phi & -\rho\sin\theta & 0 \cr}
-
-The metric tensor of the cartesian coordinate system $\hat x^a=(x, y, z)$ is
+The metric tensor of the cartesian coordinate system $\hat x^a$ is
 $\hat g_{ab}={\rm diag}(1, 1, 1)$,
 so by transformation we get the metric tensor $g_{ij}$ in the spherical
-coordinates $x^i=(\rho, \theta, \phi)$:
+coordinates $x^i$:
 
 .. math::
 
      g_{ij} =  {\partial \hat x^a\over\partial x^i} {\partial \hat x^b\over\partial x^j} \hat g_{ab} = \left({\partial \hat x\over\partial x}\right)^T \hat g {\partial \hat x\over\partial x} =
 
 
-.. math::
-
      = \left({\partial (x, y, z)\over\partial(\rho, \theta, \phi)}\right)^T \mat{1 & 0 & 0\cr 0 & 1 & 0\cr 0 & 0 & 1\cr} {\partial (x, y, z)\over\partial(\rho, \theta, \phi)}=
-
-
-.. math::
 
     = \mat{ \sin\theta\cos\phi & \sin\theta\sin\phi & \cos\theta \cr \rho\cos\theta\cos\phi & \rho\cos\theta\sin\phi & -\rho\sin\theta \cr -\rho\sin\theta\sin\phi & \rho\sin\theta\cos\phi & 0 \cr } \mat{1 & 0 & 0\cr 0 & 1 & 0\cr 0 & 0 & 1\cr} \mat{\sin\theta\cos\phi & \rho\cos\theta\cos\phi & -\rho\sin\theta\sin\phi \cr \sin\theta\sin\phi & \rho\cos\theta\sin\phi & \rho\sin\theta\cos\phi \cr \cos\phi & -\rho\sin\theta & 0 \cr} =
 
-
-.. math::
-
      = \mat{1 & 0 & 0\cr 0 & \rho^2 & 0\cr 0 & 0 & \rho^2\sin^2\theta\cr}
 
-
-.. math::
 
      g^{ij} = \mat{1 & 0 & 0\cr 0 & 1\over\rho^2 & 0\cr 0 & 0 & 1\over\rho^2\sin^2\theta\cr}
 

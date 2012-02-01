@@ -176,6 +176,7 @@ $\phi$ again. For example
 Finally we obtain
 
 .. math::
+    :label: differentials_spherical
 
     \frac{\partial}{\partial x}=
         \sin\theta\cos\phi
@@ -203,7 +204,9 @@ These expressions can be combined to obtain more complicated objects
 such as Laplacian (in spherical coordinates). However straightforward
 this approach is, it is also rather cumbersome; an alternative is
 discussed in the :ref:`diff_geom_spherical_coordinates` section of differential
-geometry.
+geometry (where it is shown, that the coefficients in
+:eq:`differentials_spherical` are simply the matrix elements of the inverse
+Jacobian).
 
 .. _spherical-int-example:
 
