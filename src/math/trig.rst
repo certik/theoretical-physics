@@ -95,12 +95,14 @@ argument".
 Spherical Coordinates
 ---------------------
 
-Spherical coordinates (radial, zenith, azimuth) $(\rho,\theta,\phi)$:
+Spherical coordinates radial ($\rho$), zenith ($\theta$), azimuth ($\phi$):
 
 .. math::
-    :nowrap:
+    :label: spherical_coordinates
 
-    \begin{eqnarray*} x&=&\rho\sin\theta\cos\phi \\ y&=&\rho\sin\theta\sin\phi \\ z&=&\rho\cos\theta \\ \end{eqnarray*}
+    x &= \rho\sin\theta\cos\phi \\
+    y &= \rho\sin\theta\sin\phi \\
+    z &= \rho\cos\theta \\
 
 Note: this meaning of $(\theta,\phi)$ is mostly used in the USA and in many
 books. In Europe people usually use different symbols, like $(\phi,\theta)$,
@@ -133,10 +135,80 @@ so by combining these two we get:
 
     z = \rho\cos\theta
 
+Example I
+~~~~~~~~~
+
+To transform differential operators such as $\d\over\d x$
+into spherical coordinates, we make use of the chain rule:
+
+.. math::
+
+    \frac{\partial}{\partial x}=
+    \frac{\partial \rho}{\partial x}
+    \frac{\partial}{\partial \rho}
+    +\frac{\partial\theta}{\partial x}
+    \frac{\partial}{\partial \theta}
+    +\frac{\partial\phi}{\partial x}
+    \frac{\partial}{\partial \phi}
+
+
+where $r$, $\theta$ and $\phi$ are functions of $x$, $y$, $z$ to be expressed
+by inverting :eq:`spherical_coordinates`:
+
+.. math::
+
+    \rho(x, y, z)   &= \sqrt{x^2+y^2+z^2}                \\
+    \theta(x, y, z) &= \arccos{z\over\sqrt{x^2+y^2+z^2}} \\
+    \phi(x, y, z)   &= \arctan{y\over x}                 \\
+
+At the end, the derivatives are expressed using $\rho$, $\theta$,
+$\phi$ again. For example
+
+.. math::
+
+    {\partial\rho\over\partial x} =
+        {\partial\sqrt{x^2+y^2+z^2}\over\partial x} =
+
+        = {x \over \sqrt{x^2+y^2+z^2}} =
+
+        = {\rho\sin\theta\cos\phi \over \rho} = \sin\theta\cos\phi
+
+Finally we obtain
+
+.. math::
+
+    \frac{\partial}{\partial x}=
+        \sin\theta\cos\phi
+        \frac{\partial}{\partial\rho}
+        +\frac{\cos\theta\cos\phi}{\rho}
+        \frac{\partial}{\partial \theta}
+        - \frac{\sin\phi}{\rho\sin\theta}
+        \frac{\partial}{\partial \phi}
+
+    \frac{\partial}{\partial y}=
+        \sin\theta\sin\phi
+        \frac{\partial}{\partial\rho}
+        +\frac{\cos\theta\sin\phi}{\rho}
+        \frac{\partial}{\partial \theta}
+        + \frac{\cos\phi}{\rho\sin\theta}
+        \frac{\partial}{\partial \phi}
+
+    \frac{\partial}{\partial z}=
+        \cos\theta \frac{\partial}{\partial\rho}
+        -\frac{\sin\theta}{\rho}
+        \frac{\partial}{\partial \theta}
+
+
+These expressions can be combined to obtain more complicated objects
+such as Laplacian (in spherical coordinates). However straightforward
+this approach is, it is also rather cumbersome; an alternative is
+discussed in the :ref:`diff_geom_spherical_coordinates` section of differential
+geometry.
+
 .. _spherical-int-example:
 
-Example
-~~~~~~~
+Example II
+~~~~~~~~~~
 
 When evaluating integrals of the type:
 

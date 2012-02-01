@@ -1461,6 +1461,7 @@ and for $\partial_\phi\varphi=0$, we get:
     +\partial_z\varphi\partial_z v
     \right)\sigma\rho\,\d\rho\d z=0
 
+.. _diff_geom_spherical_coordinates:
 
 Spherical Coordinates
 ---------------------
