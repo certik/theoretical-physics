@@ -1541,6 +1541,53 @@ Output:
     J^{-1} = \left[\begin{smallmatrix}\sin{\left (\theta \right )} \cos{\left (\phi \right )} & \sin{\left (\phi \right )} \sin{\left (\theta \right )} & \cos{\left (\theta \right )}\\\frac{\cos{\left (\phi \right )} \cos{\left (\theta \right )}}{\rho} & \frac{\sin{\left (\phi \right )} \cos{\left (\theta \right )}}{\rho} & - \frac{\sin{\left (\theta \right )}}{\rho}\\- \frac{\sin{\left (\phi \right )}}{\rho \sin{\left (\theta \right )}} & \frac{\cos{\left (\phi \right )}}{\rho \sin{\left (\theta \right )}} & 0\end{smallmatrix}\right]
 
 
+The transformation matrices (Jacobians) are then used to convert vectors
+
+.. math::
+
+    V_i =  {\partial \hat x^a\over\partial x^i} \hat V_a
+
+and tensors
+
+.. math::
+
+    T_{ij} =  {\partial \hat x^a\over\partial x^i}
+        {\partial \hat x^b\over\partial x^j} \hat T_{ab}
+
+between spherical and cartesian coordinates. For example the partial
+derivatives from cartesian to spherical coordinates transform as:
+
+.. math::
+
+    \partial_i =  {\partial \hat x^a\over\partial x^i} \hat \partial_a
+
+    \mat{ \partial_\rho   & \partial_\theta & \partial_\phi   \cr }
+    =
+    \mat{ \partial_x & \partial_y & \partial_z \cr }
+    \mat{
+    \sin\theta\cos\phi & \rho\cos\theta\cos\phi & -\rho\sin\theta\sin\phi \cr
+    \sin\theta\sin\phi & \rho\cos\theta\sin\phi &  \rho\sin\theta\cos\phi \cr
+    \cos\theta         & -\rho\sin\theta        &  0                      \cr}
+
+and from spherical to cartesian as:
+
+.. math::
+
+    \hat \partial_a =  {\partial x^i\over\partial \hat x^a} \partial_i
+
+    \mat{ \partial_x & \partial_y & \partial_z \cr }
+    =
+    \mat{ \partial_\rho   & \partial_\theta & \partial_\phi   \cr }
+    \mat{
+    \sin\theta\cos\phi             & \sin\theta\sin\phi
+            & \cos\theta             \cr
+    {\cos\theta\cos\phi\over\rho}  & {\cos\theta\sin\phi\over\rho}
+            & -{\sin\theta\over\rho} \cr
+    -{\sin\phi\over\rho\sin\theta} & {\cos\phi\over\rho\sin\theta}
+            & 0                      \cr }
+
+Care must be taken when rewriting the index expression into matrices -- the top
+index of the Jacobian is the row index, the bottom index is the column index.
 
 The metric tensor of the cartesian coordinate system $\hat x^a$ is
 $\hat g_{ab}={\rm diag}(1, 1, 1)$,
@@ -1558,6 +1605,11 @@ coordinates $x^i$:
 
      = \mat{1 & 0 & 0\cr 0 & \rho^2 & 0\cr 0 & 0 & \rho^2\sin^2\theta\cr}
 
+Once we have the metric tensor expressed in spherical coordinates,
+we don't need the cartesian coordinates anymore. All formulas
+only contain the spherical coordinates and the metric tensor.
+
+.. math::
 
      g^{ij} = \mat{1 & 0 & 0\cr 0 & 1\over\rho^2 & 0\cr 0 & 0 & 1\over\rho^2\sin^2\theta\cr}
 
