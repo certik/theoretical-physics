@@ -639,7 +639,8 @@ is virtually known exactly. VWN result:
   \left. -{by_0\over Y(y_0)}\left[\ln\left((y-y_0)^2\over Y(y)\right) +{2(b+2y_0)\over Q}\arctan\left(Q\over 2y+b\right) \right] \right\}
 
 where $y=\sqrt{r_s}$, $Y(y)=y^2+by+c$, $Q=\sqrt{4c-b^2}$, $y_0=-0.10498$,
-$b=3.72744$, $c=12.93532$, $A=0.0621814$ and $r_s$ is the electron gas
+$b=3.72744$, $c=12.9352$ (note that the value of $c$ is wrong in
+[pickett]_), $A=0.0621814$ and $r_s$ is the electron gas
 parameter, which gives the mean distance between electrons (in atomic units):
 
 .. math::
