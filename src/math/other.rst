@@ -232,37 +232,54 @@ Variations and Functional Derivatives
 -------------------------------------
 
 
-Functional derivatives are a common source of confusion and especially the
-notation. The reason is similar to the delta function --- the definition is
-operational, i.e. it tells you what operations you need to do to get a
-mathematically precise formula. The notation below is commonly used in physics
-and in our opinion it is perfectly precise and exact, but some mathematicians
-may not like it.
+Variations and functional derivatives are generalization of differentials and
+partial derivatives to functionals. It is important to master this subject just
+like regular differentials/derivatives in calculus.
 
-Let's have $\x=(x_1,x_2,\dots,x_N)$. The function $f(\x)$ assigns a number to each $\x$. We define a differential of $f$ as
-
-.. math::
-
-       \d f\equiv \left.{\d\over\d\varepsilon}f(\x+\varepsilon\h) \right|_{\varepsilon=0} =\lim_{\varepsilon\to0} {f(\x+\varepsilon\h)-f(\x)\over\varepsilon}=\a\cdot\h
-
-The last equality follows from the fact, that $\left.{\d\over\d\varepsilon}f(\x+\varepsilon\h) \right|_{\varepsilon=0}$ is a linear function of $\h$. We define ${\partial f\over\partial x_i}$ as
+Let's first review differentials and derivatives.
+Let's have $\x=(x_1,x_2,\dots,x_N)$. The function $f(\x)$ assigns a number to
+each $\x$. We define a differential of $f$ in the direction of ${\bf h}$ as:
 
 .. math::
 
-       \a\equiv\left({\partial f\over\partial x_1},{\partial f\over\partial x_2}, \dots,{\partial f\over\partial x_N}\right)
+    \d f
+        \equiv\left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon{\bf h})
+            \right|_{\varepsilon=0}
+        = \lim_{\varepsilon\to0} {f({\bf x}+\varepsilon{\bf h})
+            -f(\x)\over\varepsilon}
+        = {\bf a} \cdot {\bf h}
+
+The last equality follows from the fact, that
+$\left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon{\bf h}) \right|_{\varepsilon=0}$ is a
+linear function of ${\bf h}$. We define the partial derivative ${\partial
+f\over\partial x_i}$ of $f$ with respect to $x_i$ as the $i$-th component of
+the vector ${\bf a}$:
+
+.. math::
+
+    {\bf a}
+        \equiv \left({\partial f\over\partial x_1},
+            {\partial f\over\partial x_2}, \dots,
+            {\partial f\over\partial x_N}\right)
+        \equiv \nabla f
 
 This also gives a formula for computing ${\partial f\over\partial x_i}$: we set $h_j=\delta_{ij}h_i$ and
 
 .. math::
 
-       {\partial f\over\partial x_i}=a_i=\a\cdot\h=\left.{\d\over\d\varepsilon} f(\x+\varepsilon(0,0,\dots,1,\dots,0))\right|_{\varepsilon=0}=
+    {\partial f\over\partial x_i}
+        = a_i
+        = {\bf a}\cdot{\bf h}
+        = \left.{\d\over\d\varepsilon} f(\x+\varepsilon(0,0,\dots,1,\dots,0))
+            \right|_{\varepsilon=0} =
 
+        = \lim_{\varepsilon\to0} {f(x_1,x_2,\dots,x_i+\varepsilon,\dots,x_N)
+            -f(x_1,x_2,\dots,x_i,\dots,x_N) \over\varepsilon}
 
-.. math::
-
-       =\lim_{\varepsilon\to0} {f(x_1,x_2,\dots,x_i+\varepsilon,\dots,x_N)-f(x_1,x_2,\dots,x_i,\dots,x_N) \over\varepsilon}
-
-But this is just the way the partial derivative is usually defined. Every variable can be treated as a function (very simple one):
+The usual way to define partial derivatives is to use the last formula as the
+definition, but here this formula is a consequence of our definition in terms
+of the components of ${\bf a}$.
+Every variable can be treated as a function (very simple one):
 
 .. math::
 
@@ -274,14 +291,37 @@ and so we define
 
        \d x_i\equiv\d g=\d(\delta_{ij}x_j)=h_i
 
-and thus we write $h_i=\d x_i$ and $\h=\d\x$ and
+and thus we write $h_i=\d x_i$ and ${\bf h}=\d\x$ and
 
 .. math::
 
-       \d f={\d f\over\d x_i}\d x_i
+       \d f={\d f\over\d x_i}\d x_i = (\nabla f) \cdot \d {\bf x}
 
-So $\d\x$ has two meanings --- it's either $\h=\x-\x_0$ (a finite change in the independent variable $\x$) or a differential, depending on the context. Even mathematicians use this notation.
+So $\d{\bf x}$ has two meanings --- it's either ${\bf h}={\bf x}-{\bf x}_0$ (a
+finite change in the independent variable ${\bf x}$) or a differential,
+depending on the context. The above is a detailed explanation why things
+are defined the way they are and what the exact meaning is. With this
+understanding, the only things that are actually needed for any calculations
+are the following -- the definition of a differential:
 
+.. math::
+
+    \d f = \left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon\d {\bf x})
+            \right|_{\varepsilon=0}
+
+Only a regular derivative (defined in terms of a limit) is needed for this
+definition. The definition of a partial derivative (and a gradient):
+
+.. math::
+
+    \d f={\d f\over\d x_i}\d x_i = (\nabla f) \cdot \d {\bf x}
+
+And finally the understanding that $\d{\bf x}$ means
+either ${\bf h}={\bf x}-{\bf x}_0$ or a differential depending on the context.
+That's all there is to it.
+
+
+Let's now define functional derivatives and variations.
 Functional $F[f]$ assigns a number to each function $f(x)$. The variation is defined as
 
 .. math::
@@ -300,11 +340,10 @@ This also gives a formula for computing ${\delta F\over\delta f(x)}$: we set $h(
 
        {\delta F\over\delta f(x)}=a(x)=\int a(y)\delta(x-y)\d y= \left.{\d\over\d\varepsilon}F[f(y)+\varepsilon\delta(x-y)] \right|_{\varepsilon=0}=
 
-
-.. math::
-
        =\lim_{\varepsilon\to0} {F[f(y)+\varepsilon\delta(x-y)]-F[f(y)]\over\varepsilon}
 
+Sometimes the functional derivative is defined using the last formula, here
+this formula just follows from our definition.
 Every function can be treated as a functional (although a very simple one):
 
 .. math::
@@ -324,12 +363,25 @@ thus we write $h=\delta f$ and
        \delta F[f]=\int {\delta F\over\delta f(x)}\delta f(x)\d x
 
 so $\delta f$ have two meanings --- it's either
-$h(x)=\left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x))
-\right|_{\varepsilon=0}$ (a finite change in the function $f$) or a variation
-of a functional, depending on the context. Some mathematicians don't like to
-write $\delta f$ in the meaning of $h(x)$, they prefer to write the latter, but
-it is in fact perfectly fine to use $\delta f$, because it is completely analogous to $\d\x$.
+$h(x)=f(x) - f_0(x)$ (a finite change in the function $f$) or a variation
+of a functional, depending on the context.
+It is completely analogous to $\d\x$. Let's summarize the only formulas needed
+in actual calculations -- the definition of a variation (using a regular
+derivative):
 
+.. math::
+
+    \delta F[f] = \left.{\d\over\d\varepsilon}F[f+\varepsilon \delta f]
+        \right|_{\varepsilon=0}
+
+the definition of the partial derivative:
+
+.. math::
+
+       \delta F[f]=\int {\delta F\over\delta f(x)} \delta f(x) \d x
+
+and the understanding that $\delta f$ means either
+$h(x)=f(x) - f_0(x)$ or a variation.
 
 The correspondence between the finite and infinite dimensional case can be summarized as:
 
