@@ -236,7 +236,119 @@ Variations and functional derivatives are generalization of differentials and
 partial derivatives to functionals. It is important to master this subject just
 like regular differentials/derivatives in calculus.
 
-Let's first review differentials and derivatives.
+Functions of One Variable
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Let's first review differentials and derivatives of functions of one variable.
+We will use an approach that directly generalizes to multivariable functions
+and functionals.
+The differential $\d f$ is defined as:
+
+.. math::
+
+    \d f
+        \equiv \lim_{\varepsilon\to0} {f(x+\varepsilon h)
+            -f(x)\over\varepsilon}
+        = a h
+
+Last equality follows from the fact, that the limit is a linear function of
+$h$:
+
+.. math::
+
+    \lim_{\varepsilon\to0} {f(x+\varepsilon h) -f(x)\over\varepsilon}
+        = \lim_{\eta\to0} {f(x+\eta) -f(x)\over\left(\eta\over h\right)}
+        = \left(\lim_{\eta\to0} {f(x+\eta) -f(x)\over\eta}\right) h
+
+Where we used the substitution $\eta = \varepsilon h$.
+We define the derivative $\d f\over \d x$ as:
+
+.. math::
+
+    {\d f\over \d x} = a
+
+To get a formula for ${\d f\over \d x}$, we set $h=1$ and get:
+
+.. math::
+
+    {\d f\over \d x} = a = a \cdot 1
+        = \lim_{\varepsilon\to0} {f(x+\varepsilon \cdot 1)-f(x)\over\varepsilon}
+        = \lim_{\varepsilon\to0} {f(x+\varepsilon)-f(x)\over\varepsilon}
+
+Using the formulas above we get an equivalent expression for the
+differential:
+
+.. math::
+
+    \left.{\d\over\d\varepsilon}f(x+\varepsilon h) \right|_{\varepsilon=0}
+        = \left.\lim_{\eta\to0} {f(x+(\varepsilon+\eta) h)
+            -f(x+\varepsilon h)\over\eta}\right|_{\varepsilon=0} =
+
+        = \lim_{\eta\to0} {f(x+\eta h) -f(x)\over\eta} =
+
+        = \lim_{\varepsilon\to0} {f(x+\varepsilon h) -f(x)\over\varepsilon}
+
+So we get a general formula (the analogy of which we will use later):
+
+.. math::
+
+    \d f
+        \equiv\left.{\d\over\d\varepsilon}f(x+\varepsilon h)
+            \right|_{\varepsilon=0}
+        = \lim_{\varepsilon\to0} {f(x+\varepsilon h)
+            -f(x)\over\varepsilon}
+        = a h
+
+The variable $x$ can be treated as a function (a very simple one):
+
+.. math::
+
+    x = g(x)
+
+So we define $\d x$ as:
+
+.. math::
+
+    \d x \equiv \d g = {\d g\over\d x} h = h
+
+As such, $\d x$ can have two meanings: either $\d x = h = x-x_0$ (a finite
+change in the variable $x$) or a differential (if $x$ depends on another
+variable, thanks to the chain rule everything will work).
+With this understanding,
+for all calculations, we only need the following two formulas ---
+the definition of the differential (using a limit):
+
+.. math::
+
+    \d f = \lim_{\varepsilon\to0} {f(x+\varepsilon \d x) -f(x)\over\varepsilon}
+
+and the definition of the derivative (using the differential):
+
+.. math::
+
+    \d f = {\d f\over \d x} \d x
+
+where $\d x$ is either a differential or a finite change in the variable $x$.
+
+If for example $x=p(y)$ is a function of $y$ then in the above $\d x$ is a
+differential and we get:
+
+.. math::
+
+    \d f = {\d f\over \d x} \d x = {\d f\over \d x}{\d x\over \d y} \d y
+
+Thanks to the chain rule, this can also be written as:
+
+.. math::
+
+    \d f = {\d f\over \d y} \d y
+
+and so the notation is consistent.
+
+
+Functions of several variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Let's have $\x=(x_1,x_2,\dots,x_N)$. The function $f(\x)$ assigns a number to
 each $\x$. We define a differential of $f$ in the direction of ${\bf h}$ as:
 
@@ -309,7 +421,7 @@ are the following -- the definition of a differential:
     \d f = \left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon\d {\bf x})
             \right|_{\varepsilon=0}
 
-Only a regular derivative (defined in terms of a limit) is needed for this
+Only a regular derivative (defined in the previous section) is needed for this
 definition. The definition of a partial derivative (and a gradient):
 
 .. math::
@@ -320,6 +432,8 @@ And finally the understanding that $\d{\bf x}$ means
 either ${\bf h}={\bf x}-{\bf x}_0$ or a differential depending on the context.
 That's all there is to it.
 
+Functionals
+~~~~~~~~~~~
 
 Let's now define functional derivatives and variations.
 Functional $F[f]$ assigns a number to each function $f(x)$. The variation is defined as
@@ -374,7 +488,7 @@ derivative):
     \delta F[f] = \left.{\d\over\d\varepsilon}F[f+\varepsilon \delta f]
         \right|_{\varepsilon=0}
 
-the definition of the partial derivative:
+the definition of the functional derivative:
 
 .. math::
 
@@ -420,11 +534,17 @@ This notation allows us a very convinient computation, as shown in the following
 
 In the expression $\delta(K(x) f(x))$ we must understand from the context if we are treating it as a functional of $f$ or $K$. In our case it's a functional of $f$, so we have $\delta(K f)=K\delta f$.
 
-A few more examples:
+A few more examples (notice that one can do each calculation either in terms of
+the functional derivative or the variation, and the variation version is usually
+simpler):
 
 .. math::
 
        {\delta\over\delta f(t)}\int\d t'f(t')g(t')= \left.{\d\over\d\varepsilon}\int\d t'(f(t')+\varepsilon\delta(t-t'))g(t') \right|_{\varepsilon=0}=g(t)
+
+       \delta \int \d t f(t)g(t) = \left.{\d\over\d\varepsilon}\int\d
+           t(f(t)+\varepsilon \delta f(t))g(t) \right|_{\varepsilon=0}
+        = \int g(t) (\delta f(t)) \d t
 
 
 .. math::
@@ -436,15 +556,29 @@ A few more examples:
 
        {\delta f(t_1)f(t_2)\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta(t-t_1)) (f(t_2)+\varepsilon\delta(t-t_2)) \right|_{\varepsilon=0}=\delta(t-t_1)f(t_2)+f(t_1)\delta(t-t_2)
 
+.. math::
+
+    \delta (f(t_1)f(t_2))
+        = \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta f(t_1))
+            (f(t_2)+\varepsilon\delta f(t_2)) \right|_{\varepsilon=0}
+        =(\delta f(t_1))f(t_2)+f(t_1)(\delta f(t_2))
+
 
 .. math::
 
        {\delta\over\delta f(t)}\half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d t_2K(t_1,t_2){\delta f(t_1)f(t_2)\over\delta f(t)}=
 
+       =\half\left(\int\d t_1 K(t_1,t)f(t_1)+\int\d t_2 K(t,t_2)f(t_2)\right) =\int\d t_2 K(t,t_2)f(t_2)
 
 .. math::
 
-       =\half\left(\int\d t_1 K(t_1,t)f(t_1)+\int\d t_2 K(t,t_2)f(t_2)\right) =\int\d t_2 K(t,t_2)f(t_2)
+    \delta \half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d
+    t_2K(t_1,t_2)(\delta f(t_1)f(t_2))=
+
+    = \half\int\d t_1\d t_2K(t_1,t_2) ((\delta f(t_1))f(t_2)
+        +f(t_1)(\delta f(t_2))=
+
+    = \int\d t_1\d t_2 K(t_1,t_2) f(t_2) (\delta f(t_1))
 
 The last equality follows from $K(t_1,t_2)=K(t_2,t_1)$ (any antisymmetrical part of a $K$ would not contribute to the symmetrical integration).
 
@@ -503,8 +637,8 @@ Another example:
 
        =\left.\int3(f(x)+\varepsilon\delta(x-t))^2\delta(x-t)\d x \right|_{\varepsilon=0}=\int3f^2(x)\delta(x-t)\d x=3f^2(t)
 
-Some mathematicians would say the above calculation is incorrect, because
-$\delta^2(x-t)$ is undefined. But that's not exactly true, because in case of
+One might thing that the above calculation is incorrect, because
+$\delta^2(x-t)$ is undefined. In case of
 such problems the above notation automatically implies working with some
 sequence $\delta_\alpha(x) \to \delta(x)$ (for example $\delta_\alpha(x) =
 {1\over\pi x}\sin(\alpha x)$) and taking the limit $\alpha\to\infty$:
@@ -555,6 +689,62 @@ And an example of varying with respect to a metric:
         =\half \sqrt{ |\det g_{\mu\nu}| }\, g^{\mu\nu} \delta g_{\mu\nu} =
 
         =-\half \sqrt{ |\det g_{\mu\nu}| }\, g_{\mu\nu} \delta g^{\mu\nu}
+
+Another example (varying energy functional):
+
+.. math::
+
+    E[\rho] = 4\pi\int {a \rho(r)\over b + r_s(r)} r^2 \d r
+
+    r_s(r) = \left(3\over 4\pi (-\rho)\right)^{1\over 3}
+
+    {\d r_s\over\d \rho} =
+            {1\over 3}\left(3\over 4\pi (-\rho)\right)^{-{2\over 3}}
+            {3\over 4\pi \rho^2}
+        =
+            -{1\over 3\rho}\left(3\over 4\pi (-\rho)\right)^{1\over 3}
+        =
+            -{r_s\over 3\rho}
+
+    \delta E[\rho] = 4\pi \delta \int {a \rho\over b + r_s} r^2 \d r =
+
+        = 4\pi \int\left({a \delta \rho\over b + r_s}
+            - {a \rho\over (b + r_s)^2 }\delta r_s\right) r^2 \d r =
+
+        = 4\pi \int\left({a \delta \rho\over b + r_s}
+            - {a \rho\over (b + r_s)^2 }\left(-{r_s\over 3\rho}\right)
+              \delta\rho\right)
+              r^2 \d r =
+
+        = 4\pi \int\left({a \over b + r_s}
+            +{1\over3} {a r_s\over (b + r_s)^2 }\right) (\delta\rho) r^2 \d r
+
+    {\delta E[\rho]\over\delta\rho}
+        = 4\pi r^2 \left({a \over b + r_s}
+            +{1\over3} {a r_s\over (b + r_s)^2 }\right)
+
+Another example (Hartree energy):
+
+.. math::
+
+    E[n] = \half \int {n({\bf r}') n({\bf r}'')\over
+        | {\bf r}' - {\bf r}''| } \d^3 r' \d^3 r''
+
+    \delta E[n] = \half \delta \int {n({\bf r}') n({\bf r}'')\over
+        | {\bf r}' - {\bf r}''| } \d^3 r' \d^3 r'' =
+
+        = \half \int { (\delta n({\bf r}')) n({\bf r}'')
+            + n({\bf r}') (\delta n({\bf r}''))\over
+        | {\bf r}' - {\bf r}''| } \d^3 r' \d^3 r'' =
+
+        = \int { n({\bf r}') \over | {\bf r}' - {\bf r}''| }
+            (\delta n({\bf r}'')) \d^3 r' \d^3 r'' =
+
+        = \int { n({\bf r}') \over | {\bf r} - {\bf r}'| }
+            (\delta n({\bf r})) \d^3 r' \d^3 r
+
+    {\delta E[n]\over \delta n({\bf r})}
+        = \int { n({\bf r}') \over | {\bf r} - {\bf r}'| } \d^3 r'
 
 .. index:: dirac notation
 
