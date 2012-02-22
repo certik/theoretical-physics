@@ -1671,13 +1671,49 @@ since $c$ is positive, if $b > a$ then also $b+c\ge a$ and we get
 Gamma Function
 --------------
 
-Gamma function $\Gamma(z)$ is defined as:
+The Gamma function $\Gamma(x)$ is defined by the following properties
+for $x > 0$:
 
 .. math::
+    :label: gamma1
+
+    \Gamma(1) = 1
+
+.. math::
+    :label: gamma2
+
+    \Gamma(x+1) = x \Gamma(x)
+
+.. math::
+    :label: gamma3
+
+    \log\Gamma(x) \quad\mbox{is convex}
+
+It can be shown that this determines the function uniquely for $x > 0$ (this is
+called the Bohr-Mollerup theorem) and then it can be extended analytically to
+the whole complex plane.
+
+The most common formula for $\Gamma(z)$ that satisfies :eq:`gamma1`,
+:eq:`gamma2` and :eq:`gamma3`
+is:
+
+
+.. math::
+    :label: gamma_int
 
     \Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \d t
 
-Integrating by parts we get:
+It satisfies :eq:`gamma1` because:
+
+.. math::
+
+    \Gamma(1)
+        = \int_0^\infty t^{1-1} e^{-t} \d t
+        = \int_0^\infty e^{-t} \d t
+        = [-e^{-t}]_0^\infty
+        = 1
+
+It satisfies :eq:`gamma2` by integrating by parts:
 
 .. math::
 
@@ -1686,7 +1722,46 @@ Integrating by parts we get:
         = (z-1)\int_0^\infty t^{z-2} e^{-t} \d t-[t^{z-1}e^{-t}]_0^\infty
         = (z-1)\Gamma(z-1)
 
-So for integer $n$ we get:
+Finally it satisfies :eq:`gamma3` by verifying the convex condition
+directly ($x, y > 0$ and $0\le \lambda \le 1$):
+
+.. math::
+
+    \log\Gamma(\lambda x + (1-\lambda) y)
+        = \log\int_0^\infty t^{\lambda x + (1-\lambda) y - 1} e^{-t} \d t =
+
+        = \log \int_0^\infty (t^{x-1} e^{-t})^\lambda
+            (t^{y-1} e^{-t})^{1-\lambda} \d t \le
+
+        \le \log \left(
+            \left(\int_0^\infty t^{x-1} e^{-t} \d t\right)^\lambda
+            \left(\int_0^\infty t^{y-1} e^{-t} \d t\right)^{1-\lambda}\right) =
+
+        = \lambda \log\Gamma(x) + (1-\lambda) \log \Gamma(y)
+
+And thus :eq:`gamma_int` uniquely determines the Gamma function.
+We can use :eq:`gamma_int` to calculate $\Gamma(\half)$:
+
+.. math::
+
+    \Gamma(\half)
+        = \int_0^\infty t^{{1\over2}-1} e^{-t} \d t
+        = \int_0^\infty {e^{-t}\over\sqrt t} \d t
+        = \int_0^\infty {e^{-x^2}\over x} 2x\, \d x
+        = 2\int_0^\infty e^{-x^2} \d x =
+
+        = \int_{-\infty}^\infty e^{-x^2} \d x
+        = \sqrt{
+            \int_{-\infty}^\infty e^{-x^2} \d x
+            \int_{-\infty}^\infty e^{-y^2} \d y
+            }
+        = \sqrt{2\pi \int_0^\infty e^{-r^2} r\d r} =
+
+        = \sqrt{2\pi \int_0^\infty e^{-u} \half\d u}
+        = \sqrt\pi
+
+From this and the definition of the Gamma function we get
+for integer $n$:
 
 .. math::
     :label: gamma_fact
@@ -1710,31 +1785,6 @@ and
         = {(2n-1)!!\over 2^n}\Gamma(\half)
         = {(2n-1)!!\over 2^n}\sqrt\pi
 
-Where we used:
-
-.. math::
-
-    \Gamma(1)
-        = \int_0^\infty t^{1-1} e^{-t} \d t
-        = \int_0^\infty e^{-t} \d t
-        = [-e^{-t}]_0^\infty
-        = 1
-
-    \Gamma(\half)
-        = \int_0^\infty t^{{1\over2}-1} e^{-t} \d t
-        = \int_0^\infty {e^{-t}\over\sqrt t} \d t
-        = \int_0^\infty {e^{-x^2}\over x} 2x\, \d x
-        = 2\int_0^\infty e^{-x^2} \d x =
-
-        = \int_{-\infty}^\infty e^{-x^2} \d x
-        = \sqrt{
-            \int_{-\infty}^\infty e^{-x^2} \d x
-            \int_{-\infty}^\infty e^{-y^2} \d y
-            }
-        = \sqrt{2\pi \int_0^\infty e^{-r^2} r\d r} =
-
-        = \sqrt{2\pi \int_0^\infty e^{-u} \half\d u}
-        = \sqrt\pi
 
 Factorial
 ---------
