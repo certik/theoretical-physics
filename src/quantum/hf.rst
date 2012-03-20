@@ -292,6 +292,372 @@ And we get:
         P_{nl}(r')
         \d r \d r'
 
+General Matrix Elements
+-----------------------
+
+The two particle matrix element is:
+
+.. math::
+    :label: twoint
+
+    (ij|kl) = \braket{ik|jl} =
+        \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+            \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'
+
+The $\braket{ik|jl}$ is called the physicists' notation because
+the $\ket{jl}$ and $\ket{ik}$ kets are:
+
+.. math::
+
+    \ket{jl}=\psi_j({\bf x})\psi_l({\bf x}')
+
+    \ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')
+
+The $(ij|kl)$ is called the chemists' notation. From :eq:`twoint` the
+symmetries of $(ij|kl)$ are exchange of $i$ with $j$ or $k$ with $l$ or the
+$ij$ and $kl$ pairs:
+
+.. math::
+
+    (ij|kl) = (ji|kl) = (ij|lk) = (ji|lk) =
+
+    = (kl|ij) = (lk|ij) = (kl|ji) = (lk|ji)
+
+So if we view $(ij|kl)$ as two boxes $(\cdot | \cdot )$ then we can permute the
+labels in the given box "$\cdot$", as well as exchange the boxes (the only
+thing we cannot do is to take one particle from one box and put it into the
+other). As such the box "$\cdot$" is a pair of two electrons (in any order) and
+the two electron integral assigns a unique number to a pair of such boxes (in
+any order). The symmetries of the $\braket{ik|jl}$ symbol are:
+
+.. math::
+
+    \braket{ik|jl} = \braket{jk|il} = \braket{il|jk} = \braket{jl|ik} =
+
+    = \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}
+
+
+We use the following functions for $\psi$:
+
+.. math::
+
+    \psi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+    \psi_j({\bf x}) = {P_{n_1'l_1'}(r)\over r} Y_{l_1'm_1'}(\Omega)
+
+    \psi_k({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
+
+    \psi_l({\bf x}) = {P_{n_2'l_2'}(r)\over r} Y_{l_2'm_2'}(\Omega)
+
+And the multipole expansion:
+
+.. math::
+
+    {1\over |{\bf x}-{\bf x}'|}
+        = \sum_{k,q}{r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+
+And we get:
+
+.. math::
+
+    (ij|kl) = \braket{ik|jl} = \braket{l_1 m_1 l_2 m_2 |
+        {1\over |{\bf x} - {\bf x}'|} | l_1' m_1' l_2' m_2'} =
+
+    =\int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+        \over |{\bf x} - {\bf x}'|} \d^3 x \d^3 x' =
+
+    = \int
+        {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+        {P_{n_1'l_1'}(r)\over r} Y_{l_1'm_1'}(\Omega)
+        {P_{n_2l_2}(r')\over r'} Y_{l_2m_2}^*(\Omega')
+        {P_{n_2'l_2'}(r')\over r'} Y_{l_2'm_2'}(\Omega')
+
+        \sum_{k,q}{r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}Y_{kq}(\Omega)Y_{kq}^*(\Omega')
+        r^2 r'^2 \d r \d r' \d \Omega \d \Omega' =
+
+    =
+    \sum_{k,q}
+    \int
+        Y_{l_1m_1}^*(\Omega)
+        Y_{l_1'm_1'}(\Omega)
+        Y_{kq}(\Omega)
+        \d \Omega
+      \int
+        Y_{l_2m_2}^*(\Omega')
+        Y_{l_2'm_2'}(\Omega')
+        Y_{kq}^*(\Omega')
+        \d \Omega'
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k,q}
+    (-1)^{m_1+m_2+q}
+    \int
+        Y_{l_1,-m_1}(\Omega)
+        Y_{l_1'm_1'}(\Omega)
+        Y_{kq}(\Omega)
+        \d \Omega
+      \int
+        Y_{l_2,-m_2}(\Omega')
+        Y_{l_2'm_2'}(\Omega')
+        Y_{k,-q}(\Omega')
+        \d \Omega'
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k,q}
+    (-1)^{m_1+m_2+q}
+    \sqrt{(2l_1+1)(2l_1'+1)(2k+1)\over 4\pi}
+            \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+                    \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q
+                    \end{pmatrix}
+
+    \sqrt{(2l_2+1)(2l_2'+1)(2k+1)\over 4\pi}
+            \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+                    \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & -q
+                    \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+            {4\pi\over 2k+1}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    =
+    \sum_k
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+    \sum_{q=-k}^k (-1)^{m_1+m_2+q}
+        \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+        \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & -q \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+        \min(l_1+l_1', l_2+l_2')
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+    (-1)^{m_1+m_2'} \delta_{m_1+m_2- m_1'-m_2', 0}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+        \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & m_1-m_1' \end{pmatrix}
+        \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & m_2-m_2' \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r'
+
+In the last step we used the fact that the $3j$ symbols are zero unless
+$-m_1+m_1'+q=0$
+and $-m_2+m_2'-q=0$, from which it follows
+that $q=m_1-m_1'=-m_2+m_2'$ and so one of the $3j$ symbols is zero
+unless $m_1+m_2-m_1'-m_2'=0$, which is expressed by
+$\delta_{m_1+m_2- m_1'-m_2', 0}$.
+Given this condition, the sum over $q$ must be such
+that one $q$ is equal to $m_1-m_1'=-m_2+m_2'$, which means that
+$k \ge |m_1 - m_1'| = |m_2 - m_2'|$ otherwise the $3j$ symbols will be zero.
+Finally, $k$ must also satisfy the conditions
+$|l_1-l_1'| \le k \le l_1+l_1'$ and $|l_2-l_2'| \le k \le l_2+l_2'$.
+The sign factor
+$(-1)^{m_1+m_2+q} = (-1)^{m_1+m_2+m_1-m_1'} =(-1)^{m_1+m_2-m_2+m_2'}$
+is equal to both $(-1)^{m_1+m_2'}$ and $(-1)^{m_2-m_1'}$ so we just used the
+former.
+
+We can also couple the angular momenta as follows:
+
+.. math::
+
+    \ket{l_1 l_2 LM} = \sum_{m_1 m_2} (l_1 m_1 l_2 m_2 | LM)
+        \ket{l_1 m_1} \ket{l_2 m_2} =
+
+    = \sum_{m_1 m_2} (-1)^{l_1-l_2+M}\sqrt{2L+1}
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \ket{l_1 m_1} \ket{l_2 m_2}
+
+and we get for the matrix elements:
+
+.. math::
+
+    \braket{l_1 l_2 LM  | {1\over |{\bf x} - {\bf x}'|} | l_1' l_2' L' M'} =
+
+    = \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'+M+M'}
+        \sqrt{(2L+1)(2L'+1)}
+
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \begin{pmatrix} l_1' & l_2' & L' \\ m_1' & m_2' & -M' \end{pmatrix}
+
+        \bra{l_1 m_1} \bra{l_2 m_2}
+        {1\over |{\bf x} - {\bf x}'|}
+        \ket{l_1' m_1'} \ket{l_2 m_2'} =
+
+    = \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'+M+M'}
+        \sqrt{(2L+1)(2L'+1)}
+
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \begin{pmatrix} l_1' & l_2' & L' \\ m_1' & m_2' & -M' \end{pmatrix}
+
+        (ij|kl) =
+
+    = \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'+M+M'}
+        \sqrt{(2L+1)(2L'+1)}
+
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \begin{pmatrix} l_1' & l_2' & L' \\ m_1' & m_2' & -M' \end{pmatrix}
+
+    \sum_k
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+    \sum_{q=-k}^k (-1)^{m_1+m_2+q}
+        \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+        \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & -q \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    = \sum_{m_1 m_2} \sum_{m_1' m_2'} (-1)^{l_1-l_2+l_1'-l_2'}
+        (2L+1)
+
+        \delta_{MM'}\delta_{LL'}
+        \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+        \begin{pmatrix} l_1' & l_2' & L \\ m_1' & m_2' & -M \end{pmatrix}
+
+    \sum_k
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+    \sum_{q=-k}^k (-1)^{m_1+m_2+q}
+        \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+        \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & -q \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    = (-1)^{l_1-l_2+l_1'-l_2'} (2L+1)
+
+    \sum_k
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+        \delta_{MM'}\delta_{LL'} (-1)^{l_1+l_1'+L}
+    \begin{Bmatrix} l_1 & l_2 & L \\ l_2' & l_1' & k \end{Bmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    = \sum_k
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r'
+
+        (-1)^{L-l_2-l_2'} (2L+1)
+        \delta_{MM'}\delta_{LL'}\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{Bmatrix} l_1 & l_2 & L \\ l_2' & l_1' & k \end{Bmatrix} =
+
+    = \sum_k
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r'
+
+        (-1)^{l_1 + l_1' + L} (2L+1)
+
+        \delta_{LL'}\delta_{MM'}\sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+    \begin{pmatrix} l_1 & k & l_1' \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & k & l_2' \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{Bmatrix} l_1 & l_2 & L \\ l_2' & l_1' & k \end{Bmatrix}
+
+
+
+
+Where we used the $6j$ symbol:
+
+.. math::
+
+    \begin{Bmatrix} l_1 & l_2 & L \\ l_2' & l_1' & k \end{Bmatrix}
+    =\sum_{m_1 m_2 m_1' m_2' M q} (-1)^{l_1+l_2+l_1'+l_2'+L+k
+        -m_1-m_2-m_1'-m_2'-M-q}
+
+    \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+    \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+    \begin{pmatrix} l_2' & l_1' & L \\ m_2' & -m_1' & M \end{pmatrix}
+    \begin{pmatrix} l_2' & l_2 & k \\ -m_2' & -m_2 & -q \end{pmatrix}
+    =
+
+    =\sum_{m_1 m_2 m_1' m_2' M q} (-1)^{l_1+l_2+l_1'+l_2'+L+k
+        -m_1-m_2-m_1'-m_2'-M-q}
+
+    \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+    \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+    \begin{pmatrix} l_1' & l_2' & L \\ m_1' & -m_2' & -M \end{pmatrix}
+    (-1)^{l_2+l_2'+k}
+    \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & -m_2' & -q \end{pmatrix}
+    =
+
+    =\sum_{m_1 m_2 m_1' m_2' q} \delta_{M, m_1' + m_2'}
+        (-1)^{l_1+l_1'+L} (-1)^{m_1+m_2+q}
+
+    \begin{pmatrix} l_1 & l_2 & L \\ m_1 & m_2 & -M \end{pmatrix}
+    \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & q \end{pmatrix}
+    \begin{pmatrix} l_1' & l_2' & L \\ m_1' & +m_2' & -M \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & +m_2' & -q \end{pmatrix}
+
+Where we have renamed $-m_2'$ to $m_2'$.
 
 Occupation Numbers
 ------------------
