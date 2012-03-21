@@ -369,8 +369,8 @@ In physical and chemistry notation this is written as:
             \left((\mu \nu|\beta \alpha) -\half (\mu \alpha|\beta \nu)\right)
 
 
-General Matrix Elements
------------------------
+General Matrix Elements in Spherical Symmetry
+---------------------------------------------
 
 Overlap
 ~~~~~~~
@@ -398,6 +398,36 @@ and we get:
 
     = \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r) P_{n_2l_2}(r) \d r
 
+Potential
+~~~~~~~~~
+
+
+The potential matrix element is:
+
+.. math::
+
+    V_{ij} =
+        \int \phi_i^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
+        \phi_j({\bf x}) \d^3 x
+
+We will use the following functions:
+
+.. math::
+
+    \phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+    \phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
+
+and we get:
+
+.. math::
+
+    V_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+        \left(-{Z\over r}\right)
+        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega
+
+    = \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r)
+        \left(-{Z\over r}\right) P_{n_2l_2}(r) \d r
 
 Two particle
 ~~~~~~~~~~~~
