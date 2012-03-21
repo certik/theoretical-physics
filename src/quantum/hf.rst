@@ -172,7 +172,8 @@ $i$, $k$ are spatial orbitals, not spin orbitals):
     T \ket{i} + \sum_{k=1}^{N/2}
         \left(2\braket{k|V|ik}-\braket{k|V|ki}\right) = \epsilon_i \ket{i}
 
-We introduce basis functions $\ket{\mu}$ by:
+We introduce basis functions $\ket{\mu}$ by (below the greek letters are basis
+functions, latin letters are spatial orbitals):
 
 .. math::
 
@@ -203,6 +204,12 @@ Now we expand the functions $\ket{k}$:
 we introduce the density matrix:
 
 .. math::
+
+    \hat\rho
+        = 2 \sum_{k=1}^{N/2} \ket{k}\bra{k}
+        = \sum_{\alpha\beta} \ket{\alpha} 2 \sum_{k=1}^{N/2}
+            C_{\alpha k} C_{\beta k}^*\bra{\beta}
+        = \sum_{\alpha\beta} \ket{\alpha}P_{\alpha\beta}\bra{\beta}
 
     P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
 
@@ -323,6 +330,19 @@ where:
 
 
     S_{\mu\nu} = \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x
+
+Introducing the density matrix:
+
+.. math::
+
+    \rho({\bf x}, {\bf y}) = \braket{{\bf x} | \hat \rho | {\bf y}}
+    = \sum_{\alpha\beta} \braket{{\bf x}|\alpha}P_{\alpha\beta}
+        \braket{\beta|{\bf y}}
+    = \sum_{\alpha\beta} \phi_\alpha({\bf x}) P_{\alpha\beta}
+        \phi_\beta^*({\bf y})
+
+
+    P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
 
 Expanding the $\psi_k$ functions and using the density matrix we get for
 $G_{\mu\nu}$:
