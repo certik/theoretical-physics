@@ -348,7 +348,7 @@ where:
 
     S_{\mu\nu} = \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x
 
-Introducing the density matrix:
+Introducing the density matrix and density:
 
 .. math::
 
@@ -360,6 +360,13 @@ Introducing the density matrix:
 
 
     P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
+
+    \rho({\bf x}) = 2 \sum_{k=1}^{N/2} | \psi_k({\bf x})|^2
+        = 2 \sum_{k=1}^{N/2} | \braket{{\bf x}|k}|^2
+        = 2 \sum_{k=1}^{N/2} \braket{{\bf x}|k}\braket{k|{\bf x}}
+        = \braket{{\bf x}|\hat \rho|{\bf x}}
+        = \sum_{\alpha\beta} \phi_\alpha({\bf x}) P_{\alpha\beta}
+            \phi_\beta^*({\bf x})
 
 Expanding the $\psi_k$ functions and using the density matrix we get for
 $G_{\mu\nu}$:
