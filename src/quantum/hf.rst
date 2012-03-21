@@ -505,6 +505,36 @@ And we get:
 General Matrix Elements
 -----------------------
 
+Overlap
+~~~~~~~
+
+The overlap matrix element is:
+
+.. math::
+
+    S_{ij} = \int \phi_i^*({\bf x}) \phi_j({\bf x})\d^3 x
+
+We will use the following functions:
+
+.. math::
+
+    \phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+    \phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
+
+and we get:
+
+.. math::
+
+    S_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega
+
+    = \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r) P_{n_2l_2}(r) \d r
+
+
+Two particle
+~~~~~~~~~~~~
+
 The two particle matrix element is:
 
 .. math::
