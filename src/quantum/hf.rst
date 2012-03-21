@@ -4,7 +4,8 @@ Hartree-Fock (HF) Method
 Derivation
 ----------
 
-The interacting Hamiltonian is (see the general QFT notes for derivation):
+The interacting Hamiltonian for many body Schrödinger equation
+is (see the general QFT notes for derivation):
 
 .. math::
 
@@ -12,6 +13,20 @@ The interacting Hamiltonian is (see the general QFT notes for derivation):
 
     \hat H = \hat T + \hat V = \sum_{ij} c_i^\dag\braket{i|T|j}c_j +
         \half \sum_{ijkl} c_i^\dag c_j^\dag\braket{ij|V|kl}c_l c_k
+
+where $\ket{i}$ are spin orbitals (thus the integration over $\omega$ below)
+and:
+
+.. math::
+
+    \braket{i|T|j} = \int \chi_i^*({\bf x}) \left(
+        -\half\nabla^2 - \sum_n {Z_n\over | {\bf x} -{\bf R}_n | }\right)
+            \chi_j({\bf x})\d^3 x\, \d\omega
+
+    \braket{ij|V|kl} = \int \chi_i^*({\bf x}) \chi_j^*({\bf y})
+        {1\over | {\bf x} - {\bf y} | } \chi_k({\bf x}) \chi_l({\bf y})
+            \d^3 x\, \d\omega_x\,
+            \d^3 y\, \d\omega_y
 
 We would like to minimize the energy $E = \braket{\Psi | \hat H | \Psi }$ using
 the following basis for $Z$ electrons:
@@ -65,14 +80,16 @@ in the $x$-representation:
             \braket{j{\bf x}|V|ji}\right)
         = \epsilon_i \braket{{\bf x} | i}
 
-And writing the individual terms explicitly:
+And writing the individual terms explicitly (in this section, all orbitals are
+*spin* orbitals):
 
 .. math::
 
     \braket{{\bf x} | i} = \psi_i({\bf x})
 
     \braket{{\bf x} | T | i}
-        = \left(-\half \nabla^2 -{Z\over |{\bf x}|}\right)\psi_i({\bf x})
+        = \left(-\half \nabla^2 -\sum_n {Z_n\over | {\bf x} -{\bf R}_n | }
+            \right)\psi_i({\bf x})
 
     \braket{j{\bf x}|V|ij}
         = \int \psi_j^*({\bf y}){1\over|{\bf x}-{\bf y}|}
