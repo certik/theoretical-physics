@@ -46,6 +46,7 @@ We minimize it with the constrain $\braket{i|j} = \delta_{ij}$:
 We obtain:
 
 .. math::
+    :label: hfeq0
 
     T \ket{i} + \sum_{j=1}^Z \left(\braket{j|V|ij}-\braket{j|V|ji}\right)
         = \epsilon_i \ket{i}
@@ -88,6 +89,7 @@ And writing the individual terms explicitly:
 we get the Hartree-Fock equations:
 
 .. math::
+    :label: hfeq
 
     \left(-\half \nabla^2 -{Z\over |{\bf x}|}
     +
@@ -157,6 +159,214 @@ $f({\bf x})$ can be calculated by:
             \d^3 y
 
     \nabla^2 W_{fj}({\bf x}) = -4\pi f({\bf x})\psi_j^*({\bf x})
+
+Roothaan Equations For Closed Shell Systems
+-------------------------------------------
+
+Starting from :eq:`hfeq0` and integrating over spins we get (here
+$i$, $k$ are spatial orbitals, not spin orbitals):
+
+.. math::
+    :label: hfeq01
+
+    T \ket{i} + \sum_{k=1}^{N/2}
+        \left(2\braket{k|V|ik}-\braket{k|V|ki}\right) = \epsilon_i \ket{i}
+
+We introduce basis functions $\ket{\mu}$ by:
+
+.. math::
+
+    \ket{i} = \sum_\nu C_{\nu i} \ket{\nu}
+
+substitute into :eq:`hfeq01` and multiply by $\bra{\mu}$ from the left:
+
+.. math::
+    :label: hfeq02
+
+    \sum_\nu \braket{\mu | T | \nu} C_{\nu i}
+        + \sum_\nu\sum_{k=1}^{N/2} \left(2\braket{\mu k|V|\nu k}
+            -\braket{\mu k|V|k\nu}\right) C_{\nu i}
+        = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}
+
+Now we expand the functions $\ket{k}$:
+
+.. math::
+    :label: hfeq03
+
+    \sum_\nu \braket{\mu | T | \nu} C_{\nu i}
+        + \sum_\nu \sum_{\alpha\beta}
+            \left(2\sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^* \right)
+            \left(\braket{\mu \beta|V|\nu \alpha}
+                -\half\braket{\mu \beta|V|\alpha \nu}\right) C_{\nu i}
+        = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}
+
+we introduce the density matrix:
+
+.. math::
+
+    P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
+
+and get:
+
+.. math::
+    :label: hfeq04
+
+    \sum_\nu \left( \braket{\mu | T | \nu}
+        + \sum_{\alpha\beta}
+            P_{\alpha\beta}
+            \left(\braket{\mu \beta|V|\nu \alpha}
+                -\half \braket{\mu \beta|V|\alpha \nu}\right) \right) C_{\nu i}
+        = \epsilon_i \sum_\nu \braket{\mu | \nu} C_{\nu i}
+
+introducing:
+
+.. math::
+
+    F_{\mu\nu} = H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu}
+
+    H_{\mu\nu}^{\mbox{core}} = \braket{\mu | T | \nu}
+
+    G_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+            \left(\braket{\mu \beta|V|\nu \alpha}
+                -\half \braket{\mu \beta|V|\alpha \nu}\right)
+
+    S_{\mu\nu} = \braket{\mu | \nu}
+
+the equation :eq:`hfeq04` is:
+
+.. math::
+    :label: roothaan1
+
+    \sum_\nu F_{\mu\nu} C_{\nu i}
+        = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}
+
+These are the Roothaan equations. It is a generalized eigenvalue problem.
+
+The same thing can be derived in $x$-representation
+starting from :eq:`hfeq` and introducing spatial orbitals:
+
+.. math::
+    :label: hfeq2
+
+    \left(-\half \nabla^2 -{Z\over |{\bf x}|}
+    +
+    \int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over|{\bf x}-{\bf y}|}
+            \d^3 y\right)\psi_i({\bf x})
+    - \sum_{k=1}^{N/2}\int {\psi_i({\bf y})\psi_k^*({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\,\,\psi_k({\bf x})
+    =
+    \epsilon_i \psi_i({\bf x})
+
+We introduce basis functions $\phi_\mu$:
+
+.. math::
+
+    \psi_i({\bf x}) = \sum_\nu C_{\nu i} \phi_\nu({\bf x})
+
+substitute into :eq:`hfeq2` and also multiply the whole equation by
+$\phi_\mu^*$ and integrate over ${\bf x}$:
+
+.. math::
+    :label: hfeq3
+
+    \sum_\nu
+    \int
+    \phi_\mu^*({\bf x})
+    \left(-\half \nabla^2 -{Z\over |{\bf x}|}
+    +
+    \int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over|{\bf x}-{\bf y}|}
+            \d^3 y\right)\phi_\nu({\bf x}) \d^3 x\, C_{\nu i}
+
+    -\sum_\nu
+    \int
+    \phi_\mu^*({\bf x})
+    \sum_{k=1}^{N/2}\int {\phi_\nu({\bf y})\psi_k^*({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\,\,\psi_k({\bf x})\d^3 x\, C_{\nu i}
+    =
+    \epsilon_i
+    \sum_\nu
+    \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x
+    \, C_{\nu i}
+
+This can be written as:
+
+.. math::
+
+    \sum_\nu F_{\mu\nu} C_{\nu i} = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}
+
+    F_{\mu\nu} = H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu}
+        = T_{\mu\nu} + V_{\mu\nu} + G_{\mu\nu}
+
+where:
+
+.. math::
+
+    T_{\mu\nu} =
+            \int \phi_\mu^*({\bf x}) \left(-\half \nabla^2 \right)
+            \phi_\nu({\bf x}) \d^3 x
+        =
+            \half \int \nabla \phi_\mu^*({\bf x}) \cdot
+                \nabla \phi_\nu({\bf x}) \d^3 x
+
+    V_{\mu\nu} =
+        \int \phi_\mu^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
+        \phi_\nu({\bf x}) \d^3 x
+
+    G_{\mu\nu} =
+        \int \phi_\mu^*({\bf x}) \left(
+    \int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over|{\bf x}-{\bf y}|}
+            \d^3 y\right)\phi_\nu({\bf x}) \d^3 x
+    -\int
+    \phi_\mu^*({\bf x})
+    \sum_{k=1}^{N/2}\int {\phi_\nu({\bf y})\psi_k^*({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\,\,\psi_k({\bf x})\d^3 x
+
+
+    S_{\mu\nu} = \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x
+
+Expanding the $\psi_k$ functions and using the density matrix we get for
+$G_{\mu\nu}$:
+
+.. math::
+
+    G_{\mu\nu} =
+        \sum_{\alpha\beta} P_{\alpha\beta}
+        \int \phi_\mu^*({\bf x}) \left(
+    \int {\phi_\beta^*({\bf y})\phi_\alpha({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\right)\phi_\nu({\bf x}) \d^3 x
+    -\half \sum_{\alpha\beta} P_{\alpha\beta}
+    \int
+    \phi_\mu^*({\bf x})
+    \int {\phi_\nu({\bf y})\phi_\beta^*({\bf y})\over|{\bf x}-{\bf y}|}
+            \d^3 y\,\,\phi_\alpha({\bf x})\d^3 x
+
+or
+
+.. math::
+
+    G_{\mu\nu} =
+        \sum_{\alpha\beta} P_{\alpha\beta}
+        \int {\phi_\mu^*({\bf x}) \phi_\nu({\bf x}) \phi_\beta^*({\bf y})
+                \phi_\alpha({\bf y})
+            -\half
+            \phi_\mu^*({\bf x}) \phi_\alpha({\bf x}) \phi_\beta^*({\bf y})
+                \phi_\nu({\bf y}) \over
+                        | {\bf x}-{\bf y}|}
+            \d^3 x\, \d^3 y
+
+        \equiv \sum_{\alpha\beta} P_{\alpha\beta}
+            \left(\braket{\mu \beta|{1\over r_{12}}|\nu \alpha}
+                -\half \braket{\mu \beta|{1\over r_{12}}|\alpha \nu}\right)
+
+In physical and chemistry notation this is written as:
+
+.. math::
+
+    G_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+            \left(\braket{\mu \beta|\nu \alpha}
+                -\half \braket{\mu \beta|\alpha \nu}\right)
+        = \sum_{\alpha\beta} P_{\alpha\beta}
+            \left((\mu \nu|\beta \alpha) -\half (\mu \alpha|\beta \nu)\right)
 
 Exchange Integral in Spherical Symmetry
 ---------------------------------------
