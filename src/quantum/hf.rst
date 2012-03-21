@@ -401,7 +401,6 @@ and we get:
 Potential
 ~~~~~~~~~
 
-
 The potential matrix element is:
 
 .. math::
@@ -428,6 +427,72 @@ and we get:
 
     = \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r)
         \left(-{Z\over r}\right) P_{n_2l_2}(r) \d r
+
+Kinetic
+~~~~~~~
+
+The kinetic matrix element is:
+
+.. math::
+
+    T_{ij} =
+            \int \phi_i^*({\bf x}) \left(-\half \nabla^2 \right)
+            \phi_j({\bf x}) \d^3 x
+
+We will use the following functions:
+
+.. math::
+
+    \phi_i({\bf x})
+        = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
+
+    \phi_j({\bf x})
+        = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
+
+and we get:
+
+.. math::
+
+    T_{ij}
+        = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+            \left(\left(-\half \nabla^2\right)
+            {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) \right) r^2 \d r \d \Omega
+
+        = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+            \left(\left(-\half {\partial^2\over\partial r^2}
+                -{1\over r}{\partial\over\partial r}
+                +{l_2 (l_2+1)\over 2r^2}\right)
+            {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) \right) r^2 \d r \d \Omega
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int {P_{n_1l_1}(r)\over r}
+            \left(\left(-\half {\partial^2\over\partial r^2}
+                -{1\over r}{\partial\over\partial r}
+                +{l_2 (l_2+1)\over 2r^2}\right)
+            {P_{n_2l_2}(r)\over r} \right) r^2 \d r
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int {P_{n_1l_1}(r)\over r}
+            \left(\left(-{1\over 2r} {\partial^2\over\partial r^2}r
+                +{l_2 (l_2+1)\over 2 r^2}\right)
+            {P_{n_2l_2}(r)\over r} \right) r^2 \d r
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int P_{n_1l_1}(r)
+            \left(-\half {\partial^2\over\partial r^2}
+                +{l_2 (l_2+1)\over 2 r^2}\right)
+            P_{n_2l_2}(r) \d r
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int \left( -\half P_{n_1l_1}(r) P_{n_2l_2}''(r)
+                +P_{n_1l_1}(r) {l_2 (l_2+1)\over 2 r^2} P_{n_2l_2}(r) \right)
+            \d r
+
+        = \delta_{l_1 l_2} \delta_{m_1 m_2}
+        \int \left( \half P_{n_1l_1}'(r) P_{n_2l_2}'(r)
+                +P_{n_1l_1}(r) {l_2 (l_2+1)\over 2 r^2} P_{n_2l_2}(r) \right)
+            \d r
+
 
 Two particle
 ~~~~~~~~~~~~
