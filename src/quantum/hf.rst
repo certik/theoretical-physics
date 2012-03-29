@@ -1011,6 +1011,57 @@ and
             \over (\zeta_1+\zeta_2)^{n_1+n_2}}
        +{\zeta_1 \zeta_2 (n_1+n_2)! \over (\zeta_1+\zeta_2)^{n_1+n_2+1}}
 
+The STO basis function for the radial Schrödinger equation for $P(r)$ is:
+
+.. math::
+    :label: sto_P
+
+    P_{n\zeta}(r) = N_{n\zeta} r^n e^{-\zeta r}
+
+Where the normalization constant $N_{n\zeta}$ is such that the STO orbital is
+normalized as the radial wavefunction $P(r)$:
+
+.. math::
+
+    1 = \int_0^\infty P_{n\zeta}^2(r) \d r
+        = N_{n\zeta}^2 \int_0^\infty r^{2n} e^{-2\zeta r} \d r
+        = N_{n\zeta}^2 {(2n)!\over (2\zeta)^{2n+1}}
+
+from which we get:
+
+.. math::
+
+    N_{n\zeta} = \sqrt{(2\zeta)^{2n+1}\over (2n)!}
+
+Note that for $R(r)={P(r)\over r}$ we get the following STO basis function:
+
+.. math::
+    :label: sto_R
+
+    R_{n\zeta}(r) = {P_{n\zeta}(r)\over r} = N_{n\zeta} r^{n-1} e^{-\zeta r}
+
+One uses either :eq:`sto_P` or :eq:`sto_R` depending on whether one solves the
+radial Schrödinger equation for $P$ or for $R={P\over r}$.
+
+Overlap
+~~~~~~~
+
+.. math::
+
+    \int P_{n_i \zeta_i}(r) P_{n_j \zeta_j}(r) \d r =
+
+        = \int
+            N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r}
+            N_{n_j\zeta_j} r^{n_j} e^{-\zeta_j r}
+         \d r =
+
+        = N_{n_i\zeta_i} N_{n_j\zeta_j} \int
+             r^{n_i + n_j} e^{-(\zeta_i+\zeta_j) r}
+         \d r =
+
+        = N_{n_i\zeta_i} N_{n_j\zeta_j}
+            {(n_i + n_j)! \over  (\zeta_i+\zeta_j)^{n_i+n_j+1}}
+
 Exchange Integral in Spherical Symmetry
 ---------------------------------------
 
