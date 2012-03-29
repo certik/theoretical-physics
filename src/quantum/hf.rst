@@ -960,8 +960,9 @@ Where we have renamed $-m_2'$ to $m_2'$.
 Slater Type Orbitals (STO)
 --------------------------
 
-In this section we express the matrix elements in the STO basis. We need the
-value of the following integral for $n,\zeta \ge 0$:
+In this section we express the matrix elements in the STO basis.
+It turns out that all integrals that we need can be expressed in terms
+of the following simple integral (where $n,\zeta \ge 0$):
 
 .. math::
     :label: slater_basic
@@ -971,45 +972,6 @@ value of the following integral for $n,\zeta \ge 0$:
         ={1\over\zeta^{n+1}} \int_0^\infty x^n e^{-r} \d r
         ={\Gamma(n+1)\over\zeta^{n+1}}
         ={n!\over\zeta^{n+1}}
-
-Using :eq:`slater_basic` we immediately get:
-
-.. math::
-
-    \int_0^\infty r^{n_1} e^{-\zeta_1 r} r^{n_2} e^{-\zeta_2 r} \d r
-        ={(n_1+n_2)!\over(\zeta_1+\zeta_2)^{n_1+n_2+1}}
-
-    \int_0^\infty {1\over r} r^{n_1} e^{-\zeta_1 r} r^{n_2} e^{-\zeta_2 r} \d r
-        ={(n_1+n_2-1)!\over(\zeta_1+\zeta_2)^{n_1+n_2}}
-
-    \int_0^\infty {1\over r^2} r^{n_1} e^{-\zeta_1 r}
-        r^{n_2} e^{-\zeta_2 r} \d r
-        ={(n_1+n_2-2)!\over(\zeta_1+\zeta_2)^{n_1+n_2-1}}
-
-and
-
-.. math::
-
-    \int_0^\infty {\d\over\d r}(r^{n_1} e^{-\zeta_1 r})
-        {\d\over\d r}(r^{n_2} e^{-\zeta_2 r}) \d r =
-
-        = \int_0^\infty (n_1 r^{n_1-1} e^{-\zeta_1 r}
-                -\zeta_1 r^{n_1} e^{-\zeta_1 r})
-            (n_2 r^{n_2-1} e^{-\zeta_2 r}
-                -\zeta_2 r^{n_2} e^{-\zeta_2 r}) \d r
-        =
-
-    = \int_0^\infty \left(
-            {n_1 n_2\over r^2}
-           -{n_1 \zeta_2+n_2\zeta_1 \over r}
-           +\zeta_1 \zeta_2
-        \right) r^{n_1+n_2} e^{-(\zeta_1+\zeta_2) r} \d r
-
-    =
-        {n_1 n_2 (n_1+n_2-2)! \over (\zeta_1+\zeta_2)^{n_1+n_2-1}}
-       -{(n_1 \zeta_2+n_2\zeta_1) (n_1+n_2-1)!
-            \over (\zeta_1+\zeta_2)^{n_1+n_2}}
-       +{\zeta_1 \zeta_2 (n_1+n_2)! \over (\zeta_1+\zeta_2)^{n_1+n_2+1}}
 
 The STO basis function for the radial Schrödinger equation for $P(r)$ is:
 
