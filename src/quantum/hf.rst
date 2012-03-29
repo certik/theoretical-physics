@@ -412,6 +412,10 @@ In physical and chemistry notation this is written as:
         = \sum_{\alpha\beta} P_{\alpha\beta}
             \left((\mu \nu|\beta \alpha) -\half (\mu \alpha|\beta \nu)\right)
 
+Note that this notation implicitly assumes the ${1\over r_{12}}$ factor, so
+for example $\braket{\mu \beta|\nu \alpha}$ actually means
+$\braket{\mu \beta|{1\over r_{12}}|\nu \alpha}$ and one has to understand this
+from the context.
 
 General Matrix Elements in Spherical Symmetry
 ---------------------------------------------
