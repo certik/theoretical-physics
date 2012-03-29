@@ -1100,6 +1100,153 @@ Kinetic
             {(n_i + n_j    )! \over  (\zeta_i+\zeta_j)^{n_i +n_j + 1}}
             \right)
 
+Two particle
+~~~~~~~~~~~~
+
+In this section we also need the following integrals:
+
+.. math::
+
+    \int_u^\infty r^n e^{-\zeta r} \d r = {n!\over \zeta^{n+1}}
+        e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}
+
+    \int_0^u r^n e^{-\zeta r} \d r = \int_0^\infty r^n e^{-\zeta r} \d r
+        -\int_u^\infty r^n e^{-\zeta r} \d r =
+    {n!\over \zeta^{n+1}}\left(1-
+        e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}\right)
+
+The Slater integral is given by:
+
+.. math::
+
+    R^k(i, j, k, l) = \int_0^\infty {r_<^k\over r_>^{k+1}} P_i(r) P_k(r)
+        P_j(r') P_l(r') \d r \d r' =
+
+        = \int_0^\infty P_i(r) P_k(r) {Y^k(P_j P_l, r)\over r} \d r
+
+where
+
+.. math::
+
+    Y^k(f(r), r) = r \int_0^\infty {r_<^k\over r_>^{k+1}} f(r') \d r'
+        = {1\over r^k} \int_0^r r'^k f(r') \d r' + r^{k+1} \int_r^\infty
+            {1\over r'^{k+1}} f(r') \d r'
+
+and we get:
+
+.. math::
+
+    Y^k(P_j(r) P_l(r), r)
+        = {1\over r^k} \int_0^r r'^k P_j(r') P_l(r') \d r'
+            + r^{k+1} \int_r^\infty {1\over r'^{k+1}} P_j(r') P_l(r') \d r' =
+
+        = {N_{n_j \zeta_j}N_{n_l \zeta_l}\over r^k} \int_0^r r'^k
+                r'^{n_j}e^{-\zeta_j r'}
+                r'^{n_l}e^{-\zeta_l r'} \d r'
+            + N_{n_j \zeta_j}N_{n_l \zeta_l} r^{k+1}
+                \int_r^\infty {1\over r'^{k+1}}
+                r'^{n_j}e^{-\zeta_j r'}
+                r'^{n_l}e^{-\zeta_l r'} \d r' =
+
+        = {N_{n_j \zeta_j}N_{n_l \zeta_l}\over r^k} \int_0^r
+                r'^{n_j+n_l+k}e^{-(\zeta_j+\zeta_l) r'} \d r'
+            + N_{n_j \zeta_j}N_{n_l \zeta_l} r^{k+1}
+                \int_r^\infty
+                r'^{n_j+n_l-k-1}e^{-(\zeta_j+\zeta_l) r'} \d r' =
+
+        = {N_{n_j \zeta_j}N_{n_l \zeta_l}\over r^k}
+            {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}} \left(
+                1 - e^{-(\zeta_j+\zeta_l)r} \sum_{\nu=0}^{n_j+n_l+k}
+                    { r^\nu(\zeta_j+\zeta_l)^\nu \over \nu! }
+                \right) +
+
+            + N_{n_j \zeta_j}N_{n_l \zeta_l} r^{k+1}
+                {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+                    e^{-(\zeta_j+\zeta_l)r}
+                \sum_{\nu=0}^{n_j+n_l-k-1}{r^\nu(\zeta_j+\zeta_l)^\nu\over \nu!}
+
+Putting everything together we get:
+
+.. math::
+
+    R^k(i, j, k, l)
+        = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+            \int_0^\infty
+            r^{n_i}e^{-\zeta_i r}
+            r^{n_k}e^{-\zeta_k r}
+            {1\over r}
+            \left(
+        {1\over r^k}
+            {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}} \left(
+                1 - e^{-(\zeta_j+\zeta_l)r} \sum_{\nu=0}^{n_j+n_l+k}
+                    { r^\nu(\zeta_j+\zeta_l)^\nu \over \nu! }
+                \right) + \right.
+
+        \left.  + r^{k+1}
+                {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+                    e^{-(\zeta_j+\zeta_l)r}
+                \sum_{\nu=0}^{n_j+n_l-k-1}{r^\nu(\zeta_j+\zeta_l)^\nu\over \nu!}
+            \right)
+            \d r =
+
+        = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+            \left(
+            {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}}
+            \int_0^\infty
+            r^{n_i+n_k-k-1}e^{-(\zeta_i+\zeta_k) r}
+            \left(
+                1 - e^{-(\zeta_j+\zeta_l)r} \sum_{\nu=0}^{n_j+n_l+k}
+                    { r^\nu(\zeta_j+\zeta_l)^\nu \over \nu! }
+                \right) \d r + \right.
+
+        \left.  +
+            \int_0^\infty
+            e^{-(\zeta_i+\zeta_j+\zeta_k+\zeta_l) r}
+                {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+                \sum_{\nu=0}^{n_j+n_l-k-1}{
+                    r^{n_i+n_k+k+\nu}(\zeta_j+\zeta_l)^\nu\over \nu!}
+            \d r
+            \right) =
+
+        = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+            \left(
+            {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}}
+            \left(
+                {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+                - \sum_{\nu=0}^{n_j+n_l+k}
+                    {(\zeta_j+\zeta_l)^\nu (n_i+n_k-k+\nu-1)! \over \nu!
+                    (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_i+n_k-k+\nu}}
+                \right) + \right.
+
+        \left.  +
+                {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+                \sum_{\nu=0}^{n_j+n_l-k-1}{
+                    (n_i+n_k+k+\nu)! (\zeta_j+\zeta_l)^\nu\over
+                    \nu!(\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_i+n_k+k+\nu+1}}
+            \right) =
+
+        = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+            \left(
+            {(n_j+n_l+k)!\over(\zeta_j+\zeta_l)^{n_j+n_l+k+1}}
+            \left(
+                {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+                - H^{-k-1}_{jilk}
+                \right) + \right.
+
+        \left.  +
+                {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+                H^k_{jilk}
+            \right)
+
+where:
+
+.. math::
+
+    H^k_{ijkl} =
+                \sum_{\nu=0}^{n_i+n_k-k-1}{
+                    (n_j+n_l+k+\nu)! (\zeta_i+\zeta_k)^\nu\over
+                    \nu!(\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+\nu+1}}
+
 Exchange Integral in Spherical Symmetry
 ---------------------------------------
 
