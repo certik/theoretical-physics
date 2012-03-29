@@ -1062,6 +1062,78 @@ Overlap
         = N_{n_i\zeta_i} N_{n_j\zeta_j}
             {(n_i + n_j)! \over  (\zeta_i+\zeta_j)^{n_i+n_j+1}}
 
+Potential
+~~~~~~~~~
+
+.. math::
+
+    \int P_{n_i\zeta_i}(r) \left(-{Z\over r}\right) P_{n_j\zeta_j}(r) \d r =
+
+    = \int
+        N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r}
+        \left(-{Z\over r}\right)
+        N_{n_j\zeta_j} r^{n_j} e^{-\zeta_j r}
+        \d r =
+
+    = -Z N_{n_i\zeta_i} N_{n_j\zeta_j} \int
+         r^{n_i+n_j-1} e^{-(\zeta_i+\zeta_j) r}
+        \d r =
+
+    = -Z N_{n_i\zeta_i} N_{n_j\zeta_j}
+        {(n_i + n_j - 1)! \over  (\zeta_i+\zeta_j)^{n_i+n_j}}
+
+Kinetic
+~~~~~~~
+
+.. math::
+
+    \int \left( \half P_{n_i\zeta_i}'(r) P_{n_j\zeta_j}'(r)
+            +P_{n_i\zeta_i}(r) {l (l+1)\over 2 r^2} P_{n_j\zeta_j}(r) \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+            {\d\over\d r}(r^{n_i} e^{-\zeta_i r})
+            {\d\over\d r}(r^{n_j} e^{-\zeta_j r})
+            +r^{n_i} e^{-\zeta_i r} {l (l+1)\over r^2}
+                r^{n_j} e^{-\zeta_j r}
+            \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+            (n_i r^{n_i-1} e^{-\zeta_i r}
+                            -\zeta_i r^{n_i} e^{-\zeta_i r})
+                        (n_j r^{n_j-1} e^{-\zeta_j r}
+                            -\zeta_j r^{n_j} e^{-\zeta_j r})
+            +l (l+1) r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r}
+            \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+        \left(
+                    {n_i n_j\over r^2}
+                   -{n_i \zeta_j+n_j\zeta_i \over r}
+                   +\zeta_i \zeta_j
+                \right) r^{n_i+n_j} e^{-(\zeta_i+\zeta_j) r}
+            +l (l+1) r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r}
+            \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+        (n_i n_j + l(l+1))       r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r}
+       -(n_i \zeta_j+n_j\zeta_i) r^{n_i+n_j-1} e^{-(\zeta_i+\zeta_j) r}
+       +\zeta_i \zeta_j          r^{n_i+n_j  } e^{-(\zeta_i+\zeta_j) r}
+            \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\left(
+        (n_i n_j + l(l+1))
+            {(n_i + n_j - 2)! \over  (\zeta_i+\zeta_j)^{n_i +n_j - 1}}
+       -(n_i \zeta_j+n_j\zeta_i)
+            {(n_i + n_j - 1)! \over  (\zeta_i+\zeta_j)^{n_i +n_j    }}
+       +\zeta_i \zeta_j
+            {(n_i + n_j    )! \over  (\zeta_i+\zeta_j)^{n_i +n_j + 1}}
+            \right)
+
 Exchange Integral in Spherical Symmetry
 ---------------------------------------
 
