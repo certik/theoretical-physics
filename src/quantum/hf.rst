@@ -1236,6 +1236,15 @@ Putting everything together we get:
         \left.  +
                 {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
                 H^k_{jilk}
+            \right) =
+
+        = N_{n_i \zeta_i}N_{n_j \zeta_j}N_{n_k \zeta_k}N_{n_l \zeta_l}
+            \left(
+                {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+                H^k_{ijkl}
+            +
+                {(n_j+n_l-k-1)!\over (\zeta_j+\zeta_l)^{n_j+n_l-k}}
+                H^k_{jilk}
             \right)
 
 where:
