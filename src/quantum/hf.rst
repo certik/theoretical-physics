@@ -796,6 +796,46 @@ $(-1)^{m_1+m_2+q} = (-1)^{m_1+m_2+m_1-m_1'} =(-1)^{m_1+m_2-m_2+m_2'}$
 is equal to both $(-1)^{m_1+m_2'}$ and $(-1)^{m_2-m_1'}$ so we just used the
 former.
 
+We can write this using the $c^k$ symbols as:
+
+.. math::
+
+    (ij|kl) =
+    \sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+        \min(l_1+l_1', l_2+l_2')
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    \sqrt{(2l_1+1)(2l_1'+1)(2l_2+1)(2l_2'+1)}
+
+    (-1)^{m_1+m_2'} \delta_{m_1+m_2- m_1'-m_2', 0}
+    \begin{pmatrix} l_1 & l_1' & k \\ 0 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} l_2 & l_2' & k \\ 0 & 0 & 0 \end{pmatrix}
+
+        \begin{pmatrix} l_1 & l_1' & k \\ -m_1 & m_1' & m_1-m_1' \end{pmatrix}
+        \begin{pmatrix} l_2 & l_2' & k \\ -m_2 & m_2' & m_2-m_2' \end{pmatrix}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r' =
+
+    =
+    \sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+        \min(l_1+l_1', l_2+l_2')
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_1, m_1, l_1', m_1')
+    c^k(l_2, m_2, l_2', m_2')
+
+    (-1)^{m_1-m_1'} \delta_{m_1+m_2- m_1'-m_2', 0}
+
+      \int {r_{<}^k\over r_{>}^{k+1}}
+        P_{n_1l_1}(r)
+        P_{n_1'l_1'}(r)
+        P_{n_2l_2}(r')
+        P_{n_2'l_2'}(r')
+        \d r \d r'
+
 We can also couple the angular momenta as follows:
 
 .. math::
