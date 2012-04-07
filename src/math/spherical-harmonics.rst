@@ -3,7 +3,7 @@
 Legendre Polynomials
 ====================
 
-Legendre polynomials $P_l(x)$ defined by the Rodrigues's formula
+Legendre polynomials $P_l(x)$ defined by the Rodrigues' formula
 
 .. math::
 
@@ -400,7 +400,7 @@ Spherical Harmonics
 ===================
 
 
-Are defined by
+Are defined for $m \ge 0$ by
 
 .. math::
 
@@ -412,7 +412,13 @@ where $P_l^m$ are associated Legendre polynomials defined by
 
        P_l^m(x)=(-1)^m (1-x^2)^{m/2}{\d^m\over\d x^m} P_l(x)
 
-and $P_l$ are Legendre polynomials. Sometimes the spherical harmonics are
+and $P_l$ are Legendre polynomials. For $m < 0$ they are defined by:
+
+.. math::
+
+    Y_{lm}(\Omega) = (-1)^m Y_{l,-m}^*(\Omega)
+
+Sometimes the spherical harmonics are
 written as:
 
 .. math::
@@ -424,7 +430,11 @@ where:
 .. math::
 
     \Phi_m(\phi) &= {1\over\sqrt{2\pi}} e^{im\phi} \\
-    \Theta_{lm}(\theta) &= \sqrt{{2l+1\over2}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta)
+    \Theta_{lm}(\theta) &= \begin{cases}
+        \sqrt{{2l+1\over2}{(l-m)!\over(l+m)!}}\,P_l^m(\cos\theta) &
+            \mbox{for } m \ge 0 \\
+        (-1)^m \Theta_{l,-m}(\theta) & \mbox{for } m < 0 \\
+        \end{cases}
 
 The spherical harmonics are ortonormal:
 
