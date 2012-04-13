@@ -2174,3 +2174,203 @@ The weak formulation is ($u(r) = P_{nl}(r)$):
                 {Y^k(u(r) P_{n'l'}(r), r)\over r}
                 \d r
         = \epsilon \int_0^\infty u(r)v(r)\d r
+
+for closed shell atoms:
+
+.. math::
+
+    \int_0^\infty \left( \half u'(r) v'(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u(r)v(r)
+            \right) \d r+
+
+            -\sum_{n'l'}
+                2(2l'+1)
+                \sum_{k=|l-l'|}^{k=l+l'}
+                \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \int_0^\infty
+                v(r)
+                P_{n'l'}(r)
+                {Y^k(u(r) P_{n'l'}(r), r)\over r}
+                \d r
+        = \epsilon \int_0^\infty u(r)v(r)\d r
+
+or (here $i,j$ runs over all spatial orbitals $nl$, but for the given $l$, only
+a subset of $i, j$ corresponding to this $l$ is varied below)
+
+.. math::
+
+    \int_0^\infty \left( \half u_i'(r) v_j'(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u_i(r)v_j(r)
+            \right) \d r+
+
+            -\sum_{n'l'}
+                \sum_{k=|l-l'|}^{k=l+l'}
+                \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
+                \int_0^\infty
+                v_j(r)
+                P_{n'l'}(r)
+                {Y^k(u_i(r) P_{n'l'}(r), r)\over r}
+                \d r
+        = \epsilon \int_0^\infty u_i(r)v_j(r)\d r
+
+Introducing radial basis $\phi_\mu(r)$ (here $i$ runs over all $l$):
+
+.. math::
+
+    u_i(r) = \sum_\nu C_{\nu i} \phi_\nu(r)
+
+we get (here $i$ is again restricted for the subset corresponding to the given
+$l$):
+
+.. math::
+
+    \sum_\nu \int_0^\infty \left( \half \phi_\mu'(r) \phi_\nu'(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)\phi_\mu(r)
+            \phi_\nu(r)
+            \right) \d r\,C_{\nu i}+
+
+            -\sum_\nu \sum_{n'l'}
+                \sum_{k=|l-l'|}^{k=l+l'}
+                \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
+                \int_0^\infty
+                \phi_\mu(r)
+                P_{n'l'}(r)
+                {Y^k(\phi_\nu(r) P_{n'l'}(r), r)\over r}
+                \d r\,C_{\nu i}
+        = \epsilon \sum_\nu \int_0^\infty \phi_\mu(r)\phi_\nu(r) \d r\,C_{\nu i}
+
+This can be written as ($i$ is restricted to the subset corresponding to the
+given $l$ and these equations are solved separately for all $l$ to obtain
+orbitals $C_{\nu i}$ for all $i$):
+
+.. math::
+
+    \sum_\nu F_{\mu\nu} C_{\nu i} = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}
+
+    F_{\mu\nu} = H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu}
+        = T_{\mu\nu} + V_{\mu\nu} + G_{\mu\nu}
+
+where
+
+.. math::
+
+    T_{\mu\nu} = \int_0^\infty \half \phi_\mu'(r) \phi_\nu'(r)
+        + \phi_\mu(r){l(l+1)\over 2r^2} \phi_\nu(r) \d r
+
+    V_{\mu\nu} = \int_0^\infty \phi_\mu(r)\left(-{Z\over r}\right)
+        \phi_\nu(r) \d r
+
+    G_{\mu\nu} = \int_0^\infty \phi_\mu(r) V_H(r) \phi_\nu(r) \d r +
+
+            -\sum_{n'l'}
+                \sum_{k=|l-l'|}^{k=l+l'}
+                \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
+                \int_0^\infty
+                \phi_\mu(r)
+                P_{n'l'}(r)
+                {Y^k(\phi_\nu(r) P_{n'l'}(r), r)\over r}
+                \d r
+
+    S_{\mu\nu} = \int_0^\infty \phi_\mu(r)\phi_\nu(r) \d r
+
+    V_H(r) = \sum_{n'l'} 2(2l'+1) {Y^0(P_{n'l'}^2(r), r) \over r}
+
+The indices $n' l'$ go over all occupied orbitals $P_{n' l'}$.
+Introducing density:
+
+.. math::
+
+    n({\bf x}) = 2 \sum_{k=1}^{N/2} | \psi_k({\bf x})|^2
+        = 2 \sum_{nlm} | \psi_{nlm}({\bf x})|^2
+        = 2 \sum_{nlm} {P_{nl}^2(r)\over r^2} |Y_{lm}(\Omega)|^2 =
+
+        = 2 \sum_{nl} {P_{nl}^2(r)\over r^2} {2l+1\over 4\pi}
+        = {1\over 4\pi} \sum_{nl} 2(2l+1) {P_{nl}^2(r)\over r^2}
+        = n(r)
+
+Using density matrix we can write $n(r)$ as ($k$ runs over all occupied
+orbitals $nl$):
+
+.. math::
+
+    P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
+        = 2 \sum_{nlm} C_{\alpha nlm} C_{\beta nlm}
+        = \sum_{nl} 2(2l+1) C_{\alpha nl} C_{\beta nl}
+
+    P_{nl}(r) = \sum_\alpha C_{\alpha nl} \phi_\alpha(r)
+
+    n(r) = {1\over 4\pi} \sum_{nl} 2(2l+1) {P_{nl}^2(r)\over r^2}
+        = {1\over 4\pi} \sum_{\alpha\beta}\sum_{nl} 2(2l+1)
+            C_{\alpha nl}C_{\beta nl}{\phi_\alpha(r)\phi_\beta(r)\over r^2} =
+
+        = {1\over 4\pi} \sum_{\alpha\beta}
+            {\phi_\alpha(r) P_{\alpha\beta} \phi_\beta(r)\over r^2}
+
+Finally we get:
+
+.. math::
+
+    V_H(r) = \sum_{nl} 2(2l+1) {Y^0(P_{nl}^2(r), r) \over r}
+        = {Y^0(4\pi n(r) r^2, r) \over r}
+        = \sum_{\alpha\beta} P_{\alpha\beta}
+            {Y^0(\phi_\alpha(r) \phi_\beta(r), r) \over r}
+
+    \int_0^\infty \phi_\mu(r) V_H(r) \phi_\nu(r) \d r
+     = \sum_{\alpha\beta} P_{\alpha\beta}
+        \int_0^\infty \phi_\mu(r) \phi_\nu(r)
+            {Y^0(\phi_\alpha(r) \phi_\beta(r), r) \over r}\d r
+     = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha)
+
+and
+
+.. math::
+
+            -\sum_{n'l'}
+                \sum_{k=|l-l'|}^{k=l+l'}
+                \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
+                \int_0^\infty
+                \phi_\mu(r)
+                P_{n'l'}(r)
+                {Y^k(\phi_\nu(r) P_{n'l'}(r), r)\over r}
+                \d r =
+
+            = -\sum_{n'l'}
+                \sum_{k=|l-l'|}^{k=l+l'}
+                2(2l'+1)
+                \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                \sum_{\alpha\beta}
+                C_{\alpha n'l'}
+                C_{\beta n'l'}
+                \int_0^\infty
+                \phi_\mu(r)
+                \phi_\alpha(r)
+                {Y^k(\phi_\nu(r) \phi_\beta(r), r)\over r}
+                \d r =
+
+            = -\half
+                \sum_{\alpha\beta}
+                \sum_{n'l'}
+                2(2l'+1)
+                C_{\alpha n'l'}
+                C_{\beta n'l'}
+                \sum_{k=|l-l'|}^{k=l+l'}
+                 \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                R^k(\mu, \beta, \alpha, \nu)
+
+
+So we get:
+
+.. math::
+
+    G_{\mu\nu}
+     = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha) +
+
+        -\half
+                \sum_{\alpha\beta}
+                \sum_{n'l'}
+                2(2l'+1)
+                C_{\alpha n'l'}
+                C_{\beta n'l'}
+                \sum_{k=|l-l'|}^{k=l+l'}
+                 \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                R^k(\mu, \beta, \alpha, \nu)
