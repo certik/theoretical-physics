@@ -2294,8 +2294,12 @@ orbitals $nl$):
 .. math::
 
     P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
-        = 2 \sum_{nlm} C_{\alpha nlm} C_{\beta nlm}
+        = 2 \sum_{nlm} C_{\alpha nlm} C_{\beta nlm} =
+
         = \sum_{nl} 2(2l+1) C_{\alpha nl} C_{\beta nl}
+        = \sum_{l} (2l+1) P^l_{\alpha \beta}
+
+    P^l_{\alpha\beta} = \sum_n 2 C_{\alpha nl} C_{\beta nl}
 
     P_{nl}(r) = \sum_\alpha C_{\alpha nl} \phi_\alpha(r)
 
@@ -2349,10 +2353,9 @@ and
 
             = -\half
                 \sum_{\alpha\beta}
-                \sum_{n'l'}
-                2(2l'+1)
-                C_{\alpha n'l'}
-                C_{\beta n'l'}
+                \sum_{l'}
+                (2l'+1)
+                P^{l'}_{\alpha\beta}
                 \sum_{k=|l-l'|}^{k=l+l'}
                  \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
                 R^k(\mu, \beta, \alpha, \nu)
@@ -2363,14 +2366,17 @@ So we get:
 .. math::
 
     G_{\mu\nu}
-     = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha) +
-
-        -\half
-                \sum_{\alpha\beta}
-                \sum_{n'l'}
-                2(2l'+1)
-                C_{\alpha n'l'}
-                C_{\beta n'l'}
+     = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha)
+        -\half \sum_{\alpha\beta}
+                \sum_{l'}
+                (2l'+1)
+                P^{l'}_{\alpha\beta}
                 \sum_{k=|l-l'|}^{k=l+l'}
                  \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
-                R^k(\mu, \beta, \alpha, \nu)
+                R^k(\mu, \beta, \alpha, \nu) =
+
+     = \sum_{l'} (2l'+1) \sum_{\alpha\beta} P^{l'}_{\alpha\beta} \left(
+            R^0(\mu, \beta, \nu, \alpha)
+                -\half \sum_{k=|l-l'|}^{k=l+l'}
+                 \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                R^k(\mu, \beta, \alpha, \nu) \right)
