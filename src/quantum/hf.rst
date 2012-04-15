@@ -2194,84 +2194,86 @@ for closed shell atoms:
                 \d r
         = \epsilon \int_0^\infty u(r)v(r)\d r
 
-or (here $i,j$ runs over all spatial orbitals $nl$, but for the given $l$, only
-a subset of $i, j$ corresponding to this $l$ is varied below)
+or (here we use the $il$ index to label all functions $u_i$ for the given $l$)
 
 .. math::
 
-    \int_0^\infty \left( \half u_i'(r) v_j'(r) +
-        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u_i(r)v_j(r)
+    \int_0^\infty \left( \half u_{il}'(r) v'(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)u_{il}(r)v(r)
             \right) \d r+
 
             -\sum_{n'l'}
                 \sum_{k=|l-l'|}^{k=l+l'}
                 \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
                 \int_0^\infty
-                v_j(r)
+                v(r)
                 P_{n'l'}(r)
-                {Y^k(u_i(r) P_{n'l'}(r), r)\over r}
+                {Y^k(u_{il}(r) P_{n'l'}(r), r)\over r}
                 \d r
-        = \epsilon \int_0^\infty u_i(r)v_j(r)\d r
+        = \epsilon \int_0^\infty u_{il}(r)v(r)\d r
 
-Introducing radial basis $\phi_\mu(r)$ (here $i$ runs over all $l$):
+Introducing radial basis $\phi_{\mu l}(r)$ (where
+$\mu$, $\nu$ labels all basis functions for the given $l$):
 
 .. math::
 
-    u_i(r) = \sum_\nu C_{\nu i} \phi_\nu(r)
+    u_{il}(r) = \sum_\nu C_{\nu i l} \phi_{\nu l}(r)
+
+    v(r) = \phi_{\mu l}(r)
 
 we get (here $i$ is again restricted for the subset corresponding to the given
 $l$):
 
 .. math::
 
-    \sum_\nu \int_0^\infty \left( \half \phi_\mu'(r) \phi_\nu'(r) +
-        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)\phi_\mu(r)
-            \phi_\nu(r)
-            \right) \d r\,C_{\nu i}+
+    \sum_\nu \int_0^\infty \left( \half \phi_{\mu l}'(r) \phi_{\nu l}'(r) +
+        \left({l(l+1)\over 2r^2} -{Z\over r} + V_H(r)\right)
+            \phi_{\mu l}(r) \phi_{\nu l}(r)
+            \right) \d r\,C_{\nu i l}+
 
             -\sum_\nu \sum_{n'l'}
                 \sum_{k=|l-l'|}^{k=l+l'}
                 \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
                 \int_0^\infty
-                \phi_\mu(r)
+                \phi_{\mu l}(r)
                 P_{n'l'}(r)
-                {Y^k(\phi_\nu(r) P_{n'l'}(r), r)\over r}
-                \d r\,C_{\nu i}
-        = \epsilon \sum_\nu \int_0^\infty \phi_\mu(r)\phi_\nu(r) \d r\,C_{\nu i}
+                {Y^k(\phi_{\nu l}(r) P_{n'l'}(r), r)\over r}
+                \d r\,C_{\nu i l}
+        = \epsilon \sum_\nu \int_0^\infty
+            \phi_{\mu l}(r)\phi_{\nu l}(r) \d r\,C_{\nu i l}
 
-This can be written as ($i$ is restricted to the subset corresponding to the
-given $l$ and these equations are solved separately for all $l$ to obtain
-orbitals $C_{\nu i}$ for all $i$):
+This can be written as
 
 .. math::
 
-    \sum_\nu F_{\mu\nu} C_{\nu i} = \epsilon_i \sum_\nu S_{\mu\nu} C_{\nu i}
+    \sum_\nu F_{\mu\nu}^l C_{\nu i l} = \epsilon_i \sum_\nu S_{\mu\nu}^l
+        C_{\nu i l}
 
-    F_{\mu\nu} = H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu}
-        = T_{\mu\nu} + V_{\mu\nu} + G_{\mu\nu}
+    F_{\mu\nu}^l = H_{\mu\nu}^{l \mbox{core}} + G_{\mu\nu}^l
+        = T_{\mu\nu}^l + V_{\mu\nu}^l + G_{\mu\nu}^l
 
 where
 
 .. math::
 
-    T_{\mu\nu} = \int_0^\infty \half \phi_\mu'(r) \phi_\nu'(r)
-        + \phi_\mu(r){l(l+1)\over 2r^2} \phi_\nu(r) \d r
+    T_{\mu\nu}^l = \int_0^\infty \half \phi_{\mu l}'(r) \phi_{\nu l}'(r)
+        + \phi_{\mu l}(r){l(l+1)\over 2r^2} \phi_{\nu l}(r) \d r
 
-    V_{\mu\nu} = \int_0^\infty \phi_\mu(r)\left(-{Z\over r}\right)
-        \phi_\nu(r) \d r
+    V_{\mu\nu}^l = \int_0^\infty \phi_{\mu l}(r)\left(-{Z\over r}\right)
+        \phi_{\nu l}(r) \d r
 
-    G_{\mu\nu} = \int_0^\infty \phi_\mu(r) V_H(r) \phi_\nu(r) \d r +
+    G_{\mu\nu}^l = \int_0^\infty \phi_{\mu l}(r) V_H(r) \phi_{\nu l}(r) \d r +
 
             -\sum_{n'l'}
                 \sum_{k=|l-l'|}^{k=l+l'}
                 \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
                 \int_0^\infty
-                \phi_\mu(r)
+                \phi_{\mu l}(r)
                 P_{n'l'}(r)
-                {Y^k(\phi_\nu(r) P_{n'l'}(r), r)\over r}
+                {Y^k(\phi_{\nu l}(r) P_{n'l'}(r), r)\over r}
                 \d r
 
-    S_{\mu\nu} = \int_0^\infty \phi_\mu(r)\phi_\nu(r) \d r
+    S_{\mu\nu}^l = \int_0^\infty \phi_{\mu l}(r)\phi_{\nu l}(r) \d r
 
     V_H(r) = \sum_{n'l'} 2(2l'+1) {Y^0(P_{n'l'}^2(r), r) \over r}
 
@@ -2288,27 +2290,29 @@ Introducing density:
         = {1\over 4\pi} \sum_{nl} 2(2l+1) {P_{nl}^2(r)\over r^2}
         = n(r)
 
-Using density matrix we can write $n(r)$ as ($k$ runs over all occupied
-orbitals $nl$):
+We introduce the density matrix $P_{\alpha\beta}^l$ (where as before $\alpha$,
+$\beta$ run over basis functions for the given $l$ only):
 
 .. math::
 
-    P_{\alpha\beta} = 2 \sum_{k=1}^{N/2} C_{\alpha k} C_{\beta k}^*
-        = 2 \sum_{nlm} C_{\alpha nlm} C_{\beta nlm} =
+    P_{\alpha\beta}^l = 2 \sum_{nm} C_{\alpha nlm} C_{\beta nlm}
+        = \sum_{n} 2(2l+1) C_{\alpha nl} C_{\beta nl}
 
-        = \sum_{nl} 2(2l+1) C_{\alpha nl} C_{\beta nl}
-        = \sum_{l} (2l+1) P^l_{\alpha \beta}
+where the $C_{\alpha nl}$ coefficients are the same for all $m$ corresponding
+to the given $l$. The index $n$ runs over all occupied states for the given
+$l$. We can write $n(r)$ as
 
-    P^l_{\alpha\beta} = \sum_n 2 C_{\alpha nl} C_{\beta nl}
+.. math::
 
-    P_{nl}(r) = \sum_\alpha C_{\alpha nl} \phi_\alpha(r)
+    P_{nl}(r) = \sum_\alpha C_{\alpha nl} \phi_{\alpha l}(r)
 
     n(r) = {1\over 4\pi} \sum_{nl} 2(2l+1) {P_{nl}^2(r)\over r^2}
-        = {1\over 4\pi} \sum_{\alpha\beta}\sum_{nl} 2(2l+1)
-            C_{\alpha nl}C_{\beta nl}{\phi_\alpha(r)\phi_\beta(r)\over r^2} =
+        = {1\over 4\pi} \sum_{nl} 2(2l+1) \sum_{\alpha\beta}
+            C_{\alpha nl}C_{\beta nl}
+            {\phi_{\alpha l}(r)\phi_{\beta l}(r)\over r^2} =
 
-        = {1\over 4\pi} \sum_{\alpha\beta}
-            {\phi_\alpha(r) P_{\alpha\beta} \phi_\beta(r)\over r^2}
+        = {1\over 4\pi} \sum_l \sum_{\alpha\beta}
+            {\phi_{\alpha l}(r) P_{\alpha\beta}^l \phi_{\beta l}(r)\over r^2}
 
 Finally we get:
 
@@ -2316,67 +2320,70 @@ Finally we get:
 
     V_H(r) = \sum_{nl} 2(2l+1) {Y^0(P_{nl}^2(r), r) \over r}
         = {Y^0(4\pi n(r) r^2, r) \over r}
-        = \sum_{\alpha\beta} P_{\alpha\beta}
-            {Y^0(\phi_\alpha(r) \phi_\beta(r), r) \over r}
+        = \sum_l \sum_{\alpha\beta} P_{\alpha\beta}^l
+            {Y^0(\phi_{\alpha l}(r) \phi_{\beta l}(r), r) \over r}
 
-    \int_0^\infty \phi_\mu(r) V_H(r) \phi_\nu(r) \d r
-     = \sum_{\alpha\beta} P_{\alpha\beta}
-        \int_0^\infty \phi_\mu(r) \phi_\nu(r)
-            {Y^0(\phi_\alpha(r) \phi_\beta(r), r) \over r}\d r
-     = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha)
+    \int_0^\infty \phi_{\mu l}(r) V_H(r) \phi_{\nu l}(r) \d r
+     = \sum_{l'} \sum_{\alpha\beta} P_{\alpha\beta}^{l'}
+        \int_0^\infty \phi_{\mu l}(r) \phi_{\nu l}(r)
+            {Y^0(\phi_{\alpha l'}(r) \phi_{\beta l'}(r), r) \over r}\d r
+     = \sum_{l'} \sum_{\alpha\beta} P_{\alpha\beta}^{l'}
+        R^0(\mu l, \beta l', \nu l, \alpha l')
 
 and
 
 .. math::
 
-            -\sum_{n'l'}
-                \sum_{k=|l-l'|}^{k=l+l'}
-                \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
-                \int_0^\infty
-                \phi_\mu(r)
-                P_{n'l'}(r)
-                {Y^k(\phi_\nu(r) P_{n'l'}(r), r)\over r}
-                \d r =
+    -\sum_{n'l'}
+        \sum_{k=|l-l'|}^{k=l+l'}
+        \sqrt{2l'+1\over 2l+1}c^k(l, 0, l', 0)
+        \int_0^\infty
+        \phi_{\mu l}(r)
+        P_{n'l'}(r)
+        {Y^k(\phi_{\nu l}(r) P_{n'l'}(r), r)\over r}
+        \d r =
 
-            = -\sum_{n'l'}
-                \sum_{k=|l-l'|}^{k=l+l'}
-                2(2l'+1)
-                \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
-                \sum_{\alpha\beta}
-                C_{\alpha n'l'}
-                C_{\beta n'l'}
-                \int_0^\infty
-                \phi_\mu(r)
-                \phi_\alpha(r)
-                {Y^k(\phi_\nu(r) \phi_\beta(r), r)\over r}
-                \d r =
+    = -\sum_{n'l'}
+        \sum_{k=|l-l'|}^{k=l+l'}
+        2(2l'+1)
+        \half \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        \sum_{\alpha\beta}
+        C_{\alpha n'l'}
+        C_{\beta n'l'}
+        \int_0^\infty
+        \phi_{\mu l}(r)
+        \phi_{\alpha l'}(r)
+        {Y^k(\phi_{\nu l}(r) \phi_{\beta l'}(r), r)\over r}
+        \d r =
 
-            = -\half
-                \sum_{\alpha\beta}
-                \sum_{l'}
-                (2l'+1)
-                P^{l'}_{\alpha\beta}
-                \sum_{k=|l-l'|}^{k=l+l'}
-                 \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
-                R^k(\mu, \beta, \alpha, \nu)
+    = -\half
+        \sum_{l'}
+        \sum_{\alpha\beta}
+        P^{l'}_{\alpha\beta}
+        \sum_{k=|l-l'|}^{k=l+l'}
+         \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+        R^k(\mu l, \beta l', \alpha l', \nu l)
 
 
 So we get:
 
 .. math::
 
-    G_{\mu\nu}
-     = \sum_{\alpha\beta} P_{\alpha\beta} R^0(\mu, \beta, \nu, \alpha)
-        -\half \sum_{\alpha\beta}
-                \sum_{l'}
-                (2l'+1)
+    G_{\mu\nu}^l
+     = \sum_{l'} \sum_{\alpha\beta}
+        P_{\alpha\beta}^{l'} R^0(\mu l, \beta l', \nu l, \alpha l')
+        -\half \sum_{l'}
+                \sum_{\alpha\beta}
                 P^{l'}_{\alpha\beta}
                 \sum_{k=|l-l'|}^{k=l+l'}
                  \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
-                R^k(\mu, \beta, \alpha, \nu) =
+                R^k(\mu l, \beta l', \alpha l', \nu l) =
 
-     = \sum_{l'} (2l'+1) \sum_{\alpha\beta} P^{l'}_{\alpha\beta} \left(
-            R^0(\mu, \beta, \nu, \alpha)
+     = \sum_{l'=0}^\infty \sum_{\alpha\beta} P^{l'}_{\alpha\beta} \left(
+            R^0(\mu l, \beta l', \nu l, \alpha l')
                 -\half \sum_{k=|l-l'|}^{k=l+l'}
                  \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
-                R^k(\mu, \beta, \alpha, \nu) \right)
+                R^k(\mu l, \beta l', \alpha l', \nu l) \right)
+
+The density matrix is zero if there are no occupied orbitals for the given
+$l'$.
