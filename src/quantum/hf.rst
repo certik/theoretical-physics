@@ -2387,3 +2387,65 @@ So we get:
 
 The density matrix is zero if there are no occupied orbitals for the given
 $l'$.
+
+The total energy is:
+
+.. math::
+
+    E = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
+        (H^l_{\mu\nu} + F^l_{\mu\nu}) =
+
+    = \sum_l \sum_{\mu\nu} P^l_{\mu\nu} (F^l_{\mu\nu} - \half G^l_{\mu\nu}) =
+
+    = \sum_l \sum_n 2(2l+1) \left( \epsilon_{n l}
+        -\sum_{l'} \sum_{n'} (2l'+1)
+        \left(
+            R^0(n l, n' l', n l, n' l')
+                -\half \sum_{k=|l-l'|}^{k=l+l'}
+                 \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                R^k(n l, n' l', n' l', n l) \right)
+        \right)
+
+where we used:
+
+.. math::
+
+    \sum_l \sum_{\mu\nu} P^l_{\mu\nu} F^l_{\mu\nu} =
+
+    = \sum_l \sum_{\mu\nu} \sum_n 2(2l+1) C_{\mu nl}C_{\nu nl} F^l_{\mu\nu} =
+
+    = \sum_l \sum_{\mu\nu} \sum_n 2(2l+1) C_{\mu nl}\epsilon_{n l}
+        S^l_{\mu\nu} C_{\nu n l} =
+
+    = \sum_l \sum_n 2(2l+1) \epsilon_{n l}
+
+and
+
+.. math::
+
+    \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu} G^l_{\mu\nu} =
+
+    = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
+     \sum_{l'} \sum_{\alpha\beta} P^{l'}_{\alpha\beta} \left(
+            R^0(\mu l, \beta l', \nu l, \alpha l')
+                -\half \sum_{k=|l-l'|}^{k=l+l'}
+                 \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                R^k(\mu l, \beta l', \alpha l', \nu l) \right) =
+
+    = \half \sum_l \sum_{\mu\nu} \sum_n 2(2l+1) C_{\mu nl}C_{\nu nl}
+     \sum_{l'} \sum_{\alpha\beta} \sum_{n'} 2(2l'+1)
+        C_{\alpha n'l'}C_{\beta n'l'}
+
+        \left(
+            R^0(\mu l, \beta l', \nu l, \alpha l')
+                -\half \sum_{k=|l-l'|}^{k=l+l'}
+                 \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                R^k(\mu l, \beta l', \alpha l', \nu l) \right) =
+
+    = \sum_l \sum_n 2(2l+1) \sum_{l'} \sum_{n'} (2l'+1)
+
+        \left(
+            R^0(n l, n' l', n l, n' l')
+                -\half \sum_{k=|l-l'|}^{k=l+l'}
+                 \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                R^k(n l, n' l', n' l', n l) \right)
