@@ -266,6 +266,46 @@ the equation :eq:`hfeq04` is:
 
 These are the Roothaan equations. It is a generalized eigenvalue problem.
 
+Total energy is given by (the $i,j$ in the first equation are spin orbitals,
+in the other equations $i,j$ are spatial orbitals):
+
+.. math::
+
+    E = \sum_{i} \braket{i|T|i} +
+        \half \sum_{i,j} \left(\braket{ij|V|ij}-\braket{ij|V|ji}\right) =
+
+    = \sum_{i} 2 I(i) + \sum_{i,j} \left(2 J(i, j) - K(i, j)\right) =
+
+    = \sum_{i} 2 \braket{i|T|i} +
+        \sum_{i,j} \left(2\braket{ij|V|ij}- \braket{ij|V|ji}\right) =
+
+    = \sum_{i} 2 \braket{i|T|i} +
+        2\sum_{i,j} \left(\braket{ij|V|ij}-\half \braket{ij|V|ji}\right) =
+
+    = \sum_{\mu\nu} \sum_{i} 2 \braket{\mu|T|\nu} C_{\nu i} C_{\mu i}^* +
+        2\sum_{\mu\nu}\sum_{\alpha\beta}
+        \sum_{i,j}
+        C_{\nu i} C_{\mu i}^*
+        C_{\alpha j} C_{\beta j}^*
+        \left(\braket{\mu\beta|V|\nu\alpha}-
+            \half \braket{\mu\beta|V|\alpha\nu}\right) =
+
+    = \sum_{\mu\nu} \braket{\mu|T|\nu} P_{\nu\mu} +
+        \half \sum_{\mu\nu}\sum_{\alpha\beta}
+        P_{\nu\mu}
+        P_{\alpha\beta}
+        \left(\braket{\mu\beta|V|\nu\alpha}-
+            \half \braket{\mu\beta|V|\alpha\nu}\right) =
+
+    = \sum_{\mu\nu} P_{\nu\mu} (H_{\mu\nu}^{\mbox{core}}
+        +\half G_{\mu\nu}) =
+
+    = \sum_{\mu\nu} P_{\nu\mu} (\half H_{\mu\nu}^{\mbox{core}}
+        +\half (H_{\mu\nu}^{\mbox{core}} + G_{\mu\nu})) =
+
+    = \half \sum_{\mu\nu} P_{\nu\mu} (H_{\mu\nu}^{\mbox{core}}
+        +F_{\mu\nu})
+
 The same thing can be derived in $x$-representation
 starting from :eq:`hfeq` and introducing spatial orbitals:
 
