@@ -2432,8 +2432,10 @@ The total energy is:
 
 .. math::
 
+    E = \half \sum_{\mu\nu} P_{\mu\nu} (H_{\mu\nu}^{\mbox{core}} + F_{\mu\nu}) =
+
     E = \half \sum_l \sum_{\mu\nu} P^l_{\mu\nu}
-        (H^l_{\mu\nu} + F^l_{\mu\nu}) =
+        (H^{l\mbox{core}}_{\mu\nu} + F^l_{\mu\nu}) =
 
     = \sum_l \sum_{\mu\nu} P^l_{\mu\nu} (F^l_{\mu\nu} - \half G^l_{\mu\nu}) =
 
