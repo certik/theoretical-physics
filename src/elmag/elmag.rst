@@ -1113,6 +1113,15 @@ Code::
     >>> "%e" % (e / m)
     '1.758820e+11'
 
+or even simpler (we do not actually need the value of the electron charge
+$e$)::
+
+    >>> c = 299792458
+    >>> KeV = 1e3
+    >>> m = 510.998910 * KeV / c**2
+    >>> "%e" % (1/m)
+    '1.758820e+11'
+
 We can use the experimental value to calculate the electron rest mass energy:
 
 .. math::
