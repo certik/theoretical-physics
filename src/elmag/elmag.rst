@@ -857,7 +857,7 @@ For $y=0$:
 Example: Circular Loop
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Let's assume a circular:
+Let's assume a circular loop:
 
 .. math::
 
