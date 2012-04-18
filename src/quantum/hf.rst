@@ -761,7 +761,9 @@ And we get:
 
 .. math::
 
-    (ij|kl) = \braket{ik|jl} = \braket{l_1 m_1 l_2 m_2 |
+    (ij|kl) = \braket{ik|jl} = (1 1' | 2 2') = \braket{1 2 | 1' 2'} =
+
+    = \braket{l_1 m_1 l_2 m_2 |
         {1\over |{\bf x} - {\bf x}'|} | l_1' m_1' l_2' m_2'} =
 
     =\int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
