@@ -460,31 +460,80 @@ from the context.
 General Matrix Elements in Spherical Symmetry
 ---------------------------------------------
 
+Spherical symmetry is this particular choice of a basis:
+
+.. math::
+
+    \phi_\mu({\bf x}) = {\phi_{\mu l}(r)\over r} Y_{l m}(\Omega)
+
+Where the $\mu$ index on the left hand side is equal to the
+$\mu l m$ index. In particular, here is an example of one possible way to index
+the basis of 12 radial functions for each $l$:
+
+.. math::
+
+    \begin{array}{r|rrr}
+        \mu & \mu & l & m \\
+        \hline
+        1 & 1 & 0 & 0 \\
+        2 & 2 & 0 & 0 \\
+        3 & 3 & 0 & 0 \\
+        \cdots & \cdots & &  \\
+        12 & 12 & 0 & 0 \\
+        13 & 1 & 1 & -1 \\
+        14 & 2 & 1 & -1 \\
+        15 & 3 & 1 & -1 \\
+        \cdots & \cdots & &  \\
+        24 & 12 & 1 & -1 \\
+        25 & 1 & 1 & 0 \\
+        26 & 2 & 1 & 0 \\
+        27 & 3 & 1 & 0 \\
+        \cdots & \cdots & &  \\
+        36 & 12 & 1 & 0 \\
+        37 & 1 & 1 & 1 \\
+        38 & 2 & 1 & 1 \\
+        39 & 3 & 1 & 1 \\
+        \cdots & \cdots & &  \\
+        48 & 12 & 1 & 1 \\
+        49 & 1 & 2 & -2 \\
+        50 & 2 & 2 & -2 \\
+        51 & 3 & 2 & -2 \\
+        \cdots & \cdots & &  \\
+    \end{array}
+
+So the radial index $\mu$ always starts from 1 for each $l$. From the context
+it will be clear whether $\mu$ means the radial or global (3D) index.
+
 Overlap
 ~~~~~~~
 
-The overlap matrix element is:
+The overlap matrix element
 
 .. math::
 
-    S_{ij} = \int \phi_i^*({\bf x}) \phi_j({\bf x})\d^3 x
+    S_{\mu\nu} = \int \phi_\mu^*({\bf x}) \phi_\nu({\bf x})\d^3 x
 
-We will use the following functions:
-
-.. math::
-
-    \phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
-
-    \phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
-
-and we get:
+becomes
 
 .. math::
 
-    S_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
-        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega =
+    S_{\mu l_\mu m_\mu \nu l_\nu m_\nu} = \int {\phi_{\mu l_\mu}(r)\over r}
+        Y_{l_\mu m_\mu}^*(\Omega)
+        {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) r^2 \d r \d \Omega=
 
-    = \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r) P_{n_2l_2}(r) \d r
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
+        \phi_{\mu l_\mu}(r) \phi_{\nu l_\nu}(r) \d r =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
+        \phi_{\mu l_\mu}(r) \phi_{\nu l_\mu}(r) \d r =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} S^{l_\mu}_{\mu\nu}
+
+where
+
+.. math::
+
+    S^l_{\mu\nu} = \int_0^\infty \phi_{\mu l}(r) \phi_{\nu l}(r) \d r
 
 Potential
 ~~~~~~~~~
