@@ -538,32 +538,40 @@ where
 Potential
 ~~~~~~~~~
 
-The potential matrix element is:
+The potential matrix element
 
 .. math::
 
-    V_{ij} =
-        \int \phi_i^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
-        \phi_j({\bf x}) \d^3 x
+    V_{\mu\nu} = \int \phi_\mu^*({\bf x}) \left(-{Z\over |{\bf x}|}\right)
+        \phi_\nu({\bf x})\d^3 x
 
-We will use the following functions:
-
-.. math::
-
-    \phi_i({\bf x}) = {P_{n_1l_1}(r)\over r} Y_{l_1m_1}(\Omega)
-
-    \phi_j({\bf x}) = {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega)
-
-and we get:
+becomes
 
 .. math::
 
-    V_{ij} = \int {P_{n_1l_1}(r)\over r} Y_{l_1m_1}^*(\Omega)
+    V_{\mu l_\mu m_\mu \nu l_\nu m_\nu} = \int {\phi_{\mu l_\mu}(r)\over r}
+        Y_{l_\mu m_\mu}^*(\Omega)
         \left(-{Z\over r}\right)
-        {P_{n_2l_2}(r)\over r} Y_{l_2m_2}(\Omega) r^2 \d r \d \Omega =
+        {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) r^2 \d r \d \Omega=
 
-    = \delta_{l_1 l_2} \delta_{m_1 m_2} \int P_{n_1l_1}(r)
-        \left(-{Z\over r}\right) P_{n_2l_2}(r) \d r
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
+        \phi_{\mu l_\mu}(r)
+        \left(-{Z\over r}\right)
+        \phi_{\nu l_\nu}(r) \d r =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
+        \phi_{\mu l_\mu}(r)
+        \left(-{Z\over r}\right)
+        \phi_{\nu l_\mu}(r) \d r =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} V^{l_\mu}_{\mu\nu}
+
+where
+
+.. math::
+
+    V^l_{\mu\nu} = \int_0^\infty \phi_{\mu l}(r)
+        \left(-{Z\over r}\right) \phi_{\nu l}(r) \d r
 
 Kinetic
 ~~~~~~~
