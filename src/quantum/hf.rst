@@ -455,7 +455,48 @@ In physical and chemistry notation this is written as:
 Note that this notation implicitly assumes the ${1\over r_{12}}$ factor, so
 for example $\braket{\mu \beta|\nu \alpha}$ actually means
 $\braket{\mu \beta|{1\over r_{12}}|\nu \alpha}$ and one has to understand this
-from the context.
+from the context. The two particle matrix element is:
+
+.. math::
+    :label: twoint
+
+    (ij|kl) = \braket{ik|jl} =
+        \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+            \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'
+
+The $\braket{ik|jl}$ is called the physicists' notation because
+the $\ket{jl}$ and $\ket{ik}$ kets are:
+
+.. math::
+
+    \ket{jl}=\psi_j({\bf x})\psi_l({\bf x}')
+
+    \ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')
+
+The $(ij|kl)$ is called the chemists' notation. From :eq:`twoint` the
+symmetries of $(ij|kl)$ are exchange of $i$ with $j$ or $k$ with $l$ or the
+$ij$ and $kl$ pairs:
+
+.. math::
+
+    (ij|kl) = (ji|kl) = (ij|lk) = (ji|lk) =
+
+    = (kl|ij) = (lk|ij) = (kl|ji) = (lk|ji)
+
+So if we view $(ij|kl)$ as two boxes $(\cdot | \cdot )$ then we can permute the
+labels in the given box "$\cdot$", as well as exchange the boxes (the only
+thing we cannot do is to take one particle from one box and put it into the
+other). As such the box "$\cdot$" is a pair of two electrons (in any order) and
+the two electron integral assigns a unique number to a pair of such boxes (in
+any order). The symmetries of the $\braket{ik|jl}$ symbol are:
+
+.. math::
+
+    \braket{ik|jl} = \braket{jk|il} = \braket{il|jk} = \braket{jl|ik} =
+
+    = \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}
+
+
 
 General Matrix Elements in Spherical Symmetry
 ---------------------------------------------
@@ -694,48 +735,6 @@ while in :eq:`hartree1` this sum is part of the sum over $\alpha=(n, l, m)$.
 
 Two particle
 ~~~~~~~~~~~~
-
-The two particle matrix element is:
-
-.. math::
-    :label: twoint
-
-    (ij|kl) = \braket{ik|jl} =
-        \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
-            \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'
-
-The $\braket{ik|jl}$ is called the physicists' notation because
-the $\ket{jl}$ and $\ket{ik}$ kets are:
-
-.. math::
-
-    \ket{jl}=\psi_j({\bf x})\psi_l({\bf x}')
-
-    \ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')
-
-The $(ij|kl)$ is called the chemists' notation. From :eq:`twoint` the
-symmetries of $(ij|kl)$ are exchange of $i$ with $j$ or $k$ with $l$ or the
-$ij$ and $kl$ pairs:
-
-.. math::
-
-    (ij|kl) = (ji|kl) = (ij|lk) = (ji|lk) =
-
-    = (kl|ij) = (lk|ij) = (kl|ji) = (lk|ji)
-
-So if we view $(ij|kl)$ as two boxes $(\cdot | \cdot )$ then we can permute the
-labels in the given box "$\cdot$", as well as exchange the boxes (the only
-thing we cannot do is to take one particle from one box and put it into the
-other). As such the box "$\cdot$" is a pair of two electrons (in any order) and
-the two electron integral assigns a unique number to a pair of such boxes (in
-any order). The symmetries of the $\braket{ik|jl}$ symbol are:
-
-.. math::
-
-    \braket{ik|jl} = \braket{jk|il} = \braket{il|jk} = \braket{jl|ik} =
-
-    = \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}
-
 
 We use the following functions for $\psi$:
 
