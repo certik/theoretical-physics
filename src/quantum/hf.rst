@@ -680,6 +680,59 @@ where
                 +\phi_{\mu l}(r) {l (l+1)\over 2 r^2} \phi_{\nu l}(r) \right)
             \d r
 
+G Matrix
+--------
+
+The G matrix is given by:
+
+.. math::
+
+    G_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
+            \left(\braket{\mu \beta|\nu \alpha}
+                -\half \braket{\mu \beta|\alpha \nu}\right)
+        = \sum_{\alpha\beta} P_{\alpha\beta}
+            \left((\mu \nu|\beta \alpha) -\half (\mu \alpha|\beta \nu)\right)
+
+Now we use:
+
+.. math::
+
+    \braket{\alpha \beta | \gamma \delta}
+    =
+    \braket{\alpha l_\alpha m_\alpha \ \beta l_\beta m_\beta |
+    \gamma l_\gamma m_\gamma \ \delta l_\delta m_\delta}
+    = (\alpha  l_\alpha m_\alpha \ \gamma l_\gamma m_\gamma |
+    \beta l_\beta m_\beta \ \delta l_\delta m_\delta) =
+
+    =
+    \sum_{k=\max(| l_\alpha-l_\gamma| ,| l_\beta-l_\delta| , | m_\alpha-m_\gamma| )}^{
+        \min(l_\alpha+l_\gamma, l_\beta+l_\delta)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\alpha, m_\alpha, l_\gamma, m_\gamma)
+    c^k(l_\delta, m_\delta, l_\beta, m_\beta)
+
+    \delta_{m_\alpha+m_\beta- m_\gamma-m_\delta, 0}
+
+    R^k(\alpha l_\alpha, \beta l_\beta, \gamma l_\gamma, \delta l_\delta)
+
+and
+
+.. math::
+
+    P_{\alpha\beta} = 2 \sum_{nml} C_{\alpha n l m} C_{\beta n l m}
+        = \sum_l 2(2l+1) \sum_{n} C_{\alpha n l} C_{\beta n l}
+
+We get:
+
+.. math::
+
+    G_{\mu\nu} =
+    G_{\mu l_\mu m_\mu \nu l_\nu m_\nu} =
+            \sum_{\alpha l_\alpha m_\alpha \beta l_\beta m_\beta}
+            P_{\alpha l_\alpha m_\alpha \beta l_\beta m_\beta}
+            \left(\braket{\mu \beta|\nu \alpha}
+                -\half \braket{\mu \beta|\alpha \nu}\right)
+
 Hartree Potential (Direct Term)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -933,7 +986,7 @@ We can write this using the $c^k$ symbols as:
         P_{n_1'l_1'}(r)
         P_{n_2l_2}(r')
         P_{n_2'l_2'}(r')
-        \d r \d r'
+        \d r \d r' =
 
     =
     \sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
@@ -949,7 +1002,18 @@ We can write this using the $c^k$ symbols as:
         P_{n_1'l_1'}(r)
         P_{n_2l_2}(r')
         P_{n_2'l_2'}(r')
-        \d r \d r'
+        \d r \d r' =
+
+    =
+    \sum_{k=\max(| l_1-l_1'| ,| l_2-l_2'| , | m_1-m_1'| )}^{
+        \min(l_1+l_1', l_2+l_2')
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_1, m_1, l_1', m_1')
+    c^k(l_2', m_2', l_2, m_2)
+
+    \delta_{m_1+m_2- m_1'-m_2', 0}
+
+    R^k(n_1 l_1, n_2 l_2, n_1' l_1', n_2' l_2')
 
 We can also couple the angular momenta as follows:
 
