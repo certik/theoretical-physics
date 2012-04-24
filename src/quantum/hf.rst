@@ -505,16 +505,109 @@ Spherical symmetry is this particular choice of a basis:
 
 .. math::
 
-    \phi_\mu({\bf x}) = {\phi_{\mu l}(r)\over r} Y_{l m}(\Omega)
+    \phi_\mu({\bf x}) =
+    \phi_{n_\mu l_\mu m_\mu}({\bf x}) =
+        {\phi_{n_\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}(\Omega)
 
-Where the $\mu$ index on the left hand side is equal to the
-$\mu l m$ index. In particular, here is an example of one possible way to index
-the basis of 12 radial functions for each $l$:
+It can be shown that the solutions are of the form:
+
+.. math::
+
+    \psi_i({\bf x}) = \psi_{nlm}({\bf x}) = {P_{n l}(r)\over r} Y_{l m}(\Omega)
+
+We can now write:
+
+.. math::
+
+    \psi_i({\bf x}) = \sum_\nu C_{\nu i} \phi_\nu({\bf x})
+
+    \int \phi_\mu({\bf x})\psi_i({\bf x}) \d^3 x
+        = \sum_\nu S_{\mu\nu} C_{\nu i}
+
+    \sum_{\mu} S_{\mu\nu}^{-1} \int \phi_\mu({\bf x})\psi_i({\bf x}) \d^3 x
+        = C_{\nu i}
+
+    \sum_{\mu}
+        \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+        \left(S_{n_\mu n_\nu}^{l_\mu}\right)^{-1}
+        \int \phi_{n_\mu l_\mu m_\mu}({\bf x})
+        \psi_{nlm}({\bf x}) \d^3 x
+        = C_{n_\nu l_\nu m_\nu; n l m}
+
+    \sum_{\mu}
+        \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+        \left(S_{n_\mu n_\nu}^{l_\mu}\right)^{-1}
+        \int
+            {\phi_{n_\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}(\Omega)
+            {P_{n l}(r)\over r} Y_{l m}(\Omega)
+        r^2 \d r \d \Omega
+        = C_{n_\nu l_\nu m_\nu; n l m}
+
+    \sum_{\mu}
+        \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+        \left(S_{n_\mu n_\nu}^{l_\mu}\right)^{-1}
+        \int
+            \phi_{n_\mu l_\mu}(r)
+            P_{n l}(r) \d r \delta_{l l_\mu} \delta_{m m_\mu}
+        = C_{n_\nu l_\nu m_\nu; n l m}
+
+        \delta_{l l_\nu} \delta_{m m_\nu}
+    \sum_{n_\mu}
+        \left(S_{n_\mu n_\nu}^{l}\right)^{-1}
+        \int
+            \phi_{n_\mu l}(r)
+            P_{n l}(r) \d r
+        = C_{n_\nu l_\nu m_\nu; n l m}
+
+        \delta_{l l_\nu} \delta_{m m_\nu}
+        C_{n_\nu n l}
+        = C_{n_\nu l_\nu m_\nu; n l m}
+
+where
+
+.. math::
+
+        C_{n_\nu n l} =
+    \sum_{n_\mu}
+        \left(S_{n_\mu n_\nu}^{l}\right)^{-1}
+        \int
+            \phi_{n_\mu l}(r)
+            P_{n l}(r) \d r
+
+Also we get:
+
+.. math::
+
+    \psi_{nlm}({\bf x}) = \sum_\nu
+        C_{n_\nu l_\nu m_\nu; n l m} \phi_{n_\nu l_\nu m_\nu}({\bf x})
+
+    {P_{n l}(r)\over r} Y_{l m}(\Omega) = \sum_\nu
+        C_{n_\nu l_\nu m_\nu; n l m}
+            {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) =
+
+    = \sum_\nu
+        \delta_{l l_\nu} \delta_{m m_\nu}
+        C_{n_\nu n l}
+            {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) =
+
+    = \sum_{n_\nu}
+        C_{n_\nu n l}
+            {\phi_{n_\nu l}(r)\over r} Y_{l m}(\Omega)
+
+From which it follows:
+
+.. math::
+
+    P_{n l}(r) = \sum_{n_\nu} C_{n_\nu n l} \phi_{n_\nu l}(r)
+
+The $\mu$ index runs over all combinations of $n l m$.
+In particular, here is an example of one possible way to index the
+basis of 12 radial functions for each $l$:
 
 .. math::
 
     \begin{array}{r|rrr}
-        \mu & \mu & l & m \\
+        \mu & n_\mu & l_\mu & m_\mu \\
         \hline
         1 & 1 & 0 & 0 \\
         2 & 2 & 0 & 0 \\
@@ -542,8 +635,7 @@ the basis of 12 radial functions for each $l$:
         \cdots & \cdots & &  \\
     \end{array}
 
-So the radial index $\mu$ always starts from 1 for each $l$. From the context
-it will be clear whether $\mu$ means the radial or global (3D) index.
+So the radial index $n_\mu$ always starts from 1 for each $l_\mu$.
 
 Overlap
 ~~~~~~~
@@ -558,23 +650,25 @@ becomes
 
 .. math::
 
-    S_{\mu l_\mu m_\mu \nu l_\nu m_\nu} = \int {\phi_{\mu l_\mu}(r)\over r}
+    S_{\mu\nu} = S_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+        = \int {\phi_{n_\mu l_\mu}(r)\over r}
         Y_{l_\mu m_\mu}^*(\Omega)
-        {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) r^2 \d r \d \Omega=
+        {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega)
+            r^2 \d r \d \Omega=
 
     = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
-        \phi_{\mu l_\mu}(r) \phi_{\nu l_\nu}(r) \d r =
+        \phi_{n_\mu l_\mu}(r) \phi_{n_\nu l_\nu}(r) \d r =
 
     = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
-        \phi_{\mu l_\mu}(r) \phi_{\nu l_\mu}(r) \d r =
+        \phi_{n_\mu l_\mu}(r) \phi_{n_\nu l_\mu}(r) \d r =
 
-    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} S^{l_\mu}_{\mu\nu}
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} S^{l_\mu}_{n_\mu n_\nu}
 
 where
 
 .. math::
 
-    S^l_{\mu\nu} = \int_0^\infty \phi_{\mu l}(r) \phi_{\nu l}(r) \d r
+    S^l_{n_\mu n_\nu} = \int_0^\infty \phi_{n_\mu l}(r) \phi_{n_\nu l}(r) \d r
 
 Potential
 ~~~~~~~~~
@@ -590,29 +684,32 @@ becomes
 
 .. math::
 
-    V_{\mu l_\mu m_\mu \nu l_\nu m_\nu} = \int {\phi_{\mu l_\mu}(r)\over r}
+    V_{\mu\nu} =
+    V_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu} = \int {\phi_{n_\mu l_\mu}(r)
+        \over r}
         Y_{l_\mu m_\mu}^*(\Omega)
         \left(-{Z\over r}\right)
-        {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) r^2 \d r \d \Omega=
+        {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega)
+            r^2 \d r \d \Omega=
 
     = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
-        \phi_{\mu l_\mu}(r)
+        \phi_{n_\mu l_\mu}(r)
         \left(-{Z\over r}\right)
-        \phi_{\nu l_\nu}(r) \d r =
+        \phi_{n_\nu l_\nu}(r) \d r =
 
     = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} \int_0^\infty
-        \phi_{\mu l_\mu}(r)
+        \phi_{n_\mu l_\mu}(r)
         \left(-{Z\over r}\right)
-        \phi_{\nu l_\mu}(r) \d r =
+        \phi_{n_\nu l_\mu}(r) \d r =
 
-    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} V^{l_\mu}_{\mu\nu}
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} V^{l_\mu}_{n_\mu n_\nu}
 
 where
 
 .. math::
 
-    V^l_{\mu\nu} = \int_0^\infty \phi_{\mu l}(r)
-        \left(-{Z\over r}\right) \phi_{\nu l}(r) \d r
+    V^l_{n_\mu n_\nu} = \int_0^\infty \phi_{n_\mu l}(r)
+        \left(-{Z\over r}\right) \phi_{n_\nu l}(r) \d r
 
 Kinetic
 ~~~~~~~
@@ -629,25 +726,26 @@ becomes
 
 .. math::
 
-    T_{\mu l_\mu m_\mu \nu l_\nu m_\nu}
-        = \int {\phi_{\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
+    T_{\mu\nu} =
+    T_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+        = \int {\phi_{n_\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
             \left(\left(-\half \nabla^2\right)
-            {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega)
+            {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega)
             \right) r^2 \d r \d \Omega =
 
-        = \int {\phi_{\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
+        = \int {\phi_{n_\mu l_\mu}(r)\over r} Y_{l_\mu m_\mu}^*(\Omega)
             \left(\left(-\half {\partial^2\over\partial r^2}
                 -{1\over r}{\partial\over\partial r}
                 +{l_\nu (l_\nu+1)\over 2r^2}\right)
-            {\phi_{\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) \right)
+            {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) \right)
             r^2 \d r \d \Omega =
 
         = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
-        \int_0^\infty {\phi_{\mu l_\mu}(r)\over r}
+        \int_0^\infty {\phi_{n_\mu l_\mu}(r)\over r}
             \left(\left(-\half {\partial^2\over\partial r^2}
                 -{1\over r}{\partial\over\partial r}
                 +{l_\mu (l_\mu+1)\over 2r^2}\right)
-            {\phi_{\nu l_\nu}(r)\over r} \right) r^2 \d r =
+            {\phi_{n_\nu l_\nu}(r)\over r} \right) r^2 \d r =
 
         = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} T^{l_\mu}_{\mu\nu}
 
@@ -655,29 +753,29 @@ where
 
 .. math::
 
-    T^l_{\mu\nu} =
-        \int_0^\infty {\phi_{\mu l}(r)\over r}
+    T^l_{n_\mu n_\nu} =
+        \int_0^\infty {\phi_{n_\mu l}(r)\over r}
             \left(\left(-\half {\partial^2\over\partial r^2}
                 -{1\over r}{\partial\over\partial r}
                 +{l (l+1)\over 2r^2}\right)
-            {\phi_{\nu l}(r)\over r} \right) r^2 \d r =
+            {\phi_{n_\nu l}(r)\over r} \right) r^2 \d r =
 
-        = \int_0^\infty {\phi_{\mu l}(r)\over r}
+        = \int_0^\infty {\phi_{n_\mu l}(r)\over r}
             \left(\left(-{1\over 2r} {\partial^2\over\partial r^2}r
                 +{l (l+1)\over 2 r^2}\right)
-            {\phi_{\nu l}(r)\over r} \right) r^2 \d r =
+            {\phi_{n_\nu l}(r)\over r} \right) r^2 \d r =
 
-        = \int_0^\infty \phi_{\mu l}(r)
+        = \int_0^\infty \phi_{n_\mu l}(r)
             \left(-\half {\partial^2\over\partial r^2}
                 +{l (l+1)\over 2 r^2}\right)
-            \phi_{\nu l}(r) \d r =
+            \phi_{n_\nu l}(r) \d r =
 
-        = \int_0^\infty \left( -\half \phi_{\mu l}(r) \phi_{\nu l}''(r)
-                +\phi_{\mu l}(r) {l (l+1)\over 2 r^2} \phi_{\nu l}(r) \right)
+        = \int_0^\infty \left( -\half \phi_{n_\mu l}(r) \phi_{n_\nu l}''(r)
+                +\phi_{n_\mu l}(r) {l (l+1)\over 2 r^2} \phi_{n_\nu l}(r)\right)
             \d r =
 
-        = \int_0^\infty \left( \half \phi_{\mu l}'(r) \phi_{\nu l}'(r)
-                +\phi_{\mu l}(r) {l (l+1)\over 2 r^2} \phi_{\nu l}(r) \right)
+        = \int_0^\infty \left( \half \phi_{n_\mu l}'(r) \phi_{n_\nu l}'(r)
+                +\phi_{n_\mu l}(r) {l (l+1)\over 2 r^2} \phi_{n_\nu l}(r)\right)
             \d r
 
 G Matrix
@@ -699,10 +797,10 @@ Now we use:
 
     \braket{\alpha \beta | \gamma \delta}
     =
-    \braket{\alpha l_\alpha m_\alpha \ \beta l_\beta m_\beta |
-    \gamma l_\gamma m_\gamma \ \delta l_\delta m_\delta}
-    = (\alpha  l_\alpha m_\alpha \ \gamma l_\gamma m_\gamma |
-    \beta l_\beta m_\beta \ \delta l_\delta m_\delta) =
+    \braket{n_\alpha l_\alpha m_\alpha \ n_\beta l_\beta m_\beta |
+    n_\gamma l_\gamma m_\gamma \ n_\delta l_\delta m_\delta}
+    = (n_\alpha  l_\alpha m_\alpha \ n_\gamma l_\gamma m_\gamma |
+    n_\beta l_\beta m_\beta \ n_\delta l_\delta m_\delta) =
 
     =
     \sum_{k=\max(| l_\alpha-l_\gamma| ,| l_\beta-l_\delta| , | m_\alpha-m_\gamma| )}^{
@@ -713,25 +811,148 @@ Now we use:
 
     \delta_{m_\alpha+m_\beta- m_\gamma-m_\delta, 0}
 
-    R^k(\alpha l_\alpha, \beta l_\beta, \gamma l_\gamma, \delta l_\delta)
+    R^k(n_\alpha l_\alpha, n_\beta l_\beta, n_\gamma l_\gamma,
+        n_\delta l_\delta)
 
 and
 
 .. math::
 
-    P_{\alpha\beta} = 2 \sum_{nml} C_{\alpha n l m} C_{\beta n l m}
-        = \sum_l 2(2l+1) \sum_{n} C_{\alpha n l} C_{\beta n l}
+    P_{\alpha\beta} = 2 \sum_{i} C_{\alpha i} C_{\beta i}
+        = 2 \sum_{i} C_{\alpha n_i l_i m_i} C_{\beta n_i l_i m_i}
+        = 2 \sum_{nml} C_{\alpha n l m} C_{\beta n l m} =
 
+        = \sum_l 2(2l+1) \sum_{n} C_{\alpha n l} C_{\beta n l}
+        = \sum_l P^l_{\alpha \beta}
+
+where
+
+.. math::
+
+    P^l_{\alpha \beta} = 2(2l+1) \sum_{n} C_{\alpha n l} C_{\beta n l}
+
+Where the sum is over all occupied orbitals $i$ can be written as:
+
+.. math::
+
+    \sum_i = \sum_{n_i l_i m_i} = \sum_{l=0}^\infty \sum_{m_l=-l}^l
+        \sum_{n_l=1}^\infty
+
+Where the sum over $l$ is the outer sum, both $m=m_l$ and $n=n_l$ depend on $l$.
 We get:
 
 .. math::
 
     G_{\mu\nu} =
-    G_{\mu l_\mu m_\mu \nu l_\nu m_\nu} =
-            \sum_{\alpha l_\alpha m_\alpha \beta l_\beta m_\beta}
-            P_{\alpha l_\alpha m_\alpha \beta l_\beta m_\beta}
+    G_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu} =
+            \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+            P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
             \left(\braket{\mu \beta|\nu \alpha}
                 -\half \braket{\mu \beta|\alpha \nu}\right)
+    = J_{\mu\nu} - K_{\mu\nu}
+
+The first part is the direct term, the second part the exchange term.
+Let's treat the direct term first:
+
+.. math::
+
+    J_{\mu\nu} = \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+            P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+            \braket{\mu \beta|\nu \alpha} =
+
+    = \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+            P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+    \sum_{k=\max(| l_\mu-l_\nu| ,| l_\beta-l_\alpha|,
+        | m_\mu-m_\nu| )}^{
+        \min(l_\mu+l_\nu, l_\beta+l_\alpha)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l_\nu, m_\nu)
+    c^k(l_\alpha, m_\alpha, l_\beta, m_\beta)
+
+    \delta_{m_\mu+m_\beta- m_\nu-m_\alpha, 0}
+
+    R^k(n_\mu l_\mu, n_\beta l_\beta, n_\nu l_\nu, n_\alpha l_\alpha) =
+
+    = \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        \sum_l P^l_{\alpha\beta}
+    \sum_{k=\max(| l_\mu-l_\nu| ,| l_\beta-l_\alpha|,
+        | m_\mu-m_\nu| )}^{
+        \min(l_\mu+l_\nu, l_\beta+l_\alpha)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l_\nu, m_\nu)
+    c^k(l_\alpha, m_\alpha, l_\beta, m_\beta)
+
+    \delta_{m_\mu+m_\beta- m_\nu-m_\alpha, 0}
+
+    R^k(n_\mu l_\mu, n_\beta l_\beta, n_\nu l_\nu, n_\alpha l_\alpha) =
+
+    = \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        \sum_l 2(2l+1) \sum_{n} C_{n_\alpha l_\alpha m_\alpha; n l}
+            C_{n_\beta l_\beta m_\beta; n l}
+    \sum_{k=\max(| l_\mu-l_\nu| ,| l_\beta-l_\alpha|,
+        | m_\mu-m_\nu| )}^{
+        \min(l_\mu+l_\nu, l_\beta+l_\alpha)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l_\nu, m_\nu)
+    c^k(l_\alpha, m_\alpha, l_\beta, m_\beta)
+
+    \delta_{m_\mu+m_\beta- m_\nu-m_\alpha, 0}
+
+    R^k(n_\mu l_\mu, n_\beta l_\beta, n_\nu l_\nu, n_\alpha l_\alpha) =
+
+    = \sum_l \sum_{n_\alpha m_\alpha n_\beta m_\beta}
+         2(2l+1) \sum_{n} C_{n_\alpha l m_\alpha; n l}
+            C_{n_\beta l m_\beta; n l}
+    \sum_{k=\max(| l_\mu-l_\nu|,
+        | m_\mu-m_\nu| )}^{
+        \min(l_\mu+l_\nu, 2l)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l_\nu, m_\nu)
+    c^k(l, m_\alpha, l, m_\beta)
+
+    \delta_{m_\mu+m_\beta- m_\nu-m_\alpha, 0}
+
+    R^k(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
+
+    = \sum_l \sum_{n_\alpha n_\beta }
+         2(2l+1) \sum_{n} C_{n_\alpha l; n l}
+            C_{n_\beta l; n l}
+    \sum_{k=\max(| l_\mu-l_\nu|,
+        | m_\mu-m_\nu| )}^{
+        \min(l_\mu+l_\nu, 2l)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l_\nu, m_\nu)
+    (2l+1)\delta_{k0}
+
+    R^k(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
+
+    = \sum_l \sum_{n_\alpha n_\beta }
+        P^l_{n_\alpha n_\beta}
+    \sum_{k=\max(| l_\mu-l_\nu|,
+        | m_\mu-m_\nu| )}^{
+        \min(l_\mu+l_\nu, 2l)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l_\nu, m_\nu)
+    (2l+1)\delta_{k0}
+    R^k(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
+
+    = \sum_l \sum_{n_\alpha n_\beta }
+        P^l_{n_\alpha n_\beta}
+    c^0(l_\mu, m_\mu, l_\nu, m_\nu)
+    (2l+1)
+    R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+        \sum_l \sum_{n_\alpha n_\beta }
+        P^l_{n_\alpha n_\beta}
+    (2l+1) R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l)
+
+Idea:
+
+.. math::
+
+    C_{n_\alpha l_\alpha m_\alpha; n l m} = \delta_{l_\alpha l}
+        \delta_{m_\alpha m} C_{n_\alpha n l}
 
 Hartree Potential (Direct Term)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
