@@ -1137,6 +1137,64 @@ and so the radial Roothaan equations are to be solved for each $l$:
             S_{n_\mu n_\nu}^l
         C_{n_\nu n_i}^l
 
+The total energy is:
+
+.. math::
+
+    E = \half \sum_{\mu\nu} P_{\nu\mu} (H_{\mu\nu}^{\mbox{core}}
+        +F_{\mu\nu}) =
+
+    = \sum_{\mu\nu} P_{\nu\mu} (F_{\mu\nu} - \half G_{\mu\nu}) =
+
+    = \sum_{\mu\nu}
+        \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu} P_{n_\mu n_\nu}^{l_\mu}
+        \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+        (F - \half G)^{l_\mu}_{n_\mu n_\nu} =
+
+    = \sum_{l_\mu}\sum_{m_\mu}\sum_{n_\mu n_\nu}
+        P_{n_\mu n_\nu}^{l_\mu}
+        (F - \half G)^{l_\mu}_{n_\mu n_\nu} =
+
+    = \sum_{l_\mu} \sum_{n_\mu n_\nu}
+        (2l_\mu+1)
+        P_{n_\mu n_\nu}^{l_\mu}
+        (F - \half G)^{l_\mu}_{n_\mu n_\nu} =
+
+    = \sum_l \sum_{n_\mu n_\nu}
+        (2l+1)
+        P_{n_\mu n_\nu}^l
+        (F - \half G)^l_{n_\mu n_\nu} =
+
+    = \sum_l \sum_{n_\mu n_\nu}
+        (2l+1)
+        \sum_n 2 C^l_{n_\mu n} C^l_{n_\nu n}
+        (F^l_{n_\mu n_\nu} - \half G^l_{n_\mu n_\nu}) =
+
+    = \sum_l \sum_{n_\mu n_\nu}
+        (2l+1)
+        \sum_n 2 C^l_{n_\mu n} C^l_{n_\nu n}
+        \left(\epsilon_{n l} S^l_{n_\mu n_\nu} - \half
+     \sum_{l'}
+    2(2l'+1)\sum_{n'} \right.
+
+    \left.
+    \left(
+        R^0(n_\mu l, n' l', n_\nu l, n' l')
+    -
+    \sum_{k=| l-l'| }^{l+l'}
+    \half
+    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+    R^k(n_\mu l, n' l', n' l', n_\nu l) \right) \right) =
+
+    = \sum_l \sum_n 2(2l+1) \left( \epsilon_{n l}
+        -\sum_{l'} \sum_{n'} (2l'+1)
+        \left(
+            R^0(n l, n' l', n l, n' l')
+                -\half \sum_{k=|l-l'|}^{k=l+l'}
+                 \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+                R^k(n l, n' l', n' l', n l) \right)
+        \right)
+
 
 Hartree Potential (Direct Term)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
