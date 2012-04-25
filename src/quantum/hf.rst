@@ -560,14 +560,14 @@ We can now write:
         = C_{n_\nu l_\nu m_\nu; n l m}
 
         \delta_{l l_\nu} \delta_{m m_\nu}
-        C_{n_\nu n l}
+        C_{n_\nu n}^l
         = C_{n_\nu l_\nu m_\nu; n l m}
 
 where
 
 .. math::
 
-        C_{n_\nu n l} =
+        C_{n_\nu n}^l =
     \sum_{n_\mu}
         \left(S_{n_\mu n_\nu}^{l}\right)^{-1}
         \int
@@ -587,18 +587,18 @@ Also we get:
 
     = \sum_\nu
         \delta_{l l_\nu} \delta_{m m_\nu}
-        C_{n_\nu n l}
+        C_{n_\nu n}^l
             {\phi_{n_\nu l_\nu}(r)\over r} Y_{l_\nu m_\nu}(\Omega) =
 
     = \sum_{n_\nu}
-        C_{n_\nu n l}
+        C_{n_\nu n}^l
             {\phi_{n_\nu l}(r)\over r} Y_{l m}(\Omega)
 
 From which it follows:
 
 .. math::
 
-    P_{n l}(r) = \sum_{n_\nu} C_{n_\nu n l} \phi_{n_\nu l}(r)
+    P_{n l}(r) = \sum_{n_\nu} C_{n_\nu n}^l \phi_{n_\nu l}(r)
 
 The $\mu$ index runs over all combinations of $n l m$.
 In particular, here is an example of one possible way to index the
@@ -819,19 +819,33 @@ and
 .. math::
 
     P_{\alpha\beta} = 2 \sum_{i} C_{\alpha i} C_{\beta i}
-        = 2 \sum_{i} C_{\alpha n_i l_i m_i} C_{\beta n_i l_i m_i}
-        = 2 \sum_{nml} C_{\alpha n l m} C_{\beta n l m} =
 
-        = \sum_l 2(2l+1) \sum_{n} C_{\alpha n l} C_{\beta n l}
-        = \sum_l P^l_{\alpha \beta}
+    P_{n_\alpha l_\alpha m_\alpha; n_\beta l_\beta m_\beta}
+        = 2 \sum_{i}
+            C_{n_\alpha l_\alpha m_\alpha; n_i l_i m_i}
+            C_{n_\beta l_\beta m_\beta; n_i l_i m_i} =
+
+        = 2 \sum_{i}
+            \delta_{l_i l_\alpha} \delta_{m_i m_\alpha}
+            \delta_{l_i l_\beta} \delta_{m_i m_\beta}
+            C_{n_\alpha n_i}^{l_i}
+            C_{n_\beta n_i}^{l_i} =
+
+        = 2 \delta_{l_\alpha l_\beta}\delta_{m_\alpha m_\beta}
+            \sum_{n_i}
+            C_{n_\alpha n_i}^{l_\alpha}
+            C_{n_\beta n_i}^{l_\alpha} =
+
+        = \delta_{l_\alpha l_\beta}\delta_{m_\alpha m_\beta}
+            P^{l_\alpha}_{n_\alpha n_\beta}
 
 where
 
 .. math::
 
-    P^l_{\alpha \beta} = 2(2l+1) \sum_{n} C_{\alpha n l} C_{\beta n l}
+    P^l_{n_\alpha n_\beta} = 2 \sum_{n_i} C_{n_\alpha n_i}^l C_{n_\beta n_i}^l
 
-Where the sum is over all occupied orbitals $i$ can be written as:
+Where the sum over all occupied orbitals $i$ can be written as:
 
 .. math::
 
@@ -874,7 +888,8 @@ Let's treat the direct term first:
     R^k(n_\mu l_\mu, n_\beta l_\beta, n_\nu l_\nu, n_\alpha l_\alpha) =
 
     = \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
-        \sum_l P^l_{\alpha\beta}
+        \delta_{l_\alpha l_\beta} \delta_{m_\alpha m_\beta}
+        P^{l_\alpha}_{n_\alpha n_\beta}
     \sum_{k=\max(| l_\mu-l_\nu| ,| l_\beta-l_\alpha|,
         | m_\mu-m_\nu| )}^{
         \min(l_\mu+l_\nu, l_\beta+l_\alpha)
@@ -886,73 +901,56 @@ Let's treat the direct term first:
 
     R^k(n_\mu l_\mu, n_\beta l_\beta, n_\nu l_\nu, n_\alpha l_\alpha) =
 
-    = \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
-        \sum_l 2(2l+1) \sum_{n} C_{n_\alpha l_\alpha m_\alpha; n l}
-            C_{n_\beta l_\beta m_\beta; n l}
-    \sum_{k=\max(| l_\mu-l_\nu| ,| l_\beta-l_\alpha|,
-        | m_\mu-m_\nu| )}^{
-        \min(l_\mu+l_\nu, l_\beta+l_\alpha)
-    }\!\!\!\!\!\!\!\!\!\!\!\!
-    c^k(l_\mu, m_\mu, l_\nu, m_\nu)
-    c^k(l_\alpha, m_\alpha, l_\beta, m_\beta)
-
-    \delta_{m_\mu+m_\beta- m_\nu-m_\alpha, 0}
-
-    R^k(n_\mu l_\mu, n_\beta l_\beta, n_\nu l_\nu, n_\alpha l_\alpha) =
-
-    = \sum_l \sum_{n_\alpha m_\alpha n_\beta m_\beta}
-         2(2l+1) \sum_{n} C_{n_\alpha l m_\alpha; n l}
-            C_{n_\beta l m_\beta; n l}
-    \sum_{k=\max(| l_\mu-l_\nu|,
-        | m_\mu-m_\nu| )}^{
+    = \sum_{n_\alpha n_\beta} \sum_{l m}
+        P^{l}_{n_\alpha n_\beta}
+    \sum_{k=\max(| l_\mu-l_\nu| , | m_\mu-m_\nu| )}^{
         \min(l_\mu+l_\nu, 2l)
     }\!\!\!\!\!\!\!\!\!\!\!\!
     c^k(l_\mu, m_\mu, l_\nu, m_\nu)
-    c^k(l, m_\alpha, l, m_\beta)
+    c^k(l, m, l, m)
 
-    \delta_{m_\mu+m_\beta- m_\nu-m_\alpha, 0}
-
-    R^k(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
-
-    = \sum_l \sum_{n_\alpha n_\beta }
-         2(2l+1) \sum_{n} C_{n_\alpha l; n l}
-            C_{n_\beta l; n l}
-    \sum_{k=\max(| l_\mu-l_\nu|,
-        | m_\mu-m_\nu| )}^{
-        \min(l_\mu+l_\nu, 2l)
-    }\!\!\!\!\!\!\!\!\!\!\!\!
-    c^k(l_\mu, m_\mu, l_\nu, m_\nu)
-    (2l+1)\delta_{k0}
+    \delta_{m_\mu- m_\nu, 0}
 
     R^k(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
 
-    = \sum_l \sum_{n_\alpha n_\beta }
-        P^l_{n_\alpha n_\beta}
-    \sum_{k=\max(| l_\mu-l_\nu|,
-        | m_\mu-m_\nu| )}^{
-        \min(l_\mu+l_\nu, 2l)
-    }\!\!\!\!\!\!\!\!\!\!\!\!
-    c^k(l_\mu, m_\mu, l_\nu, m_\nu)
-    (2l+1)\delta_{k0}
-    R^k(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
-
-    = \sum_l \sum_{n_\alpha n_\beta }
-        P^l_{n_\alpha n_\beta}
+    = \delta_{m_\mu  m_\nu}
+    \sum_{n_\alpha n_\beta} \sum_{l}
+        P^{l}_{n_\alpha n_\beta}
     c^0(l_\mu, m_\mu, l_\nu, m_\nu)
     (2l+1)
     R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
 
-    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
-        \sum_l \sum_{n_\alpha n_\beta }
-        P^l_{n_\alpha n_\beta}
-    (2l+1) R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l)
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
+     \sum_{l}
+    (2l+1)\sum_{n_\alpha n_\beta}
+        P^{l}_{n_\alpha n_\beta}
+    R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l)
 
-Idea:
+Note: performing the sum over $n_\alpha$ and $n_\beta$ we get:
 
 .. math::
 
-    C_{n_\alpha l_\alpha m_\alpha; n l m} = \delta_{l_\alpha l}
-        \delta_{m_\alpha m} C_{n_\alpha n l}
+    J_{\mu\nu} = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
+     \sum_{l}
+    (2l+1)\sum_{n_\alpha n_\beta}
+        P^{l}_{n_\alpha n_\beta}
+    R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
+     \sum_{l}
+    2(2l+1)\sum_{n} \sum_{n_\alpha n_\beta}
+        C^l_{n_\alpha n}C^l_{n_\beta n}
+    R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
+     \sum_{l}
+    2(2l+1)\sum_{n}
+    R^0(n_\mu l_\mu, n l, n_\nu l_\nu, n l) =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
+     \sum_{k}
+    2(2l_k+1)
+    R^0(n_\mu l_\mu, k, n_\nu l_\nu, k)
 
 Hartree Potential (Direct Term)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -999,7 +997,8 @@ In spherical symmetry, we get (see :ref:`hartree_spherical` for derivation):
 .. math::
     :label: hartree2
 
-    J_{\mu\nu} = \int P_\mu V_H(r) P_\nu \d r  = \sum_{k} 2(2l_k+1)
+    J_{\mu\nu} = \int P_\mu V_H(r) P_\nu \d r  =
+        \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu} \sum_{k} 2(2l_k+1)
         R^0(\mu, k, \nu, k)
 
 Here we sum over the occupied radial orbitals $k$. This sum is already carried
