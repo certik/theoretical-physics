@@ -1087,6 +1087,56 @@ Note: performing the sum over $n_\alpha$ and $n_\beta$ we get:
     \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
     R^k(n_\mu l, n' l', n' l', n_\nu l) \right)
 
+Radial Roothaan Equations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Roothaan equations are:
+
+.. math::
+
+    \sum_\nu (T + V + G)_{\mu\nu} C_{\nu i} = \epsilon_i \sum_\nu S_{\mu\nu}
+        C_{\nu i}
+
+    \sum_\nu (T + V + G)_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+        C_{n_\nu l_\nu m_\nu n_i l_i m_i} = \epsilon_{n_i l_i m_i}
+            \sum_\nu S_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+        C_{n_\nu l_\nu m_\nu n_i l_i m_i}
+
+    \sum_\nu (T + V + G)_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+        \delta_{l_i l_\nu} \delta_{m_i m_\nu}
+        C_{n_\nu n_i}^{l_i} = \epsilon_{n_i l_i m_i}
+            \sum_\nu S_{n_\mu l_\mu m_\mu n_\nu l_\nu m_\nu}
+        \delta_{l_i l_\nu} \delta_{m_i m_\nu}
+        C_{n_\nu n_i}^{l_i}
+
+    \sum_{n_\nu} (T + V + G)_{n_\mu l_\mu m_\mu n_\nu l_i m_i}
+        C_{n_\nu n_i}^{l_i} = \epsilon_{n_i l_i m_i}
+            \sum_{n_\nu} S_{n_\mu l_\mu m_\mu n_\nu l_i m_i}
+        C_{n_\nu n_i}^{l_i}
+
+    \delta_{l_\mu l_i} \delta_{m_\mu m_i}
+    \sum_{n_\nu}
+        (T + V + G)_{n_\mu n_\nu}^{l_i}
+        C_{n_\nu n_i}^{l_i} =
+            \delta_{l_\mu l_i} \delta_{m_\mu m_i}
+        \epsilon_{n_i l_i m_i}
+            \sum_{n_\nu}
+            S_{n_\mu n_\nu}^{l_i}
+        C_{n_\nu n_i}^{l_i}
+
+The eigenvalues will be degenerate with respect to $m_i$
+and so the radial Roothaan equations are to be solved for each $l$:
+
+.. math::
+
+    \sum_{n_\nu}
+        (T + V + G)_{n_\mu n_\nu}^l
+        C_{n_\nu n_i}^l =
+        \epsilon_{n_i l}
+            \sum_{n_\nu}
+            S_{n_\mu n_\nu}^l
+        C_{n_\nu n_i}^l
+
 
 Hartree Potential (Direct Term)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
