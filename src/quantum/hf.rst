@@ -924,33 +924,7 @@ Let's treat the direct term first:
      \sum_{l}
     (2l+1)\sum_{n_\alpha n_\beta}
         P^{l}_{n_\alpha n_\beta}
-    R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l)
-
-Note: performing the sum over $n_\alpha$ and $n_\beta$ we get:
-
-.. math::
-
-    J_{\mu\nu} = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
-     \sum_{l}
-    (2l+1)\sum_{n_\alpha n_\beta}
-        P^{l}_{n_\alpha n_\beta}
-    R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
-
-    = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
-     \sum_{l}
-    2(2l+1)\sum_{n} \sum_{n_\alpha n_\beta}
-        C^l_{n_\alpha n}C^l_{n_\beta n}
-    R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\nu, n_\alpha l) =
-
-    = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
-     \sum_{l}
-    2(2l+1)\sum_{n}
-    R^0(n_\mu l_\mu, n l, n_\nu l_\nu, n l) =
-
-    = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
-     \sum_{k}
-    2(2l_k+1)
-    R^0(n_\mu l_\mu, k, n_\nu l_\nu, k)
+    R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\mu, n_\alpha l)
 
 For the exchange term we get:
 
@@ -1000,6 +974,118 @@ For the exchange term we get:
     c^k(l_\nu, m_\nu, l, m)
 
     R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\nu) =
+
+    = \half \delta_{m_\mu m_\nu}
+    \sum_{n_\alpha n_\beta} \sum_{l m}
+        P^l_{n_\alpha n_\beta}
+    \sum_{k=\max(| l_\mu-l| ,| l-l_\nu|,
+        | m_\mu-m| )}^{
+        \min(l_\mu+l, l+l_\nu)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l, m)
+    c^k(l_\nu, m_\mu, l, m)
+
+    R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\nu)
+
+For $l_\mu = l_\nu$ this can be written as:
+
+.. math::
+
+    K_{\mu\nu} = \half \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+    \sum_{n_\alpha n_\beta} \sum_{l m}
+        P^l_{n_\alpha n_\beta}
+    \sum_{k=\max(| l_\mu-l|,
+        | m_\mu-m| )}^{l_\mu+l}\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l, m)
+    c^k(l_\mu, m_\mu, l, m)
+
+    R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\mu) =
+
+    = \half \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+    \sum_{n_\alpha n_\beta} \sum_{l}
+        P^l_{n_\alpha n_\beta}
+    \sum_{k=| l_\mu-l|}^{l_\mu+l}
+    \sqrt{2l+1 \over 2l_\mu +1}
+    c^k(l_\mu, 0, l, 0)
+
+    R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\mu) =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu m_\nu}
+    \sum_{l}
+    (2l+1)
+    \sum_{n_\alpha n_\beta}
+        P^l_{n_\alpha n_\beta}
+    \sum_{k=| l_\mu-l|}^{l_\mu+l}
+    \half
+    \begin{pmatrix} l_\mu & k & l \\ 0 & 0 & 0 \end{pmatrix}^2
+
+    R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\mu)
+
+All together we get:
+
+.. math::
+
+    G_{\mu\nu}
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu}
+     \sum_{l}
+    (2l+1)\sum_{n_\alpha n_\beta}
+        P^{l}_{n_\alpha n_\beta}
+
+    \left(
+        R^0(n_\mu l_\mu, n_\beta l, n_\nu l_\mu, n_\alpha l)
+    -
+    \sum_{k=| l_\mu-l|}^{l_\mu+l}
+    \half
+    \begin{pmatrix} l_\mu & k & l \\ 0 & 0 & 0 \end{pmatrix}^2
+    R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\mu) \right) =
+
+    = \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu} G^{l_\mu}_{n_\mu n_\nu}
+
+where
+
+.. math::
+
+    G^{l}_{n_\mu n_\nu} =
+     \sum_{l'}
+    (2l'+1)\sum_{n_\alpha n_\beta}
+        P^{l'}_{n_\alpha n_\beta}
+
+    \left(
+        R^0(n_\mu l, n_\beta l', n_\nu l, n_\alpha l')
+    -
+    \sum_{k=| l-l'| }^{l+l'}
+    \half
+    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+    R^k(n_\mu l, n_\beta l', n_\alpha l', n_\nu l) \right)
+
+Note: performing the sum over $n_\alpha$ and $n_\beta$ we get:
+
+.. math::
+
+    G^{l}_{n_\mu n_\nu} =
+     \sum_{l'}
+    2(2l'+1)\sum_{n'}\sum_{n_\alpha n_\beta}
+        C^{l'}_{n_\alpha n'}C^{l'}_{n_\beta n'}
+
+    \left(
+        R^0(n_\mu l, n_\beta l', n_\nu l, n_\alpha l')
+    -
+    \sum_{k=| l-l'| }^{l+l'}
+    \half
+    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+    R^k(n_\mu l, n_\beta l', n_\alpha l', n_\nu l) \right) =
+
+    =
+     \sum_{l'}
+    2(2l'+1)\sum_{n'}
+
+    \left(
+        R^0(n_\mu l, n' l', n_\nu l, n' l')
+    -
+    \sum_{k=| l-l'| }^{l+l'}
+    \half
+    \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
+    R^k(n_\mu l, n' l', n' l', n_\nu l) \right)
 
 
 Hartree Potential (Direct Term)
