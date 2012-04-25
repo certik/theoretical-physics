@@ -952,6 +952,56 @@ Note: performing the sum over $n_\alpha$ and $n_\beta$ we get:
     2(2l_k+1)
     R^0(n_\mu l_\mu, k, n_\nu l_\nu, k)
 
+For the exchange term we get:
+
+.. math::
+
+    K_{\mu\nu} = \half \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+            P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+            \braket{\mu \beta|\alpha \nu} =
+
+    = \half \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+            P_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+    \sum_{k=\max(| l_\mu-l_\alpha| ,| l_\beta-l_\nu|,
+        | m_\mu-m_\alpha| )}^{
+        \min(l_\mu+l_\alpha, l_\beta+l_\nu)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l_\alpha, m_\alpha)
+    c^k(l_\nu, m_\nu, l_\beta, m_\beta)
+
+    \delta_{m_\mu+m_\beta- m_\alpha-m_\nu, 0}
+
+    R^k(n_\mu l_\mu, n_\beta l_\beta, n_\alpha l_\alpha, n_\nu l_\nu) =
+
+
+    = \half \sum_{n_\alpha l_\alpha m_\alpha n_\beta l_\beta m_\beta}
+        \delta_{l_\alpha l_\beta} \delta_{m_\alpha m_\beta}
+        P^{l_\alpha}_{n_\alpha n_\beta}
+    \sum_{k=\max(| l_\mu-l_\alpha| ,| l_\beta-l_\nu|,
+        | m_\mu-m_\alpha| )}^{
+        \min(l_\mu+l_\alpha, l_\beta+l_\nu)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l_\alpha, m_\alpha)
+    c^k(l_\nu, m_\nu, l_\beta, m_\beta)
+
+    \delta_{m_\mu+m_\beta- m_\alpha-m_\nu, 0}
+
+    R^k(n_\mu l_\mu, n_\beta l_\beta, n_\alpha l_\alpha, n_\nu l_\nu) =
+
+
+    = \half \delta_{m_\mu m_\nu}
+    \sum_{n_\alpha n_\beta} \sum_{l m}
+        P^l_{n_\alpha n_\beta}
+    \sum_{k=\max(| l_\mu-l| ,| l-l_\nu|,
+        | m_\mu-m| )}^{
+        \min(l_\mu+l, l+l_\nu)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\mu, m_\mu, l, m)
+    c^k(l_\nu, m_\nu, l, m)
+
+    R^k(n_\mu l_\mu, n_\beta l, n_\alpha l, n_\nu l_\nu) =
+
+
 Hartree Potential (Direct Term)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
