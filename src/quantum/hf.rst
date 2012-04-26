@@ -779,7 +779,7 @@ where
             \d r
 
 G Matrix
---------
+~~~~~~~~
 
 The G matrix is given by:
 
@@ -1195,60 +1195,6 @@ The total energy is:
                 R^k(n l, n' l', n' l', n l) \right)
         \right)
 
-
-Hartree Potential (Direct Term)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The direct (Hartree) term is given by:
-
-.. math::
-
-    J_{\mu\nu} = \int \phi_\mu^*({\bf x}) V_H({\bf x}) \phi_\nu({\bf x}) \d^3 x
-
-where the Hartree potential $V_H({\bf x})$ is given by:
-
-.. math::
-
-    V_H({\bf x}) = \int {2\sum_{k=1}^{N/2}|\psi_k({\bf y})|^2\over
-            |{\bf x}-{\bf y}|} \d^3 y
-        = \int {n({\bf y})\over
-            |{\bf x}-{\bf y}|} \d^3 y
-
-where the number density $n({\bf x})$ is given by:
-
-.. math::
-
-    n({\bf x}) = 2 \sum_{k=1}^{N/2} | \psi_k({\bf x})|^2
-        = \sum_{\alpha\beta} \phi_\alpha({\bf x}) P_{\alpha\beta}
-            \phi_\beta^*({\bf x})
-
-All together we get:
-
-.. math::
-    :label: hartree1
-
-    J_{\mu\nu} = \sum_{\alpha\beta} P_{\alpha\beta}
-        \int {\phi_\mu^*({\bf x}) \phi_\alpha({\bf y})
-                \phi_\beta^*({\bf y}) \phi_\nu({\bf x}) \over
-                |{\bf x}-{\bf y}| } \d^3 x \d^3 y
-        = \sum_{\alpha\beta} P_{\alpha\beta}
-            \braket{\mu \beta|\nu \alpha}
-        = \sum_{\alpha\beta} P_{\alpha\beta}
-            (\mu \nu|\beta \alpha)
-
-In spherical symmetry, we get (see :ref:`hartree_spherical` for derivation):
-
-.. math::
-    :label: hartree2
-
-    J_{\mu\nu} = \int P_\mu V_H(r) P_\nu \d r  =
-        \delta_{l_\mu l_\nu} \delta_{m_\mu  m_\nu} \sum_{k} 2(2l_k+1)
-        R^0(\mu, k, \nu, k)
-
-Here we sum over the occupied radial orbitals $k$. This sum is already carried
-out in $P_{\alpha\beta}$ in :eq:`hartree1`. On the other hand, :eq:`hartree2`
-has the sum over the magnetic number $m$ carried out (thus the $2l+1$ term),
-while in :eq:`hartree1` this sum is part of the sum over $\alpha=(n, l, m)$.
 
 Two particle
 ~~~~~~~~~~~~
