@@ -1517,7 +1517,7 @@ For $r$ real, one just uses the second formula as a definition:
 
     \binom{r}{k} = {r (r-1) \cdots (r-k+1)\over k!}
 
-Example:
+Example I:
 
 .. math::
 
@@ -1525,6 +1525,19 @@ Example:
         = {(-n) (-n-1) \cdots (-n-k+1)\over k!}
         = (-1)^{k} {n (n+1) \cdots (n+k-1)\over k!}
         = (-1)^{k}\binom{n+k-1}{k}
+
+Example II:
+
+.. math::
+
+    \binom{k-\half}{k}
+        = {(k-\half) (k-\half-1) \cdots (k-\half-k+1)\over k!}
+        = {(k-\half) (k-\half-1) \cdots \half\over k!} =
+
+        = {(2k-1) (2k-3) \cdots 1\over 2^k k!}
+        = {(2k-1)!!\over 2^k k!}
+        = {(2k)!\over (2^k k!)^2}
+        = {1\over 4^k}\binom{2k}{k}
 
 The binomial formula is for $n$ integer:
 
