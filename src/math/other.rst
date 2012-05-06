@@ -1569,6 +1569,15 @@ so:
         = \sum_{k=0}^\infty \binom{k}{k} x^k
         = \sum_{k=0}^\infty x^k
 
+and
+
+.. math::
+
+    (1 - x)^{-\half} = \sum_{k=0}^\infty \binom{\half+k-1}{k} x^k
+    = \sum_{k=0}^\infty \binom{k-\half}{k} x^k
+    = \sum_{k=0}^\infty {1\over 4^k}\binom{2k}{k} x^k
+
+
 Triangle Inequality
 -------------------
 
