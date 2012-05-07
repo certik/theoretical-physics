@@ -1589,6 +1589,57 @@ Another example:
         = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} \sum_{k=0}^n
             \binom{n}{k} (-1)^k t^{n+k} (2x)^{n-k} =
 
+        = \sum_{n=0}^\infty \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+            {1\over 4^{n-k}}\binom{2n-2k}{n-k}
+            \binom{n-k}{k} (-1)^k t^{n} (2x)^{n-2k} =
+
+        = \sum_{n=0}^\infty \left(
+            {1\over 2^n}
+            \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+            (-1)^k
+            \binom{n}{k}
+            \binom{2n-2k}{n}
+            x^{n-2k} \right) t^{n} =
+
+        = \sum_{n=0}^\infty \left(
+            {1\over 2^n}
+            \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+            (-1)^k
+            \binom{n}{k}
+            {1\over n!}{\d^n \over \d x^n} x^{2n-2k}
+            \right) t^{n} =
+
+        = \sum_{n=0}^\infty \left(
+            {1\over 2^n}
+            \sum_{k=0}^n
+            (-1)^k
+            \binom{n}{k}
+            {1\over n!}{\d^n \over \d x^n} x^{2n-2k}
+            \right) t^{n} =
+
+        = \sum_{n=0}^\infty \left(
+            {1\over 2^n n!}
+            {\d^n \over \d x^n} (x^2 - 1)^n
+            \right) t^{n} =
+
+        = \sum_{n=0}^\infty P_n(x) t^{n}
+
+where we used:
+
+.. math::
+
+    \sum_{n=0}^\infty \sum_{k=0}^n a_{n k} =
+        \sum_{n=0}^\infty \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+            a_{n-k, k}
+
+and
+
+.. math::
+
+    \binom{2n-2k}{n-k} \binom{n-k}{k} = \binom{2n-2k}{n} \binom{n}{k}
+
+The $P_n(x)$ are :ref:`legendre_polynomials`.
+
 
 Triangle Inequality
 -------------------

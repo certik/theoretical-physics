@@ -1,5 +1,7 @@
 .. index:: Legendre polynomials
 
+.. _legendre_polynomials:
+
 Legendre Polynomials
 ====================
 
