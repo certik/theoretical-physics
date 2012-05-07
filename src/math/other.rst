@@ -1569,13 +1569,25 @@ so:
         = \sum_{k=0}^\infty \binom{k}{k} x^k
         = \sum_{k=0}^\infty x^k
 
-and
-
-.. math::
-
     (1 - x)^{-\half} = \sum_{k=0}^\infty \binom{\half+k-1}{k} x^k
     = \sum_{k=0}^\infty \binom{k-\half}{k} x^k
     = \sum_{k=0}^\infty {1\over 4^k}\binom{2k}{k} x^k
+
+Another example:
+
+.. math::
+
+    {1\over\sqrt{1-2xt+t^2}} = \left(1-(2xt-t^2)\right)^{-\half}
+        = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} (2xt-t^2)^n =
+
+        = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} \sum_{k=0}^n
+            \binom{n}{k} (-t^2)^k (2xt)^{n-k} =
+
+        = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} \sum_{k=0}^n
+            \binom{n}{k} (-1)^k t^{2k} (2x)^{n-k} t^{n-k} =
+
+        = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} \sum_{k=0}^n
+            \binom{n}{k} (-1)^k t^{n+k} (2x)^{n-k} =
 
 
 Triangle Inequality
