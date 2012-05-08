@@ -455,13 +455,22 @@ In physical and chemistry notation this is written as:
 Note that this notation implicitly assumes the ${1\over r_{12}}$ factor, so
 for example $\braket{\mu \beta|\nu \alpha}$ actually means
 $\braket{\mu \beta|{1\over r_{12}}|\nu \alpha}$ and one has to understand this
-from the context. The two particle matrix element is:
+from the context.
+
+Two Particle Matrix Element
+---------------------------
+
+The two particle matrix element is:
 
 .. math::
     :label: twoint
 
-    (ij|kl) = \braket{ik|jl} =
+    (ij|kl) =
         \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+            \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x' =
+
+    = \braket{ik|jl} =
+        \int {\psi_i^*({\bf x})\psi_k^*({\bf x}')\psi_j({\bf x})\psi_l({\bf x}')
             \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'
 
 The $\braket{ik|jl}$ is called the physicists' notation because
@@ -473,9 +482,49 @@ the $\ket{jl}$ and $\ket{ik}$ kets are:
 
     \ket{ik}=\psi_i({\bf x})\psi_k({\bf x}')
 
-The $(ij|kl)$ is called the chemists' notation. From :eq:`twoint` the
-symmetries of $(ij|kl)$ are exchange of $i$ with $j$ or $k$ with $l$ or the
-$ij$ and $kl$ pairs:
+The $(ij|kl)$ is called the chemists' notation. From :eq:`twoint` there
+are two types of symmetries --- interchanging of the dummy variables:
+
+.. math::
+
+    (ij|kl) = \braket{ik|jl} =
+        \int {\psi_i^*({\bf x})\psi_j({\bf x})\psi_k^*({\bf x}')\psi_l({\bf x}')
+            \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x' =
+
+        = \int {\psi_i^*({\bf x}')\psi_j({\bf x}')
+            \psi_k^*({\bf x})\psi_l({\bf x})
+            \over | {\bf x}' - {\bf x} |} \d^3 x' \d^3 x
+        = (kl|ij) = \braket{ki|lj}
+
+and taking complex conjugate:
+
+.. math::
+
+    (ij|kl)^*
+    = \braket{ik|jl}^* =
+        \left(
+        \int {\psi_i^*({\bf x})\psi_k^*({\bf x}')\psi_j({\bf x})\psi_l({\bf x}')
+            \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x'\right)^* =
+
+        =
+        \int {\psi_i({\bf x})\psi_k({\bf x}')\psi_j^*({\bf x})\psi_l^*({\bf x}')
+            \over | {\bf x} - {\bf x}' |} \d^3 x \d^3 x' =
+        \braket{jl|ik} = (ji|lk)
+
+If the matrix elements are real, then:
+
+.. math::
+
+    (ij|kl) = \braket{ik|jl} =
+        \braket{jl|ik} = (ji|lk)
+
+In general those are the only symmetries (4 total).
+
+If however,
+the $\psi_i({\bf x})$ functions are real, then there are additional symmetries:
+an exchange $i \leftrightarrow j$ and $k \leftrightarrow l$.
+The symmetries of $(ij|kl)$ are exchange of $i$ with $j$ or $k$ with $l$ or the
+$ij$ and $kl$ pairs (8 total):
 
 .. math::
 
@@ -496,6 +545,8 @@ any order). The symmetries of the $\braket{ik|jl}$ symbol are:
 
     = \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}
 
+For example the Slater integral $R^k(i, j, k, l)$ has all 8 symmetries (Slater
+integral uses physical notation).
 
 
 General Matrix Elements in Spherical Symmetry
