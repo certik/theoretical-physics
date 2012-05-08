@@ -545,9 +545,98 @@ any order). The symmetries of the $\braket{ik|jl}$ symbol are:
 
     = \braket{ki|lj} = \braket{li|kj} = \braket{kj|li} = \braket{lj|ki}
 
-For example the Slater integral $R^k(i, j, k, l)$ has all 8 symmetries (Slater
+Example I: the Slater integral $R^k(i, j, k, l)$ has all 8 symmetries (Slater
 integral uses physical notation).
 
+Example II: In spherical symmetry, the 2-particle integrals can be written as
+(see below for derivation):
+
+.. math::
+
+    \braket{\alpha \beta | \gamma \delta}
+    =
+    \braket{n_\alpha l_\alpha m_\alpha \ n_\beta l_\beta m_\beta |
+    n_\gamma l_\gamma m_\gamma \ n_\delta l_\delta m_\delta}
+    = (n_\alpha  l_\alpha m_\alpha \ n_\gamma l_\gamma m_\gamma |
+    n_\beta l_\beta m_\beta \ n_\delta l_\delta m_\delta) =
+
+    =
+    \sum_{k=\max(| l_\alpha-l_\gamma| ,| l_\beta-l_\delta| , | m_\alpha-m_\gamma| )}^{
+        \min(l_\alpha+l_\gamma, l_\beta+l_\delta)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\alpha, m_\alpha, l_\gamma, m_\gamma)
+    c^k(l_\delta, m_\delta, l_\beta, m_\beta)
+
+    \delta_{m_\alpha+m_\beta- m_\gamma-m_\delta, 0}
+
+    R^k(n_\alpha l_\alpha, n_\beta l_\beta, n_\gamma l_\gamma,
+        n_\delta l_\delta)
+
+They only have 4 symmetries, because spherical harmonics are complex. In
+particular:
+
+.. math::
+
+    \braket{\beta \alpha | \delta \gamma}
+    =
+    \sum_{k=\max(| l_\beta-l_\delta| ,| l_\alpha-l_\gamma| , | m_\beta-m_\delta| )}^{
+        \min(l_\beta+l_\delta, l_\alpha+l_\gamma)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\beta, m_\beta, l_\delta, m_\delta)
+    c^k(l_\gamma, m_\gamma, l_\alpha, m_\alpha)
+
+    \delta_{m_\beta+m_\alpha- m_\delta-m_\gamma, 0}
+
+    R^k(n_\beta l_\beta, n_\alpha l_\alpha, n_\delta l_\delta,
+        n_\gamma l_\gamma) =
+
+    = \sum_{k=\max(| l_\beta-l_\delta|, | l_\alpha-l_\gamma|,
+        | m_\beta-m_\delta| )}^{\min(l_\beta+l_\delta, l_\alpha+l_\gamma)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\alpha, m_\alpha, l_\gamma, m_\gamma)
+    c^k(l_\delta, m_\delta, l_\beta, m_\beta)
+    (-1)^{m_\alpha-m_\gamma + m_\beta-m_\delta}
+
+    \delta_{m_\beta+m_\alpha- m_\delta-m_\gamma, 0}
+
+    R^k(n_\alpha l_\alpha, n_\beta l_\beta, n_\gamma l_\gamma,
+        n_\delta l_\delta) = \braket{\alpha \beta | \gamma \delta}
+
+and
+
+.. math::
+
+    \braket{\gamma \delta | \alpha \beta}
+    =
+    \braket{n_\gamma l_\gamma m_\gamma \ n_\delta l_\delta m_\delta |
+    n_\alpha l_\alpha m_\alpha \ n_\beta l_\beta m_\beta}
+    = (n_\gamma  l_\gamma m_\gamma \ n_\alpha l_\alpha m_\alpha |
+    n_\delta l_\delta m_\delta \ n_\beta l_\beta m_\beta) =
+
+    =
+    \sum_{k=\max(| l_\gamma-l_\alpha| ,| l_\delta-l_\beta| , |
+    m_\gamma-m_\alpha| )}^{
+        \min(l_\gamma+l_\alpha, l_\delta+l_\beta)
+    }\!\!\!\!\!\!\!\!\!\!\!\!
+    c^k(l_\gamma, m_\gamma, l_\alpha, m_\alpha)
+    c^k(l_\beta, m_\beta, l_\delta, m_\delta)
+
+    \delta_{m_\gamma+m_\delta- m_\alpha-m_\beta, 0}
+
+    R^k(n_\gamma l_\gamma, n_\delta l_\delta, n_\alpha l_\alpha,
+        n_\beta l_\beta)
+
+    =
+    \braket{\alpha \beta | \gamma \delta}
+
+We used the symmetries of the Slater integrals as well as the $c^k$
+coefficients that change a sign, but thanks to the $\delta_{m_\gamma+m_\delta-
+m_\alpha-m_\beta, 0}$, the overall sign does not change. The other two
+symmetries are missing, i.e.
+$\braket{\gamma \beta | \alpha \delta} \ne
+\braket{\alpha \beta | \gamma \delta}$ and
+$\braket{\alpha \delta | \gamma \beta} \ne
+\braket{\alpha \beta | \gamma \delta}$.
 
 General Matrix Elements in Spherical Symmetry
 ---------------------------------------------
