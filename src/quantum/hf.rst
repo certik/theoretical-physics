@@ -3075,3 +3075,33 @@ and
                 -\half \sum_{k=|l-l'|}^{k=l+l'}
                  \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}^2
                 R^k(n l, n' l', n' l', n l) \right)
+
+4-Index Transformation
+----------------------
+
+The 4-index transformation is a way to convert the two particle
+integrals over basis functions $(\alpha \beta | \gamma \delta)$ into
+two particle integrals over atomic (or molecular) orbitals $(ij|kl)$:
+
+.. math::
+
+    (ij | kl) = \sum_{\alpha \beta \gamma \delta}
+        C_{\alpha i}
+        C_{\beta j}
+        C_{\gamma k}
+        C_{\delta l} (\alpha \beta | \gamma \delta)
+
+Green's Functions
+-----------------
+
+The self energy up to a second order is given by:
+
+.. math::
+
+    \Sigma_{ij}(E) =
+        \sum_{ars} {(ir|as) (2(jr|as)-(js|ar))\over E + \epsilon_a
+            -\epsilon_r - \epsilon_s} +
+        \sum_{abr} {(ia|br) (2(ja|br)-(jb|ar))\over E + \epsilon_r
+            -\epsilon_a - \epsilon_b}
+
+The $a$, $b$ are occupied orbitals, $r$, $s$ are virtual orbitals.
