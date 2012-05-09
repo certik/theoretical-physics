@@ -16,3 +16,4 @@ Mathematics
     ode.rst
     la.rst
     differential-geometry.rst
+    operators.rst

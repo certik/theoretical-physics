@@ -30,6 +30,7 @@ latex_preamble = r"""
 \usepackage{braket}
 \usepackage{slashed}
 \usepackage{yfonts}
+\usepackage{mathrsfs}
 \def\degrees{^\circ}
 \def\d{{\rm d}}
 
