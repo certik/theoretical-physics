@@ -423,3 +423,129 @@ where $\hat f(\lambda)$ is called the Fourier transform of $f(x)$:
     = \int_{-\infty}^\infty u_\lambda^*(x) f(x) \d x
     = {1\over\sqrt{2\pi}}\int_{-\infty}^\infty
         e^{-i\lambda x} f(x) \d x
+
+Sturm–Liouville Operator
+========================
+
+The Sturm-Liouville operator $L$ is:
+
+.. math::
+
+    L u(x)  = {1 \over w(x)} \left(-{\d\over \d x}
+        \left(p(x){\d u(x)\over dx}\right) +q(x) u(x) \right)
+
+Everything is real.
+The scalar product is weighted by $w(x)$. The operator is self-adjoint if:
+
+.. math::
+
+    \int_a^b u(x) L v(x) w(x) \d x = \int_a^b (L u(x)) v(x) w(x) \d x
+
+so
+
+.. math::
+
+    \int_a^b u(x) L v(x) w(x) \d x =
+
+    = \int_a^b u(x) {1 \over w(x)} \left(-{\d\over \d x}
+        \left(p(x){\d v(x)\over dx}\right) +q(x) v(x) \right)
+        w(x) \d x =
+
+    = \int_a^b \left(-u(x) {\d\over \d x}
+        \left(p(x){\d v(x)\over dx}\right) + u(x) q(x) v(x) \right)
+        \d x =
+
+    = \int_a^b \left({\d u(x)\over\d x} p(x){\d v(x)\over dx}
+        + u(x) q(x) v(x) \right) \d x
+          -\left[u(x)p(x){\d v(x)\over dx}\right]^b_a
+          =
+
+    = \int_a^b \left(-{\d\over \d x} \left(p(x) {\d u(x)\over\d x}\right) v(x)
+        + u(x) q(x) v(x) \right) \d x
+          -\left[u(x)p(x){\d v(x)\over dx}-{\d u(x)\over dx}p(x)v(x)\right]^b_a
+          =
+
+    = \int_a^b \left(L u(x)\right) v(x) w(x) \d x
+          -\left[u(x)p(x){\d v(x)\over dx}-{\d u(x)\over dx}p(x)v(x)\right]^b_a
+
+And the operator $L$ is self-adjoint if and only if:
+
+.. math::
+
+    \left[u(x)p(x)v'(x)-u'(x)p(x)v(x)\right]^b_a = 0
+
+This condition can be satisfied by various boundary conditions.
+For example:
+
+* Dirichlet boundary conditions
+
+.. math::
+
+    u(a) = 0, \quad u(b) = 0
+
+* Neumann boundary conditions
+
+.. math::
+
+    u'(a) = 0, \quad u'(b) = 0
+
+* Periodic boundary conditions
+
+.. math::
+
+    u(a)  &= u(b) \\
+    u'(a) &= u'(b)
+
+* Antiperiodic boundary conditions
+
+.. math::
+
+    u(a)  &= -u(b) \\
+    u'(a) &= -u'(b)
+
+or mixtures of these, e.g. Dirichlet at $x=a$ and Neumann at $x=b$.
+
+Legendre Polynomials
+--------------------
+
+Legendre polynomials $P_n(x)$ are solutions of the Sturm–Liouville problem on
+the interval $[-1, 1]$ with $p(x)=1-x^2$, $q(x)=0$, $w(x)=1$ and
+$\lambda=n(n+1)$:
+
+.. math::
+
+    L u(x)  = n(n+1) u(x)
+
+    L u(x)  = -{\d\over \d x} \left((1-x^2){\d u(x)\over dx}\right)
+
+The operator $L$ is self-adjoint due to vanishing $p(x)$ at
+the endpoints:
+
+.. math::
+
+    \left[(u(x)v'(x)-u'(x)v(x))p(x)\right]_{-1}^1
+        = \left[(u(x)v'(x)-u'(x)v(x))(1-x^2)\right]_{-1}^1 = 0
+
+We restrict our space to bounded functions. The solutions of the eigenvalue
+problem for integer $n$ are Legendre polynomials $P_n(x)$, the normalized
+eigenvectors $u_n(x)$ are:
+
+.. math::
+
+    u_n(x) = \sqrt{2n+1\over 2} P_n(x)
+
+Solutions for non
+integer $n$ are Legendre functions that are singular at the end points and as
+such are not solutions that we want. As such, the spectrum is discrete and the
+Legendre polynomials form a complete orthogonal basis for functions
+on the interval $[-1, 1]$:
+
+.. math::
+
+    \int_{-1}^1 u_n(x) u_m(x)
+    = {2n+1\over 2} \int_{-1}^1 P_n(x) P_m(x)
+    = \delta_{n m}
+
+    \sum_{n=0}^\infty u_n(x) u_n(x')
+    = {2n+1\over 2} \sum_{n=0}^\infty P_n(x) P_n(x')
+    = \delta(x-x')
