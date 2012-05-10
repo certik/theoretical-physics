@@ -549,3 +549,15 @@ on the interval $[-1, 1]$:
     \sum_{n=0}^\infty u_n(x) u_n(x')
     = {2n+1\over 2} \sum_{n=0}^\infty P_n(x) P_n(x')
     = \delta(x-x')
+
+any function $f(x)$ on the interval $[-1, 1]$ can be expanded as:
+
+.. math::
+
+    f(x) = \sum_{n=0}^\infty f_n' u_n(x)
+        = \sum_{n=0}^\infty f_n' \sqrt{2n+1\over 2} P_n(x)
+        = \sum_{n=0}^\infty f_n P_n(x)
+
+    f_n = f_n' \sqrt{2n+1\over 2}
+        = \sqrt{2n+1\over 2} \int_{-1}^1 u_n(x) f(x)
+        = {2n+1\over 2} \int_{-1}^1 P_n(x) f(x)
