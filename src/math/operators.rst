@@ -141,6 +141,8 @@ sum over $\lambda$:
     \left\| f(x) - \sum_\lambda \braket{x|\lambda}\braket{\lambda|f} \right\|
         \to 0
 
+.. _deriv_operator:
+
 Derivative Operator
 ===================
 
@@ -561,3 +563,143 @@ any function $f(x)$ on the interval $[-1, 1]$ can be expanded as:
     f_n = f_n' \sqrt{2n+1\over 2}
         = \sqrt{2n+1\over 2} \int_{-1}^1 u_n(x) f(x)
         = {2n+1\over 2} \int_{-1}^1 P_n(x) f(x)
+
+Angular Momentum Operator
+=========================
+
+The angular momentum operators $L_1$, $L_2$ and $L_3$ are given by:
+
+.. math::
+
+    L_j = -i \epsilon_{jkl} x_k \partial_l
+
+in spherical coordinates:
+
+.. math::
+
+    L_1 &= i \left(\sin \phi \ \partial_\theta
+         + \cot \theta \cos \phi \ \partial_\phi\right) \\
+    L_2 &= i \left(-\cos\phi \ \partial_\theta
+        + \cot \theta \sin \phi \ \partial_\phi\right) \\
+    L_3 &= -i \partial_\phi
+
+and
+
+.. math::
+
+    L^2 = L_1^2 + L_2^2 + L_3^2 =
+         - \left( {1\over\sin\theta} \partial_\theta
+                \left(\sin\theta \ \partial_\theta \right)
+         + {1\over \sin^2\theta}\partial_\phi^2\right)
+
+The eigenproblem is:
+
+.. math::
+    :label: Ylm_eig
+
+    L^2 \ket{lm} &= l(l+1) \ket{lm} \\
+    L_3 \ket{lm} &= m \ket{lm}
+
+Using Condon & Shortley phase convention, it can be shown that:
+
+.. math::
+    :label: ladder
+
+    (L_1 \pm i L_2) \ket{l, m} = \sqrt{(l \mp m)(l\pm m + 1)} \ket{l,m \pm 1}
+
+where
+
+.. math::
+
+    L_1 + i L_2 = i \sin \phi \ \partial_\theta
+         + i \cot \theta \cos \phi \ \partial_\phi
+        \pm \left(\cos\phi \ \partial_\theta
+        - \cot \theta \sin \phi \ \partial_\phi\right) =
+
+    = e^{\pm i\phi} \left(\pm \partial_\theta + i \cot\theta \partial_\phi
+        \right)
+
+The solution of :eq:`Ylm_eig` is of the form:
+
+.. math::
+    :label: Ylm_form
+
+    \braket{\theta \phi | l m} = Y_{lm}(\theta, \phi)
+        = \Theta_{lm}(\theta) \Phi_m(\phi)
+
+and we get from :eq:`Ylm_eig`:
+
+.. math::
+
+    -i {\d\over\d\phi} \Phi_m(\phi) = m \Phi_m(\phi)
+
+on the interval $[0, 2 \pi]$ with the boundary condition $\Phi_m(0) =
+\Phi_m(2\pi)$. From
+:ref:`deriv_operator` the eigenvalues are all integer $m$
+and the normalized eigenvector is:
+
+.. math::
+    :label: Phi_sol
+
+    \Phi_m(\phi) = {1\over\sqrt{2\pi}} e^{im\phi}
+
+Substituting :eq:`Phi_sol` into :eq:`Ylm_form` we get from
+:eq:`Ylm_eig` an ordinary second order differential equation for
+$\Theta_{lm}(\theta)$:
+
+.. math::
+
+    {\d\over\d z} \left((1-z^2) {\d \Theta_{lm}\over\d z}\right)
+        + \left(l (l+1) - {m^2\over 1-z^2}\right)\Theta_{lm} = 0
+
+where
+
+.. math::
+
+    z = \cos\theta
+
+This equation can be solved using the following approach. From
+:eq:`ladder` we get:
+
+.. math::
+
+    (L_1 + i L_2) Y_{ll}
+        = \sqrt{(l - l)(l + l + 1)} Y_{ll} = 0
+
+Using :eq:`Phi_sol` this gives us a first order differential equation:
+
+.. math::
+
+    (L_1 + i L_2) \Theta_{ll} \Phi_l = 0
+
+    e^{i\phi} \left(\partial_\theta + i \cot\theta \partial_\phi
+        \right) \Theta_{ll} {1\over\sqrt{2\pi}} e^{i l\phi} = 0
+
+    {\partial \Theta_{ll}\over\partial \theta} - l \cot \theta \ \Theta_{ll} = 0
+
+from which
+
+.. math::
+
+    \Theta_{ll}(\theta) = (-1)^l \sqrt{(2l+1)!\over 2} {1\over 2^l l!}
+        \sin^l \theta
+
+It is normalized as:
+
+.. math::
+
+    \int_0^\pi \Theta_{ll}^2 \sin\theta\ \d\theta = 1
+
+We used the value of the integral:
+
+.. math::
+
+    \int_0^\pi \sin^{2l+1}\theta\ \d\theta = {\sqrt\pi\ \Gamma(l+1)
+        \over \Gamma(l+{3\over2})}
+     = {\sqrt\pi\  2^{l+1} l! \over (2l+1)!! \sqrt\pi}
+     = {2^{l+1} l! \over (2l+1)!!}
+     = {2^{2l+2} (l+1)! l! \over (2l+2)!} =
+
+     = {(2^{l+1} l!)^2 (l+1) \over (2l+2)!}
+     = {4 (2^l l!)^2 (l+1) \over (2l+1)! 2 (l+1)}
+     = {2 (2^l l!)^2 \over (2l+1)!}
