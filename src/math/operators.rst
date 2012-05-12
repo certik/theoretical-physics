@@ -607,6 +607,18 @@ Using Condon & Shortley phase convention, it can be shown that:
 
     (L_1 \pm i L_2) \ket{l, m} = \sqrt{(l \mp m)(l\pm m + 1)} \ket{l,m \pm 1}
 
+and by repeated application:
+
+.. math::
+
+    (L_1 \pm i L_2)^k \ket{l, m} =
+
+        = \sqrt{(l \mp m)(l \mp m-1)\cdots(l\mp m -k+1)
+            (l\pm m + 1)(l\pm m + 2)\cdots(l\mp m + k)} \ket{l,m \pm k} =
+
+        = \sqrt{{(l\mp m)!\over (l\pm m)!} {(l\pm m + k)!\over (l\mp m - k)!}}
+            \ket{l,m \pm k}
+
 where
 
 .. math::
@@ -649,6 +661,24 @@ $\Theta_{lm}(\theta)$:
 
 .. math::
 
+    L^2 \ket{lm} = l(l+1) \ket{lm}
+
+    - \left( {1\over\sin\theta} \partial_\theta
+                \left(\sin\theta \ \partial_\theta \right)
+         + {1\over \sin^2\theta}\partial_\phi^2\right)
+        {1\over\sqrt{2\pi}} e^{im\phi} \Theta_{lm}
+        = l(l+1) {1\over\sqrt{2\pi}} e^{im\phi} \Theta_{lm}
+
+    {1\over\sin\theta} {\d\over\d \theta}
+                \left(\sin\theta {\d\over\d \theta} \Theta_{lm}\right)
+                +
+            \left( l(l+1) - {m^2\over \sin^2\theta} \right) \Theta_{lm} = 0
+
+    {\d\over\d \cos\theta} \left((1-\cos^2\theta)
+        {\d\over\d \cos \theta} \Theta_{lm}\right)
+                +
+            \left( l(l+1) - {m^2\over 1-\cos^2\theta} \right) \Theta_{lm} = 0
+
     {\d\over\d z} \left((1-z^2) {\d \Theta_{lm}\over\d z}\right)
         + \left(l (l+1) - {m^2\over 1-z^2}\right)\Theta_{lm} = 0
 
@@ -658,7 +688,86 @@ where
 
     z = \cos\theta
 
-This equation can be solved using the following approach. From
+This equation can be solved using the following approach.
+From :eq:`ladder` we get:
+
+.. math::
+
+    (L_1\pm iL_2)Y_{lm}(\theta, \phi)
+    = (L_1\pm iL_2)\Theta_{lm}(\theta)\Phi_m(\phi) =
+
+    = e^{\pm i\phi} \left(\pm \partial_\theta + i \cot\theta \partial_\phi
+        \right) \Theta_{lm}(\theta) {1\over\sqrt{2\pi}} e^{im\phi} =
+
+    = {1\over\sqrt{2\pi}} e^{i(m\pm1)\phi}
+        \left(\pm {\d\over\d \theta} -m \cot\theta \right) \Theta_{lm}(\theta) =
+
+    = \mp {1\over\sqrt{2\pi}} e^{i(m\pm1)\phi}
+        \left(\sin\theta {\d\over\d \cos \theta} \mp m
+            {\d\sin\theta\over\d \cos\theta} \right) \Theta_{lm}(\theta) =
+
+    = \mp {1\over\sqrt{2\pi}} e^{i(m\pm1)\phi}
+        \sin^{1\pm m}\theta \left({\d\over\d \cos \theta}
+        \sin^{\mp m}\theta\ \Theta_{lm}(\theta) \right) =
+
+    = \mp \Phi_{m\pm 1}(\phi)
+        \sin^{1\pm m}\theta \left({\d\over\d \cos \theta}
+        \sin^{\mp m}\theta\ \Theta_{lm}(\theta) \right)
+
+
+and by repeated application we get:
+
+.. math::
+
+    (L_1\pm iL_2)^k Y_{lm}(\theta, \phi)
+    = (\mp 1)^k \Phi_{m\pm k}(\phi)
+        \sin^{k\pm m}\theta \left({\d^k\over(\d \cos \theta)^k}
+        \sin^{\mp m}\theta\ \Theta_{lm}(\theta) \right) =
+
+    = \sqrt{{(l\mp m)!\over (l\pm m)!} {(l\pm m + k)!\over (l\mp m - k)!}}
+        \Phi_{m \pm k}(\phi) \Theta_{l,m\pm k}(\theta)
+
+from which we obtain:
+
+.. math::
+    :label: Theta_lmpmk
+
+    \Theta_{l,m\pm k}(\theta) =
+        \sqrt{{(l\pm m)!\over (l\mp m)!} {(l\mp m - k)!\over (l\pm m + k)!}}
+            (\mp 1)^k
+        \sin^{k\pm m}\theta \left({\d^k\over(\d \cos \theta)^k}
+        \sin^{\mp m}\theta\ \Theta_{lm}(\theta) \right)
+
+As a special case for $m=0$ and $k=m>0$ we get:
+
+.. math::
+    :label: Theta_lpmm
+
+    \Theta_{l,\pm m}(\theta) =
+            (\mp 1)^m
+        \sqrt{{(l - m)!\over (l + m)!}}
+        \sin^{m}\theta \left({\d^m\over(\d \cos \theta)^m}
+        \Theta_{l0}(\theta) \right)
+
+and for $m=l$ and $k=l-m$ we get (we only use the $\Theta_{l,m- k}$ branch):
+
+.. math::
+    :label: Theta_ll
+
+    \Theta_{lm}(\theta) =
+    \Theta_{l,l-(l-m)}(\theta) =
+
+        = \sqrt{{(l- l)!\over (l+ l)!} {(l+ l - (l-m))!\over (l- l +
+        l-m)!}}
+            (+ 1)^{l-m}
+        \sin^{l-m- l}\theta \left({\d^{l-m}\over(\d \cos \theta)^{l-m}}
+        \sin^{+ l}\theta\ \Theta_{ll}(\theta) \right) =
+
+        = \sqrt{{1\over (2l)!} {(l+m)!\over (l-m)!}}
+        {1\over\sin^m\theta} \left({\d^{l-m}\over(\d \cos \theta)^{l-m}}
+        \sin^l\theta\ \Theta_{ll}(\theta) \right)
+
+From
 :eq:`ladder` we get:
 
 .. math::
@@ -680,6 +789,7 @@ Using :eq:`Phi_sol` this gives us a first order differential equation:
 from which
 
 .. math::
+    :label: Theta_ll_form
 
     \Theta_{ll}(\theta) = (-1)^l \sqrt{(2l+1)!\over 2} {1\over 2^l l!}
         \sin^l \theta
@@ -703,3 +813,102 @@ We used the value of the integral:
      = {(2^{l+1} l!)^2 (l+1) \over (2l+2)!}
      = {4 (2^l l!)^2 (l+1) \over (2l+1)! 2 (l+1)}
      = {2 (2^l l!)^2 \over (2l+1)!}
+
+Using :eq:`Theta_ll_form` in :eq:`Theta_ll` we get:
+
+.. math::
+
+    \Theta_{lm}(\theta)
+        = (-1)^l \sqrt{{2l+1\over 2}{(l+m)!\over (l-m)!}}
+        {1\over 2^l l!}
+        {1\over\sin^m\theta} {\d^{l-m}\over(\d \cos \theta)^{l-m}}
+        \sin^{2l}\theta
+
+for $m=0$ we obtain:
+
+.. math::
+
+    \Theta_{l0}(\theta)
+        = (-1)^l \sqrt{{2l+1\over 2}}
+        {1\over 2^l l!}
+        {\d^l\over(\d \cos \theta)^l}
+        \sin^{2l}\theta =
+
+        = \sqrt{{2l+1\over 2}}
+        {1\over 2^l l!}
+        {\d^l\over(\d \cos \theta)^l}
+        (\cos^2\theta-1)^l =
+
+        = \sqrt{{2l+1\over 2}} P_l(\cos\theta)
+
+where
+
+.. math::
+
+    P_l(z) = {1\over 2^l l!} {\d^l\over\d z^l} (z^2-1)^l
+
+is the Rodrigues' formula for Legendre polynomials.
+We substitute $\Theta_{l0}$ into :eq:`Theta_lpmm` and get:
+
+.. math::
+
+    \Theta_{l,\pm m}(\theta) =
+            (\mp 1)^m
+        \sqrt{{2l+1\over 2}{(l - m)!\over (l + m)!}}
+        \sin^{m}\theta \left({\d^m\over(\d \cos \theta)^m}
+        P_l(\cos\theta) \right)
+
+Hence $\Theta_{lm} = (-1)^m \Theta_{l,-m}$.
+Using associated Legendre polynomials, we can write:
+
+.. math::
+
+    \Theta_{lm}(\theta) = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}}
+        P_l^m(\theta)
+
+where (for all $m$):
+
+.. math::
+
+        P_l^m(\theta)
+        = (-1)^l {(l+m)!\over (l-m)!} {1\over 2^l l!}
+        {1\over\sin^m\theta} {\d^{l-m}\over(\d \cos \theta)^{l-m}}
+        \sin^{2l}\theta =
+
+        = {(l+m)!\over (l-m)!} {1\over 2^l l!}
+        {1\over\sin^m\theta} {\d^{l-m}\over(\d \cos \theta)^{l-m}}
+        (\cos^2\theta-1)^l =
+
+        = (-1)^m {1\over 2^l l!}
+        {(1-\cos^2)^m\theta\over\sin^m\theta}
+            {\d^{l+m}\over(\d \cos \theta)^{l+m}}
+        (\cos^2\theta-1)^l =
+
+        = (-1)^m {1\over 2^l l!}
+        \sin^m\theta {\d^{l+m}\over(\d \cos \theta)^{l+m}}
+        (\cos^2\theta-1)^l =
+
+        = (-1)^m {1\over 2^l l!}
+        (1-z^2)^{m\over 2} {\d^{l+m}\over \d z^{l+m}} (z^2-1)^l
+
+hence $P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)$.
+For $m \ge 0$:
+
+.. math::
+
+        P_l^{\pm m}(\cos \theta) =
+            (\mp 1)^m
+        \sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
+
+        P_l^{\pm m}(z) =
+            (\mp 1)^m
+        (1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)
+
+Finally, we get (for all $m$):
+
+.. math::
+
+    Y_{lm}(\theta, \phi)
+        = \Theta_{lm}(\theta) \Phi_m(\phi)
+        = \sqrt{{2l+1\over 4\pi}{(l-m)!\over (l+m)!}}
+        P_l^m(\theta) e^{im\phi}
