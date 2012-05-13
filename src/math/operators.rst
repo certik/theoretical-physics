@@ -851,6 +851,7 @@ is the Rodrigues' formula for Legendre polynomials.
 We substitute $\Theta_{l0}$ into :eq:`Theta_lpmm` and get:
 
 .. math::
+    :label: Theta3
 
     \Theta_{l,\pm m}(\theta) =
             (\mp 1)^m
@@ -891,18 +892,35 @@ where (for all $m$):
         = (-1)^m {1\over 2^l l!}
         (1-z^2)^{m\over 2} {\d^{l+m}\over \d z^{l+m}} (z^2-1)^l
 
-hence $P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)$.
-For $m \ge 0$:
+hence (comparing the second and fourth equation above):
 
 .. math::
 
-        P_l^{\pm m}(\cos \theta) =
-            (\mp 1)^m
+    P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)
+
+This is valid for all $m$ (positive or negative).
+For $m \ge 0$ we get from :eq:`Theta3`:
+
+.. math::
+
+        P_l^{m}(\cos \theta) =
+            (-1)^m
         \sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
 
-        P_l^{\pm m}(z) =
-            (\mp 1)^m
+        P_l^{m}(z) =
+            (-1)^m
         (1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)
+
+The normalization of associated Legendre polynomials is:
+
+.. math::
+
+    \int_{-1}^1 \Theta_{lm}(\theta) \Theta_{l' m}(\theta)
+        \sin\theta \d \theta
+        = \delta_{l l'}
+
+    \int_{-1}^1 P_l^m(x) P_{l'}^m(x) \d x = {2\over 2l+1} {(l+m)!\over(l-m)!}
+        \delta_{l l'}
 
 Finally, we get (for all $m$):
 
