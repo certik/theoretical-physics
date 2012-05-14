@@ -930,3 +930,180 @@ Finally, we get (for all $m$):
         = \Theta_{lm}(\theta) \Phi_m(\phi)
         = \sqrt{{2l+1\over 4\pi}{(l-m)!\over (l+m)!}}
         P_l^m(\theta) e^{im\phi}
+
+Any function on the sphere can be expanded as:
+
+.. math::
+
+    f(\theta, \phi) = \braket{\theta \phi | f}
+    = \sum_{l=0}^\infty \sum_{m=-l}^l \braket{\theta \phi|l m}
+        \braket{l m | f}
+    = \sum_{l=0}^\infty \sum_{m=-l}^l Y_{lm}(\theta, \phi)
+        f_{l m}
+
+    f_{lm} = \braket{l m | f}
+    = \int \braket{l m | \Omega} \braket{\Omega | f} \d\Omega =
+
+    = \int_0^{2\pi}\d\phi \int_0^\pi \d\theta
+        \braket{l m | \theta \phi} \braket{\theta \phi | f} \sin \theta
+    = \int_0^{2\pi}\d\phi \int_0^\pi \d\theta \ 
+        Y_{lm}^*(\theta, \phi) f(\theta, \phi)  \sin \theta
+
+Real Spherical Harmonics
+------------------------
+
+We rearrange the sum:
+
+.. math::
+
+    f(\theta, \phi)
+    = \sum_{l=0}^\infty \sum_{m=-l}^l Y_{lm}(\theta, \phi)
+        f_{l m}
+    = \sum_{l=0}^\infty \sum_{m=-l}^l \Theta_{lm}(\theta, \phi)
+        {1\over\sqrt {2\pi}} e^{im\phi}
+        f_{l m} =
+
+    = {1\over\sqrt {2\pi}}
+    \sum_{l=0}^\infty \sum_{m=-l}^l
+        \left(
+            \Theta_{lm}(\theta, \phi)
+            \cos m \phi
+            f_{l m}
+        +
+            \Theta_{lm}(\theta, \phi)
+            i \sin m \phi
+        f_{l m} \right) =
+
+    = {1\over\sqrt {2\pi}}
+    \sum_{l=0}^\infty
+        \left(
+        \Theta_{l0}(\theta, \phi) f_{l 0}
+        +
+        \sum_{m=1}^l \left(
+            (
+            \Theta_{lm}(\theta, \phi)
+            f_{l m}
+            +
+            \Theta_{l,-m}(\theta, \phi)
+            f_{l, -m})
+            \cos m \phi
+        +
+            i(
+            \Theta_{lm}(\theta, \phi)
+            f_{l m}
+            -
+            \Theta_{l,-m}(\theta, \phi)
+            f_{l, -m})
+             \sin m \phi
+         \right)\right) =
+
+    = {1\over\sqrt {2\pi}}
+    \sum_{l=0}^\infty
+        \left(
+        \Theta_{l0}(\theta, \phi) f_{l 0}
+        +
+        \sum_{m=1}^l  \left(
+            \Theta_{lm}(\theta, \phi)
+            ( f_{l m} + (-1)^m f_{l, -m}) \cos m \phi
+        +
+            \Theta_{l,-m}(\theta, \phi)
+            i(f_{l, -m} - (-1)^m f_{l m}) \sin (-m) \phi
+         \right)\right) =
+
+    = {1\over\sqrt {2\pi}}
+    \sum_{l=0}^\infty
+        \left(
+        \Theta_{l0}(\theta, \phi) f_{l 0}
+        +
+        \sum_{m=1}^l  \left(
+            \Theta_{lm}(\theta, \phi)
+            {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} \sqrt 2 \cos m \phi
+        +
+            \Theta_{l,-m}(\theta, \phi)
+            i{ f_{l, -m} - (-1)^m f_{l m}\over \sqrt 2} \sqrt 2 \sin (-m) \phi
+         \right)\right) =
+
+    = {1\over\sqrt {2\pi}}
+    \sum_{l=0}^\infty
+        \left(
+        \Theta_{l0}(\theta, \phi) \tilde f_{l 0}
+        +
+        \sum_{m=1}^l  \left(
+            \Theta_{lm}(\theta, \phi)
+            \tilde f_{l m} \sqrt 2 \cos m \phi
+        +
+            \Theta_{l,-m}(\theta, \phi)
+            \tilde f_{l, -m} \sqrt 2 \sin (-m) \phi
+         \right)\right) =
+
+    = {1\over\sqrt {2\pi}}
+    \sum_{l=0}^\infty
+        \left(
+        \Theta_{l0}(\theta, \phi) \tilde f_{l 0}
+        +
+        \sum_{m=1}^l
+            \Theta_{lm}(\theta, \phi)
+            \tilde f_{l m} \sqrt 2 \cos m \phi
+        +\sum_{m=-l}^{-1}
+            \Theta_{lm}(\theta, \phi)
+            \tilde f_{lm} \sqrt 2 \sin m \phi
+         \right) =
+
+    = \sum_{l=0}^\infty \sum_{m=-l}^l Z_{lm}(\theta, \phi)
+        \tilde f_{l m}
+
+Where the real spherical harmonics $Z_{lm}$ are:
+
+.. math::
+
+    Z_{lm}(\theta, \phi) = \begin{cases}
+        \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \cos m \phi & \mbox{for } m > 0\\
+        {\Theta_{l0}\over\sqrt{2\pi}} & \mbox{for } m = 0\\
+        \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \sin m \phi & \mbox{for } m < 0\\
+      \end{cases}
+    =
+    \begin{cases}
+        \sqrt{2} \Re(Y_{lm}(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        \sqrt{2} \Im(Y_{lm}(\theta, \phi))\\
+      \end{cases}
+    =
+    \begin{cases}
+        {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        {1\over i\sqrt{2}} (Y_{lm}(\theta, \phi) - Y_{lm}^*(\theta, \phi))\\
+      \end{cases}
+
+and the coefficients $\tilde f_{lm}$ are:
+
+.. math::
+
+
+    \tilde f_{lm} = \begin{cases}
+        {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} & \mbox{for } m > 0\\
+        f_{l0} & \mbox{for } m = 0\\
+        i{ f_{l m} - (-1)^m f_{l, -m}\over \sqrt 2} & \mbox{for } m < 0\\
+      \end{cases}
+    =
+    \tilde f_{lm} = \begin{cases}
+        \int {Y_{lm}^*+(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
+        \int Y_{l0}^* f \d\Omega \\
+        \int i{Y_{lm}^*-(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
+      \end{cases}
+
+    =
+    \tilde f_{lm} = \begin{cases}
+        \int {Y_{lm}^*+ Y_{lm}\over\sqrt2} f \d\Omega \\
+        \int Y_{l0} f \d\Omega \\
+        \int {Y_{lm}-Y_{lm}^*\over i\sqrt2} f \d\Omega \\
+      \end{cases}
+    =
+        \int Z_{lm} f \d\Omega
+
+The factor $\sqrt{2}$ in the definition makes the real spherical harmonics
+properly normalized:
+
+.. math::
+
+    \int Z_{l m}(\theta, \phi) Z_{l' m'}(\theta, \phi) \d \Omega
+        =\delta_{l l'} \delta_{m m'}
