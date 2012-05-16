@@ -361,6 +361,149 @@ we get:
         = {2\over b-a} \int_a^b \sin \left({2\pi n\over b-a} x\right)
             f(x) \d x
 
+Conceptually, we are taking the complex orthonormal basis
+$u_n(x) = {1\over\sqrt{b-a}} e^{i {2\pi n\over b-a} x}$ and creating
+a real orthonormal basis $v_n(x)$ composed of
+$u_0$, $\Re u_1$, $\Re u_2$, ..., $\Im u_1$, $\Im u_2$, ... as follows:
+
+.. math::
+
+    v_n(x) = \begin{cases}
+        \sqrt{2} \Re u_n =  {\sqrt 2\over\sqrt{b-a}}\cos {2\pi\over b-a} n x
+            & \mbox{for } n > 0\\
+        u_0  = {1\over\sqrt{b-a}}                     & \mbox{for } n = 0\\
+        \sqrt{2} \Im u_{|n|} = {\sqrt 2\over\sqrt{b-a}}
+            \sin {2\pi\over b-a} |n| x     & \mbox{for } n < 0\\
+        \end{cases}
+
+We are only summing over the positive arguments in $\sin$ and $\cos$, thus the
+absolute value for $n < 0$. The basis $v_n$ is orthonormal:
+
+.. math::
+
+    \int_a^b v_n(x) v_m(x) \d x = \delta_{n m}
+
+and complete:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty v_n(x) v_n(x') \d x = \delta(x-x')
+
+This is not the only way to create the real orthonormal basis. In general:
+
+.. math::
+
+    u_n(x) = \braket{x|n}
+
+    v_n(x) = \braket{x|n}_R
+
+    \ket{n}_R = \sum_m U_{n m} \ket{m}
+
+We require the new basis $\ket{n}_R$ to be orthonormal:
+
+.. math::
+
+    \braket{n|m}_R = \delta_{n m}
+
+    \sum_{kl} \braket{k|U^*_{nk} U_{ml} | l} = \delta_{n m}
+
+    \sum_{kl} U^*_{nk} U_{ml} \delta_{kl} = \delta_{n m}
+
+    \sum_k U^*_{nk} U_{mk} = \delta_{n m}
+
+This restricts the $U_{nm}$ matrices to be unitary ($U^{-1} = U^\dag$),
+because:
+
+.. math::
+
+    U U^\dag = \one
+
+    (U U^\dag)_{mn} = (\one)_{mn} = \delta_{mn}
+
+    \sum_k (U)_{mk} (U^\dag)_{kn} = \delta_{mn}
+
+    \sum_k U_{mk} U^*_{nk} = \delta_{mn}
+
+The unitarity condition also makes sure, that the real basis is complete:
+
+.. math::
+
+    \sum_n \ket{n}_R \bra{n}_R
+        = \sum_n \sum_{kl} U_{nk} \ket{k}\bra{l} U_{nl}^*
+        = \sum_{kl} \delta_{kl} \ket{k}\bra{l}
+        = \sum_k \ket{k}\bra{k}
+        = \one
+
+Requiring $\ket{n}_R$ to be real and using $\ket{m}^* = \ket{-m}$ we get:
+
+.. math::
+
+    \ket{n}_R^* = \ket{n}_R
+
+    \sum_m U_{nm}^* \ket{m}^* = \sum_m U_{nm} \ket{m}
+
+    \sum_m U_{nm}^* \ket{-m} = \sum_m U_{nm} \ket{m}
+
+    \sum_m U_{n,-m}^* \ket{m} = \sum_m U_{nm} \ket{m}
+
+    \sum_m (U_{nm} -U_{n,-m}^*) \ket{m} = 0
+
+    U_{nm} = U_{n,-m}^*
+
+    U_{nm}^* = U_{n,-m}
+
+Because the basis $\ket{m}$ is complete. So the only conditions on the matrices
+$U_{mn}$ are:
+
+.. math::
+
+    U^{-1} = U^\dag
+
+    U_{nm}^* = U_{n,-m}
+
+They imply that the new basis will be real, orthonormal and complete.
+Our choice above is:
+
+.. math::
+
+    U_{nm} = \begin{cases}
+        {\delta_{nm} + \delta_{n,-m}\over\sqrt{2}}   & \mbox{for } n > 0\\
+        \delta_{0m}                                  & \mbox{for } n = 0\\
+        {\delta_{nm} - \delta_{n,-m}\over i\sqrt{2}} & \mbox{for } n < 0\\
+        \end{cases}
+
+In other words, we get (except that the matrix is infinite):
+
+.. math::
+
+    \begin{pmatrix}
+    v_3 \\
+    v_2 \\
+    v_1 \\
+    v_0 \\
+    v_{-1} \\
+    v_{-2} \\
+    v_{-3} \\
+    \end{pmatrix} =
+    \begin{pmatrix}
+    {1\over  \sqrt 2} & & & & & &  {1\over  \sqrt2} \\
+    & {1\over  \sqrt 2} & & & &  {1\over  \sqrt2} & \\
+    & & {1\over  \sqrt 2} & &  {1\over  \sqrt2} & & \\
+    & & &                  1                  & & & \\
+    & & {1\over i\sqrt 2} & & -{1\over i\sqrt2} & & \\
+    & {1\over i\sqrt 2} & & & & -{1\over i\sqrt2} & \\
+    {1\over i\sqrt 2} & & & & & & -{1\over i\sqrt2} \\
+    \end{pmatrix}
+        \begin{pmatrix}
+        u_3 \\
+        u_2 \\
+        u_1 \\
+        u_0 \\
+        u_{-1} \\
+        u_{-2} \\
+        u_{-3} \\
+        \end{pmatrix}
+
 Fourier Transform
 -----------------
 
