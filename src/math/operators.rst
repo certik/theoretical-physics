@@ -863,15 +863,16 @@ Hence $\Theta_{lm} = (-1)^m \Theta_{l,-m}$.
 Using associated Legendre polynomials, we can write:
 
 .. math::
+    :label: thetaPlm
 
     \Theta_{lm}(\theta) = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}}
-        P_l^m(\theta)
+        P_l^m(\cos \theta)
 
 where (for all $m$):
 
 .. math::
 
-        P_l^m(\theta)
+        P_l^m(\cos \theta)
         = (-1)^l {(l+m)!\over (l-m)!} {1\over 2^l l!}
         {1\over\sin^m\theta} {\d^{l-m}\over(\d \cos \theta)^{l-m}}
         \sin^{2l}\theta =
@@ -895,11 +896,12 @@ where (for all $m$):
 hence (comparing the second and fourth equation above):
 
 .. math::
+    :label: Pmm
 
     P^{-m}_l(z) = (-1)^m {(l-m)!\over (l+m)!} P_l^m(z)
 
 This is valid for all $m$ (positive or negative).
-For $m \ge 0$ we get from :eq:`Theta3`:
+For $m \ge 0$ we get from :eq:`Theta3` and :eq:`Pmm`:
 
 .. math::
 
@@ -907,9 +909,49 @@ For $m \ge 0$ we get from :eq:`Theta3`:
             (-1)^m
         \sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
 
+        P_l^{-m}(\cos \theta) = {(l-m)!\over (l+m)!}
+        \sin^{m}\theta {\d^m\over(\d \cos \theta)^m} P_l(\cos\theta)
+
         P_l^{m}(z) =
             (-1)^m
         (1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)
+
+        P_l^{-m}(z) = {(l-m)!\over (l+m)!}
+        (1-z^2)^{m\over2} {\d^m\over\d z^m} P_l(z)
+
+This is usually used as the definition of the associated Legendre polynomials.
+They include the Condon & Shortley phase factor $(-1)^m$ (only for positive
+$m$). Some authors omit it (then it needs to be included in the equation
+:eq:`thetaPlm`). Note that :eq:`thetaPlm` for $m<0$ can be also written as:
+
+.. math::
+
+    \Theta_{lm}(\theta)
+        = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}} P_l^m(\cos \theta)
+        = \sqrt{{2l+1\over 2}{(l+m)!\over (l-m)!}} {(l-m)!\over (l+m)!}
+            P_l^m(\cos \theta) =
+
+        = (-1)^m \sqrt{{2l+1\over 2}{(l+m)!\over (l-m)!}} P_l^{-m}(\cos \theta)
+        = (-1)^m \sqrt{{2l+1\over 2}{(l-|m|)!\over (l+|m|)!}} P_l^{|m|}
+            (\cos \theta)
+
+Thanks to
+
+.. math::
+
+    i^{m-|m|} = \begin{cases}
+        1      & \mbox{for } m \ge 0\\
+        (-1)^m & \mbox{for } m < 0\\
+        \end{cases}
+
+we can write for all $m$:
+
+.. math::
+
+    \Theta_{lm}(\theta)
+        = \sqrt{{2l+1\over 2}{(l-m)!\over (l+m)!}} P_l^m(\cos \theta)
+        = i^{m-|m|} \sqrt{{2l+1\over 2}{(l-|m|)!\over (l+|m|)!}}
+            P_l^{|m|}(\cos \theta)
 
 The normalization of associated Legendre polynomials is:
 
