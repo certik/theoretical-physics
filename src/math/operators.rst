@@ -1127,7 +1127,13 @@ Finally, we get (for all $m$):
     Y_{lm}(\theta, \phi)
         = \Theta_{lm}(\theta) \Phi_m(\phi)
         = \sqrt{{2l+1\over 4\pi}{(l-m)!\over (l+m)!}}
-        P_l^m(\theta) e^{im\phi}
+        P_l^m(\cos \theta) e^{im\phi} =
+
+        = i^{m-|m|} \sqrt{{2l+1\over 4\pi}{(l-|m|)!\over (l+|m|)!}}
+        P_l^{|m|}(\cos \theta) e^{im\phi} =
+
+        = (-1)^m i^{m+|m|} \sqrt{{2l+1\over 4\pi}{(l-|m|)!\over (l+|m|)!}}
+        P_l^{|m|}(\cos \theta) e^{im\phi}
 
 Any function on the sphere can be expanded as:
 
@@ -1150,6 +1156,7 @@ Any function on the sphere can be expanded as:
 Real Spherical Harmonics
 ------------------------
 
+The most obvious approach is to use a similar way as for Fourier series.
 We rearrange the sum:
 
 .. math::
@@ -1204,8 +1211,8 @@ We rearrange the sum:
             \Theta_{lm}(\theta, \phi)
             ( f_{l m} + (-1)^m f_{l, -m}) \cos m \phi
         +
-            \Theta_{l,-m}(\theta, \phi)
-            i(f_{l, -m} - (-1)^m f_{l m}) \sin (-m) \phi
+            \Theta_{lm}(\theta, \phi)
+            i(f_{lm} - (-1)^m f_{l, -m}) \sin m \phi
          \right)\right) =
 
     = {1\over\sqrt {2\pi}}
@@ -1217,8 +1224,8 @@ We rearrange the sum:
             \Theta_{lm}(\theta, \phi)
             {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} \sqrt 2 \cos m \phi
         +
-            \Theta_{l,-m}(\theta, \phi)
-            i{ f_{l, -m} - (-1)^m f_{l m}\over \sqrt 2} \sqrt 2 \sin (-m) \phi
+            \Theta_{lm}(\theta, \phi)
+            i{ f_{lm} - (-1)^m f_{l, -m}\over \sqrt 2} \sqrt 2 \sin m \phi
          \right)\right) =
 
     = {1\over\sqrt {2\pi}}
@@ -1230,8 +1237,8 @@ We rearrange the sum:
             \Theta_{lm}(\theta, \phi)
             \tilde f_{l m} \sqrt 2 \cos m \phi
         +
-            \Theta_{l,-m}(\theta, \phi)
-            \tilde f_{l, -m} \sqrt 2 \sin (-m) \phi
+            \Theta_{lm}(\theta, \phi)
+            \tilde f_{l, -m} \sqrt 2 \sin m \phi
          \right)\right) =
 
     = {1\over\sqrt {2\pi}}
@@ -1243,8 +1250,8 @@ We rearrange the sum:
             \Theta_{lm}(\theta, \phi)
             \tilde f_{l m} \sqrt 2 \cos m \phi
         +\sum_{m=-l}^{-1}
-            \Theta_{lm}(\theta, \phi)
-            \tilde f_{lm} \sqrt 2 \sin m \phi
+            \Theta_{l|m|}(\theta, \phi)
+            \tilde f_{lm} \sqrt 2 \sin |m| \phi
          \right) =
 
     = \sum_{l=0}^\infty \sum_{m=-l}^l Z_{lm}(\theta, \phi)
@@ -1257,19 +1264,20 @@ Where the real spherical harmonics $Z_{lm}$ are:
     Z_{lm}(\theta, \phi) = \begin{cases}
         \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \cos m \phi & \mbox{for } m > 0\\
         {\Theta_{l0}\over\sqrt{2\pi}} & \mbox{for } m = 0\\
-        \sqrt{2} {\Theta_{lm}\over\sqrt{2\pi}} \sin m \phi & \mbox{for } m < 0\\
+        \sqrt{2} {\Theta_{l |m|}\over\sqrt{2\pi}} \sin |m| \phi
+            & \mbox{for } m < 0\\
       \end{cases}
     =
     \begin{cases}
         \sqrt{2} \Re(Y_{lm}(\theta, \phi))\\
         Y_{l0}(\theta, \phi) \\
-        \sqrt{2} \Im(Y_{lm}(\theta, \phi))\\
+        \sqrt{2} \Im(Y_{l |m|}(\theta, \phi))\\
       \end{cases}
     =
     \begin{cases}
         {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
         Y_{l0}(\theta, \phi) \\
-        {1\over i\sqrt{2}} (Y_{lm}(\theta, \phi) - Y_{lm}^*(\theta, \phi))\\
+        {1\over i\sqrt{2}} (Y_{l |m|}(\theta, \phi) -Y_{l|m|}^*(\theta, \phi))\\
       \end{cases}
 
 and the coefficients $\tilde f_{lm}$ are:
@@ -1280,20 +1288,26 @@ and the coefficients $\tilde f_{lm}$ are:
     \tilde f_{lm} = \begin{cases}
         {f_{l m} + (-1)^m f_{l, -m}\over \sqrt 2} & \mbox{for } m > 0\\
         f_{l0} & \mbox{for } m = 0\\
-        i{ f_{l m} - (-1)^m f_{l, -m}\over \sqrt 2} & \mbox{for } m < 0\\
+        i{ f_{l,-m} - (-1)^m f_{lm}\over \sqrt 2} & \mbox{for } m < 0\\
       \end{cases}
     =
-    \tilde f_{lm} = \begin{cases}
+    \begin{cases}
         \int {Y_{lm}^*+(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
         \int Y_{l0}^* f \d\Omega \\
-        \int i{Y_{lm}^*-(-1)^m Y_{l,-m}^*\over\sqrt2} f \d\Omega \\
+        \int i{Y_{l,-m}^*-(-1)^m Y_{lm}^*\over\sqrt2} f \d\Omega \\
       \end{cases}
 
     =
-    \tilde f_{lm} = \begin{cases}
+    \begin{cases}
         \int {Y_{lm}^*+ Y_{lm}\over\sqrt2} f \d\Omega \\
         \int Y_{l0} f \d\Omega \\
-        \int {Y_{lm}-Y_{lm}^*\over i\sqrt2} f \d\Omega \\
+        \int {Y_{l, -m}-Y_{l, -m}^*\over i\sqrt2} f \d\Omega \\
+      \end{cases}
+    =
+    \begin{cases}
+        \int {Y_{lm}^*+ Y_{lm}\over\sqrt2} f \d\Omega \\
+        \int Y_{l0} f \d\Omega \\
+        \int {Y_{l |m|}-Y_{l |m|}^*\over i\sqrt2} f \d\Omega \\
       \end{cases}
     =
         \int Z_{lm} f \d\Omega
@@ -1305,3 +1319,174 @@ properly normalized:
 
     \int Z_{l m}(\theta, \phi) Z_{l' m'}(\theta, \phi) \d \Omega
         =\delta_{l l'} \delta_{m m'}
+
+From the above derivation, it is not immediately clear how to obtain other
+parametrizations of real spherical harmonics. And also what identities they
+obey. More systematic approach is to use the transformation matrices just like
+for the Fourier series:
+
+.. math::
+
+    Z_{l\mu}(\theta, \phi) = \braket{\theta\phi|l\mu}_R
+        = \sum_{m=-l}^l U^l_{\mu m} Y_{lm}(\theta, \phi)
+        = \sum_{m=-l}^l U^l_{\mu m} \braket{\theta \phi | lm}
+
+    \ket{l\mu}_R = \sum_{m=-l}^l U^l_{\mu m} \ket{lm}
+
+We require orthonormality:
+
+.. math::
+
+    \braket{l\mu | l\mu'}_R = \delta_{\mu \mu'}
+
+This implies unitarity of the $U^l$ matrices for the given $l$.
+Requiring $\ket{l\mu}_R$ to be real and using
+$\ket{lm}^* = (-1)^m \ket{l,-m}$ we get:
+
+.. math::
+
+    \ket{l\mu}_R^* = \ket{l\mu}_R
+
+    \sum_m (U^l_{\mu m})^* \ket{lm}^* = \sum_m U^l_{\mu m} \ket{m}
+
+    \sum_m (U^l_{\mu m})^* (-1)^m \ket{l,-m} = \sum_m U^l_{\mu m} \ket{m}
+
+    \sum_m (U^l_{\mu, -m})^* (-1)^m \ket{lm} = \sum_m U^l_{\mu m} \ket{m}
+
+    \sum_m (U^l_{\mu m} - (U^l_{\mu, -m})^*) (-1)^m) \ket{m}
+
+    U^l_{\mu m} = (-1)^m (U^l_{\mu, -m})^*
+
+    (U^l_{\mu m})^* = (-1)^m U^l_{\mu, -m}
+
+As for Fourier series, we require not to mix frequencies and phases, so we get:
+
+.. math::
+
+    U_{nm}^l = 0\quad\mbox{for } |n| \ne |m|
+
+and also that the nonzero matrix elements can only be of the form
+$R e^{i{\pi\over 2} n}$ for $n=0, 1, 2, 3$ (i.e. $\pm R$ or $\pm iR$ for some
+positive $R$). Up to signs and permutations, this determines the matrices
+uniquely. As for Fourier series, this implies orthonormality and completeness
+of the real spherical harmonics:
+
+.. math::
+
+    \braket{l' m' | l m}_R = \delta_{ll'} \delta_{mm'}
+
+    \sum_{l=0}^\infty \sum_{m=-l}^l \ket{lm}_R \bra{lm}_R = \one
+
+Also, thanks to unitarity we get:
+
+.. math::
+
+    \sum_{m=-l}^l Z_{lm}(\Omega) Z_{lm}(\Omega')
+    = \sum_{m=-l}^l \sum_{m' m''} U^l_{m m'} Y_{lm'}(\Omega)
+        (U^l_{m m''})^* Y_{lm''}^*(\Omega')
+    = \sum_{m' m''} \delta_{m' m''} Y_{lm'}(\Omega) Y_{lm''}^*(\Omega') =
+
+    = \sum_{m=-l}^l Y_{lm}(\Omega) Y^*_{lm}(\Omega')
+    = {2l+1\over 4\pi} P_l(\cos \gamma)
+
+and
+
+.. math::
+
+    {1\over |{\bf r}-{\bf r'}|}
+        =\sum_{l=0}^\infty{r_{<}^l\over r_{>}^{l+1}} P_l({\bf\hat r}\cdot {\bf\hat r'})
+        = \sum_{lm}{r_{<}^l\over r_{>}^{l+1}}
+            {4\pi\over 2l+1}Y_{lm}({\bf\hat r})Y_{lm}^*({\bf\hat r}')
+        = \sum_{lm}{r_{<}^l\over r_{>}^{l+1}}
+            {4\pi\over 2l+1}Z_{lm}({\bf\hat r})Z_{lm}({\bf\hat r}')
+
+
+Following the Fourier series, the most natural way to choose the signs in the
+$U^l$ matrices is such so as to keep $\sin$ and $\cos$ in the basis with
+positive frequencies (thus the absolute value for $m<0$):
+
+.. math::
+
+    Z_{lm}(\theta, \phi)
+    =
+    \begin{cases}
+        \sqrt{2} \Re(Y_{lm}(\theta, \phi)) & \mbox{for } m > 0\\
+        Y_{l0}(\theta, \phi) & \mbox{for } m = 0\\
+        \sqrt{2} \Im(Y_{l|m|}(\theta, \phi)) & \mbox{for } m < 0\\
+      \end{cases}
+    =
+    \begin{cases}
+        {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        {1\over i\sqrt{2}} (Y_{l|m|}(\theta, \phi) - Y_{l|m|}^*(\theta, \phi))\\
+      \end{cases}
+    =
+
+    =
+    \begin{cases}
+        {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + Y_{lm}^*(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        {-(-1)^m\over i\sqrt{2}} (Y_{lm}(\theta, \phi)
+            - Y_{lm}^*(\theta, \phi))\\
+      \end{cases}
+    =
+    \begin{cases}
+        {1\over\sqrt{2}}(Y_{lm}(\theta, \phi) + (-1)^m Y_{l,-m}(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        {1\over i\sqrt{2}} (Y_{l,-m}(\theta, \phi)
+            - (-1)^m Y_{lm}(\theta, \phi))\\
+      \end{cases}
+    =
+
+    =
+    \begin{cases}
+        \sqrt{{2l+1\over 2\pi}{(l-m)!\over (l+m)!}} P_l^m(\cos\theta)
+            \cos m\phi \\
+        \sqrt{2l+1\over 4\pi} P_l(\cos\theta) \\
+        \sqrt{{2l+1\over 2\pi}{(l-|m|)!\over (l+|m|)!}} P_l^{|m|}(\cos\theta)
+            \sin |m| \phi \\
+      \end{cases}
+
+This gives:
+
+.. math::
+
+    U_{\mu m}^l = \begin{cases}
+        {\delta_{\mu m} + (-1)^m \delta_{\mu,-m}\over\sqrt{2}}
+            & \mbox{for } \mu > 0\\
+        \delta_{0m}                                  & \mbox{for } \mu = 0\\
+        {\delta_{\mu,-m} - (-1)^m \delta_{\mu m}\over i\sqrt{2}}
+            & \mbox{for } \mu < 0\\
+        \end{cases}
+
+Other convention
+~~~~~~~~~~~~~~~~
+
+Some people use the following convention:
+
+.. math::
+
+    Z_{lm}(\theta, \phi)
+    =
+    \begin{cases}
+        (-1)^m \sqrt{2} \Re(Y_{lm}(\theta, \phi)) & \mbox{for } m > 0\\
+        Y_{l0}(\theta, \phi) & \mbox{for } m = 0\\
+        (-1)^m \sqrt{2} \Im(Y_{l|m|}(\theta, \phi)) & \mbox{for } m < 0\\
+      \end{cases}
+    =
+    \begin{cases}
+        {1\over\sqrt{2}}((-1)^m Y_{lm}(\theta, \phi) + Y_{l,-m}(\theta, \phi))\\
+        Y_{l0}(\theta, \phi) \\
+        {1\over i\sqrt{2}} ((-1)^m Y_{l,-m}(\theta, \phi)
+            - Y_{lm}(\theta, \phi))\\
+      \end{cases}
+    =
+
+    =
+    \begin{cases}
+        (-1)^m \sqrt{{2l+1\over 2\pi}{(l-m)!\over (l+m)!}} P_l^m(\cos\theta)
+            \cos m\phi \\
+        \sqrt{2l+1\over 4\pi} P_l(\cos\theta) \\
+        (-1)^m \sqrt{{2l+1\over 2\pi}{(l-|m|)!\over (l+|m|)!}}
+            P_l^{|m|}(\cos\theta) \sin |m| \phi \\
+      \end{cases}
