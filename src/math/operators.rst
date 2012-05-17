@@ -1491,6 +1491,10 @@ Some people use the following convention:
             P_l^{|m|}(\cos\theta) \sin |m| \phi \\
       \end{cases}
 
+It has the advantage that there are no minus signs in the final expressions
+using $\sin$, $\cos$ or using $x$, $y$, $z$. However, we will not use this
+convention.
+
 Tables
 ------
 
