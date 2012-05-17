@@ -1490,3 +1490,123 @@ Some people use the following convention:
         (-1)^m \sqrt{{2l+1\over 2\pi}{(l-|m|)!\over (l+|m|)!}}
             P_l^{|m|}(\cos\theta) \sin |m| \phi \\
       \end{cases}
+
+Tables
+------
+
+Spherical harmonics:
+
+.. math::
+
+    Y_{0,0}(\theta, \phi) = \frac{1}{2 \sqrt{\pi}}
+
+    Y_{1,-1}(\theta, \phi) = \frac{\sqrt{6} e^{- \mathbf{\imath} \phi} \sin{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Y_{1,0}(\theta, \phi) = \frac{\sqrt{3} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Y_{1,1}(\theta, \phi) = - \frac{\sqrt{6} e^{\mathbf{\imath} \phi} \sin{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Y_{2,-2}(\theta, \phi) = \frac{\sqrt{30} e^{- 2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{2,-1}(\theta, \phi) = \frac{\sqrt{30} e^{- \mathbf{\imath} \phi} \sin{\left (\theta \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Y_{2,0}(\theta, \phi) = \frac{\sqrt{5} \left(\frac{3}{2} \cos^{2}{\left (\theta \right )} - \frac{1}{2}\right)}{2 \sqrt{\pi}}
+
+    Y_{2,1}(\theta, \phi) = - \frac{\sqrt{30} e^{\mathbf{\imath} \phi} \sin{\left (\theta \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Y_{2,2}(\theta, \phi) = \frac{\sqrt{30} e^{2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{3,-3}(\theta, \phi) = \frac{\sqrt{35} e^{- 3 \mathbf{\imath} \phi} \sin^{3}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{3,-2}(\theta, \phi) = \frac{\sqrt{210} e^{- 2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{3,-1}(\theta, \phi) = - \frac{\sqrt{21} \left(6 \sin^{4}{\left (\theta \right )} - 24 \sin^{2}{\left (\theta \right )} \cos^{2}{\left (\theta \right )}\right) e^{- \mathbf{\imath} \phi}}{48 \sqrt{\pi} \sin{\left (\theta \right )}}
+
+    Y_{3,0}(\theta, \phi) = \frac{\sqrt{7} \left(- \frac{3}{2} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )} + \cos^{3}{\left (\theta \right )}\right)}{2 \sqrt{\pi}}
+
+    Y_{3,1}(\theta, \phi) = - \frac{\sqrt{21} \left(360 \cos^{2}{\left (\theta \right )} -72\right) e^{\mathbf{\imath} \phi} \sin{\left (\theta \right )}}{576 \sqrt{\pi}}
+
+    Y_{3,2}(\theta, \phi) = \frac{\sqrt{210} e^{2 \mathbf{\imath} \phi} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Y_{3,3}(\theta, \phi) = - \frac{\sqrt{35} e^{3 \mathbf{\imath} \phi} \sin^{3}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+
+Real spherical harmonics:
+
+.. math::
+
+    Z_{0,0}(\theta, \phi) = \frac{1}{2 \sqrt{\pi}}
+
+    Z_{1,-1}(\theta, \phi) = - \frac{\sqrt{3} \sin{\left (\phi \right )} \sin{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Z_{1,0}(\theta, \phi) = \frac{\sqrt{3} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Z_{1,1}(\theta, \phi) = - \frac{\sqrt{3} \sin{\left (\theta \right )} \cos{\left (\phi \right )}}{2 \sqrt{\pi}}
+
+    Z_{2,-2}(\theta, \phi) = \frac{\sqrt{15} \sin{\left (2 \phi \right )} \sin^{2}{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Z_{2,-1}(\theta, \phi) = - \frac{\sqrt{15} \sin{\left (\phi \right )} \sin{\left (\theta \right )} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Z_{2,0}(\theta, \phi) = \frac{\sqrt{5} \left(\frac{3}{2} \cos^{2}{\left (\theta \right )} - \frac{1}{2}\right)}{2 \sqrt{\pi}}
+
+    Z_{2,1}(\theta, \phi) = - \frac{\sqrt{15} \sin{\left (\theta \right )} \cos{\left (\phi \right )} \cos{\left (\theta \right )}}{2 \sqrt{\pi}}
+
+    Z_{2,2}(\theta, \phi) = \frac{\sqrt{15} \sin^{2}{\left (\theta \right )} \cos{\left (2 \phi \right )}}{4 \sqrt{\pi}}
+
+    Z_{3,-3}(\theta, \phi) = - \frac{\sqrt{70} \sin{\left (3 \phi \right )} \sin^{3}{\left (\theta \right )}}{8 \sqrt{\pi}}
+
+    Z_{3,-2}(\theta, \phi) = \frac{\sqrt{105} \sin{\left (2 \phi \right )} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Z_{3,-1}(\theta, \phi) = - \frac{\sqrt{42} \left(360 \cos^{2}{\left (\theta \right )} -72\right) \sin{\left (\phi \right )} \sin{\left (\theta \right )}}{576 \sqrt{\pi}}
+
+    Z_{3,0}(\theta, \phi) = \frac{\sqrt{7} \left(- \frac{3}{2} \sin^{2}{\left (\theta \right )} \cos{\left (\theta \right )} + \cos^{3}{\left (\theta \right )}\right)}{2 \sqrt{\pi}}
+
+    Z_{3,1}(\theta, \phi) = - \frac{\sqrt{42} \left(360 \cos^{2}{\left (\theta \right )} -72\right) \sin{\left (\theta \right )} \cos{\left (\phi \right )}}{576 \sqrt{\pi}}
+
+    Z_{3,2}(\theta, \phi) = \frac{\sqrt{105} \sin^{2}{\left (\theta \right )} \cos{\left (2 \phi \right )} \cos{\left (\theta \right )}}{4 \sqrt{\pi}}
+
+    Z_{3,3}(\theta, \phi) = - \frac{\sqrt{70} \sin^{3}{\left (\theta \right )} \cos{\left (3 \phi \right )}}{8 \sqrt{\pi}}
+
+
+Real spherical harmonics (using $x$, $y$ and $z$, assuming $x^2 + y^2 + z^2 = 1$):
+
+.. math::
+
+    Z_{0,0}(x, y, z) = \frac{1}{2 \sqrt{\pi}}
+
+    Z_{1,-1}(x, y, z) = - \frac{\sqrt{3} y}{2 \sqrt{\pi}}
+
+    Z_{1,0}(x, y, z) = \frac{\sqrt{3} z}{2 \sqrt{\pi}}
+
+    Z_{1,1}(x, y, z) = - \frac{\sqrt{3} x}{2 \sqrt{\pi}}
+
+    Z_{2,-2}(x, y, z) = \frac{\sqrt{15} x y}{2 \sqrt{\pi}}
+
+    Z_{2,-1}(x, y, z) = - \frac{\sqrt{15} y z}{2 \sqrt{\pi}}
+
+    Z_{2,0}(x, y, z) = \frac{\sqrt{5} \left(3 z^{2} -1\right)}{4 \sqrt{\pi}}
+
+    Z_{2,1}(x, y, z) = - \frac{\sqrt{15} x z}{2 \sqrt{\pi}}
+
+    Z_{2,2}(x, y, z) = \frac{\sqrt{15} \left(x^{2} - y^{2}\right)}{4 \sqrt{\pi}}
+
+    Z_{3,-3}(x, y, z) = \frac{\sqrt{70} y \left(- 3 x^{2} + y^{2}\right)}{8 \sqrt{\pi}}
+
+    Z_{3,-2}(x, y, z) = \frac{\sqrt{105} x y z}{2 \sqrt{\pi}}
+
+    Z_{3,-1}(x, y, z) = \frac{\sqrt{42} y \left(- 5 z^{2} + 1\right)}{8 \sqrt{\pi}}
+
+    Z_{3,0}(x, y, z) = \frac{\sqrt{7} z \left(5 z^{2} -3\right)}{4 \sqrt{\pi}}
+
+    Z_{3,1}(x, y, z) = \frac{\sqrt{42} x \left(- 5 z^{2} + 1\right)}{8 \sqrt{\pi}}
+
+    Z_{3,2}(x, y, z) = \frac{\sqrt{105} z \left(x^{2} - y^{2}\right)}{4 \sqrt{\pi}}
+
+    Z_{3,3}(x, y, z) = \frac{\sqrt{70} x \left(- x^{2} + 3 y^{2}\right)}{8 \sqrt{\pi}}
+
+
+These tables were generated using
+:download:`spherical_harmonics.py <code/spherical_harmonics.py>`:
+
+.. literalinclude:: code/spherical_harmonics.py
+
