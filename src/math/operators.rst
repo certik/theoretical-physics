@@ -462,7 +462,20 @@ $U_{mn}$ are:
     U_{nm}^* = U_{n,-m}
 
 They imply that the new basis will be real, orthonormal and complete.
-Our choice above is:
+Our final restriction is that we want each real basis element to correspond to
+the same frequency $\pm m$ (possible sign change is ok): this means that
+we can only mix the same frequencies, i.e.:
+
+.. math::
+
+    U_{nm} = 0\quad\mbox{for } |n| \ne |m|
+
+and also that the nonzero matrix elements can only be of the form
+$R e^{i{\pi\over 2} n}$ for $n=0, 1, 2, 3$ (i.e. $\pm R$ or $\pm iR$ for some
+positive $R$).
+
+Up to possible sign changes and permutations, this determines the matrix
+uniquely. Our choice above is:
 
 .. math::
 
