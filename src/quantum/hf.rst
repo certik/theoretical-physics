@@ -3194,3 +3194,142 @@ The self energy up to a second order is given by:
             -\epsilon_a - \epsilon_b}
 
 The $a$, $b$ are occupied orbitals, $r$, $s$ are virtual orbitals.
+The Dyson equation is:
+
+.. math::
+    :label: Dyson
+
+    {\bf G}(E) = {\bf G}_0(E) + {\bf G}_0(E) {\boldsymbol\Sigma}(E) {\bf G}(E)
+
+where
+
+.. math::
+
+    {\bf G}_0(E) = {1\over E - {\boldsymbol \epsilon}}
+        = \sum_k {\ket{k}\bra{k}\over E - \epsilon_k}
+
+    {\bf G}(E) = {1\over E - {\bf E}}
+        = \sum_k {\ket{k_{int}}\bra{k_{int}}\over E - E_k}
+
+The $\epsilon_k$ and $\ket{k}$ are HF energies and eigenvectors, $E_k$
+and $\ket{k_{int}}$ are
+interacting energies and eigenvectors.
+The matrix $\boldsymbol\epsilon$ is a diagonal matrix of the $\epsilon_k$
+eigenvalues, $\bf E$ is a diagonal matrix of the $E_k$ eigenvalues.
+Any Green's function ${\bf G}(E)$ (interacting or not) can be written using the
+spectral density function ${\bf A}(z)$ as follows:
+
+.. math::
+
+    {\bf G}(E) = {1\over E - {\boldsymbol \epsilon}}
+        = \sum_k {\ket{k}\bra{k}\over E - \epsilon_k} =
+
+        = \sum_k \int_{-\infty}^{\infty}
+            {\ket{k}\bra{k}\over E - z} \delta(z-\epsilon_k) \d z =
+
+        = \int_{-\infty}^{\infty} {{\bf A}(z)\over E-z} \d z
+
+where
+
+.. math::
+
+    {\bf A}(z) = \sum_k \ket{k}\bra{k} \delta(z-\epsilon_k) =
+
+    = \sum_k \ket{k}\bra{k} \lim_{\eta\to0} {\eta\over\pi}
+        {1\over (z-\epsilon_k)^2 + \eta^2} =
+
+    = \sum_k \ket{k}\bra{k} \lim_{\eta\to0} {i\over 2\pi}
+        \left({1\over z-\epsilon_k+i\eta} -{1\over z-\epsilon_k-i\eta}\right) =
+
+    = \lim_{\eta\to0} {i\over 2\pi}
+        \left({\bf G}(z+i\eta) - {\bf G}(z-i\eta)\right)
+
+
+From :eq:`Dyson` we get:
+
+.. math::
+
+    {1\over {\bf G}_0(E)} {\bf G}(E) = 1 + {\boldsymbol \Sigma}(E) {\bf G}(E)
+
+    {1\over {\bf G}_0(E)} = {1\over {\bf G}(E)} + {\boldsymbol\Sigma}(E)
+
+    {\bf G}(E) = {1\over {1\over {\bf G}_0(E)} - {\boldsymbol \Sigma}(E)}
+        = {1\over E - {\boldsymbol \epsilon} - {\boldsymbol \Sigma}(E)}
+
+The poles $E_k$ of the Green's function ${\bf G}(E)$ are then given by:
+
+.. math::
+
+    D(E) =
+    \det (E - {\boldsymbol \epsilon} - {\boldsymbol \Sigma}(E)) = 0
+
+or equivalently:
+
+.. math::
+
+    ({\boldsymbol \Sigma}(E_k) + {\boldsymbol \epsilon})\ket{v} = E_k\ket{v}
+
+and from the theory of matrices:
+
+.. math::
+
+    \Tr {1\over E-{\bf h}}
+    = \Tr {{\partial\over\partial E} (E-{\bf h})\over E-{\bf h}}
+    = \Tr {\partial\over\partial E}\log(E-{\bf h})
+    = {\partial\over\partial E} \Tr \log(E-{\bf h}) =
+
+    = {\partial\over\partial E} \log | \det(E-{\bf h}) |
+    = {1\over\det(E-{\bf h})} {\partial \det(E-{\bf h}) \over\partial E}
+
+
+one obtains that
+
+.. math::
+
+    G_{ij}(E) = (-1)^{i+j+1} {\partial \log D(E) \over \partial
+      ({\boldsymbol \Sigma}(E_k) + {\boldsymbol \epsilon})_{ji}}
+
+and
+
+.. math::
+
+    \Tr {\bf G}(E) = \sum_{k} G_{kk}(E)
+        = {\partial \log | D(E) | \over\partial E}
+
+The number of particles $N$ can be calculated as follows
+($a$ are occupied orbitals, $k$ are all orbitals):
+
+.. math::
+
+    N = \sum_a | \braket{{\bf r} | a}|^2 =
+
+    = \sum_a \braket{{\bf r} | a}\braket{a | {\bf r}} =
+
+    = \Tr \sum_a \ket{a}\bra{a} =
+
+    = {1\over 2\pi i} \Tr \int_C \sum_k {\ket{k}\bra{k}\over E-E_k}\d E =
+
+    = {1\over 2\pi i} \int_C \Tr {\bf G}(E) \,\d E =
+
+    = {1\over 2\pi i} \int_C {\partial \log | D(E) | \over\partial E} \,\d E
+
+The countour $C$ only encloses poles $E_a$ corresponding to occupied orbitals
+$a$.
+Similarly for the total energy $E_{tot}$:
+
+.. math::
+
+    E_{tot} = \sum_a E_a | \braket{{\bf r} | a}|^2 =
+
+    = \sum_a \braket{{\bf r} | a} E_a \braket{a | {\bf r}} =
+
+    = \Tr \sum_a \ket{a} E_a \bra{a} =
+
+    = {1\over 2\pi i} \Tr \int_C \sum_k {\ket{k}\bra{k}\over E-E_k}
+        E\,\d E =
+
+    = {1\over 2\pi i} \int_C \Tr {\bf G}(E) E\,\d E =
+
+    = {1\over 2\pi i} \int_C {\partial \log | D(E) | \over\partial E} E\,\d E
+
+For doubly filled orbitals we multiply the expressions by 2.
