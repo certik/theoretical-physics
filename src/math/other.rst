@@ -526,7 +526,9 @@ $f+\epsilon h$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for example
         =\partial_\mu \delta\phi
 
 
-This notation allows us a very convenient computation, as shown in the following examples. First, when computing a variation of some integral, when can interchange $\delta$ and $\int$:
+This notation allows us a very convenient computation, as shown in the
+following examples. First, when computing a variation of some integral, when
+can interchange $\delta$ and $\int$:
 
 .. math::
 
