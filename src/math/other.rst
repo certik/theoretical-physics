@@ -527,7 +527,7 @@ $f+\epsilon h$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for example
 
 
 This notation allows us a very convenient computation, as shown in the
-following examples. First, when computing a variation of some integral, when
+following examples. First, when computing a variation of some integral, we
 can interchange $\delta$ and $\int$:
 
 .. math::
