@@ -39,16 +39,18 @@ meaning when you integrate both sides and use :eq:`deltadef` to arrive at
 :eq:`deltaprec`.  Thus one uses the relations :eq:`deltadef`, :eq:`deltalim`,
 :eq:`deltaprec` to derive all properties of the delta function.
 
-Let's give an example. Let ${\bf\hat r}$ be the unit vector in 3D and we can label it using spherical coordinates ${\bf\hat r}={\bf\hat r}(\theta,\phi)$. We can also express it in cartesian coordinates as ${\bf\hat r}(\theta,\phi)=(\cos\phi\sin\theta,\sin\phi\sin\theta,\cos\theta)$.
-
-
+Let's give an example. Let ${\bf\hat r}$ be the unit vector in 3D and we can
+label it using spherical coordinates ${\bf\hat r}={\bf\hat r}(\theta,\phi)$.
+We can also express it in cartesian coordinates as ${\bf\hat
+r}(\theta,\phi)=(\cos\phi\sin\theta,\sin\phi\sin\theta,\cos\theta)$.
 
 .. math::
     :label: deltar
 
        f({\bf\hat r'})=\int\delta({\bf\hat r}-{\bf\hat r'})f({\bf\hat r})\,\d {\bf\hat r}
 
-Expressing $f({\bf\hat r})=f(\theta,\phi)$ as a function of $\theta$ and $\phi$ we have
+Expressing $f({\bf\hat r})=f(\theta,\phi)$ as a function of $\theta$ and
+$\phi$ we have
 
 .. math::
     :label: deltaangles
@@ -73,7 +75,8 @@ In exactly the same manner we get
 
        \delta({\bf r}-{\bf r'})=\delta({\bf\hat r}-{\bf\hat r'}) {\delta(\rho-\rho')\over\rho^2}
 
-See also :eq:`functionalderdel` for an example of how to deal with more complex expressions involving the delta function like $\delta^2(x)$.
+See also :eq:`functionalderdel` for an example of how to deal with more
+complex expressions involving the delta function like $\delta^2(x)$.
 
 When integrating over finite interval, this formula is very useful:
 
@@ -101,7 +104,8 @@ explained below. The math notation below is put into quotation marks, so that
 it's not confused with the physical notation.
 
 The distribution is a functional and each function $f(x)$ can be identified
-with a distribution $\mathnot{T_f}$ that it generates using this definition ($\varphi(x)$
+with a distribution $\mathnot{T_f}$ that it generates using this definition
+($\varphi(x)$
 is a test function):
 
 .. math::
@@ -436,7 +440,8 @@ Functionals
 ~~~~~~~~~~~
 
 Let's now define functional derivatives and variations.
-Functional $F[f]$ assigns a number to each function $f(x)$. The variation is defined as
+Functional $F[f]$ assigns a number to each function $f(x)$. The variation is
+defined as
 
 .. math::
 
@@ -448,7 +453,8 @@ We define ${\delta F\over\delta f(x)}$ as
 
        a(x)\equiv{\delta F\over\delta f(x)}
 
-This also gives a formula for computing ${\delta F\over\delta f(x)}$: we set $h(y)=\delta(x-y)$ and
+This also gives a formula for computing ${\delta F\over\delta f(x)}$: we set
+$h(y)=\delta(x-y)$ and
 
 .. math::
 
@@ -497,7 +503,8 @@ the definition of the functional derivative:
 and the understanding that $\delta f$ means either
 $h(x)=f(x) - f_0(x)$ or a variation.
 
-The correspondence between the finite and infinite dimensional case can be summarized as:
+The correspondence between the finite and infinite dimensional case can be
+summarized as:
 
 .. math::
     :nowrap:
@@ -505,7 +512,10 @@ The correspondence between the finite and infinite dimensional case can be summa
     \begin{eqnarray*} f(x_i) \quad&\Longleftrightarrow&\quad F[f] \\ \d f=0 \quad&\Longleftrightarrow&\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&\Longleftrightarrow&\quad {\delta F\over\delta f(x)}=0 \\ f \quad&\Longleftrightarrow&\quad F \\ x_i \quad&\Longleftrightarrow&\quad f(x) \\ x \quad&\Longleftrightarrow&\quad f \\ i \quad&\Longleftrightarrow&\quad x \\ \end{eqnarray*}
 
 
-More generally, $\delta$-variation can by applied to any function $g$ which contains the function $f(x)$ being varied, you just need to replace $f$ by $f+\epsilon h$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for example (here $g=\partial_\mu\phi$ and $f=\phi$):
+More generally, $\delta$-variation can by applied to any function $g$ which
+contains the function $f(x)$ being varied, you just need to replace $f$ by
+$f+\epsilon h$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for example
+(here $g=\partial_\mu\phi$ and $f=\phi$):
 
 .. math::
 
@@ -516,7 +526,9 @@ More generally, $\delta$-variation can by applied to any function $g$ which cont
         =\partial_\mu \delta\phi
 
 
-This notation allows us a very convinient computation, as shown in the following examples. First, when computing a variation of some integral, when can interchange $\delta$ and $\int$:
+This notation allows us a very convenient computation, as shown in the
+following examples. First, when computing a variation of some integral, we
+can interchange $\delta$ and $\int$:
 
 .. math::
 
@@ -532,7 +544,9 @@ This notation allows us a very convinient computation, as shown in the following
 
        =\int\delta(K(x) f(x))\d x
 
-In the expression $\delta(K(x) f(x))$ we must understand from the context if we are treating it as a functional of $f$ or $K$. In our case it's a functional of $f$, so we have $\delta(K f)=K\delta f$.
+In the expression $\delta(K(x) f(x))$ we must understand from the context if
+we are treating it as a functional of $f$ or $K$. In our case it's a
+functional of $f$, so we have $\delta(K f)=K\delta f$.
 
 A few more examples (notice that one can do each calculation either in terms of
 the functional derivative or the variation, and the variation version is usually
@@ -580,7 +594,8 @@ simpler):
 
     = \int\d t_1\d t_2 K(t_1,t_2) f(t_2) (\delta f(t_1))
 
-The last equality follows from $K(t_1,t_2)=K(t_2,t_1)$ (any antisymmetrical part of a $K$ would not contribute to the symmetrical integration).
+The last equality follows from $K(t_1,t_2)=K(t_2,t_1)$ (any antisymmetrical
+part of a $K$ would not contribute to the symmetrical integration).
 
 Another example is the derivation of Euler-Lagrange equations for the
 Lagrangian density $\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)$:
@@ -658,7 +673,9 @@ sequence $\delta_\alpha(x) \to \delta(x)$ (for example $\delta_\alpha(x) =
 
        =\int3f^2(x)\lim_{\alpha\to\infty}\delta_\alpha(x-t)\d x= \int3f^2(x)\delta(x-t)\d x=3f^2(t)
 
-As you can see, we got the same result, with the same rigor, but using an obfuscating notation. That's why such obvious manipulations with $\delta_\alpha$ are tacitly implied.
+As you can see, we got the same result, with the same rigor, but using an
+obfuscating notation. That's why such obvious manipulations with
+$\delta_\alpha$ are tacitly implied.
 
 Another example with a metric as a function of coordinates
 $g_{\mu\nu} = g_{\mu\nu}(x^\mu)$:
@@ -752,7 +769,11 @@ Dirac Notation
 --------------
 
 
-The Dirac notation allows a very compact and powerful way of writing equations that describe a function expansion into a basis, both discrete (e.g. a fourier series expansion) and continuous (e.g. a fourier transform) and related things. The notation is designed so that it is very easy to remember and it just guides you to write the correct equation.
+The Dirac notation allows a very compact and powerful way of writing
+equations that describe a function expansion into a basis, both discrete
+(e.g. a Fourier series expansion) and continuous (e.g. a Fourier transform)
+and related things. The notation is designed so that it is very easy to
+remember and it just guides you to write the correct equation.
 
 Let's have a function $f(x)$. We define
 
@@ -887,7 +908,8 @@ so
 
        \braket{\rho|\rho'} ={\braket{{\bf r}|{\bf r'}}\over\braket{{\bf\hat r}|{\bf\hat r'}}} ={\delta(\rho-\rho')\over\rho^2}
 
-We must stress that $\ket{lm}$ only acts in the $\ket{{\bf\hat r}}$ space (not the $\ket\rho$ space) which means that
+We must stress that $\ket{lm}$ only acts in the $\ket{{\bf\hat r}}$ space
+(not the $\ket\rho$ space) which means that
 
 .. math::
 
