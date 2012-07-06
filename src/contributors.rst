@@ -7,3 +7,4 @@ the order of the date of contribution:
 
 * Ondřej Čertík
 * Karel Výborný
+* Jean Jordaan
