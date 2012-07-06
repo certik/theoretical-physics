@@ -146,7 +146,7 @@ Consider the $S_3$ permutation group. The character table is:
 
 From the table we read $c_1 = 1$, $c_2 = 3$, $c_3 = 2$ and
 $g = c_1 + c_2 + c_3 = 1 + 3 + 2 = 6$. There are 3 classes and 3 irreducible
-representaitons.
+representations.
 
 Case I
     We are given a representation given by the following matrices:
@@ -497,7 +497,7 @@ following rules:
    representation is also a representation. If there is only one representation
    of the dimension $d$, then it must be real (since it is its own conjugate).
    If there are two representations of dimension $d$ and one is complex, then
-   the other one must be its complex conjugate. Anothe way to look at this is
+   the other one must be its complex conjugate. Another way to look at this is
    that if we conjugate each entry of the character table, then we must get the
    same character table (up to a possible reordering of rows within the same
    dimension).

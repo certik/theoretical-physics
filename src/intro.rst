@@ -5,22 +5,22 @@ Introduction
 Preface
 =======
 
-I have a very bad memory, I am able to memorize quite a lot of things short
-term, but I am not able to remember most formulas from quantum mechanics in the
-long term (e.g. like over the summer), I don't remember formulas for
+I have a very bad memory. I am able to memorize quite a lot of things short
+term, but I am not able to remember most formulas from quantum mechanics over the
+long term (e.g. like over the summer). I don't remember formulas for
 perturbation theory (neither time dependent or time independent), I don't
 remember Feynman rules in quantum field theory, I don't even remember the Dirac
 equation exactly (where the $i$ should be, if there is $m$ or $m^2$, ...). The
-thing about quantum field theory is not that some particular steps would be
+thing about quantum field theory is not that some particular steps are 
 difficult, but that there are so many of them and one has to master all of them
 at once, in order to really "get it".
 
 I never got QFT, because once I mastered one part sufficiently, I forgot some
-other part and it took too much time to master that other part that I forgot
-the first part again. However, I was determined I will get it. In order to do
+other part and it took so much time to master that other part that I forgot
+the first part again. However, I was determined that I would get it. In order to do
 so, I realized I need to keep notes of things I understood, written in my own
 way. Then, when I relearn some parts that I forgot, it just takes me a few
-minutes to go over my refernce notes to get into it quickly. My own style of
+minutes to go over my reference notes to get into it quickly. My own style of
 understanding is that the notes should be complete (no need to consult external
 books), yet very short and getting directly to the point, and also with every
 single calculation carried out explicitly.
