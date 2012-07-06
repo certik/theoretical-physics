@@ -5,6 +5,7 @@ Theoretical Physics Reference
     :maxdepth: 3
 
     src/intro.rst
+    src/contributors.rst
     src/math/main.rst
     src/relativity/main.rst
     src/elmag/main.rst
