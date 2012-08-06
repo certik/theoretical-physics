@@ -505,8 +505,9 @@ we recover :eq:`geodesic-equation`:
         +\Gamma^\rho_{\mu\nu}
      {\d x^\mu\over\d \lambda} {\d x^\nu\over\d\lambda} = 0
 
-Note that the equation :eq:`geodesic-equation2` is parametrization
-invariant, but :eq:`geodesic-equation` is not.
+Note that the equation :eq:`geodesic-equation2` is parametrization invariant,
+but :eq:`geodesic-equation` is not (only affine reparametrization leaves
+:eq:`geodesic-equation` invariant).
 
 
 .. index:: curvature

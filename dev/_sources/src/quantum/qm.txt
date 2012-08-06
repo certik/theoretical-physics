@@ -1979,6 +1979,8 @@ $j_3 = l \pm \half$:
 
     l(l+1) = \kappa (\kappa+1)
 
+    l = |\kappa + \half| - \half
+
     | \kappa | = j_3 + \half
 
 In order to enumerate all possibilities, one needs to count all integers except zero: $\kappa=-1, 1, -2, 2, -3, 3, \dots$:

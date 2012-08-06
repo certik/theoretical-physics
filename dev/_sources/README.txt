@@ -15,7 +15,7 @@ Build
 
 Install prerequisites::
 
-    sudo apt-get install python-sphinx texlive-latex-extra texlive-fonts-extra dvipng
+    sudo apt-get install python-sphinx texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng
 
 To build the book, do::
 
