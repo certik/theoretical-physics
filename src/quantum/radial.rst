@@ -1147,6 +1147,14 @@ The asymptotic is:
         e^{-\sqrt{c^4-W^2\over c^2} r}
       = -\sqrt{c^2-W\over c^2+W} e^{-\sqrt{c^4-W^2\over c^2} r}
 
+We can also write it in terms of $E$:
+
+.. math::
+
+    P(r) = e^{-\sqrt{-2E-\left(E\over c\right)^2} r}
+
+    Q(r) = -\sqrt{-{E\over E + 2c^2}} P(r)
+
 For $r\to 0$ we write the full equations:
 
 .. math::
