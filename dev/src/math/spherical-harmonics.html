@@ -259,17 +259,17 @@ Assuming <img class="math" src="../../_images/math/5c8248ac4873ba91aeab9b97d6df7
 <p><img src="../../_images/math/daa499035d0427bfaa6d628a2bb36975ffca4db4.png" alt="f(x) = {e^{-\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}}"/></p>
 </div><p>for <img class="math" src="../../_images/math/93c2ea8a903dcc034ae576ae39969394cd0e87a3.png" alt="|t| \le 1"/>. We get:</p>
 <div class="math">
-<p><img src="../../_images/math/896a4c073a5eeb6d92392dcce632f7bc29c81fa3.png" alt="f_l = {(2l+1)\over 2} \int_{-1}^1
+<p><img src="../../_images/math/944aafa53802054deb14688db558b85d72a5d612.png" alt="f_l = {(2l+1)\over 2} \int_{-1}^1
     {P_l(x)e^{-\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}} \d x
     = {(2l+1)\over 2} \int_{|1+t|}^{|1-t|}
-             {P_l\left(1-R^2-t^2\over 2 t\right)e^{-\alpha R}\over R}
+             {P_l\left(1-R^2+t^2\over 2 t\right)e^{-\alpha R}\over R}
              \left(-{R\over t}\right) \d R
     =
 
     = {(2l+1)\over 2 t} \int_{|1-t|}^{|1+t|}
-             P_l\left(1-R^2-t^2\over 2 t\right) e^{-\alpha R} \d R
+             P_l\left(1-R^2+t^2\over 2 t\right) e^{-\alpha R} \d R
     = {(2l+1)\over 2 t} \int_{1-t}^{1+t}
-             P_l\left(1-R^2-t^2\over 2 t\right) e^{-\alpha R} \d R"/></p>
+             P_l\left(1-R^2+t^2\over 2 t\right) e^{-\alpha R} \d R"/></p>
 </div><p>Here is the result for the first few <img class="math" src="../../_images/math/9b25f8e64b484493fda944d25cad453423041fe6.png" alt="l"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/1274fa8903e3765ff8fec5a717c2622806da0204.png" alt="f_0 &amp; = \frac{\left(e^{2 \alpha t} -1\right) e^{- \alpha t - \alpha}}{2 \alpha t} \\
@@ -280,7 +280,7 @@ X = 3 \alpha^{2} e^{2 \alpha t} - 3 \alpha^{2} - 9 \alpha t e^{2 \alpha t} - 9 \
 </div><p>Expanding in <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> up to
 <img class="math" src="../../_images/math/b3708ec9e10e6a415dea2b380b8e1eaa214328dc.png" alt="\operatorname{\mathcal{O}}\left(t^{7}\right)"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/c1c53c7e6aabe16b71b1fb7ead67040c954d174a.png" alt="f_l &amp; = e^\alpha g_l \\
+<p><img src="../../_images/math/a16a6720445ccc553144894c29ec013b58d6f001.png" alt="f_l &amp; = e^{-\alpha} g_l \\
 g_0 &amp; = 1 + \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{120} \alpha^{4} t^{4} + \frac{1}{5040} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
 g_1 &amp; = t + \alpha t + \frac{1}{10} \alpha^{2} t^{3} + \frac{1}{10} \alpha^{3} t^{3} + \frac{1}{280} \alpha^{4} t^{5} + \frac{1}{280} \alpha^{5} t^{5} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
 g_2 &amp; = t^{2} + \alpha t^{2} + \frac{1}{3} \alpha^{2} t^{2} + \frac{1}{14} \alpha^{2} t^{4} + \frac{1}{14} \alpha^{3} t^{4} + \frac{1}{42} \alpha^{4} t^{4} + \frac{1}{504} \alpha^{4} t^{6} + \frac{1}{504} \alpha^{5} t^{6} + \frac{1}{1512} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
