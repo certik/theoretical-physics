@@ -141,14 +141,14 @@ For the following choice of $f(x)$ we get (for $|t| \le 1$):
 
     f_l = {(2l+1)\over 2} \int_{-1}^1 {P_l(x)\over\sqrt{1-2xt+t^2}} \d x
         = {(2l+1)\over 2} \int_{|1+t|}^{|1-t|}
-                 {P_l\left(1-R^2-t^2\over 2 t\right)\over R}
+                 {P_l\left(1-R^2+t^2\over 2 t\right)\over R}
                  \left(-{R\over t}\right) \d R
         =
 
         = {(2l+1)\over 2 t} \int_{|1-t|}^{|1+t|}
-                 P_l\left(1-R^2-t^2\over 2 t\right) \d R
+                 P_l\left(1-R^2+t^2\over 2 t\right) \d R
         = {(2l+1)\over 2 t} \int_{1-t}^{1+t}
-                 P_l\left(1-R^2-t^2\over 2 t\right) \d R
+                 P_l\left(1-R^2+t^2\over 2 t\right) \d R
         =
 
         = t^l
