@@ -249,14 +249,14 @@ for $|t| \le 1$. We get:
     f_l = {(2l+1)\over 2} \int_{-1}^1
         {P_l(x)e^{-\alpha \sqrt{1-2xt+t^2}}\over\sqrt{1-2xt+t^2}} \d x
         = {(2l+1)\over 2} \int_{|1+t|}^{|1-t|}
-                 {P_l\left(1-R^2-t^2\over 2 t\right)e^{-\alpha R}\over R}
+                 {P_l\left(1-R^2+t^2\over 2 t\right)e^{-\alpha R}\over R}
                  \left(-{R\over t}\right) \d R
         =
 
         = {(2l+1)\over 2 t} \int_{|1-t|}^{|1+t|}
-                 P_l\left(1-R^2-t^2\over 2 t\right) e^{-\alpha R} \d R
+                 P_l\left(1-R^2+t^2\over 2 t\right) e^{-\alpha R} \d R
         = {(2l+1)\over 2 t} \int_{1-t}^{1+t}
-                 P_l\left(1-R^2-t^2\over 2 t\right) e^{-\alpha R} \d R
+                 P_l\left(1-R^2+t^2\over 2 t\right) e^{-\alpha R} \d R
 
 Here is the result for the first few $l$:
 
@@ -274,7 +274,7 @@ $\operatorname{\mathcal{O}}\left(t^{7}\right)$ we get:
 
 .. math::
 
-    f_l & = e^\alpha g_l \\
+    f_l & = e^{-\alpha} g_l \\
     g_0 & = 1 + \frac{1}{6} \alpha^{2} t^{2} + \frac{1}{120} \alpha^{4} t^{4} + \frac{1}{5040} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
     g_1 & = t + \alpha t + \frac{1}{10} \alpha^{2} t^{3} + \frac{1}{10} \alpha^{3} t^{3} + \frac{1}{280} \alpha^{4} t^{5} + \frac{1}{280} \alpha^{5} t^{5} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
     g_2 & = t^{2} + \alpha t^{2} + \frac{1}{3} \alpha^{2} t^{2} + \frac{1}{14} \alpha^{2} t^{4} + \frac{1}{14} \alpha^{3} t^{4} + \frac{1}{42} \alpha^{4} t^{4} + \frac{1}{504} \alpha^{4} t^{6} + \frac{1}{504} \alpha^{5} t^{6} + \frac{1}{1512} \alpha^{6} t^{6} + \operatorname{\mathcal{O}}\left(t^{7}\right) \\
