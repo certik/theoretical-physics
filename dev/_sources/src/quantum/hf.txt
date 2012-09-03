@@ -1872,12 +1872,91 @@ Kinetic
 Two particle
 ~~~~~~~~~~~~
 
-In this section we also need the following integrals:
+In this section we also need the following integral:
 
 .. math::
 
     \int_u^\infty r^n e^{-\zeta r} \d r = {n!\over \zeta^{n+1}}
         e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}
+
+The Slater integral is
+
+.. math::
+
+    R^k(i, j, k, l) = \int_0^\infty \int_0^\infty
+        {r_<^k\over r_>^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') \d r \d r' =
+
+    = \int_0^\infty \d r \int_0^r \d r'
+        {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') +
+
+    + \int_0^\infty \d r \int_r^\infty \d r'
+        {r^k\over r'^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+    = \int_0^\infty \d r \int_0^r \d r'
+        {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') +
+
+    + \int_0^\infty \d r' \int_0^{r'} \d r
+        {r^k\over r'^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+    = \int_0^\infty \d r \int_0^r \d r'
+        {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') +
+
+    + \int_0^\infty \d r \int_0^r \d r'
+        {r'^k\over r^{k+1}} P_i(r') P_k(r') P_j(r) P_l(r) =
+
+    = R^k_\triangle(i, j, k, l) + R^k_\triangle(j, i, l, k)
+
+where:
+
+.. math::
+
+    R^k_\triangle(i, j, k, l)
+        = \int_0^\infty \d r \int_0^{r} \d r'
+            {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+        = \int_0^\infty \d r' \int_{r'}^\infty \d r
+            {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            \int_0^\infty \d r' \int_{r'}^\infty \d r
+            {r'^k\over r^{k+1}} r^{n_i + n_k} r'^{n_j+n_l}
+            e^{-(\zeta_i+\zeta_k)r}
+            e^{-(\zeta_j+\zeta_l)r'}
+            =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            \int_0^\infty \d r'
+            r'^k r'^{n_j+n_l}
+            e^{-(\zeta_j+\zeta_l)r'}
+                {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+                e^{-(\zeta_i+\zeta_k) r'} \sum_{\nu=0}^{n_i+n_k-k-1}
+                {r'^\nu (\zeta_i+\zeta_k)^\nu \over \nu!}
+            =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+                {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+                \sum_{\nu=0}^{n_i+n_k-k-1}
+                {(n_j+n_l+k+\nu)! (\zeta_i+\zeta_k)^\nu \over \nu!
+                (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+\nu+1}
+                }
+            =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+                {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+                H^k_{ijkl}
+
+where:
+
+.. math::
+
+    H^k_{ijkl} =
+                \sum_{\nu=0}^{n_i+n_k-k-1}{
+                    (n_j+n_l+k+\nu)! (\zeta_i+\zeta_k)^\nu\over
+                    \nu!(\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+\nu+1}}
+
+Much more tedious method is the following:
+
+.. math::
 
     \int_0^u r^n e^{-\zeta r} \d r = \int_0^\infty r^n e^{-\zeta r} \d r
         -\int_u^\infty r^n e^{-\zeta r} \d r =

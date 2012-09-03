@@ -1652,12 +1652,79 @@ radial Schrödinger equation for <img class="math" src="../../_images/math/4b4ca
 </div></div>
 <div class="section" id="id4">
 <h3>Two particle<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>In this section we also need the following integrals:</p>
+<p>In this section we also need the following integral:</p>
 <div class="math">
-<p><img src="../../_images/math/3649cb5c9cb1257b050385bb9a32341cd8c97f29.png" alt="\int_u^\infty r^n e^{-\zeta r} \d r = {n!\over \zeta^{n+1}}
-    e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}
+<p><img src="../../_images/math/e3572e5445ab70b99ceb2494489beedf7811538b.png" alt="\int_u^\infty r^n e^{-\zeta r} \d r = {n!\over \zeta^{n+1}}
+    e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}"/></p>
+</div><p>The Slater integral is</p>
+<div class="math">
+<p><img src="../../_images/math/9aa3c7be8e33b028482f80053c728cf5214c7c23.png" alt="R^k(i, j, k, l) = \int_0^\infty \int_0^\infty
+    {r_&lt;^k\over r_&gt;^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') \d r \d r' =
 
-\int_0^u r^n e^{-\zeta r} \d r = \int_0^\infty r^n e^{-\zeta r} \d r
+= \int_0^\infty \d r \int_0^r \d r'
+    {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') +
+
++ \int_0^\infty \d r \int_r^\infty \d r'
+    {r^k\over r'^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+= \int_0^\infty \d r \int_0^r \d r'
+    {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') +
+
++ \int_0^\infty \d r' \int_0^{r'} \d r
+    {r^k\over r'^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+= \int_0^\infty \d r \int_0^r \d r'
+    {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') +
+
++ \int_0^\infty \d r \int_0^r \d r'
+    {r'^k\over r^{k+1}} P_i(r') P_k(r') P_j(r) P_l(r) =
+
+= R^k_\triangle(i, j, k, l) + R^k_\triangle(j, i, l, k)"/></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/1a5fc4aeee2caab91f3ffa08c7b352fd1d0a0b7a.png" alt="R^k_\triangle(i, j, k, l)
+    = \int_0^\infty \d r \int_0^{r} \d r'
+        {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+    = \int_0^\infty \d r' \int_{r'}^\infty \d r
+        {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+        \int_0^\infty \d r' \int_{r'}^\infty \d r
+        {r'^k\over r^{k+1}} r^{n_i + n_k} r'^{n_j+n_l}
+        e^{-(\zeta_i+\zeta_k)r}
+        e^{-(\zeta_j+\zeta_l)r'}
+        =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+        \int_0^\infty \d r'
+        r'^k r'^{n_j+n_l}
+        e^{-(\zeta_j+\zeta_l)r'}
+            {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+            e^{-(\zeta_i+\zeta_k) r'} \sum_{\nu=0}^{n_i+n_k-k-1}
+            {r'^\nu (\zeta_i+\zeta_k)^\nu \over \nu!}
+        =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+            \sum_{\nu=0}^{n_i+n_k-k-1}
+            {(n_j+n_l+k+\nu)! (\zeta_i+\zeta_k)^\nu \over \nu!
+            (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+\nu+1}
+            }
+        =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            {(n_i+n_k-k-1)!\over (\zeta_i+\zeta_k)^{n_i+n_k-k}}
+            H^k_{ijkl}"/></p>
+</div><p>where:</p>
+<div class="math">
+<p><img src="../../_images/math/7e49da94fdcd2d45247a77b36afa03484fe4b3c5.png" alt="H^k_{ijkl} =
+            \sum_{\nu=0}^{n_i+n_k-k-1}{
+                (n_j+n_l+k+\nu)! (\zeta_i+\zeta_k)^\nu\over
+                \nu!(\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+\nu+1}}"/></p>
+</div><p>Much more tedious method is the following:</p>
+<div class="math">
+<p><img src="../../_images/math/ca367c8ed38fa099d4cc548d19b51abb8bd3d2a1.png" alt="\int_0^u r^n e^{-\zeta r} \d r = \int_0^\infty r^n e^{-\zeta r} \d r
     -\int_u^\infty r^n e^{-\zeta r} \d r =
 {n!\over \zeta^{n+1}}\left(1-
     e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}\right)"/></p>
