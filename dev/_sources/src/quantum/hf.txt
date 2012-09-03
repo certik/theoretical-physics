@@ -1906,7 +1906,8 @@ The Slater integral is
 
     = R^k_\triangle(i, j, k, l) + R^k_\triangle(j, i, l, k)
 
-where:
+where $R^k_\triangle(i, j, k, l)$ is the integral over the lower triangle
+(assuming $r$ is the $x$-axis and $r'$ is the $y$-axis), that is $r>r'$:
 
 .. math::
 
