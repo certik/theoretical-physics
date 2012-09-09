@@ -1741,8 +1741,8 @@ of the following simple integral (where $n,\zeta \ge 0$):
     :label: slater_basic
 
     \int_0^\infty r^n e^{-\zeta r} \d r
-        =\int_0^\infty \left(x\over\zeta\right)^n e^{-r} {\d r\over\zeta}
-        ={1\over\zeta^{n+1}} \int_0^\infty x^n e^{-r} \d r
+        =\int_0^\infty \left(x\over\zeta\right)^n e^{-x} {\d x\over\zeta}
+        ={1\over\zeta^{n+1}} \int_0^\infty x^n e^{-x} \d x
         ={\Gamma(n+1)\over\zeta^{n+1}}
         ={n!\over\zeta^{n+1}}
 
