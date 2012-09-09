@@ -1879,8 +1879,20 @@ In this section we also need the following integral:
 
 .. math::
 
-    \int_u^\infty r^n e^{-\zeta r} \d r = {n!\over \zeta^{n+1}}
+    \int_u^\infty r^n e^{-\zeta r} \d r
+        = {1\over\zeta^{n+1}} \int_{\zeta u}^\infty x^n e^{-x} \d x
+        = {\Gamma(n+1, \zeta u)\over\zeta^{n+1}}
+        = {n!\over \zeta^{n+1}}
         e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}
+
+where
+
+.. math::
+
+    \Gamma(n, x) = \int_x^\infty t^{n-1} e^{-t}\d t
+        = (n-1)! e^{-x} \sum_{\nu=0}^{n-1} {x^\nu\over \nu!}
+
+is the incomplete gamma function.
 
 The Slater integral is
 
