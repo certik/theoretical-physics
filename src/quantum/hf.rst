@@ -2131,6 +2131,10 @@ of the following simple integral (where $n,\zeta \ge 0$):
     :label: gto_basic
 
     \int_0^\infty r^n e^{-\zeta r^2} \d r
+        = {1\over\sqrt{\zeta^{n+1}}} \int_0^\infty x^n e^{-x^2} \d x
+        = {1\over2\sqrt{\zeta^{n+1}}} \int_0^\infty t^{n-1\over 2} e^{-t} \d t
+        = {\Gamma({n+1\over2})\over2 \zeta^{n+1\over2}} =
+
         = \begin{cases}
         (n-1)!! \sqrt{\pi\over 2 (2\zeta)^{n+1}} & \text{for even $n$} \\
         {\left(n-1\over2\right)!\over 2 \sqrt{\zeta^{n+1}}} &
@@ -2188,6 +2192,9 @@ Overlap
              r^{n_i + n_j} e^{-(\zeta_i+\zeta_j) r^2}
          \d r =
 
+        = N_{n_i\zeta_i} N_{n_j\zeta_j} {\Gamma({n_i+n_j+1\over 2}) \over
+            2(\zeta_i+\zeta_j)^{n_i+n_j+1\over 2}} =
+
         = N_{n_i\zeta_i} N_{n_j\zeta_j}
             (n_i + n_j -1)!! \sqrt{\pi\over
                 2(2\zeta_i+2\zeta_j)^{n_i+n_j+1}}
@@ -2209,6 +2216,10 @@ Potential
     = -Z N_{n_i\zeta_i} N_{n_j\zeta_j} \int
          r^{n_i+n_j-1} e^{-(\zeta_i+\zeta_j) r^2}
         \d r =
+
+    = -Z N_{n_i\zeta_i} N_{n_j\zeta_j}
+        {\Gamma({n_i+n_j\over 2}) \over
+            2(\zeta_i+\zeta_j)^{n_i+n_j\over 2}} =
 
     = -Z N_{n_i\zeta_i} N_{n_j\zeta_j}
         {\left(n_i + n_j - 2\over 2\right)! \over
@@ -2258,6 +2269,16 @@ Kinetic
             \right)
         \d r =
 
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j} \left(
+        (n_i n_j + l(l+1)) {\Gamma({n_i+n_j-1\over 2}) \over
+            2(\zeta_i+\zeta_j)^{n_i+n_j-1\over 2}}
+       -2(n_i \zeta_j+n_j\zeta_i) {\Gamma({n_i+n_j+1\over 2}) \over
+            2(\zeta_i+\zeta_j)^{n_i+n_j+1\over 2}}
+       +4\zeta_i \zeta_j {\Gamma({n_i+n_j+3\over 2}) \over
+            2(\zeta_i+\zeta_j)^{n_i+n_j+3\over 2}}
+            \right)
+        \d r =
+
     = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\Bigg(
         (n_i n_j + l(l+1))
             {(n_i + n_j - 3)!! \sqrt{\pi\over
@@ -2274,6 +2295,15 @@ Kinetic
 
 Two particle
 ~~~~~~~~~~~~
+
+We will need the following integral:
+
+.. math::
+
+    \int_u^\infty r^n e^{-\zeta r^2} \d r
+        = {1\over2\zeta^{n+1\over2}}
+            \int_{\zeta u^2}^\infty x^{n-1\over2} e^{-x} \d x
+        = {\Gamma({n+1\over2}, \zeta u^2)\over2\zeta^{n+1\over2}}
 
 Just like for STO, we get:
 
