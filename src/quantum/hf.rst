@@ -2321,6 +2321,48 @@ where $R^k_\triangle(i, j, k, l)$ is the integral over the lower triangle
         = \int_0^\infty \d r \int_0^{r} \d r'
             {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
 
+        = \int_0^\infty \d r' \int_{r'}^\infty \d r
+            {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            \int_0^\infty \d r' \int_{r'}^\infty \d r
+            {r'^k\over r^{k+1}} r^{n_i + n_k} r'^{n_j+n_l}
+            e^{-(\zeta_i+\zeta_k)r^2}
+            e^{-(\zeta_j+\zeta_l)r'^2}
+            =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            \int_0^\infty \d r' r'^k r'^{n_j+n_l}
+            e^{-(\zeta_j+\zeta_l)r'^2}
+            {\Gamma({n_i+n_k-k\over2}, (\zeta_i+\zeta_k)r'^2)\over
+                2(\zeta_i+\zeta_k)^{n_i+n_k-k\over2}}
+            =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            \int_0^\infty \d r' r'^k r'^{n_j+n_l}
+            e^{-(\zeta_i+\zeta_j+\zeta_k+\zeta_l)r'^2}
+            {\left({n_i+n_k-k\over2}-1\right)! \over
+                2(\zeta_i+\zeta_k)^{n_i+n_k-k\over2}}
+            \sum_{\nu=0}^{n_i+n_k-k-2\over2}{(\zeta_i+\zeta_k)^\nu r'^{2\nu}
+                \over \nu!}
+            =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            {\left({n_i+n_k-k\over2}-1\right)! \over
+                2(\zeta_i+\zeta_k)^{n_i+n_k-k\over2}}
+            \sum_{\nu=0}^{n_i+n_k-k-2\over2}{(\zeta_i+\zeta_k)^\nu \over \nu!}
+            {\Gamma({n_j+n_l+k+2\nu+1\over2})\over 2
+                (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+2\nu+1\over2}}
+            =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            {\left({n_i+n_k-k\over2}-1\right)! \over
+                2(\zeta_i+\zeta_k)^{n_i+n_k-k\over2}}
+            \sum_{\nu=0}^{n_i+n_k-k-2\over2}{(\zeta_i+\zeta_k)^\nu \over \nu!}
+            {(n_j+n_l+k+2\nu-1)!!\sqrt{\pi}\over 2^{n_j+n_l+k+2\nu+2\over 2}
+                (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+2\nu+1\over2}}
+            =
+
         = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
             {\sqrt{\pi}\over 2^{p+2}\sqrt{(\zeta_i+\zeta_j+\zeta_k
                 +\zeta_l)^{2p+1}}}
