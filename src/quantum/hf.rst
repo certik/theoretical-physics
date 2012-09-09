@@ -1783,6 +1783,7 @@ Overlap
 
 .. math::
 
+    S_{ij} =
     \int P_{n_i \zeta_i}(r) P_{n_j \zeta_j}(r) \d r =
 
         = \int
@@ -1802,6 +1803,7 @@ Potential
 
 .. math::
 
+    V_{ij} =
     \int P_{n_i\zeta_i}(r) \left(-{Z\over r}\right) P_{n_j\zeta_j}(r) \d r =
 
     = \int
@@ -1822,6 +1824,7 @@ Kinetic
 
 .. math::
 
+    T_{ij} =
     \int \left( \half P_{n_i\zeta_i}'(r) P_{n_j\zeta_j}'(r)
             +P_{n_i\zeta_i}(r) {l (l+1)\over 2 r^2} P_{n_j\zeta_j}(r) \right)
         \d r =
@@ -2104,6 +2107,192 @@ where:
                 \sum_{\nu=0}^{n_i+n_k-k-1}{
                     (n_j+n_l+k+\nu)! (\zeta_i+\zeta_k)^\nu\over
                     \nu!(\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+\nu+1}}
+
+Gaussian Type Orbitals (GTO)
+----------------------------
+
+In this section we express the matrix elements in the GTO basis.
+It turns out that all integrals that we need can be expressed in terms
+of the following simple integral (where $n,\zeta \ge 0$):
+
+.. math::
+    :label: gto_basic
+
+    \int_0^\infty r^n e^{-\zeta r^2} \d r
+        = \begin{cases}
+        (n-1)!! \sqrt{\pi\over 2 (2\zeta)^{n+1}} & \text{for even $n$} \\
+        {\left(n-1\over2\right)!\over 2 \sqrt{\zeta^{n+1}}} &
+            \text{for odd $n$} \\
+        \end{cases}
+
+The GTO basis function for the radial Schrödinger equation for $P(r)$ is:
+
+.. math::
+    :label: gto_P
+
+    P_{n\zeta}(r) = N_{n\zeta} r^n e^{-\zeta r^2}
+
+However, unlike STO, the GTO functions must satisfy the condition
+$n = l + 2i + 1$ where $i=0, 1, 2, \dots$ (this condition is later used
+in :eq:`gto_basic` to determine whether $n$ is even or odd).
+The normalization constant $N_{n\zeta}$ is such that the GTO orbital is
+normalized as the radial wavefunction $P(r)$:
+
+.. math::
+
+    1 = \int_0^\infty P_{n\zeta}^2(r) \d r
+        = N_{n\zeta}^2 \int_0^\infty r^{2n} e^{-2\zeta r^2} \d r
+        = N_{n\zeta}^2 (2n-1)!! \sqrt{\pi\over 2 (4\zeta)^{2n+1}}
+
+from which we get:
+
+.. math::
+
+    N_{n\zeta} = \sqrt{{1\over (2n-1)!!}\sqrt{2 (4\zeta)^{2n+1}\over\pi}}
+
+Note that for $R(r)={P(r)\over r}$ we get the following GTO basis function:
+
+.. math::
+    :label: gto_R
+
+    R_{n\zeta}(r) = {P_{n\zeta}(r)\over r} = N_{n\zeta} r^{n-1} e^{-\zeta r^2}
+
+One uses either :eq:`sto_P` or :eq:`sto_R` depending on whether one solves the
+radial Schrödinger equation for $P$ or for $R={P\over r}$.
+
+Overlap
+~~~~~~~
+
+.. math::
+
+    S_{ij} = \int P_{n_i \zeta_i}(r) P_{n_j \zeta_j}(r) \d r =
+
+        = \int
+            N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r^2}
+            N_{n_j\zeta_j} r^{n_j} e^{-\zeta_j r^2}
+         \d r =
+
+        = N_{n_i\zeta_i} N_{n_j\zeta_j} \int
+             r^{n_i + n_j} e^{-(\zeta_i+\zeta_j) r^2}
+         \d r =
+
+        = N_{n_i\zeta_i} N_{n_j\zeta_j}
+            (n_i + n_j -1)!! \sqrt{\pi\over
+                2(2\zeta_i+2\zeta_j)^{n_i+n_j+1}}
+
+Potential
+~~~~~~~~~
+
+.. math::
+
+    V_{ij} =
+    \int P_{n_i\zeta_i}(r) \left(-{Z\over r}\right) P_{n_j\zeta_j}(r) \d r =
+
+    = \int
+        N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r^2}
+        \left(-{Z\over r}\right)
+        N_{n_j\zeta_j} r^{n_j} e^{-\zeta_j r^2}
+        \d r =
+
+    = -Z N_{n_i\zeta_i} N_{n_j\zeta_j} \int
+         r^{n_i+n_j-1} e^{-(\zeta_i+\zeta_j) r^2}
+        \d r =
+
+    = -Z N_{n_i\zeta_i} N_{n_j\zeta_j}
+        {\left(n_i + n_j - 2\over 2\right)! \over
+            2\sqrt{(\zeta_i+\zeta_j)^{n_i+n_j}}}
+
+Kinetic
+~~~~~~~
+
+.. math::
+
+    T_{ij} =
+    \int \left( \half P_{n_i\zeta_i}'(r) P_{n_j\zeta_j}'(r)
+            +P_{n_i\zeta_i}(r) {l (l+1)\over 2 r^2} P_{n_j\zeta_j}(r) \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+            {\d\over\d r}(r^{n_i} e^{-\zeta_i r^2})
+            {\d\over\d r}(r^{n_j} e^{-\zeta_j r^2})
+            +r^{n_i} e^{-\zeta_i r^2} {l (l+1)\over r^2}
+                r^{n_j} e^{-\zeta_j r^2}
+            \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+            (n_i r^{n_i-1} e^{-\zeta_i r^2}
+                            -2\zeta_i r^{n_i+1} e^{-\zeta_i r^2})
+                        (n_j r^{n_j-1} e^{-\zeta_j r^2}
+                            -2\zeta_j r^{n_j+1} e^{-\zeta_j r^2})
+            +l (l+1) r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r^2}
+            \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+        \left(
+                    {n_i n_j\over r^2}
+                   -2(n_i \zeta_j+n_j\zeta_i)
+                   +4\zeta_i \zeta_j r^2
+                \right) r^{n_i+n_j} e^{-(\zeta_i+\zeta_j) r^2}
+            +l (l+1) r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r^2}
+            \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+        (n_i n_j + l(l+1))       r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r^2}
+       -2(n_i \zeta_j+n_j\zeta_i) r^{n_i+n_j} e^{-(\zeta_i+\zeta_j) r^2}
+       +4\zeta_i \zeta_j          r^{n_i+n_j+2} e^{-(\zeta_i+\zeta_j) r^2}
+            \right)
+        \d r =
+
+    = \half N_{n_i\zeta_i}N_{n_j\zeta_j}\Bigg(
+        (n_i n_j + l(l+1))
+            {(n_i + n_j - 3)!! \sqrt{\pi\over
+                2(2\zeta_i+2\zeta_j)^{n_i + n_j - 1}}} +
+
+       -2(n_i \zeta_j+n_j\zeta_i)
+            {(n_i + n_j - 1)!! \sqrt{\pi\over
+                2(2\zeta_i+2\zeta_j)^{n_i + n_j + 1}}} +
+
+       +4\zeta_i \zeta_j
+            {(n_i + n_j + 1)!! \sqrt{\pi\over
+                2(2\zeta_i+2\zeta_j)^{n_i + n_j + 3}}}
+            \Bigg)
+
+Two particle
+~~~~~~~~~~~~
+
+Just like for STO, we get:
+
+.. math::
+
+    R^k(i, j, k, l)
+        = R^k_\triangle(i, j, k, l) + R^k_\triangle(j, i, l, k)
+
+where $R^k_\triangle(i, j, k, l)$ is the integral over the lower triangle
+(assuming $r$ is the $x$-axis and $r'$ is the $y$-axis), that is $r>r'$:
+
+.. math::
+
+    R^k_\triangle(i, j, k, l)
+        = \int_0^\infty \d r \int_0^{r} \d r'
+            {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+        = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+            {\sqrt{\pi}\over 2^{p+2}\sqrt{(\zeta_i+\zeta_j+\zeta_k
+                +\zeta_l)^{2p+1}}}
+                H^k_{ijkl}
+
+where $p={n_i+n_j+n_k+n_l-2\over2}$ and:
+
+.. math::
+
+    H^k_{ijkl} =
+                \sum_{\nu=0}^{n_i+n_k-k\over2}{
+                    (2p-2\nu-1)!! \left(n_i+n_k-k\over 2\right)!
+                        2^\nu (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^\nu \over
+                            (n_i+n_k-\nu)! (\lambda_i + \lambda_k)^{1+\nu}}
 
 Exchange Integral in Spherical Symmetry
 ---------------------------------------
