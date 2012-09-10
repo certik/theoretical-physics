@@ -1336,6 +1336,65 @@ for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e9655
     = {(2n-1)!!\over 2^n}\Gamma(\half)
     = {(2n-1)!!\over 2^n}\sqrt\pi"/></p>
 </div></div>
+<div class="section" id="incomplete-gamma-function">
+<h1>Incomplete Gamma Function<a class="headerlink" href="#incomplete-gamma-function" title="Permalink to this headline">¶</a></h1>
+<p>The incomplete gamma function is defined by:</p>
+<div class="math">
+<p><img src="../../_images/math/1d3051ff6524cd0f135f44897db91758bea01b01.png" alt="\Gamma(z, x) = \int_x^\infty t^{z-1} e^{-t} \d t"/></p>
+</div><p>Integrating by parts we get:</p>
+<div class="math">
+<p><img src="../../_images/math/10bad91594816d07d8fefc471b90f3d37284eab8.png" alt="\Gamma(z+1, x)
+    = \int_x^\infty t^z e^{-t} \d t
+    = z\int_x^\infty t^{z-1} e^{-t} \d t-[t^ze^{-t}]_x^\infty
+    = z\Gamma(z, x) + x^z e^{-x}"/></p>
+</div><p>Some special values are:</p>
+<div class="math">
+<p><img src="../../_images/math/87ae9a06dbdfac59aefc6957503283ff13ab58d0.png" alt="\Gamma(z, 0) = \int_0^\infty t^{z-1} e^{-t} \d t = \Gamma(z)
+
+\Gamma(1, x) = \int_x^\infty e^{-t} \d t = -[e^{-t}]_x^\infty = e^{-x}
+
+\Gamma(\half, x)
+    = \int_x^\infty t^{-\half} e^{-t} \d t
+    = 2\int_{\sqrt{x}}^\infty e^{-s^2} \d s
+    = \sqrt{\pi} \mbox{erfc}(\sqrt{x})"/></p>
+</div><p>For integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/41a162ab28a13b678943e757c9e20a1fedb30d4d.png" alt="\Gamma(n+1, x)
+    = n\Gamma(n, x) + x^n e^{-x}
+    = n(n-1)\Gamma(n-1, x) + (n x^{n-1} + x^n) e^{-x} =
+
+    = n(n-1)(n-2)\Gamma(n-2, x) + (n (n-1) x^{n-2}
+        + n x^{n-1} + x^n) e^{-x} =
+
+    = n(n-1)(n-2)\cdots 2\cdot 1\cdot \Gamma(1, x)
+        + (n(n-1)\cdots 2 x^1 + \cdots
+          + n (n-1) x^{n-2} + n x^{n-1} + x^n) e^{-x} =
+
+    = n! e^{-x} + (n(n-1)\cdots 2 x^1 + \cdots
+          + n (n-1) x^{n-2} + n x^{n-1} + x^n) e^{-x} =
+
+    = n! e^{-x}\sum_{\nu=0}^n {x^\nu\over\nu!}"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/9546a7847c70187d272c3ade1965b4fb816866f7.png" alt="\Gamma(n+\half, x)
+    = (n-\half)\Gamma(n-\half, x) + x^{n-\half} e^{-x}
+    = (n-\half)(n-1-\half)\Gamma(n-1-\half, x)
+        + ((n-\half) x^{n-1-\half} + x^{n-\half})) e^{-x} =
+
+    = (n-\half)(n-1-\half)\cdots\half\Gamma(\half, x)
+        + ((n-\half)(n-1-\half)\cdots(1+\half) x^\half + \cdots +
+            (n-\half) x^{n-1-\half} + x^{n-\half})) e^{-x} =
+
+    = {(2n-1)!!\over 2^n}\Gamma(\half, x)
+        +
+        {(2n-1)!!\over 2^n} e^{-x}\sum_{\nu=1}^n
+            {2^\nu x^{\nu-\half}\over(2\nu-1)!!} =
+
+    = {(2n-1)!!\over 2^n}\left(\sqrt\pi \mbox{erfc}(\sqrt x)
+        +
+        e^{-x}\sum_{\nu=1}^n
+            {2^\nu x^{\nu-\half}\over(2\nu-1)!!} \right)"/></p>
+</div></div>
 <div class="section" id="factorial">
 <h1>Factorial<a class="headerlink" href="#factorial" title="Permalink to this headline">¶</a></h1>
 <p>The factorial <img class="math" src="../../_images/math/63f344e7d8b14a7886fc7fb72da53cd0a3271dcc.png" alt="n!"/> is defined as</p>
@@ -1424,6 +1483,7 @@ B(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
 <li><a class="reference internal" href="#binomial-coefficients">Binomial Coefficients</a></li>
 <li><a class="reference internal" href="#triangle-inequality">Triangle Inequality</a></li>
 <li><a class="reference internal" href="#gamma-function">Gamma Function</a></li>
+<li><a class="reference internal" href="#incomplete-gamma-function">Incomplete Gamma Function</a></li>
 <li><a class="reference internal" href="#factorial">Factorial</a></li>
 <li><a class="reference internal" href="#double-factorial">Double Factorial</a><ul>
 <li><a class="reference internal" href="#example">Example</a></li>
