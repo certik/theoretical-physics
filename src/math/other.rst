@@ -1892,6 +1892,80 @@ and
         = {(2n-1)!!\over 2^n}\Gamma(\half)
         = {(2n-1)!!\over 2^n}\sqrt\pi
 
+Incomplete Gamma Function
+-------------------------
+
+The incomplete gamma function is defined by:
+
+.. math::
+
+    \Gamma(z, x) = \int_x^\infty t^{z-1} e^{-t} \d t
+
+Integrating by parts we get:
+
+.. math::
+
+    \Gamma(z+1, x)
+        = \int_x^\infty t^z e^{-t} \d t
+        = z\int_x^\infty t^{z-1} e^{-t} \d t-[t^ze^{-t}]_x^\infty
+        = z\Gamma(z, x) + x^z e^{-x}
+
+Some special values are:
+
+.. math::
+
+    \Gamma(z, 0) = \int_0^\infty t^{z-1} e^{-t} \d t = \Gamma(z)
+
+    \Gamma(1, x) = \int_x^\infty e^{-t} \d t = -[e^{-t}]_x^\infty = e^{-x}
+
+    \Gamma(\half, x)
+        = \int_x^\infty t^{-\half} e^{-t} \d t
+        = 2\int_{\sqrt{x}}^\infty e^{-s^2} \d s
+        = \sqrt{\pi} \mbox{erfc}(\sqrt{x})
+
+
+For integer $n$ we get:
+
+.. math::
+
+    \Gamma(n+1, x)
+        = n\Gamma(n, x) + x^n e^{-x}
+        = n(n-1)\Gamma(n-1, x) + (n x^{n-1} + x^n) e^{-x} =
+
+        = n(n-1)(n-2)\Gamma(n-2, x) + (n (n-1) x^{n-2}
+            + n x^{n-1} + x^n) e^{-x} =
+
+        = n(n-1)(n-2)\cdots 2\cdot 1\cdot \Gamma(1, x)
+            + (n(n-1)\cdots 2 x^1 + \cdots
+              + n (n-1) x^{n-2} + n x^{n-1} + x^n) e^{-x} =
+
+        = n! e^{-x} + (n(n-1)\cdots 2 x^1 + \cdots
+              + n (n-1) x^{n-2} + n x^{n-1} + x^n) e^{-x} =
+
+        = n! e^{-x}\sum_{\nu=0}^n {x^\nu\over\nu!}
+
+and
+
+.. math::
+
+    \Gamma(n+\half, x)
+        = (n-\half)\Gamma(n-\half, x) + x^{n-\half} e^{-x}
+        = (n-\half)(n-1-\half)\Gamma(n-1-\half, x)
+            + ((n-\half) x^{n-1-\half} + x^{n-\half})) e^{-x} =
+
+        = (n-\half)(n-1-\half)\cdots\half\Gamma(\half, x)
+            + ((n-\half)(n-1-\half)\cdots(1+\half) x^\half + \cdots +
+                (n-\half) x^{n-1-\half} + x^{n-\half})) e^{-x} =
+
+        = {(2n-1)!!\over 2^n}\Gamma(\half, x)
+            +
+            {(2n-1)!!\over 2^n} e^{-x}\sum_{\nu=1}^n
+                {2^\nu x^{\nu-\half}\over(2\nu-1)!!} =
+
+        = {(2n-1)!!\over 2^n}\left(\sqrt\pi \mbox{erfc}(\sqrt x)
+            +
+            e^{-x}\sum_{\nu=1}^n
+                {2^\nu x^{\nu-\half}\over(2\nu-1)!!} \right)
 
 Factorial
 ---------
