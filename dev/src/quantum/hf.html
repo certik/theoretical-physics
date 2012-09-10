@@ -1543,9 +1543,9 @@ R^k(n_1 l_1, n_2 l_2, n_1' l_1', n_2' l_2')"/></p>
 It turns out that all integrals that we need can be expressed in terms
 of the following simple integral (where <img class="math" src="../../_images/math/5000e45201013497f6bbcdf11a5c2ae1f85dfec8.png" alt="n,\zeta \ge 0"/>):</p>
 <div class="math" id="equation-slater_basic">
-<p><span class="eqno">(11)</span><img src="../../_images/math/7d06583d0d197f25048a616f01418f9103454873.png" alt="\int_0^\infty r^n e^{-\zeta r} \d r
-    =\int_0^\infty \left(x\over\zeta\right)^n e^{-r} {\d r\over\zeta}
-    ={1\over\zeta^{n+1}} \int_0^\infty x^n e^{-r} \d r
+<p><span class="eqno">(11)</span><img src="../../_images/math/f3cc85dc4d994af455e9b5e300fce81f7f7f0ad7.png" alt="\int_0^\infty r^n e^{-\zeta r} \d r
+    =\int_0^\infty \left(x\over\zeta\right)^n e^{-x} {\d x\over\zeta}
+    ={1\over\zeta^{n+1}} \int_0^\infty x^n e^{-x} \d x
     ={\Gamma(n+1)\over\zeta^{n+1}}
     ={n!\over\zeta^{n+1}}"/></p>
 </div><p>The STO basis function for the radial Schrödinger equation for <img class="math" src="../../_images/math/1e8189b812353fb70995c493c23bf5d6ff2feb6f.png" alt="P(r)"/> is:</p>
@@ -1568,7 +1568,8 @@ radial Schrödinger equation for <img class="math" src="../../_images/math/4b4ca
 <div class="section" id="id1">
 <h3>Overlap<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/48e51331cf14edaea3c80b726572aa447a4f8036.png" alt="\int P_{n_i \zeta_i}(r) P_{n_j \zeta_j}(r) \d r =
+<p><img src="../../_images/math/f6c743b06cf8c76a5eac6d060a52f47afe230e97.png" alt="S_{ij} =
+\int P_{n_i \zeta_i}(r) P_{n_j \zeta_j}(r) \d r =
 
     = \int
         N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r}
@@ -1585,7 +1586,8 @@ radial Schrödinger equation for <img class="math" src="../../_images/math/4b4ca
 <div class="section" id="id2">
 <h3>Potential<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/8c86e107c8821eaa7fd2578fb6c065a23bfffe4e.png" alt="\int P_{n_i\zeta_i}(r) \left(-{Z\over r}\right) P_{n_j\zeta_j}(r) \d r =
+<p><img src="../../_images/math/8c2c2289059e3456f2b80e455c71f155dfdd4cb4.png" alt="V_{ij} =
+\int P_{n_i\zeta_i}(r) \left(-{Z\over r}\right) P_{n_j\zeta_j}(r) \d r =
 
 = \int
     N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r}
@@ -1603,7 +1605,8 @@ radial Schrödinger equation for <img class="math" src="../../_images/math/4b4ca
 <div class="section" id="id3">
 <h3>Kinetic<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/ce9621184fac8ed68b7b503693ae08751cfa7a22.png" alt="\int \left( \half P_{n_i\zeta_i}'(r) P_{n_j\zeta_j}'(r)
+<p><img src="../../_images/math/8dfbd3f86869cd4d2ac3b392dfe890422b2e3469.png" alt="T_{ij} =
+\int \left( \half P_{n_i\zeta_i}'(r) P_{n_j\zeta_j}'(r)
         +P_{n_i\zeta_i}(r) {l (l+1)\over 2 r^2} P_{n_j\zeta_j}(r) \right)
     \d r =
 
@@ -1654,9 +1657,17 @@ radial Schrödinger equation for <img class="math" src="../../_images/math/4b4ca
 <h3>Two particle<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>In this section we also need the following integral:</p>
 <div class="math">
-<p><img src="../../_images/math/e3572e5445ab70b99ceb2494489beedf7811538b.png" alt="\int_u^\infty r^n e^{-\zeta r} \d r = {n!\over \zeta^{n+1}}
+<p><img src="../../_images/math/4ecf82141074d8b5b87df262b51d55c9df3f21f6.png" alt="\int_u^\infty r^n e^{-\zeta r} \d r
+    = {1\over\zeta^{n+1}} \int_{\zeta u}^\infty x^n e^{-x} \d x
+    = {\Gamma(n+1, \zeta u)\over\zeta^{n+1}}
+    = {n!\over \zeta^{n+1}}
     e^{-\zeta u} \sum_{\nu=0}^n {u^\nu \zeta^\nu \over \nu!}"/></p>
-</div><p>The Slater integral is</p>
+</div><p>where</p>
+<div class="math">
+<p><img src="../../_images/math/0a3a68f9d54e44ec5ee5936e12235fba76c0659e.png" alt="\Gamma(n, x) = \int_x^\infty t^{n-1} e^{-t}\d t
+    = (n-1)! e^{-x} \sum_{\nu=0}^{n-1} {x^\nu\over \nu!}"/></p>
+</div><p>is the incomplete gamma function.</p>
+<p>The Slater integral is</p>
 <div class="math">
 <p><img src="../../_images/math/9aa3c7be8e33b028482f80053c728cf5214c7c23.png" alt="R^k(i, j, k, l) = \int_0^\infty \int_0^\infty
     {r_&lt;^k\over r_&gt;^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') \d r \d r' =
@@ -1855,6 +1866,227 @@ radial Schrödinger equation for <img class="math" src="../../_images/math/4b4ca
             \sum_{\nu=0}^{n_i+n_k-k-1}{
                 (n_j+n_l+k+\nu)! (\zeta_i+\zeta_k)^\nu\over
                 \nu!(\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+\nu+1}}"/></p>
+</div></div>
+</div>
+<div class="section" id="gaussian-type-orbitals-gto">
+<h2>Gaussian Type Orbitals (GTO)<a class="headerlink" href="#gaussian-type-orbitals-gto" title="Permalink to this headline">¶</a></h2>
+<p>In this section we express the matrix elements in the GTO basis.
+It turns out that all integrals that we need can be expressed in terms
+of the following simple integral (where <img class="math" src="../../_images/math/5000e45201013497f6bbcdf11a5c2ae1f85dfec8.png" alt="n,\zeta \ge 0"/>):</p>
+<div class="math" id="equation-gto_basic">
+<p><span class="eqno">(14)</span><img src="../../_images/math/88db6d16c64cff354060a519a6b0705c05e29d08.png" alt="\int_0^\infty r^n e^{-\zeta r^2} \d r
+    = {1\over\sqrt{\zeta^{n+1}}} \int_0^\infty x^n e^{-x^2} \d x
+    = {1\over2\sqrt{\zeta^{n+1}}} \int_0^\infty t^{n-1\over 2} e^{-t} \d t
+    = {\Gamma({n+1\over2})\over2 \zeta^{n+1\over2}} =
+
+    = \begin{cases}
+    (n-1)!! \sqrt{\pi\over 2 (2\zeta)^{n+1}} &amp; \text{for even $n$} \\
+    {\left(n-1\over2\right)!\over 2 \sqrt{\zeta^{n+1}}} &amp;
+        \text{for odd $n$} \\
+    \end{cases}"/></p>
+</div><p>The GTO basis function for the radial Schrödinger equation for <img class="math" src="../../_images/math/1e8189b812353fb70995c493c23bf5d6ff2feb6f.png" alt="P(r)"/> is:</p>
+<div class="math" id="equation-gto_P">
+<p><span class="eqno">(15)</span><img src="../../_images/math/625526cd84c7357d144359f7f15be7e6ab0243f6.png" alt="P_{n\zeta}(r) = N_{n\zeta} r^n e^{-\zeta r^2}"/></p>
+</div><p>However, unlike STO, the GTO functions must satisfy the condition
+<img class="math" src="../../_images/math/12a8a9b2347494f51325b567bb02483a14a977bd.png" alt="n = l + 2i + 1"/> where <img class="math" src="../../_images/math/fd64a9920d05473ea5b52939bbef31c0494ad945.png" alt="i=0, 1, 2, \dots"/> (this condition is later used
+in <a href="#equation-gto_basic">(14)</a> to determine whether <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> is even or odd).
+The normalization constant <img class="math" src="../../_images/math/4a8dbfda5f6199c266c2bc0d0775109778c50aa3.png" alt="N_{n\zeta}"/> is such that the GTO orbital is
+normalized as the radial wavefunction <img class="math" src="../../_images/math/1e8189b812353fb70995c493c23bf5d6ff2feb6f.png" alt="P(r)"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/b3804917ad330f0f8a08eb081c3d498397f46bd8.png" alt="1 = \int_0^\infty P_{n\zeta}^2(r) \d r
+    = N_{n\zeta}^2 \int_0^\infty r^{2n} e^{-2\zeta r^2} \d r
+    = N_{n\zeta}^2 (2n-1)!! \sqrt{\pi\over 2 (4\zeta)^{2n+1}}"/></p>
+</div><p>from which we get:</p>
+<div class="math">
+<p><img src="../../_images/math/edeeff8d8596ac3844be533bb104cd9e01644ac4.png" alt="N_{n\zeta} = \sqrt{{1\over (2n-1)!!}\sqrt{2 (4\zeta)^{2n+1}\over\pi}}"/></p>
+</div><p>Note that for <img class="math" src="../../_images/math/74a66b8dc4c6d8982328bbd7333ddc469f748c51.png" alt="R(r)={P(r)\over r}"/> we get the following GTO basis function:</p>
+<div class="math" id="equation-gto_R">
+<p><span class="eqno">(16)</span><img src="../../_images/math/23b7df174f641c5a90cbb823dbe909447bc97745.png" alt="R_{n\zeta}(r) = {P_{n\zeta}(r)\over r} = N_{n\zeta} r^{n-1} e^{-\zeta r^2}"/></p>
+</div><p>One uses either <a href="#equation-sto_P">(12)</a> or <a href="#equation-sto_R">(13)</a> depending on whether one solves the
+radial Schrödinger equation for <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> or for <img class="math" src="../../_images/math/39f1dc1f28cc1e49befa9458b06421182e347ee3.png" alt="R={P\over r}"/>.</p>
+<div class="section" id="id5">
+<h3>Overlap<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/d0999dee7f0566ca570bd606aa2b5b6fec398312.png" alt="S_{ij} = \int P_{n_i \zeta_i}(r) P_{n_j \zeta_j}(r) \d r =
+
+    = \int
+        N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r^2}
+        N_{n_j\zeta_j} r^{n_j} e^{-\zeta_j r^2}
+     \d r =
+
+    = N_{n_i\zeta_i} N_{n_j\zeta_j} \int
+         r^{n_i + n_j} e^{-(\zeta_i+\zeta_j) r^2}
+     \d r =
+
+    = N_{n_i\zeta_i} N_{n_j\zeta_j} {\Gamma({n_i+n_j+1\over 2}) \over
+        2(\zeta_i+\zeta_j)^{n_i+n_j+1\over 2}} =
+
+    = N_{n_i\zeta_i} N_{n_j\zeta_j}
+        (n_i + n_j -1)!! \sqrt{\pi\over
+            2(2\zeta_i+2\zeta_j)^{n_i+n_j+1}}"/></p>
+</div></div>
+<div class="section" id="id6">
+<h3>Potential<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/5d52a360fc25905c91d20287fefe77c7fde2e323.png" alt="V_{ij} =
+\int P_{n_i\zeta_i}(r) \left(-{Z\over r}\right) P_{n_j\zeta_j}(r) \d r =
+
+= \int
+    N_{n_i\zeta_i} r^{n_i} e^{-\zeta_i r^2}
+    \left(-{Z\over r}\right)
+    N_{n_j\zeta_j} r^{n_j} e^{-\zeta_j r^2}
+    \d r =
+
+= -Z N_{n_i\zeta_i} N_{n_j\zeta_j} \int
+     r^{n_i+n_j-1} e^{-(\zeta_i+\zeta_j) r^2}
+    \d r =
+
+= -Z N_{n_i\zeta_i} N_{n_j\zeta_j}
+    {\Gamma({n_i+n_j\over 2}) \over
+        2(\zeta_i+\zeta_j)^{n_i+n_j\over 2}} =
+
+= -Z N_{n_i\zeta_i} N_{n_j\zeta_j}
+    {\left(n_i + n_j - 2\over 2\right)! \over
+        2\sqrt{(\zeta_i+\zeta_j)^{n_i+n_j}}}"/></p>
+</div></div>
+<div class="section" id="id7">
+<h3>Kinetic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="math">
+<p><img src="../../_images/math/57970cca11ddcdb9cb25be2245cef799086fb619.png" alt="T_{ij} =
+\int \left( \half P_{n_i\zeta_i}'(r) P_{n_j\zeta_j}'(r)
+        +P_{n_i\zeta_i}(r) {l (l+1)\over 2 r^2} P_{n_j\zeta_j}(r) \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+        {\d\over\d r}(r^{n_i} e^{-\zeta_i r^2})
+        {\d\over\d r}(r^{n_j} e^{-\zeta_j r^2})
+        +r^{n_i} e^{-\zeta_i r^2} {l (l+1)\over r^2}
+            r^{n_j} e^{-\zeta_j r^2}
+        \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+        (n_i r^{n_i-1} e^{-\zeta_i r^2}
+                        -2\zeta_i r^{n_i+1} e^{-\zeta_i r^2})
+                    (n_j r^{n_j-1} e^{-\zeta_j r^2}
+                        -2\zeta_j r^{n_j+1} e^{-\zeta_j r^2})
+        +l (l+1) r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r^2}
+        \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+    \left(
+                {n_i n_j\over r^2}
+               -2(n_i \zeta_j+n_j\zeta_i)
+               +4\zeta_i \zeta_j r^2
+            \right) r^{n_i+n_j} e^{-(\zeta_i+\zeta_j) r^2}
+        +l (l+1) r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r^2}
+        \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\int \left(
+    (n_i n_j + l(l+1))       r^{n_i+n_j-2} e^{-(\zeta_i+\zeta_j) r^2}
+   -2(n_i \zeta_j+n_j\zeta_i) r^{n_i+n_j} e^{-(\zeta_i+\zeta_j) r^2}
+   +4\zeta_i \zeta_j          r^{n_i+n_j+2} e^{-(\zeta_i+\zeta_j) r^2}
+        \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j} \left(
+    (n_i n_j + l(l+1)) {\Gamma({n_i+n_j-1\over 2}) \over
+        2(\zeta_i+\zeta_j)^{n_i+n_j-1\over 2}}
+   -2(n_i \zeta_j+n_j\zeta_i) {\Gamma({n_i+n_j+1\over 2}) \over
+        2(\zeta_i+\zeta_j)^{n_i+n_j+1\over 2}}
+   +4\zeta_i \zeta_j {\Gamma({n_i+n_j+3\over 2}) \over
+        2(\zeta_i+\zeta_j)^{n_i+n_j+3\over 2}}
+        \right)
+    \d r =
+
+= \half N_{n_i\zeta_i}N_{n_j\zeta_j}\Bigg(
+    (n_i n_j + l(l+1))
+        {(n_i + n_j - 3)!! \sqrt{\pi\over
+            2(2\zeta_i+2\zeta_j)^{n_i + n_j - 1}}} +
+
+   -2(n_i \zeta_j+n_j\zeta_i)
+        {(n_i + n_j - 1)!! \sqrt{\pi\over
+            2(2\zeta_i+2\zeta_j)^{n_i + n_j + 1}}} +
+
+   +4\zeta_i \zeta_j
+        {(n_i + n_j + 1)!! \sqrt{\pi\over
+            2(2\zeta_i+2\zeta_j)^{n_i + n_j + 3}}}
+        \Bigg)"/></p>
+</div></div>
+<div class="section" id="id8">
+<h3>Two particle<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>We will need the following integral:</p>
+<div class="math">
+<p><img src="../../_images/math/14be157b75d28e51a4b3343229ce946064bb6edb.png" alt="\int_u^\infty r^n e^{-\zeta r^2} \d r
+    = {1\over2\zeta^{n+1\over2}}
+        \int_{\zeta u^2}^\infty x^{n-1\over2} e^{-x} \d x
+    = {\Gamma({n+1\over2}, \zeta u^2)\over2\zeta^{n+1\over2}}"/></p>
+</div><p>Just like for STO, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/90409199f2ef206d47415b8a482eddc2278084cd.png" alt="R^k(i, j, k, l)
+    = R^k_\triangle(i, j, k, l) + R^k_\triangle(j, i, l, k)"/></p>
+</div><p>where <img class="math" src="../../_images/math/980a78439f0a9e54645cabb66ed2ec314464c3ef.png" alt="R^k_\triangle(i, j, k, l)"/> is the integral over the lower triangle
+(assuming <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> is the <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-axis and <img class="math" src="../../_images/math/8db99a3261aeba6b17548670b2445e79d4d0e4c3.png" alt="r'"/> is the <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/>-axis), that is <img class="math" src="../../_images/math/32d37f3c0c56ba8d162f5b296efcb6f39d1a641a.png" alt="r&gt;r'"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/b7efd09b000bd5135aaf477d45c71cb31811b620.png" alt="R^k_\triangle(i, j, k, l)
+    = \int_0^\infty \d r \int_0^{r} \d r'
+        {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+    = \int_0^\infty \d r' \int_{r'}^\infty \d r
+        {r'^k\over r^{k+1}} P_i(r) P_k(r) P_j(r') P_l(r') =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+        \int_0^\infty \d r' \int_{r'}^\infty \d r
+        {r'^k\over r^{k+1}} r^{n_i + n_k} r'^{n_j+n_l}
+        e^{-(\zeta_i+\zeta_k)r^2}
+        e^{-(\zeta_j+\zeta_l)r'^2}
+        =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+        \int_0^\infty \d r' r'^k r'^{n_j+n_l}
+        e^{-(\zeta_j+\zeta_l)r'^2}
+        {\Gamma({n_i+n_k-k\over2}, (\zeta_i+\zeta_k)r'^2)\over
+            2(\zeta_i+\zeta_k)^{n_i+n_k-k\over2}}
+        =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+        \int_0^\infty \d r' r'^k r'^{n_j+n_l}
+        e^{-(\zeta_i+\zeta_j+\zeta_k+\zeta_l)r'^2}
+        {\left({n_i+n_k-k\over2}-1\right)! \over
+            2(\zeta_i+\zeta_k)^{n_i+n_k-k\over2}}
+        \sum_{\nu=0}^{n_i+n_k-k-2\over2}{(\zeta_i+\zeta_k)^\nu r'^{2\nu}
+            \over \nu!}
+        =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+        {\left({n_i+n_k-k\over2}-1\right)! \over
+            2(\zeta_i+\zeta_k)^{n_i+n_k-k\over2}}
+        \sum_{\nu=0}^{n_i+n_k-k-2\over2}{(\zeta_i+\zeta_k)^\nu \over \nu!}
+        {\Gamma({n_j+n_l+k+2\nu+1\over2})\over 2
+            (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+2\nu+1\over2}}
+        =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+        {\left({n_i+n_k-k\over2}-1\right)! \over
+            2(\zeta_i+\zeta_k)^{n_i+n_k-k\over2}}
+        \sum_{\nu=0}^{n_i+n_k-k-2\over2}{(\zeta_i+\zeta_k)^\nu \over \nu!}
+        {(n_j+n_l+k+2\nu-1)!!\sqrt{\pi}\over 2^{n_j+n_l+k+2\nu+2\over 2}
+            (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^{n_j+n_l+k+2\nu+1\over2}}
+        =
+
+    = N_{n_i\zeta_i}N_{n_j\zeta_j}N_{n_k\zeta_k}N_{n_l\zeta_l}
+        {\sqrt{\pi}\over 2^{p+2}\sqrt{(\zeta_i+\zeta_j+\zeta_k
+            +\zeta_l)^{2p+1}}}
+            H^k_{ijkl}"/></p>
+</div><p>where <img class="math" src="../../_images/math/fd8ee62754f3593e8afdb3f0d9cffeff8552525a.png" alt="p={n_i+n_j+n_k+n_l-2\over2}"/> and:</p>
+<div class="math">
+<p><img src="../../_images/math/c389b720ef279fc2a6dbb8049e20da4f6c86e6b0.png" alt="H^k_{ijkl} =
+            \sum_{\nu=0}^{n_i+n_k-k\over2}{
+                (2p-2\nu-1)!! \left(n_i+n_k-k\over 2\right)!
+                    2^\nu (\zeta_i+\zeta_j+\zeta_k+\zeta_l)^\nu \over
+                        (n_i+n_k-\nu)! (\lambda_i + \lambda_k)^{1+\nu}}"/></p>
 </div></div>
 </div>
 <div class="section" id="exchange-integral-in-spherical-symmetry">
@@ -2406,7 +2638,7 @@ multiplication by 2. We assumed closed shells atoms (we summed over all <img cla
 the above). We used the result of the integral in
 <a class="reference internal" href="../math/spherical-harmonics.html#five-spherical-harmonics"><em>Example VI</em></a> and also:</p>
 <div class="math" id="equation-using3j">
-<p><span class="eqno">(14)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
+<p><span class="eqno">(17)</span><img src="../../_images/math/2988128f34998233a3b1efbf2ac77c95d6211a9d.png" alt="\sqrt{2l'+1\over 2l+1} c^k(l', 0, l, 0)
     = \sqrt{2l'+1\over 2l+1}
         \sqrt{(2l'+1)(2l+1)}
         \begin{pmatrix} l &amp; k &amp; l' \\ 0 &amp; 0 &amp; 0 \end{pmatrix}^2
@@ -2806,7 +3038,7 @@ two particle integrals over atomic (or molecular) orbitals <img class="math" src
 </div><p>The <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>, <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/> are occupied orbitals, <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>, <img class="math" src="../../_images/math/f37bba504894945c07a32f5496d74299a37aa51c.png" alt="s"/> are virtual orbitals.
 The Dyson equation is:</p>
 <div class="math" id="equation-Dyson">
-<p><span class="eqno">(15)</span><img src="../../_images/math/6f95f8be3ac3ee0ae1a506dc3197d0f76c928cd5.png" alt="{\bf G}(E) = {\bf G}_0(E) + {\bf G}_0(E) {\boldsymbol\Sigma}(E) {\bf G}(E)"/></p>
+<p><span class="eqno">(18)</span><img src="../../_images/math/6f95f8be3ac3ee0ae1a506dc3197d0f76c928cd5.png" alt="{\bf G}(E) = {\bf G}_0(E) + {\bf G}_0(E) {\boldsymbol\Sigma}(E) {\bf G}(E)"/></p>
 </div><p>where</p>
 <div class="math">
 <p><img src="../../_images/math/e70b6725b47fc12f4e5f79c0d951b72eb61958d8.png" alt="{\bf G}_0(E) = {1\over E - {\boldsymbol \epsilon}}
@@ -2841,7 +3073,7 @@ spectral density function <img class="math" src="../../_images/math/329e7946593a
 
 = \lim_{\eta\to0} {i\over 2\pi}
     \left({\bf G}(z+i\eta) - {\bf G}(z-i\eta)\right)"/></p>
-</div><p>From <a href="#equation-Dyson">(15)</a> we get:</p>
+</div><p>From <a href="#equation-Dyson">(18)</a> we get:</p>
 <div class="math">
 <p><img src="../../_images/math/29a063ade71d4e0619d05eb8d43b6cfc5396b992.png" alt="{1\over {\bf G}_0(E)} {\bf G}(E) = 1 + {\boldsymbol \Sigma}(E) {\bf G}(E)
 
@@ -2933,6 +3165,13 @@ Similarly for the total energy <img class="math" src="../../_images/math/2cb6214
 <li><a class="reference internal" href="#id2">Potential</a></li>
 <li><a class="reference internal" href="#id3">Kinetic</a></li>
 <li><a class="reference internal" href="#id4">Two particle</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gaussian-type-orbitals-gto">Gaussian Type Orbitals (GTO)</a><ul>
+<li><a class="reference internal" href="#id5">Overlap</a></li>
+<li><a class="reference internal" href="#id6">Potential</a></li>
+<li><a class="reference internal" href="#id7">Kinetic</a></li>
+<li><a class="reference internal" href="#id8">Two particle</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#exchange-integral-in-spherical-symmetry">Exchange Integral in Spherical Symmetry</a></li>
