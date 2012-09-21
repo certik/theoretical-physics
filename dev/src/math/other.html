@@ -1427,6 +1427,26 @@ The recursion relation is then:</p>
         \Gamma(z) e^{-x} \sum_{k=0}^n {x^k\over \Gamma(z+k+1)} ="/></p>
 </div><div class="math" id="equation-gamma_series">
 <p><span class="eqno">(20)</span><img src="../../_images/math/013774a7ff502aaf6ede50eabc5b06d52846a1ae.png" alt="= x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}"/></p>
+</div><p>where we used:</p>
+<div class="math">
+<p><img src="../../_images/math/1cd793700e5aaff1fe87b5e081adbac1cef356b1.png" alt="\lim_{z\to\infty} {\gamma(z, x)\over\Gamma(z)} = 0"/></p>
+</div><p>which can be proven by the following inequality which uses the fact that the
+function <img class="math" src="../../_images/math/c1e9f1ad9c09f8e308643efa37501b5584e4a3aa.png" alt="f(t) = t^{z-1} e^{-t}"/> is an increasing function for <img class="math" src="../../_images/math/cdfc21db6d75c089faba98ea6bc367a4ec8172d0.png" alt="t &lt; z-1"/>, so as
+long as <img class="math" src="../../_images/math/18cbbd4e8f6dcd6a361603509fe5aa91332e7bed.png" alt="x &lt; z-1"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/77e460ec9be9be03fe4fcdb6ed378dfbf91d2815.png" alt="\gamma(z, x)
+    = \int_0^x t^{z-1} e^{-t} \d t
+    = \int_0^x f(t) \d t &lt;
+
+    &lt; \int_0^x f(x) \d t = x f(x) =
+
+    = {x \over z - 1 - x} \int_x^{z-1} f(x) \d t &lt;
+
+    &lt; {x \over z - 1 - x} \int_x^{z-1} f(t) \d t &lt;
+
+    &lt; {x \over z - 1 - x} \int_0^\infty f(t) \d t =
+
+    = {x \over z - 1 - x} \Gamma(z)"/></p>
 </div><div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>Consider the class of integrals:</p>

@@ -2015,6 +2015,32 @@ By repeated application of the recursion formula we get:
 
         = x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}
 
+where we used:
+
+.. math::
+
+    \lim_{z\to\infty} {\gamma(z, x)\over\Gamma(z)} = 0
+
+which can be proven by the following inequality which uses the fact that the
+function $f(t) = t^{z-1} e^{-t}$ is an increasing function for $t < z-1$, so as
+long as $x < z-1$ we get:
+
+.. math::
+
+    \gamma(z, x)
+        = \int_0^x t^{z-1} e^{-t} \d t
+        = \int_0^x f(t) \d t <
+
+        < \int_0^x f(x) \d t = x f(x) =
+
+        = {x \over z - 1 - x} \int_x^{z-1} f(x) \d t <
+
+        < {x \over z - 1 - x} \int_x^{z-1} f(t) \d t <
+
+        < {x \over z - 1 - x} \int_0^\infty f(t) \d t =
+
+        = {x \over z - 1 - x} \Gamma(z)
+
 Example
 ~~~~~~~
 
