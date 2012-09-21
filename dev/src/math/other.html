@@ -1338,7 +1338,7 @@ for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e9655
 </div></div>
 <div class="section" id="incomplete-gamma-function">
 <h1>Incomplete Gamma Function<a class="headerlink" href="#incomplete-gamma-function" title="Permalink to this headline">¶</a></h1>
-<p>The incomplete gamma function is defined by:</p>
+<p>The upper incomplete gamma function is defined by:</p>
 <div class="math">
 <p><img src="../../_images/math/1d3051ff6524cd0f135f44897db91758bea01b01.png" alt="\Gamma(z, x) = \int_x^\infty t^{z-1} e^{-t} \d t"/></p>
 </div><p>Integrating by parts we get:</p>
@@ -1394,7 +1394,85 @@ for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e9655
         +
         e^{-x}\sum_{\nu=1}^n
             {2^\nu x^{\nu-\half}\over(2\nu-1)!!} \right)"/></p>
+</div><p>The lower incomplete gamma function is defined by:</p>
+<div class="math">
+<p><img src="../../_images/math/48ab60760e819c5e6e15b623a2ab257fc9993e58.png" alt="\gamma(z, x) = \int_0^x t^{z-1} e^{-t} \d t = \Gamma(z) - \Gamma(z, x)"/></p>
+</div><p>and as such all expressions can be easily derived using the gamma and upper
+incomplete gamma functions.
+The recursion relation is then:</p>
+<div class="math">
+<p><img src="../../_images/math/083586b60dd276d96efdbcebd32c004bbd7a603f.png" alt="\gamma(z+1, x) = \Gamma(z+1) - \Gamma(z+1, x)
+    = z \Gamma(z) - (z\Gamma(z, x) + x^z e^{-x})
+    = z \gamma(z, x) - x^z e^{-x}"/></p>
+</div><p>Some special values are:</p>
+<div class="math">
+<p><img src="../../_images/math/7da61817d06d4b4bc66783779040c51b9a2d5129.png" alt="\gamma(z, 0) = \Gamma(z) - \Gamma(z, 0) = \Gamma(z) - \Gamma(z) = 0
+
+\gamma(1, x) = \Gamma(1) - \Gamma(1, x) = 1 - e^{-x}
+
+\gamma(\half, x) = \Gamma(\half) - \Gamma(\half, x)
+    = \sqrt\pi - \sqrt\pi \mbox{erfc}(\sqrt x)
+    = \sqrt\pi \mbox{erf}(\sqrt x)"/></p>
+</div><p>By repeated application of the recursion formula we get:</p>
+<div class="math">
+<p><img src="../../_images/math/10d7fdf1e99a95791c4c024b382663b6b02e9d91.png" alt="\gamma(z, x)
+    = {1\over z}\gamma(z+1, x) + e^{-x} {x^z\over z}
+    = {1\over z(z+1)}\gamma(z+2, x) + e^{-x} \left({x^z\over z}
+        + {x^{z+1}\over z(z+1)}\right) =
+
+    = {1\over z(z+1)\cdots(z+n)}\gamma(z+n+1, x) + e^{-x}
+        \sum_{k=0}^n {x^{z+k}\over z(z+1)\cdots(z+k)} =
+
+    = {\Gamma(z)\over \Gamma(z+n+1)}\gamma(z+n+1, x) + x^z
+        \Gamma(z) e^{-x} \sum_{k=0}^n {x^k\over \Gamma(z+k+1)} ="/></p>
+</div><div class="math" id="equation-gamma_series">
+<p><span class="eqno">(20)</span><img src="../../_images/math/013774a7ff502aaf6ede50eabc5b06d52846a1ae.png" alt="= x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}"/></p>
+</div><div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Consider the class of integrals:</p>
+<div class="math">
+<p><img src="../../_images/math/7efa5d1608f780b56a7b4652ee3c6a684d4780c4.png" alt="F_m(t) = \int_0^1 u^{2m} e^{-tu^2} \d u, \quad\quad
+    \mbox{($t&gt;0$; $m=0,1,2,\dots$)}"/></p>
+</div><p>We write them using the lower incomplete gamma function as:</p>
+<div class="math">
+<p><img src="../../_images/math/3db7af938fb11ea7c593b1c267619ebd0130ea02.png" alt="F_m(t) = \int_0^t \left(v\over t\right)^m e^{-v}
+        \left(v\over t\right)^{-\half}{\d v\over 2 t}
+    = {1\over 2 t^{m+\half}}\int_0^t v^{m-\half} e^{-v} \d v
+    = {\gamma(m+\half, t)\over 2 t^{m+\half}}"/></p>
+</div><p>For <img class="math" src="../../_images/math/2e275495e7e44d279fb3e5051b3a63115e79ead5.png" alt="m=0"/> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/fc3d2655c949e06989a2eae7460cb5c1a4b34f21.png" alt="F_0(t) = {\gamma(\half, t)\over 2 t^{\half}}
+    = \half \sqrt{\pi\over t} \mbox{erf}(\sqrt t)"/></p>
+</div><p>Using the recursion relation we get:</p>
+<div class="math">
+<p><img src="../../_images/math/0544b6686ec8e22741e600713a494063698da5fc.png" alt="F_{m+1}(t)
+    = {\gamma(m+\half+1, t)\over 2 t^{m+\half+1}}
+    = {(m+\half)\gamma(m+\half, t)-t^{m+\half}e^{-t}\over 2 t^{m+\half} t}
+    = {(m+\half)\over t}F_m(t)-{e^{-t}\over 2 t} =
+
+    = {(2m+1) F_m(t)-e^{-t}\over 2 t}"/></p>
+</div><p>By expressing <img class="math" src="../../_images/math/7ab4a27df18032fa5b4b6db4871d3eda96450c1f.png" alt="F_m(t)"/> from the equation we obtain the inverse relation:</p>
+<div class="math">
+<p><img src="../../_images/math/9f0a100b7cfb95041a3df4c0e269213e96b0b44e.png" alt="F_m(t) = {2t F_{m+1}(t) + e^{-t}\over 2m+1}"/></p>
+</div><p>From <a href="#equation-gamma_series">(20)</a> we get:</p>
+<div class="math">
+<p><img src="../../_images/math/e2ab7541c7f7b5cb4be9ff024dd5d31cfe0d11a7.png" alt="F_m(t)
+    = {\gamma(m+\half, t)\over 2 t^{m+\half}}
+    = {1\over 2 t^{m+\half}}
+    t^{m+\half} \Gamma(m+\half) e^{-t} \sum_{k=0}^\infty {t^k\over
+        \Gamma(m+\half+k+1)} =
+
+    = \half \Gamma(m+\half) e^{-t} \sum_{k=0}^\infty {t^k\over
+        \Gamma(m+k+{3\over2})} =
+
+    = \half {(2m-1)!! \sqrt\pi\over 2^m} e^{-t} \sum_{k=0}^\infty {t^k\over
+        {(2m+2k+1)!!\sqrt\pi\over 2^{m+k+1}}} =
+
+    = e^{-t} \sum_{k=0}^\infty {(2m-1)!! (2t)^k\over (2m+2k+1)!!} =
+
+    = e^{-t} \sum_{k=0}^\infty {(2t)^k\over (2m+1)(2m+3)\cdots(2m+2k+1)}"/></p>
 </div></div>
+</div>
 <div class="section" id="factorial">
 <h1>Factorial<a class="headerlink" href="#factorial" title="Permalink to this headline">¶</a></h1>
 <p>The factorial <img class="math" src="../../_images/math/63f344e7d8b14a7886fc7fb72da53cd0a3271dcc.png" alt="n!"/> is defined as</p>
@@ -1425,8 +1503,8 @@ for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e9655
 </div><p>For odd <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> it can be written using the Gamma function, see <a href="#equation-gamma_double_fact">(19)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/6410fa87f077a0af590956eaf7c948eb22138906.png" alt="(2k-1)!! = {1\over\sqrt\pi} 2^k \Gamma\left(k+\half\right)"/></p>
-</div><div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+</div><div class="section" id="id1">
+<h2>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="math">
 <p><img src="../../_images/math/63060ccffb922e30be5411f05e36f90966ff77a9.png" alt="A(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
     1\cdot 2\cdot 3\cdot \dots \cdot n}
@@ -1483,10 +1561,13 @@ B(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
 <li><a class="reference internal" href="#binomial-coefficients">Binomial Coefficients</a></li>
 <li><a class="reference internal" href="#triangle-inequality">Triangle Inequality</a></li>
 <li><a class="reference internal" href="#gamma-function">Gamma Function</a></li>
-<li><a class="reference internal" href="#incomplete-gamma-function">Incomplete Gamma Function</a></li>
+<li><a class="reference internal" href="#incomplete-gamma-function">Incomplete Gamma Function</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#factorial">Factorial</a></li>
 <li><a class="reference internal" href="#double-factorial">Double Factorial</a><ul>
-<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#id1">Example</a></li>
 </ul>
 </li>
 </ul>

@@ -1895,7 +1895,7 @@ and
 Incomplete Gamma Function
 -------------------------
 
-The incomplete gamma function is defined by:
+The upper incomplete gamma function is defined by:
 
 .. math::
 
@@ -1966,6 +1966,117 @@ and
             +
             e^{-x}\sum_{\nu=1}^n
                 {2^\nu x^{\nu-\half}\over(2\nu-1)!!} \right)
+
+The lower incomplete gamma function is defined by:
+
+.. math::
+
+    \gamma(z, x) = \int_0^x t^{z-1} e^{-t} \d t = \Gamma(z) - \Gamma(z, x)
+
+and as such all expressions can be easily derived using the gamma and upper
+incomplete gamma functions.
+The recursion relation is then:
+
+.. math::
+
+    \gamma(z+1, x) = \Gamma(z+1) - \Gamma(z+1, x)
+        = z \Gamma(z) - (z\Gamma(z, x) + x^z e^{-x})
+        = z \gamma(z, x) - x^z e^{-x}
+
+Some special values are:
+
+.. math::
+
+    \gamma(z, 0) = \Gamma(z) - \Gamma(z, 0) = \Gamma(z) - \Gamma(z) = 0
+
+    \gamma(1, x) = \Gamma(1) - \Gamma(1, x) = 1 - e^{-x}
+
+    \gamma(\half, x) = \Gamma(\half) - \Gamma(\half, x)
+        = \sqrt\pi - \sqrt\pi \mbox{erfc}(\sqrt x)
+        = \sqrt\pi \mbox{erf}(\sqrt x)
+
+By repeated application of the recursion formula we get:
+
+.. math::
+
+    \gamma(z, x)
+        = {1\over z}\gamma(z+1, x) + e^{-x} {x^z\over z}
+        = {1\over z(z+1)}\gamma(z+2, x) + e^{-x} \left({x^z\over z}
+            + {x^{z+1}\over z(z+1)}\right) =
+
+        = {1\over z(z+1)\cdots(z+n)}\gamma(z+n+1, x) + e^{-x}
+            \sum_{k=0}^n {x^{z+k}\over z(z+1)\cdots(z+k)} =
+
+        = {\Gamma(z)\over \Gamma(z+n+1)}\gamma(z+n+1, x) + x^z
+            \Gamma(z) e^{-x} \sum_{k=0}^n {x^k\over \Gamma(z+k+1)} =
+
+.. math::
+    :label: gamma_series
+
+        = x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}
+
+Example
+~~~~~~~
+
+Consider the class of integrals:
+
+.. math::
+
+    F_m(t) = \int_0^1 u^{2m} e^{-tu^2} \d u, \quad\quad
+        \mbox{($t>0$; $m=0,1,2,\dots$)}
+
+We write them using the lower incomplete gamma function as:
+
+.. math::
+
+    F_m(t) = \int_0^t \left(v\over t\right)^m e^{-v}
+            \left(v\over t\right)^{-\half}{\d v\over 2 t}
+        = {1\over 2 t^{m+\half}}\int_0^t v^{m-\half} e^{-v} \d v
+        = {\gamma(m+\half, t)\over 2 t^{m+\half}}
+
+For $m=0$ we get:
+
+.. math::
+
+    F_0(t) = {\gamma(\half, t)\over 2 t^{\half}}
+        = \half \sqrt{\pi\over t} \mbox{erf}(\sqrt t)
+
+Using the recursion relation we get:
+
+.. math::
+
+    F_{m+1}(t)
+        = {\gamma(m+\half+1, t)\over 2 t^{m+\half+1}}
+        = {(m+\half)\gamma(m+\half, t)-t^{m+\half}e^{-t}\over 2 t^{m+\half} t}
+        = {(m+\half)\over t}F_m(t)-{e^{-t}\over 2 t} =
+
+        = {(2m+1) F_m(t)-e^{-t}\over 2 t}
+
+By expressing $F_m(t)$ from the equation we obtain the inverse relation:
+
+.. math::
+
+    F_m(t) = {2t F_{m+1}(t) + e^{-t}\over 2m+1}
+
+From :eq:`gamma_series` we get:
+
+.. math::
+
+    F_m(t)
+        = {\gamma(m+\half, t)\over 2 t^{m+\half}}
+        = {1\over 2 t^{m+\half}}
+        t^{m+\half} \Gamma(m+\half) e^{-t} \sum_{k=0}^\infty {t^k\over
+            \Gamma(m+\half+k+1)} =
+
+        = \half \Gamma(m+\half) e^{-t} \sum_{k=0}^\infty {t^k\over
+            \Gamma(m+k+{3\over2})} =
+
+        = \half {(2m-1)!! \sqrt\pi\over 2^m} e^{-t} \sum_{k=0}^\infty {t^k\over
+            {(2m+2k+1)!!\sqrt\pi\over 2^{m+k+1}}} =
+
+        = e^{-t} \sum_{k=0}^\infty {(2m-1)!! (2t)^k\over (2m+2k+1)!!} =
+
+        = e^{-t} \sum_{k=0}^\infty {(2t)^k\over (2m+1)(2m+3)\cdots(2m+2k+1)}
 
 Factorial
 ---------
