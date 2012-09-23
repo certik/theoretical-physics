@@ -2041,6 +2041,16 @@ long as $x < z-1$ we get:
 
         = {x \over z - 1 - x} \Gamma(z)
 
+Using :eq:`gamma_series` we can now write $\gamma(z, x)$ using the Kummer
+confluent hypergeometric function ${}_1F_1(a, b, z)$ as follows:
+
+.. math::
+
+    \gamma(z, x)
+        = x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}
+        = x^z z^{-1} e^{-x}\, {}_1F_1(1, z+1, x)
+        = x^z z^{-1}\, {}_1F_1(z, z+1, -x)
+
 Example
 ~~~~~~~
 
@@ -2059,6 +2069,15 @@ We write them using the lower incomplete gamma function as:
             \left(v\over t\right)^{-\half}{\d v\over 2 t}
         = {1\over 2 t^{m+\half}}\int_0^t v^{m-\half} e^{-v} \d v
         = {\gamma(m+\half, t)\over 2 t^{m+\half}}
+
+We can also write it using the confluent hypergeometric function as follows:
+
+.. math::
+
+    F_m(t) = {\gamma(m+\half, t)\over 2 t^{m+\half}}
+        = {t^{m+\half}(m+\half)^{-1} \over 2 t^{m+\half}}
+            \,{}_1F_1(m+\half, m+{\textstyle{3\over2}}, -t)
+        = {{}_1F_1(m+\half, m+{\textstyle{3\over2}}, -t)\over 2m+1}
 
 For $m=0$ we get:
 
