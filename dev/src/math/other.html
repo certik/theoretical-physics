@@ -1447,6 +1447,13 @@ long as <img class="math" src="../../_images/math/18cbbd4e8f6dcd6a361603509fe5aa
     &lt; {x \over z - 1 - x} \int_0^\infty f(t) \d t =
 
     = {x \over z - 1 - x} \Gamma(z)"/></p>
+</div><p>Using <a href="#equation-gamma_series">(20)</a> we can now write <img class="math" src="../../_images/math/37dc74fde916a060d1f776c99339043d9f96185e.png" alt="\gamma(z, x)"/> using the Kummer
+confluent hypergeometric function <img class="math" src="../../_images/math/ca791e1dad73de175bd26d5677d1705f717d8db5.png" alt="{}_1F_1(a, b, z)"/> as follows:</p>
+<div class="math">
+<p><img src="../../_images/math/80ab0ddd5ada9bb69729924d685f23a8fb5ffb0c.png" alt="\gamma(z, x)
+    = x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}
+    = x^z z^{-1} e^{-x}\, {}_1F_1(1, z+1, x)
+    = x^z z^{-1}\, {}_1F_1(z, z+1, -x)"/></p>
 </div><div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>Consider the class of integrals:</p>
@@ -1459,6 +1466,12 @@ long as <img class="math" src="../../_images/math/18cbbd4e8f6dcd6a361603509fe5aa
         \left(v\over t\right)^{-\half}{\d v\over 2 t}
     = {1\over 2 t^{m+\half}}\int_0^t v^{m-\half} e^{-v} \d v
     = {\gamma(m+\half, t)\over 2 t^{m+\half}}"/></p>
+</div><p>We can also write it using the confluent hypergeometric function as follows:</p>
+<div class="math">
+<p><img src="../../_images/math/0cbfbb70de975be2db15f7b4f4e9fd6a11a28fac.png" alt="F_m(t) = {\gamma(m+\half, t)\over 2 t^{m+\half}}
+    = {t^{m+\half}(m+\half)^{-1} \over 2 t^{m+\half}}
+        \,{}_1F_1(m+\half, m+{\textstyle{3\over2}}, -t)
+    = {{}_1F_1(m+\half, m+{\textstyle{3\over2}}, -t)\over 2m+1}"/></p>
 </div><p>For <img class="math" src="../../_images/math/2e275495e7e44d279fb3e5051b3a63115e79ead5.png" alt="m=0"/> we get:</p>
 <div class="math">
 <p><img src="../../_images/math/fc3d2655c949e06989a2eae7460cb5c1a4b34f21.png" alt="F_0(t) = {\gamma(\half, t)\over 2 t^{\half}}
