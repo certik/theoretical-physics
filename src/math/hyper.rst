@@ -153,14 +153,12 @@ Modified Bessel functions:
 The Series 1F1
 --------------
 
-Elementary functions (note: $\sinh$ is better expressed using ${}_0F_1$ above):
+Elementary functions:
 
 
 .. math::
 
     z^a e^z = {}_1F_1(a; a-\half; -2z)
-
-    \sinh z = z e^{-z}\ {}_1F_1(1; 2; 2z)
 
 Lower incomplete gamma function:
 
@@ -322,3 +320,50 @@ We calculate the ratio $t_{k+1}/t_k$ as well as $t_0$ to get the normalization:
 From which we read the arguments of the hypergeometric function ${}_2F_2$ on
 the right hand side and we need to multiply it by the normalization factor $t_0
 = p+q$.
+
+Example II
+==========
+
+By writing out the series expansion for the $t_{k+1}/t_k$ ratio we can prove
+that:
+
+.. math::
+
+    e^{-x}\ {}_1F_1(1; 2; 2x)
+        = {}_0F_1\left({\textstyle{3\over 2}}; {x^2\over 4}\right)
+
+We can also use the substitution $z={x^2\over 4}$:
+
+.. math::
+
+    e^{-2\sqrt z}\ {}_1F_1(1; 2; 4\sqrt z)
+        = {}_0F_1\left({\textstyle{3\over 2}}; z\right)
+
+Which is a special case of
+
+.. math::
+
+    {}_0F_1\left(a; z\right)
+        = e^{-2\sqrt z}\ {}_1F_1(a-\half; 2a-1; 4\sqrt z)
+
+for $a={3\over 2}$.
+
+Example III
+===========
+
+One way to express $\sinh(z)$ is:
+
+.. math::
+
+    \sinh z = z e^{-z}\ {}_1F_1(1; 2; 2z)
+
+using the previous example, this is equal to:
+
+.. math::
+
+    \sinh z
+        = z e^{-z}\ {}_1F_1(1; 2; 2z)
+        = z\ {}_0F_1\left({\textstyle{3\over 2}}; {z^2\over 4}\right)
+
+So the lowest hypergeometric function that can express $\sinh(z)$
+is ${}_0F_1$.
