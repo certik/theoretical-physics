@@ -10,6 +10,7 @@ Mathematics
     trig.rst
     other.rst
     spherical-harmonics.rst
+    hyper.rst
     feynman-parameters.rst
     groups.rst
     wigner.rst
