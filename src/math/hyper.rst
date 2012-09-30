@@ -161,7 +161,6 @@ Elementary functions (note: $\sinh$ is better expressed using ${}_0F_1$ above):
     z^a e^z = {}_1F_1(a; a-\half; -2z)
 
     \sinh z = z e^{-z}\ {}_1F_1(1; 2; 2z)
-        = \half\ {}_1F_1(0; \half; 2z)
 
 Lower incomplete gamma function:
 
