@@ -51,7 +51,7 @@ hypergeometric series is then given by:
 
     {}_p F_q(a_1, a_2, \dots, a_p; b_1, b_2, \dots, b_q; x)
         = \sum_{k=0}^\infty {(a_1)_k (a_2)_k \cdots (a_p)_k \over
-            (b_1)_k (b_2)_k \cdots (b_p)_k} {x^k\over k!}
+            (b_1)_k (b_2)_k \cdots (b_q)_k} {x^k\over k!}
 
 where
 
