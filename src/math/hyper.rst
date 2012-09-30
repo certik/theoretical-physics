@@ -293,3 +293,33 @@ that:
     q\ {}_1F_1(a+1; b; x) =
         (p+q)\ {}_2F_2\left(a, a\left({p\over q}+1\right)+1;
             b, a\left({p\over q}+1\right); x \right)
+
+The left hand side is equal to:
+
+.. math::
+
+    p\ {}_1F_1(a; b; x) +
+    q\ {}_1F_1(a+1; b; x) =
+        \sum_{k=0}^\infty {p (a)_k + q(a+1)_k \over (b)_k k!} x^k
+
+We simplify the $t_k$ term:
+
+.. math::
+
+    t_k = {p (a)_k + q(a+1)_k \over (b)_k k!} x^k
+        = {(a)_k \left(p+q+{qk\over a}\right) \over (b)_k k!} x^k
+
+We calculate the ratio $t_{k+1}/t_k$ as well as $t_0$ to get the normalization:
+
+.. math::
+
+    t_0 = p + q
+
+    {t_{k+1}\over t_k} = {(k+a)\left(p+q+{q(k+1)\over a}\right) \over
+            (k+b)(k+1) \left(p+q+{qk\over a}\right)} x
+        = {(k+a)\left(k + a\left({p\over q}+1\right)+1\right) \over
+        (k+b)\left(k + a\left({p\over q}+1\right)\right)(k+1)} x
+
+From which we read the arguments of the hypergeometric function ${}_2F_2$ on
+the right hand side and we need to multiply it by the normalization factor $t_0
+= p+q$.
