@@ -1171,39 +1171,46 @@ analytically).</p>
         \right) t^{n} =
 
     = \sum_{n=0}^\infty P_n(x) t^{n}"/></p>
-</div><p>where we used:</p>
-<div class="math">
-<p><img src="../../_images/math/64aa84a09cd270d9fb8684f8cbff83dfde2e3614.png" alt="\sum_{n=0}^\infty \sum_{k=0}^n a_{n k} =
-    \sum_{n=0}^\infty \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
-        a_{n-k, k}"/></p>
-</div><p>and</p>
+</div><p>where we used <a href="#equation-double_sum_2">(13)</a> and</p>
 <div class="math">
 <p><img src="../../_images/math/c061241a78f999b6f9affc0deef00af036a7cf8b.png" alt="\binom{2n-2k}{n-k} \binom{n-k}{k} = \binom{2n-2k}{n} \binom{n}{k}"/></p>
 </div><p>The <img class="math" src="../../_images/math/9f7ba371de1369bc2066fe2ef779dd977b4cbdf6.png" alt="P_n(x)"/> are <a class="reference internal" href="spherical-harmonics.html#legendre-polynomials"><em>Legendre Polynomials</em></a>.</p>
 </div>
+<div class="section" id="double-sums">
+<h1>Double Sums<a class="headerlink" href="#double-sums" title="Permalink to this headline">¶</a></h1>
+<p>When evaluating double sums, one can use triangular summation to reorder them:</p>
+<div class="math" id="equation-double_sum_1">
+<p><span class="eqno">(12)</span><img src="../../_images/math/e42f54f514796ec2bd0f617c24ed45f1182f7efb.png" alt="\sum_{n=0}^\infty \sum_{k=0}^\infty a_{n k} =
+\sum_{n=0}^\infty \sum_{k=0}^n a_{n-k, k}"/></p>
+</div><p>Also it holds</p>
+<div class="math" id="equation-double_sum_2">
+<p><span class="eqno">(13)</span><img src="../../_images/math/64aa84a09cd270d9fb8684f8cbff83dfde2e3614.png" alt="\sum_{n=0}^\infty \sum_{k=0}^n a_{n k} =
+    \sum_{n=0}^\infty \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+        a_{n-k, k}"/></p>
+</div></div>
 <div class="section" id="triangle-inequality">
 <h1>Triangle Inequality<a class="headerlink" href="#triangle-inequality" title="Permalink to this headline">¶</a></h1>
 <p>Triangle inequality (condition) means that none of the three
 quantities <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>, <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/>, <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is greater than the sum of the other two:</p>
 <div class="math" id="equation-trig_three">
-<p><span class="eqno">(12)</span><img src="../../_images/math/63f93f945d8220a1cc7399a27e0968aac6715f40.png" alt="a + b \ge c
+<p><span class="eqno">(14)</span><img src="../../_images/math/63f93f945d8220a1cc7399a27e0968aac6715f40.png" alt="a + b \ge c
 
 b + c \ge a
 
 c + a \ge b"/></p>
 </div><p>This is equivalent to just one equation:</p>
 <div class="math" id="equation-trig_one">
-<p><span class="eqno">(13)</span><img src="../../_images/math/34fcbc530a181a24e6e519a374afce380cafb11c.png" alt="|a-b| \le c \le a+b"/></p>
+<p><span class="eqno">(15)</span><img src="../../_images/math/34fcbc530a181a24e6e519a374afce380cafb11c.png" alt="|a-b| \le c \le a+b"/></p>
 </div><p>we can do any permutation of the symbols, i.e. the above equation is equivalent
 to any of these:</p>
 <div class="math">
 <p><img src="../../_images/math/6fcb2b0944901b3a897eea074abdd9689d8f689d.png" alt="|b-c| \le a \le b+c
 
 |c-a| \le b \le c+a"/></p>
-</div><p>So instead of stating the three inequalities <a href="#equation-trig_three">(12)</a> it is more
-convenient to just write <a href="#equation-trig_one">(13)</a>, using any permutation that we like.</p>
-<p>To show, that <a href="#equation-trig_three">(12)</a> implies <a href="#equation-trig_one">(13)</a> we rewrite
-<a href="#equation-trig_three">(12)</a>:</p>
+</div><p>So instead of stating the three inequalities <a href="#equation-trig_three">(14)</a> it is more
+convenient to just write <a href="#equation-trig_one">(15)</a>, using any permutation that we like.</p>
+<p>To show, that <a href="#equation-trig_three">(14)</a> implies <a href="#equation-trig_one">(15)</a> we rewrite
+<a href="#equation-trig_three">(14)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/8370f0a9f90f9a8d7089933237acb1032c0a5503.png" alt="a + b \ge c
 
@@ -1215,9 +1222,9 @@ c \ge b-a"/></p>
 <p><img src="../../_images/math/e5d52fd4492f6ef9023e12ccf54ded2436db47b2.png" alt="a + b \ge c
 
 c \ge |a-b|"/></p>
-</div><p>and we get <a href="#equation-trig_one">(13)</a>.
-To show, that <a href="#equation-trig_one">(13)</a> implies <a href="#equation-trig_three">(12)</a> we rewrite
-<a href="#equation-trig_one">(13)</a> for <img class="math" src="../../_images/math/f5e9c6413bbd9fe3bc5f285cdbb8920f5bb47c98.png" alt="a\ge b"/> first:</p>
+</div><p>and we get <a href="#equation-trig_one">(15)</a>.
+To show, that <a href="#equation-trig_one">(15)</a> implies <a href="#equation-trig_three">(14)</a> we rewrite
+<a href="#equation-trig_one">(15)</a> for <img class="math" src="../../_images/math/f5e9c6413bbd9fe3bc5f285cdbb8920f5bb47c98.png" alt="a\ge b"/> first:</p>
 <div class="math">
 <p><img src="../../_images/math/ba85c798d565c143977eceb1ca68a4dc1597a4e1.png" alt="a \ge b
 
@@ -1235,7 +1242,7 @@ b + c \ge a
 
 a \ge b"/></p>
 </div><p>since <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is positive, if <img class="math" src="../../_images/math/f5e9c6413bbd9fe3bc5f285cdbb8920f5bb47c98.png" alt="a\ge b"/> then also <img class="math" src="../../_images/math/254cfc0cf485b38c808f49dc71c34752bc2c787b.png" alt="c+a\ge b"/> and we get
-<a href="#equation-trig_three">(12)</a>. Finally, for <img class="math" src="../../_images/math/55f8abc0d69ac6ab491f6125f9550af6b25e22fb.png" alt="a &lt; b"/>:</p>
+<a href="#equation-trig_three">(14)</a>. Finally, for <img class="math" src="../../_images/math/55f8abc0d69ac6ab491f6125f9550af6b25e22fb.png" alt="a &lt; b"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/dd95588a356e92a540fa321dcf6432318270a8b7.png" alt="a &lt; b
 
@@ -1253,40 +1260,40 @@ b &gt; a
 
 c + a \ge b"/></p>
 </div><p>since <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is positive, if <img class="math" src="../../_images/math/18850c5a6f67139956c8c1e35094c0a864ecb8ca.png" alt="b &gt; a"/> then also <img class="math" src="../../_images/math/6ff26c9514349439d29c60e8ce67d0ad3a64e765.png" alt="b+c\ge a"/> and we get
-<a href="#equation-trig_three">(12)</a>.</p>
+<a href="#equation-trig_three">(14)</a>.</p>
 </div>
 <div class="section" id="gamma-function">
 <h1>Gamma Function<a class="headerlink" href="#gamma-function" title="Permalink to this headline">¶</a></h1>
 <p>The Gamma function <img class="math" src="../../_images/math/36edacaf2ec3d06fb117f981d12f42cdee6cf940.png" alt="\Gamma(x)"/> is defined by the following properties
 for <img class="math" src="../../_images/math/cae4fd68f44ac9b909f8d91f9d498de5759bb45b.png" alt="x &gt; 0"/>:</p>
 <div class="math" id="equation-gamma1">
-<p><span class="eqno">(14)</span><img src="../../_images/math/269006932a9e644a750249893630fba613acd509.png" alt="\Gamma(1) = 1"/></p>
+<p><span class="eqno">(16)</span><img src="../../_images/math/269006932a9e644a750249893630fba613acd509.png" alt="\Gamma(1) = 1"/></p>
 </div><div class="math" id="equation-gamma2">
-<p><span class="eqno">(15)</span><img src="../../_images/math/b5bddd5093001356e5e14333d46ace5485a37a17.png" alt="\Gamma(x+1) = x \Gamma(x)"/></p>
+<p><span class="eqno">(17)</span><img src="../../_images/math/b5bddd5093001356e5e14333d46ace5485a37a17.png" alt="\Gamma(x+1) = x \Gamma(x)"/></p>
 </div><div class="math" id="equation-gamma3">
-<p><span class="eqno">(16)</span><img src="../../_images/math/44de5beb0385b7926addf706d610d0722e2312c6.png" alt="\log\Gamma(x) \quad\mbox{is convex}"/></p>
+<p><span class="eqno">(18)</span><img src="../../_images/math/44de5beb0385b7926addf706d610d0722e2312c6.png" alt="\log\Gamma(x) \quad\mbox{is convex}"/></p>
 </div><p>It can be shown that this determines the function uniquely for <img class="math" src="../../_images/math/cae4fd68f44ac9b909f8d91f9d498de5759bb45b.png" alt="x &gt; 0"/> (this is
 called the Bohr-Mollerup theorem) and then it can be extended analytically to
 the whole complex plane.</p>
-<p>The most common formula for <img class="math" src="../../_images/math/f3bdf82eb6ddbd7c4870a75d6652ffbbb8f9224b.png" alt="\Gamma(z)"/> that satisfies <a href="#equation-gamma1">(14)</a>,
-<a href="#equation-gamma2">(15)</a> and <a href="#equation-gamma3">(16)</a>
+<p>The most common formula for <img class="math" src="../../_images/math/f3bdf82eb6ddbd7c4870a75d6652ffbbb8f9224b.png" alt="\Gamma(z)"/> that satisfies <a href="#equation-gamma1">(16)</a>,
+<a href="#equation-gamma2">(17)</a> and <a href="#equation-gamma3">(18)</a>
 is:</p>
 <div class="math" id="equation-gamma_int">
-<p><span class="eqno">(17)</span><img src="../../_images/math/31a4365bb9931271dca7f929fced47503c5fca77.png" alt="\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \d t"/></p>
-</div><p>It satisfies <a href="#equation-gamma1">(14)</a> because:</p>
+<p><span class="eqno">(19)</span><img src="../../_images/math/31a4365bb9931271dca7f929fced47503c5fca77.png" alt="\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \d t"/></p>
+</div><p>It satisfies <a href="#equation-gamma1">(16)</a> because:</p>
 <div class="math">
 <p><img src="../../_images/math/2b4bfe80d6879c06ddcbd31976503ca67c2807d1.png" alt="\Gamma(1)
     = \int_0^\infty t^{1-1} e^{-t} \d t
     = \int_0^\infty e^{-t} \d t
     = [-e^{-t}]_0^\infty
     = 1"/></p>
-</div><p>It satisfies <a href="#equation-gamma2">(15)</a> by integrating by parts:</p>
+</div><p>It satisfies <a href="#equation-gamma2">(17)</a> by integrating by parts:</p>
 <div class="math">
 <p><img src="../../_images/math/6578ff5f0fccbfb26ce613f0a8e971f010d2e406.png" alt="\Gamma(z)
     = \int_0^\infty t^{z-1} e^{-t} \d t
     = (z-1)\int_0^\infty t^{z-2} e^{-t} \d t-[t^{z-1}e^{-t}]_0^\infty
     = (z-1)\Gamma(z-1)"/></p>
-</div><p>Finally it satisfies <a href="#equation-gamma3">(16)</a> by verifying the convex condition
+</div><p>Finally it satisfies <a href="#equation-gamma3">(18)</a> by verifying the convex condition
 directly (<img class="math" src="../../_images/math/4523f34b2de94e387dd238429086654ba71cd69a.png" alt="x, y &gt; 0"/> and <img class="math" src="../../_images/math/73d6d29984816d60f4497fd1f18725778060fea7.png" alt="0\le \lambda \le 1"/>):</p>
 <div class="math">
 <p><img src="../../_images/math/e79e22b65ddae8140d0c2538e8110a1cc918ba91.png" alt="\log\Gamma(\lambda x + (1-\lambda) y)
@@ -1300,8 +1307,8 @@ directly (<img class="math" src="../../_images/math/4523f34b2de94e387dd238429086
         \left(\int_0^\infty t^{y-1} e^{-t} \d t\right)^{1-\lambda}\right) =
 
     = \lambda \log\Gamma(x) + (1-\lambda) \log \Gamma(y)"/></p>
-</div><p>And thus <a href="#equation-gamma_int">(17)</a> uniquely determines the Gamma function.
-We can use <a href="#equation-gamma_int">(17)</a> to calculate <img class="math" src="../../_images/math/df26fbadfec877df085cc3296518f68b3beae03a.png" alt="\Gamma(\half)"/>:</p>
+</div><p>And thus <a href="#equation-gamma_int">(19)</a> uniquely determines the Gamma function.
+We can use <a href="#equation-gamma_int">(19)</a> to calculate <img class="math" src="../../_images/math/df26fbadfec877df085cc3296518f68b3beae03a.png" alt="\Gamma(\half)"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/849d6f89c18c8cb7b87a82ff86cc25273d52bec4.png" alt="\Gamma(\half)
     = \int_0^\infty t^{{1\over2}-1} e^{-t} \d t
@@ -1321,14 +1328,14 @@ We can use <a href="#equation-gamma_int">(17)</a> to calculate <img class="math"
 </div><p>From this and the definition of the Gamma function we get
 for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>:</p>
 <div class="math" id="equation-gamma_fact">
-<p><span class="eqno">(18)</span><img src="../../_images/math/c32bbeae78065450f5166b806ed946fad64d4a92.png" alt="\Gamma(n+1) = n\Gamma(n) = n(n-1)\Gamma(n-1)
+<p><span class="eqno">(20)</span><img src="../../_images/math/c32bbeae78065450f5166b806ed946fad64d4a92.png" alt="\Gamma(n+1) = n\Gamma(n) = n(n-1)\Gamma(n-1)
     = n(n-1)(n-2)\cdots 2\cdot1\cdot\Gamma(1) =
 
     = n(n-1)(n-2)\cdots 1
     = n!"/></p>
 </div><p>and</p>
 <div class="math" id="equation-gamma_double_fact">
-<p><span class="eqno">(19)</span><img src="../../_images/math/82f65d1a8306b6bb040716590ebde7b97f1ca1e9.png" alt="\Gamma(n+\half) = (n-\half)\Gamma(n-\half)
+<p><span class="eqno">(21)</span><img src="../../_images/math/82f65d1a8306b6bb040716590ebde7b97f1ca1e9.png" alt="\Gamma(n+\half) = (n-\half)\Gamma(n-\half)
     = (n-\half)(n-1-\half)\Gamma(n-1-\half)
     = (n-\half)(n-1-\half)\cdots\half\Gamma(\half) =
 
@@ -1426,7 +1433,7 @@ The recursion relation is then:</p>
     = {\Gamma(z)\over \Gamma(z+n+1)}\gamma(z+n+1, x) + x^z
         \Gamma(z) e^{-x} \sum_{k=0}^n {x^k\over \Gamma(z+k+1)} ="/></p>
 </div><div class="math" id="equation-gamma_series">
-<p><span class="eqno">(20)</span><img src="../../_images/math/013774a7ff502aaf6ede50eabc5b06d52846a1ae.png" alt="= x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}"/></p>
+<p><span class="eqno">(22)</span><img src="../../_images/math/013774a7ff502aaf6ede50eabc5b06d52846a1ae.png" alt="= x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}"/></p>
 </div><p>where we used:</p>
 <div class="math">
 <p><img src="../../_images/math/1cd793700e5aaff1fe87b5e081adbac1cef356b1.png" alt="\lim_{z\to\infty} {\gamma(z, x)\over\Gamma(z)} = 0"/></p>
@@ -1447,7 +1454,7 @@ long as <img class="math" src="../../_images/math/18cbbd4e8f6dcd6a361603509fe5aa
     &lt; {x \over z - 1 - x} \int_0^\infty f(t) \d t =
 
     = {x \over z - 1 - x} \Gamma(z)"/></p>
-</div><p>Using <a href="#equation-gamma_series">(20)</a> we can now write <img class="math" src="../../_images/math/37dc74fde916a060d1f776c99339043d9f96185e.png" alt="\gamma(z, x)"/> using the Kummer
+</div><p>Using <a href="#equation-gamma_series">(22)</a> we can now write <img class="math" src="../../_images/math/37dc74fde916a060d1f776c99339043d9f96185e.png" alt="\gamma(z, x)"/> using the Kummer
 confluent hypergeometric function <img class="math" src="../../_images/math/ca791e1dad73de175bd26d5677d1705f717d8db5.png" alt="{}_1F_1(a, b, z)"/> as follows:</p>
 <div class="math">
 <p><img src="../../_images/math/80ab0ddd5ada9bb69729924d685f23a8fb5ffb0c.png" alt="\gamma(z, x)
@@ -1487,7 +1494,7 @@ confluent hypergeometric function <img class="math" src="../../_images/math/ca79
 </div><p>By expressing <img class="math" src="../../_images/math/7ab4a27df18032fa5b4b6db4871d3eda96450c1f.png" alt="F_m(t)"/> from the equation we obtain the inverse relation:</p>
 <div class="math">
 <p><img src="../../_images/math/9f0a100b7cfb95041a3df4c0e269213e96b0b44e.png" alt="F_m(t) = {2t F_{m+1}(t) + e^{-t}\over 2m+1}"/></p>
-</div><p>From <a href="#equation-gamma_series">(20)</a> we get:</p>
+</div><p>From <a href="#equation-gamma_series">(22)</a> we get:</p>
 <div class="math">
 <p><img src="../../_images/math/e2ab7541c7f7b5cb4be9ff024dd5d31cfe0d11a7.png" alt="F_m(t)
     = {\gamma(m+\half, t)\over 2 t^{m+\half}}
@@ -1511,7 +1518,7 @@ confluent hypergeometric function <img class="math" src="../../_images/math/ca79
 <p>The factorial <img class="math" src="../../_images/math/63f344e7d8b14a7886fc7fb72da53cd0a3271dcc.png" alt="n!"/> is defined as</p>
 <div class="math">
 <p><img src="../../_images/math/d6c12d6ee30c8fd297ca8456a4b57a41c37656e7.png" alt="n! = n(n-1)(n-2)\cdots 3\cdot2\cdot 1"/></p>
-</div><p>By <a href="#equation-gamma_fact">(18)</a> it can be written using the Gamma function as:</p>
+</div><p>By <a href="#equation-gamma_fact">(20)</a> it can be written using the Gamma function as:</p>
 <div class="math">
 <p><img src="../../_images/math/75c06ec67b40d1419bf500bec5dce6cc65be2a01.png" alt="n! = \Gamma(n+1)"/></p>
 </div></div>
@@ -1533,7 +1540,7 @@ confluent hypergeometric function <img class="math" src="../../_images/math/ca79
     = 1\cdot3\cdot5\cdots(2k-1)
     = {1\cdot2\cdot3\cdot4\cdot5\cdots(2k) \over 2\cdot4\cdot6\cdots (2k)}
     = {(2k)!\over (2k)!!} = {(2k)!\over 2^k k!}"/></p>
-</div><p>For odd <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> it can be written using the Gamma function, see <a href="#equation-gamma_double_fact">(19)</a>:</p>
+</div><p>For odd <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> it can be written using the Gamma function, see <a href="#equation-gamma_double_fact">(21)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/6410fa87f077a0af590956eaf7c948eb22138906.png" alt="(2k-1)!! = {1\over\sqrt\pi} 2^k \Gamma\left(k+\half\right)"/></p>
 </div><div class="section" id="id1">
@@ -1592,6 +1599,7 @@ B(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
 </ul>
 </li>
 <li><a class="reference internal" href="#binomial-coefficients">Binomial Coefficients</a></li>
+<li><a class="reference internal" href="#double-sums">Double Sums</a></li>
 <li><a class="reference internal" href="#triangle-inequality">Triangle Inequality</a></li>
 <li><a class="reference internal" href="#gamma-function">Gamma Function</a></li>
 <li><a class="reference internal" href="#incomplete-gamma-function">Incomplete Gamma Function</a><ul>

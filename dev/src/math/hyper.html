@@ -97,9 +97,9 @@ polynomial <img class="math" src="../../_images/math/0232c514ed15c8b0d781b916f84
 both numerator and denominator and absorb the one into <img class="math" src="../../_images/math/a2205a574bf35511af0c75a074c072406257086d.png" alt="a_p"/>). The
 hypergeometric series is then given by:</p>
 <div class="math">
-<p><img src="../../_images/math/d80bba671a032b3600269461d7a129f5da66a44a.png" alt="{}_p F_q(a_1, a_2, \dots, a_p; b_1, b_2, \dots, b_q; x)
+<p><img src="../../_images/math/ea70125505096a5cfaffbf968d98869a7e0dd223.png" alt="{}_p F_q(a_1, a_2, \dots, a_p; b_1, b_2, \dots, b_q; x)
     = \sum_{k=0}^\infty {(a_1)_k (a_2)_k \cdots (a_p)_k \over
-        (b_1)_k (b_2)_k \cdots (b_p)_k} {x^k\over k!}"/></p>
+        (b_1)_k (b_2)_k \cdots (b_q)_k} {x^k\over k!}"/></p>
 </div><p>where</p>
 <div class="math">
 <p><img src="../../_images/math/ca35de92cb28d7abd5f1e5502d1bd09ac023a99b.png" alt="(a)_k = {\Gamma(a+k)\over\Gamma(a)} = \begin{cases}
@@ -111,6 +111,22 @@ hypergeometric series is then given by:</p>
 and then write the ratio <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> in the form <a href="#equation-hyper_ratio">(1)</a> and
 immediately identify the proper <img class="math" src="../../_images/math/4036c5e32f53dddc63aa65964b5cae2b518c4278.png" alt="{}_p F_q"/> function. If the ratio cannot be
 put into the form <a href="#equation-hyper_ratio">(1)</a> then the function is not hypergeometric.</p>
+<div class="section" id="convergence-conditions">
+<h2>Convergence Conditions<a class="headerlink" href="#convergence-conditions" title="Permalink to this headline">¶</a></h2>
+<p>If any <img class="math" src="../../_images/math/4c88cec22fbb8996056971808108cf3bb908937b.png" alt="a_i=0, -1, -2, \dots"/>, then the series is a polynomial of degree
+<img class="math" src="../../_images/math/a261d99f406f4b9e4f015d99b712f67725955ad3.png" alt="-a_i"/>.</p>
+<p>If any <img class="math" src="../../_images/math/b29be3ce2f7120d86b245ed77cf204f070393ab9.png" alt="b_i=0, -1, -2, \dots"/> then the denominators eventually become 0 (unless
+the series is terminated as a polynomial before that, due to the previous
+point) and the series is undefined.</p>
+<p>Except the previous two cases, the radius of convergence <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/> of the
+hypergeometric series is:</p>
+<div class="math">
+<p><img src="../../_images/math/613c23ee10f7d0bbb7d8aa4387d1dcd74420aad8.png" alt="R = \begin{cases}
+    \infty &amp; \mbox{if $p \le q$;} \\
+    1 &amp; \mbox{if $p = q+1$;} \\
+    0 &amp; \mbox{if $p &gt; q+1$.} \\
+    \end{cases}"/></p>
+</div></div>
 <div class="section" id="elementary-and-special-functions">
 <h2>Elementary and Special Functions<a class="headerlink" href="#elementary-and-special-functions" title="Permalink to this headline">¶</a></h2>
 <p>The hypergeometric functions for low <img class="math" src="../../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> and <img class="math" src="../../_images/math/0615acc3725de21025457e7d6f7694dab8e2f758.png" alt="q"/> have special names:</p>
@@ -185,12 +201,9 @@ K_\nu(z) = {\Gamma(\nu)\over 2} \left(2\over z\right)^\nu
 </div></div>
 <div class="section" id="the-series-1f1">
 <h3>The Series 1F1<a class="headerlink" href="#the-series-1f1" title="Permalink to this headline">¶</a></h3>
-<p>Elementary functions (note: <img class="math" src="../../_images/math/ff7c71d59b09defa3075b461d8fe33c10db6e116.png" alt="\sinh"/> is better expressed using <img class="math" src="../../_images/math/16598a191957c307e87118399024493679d7cfe7.png" alt="{}_0F_1"/> above):</p>
+<p>Elementary functions:</p>
 <div class="math">
-<p><img src="../../_images/math/b6d6b86c0ae35f7e04c12a85059a2cae99dca735.png" alt="z^a e^z = {}_1F_1(a; a-\half; -2z)
-
-\sinh z = z e^{-z}\ {}_1F_1(1; 2; 2z)
-    = \half\ {}_1F_1(0; \half; 2z)"/></p>
+<p><img src="../../_images/math/2f1699c69d23275df0badb9ff5288b40f5d6c737.png" alt="z^a e^z = {}_1F_1(a; a-\half; -2z)"/></p>
 </div><p>Lower incomplete gamma function:</p>
 <div class="math">
 <p><img src="../../_images/math/bb15ee3dc91a333becce9ba37291789d34a3f3ba.png" alt="\gamma(z, x)
@@ -260,6 +273,12 @@ E(k) = {\pi\over 2}\ {}_2F_1(-\half, \half; 1; k^2)"/></p>
 <p><img src="../../_images/math/52747e7ec4b986776070d65c38894b3928938327.png" alt="\tan(z) = {8z\over \pi^2-4z^2}
 \ {}_3F_2(1, \half-{z\over\pi}, \half + {z\over\pi};
     {\textstyle{3\over2}}-{z\over\pi}, {\textstyle{3\over2}} + {z\over\pi}; 1)"/></p>
+</div><p>Dilogarithm:</p>
+<div class="math">
+<p><img src="../../_images/math/5c3dbf8812a3f109738ea7198122a3150e863136.png" alt="\mbox{Li}_2(z) = z\ {}_3F_2(1, 1, 1; 2, 2; z)"/></p>
+</div><p>Digamma:</p>
+<div class="math">
+<p><img src="../../_images/math/69a605715e05ec24aa32ff3be08491a7f61c7f42.png" alt="\psi(z) = (z-1)\ {}_3F_2(1, 1, 2-z; 2, 2; 1) -\gamma"/></p>
 </div><p>The Wigner 3j symbol:</p>
 <div class="math">
 <p><img src="../../_images/math/40c0177f33d0e9ece769e2cc2565f785986bd17c.png" alt="\begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; m_3 \end{pmatrix}
@@ -273,6 +292,12 @@ E(k) = {\pi\over 2}\ {}_2F_1(-\half, \half; 1; k^2)"/></p>
 {}_3F_2(-j_1-j_2+j_3, m_1-j_1, -j_2-m_2;
     -j_1+j_3-m_2+1, -j_2+j_3+m_1+1; 1)"/></p>
 </div></div>
+<div class="section" id="the-series-pfq">
+<h3>The Series pFq<a class="headerlink" href="#the-series-pfq" title="Permalink to this headline">¶</a></h3>
+<p>Polylogarithm:</p>
+<div class="math">
+<p><img src="../../_images/math/444987ca24e21e2a7bf2c79baba58e068601a742.png" alt="\mbox{Li}_s(z) = z\ {}_{s+1}F_s(1, 1, \dots, 1; 2, \dots, 2; z)"/></p>
+</div></div>
 </div>
 <div class="section" id="example-i">
 <h2>Example I<a class="headerlink" href="#example-i" title="Permalink to this headline">¶</a></h2>
@@ -283,7 +308,57 @@ that:</p>
 q\ {}_1F_1(a+1; b; x) =
     (p+q)\ {}_2F_2\left(a, a\left({p\over q}+1\right)+1;
         b, a\left({p\over q}+1\right); x \right)"/></p>
-</div></div>
+</div><p>The left hand side is equal to:</p>
+<div class="math">
+<p><img src="../../_images/math/d83340eb39077e0ba900570d6125dbcd739fbf01.png" alt="p\ {}_1F_1(a; b; x) +
+q\ {}_1F_1(a+1; b; x) =
+    \sum_{k=0}^\infty {p (a)_k + q(a+1)_k \over (b)_k k!} x^k"/></p>
+</div><p>We simplify the <img class="math" src="../../_images/math/5df9ff73586b830a77fd20e48c09ec0621c07db8.png" alt="t_k"/> term:</p>
+<div class="math">
+<p><img src="../../_images/math/c56ab04ff1911b5ed633b9271c2bb7494c49ae56.png" alt="t_k = {p (a)_k + q(a+1)_k \over (b)_k k!} x^k
+    = {(a)_k \left(p+q+{qk\over a}\right) \over (b)_k k!} x^k"/></p>
+</div><p>We calculate the ratio <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> as well as <img class="math" src="../../_images/math/10fde25257f32317828fde97047bbe76438b6305.png" alt="t_0"/> to get the normalization:</p>
+<div class="math">
+<p><img src="../../_images/math/36f4844fa46fcac3cf90d3f8c8c96ae96006a434.png" alt="t_0 = p + q
+
+{t_{k+1}\over t_k} = {(k+a)\left(p+q+{q(k+1)\over a}\right) \over
+        (k+b)(k+1) \left(p+q+{qk\over a}\right)} x
+    = {(k+a)\left(k + a\left({p\over q}+1\right)+1\right) \over
+    (k+b)\left(k + a\left({p\over q}+1\right)\right)(k+1)} x"/></p>
+</div><p>From which we read the arguments of the hypergeometric function <img class="math" src="../../_images/math/8a5eb95c48cde32c6912f8b9487bafc28ae28855.png" alt="{}_2F_2"/> on
+the right hand side and we need to multiply it by the normalization factor <img class="math" src="../../_images/math/99f93bdeab147bba055da217e7042b588f9c99f9.png" alt="t_0
+= p+q"/>.</p>
+</div>
+<div class="section" id="example-ii">
+<h2>Example II<a class="headerlink" href="#example-ii" title="Permalink to this headline">¶</a></h2>
+<p>By writing out the series expansion for the <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> ratio we can prove
+that:</p>
+<div class="math">
+<p><img src="../../_images/math/e07571ade3083d455feb7ff0f8cc7fe6d6933dfc.png" alt="e^{-x}\ {}_1F_1(1; 2; 2x)
+    = {}_0F_1\left({\textstyle{3\over 2}}; {x^2\over 4}\right)"/></p>
+</div><p>We can also use the substitution <img class="math" src="../../_images/math/d846fe23cf57f1f27726dc98ef9ae63051c76660.png" alt="z={x^2\over 4}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/fd3be16e8e6659b9a89ad68f2ed15e39d6331998.png" alt="e^{-2\sqrt z}\ {}_1F_1(1; 2; 4\sqrt z)
+    = {}_0F_1\left({\textstyle{3\over 2}}; z\right)"/></p>
+</div><p>Which is a special case of</p>
+<div class="math">
+<p><img src="../../_images/math/fd04f69333a8d648d60b1cc0007c4e0045cbca00.png" alt="{}_0F_1\left(a; z\right)
+    = e^{-2\sqrt z}\ {}_1F_1(a-\half; 2a-1; 4\sqrt z)"/></p>
+</div><p>for <img class="math" src="../../_images/math/f3ad420b2c0cc07e3597b4917a1632e6e4db4362.png" alt="a={3\over 2}"/>.</p>
+</div>
+<div class="section" id="example-iii">
+<h2>Example III<a class="headerlink" href="#example-iii" title="Permalink to this headline">¶</a></h2>
+<p>One way to express <img class="math" src="../../_images/math/b1623213632e8b9de6d0c558dbc1bc68203d4df5.png" alt="\sinh(z)"/> is:</p>
+<div class="math">
+<p><img src="../../_images/math/3f00421f872123991d48c1b85f4657c4aa832799.png" alt="\sinh z = z e^{-z}\ {}_1F_1(1; 2; 2z)"/></p>
+</div><p>using the previous example, this is equal to:</p>
+<div class="math">
+<p><img src="../../_images/math/6128ae119ae5e231118e215b80c30a052a4048b0.png" alt="\sinh z
+    = z e^{-z}\ {}_1F_1(1; 2; 2z)
+    = z\ {}_0F_1\left({\textstyle{3\over 2}}; {z^2\over 4}\right)"/></p>
+</div><p>So the lowest hypergeometric function that can express <img class="math" src="../../_images/math/b1623213632e8b9de6d0c558dbc1bc68203d4df5.png" alt="\sinh(z)"/>
+is <img class="math" src="../../_images/math/16598a191957c307e87118399024493679d7cfe7.png" alt="{}_0F_1"/>.</p>
+</div>
 </div>
 
 
@@ -295,6 +370,7 @@ q\ {}_1F_1(a+1; b; x) =
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Hypergeometric Functions</a><ul>
+<li><a class="reference internal" href="#convergence-conditions">Convergence Conditions</a></li>
 <li><a class="reference internal" href="#elementary-and-special-functions">Elementary and Special Functions</a><ul>
 <li><a class="reference internal" href="#the-series-0f0">The Series 0F0</a></li>
 <li><a class="reference internal" href="#the-series-1f0">The Series 1F0</a></li>
@@ -302,9 +378,12 @@ q\ {}_1F_1(a+1; b; x) =
 <li><a class="reference internal" href="#the-series-1f1">The Series 1F1</a></li>
 <li><a class="reference internal" href="#the-series-2f1">The Series 2F1</a></li>
 <li><a class="reference internal" href="#the-series-3f2">The Series 3F2</a></li>
+<li><a class="reference internal" href="#the-series-pfq">The Series pFq</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#example-i">Example I</a></li>
+<li><a class="reference internal" href="#example-ii">Example II</a></li>
+<li><a class="reference internal" href="#example-iii">Example III</a></li>
 </ul>
 </li>
 </ul>
