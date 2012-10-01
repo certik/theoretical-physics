@@ -1646,15 +1646,7 @@ Another example:
 
         = \sum_{n=0}^\infty P_n(x) t^{n}
 
-where we used:
-
-.. math::
-
-    \sum_{n=0}^\infty \sum_{k=0}^n a_{n k} =
-        \sum_{n=0}^\infty \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
-            a_{n-k, k}
-
-and
+where we used :eq:`double_sum_2` and
 
 .. math::
 
@@ -1662,6 +1654,25 @@ and
 
 The $P_n(x)$ are :ref:`legendre_polynomials`.
 
+Double Sums
+-----------
+
+When evaluating double sums, one can use triangular summation to reorder them:
+
+.. math::
+    :label: double_sum_1
+
+    \sum_{n=0}^\infty \sum_{k=0}^\infty a_{n k} =
+    \sum_{n=0}^\infty \sum_{k=0}^n a_{n-k, k}
+
+Also it holds
+
+.. math::
+    :label: double_sum_2
+
+    \sum_{n=0}^\infty \sum_{k=0}^n a_{n k} =
+        \sum_{n=0}^\infty \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
+            a_{n-k, k}
 
 Triangle Inequality
 -------------------
