@@ -283,6 +283,12 @@ Elementary functions:
     \ {}_3F_2(1, \half-{z\over\pi}, \half + {z\over\pi};
         {\textstyle{3\over2}}-{z\over\pi}, {\textstyle{3\over2}} + {z\over\pi}; 1)
 
+Dilogarithm:
+
+.. math::
+
+    \mbox{Li}_2(z) = z\ {}_3F_2(1, 1, 1; 2, 2; z)
+
 The Wigner 3j symbol:
 
 .. math::
@@ -297,6 +303,15 @@ The Wigner 3j symbol:
 
     {}_3F_2(-j_1-j_2+j_3, m_1-j_1, -j_2-m_2;
         -j_1+j_3-m_2+1, -j_2+j_3+m_1+1; 1)
+
+The Series pFq
+--------------
+
+Polylogarithm:
+
+.. math::
+
+    \mbox{Li}_s(z) = z\ {}_{s+1}F_s(1, 1, \dots, 1; 2, \dots, 2; z)
 
 
 Example I
