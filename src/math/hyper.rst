@@ -69,6 +69,27 @@ and then write the ratio $t_{k+1}/t_k$ in the form :eq:`hyper_ratio` and
 immediately identify the proper ${}_p F_q$ function. If the ratio cannot be
 put into the form :eq:`hyper_ratio` then the function is not hypergeometric.
 
+Convergence Conditions
+======================
+
+If any $a_i=0, -1, -2, \dots$, then the series is a polynomial of degree
+$-a_i$.
+
+If any $b_i=0, -1, -2, \dots$ then the denominators eventually become 0 (unless
+the series is terminated as a polynomial before that, due to the previous
+point) and the series is undefined.
+
+Except the previous two cases, the radius of convergence $R$ of the
+hypergeometric series is:
+
+.. math::
+
+    R = \begin{cases}
+        \infty & \mbox{if $p \le q$;} \\
+        1 & \mbox{if $p = q+1$;} \\
+        0 & \mbox{if $p > q+1$.} \\
+        \end{cases}
+
 Elementary and Special Functions
 ================================
 
