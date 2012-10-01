@@ -289,6 +289,12 @@ Dilogarithm:
 
     \mbox{Li}_2(z) = z\ {}_3F_2(1, 1, 1; 2, 2; z)
 
+Digamma:
+
+.. math::
+
+    \psi(z) = (z-1)\ {}_3F_2(1, 1, 2-z; 2, 2; 1) -\gamma
+
 The Wigner 3j symbol:
 
 .. math::
