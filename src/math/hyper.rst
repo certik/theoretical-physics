@@ -270,6 +270,13 @@ Gegenbauer polynomials:
     C_n^\alpha(z) = {(2\alpha)_n \over n!}
         \ {}_2F_1\left(-n, 2\alpha + n;\alpha+\half; {1-z\over 2}\right)
 
+Jacobi polynomials:
+
+.. math::
+
+    P_n^{(\alpha, \beta)}(z) = {(\alpha+1)_n \over n!}
+        \ {}_2F_1\left(-n, 1+\alpha+\beta+n;\alpha+1; {1-z\over 2}\right)
+
 Complete elliptic integrals:
 
 .. math::
