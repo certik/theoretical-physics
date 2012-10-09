@@ -263,6 +263,9 @@ Chebyshev polynomials:
 
     T_n(z) = {}_2F_1\left(-n, n;\half; {1-z\over 2}\right)
 
+    U_n(z) = (n+1)\ {}_2F_1\left(-n, n+2;{\textstyle{3\over2}};
+        {1-z\over 2}\right)
+
 Gegenbauer polynomials:
 
 .. math::
