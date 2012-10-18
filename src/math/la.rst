@@ -72,7 +72,7 @@ Finite dimensional spaces:
         f_1 & f_2 & \cdots & f_n \\
         \end{array}\right)
 
-$R^n$ scalar product:
+$R^n$ Euclidean scalar product:
 
 .. math::
 
@@ -170,8 +170,7 @@ P\ket{u}$ from $W$. Further application of the operator $P$ gains nothing:
 $P\ket{w} = P^2\ket{u} = P\ket{u} = \ket{w}$.
 It decomposes the space $V$ into a direct sum $V=W\oplus W^\bot$ of
 the projection subspace $W$ and its complement $W^\bot$. If $\ket{w}$ is
-from $W$ then its complement $\ket{u} - P\ket{u}$ is from $W^\bot$. Given the
-space $W$, the operator $P$ is unique.
+from $W$ then its complement $\ket{u} - P\ket{u}$ is from $W^\bot$.
 
 Orthogonal projection is a projection that is Hermitean:
 
@@ -190,11 +189,26 @@ The complement of an orthogonal projection is orthogonal to any vector from $W$:
         \braket{u|w} - \braket{u|P|w} =
         \braket{u|w} - \braket{u|w} = 0
 
-
-
 In other words, orthogonal projection projects a vector
 $\ket{u}$ from the space $V$ into an orthogonal subspace (projection subspace)
-$W$.
+$W$. The two spaces $W$ and $W^\bot$ are orthogonal, because any vector from
+$W$ is orthogonal to all vectors from $W^\bot$. Given the
+space $W$, the operator $P$ is unique.
+
+The complement of non-orthogonal projection is not orthogonal to any vector
+from $W$:
+
+.. math::
+
+    \braket{u-Pu|w} =
+        \braket{u|w} - \braket{u|P|w} \neq
+        \braket{u|w} - \braket{u|P^\dag|w} =
+        \braket{u|w} - \braket{u|w} = 0
+
+And the two spaces $W$ and $W^\bot$ are not orthogonal, because any vector from
+$W$ is not orthogonal to any vector from $W^\bot$. Given both
+spaces $W$ and $W^\bot$, the operator $P$ is unique.
+
 
 If we choose any orthonormal basis $\ket{w_0}$, $\ket{w_1}$,
 $\ket{w_2}$, ..., of the subspace $W$, then the orthogonal projection $P$ is:
@@ -271,6 +285,8 @@ $\bra{v_l}$ from the left and simplify:
 
     \braket{v_l|P|u} = \sum_{k=0}^\infty \braket{v_l|v_k}\phi_k
 
+    \braket{v_l|P^\dag|u} = \sum_{k=0}^\infty \braket{v_l|v_k}\phi_k
+
     \braket{v_l|u} = \sum_{k=0}^\infty \braket{v_l|v_k}\phi_k
 
 so we need to solve the linear system:
@@ -292,7 +308,7 @@ This works for any basis, it doesn't have to be normalized nor orthogonal.
 Examples
 --------
 
-$R^n$ projection. Orthogonal basis:
+$R^3$ orthogonal projection. Orthogonal basis:
 
 .. math::
 
@@ -367,6 +383,60 @@ Different orthogonal basis:
         0 & 1 & 0\\
         0 & 0 & 0\\
         \end{array}\right)
+
+$R^2$ non-orthogonal (oblique) projection ($\alpha\neq0$):
+
+.. math::
+
+    P =
+    \left(\begin{array}{ccc}
+        1 & \alpha \\
+        0 & 0 \\
+        \end{array}\right)
+
+    P^2 =
+    \left(\begin{array}{ccc}
+        1 & \alpha \\
+        0 & 0 \\
+        \end{array}\right)
+    \left(\begin{array}{ccc}
+        1 & \alpha \\
+        0 & 0 \\
+        \end{array}\right)
+    =
+    \left(\begin{array}{ccc}
+        1 & \alpha \\
+        0 & 0 \\
+        \end{array}\right)
+    = P
+
+    P^\dag = P^T =
+    \left(\begin{array}{ccc}
+        1 & 0 \\
+        \alpha & 0 \\
+        \end{array}\right)
+    \neq P
+
+    P \ket{u} =
+    \left(\begin{array}{ccc}
+        1 & \alpha \\
+        0 & 0 \\
+        \end{array}\right)
+    \left(\begin{array}{c}
+        x \\
+        y \\
+        \end{array}\right)
+    =
+    \left(\begin{array}{c}
+        x + \alpha y \\
+        0 \\
+        \end{array}\right)
+
+Because the projection is not orthogonal (in the $R^2$ Euclidean scalar
+product), the projected point $(x + \alpha y, 0)$ is not the closest point (in
+the induced Euclidean $R^2$ norm) to $(x, y)$. For $\alpha=0$ the projection
+becomes orthogonal and indeed the projected point $(x, 0)$ then becomes the
+closest point to $(x, y)$.
 
 Lagrange interpolation projection onto the space $\{1, x\}$:
 
