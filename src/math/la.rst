@@ -329,7 +329,7 @@ $R^n$ projection. Orthogonal basis:
         0 & 0 & 0\\
         \end{array}\right)
 
-Different basis orthogonal basis:
+Different orthogonal basis:
 
 .. math::
 
