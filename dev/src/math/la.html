@@ -222,8 +222,8 @@ from <img class="math" src="../../_images/math/10cb764f88509fb1c8012366993fdbee9
 spaces <img class="math" src="../../_images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> and <img class="math" src="../../_images/math/f1403101e49a238e0c523e967b99c66808fcf119.png" alt="W^\bot"/>, the operator <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> is unique.</p>
 <p>If we choose any orthonormal basis <img class="math" src="../../_images/math/a49e93d0d7a2050ff9a2e92a275d42e3bb343d8a.png" alt="\ket{w_0}"/>, <img class="math" src="../../_images/math/c7e742c2dd81fd42e06d5cdcb561d5d88cae0ed5.png" alt="\ket{w_1}"/>,
 <img class="math" src="../../_images/math/58c1611517e096b8b5e657b180e83e2d73895482.png" alt="\ket{w_2}"/>, ..., of the subspace <img class="math" src="../../_images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/>, then the orthogonal projection <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> is:</p>
-<div class="math">
-<p><img src="../../_images/math/ef8fea84561af4c44bf16b52b08e514507acae1e.png" alt="P = \sum_{k=0}^\infty \ket{w_k}\bra{w_k}"/></p>
+<div class="math" id="equation-proj_ortho">
+<p><span class="eqno">(1)</span><img src="../../_images/math/ef8fea84561af4c44bf16b52b08e514507acae1e.png" alt="P = \sum_{k=0}^\infty \ket{w_k}\bra{w_k}"/></p>
 </div><p>because:</p>
 <div class="math">
 <p><img src="../../_images/math/2625ccbfc5b6811bf12bafb54a9fc8b28b7ade26.png" alt="P^2 =
@@ -260,31 +260,51 @@ the norm:</p>
 <img class="math" src="../../_images/math/5e93d4b4e6018448abac48aa25d0ae95c3c7a85d.png" alt="\ket{u-Pu}"/> is from the orthogonal complement to the subspace <img class="math" src="../../_images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/>.
 In other words, orthogonal projection finds the closest vector from a subspace
 onto which it projects.</p>
-<div class="section" id="nonorthogonal-basis">
-<h3>Nonorthogonal basis<a class="headerlink" href="#nonorthogonal-basis" title="Permalink to this headline">¶</a></h3>
-<p>In order to project using a nonorthogonal basis <img class="math" src="../../_images/math/2215e549dbab1e945f3edd0821626a45fdc12ff0.png" alt="\ket{v_k}"/> (for example a
-finite element basis), we write:</p>
+<div class="section" id="projection-coefficients">
+<h3>Projection Coefficients<a class="headerlink" href="#projection-coefficients" title="Permalink to this headline">¶</a></h3>
+<p>Given the basis <img class="math" src="../../_images/math/2215e549dbab1e945f3edd0821626a45fdc12ff0.png" alt="\ket{v_k}"/> (orthogonal or non-orthogonal), we would like to
+find a formula for the projection coefficients <img class="math" src="../../_images/math/b91ac9c58c0e22ff0b88f239dbda5d97e8329e81.png" alt="\phi_k"/> defined by:</p>
+<div class="math" id="equation-proj_coeff">
+<p><span class="eqno">(2)</span><img src="../../_images/math/b9ada58af0d21541e7b1edba94d9ac72cca03b2b.png" alt="P \ket{u} = \sum_{k=0}^\infty \ket{v_k} \phi_k \,."/></p>
+</div><p>This holds, because <img class="math" src="../../_images/math/cb9933c0969c86e0db2cccb32b12b631f9017cc5.png" alt="P\ket{u}"/> belongs to the space <img class="math" src="../../_images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> and every vector from
+it can be expressed as a linear combination of <img class="math" src="../../_images/math/2215e549dbab1e945f3edd0821626a45fdc12ff0.png" alt="\ket{v_k}"/>.</p>
+<div class="section" id="projecting-to-orthogonal-basis">
+<h4>Projecting to Orthogonal Basis<a class="headerlink" href="#projecting-to-orthogonal-basis" title="Permalink to this headline">¶</a></h4>
+<p>For orthogonal projections we simply substitute the equation <a href="#equation-proj_ortho">(1)</a>
+into <a href="#equation-proj_coeff">(2)</a> and get:</p>
 <div class="math">
-<p><img src="../../_images/math/72f4487320ea4178aec6154946bddc8f67a01644.png" alt="P\ket{u} = \sum_{k=0}^\infty \ket{v_k}\phi_k"/></p>
-</div><p>where <img class="math" src="../../_images/math/b91ac9c58c0e22ff0b88f239dbda5d97e8329e81.png" alt="\phi_k"/> are the projection coefficients that we&#8217;d like to calculate.
-This holds, because <img class="math" src="../../_images/math/cb9933c0969c86e0db2cccb32b12b631f9017cc5.png" alt="P\ket{u}"/> belongs to the space <img class="math" src="../../_images/math/10cb764f88509fb1c8012366993fdbee98f31bc5.png" alt="W"/> and every vector from it
-can be expressed as a linear combination of <img class="math" src="../../_images/math/2215e549dbab1e945f3edd0821626a45fdc12ff0.png" alt="\ket{v_k}"/>. Now we multiply by
-<img class="math" src="../../_images/math/c18347412174136eff36238272c091364624ca0c.png" alt="\bra{v_l}"/> from the left and simplify:</p>
+<p><img src="../../_images/math/5f2dd8ff7746018390b60f9a28222f3e83b081ab.png" alt="P \ket{u} = \sum_{k=0}^\infty \ket{w_k}\braket{w_k | u}
+    = \sum_{k=0}^\infty \ket{w_k} \phi_k \,,"/></p>
+</div><p>from which the projection coefficients <img class="math" src="../../_images/math/b91ac9c58c0e22ff0b88f239dbda5d97e8329e81.png" alt="\phi_k"/> are given by</p>
+<div class="math" id="equation-phi_ortho">
+<p><span class="eqno">(3)</span><img src="../../_images/math/d7341bfce335b05742e9e49c23e6ed87fdc2604d.png" alt="\phi_k = \braket{w_k | u} \,."/></p>
+</div></div>
+<div class="section" id="projecting-to-nonorthogonal-basis">
+<h4>Projecting to Nonorthogonal Basis<a class="headerlink" href="#projecting-to-nonorthogonal-basis" title="Permalink to this headline">¶</a></h4>
+<p>In order to project onto a nonorthogonal basis <img class="math" src="../../_images/math/2215e549dbab1e945f3edd0821626a45fdc12ff0.png" alt="\ket{v_k}"/> (for example a
+finite element basis),
+we multiply <a href="#equation-proj_coeff">(2)</a> by <img class="math" src="../../_images/math/c18347412174136eff36238272c091364624ca0c.png" alt="\bra{v_l}"/> from the left and simplify:</p>
 <div class="math">
 <p><img src="../../_images/math/56edd2080c6a45dfaa8c56603bfefe7f28fdc9a3.png" alt="\braket{v_l|P|u} = \sum_{k=0}^\infty \braket{v_l|v_k}\phi_k
 
 \braket{v_l|P^\dag|u} = \sum_{k=0}^\infty \braket{v_l|v_k}\phi_k
 
 \braket{v_l|u} = \sum_{k=0}^\infty \braket{v_l|v_k}\phi_k"/></p>
-</div><p>so we need to solve the linear system:</p>
+</div><p>so we need to solve a linear system for the coefficients <img class="math" src="../../_images/math/b91ac9c58c0e22ff0b88f239dbda5d97e8329e81.png" alt="\phi_k"/>:</p>
+<div class="math" id="equation-linsystem_proj">
+<p><span class="eqno">(4)</span><img src="../../_images/math/a1256448e01c532082c30216a49a32fb372331f1.png" alt="A_{lk}\phi_k = f_l \,,"/></p>
+</div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/8832d418abdf0ec9d748eadc23b58a17505fc4af.png" alt="A_{lk}\phi_k = f_l"/></p>
-</div><p>with:</p>
-<div class="math">
-<p><img src="../../_images/math/7fba947db89a5e8bc2593e8a9824253e7808e3c9.png" alt="A_{lk} = \braket{v_l|v_k}
+<p><img src="../../_images/math/33de24355bddd69cb4cec0c3281eb41ac0abafb8.png" alt="A_{lk} = \braket{v_l|v_k}
 
-f_l = \braket{v_l|u}"/></p>
-</div><p>This works for any basis, it doesn&#8217;t have to be normalized nor orthogonal.</p>
+f_l = \braket{v_l|u} \,."/></p>
+</div><p>This works for any basis, it doesn&#8217;t have to be normalized nor orthogonal.
+In the special case of a (normalized) orthogonal basis, we get
+<img class="math" src="../../_images/math/7fced4c0409d8325cfdb3948c131f8d53db41bec.png" alt="A_{lk} = \braket{v_l|v_k}=\delta_{lk}"/> and from <a href="#equation-linsystem_proj">(4)</a> we get</p>
+<div class="math">
+<p><img src="../../_images/math/cde98ccedd2145eabbce2ceb655c5bd14695f4ef.png" alt="A_{lk}\phi_k = \delta_{lk} \phi_k = \phi_l = f_l = \braket{v_l|u}\,,"/></p>
+</div><p>so we recovered the equation <a href="#equation-phi_ortho">(3)</a> as expected.</p>
+</div>
 </div>
 <div class="section" id="id1">
 <h3>Examples<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -610,7 +630,11 @@ P\ket{u} = \ket{w_0}\phi_0 + \ket{w_1}\phi_1 =
 </ul>
 </li>
 <li><a class="reference internal" href="#projections">Projections</a><ul>
-<li><a class="reference internal" href="#nonorthogonal-basis">Nonorthogonal basis</a></li>
+<li><a class="reference internal" href="#projection-coefficients">Projection Coefficients</a><ul>
+<li><a class="reference internal" href="#projecting-to-orthogonal-basis">Projecting to Orthogonal Basis</a></li>
+<li><a class="reference internal" href="#projecting-to-nonorthogonal-basis">Projecting to Nonorthogonal Basis</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#id1">Examples</a></li>
 </ul>
 </li>

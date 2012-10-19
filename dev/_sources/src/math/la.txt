@@ -214,6 +214,7 @@ If we choose any orthonormal basis $\ket{w_0}$, $\ket{w_1}$,
 $\ket{w_2}$, ..., of the subspace $W$, then the orthogonal projection $P$ is:
 
 .. math::
+    :label: proj_ortho
 
     P = \sum_{k=0}^\infty \ket{w_k}\bra{w_k}
 
@@ -266,20 +267,44 @@ $\ket{u-Pu}$ is from the orthogonal complement to the subspace $W$.
 In other words, orthogonal projection finds the closest vector from a subspace
 onto which it projects.
 
-Nonorthogonal basis
--------------------
+Projection Coefficients
+-----------------------
 
-In order to project using a nonorthogonal basis $\ket{v_k}$ (for example a
-finite element basis), we write:
+Given the basis $\ket{v_k}$ (orthogonal or non-orthogonal), we would like to
+find a formula for the projection coefficients $\phi_k$ defined by:
+
+.. math::
+    :label: proj_coeff
+
+    P \ket{u} = \sum_{k=0}^\infty \ket{v_k} \phi_k \,.
+
+This holds, because $P\ket{u}$ belongs to the space $W$ and every vector from
+it can be expressed as a linear combination of $\ket{v_k}$.
+
+Projecting to Orthogonal Basis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For orthogonal projections we simply substitute the equation :eq:`proj_ortho`
+into :eq:`proj_coeff` and get:
 
 .. math::
 
-    P\ket{u} = \sum_{k=0}^\infty \ket{v_k}\phi_k
+    P \ket{u} = \sum_{k=0}^\infty \ket{w_k}\braket{w_k | u}
+        = \sum_{k=0}^\infty \ket{w_k} \phi_k \,,
 
-where $\phi_k$ are the projection coefficients that we'd like to calculate.
-This holds, because $P\ket{u}$ belongs to the space $W$ and every vector from it
-can be expressed as a linear combination of $\ket{v_k}$. Now we multiply by
-$\bra{v_l}$ from the left and simplify:
+from which the projection coefficients $\phi_k$ are given by
+
+.. math::
+    :label: phi_ortho
+
+    \phi_k = \braket{w_k | u} \,.
+
+Projecting to Nonorthogonal Basis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to project onto a nonorthogonal basis $\ket{v_k}$ (for example a
+finite element basis),
+we multiply :eq:`proj_coeff` by $\bra{v_l}$ from the left and simplify:
 
 .. math::
 
@@ -289,21 +314,30 @@ $\bra{v_l}$ from the left and simplify:
 
     \braket{v_l|u} = \sum_{k=0}^\infty \braket{v_l|v_k}\phi_k
 
-so we need to solve the linear system:
+so we need to solve a linear system for the coefficients $\phi_k$:
 
 .. math::
+    :label: linsystem_proj
 
-    A_{lk}\phi_k = f_l
+    A_{lk}\phi_k = f_l \,,
 
-with:
+where
 
 .. math::
 
     A_{lk} = \braket{v_l|v_k}
 
-    f_l = \braket{v_l|u}
+    f_l = \braket{v_l|u} \,.
 
 This works for any basis, it doesn't have to be normalized nor orthogonal.
+In the special case of a (normalized) orthogonal basis, we get
+$A_{lk} = \braket{v_l|v_k}=\delta_{lk}$ and from :eq:`linsystem_proj` we get
+
+.. math::
+
+    A_{lk}\phi_k = \delta_{lk} \phi_k = \phi_l = f_l = \braket{v_l|u}\,,
+
+so we recovered the equation :eq:`phi_ortho` as expected.
 
 Examples
 --------
