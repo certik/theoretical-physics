@@ -1057,6 +1057,33 @@ And the asymptotic is:
 
     Q(r) = (l+1) r^l
 
+From the derivation this is valid for $l>0$, but it turns out to be valid also
+for $l=0$, because for $V(r) = -Z/r + O(1)$ the equations become:
+
+.. math::
+
+    P''(r) +{2Z\over r} P(r) = 0
+
+the asymptotic of which is:
+
+.. math::
+
+    P(r) = r(1-Zr)
+
+    P'(r) = 1-2Zr
+
+    P''(r) = -2Z
+
+Which in the first order is just the above asymptotic for $l=0$:
+
+.. math::
+
+    P(r) = r
+
+    Q(r) = 1
+
+Note that $Z$ can be both positive and negative.
+
 Dirac
 ~~~~~
 
