@@ -1199,3 +1199,20 @@ term goes to zero and we get:
 .. math::
 
     Q(r) =r^{\beta-1} {c(\beta + \kappa)\over W + c^2}
+
+In order to determine the constant $\beta$ for $Z\ne0$, we write the fraction
+$Q(r)\over P(r)$ in two ways:
+
+.. math::
+
+    {Q(r)\over P(r)} = {c(\beta+\kappa) \over Z} = {Z\over c(\kappa-\beta)}
+
+The second equation follows from first assuming $Q(r)=r^\beta$ and using the
+first Dirac equation to express $P(r)=r^\beta {c(\kappa-\beta) \over Z}$.  Now
+we can express $\beta$ (we can assume $\beta > 0$):
+
+.. math::
+
+    {Z^2\over c^2} = \kappa^2 - \beta^2
+
+    \beta = \sqrt{\kappa^2 - \left(Z\over c\right)^2}
