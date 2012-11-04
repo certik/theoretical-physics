@@ -1163,7 +1163,7 @@ For $r\to 0$ we write the full equations:
 
     c P' + c{\kappa\over r} P + (V-c^2) Q = W Q
 
-The we assume $P(r) = r^\beta$ and use the second equation to express $Q(r)$:
+Then we assume $P(r) = r^\beta$ and use the second equation to express $Q(r)$:
 
 .. math::
 
