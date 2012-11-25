@@ -44,7 +44,7 @@ into the form
 
 where $x$ is a constant and the $(k+1)$ factor is just a convention (if the
 polynomial $Q(k)$ does not contain the factor $(k+1)$ we can just add it to
-both numerator and denominator and absorb the one into $a_p$). The
+both numerator and denominator and absorb the "1" into $a_p$). The
 hypergeometric series is then given by:
 
 .. math::
