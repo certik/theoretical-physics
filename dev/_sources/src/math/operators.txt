@@ -1347,13 +1347,13 @@ $\ket{lm}^* = (-1)^m \ket{l,-m}$ we get:
 
     \ket{l\mu}_R^* = \ket{l\mu}_R
 
-    \sum_m (U^l_{\mu m})^* \ket{lm}^* = \sum_m U^l_{\mu m} \ket{m}
+    \sum_m (U^l_{\mu m})^* \ket{lm}^* = \sum_m U^l_{\mu m} \ket{lm}
 
-    \sum_m (U^l_{\mu m})^* (-1)^m \ket{l,-m} = \sum_m U^l_{\mu m} \ket{m}
+    \sum_m (U^l_{\mu m})^* (-1)^m \ket{l,-m} = \sum_m U^l_{\mu m} \ket{lm}
 
-    \sum_m (U^l_{\mu, -m})^* (-1)^m \ket{lm} = \sum_m U^l_{\mu m} \ket{m}
+    \sum_m (U^l_{\mu, -m})^* (-1)^m \ket{lm} = \sum_m U^l_{\mu m} \ket{lm}
 
-    \sum_m (U^l_{\mu m} - (U^l_{\mu, -m})^*) (-1)^m) \ket{m}
+    \sum_m (U^l_{\mu m} - (U^l_{\mu, -m})^*) (-1)^m) \ket{lm} = 0
 
     U^l_{\mu m} = (-1)^m (U^l_{\mu, -m})^*
 
