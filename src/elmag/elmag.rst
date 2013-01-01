@@ -429,6 +429,9 @@ For scalar potential ($\beta=0$) we get:
          {c \rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
             \over |{\bf x} - {\bf y}| }\d^3 y
 
+.. math::
+    :label: Ascal_sol
+
     \phi({\bf x}, t) = {\mu_0 c^2\over 4\pi}\int
          {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
             \over |{\bf x} - {\bf y}| }\d^3 y
@@ -745,6 +748,65 @@ And we get:
 
 Examples
 --------
+
+Coulomb Law
+~~~~~~~~~~~
+
+Maxwell's equations in Lorenz gauge :eq:`Aeq1`:
+
+.. math::
+
+    \partial_\alpha\partial^\alpha A^\beta = \mu_0 j^\beta
+
+have the solution for the scalar potential :eq:`Ascal_sol`:
+
+.. math::
+
+    \phi({\bf x}, t)
+        = {1\over 4\pi\epsilon_0}\int
+         {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+            \over |{\bf x} - {\bf y}| }\d^3 y
+
+Assuming ${ |{\bf x} - {\bf y}| \over c} \ll t$:
+
+.. math::
+
+    \phi({\bf x}, t)
+        = {1\over 4\pi\epsilon_0}\int {\rho({\bf y},t)
+            \over |{\bf x} - {\bf y}| }\d^3 y
+
+Assuming the vector potential ${\bf A}({\bf x}, t)={\bf A}({\bf x})$
+is time independent, we get for the electric field:
+
+.. math::
+
+    {\bf E}({\bf x}, t) = -\nabla\phi({\bf x}, t)
+            - {\partial {\bf A}({\bf x}, t)\over\partial t}
+        = -\nabla\phi({\bf x}, t)
+        = -\nabla {1\over 4\pi\epsilon_0}\int {\rho({\bf y},t)
+            \over |{\bf x} - {\bf y}| }\d^3 y =
+
+        = - {1\over 4\pi\epsilon_0}\int \rho({\bf y},t) \nabla {1
+            \over |{\bf x} - {\bf y}| }\d^3 y =
+
+        = {1\over 4\pi\epsilon_0}\int \rho({\bf y},t)
+        {{\bf x} - {\bf y} \over | {\bf x} - {\bf y}|^3 } \d^3 y
+
+
+If the charge distribution can be approximated by an infinitely-narrow wire
+with linear charge density $\lambda(y, t) = {\d Q(t)\over\d y}$, we get:
+
+.. math::
+
+    \rho({\bf y},t) \d^3 y = \lambda({\bf y}, t) \d l
+
+and:
+
+.. math::
+
+    {\bf E}({\bf x}, t)
+        = {1\over 4\pi\epsilon_0}\int \lambda({\bf y}, t)
+        {{\bf x} - {\bf y} \over | {\bf x} - {\bf y}|^3 } \d l
 
 Biot-Savart Law
 ~~~~~~~~~~~~~~~
