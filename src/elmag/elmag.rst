@@ -851,6 +851,22 @@ For $y=0$:
          =(x, 0, 0) {\lambda\over 2\pi\epsilon_0} {1\over x^2 }
          =(1, 0, 0) {\lambda\over 2\pi\epsilon_0 x}
 
+We can also calculate the scalar potential as follows:
+
+.. math::
+
+    \phi({\bf x})
+        = {\lambda\over 4\pi\epsilon_0}\int_{-\infty}^\infty { \d l
+            \over |{\bf x} - {\bf l}| } =
+
+        = {\lambda\over 4\pi\epsilon_0}\int_{-\infty}^\infty { \d l
+            \over (x^2 + y^2 + (z-l)^2)^{1\over 2} } =
+
+        = {\lambda\over 4\pi\epsilon_0}\int_{-\infty}^\infty { \d u
+            \over \sqrt{x^2 + y^2 + u^2} } =
+
+        = \infty
+
 Biot-Savart Law
 ~~~~~~~~~~~~~~~
 
