@@ -867,6 +867,78 @@ We can also calculate the scalar potential as follows:
 
         = \infty
 
+In order to calculate with $\phi({\bf x})$, we need to regularize it first.
+Cutoff regularization is:
+
+.. math::
+
+    \phi({\bf x})
+        = {\lambda\over 4\pi\epsilon_0}\int_{-L}^L { \d u
+            \over \sqrt{x^2 + y^2 + u^2} } =
+
+        = {\lambda\over 4\pi\epsilon_0}
+            \log {\sqrt{x^2+y^2+L^2} + L \over
+                \sqrt{x^2+y^2+L^2} - L}
+
+where $L$ is the regulator and also an auxiliary scale.
+Dimensional regularization expresses the integral in the dimension
+$n=1-2\epsilon$ as follows:
+
+.. math::
+
+    \phi({\bf x})
+        = {\lambda\over 4\pi\epsilon_0}
+            \int \d \Omega_n
+            \int_0^\infty {u^{n-1}\over \Lambda^{n-1}}
+            { \d u \over \sqrt{x^2 + y^2 + u^2} } =
+
+        = {\lambda\over 4\pi\epsilon_0}
+        {\Gamma\left(1-n\over2\right) \over \left({\sqrt{x^2+y^2}\over\Lambda}
+        \sqrt\pi\right)^{1-n}} =
+
+        = {\lambda\over 4\pi\epsilon_0}
+        {\Gamma(\epsilon) \over \left({\sqrt{x^2+y^2}\over\Lambda}
+            \right)^{2\epsilon} \pi^\epsilon } =
+
+        = {\lambda\over 4\pi\epsilon_0}
+        \left[{1\over\epsilon} -\gamma-\log\pi
+            + \log{\Lambda^2\over x^2 + y^2} + O(\epsilon)\right]
+
+Here $\epsilon$ is the regulator and $\Lambda$ is the auxiliary scale.
+Now we can renormalize the integral. The minimal subtraction (MS)
+renormalization is:
+
+.. math::
+
+    \phi_{{\rm MS}}({\bf x})
+        = {\lambda\over 4\pi\epsilon_0}
+        \left[-\gamma-\log\pi + \log{\Lambda^2\over x^2 + y^2}\right]
+
+Another option is
+the modified minimal subtraction ($\overline{\rm MS}$) renormalization is:
+
+.. math::
+
+    \phi_{\overline{\rm MS}}({\bf x})
+        = {\lambda\over 4\pi\epsilon_0} \log{\Lambda^2\over x^2 + y^2}
+
+Once we choose a renormalization scheme, we can calculate the electric field as
+follows:
+
+.. math::
+
+    E_x = -{\partial \phi_{\overline{\rm MS}}(x)\over \partial x}
+    = -{\partial \over \partial x}
+        {\lambda\over 4\pi\epsilon_0} \log{\Lambda^2\over
+        x^2}=
+
+    = - {\lambda\over 4\pi\epsilon_0} {x^2\over\Lambda^2} \Lambda^2
+        \left(-{2\over x^3}\right) =
+
+    = {\lambda\over 2\pi\epsilon_0} {1\over x}
+
+In agreement with the previous result.
+
 Biot-Savart Law
 ~~~~~~~~~~~~~~~
 
