@@ -392,11 +392,11 @@ F_{\mu\nu} = g_{\mu\alpha}g_{\nu\beta}F^{\alpha\beta}
         \over |{\bf x} - {\bf y}| }\d^3 y"/></p>
 </div><p>For scalar potential (<img class="math" src="../../_images/math/632a65c82b0d143ac0630269ba8720846fc4c846.png" alt="\beta=0"/>) we get:</p>
 <div class="math">
-<p><img src="../../_images/math/b5d2ad16ce0e74833177de12fc1a8cc8340bece8.png" alt="{\phi({\bf x}, t)\over c} = {\mu_0\over 4\pi}\int
+<p><img src="../../_images/math/f6a632992cc606c7ebf4c805656f79ba428d3c76.png" alt="{\phi({\bf x}, t)\over c} = {\mu_0\over 4\pi}\int
      {c \rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
-        \over |{\bf x} - {\bf y}| }\d^3 y
-
-\phi({\bf x}, t) = {\mu_0 c^2\over 4\pi}\int
+        \over |{\bf x} - {\bf y}| }\d^3 y"/></p>
+</div><div class="math" id="equation-Ascal_sol">
+<p><span class="eqno">(7)</span><img src="../../_images/math/37180256678ded3741909f5bade0ab7c2cee98f9.png" alt="\phi({\bf x}, t) = {\mu_0 c^2\over 4\pi}\int
      {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
         \over |{\bf x} - {\bf y}| }\d^3 y
     = {1\over 4\pi\epsilon_0}\int
@@ -404,7 +404,7 @@ F_{\mu\nu} = g_{\mu\alpha}g_{\nu\beta}F^{\alpha\beta}
         \over |{\bf x} - {\bf y}| }\d^3 y"/></p>
 </div><p>And for vector potential (<img class="math" src="../../_images/math/5d1a5045d2222e2db05d8f6f475bc3b46a71d12b.png" alt="\beta=i"/>) we get:</p>
 <div class="math" id="equation-Avec_sol">
-<p><span class="eqno">(7)</span><img src="../../_images/math/77449261caf951ae20b2657a95991bee4ae317ec.png" alt="{\bf A}({\bf x}, t) = {\mu_0\over 4\pi}\int
+<p><span class="eqno">(8)</span><img src="../../_images/math/77449261caf951ae20b2657a95991bee4ae317ec.png" alt="{\bf A}({\bf x}, t) = {\mu_0\over 4\pi}\int
      {{\bf j}({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
         \over |{\bf x} - {\bf y}| }\d^3 y"/></p>
 </div></div>
@@ -654,12 +654,186 @@ the formula:</p>
 </div></div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="coulomb-law">
+<h3>Coulomb Law<a class="headerlink" href="#coulomb-law" title="Permalink to this headline">¶</a></h3>
+<p>Maxwell&#8217;s equations in Lorenz gauge <a href="#equation-Aeq1">(2)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/1aa54d02292c7b3039d9ecba853498959278b8ca.png" alt="\partial_\alpha\partial^\alpha A^\beta = \mu_0 j^\beta"/></p>
+</div><p>have the solution for the scalar potential <a href="#equation-Ascal_sol">(7)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/2fbb8324178917998c4d325adb843ff603f008a2.png" alt="\phi({\bf x}, t)
+    = {1\over 4\pi\epsilon_0}\int
+     {\rho({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
+        \over |{\bf x} - {\bf y}| }\d^3 y"/></p>
+</div><p>Assuming <img class="math" src="../../_images/math/c1b4d07742677af5288112e46f7b0fd68f360c77.png" alt="{ |{\bf x} - {\bf y}| \over c} \ll t"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/02ca361f1e56097eb6daf00ca7f42c185cf711f9.png" alt="\phi({\bf x}, t)
+    = {1\over 4\pi\epsilon_0}\int {\rho({\bf y},t)
+        \over |{\bf x} - {\bf y}| }\d^3 y"/></p>
+</div><p>Assuming the vector potential <img class="math" src="../../_images/math/cf0ee860c7ecae83f4a074a5857fd3386ad30ff9.png" alt="{\bf A}({\bf x}, t)={\bf A}({\bf x})"/>
+is time independent, we get for the electric field:</p>
+<div class="math">
+<p><img src="../../_images/math/be293c18e217118cfd2b29afd724e4c4709c7a57.png" alt="{\bf E}({\bf x}, t) = -\nabla\phi({\bf x}, t)
+        - {\partial {\bf A}({\bf x}, t)\over\partial t}
+    = -\nabla\phi({\bf x}, t)
+    = -\nabla {1\over 4\pi\epsilon_0}\int {\rho({\bf y},t)
+        \over |{\bf x} - {\bf y}| }\d^3 y =
+
+    = - {1\over 4\pi\epsilon_0}\int \rho({\bf y},t) \nabla {1
+        \over |{\bf x} - {\bf y}| }\d^3 y =
+
+    = {1\over 4\pi\epsilon_0}\int \rho({\bf y},t)
+    {{\bf x} - {\bf y} \over | {\bf x} - {\bf y}|^3 } \d^3 y"/></p>
+</div><p>If the charge distribution can be approximated by an infinitely-narrow wire
+with linear charge density <img class="math" src="../../_images/math/f28364b929cbcaef7b5c7a068e70008b86be3b9a.png" alt="\lambda(y, t) = {\d Q(t)\over\d y}"/>, we get:</p>
+<div class="math">
+<p><img src="../../_images/math/2f31936303b9700908b8dc3f49b817b56f87d129.png" alt="\rho({\bf y},t) \d^3 y = \lambda({\bf y}, t) \d l"/></p>
+</div><p>and:</p>
+<div class="math">
+<p><img src="../../_images/math/b389a972b3d87b97a2187e32be01fa75b6a19918.png" alt="{\bf E}({\bf x}, t)
+    = {1\over 4\pi\epsilon_0}\int \lambda({\bf l}, t)
+    {{\bf x} - {\bf l} \over | {\bf x} - {\bf l}|^3 } \d l"/></p>
+</div><div class="section" id="example-straight-wire">
+<h4>Example: Straight Wire<a class="headerlink" href="#example-straight-wire" title="Permalink to this headline">¶</a></h4>
+<p>Let&#8217;s assume infinite straight wire with constant linear charge
+density <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/512adf0148dac9767322d1cd8ef69b681785a8df.png" alt="{\bf l} = (0, 0, l)
+
+\d {\bf l} = (0, 0, 1)\d l
+
+{\bf x} = (x, y, z)
+
+{\bf x}-{\bf l} = (x, y, z-l)
+
+{\bf E}({\bf x})
+     ={\lambda\over 4\pi\epsilon_0}\int_{-\infty}^\infty
+        {{\bf x} - {\bf l} \over |{\bf x} - {\bf l}|^3 } \d l =
+
+     ={\lambda\over 4\pi\epsilon_0} \int_{-\infty}^\infty
+         {(x, y, z-l) \d l
+            \over (x^2 + y^2 + (z-l)^2)^{3\over 2} } =
+
+     ={\lambda\over 4\pi\epsilon_0} \int_{-\infty}^\infty
+         {(x, y, 0) \d l
+            \over (x^2 + y^2 + (z-l)^2)^{3\over 2} } =
+
+     =(x, y, 0) {\lambda\over 4\pi\epsilon_0} \int_{-\infty}^\infty
+         {\d u \over (x^2 + y^2 + u^2)^{3\over 2} } =
+
+     =(x, y, 0) {\lambda\over 4\pi\epsilon_0} {2\over x^2 + y^2 } =
+
+     =(x, y, 0) {\lambda\over 2\pi\epsilon_0} {1\over x^2 + y^2 }"/></p>
+</div><p>For <img class="math" src="../../_images/math/ec89f09c84538ec43930ca5d8e5e0957e2000822.png" alt="y=0"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/63e2e79018eb10a1d51cf74a76aeb896c25bf9c7.png" alt="{\bf E}(x, 0, z)
+     =(x, 0, 0) {\lambda\over 2\pi\epsilon_0} {1\over x^2 }
+     =(1, 0, 0) {\lambda\over 2\pi\epsilon_0 x}"/></p>
+</div><p>We can also calculate the scalar potential as follows:</p>
+<div class="math">
+<p><img src="../../_images/math/d7bbabdf0d5f45df632a00269e8d69e54b859acb.png" alt="\phi({\bf x})
+    = {\lambda\over 4\pi\epsilon_0}\int_{-\infty}^\infty { \d l
+        \over |{\bf x} - {\bf l}| } =
+
+    = {\lambda\over 4\pi\epsilon_0}\int_{-\infty}^\infty { \d l
+        \over (x^2 + y^2 + (z-l)^2)^{1\over 2} } =
+
+    = {\lambda\over 4\pi\epsilon_0}\int_{-\infty}^\infty { \d u
+        \over \sqrt{x^2 + y^2 + u^2} } =
+
+    = \infty"/></p>
+</div><p>Note that in the radial direction (let&#8217;s set for example <img class="math" src="../../_images/math/ec89f09c84538ec43930ca5d8e5e0957e2000822.png" alt="y=0"/>) the result is
+scale (translation) invariant, i.e. <img class="math" src="../../_images/math/c144a02a2371b3c7bfc5dfda224292912ea8d623.png" alt="\phi(kx) = \phi(x)"/>.</p>
+<p>In order to calculate with <img class="math" src="../../_images/math/5f1d780205371f12bea445fab54991fb64fa424e.png" alt="\phi({\bf x})"/>, we need to regularize it first.
+Cutoff regularization is:</p>
+<div class="math">
+<p><img src="../../_images/math/bbe0b642db26b2de5a56d63b34b041551b0fa29a.png" alt="\phi({\bf x})
+    = {\lambda\over 4\pi\epsilon_0}\int_{-L}^L { \d u
+        \over \sqrt{x^2 + y^2 + u^2} } =
+
+    = {\lambda\over 4\pi\epsilon_0}
+        \log {\sqrt{x^2+y^2+L^2} + L \over
+            \sqrt{x^2+y^2+L^2} - L}"/></p>
+</div><p>where <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is the regulator and also an auxiliary scale.
+In this regularization, we lost the translational symmetry. The physical
+quantities don&#8217;t depend on <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> in the limit <img class="math" src="../../_images/math/a14b5226c31a66aa82c3b8ee37d5d459a1814f8e.png" alt="L\to\infty"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/2aa620df10695cd619b93d88e967b2f384786453.png" alt="E_x = -{\partial \over \partial x} \phi(x)
+= {\lambda\over 2\pi\epsilon_0 x} {L\over\sqrt{L^2+x^2}}
+\to {\lambda\over 2\pi\epsilon_0 x}"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/00a7c2cef66176047d727101155c7982d2d91a20.png" alt="\Delta \phi = \phi(x_2) - \phi(x_1) =
+    {\lambda\over 4\pi\epsilon_0}
+        \log {\sqrt{x_2^2+L^2} + L \over
+            \sqrt{x_2^2+L^2} - L}
+        {\sqrt{x_1^2+L^2} - L \over
+            \sqrt{x_1^2+L^2} + L}
+\to
+{\lambda\over 4\pi\epsilon_0} \log {x_1^2\over x_2^2}"/></p>
+</div><p>Dimensional regularization expresses the integral in the dimension
+<img class="math" src="../../_images/math/95250b8e84701b995edd22023bbfb152747cd256.png" alt="n=1-2\epsilon"/> as follows:</p>
+<div class="math">
+<p><img src="../../_images/math/c93414208b1b248385b5b4bd0e9cbbfcc26e464b.png" alt="\phi({\bf x})
+    = {\lambda\over 4\pi\epsilon_0}
+        \int \d \Omega_n
+        \int_0^\infty {u^{n-1}\over \Lambda^{n-1}}
+        { \d u \over \sqrt{x^2 + y^2 + u^2} } =
+
+    = {\lambda\over 4\pi\epsilon_0}
+    {\Gamma\left(1-n\over2\right) \over \left({\sqrt{x^2+y^2}\over\Lambda}
+    \sqrt\pi\right)^{1-n}} =
+
+    = {\lambda\over 4\pi\epsilon_0}
+    {\Gamma(\epsilon) \over \left({\sqrt{x^2+y^2}\over\Lambda}
+        \right)^{2\epsilon} \pi^\epsilon } =
+
+    = {\lambda\over 4\pi\epsilon_0}
+    \left[{1\over\epsilon} -\gamma-\log\pi
+        + \log{\Lambda^2\over x^2 + y^2} + O(\epsilon)\right]"/></p>
+</div><p>Here <img class="math" src="../../_images/math/eaf4418fbe935c15a606516d8f55dc380cd8e822.png" alt="\epsilon"/> is the regulator and <img class="math" src="../../_images/math/2d295c3b71504a216422e5fffdfbad742c7add64.png" alt="\Lambda"/> is the auxiliary scale.
+This regularization preserves the translational symmetry.
+Now we can renormalize the integral. The minimal subtraction (MS)
+renormalization is:</p>
+<div class="math">
+<p><img src="../../_images/math/c3d6782ad965bdf85a25e28fcdb74349ca77e702.png" alt="\phi_{{\rm MS}}({\bf x})
+    = {\lambda\over 4\pi\epsilon_0}
+    \left[-\gamma-\log\pi + \log{\Lambda^2\over x^2 + y^2}\right]"/></p>
+</div><p>Another option is
+the modified minimal subtraction (<img class="math" src="../../_images/math/69fdeb37d1ff1fb4e0481799c05196aaaeed86ef.png" alt="\overline{\rm MS}"/>) renormalization is:</p>
+<div class="math">
+<p><img src="../../_images/math/1bcd0a4b4a3f5066c6062bac2422838202748ac7.png" alt="\phi_{\overline{\rm MS}}({\bf x})
+    = {\lambda\over 4\pi\epsilon_0} \log{\Lambda^2\over x^2 + y^2}"/></p>
+</div><p>Once we choose a renormalization scheme, we can calculate the electric field as
+follows:</p>
+<div class="math">
+<p><img src="../../_images/math/6f697f2590fe3d48951c4fedfdf51f40c8e68fdc.png" alt="E_x = -{\partial \over \partial x} \phi_{\overline{\mathrm{MS}}}(x)
+= -{\partial \over \partial x}
+    {\lambda\over 4\pi\epsilon_0} \log{\Lambda^2\over
+    x^2}=
+
+= - {\lambda\over 4\pi\epsilon_0} {x^2\over\Lambda^2} \Lambda^2
+    \left(-{2\over x^3}\right) =
+
+= {\lambda\over 2\pi\epsilon_0} {1\over x}"/></p>
+</div><p>and the potential difference as:</p>
+<div class="math">
+<p><img src="../../_images/math/9074e62ec9a903b1d029e2ddb8326f66ed767c39.png" alt="\Delta \phi = \phi_{\overline{\mathrm{MS}}}(x_2)
+    - \phi_{\overline{\mathrm{MS}}}(x_1) =
+    {\lambda\over 4\pi\epsilon_0}
+        \log {\Lambda^2\over x_2^2}{x_1^2\over \Lambda^2}
+=
+{\lambda\over 4\pi\epsilon_0} \log {x_1^2\over x_2^2}"/></p>
+</div><p>In agreement with the previous result. The final results don&#8217;t depend on the
+auxiliary scale <img class="math" src="../../_images/math/2d295c3b71504a216422e5fffdfbad742c7add64.png" alt="\Lambda"/> and we are not doing any limits.</p>
+</div>
+</div>
 <div class="section" id="biot-savart-law">
 <h3>Biot-Savart Law<a class="headerlink" href="#biot-savart-law" title="Permalink to this headline">¶</a></h3>
 <p>Maxwell&#8217;s equations in Lorenz gauge <a href="#equation-Aeq1">(2)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/1aa54d02292c7b3039d9ecba853498959278b8ca.png" alt="\partial_\alpha\partial^\alpha A^\beta = \mu_0 j^\beta"/></p>
-</div><p>have the solution for the vector potential <a href="#equation-Avec_sol">(7)</a>:</p>
+</div><p>have the solution for the vector potential <a href="#equation-Avec_sol">(8)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/77449261caf951ae20b2657a95991bee4ae317ec.png" alt="{\bf A}({\bf x}, t) = {\mu_0\over 4\pi}\int
      {{\bf j}({\bf y},t-{ |{\bf x} - {\bf y}| \over c})
@@ -690,8 +864,8 @@ the formula:</p>
 <p><img src="../../_images/math/a5131c73f8179c3b65bb906276066aa4389d841d.png" alt="{\bf B}({\bf x}, t)
      ={\mu_0\over 4\pi}\int I(t)\d{\bf l} \times {{\bf x} - {\bf l}
             \over |{\bf x} - {\bf l}|^3 }"/></p>
-</div><div class="section" id="example-straight-wire">
-<h4>Example: Straight Wire<a class="headerlink" href="#example-straight-wire" title="Permalink to this headline">¶</a></h4>
+</div><div class="section" id="id2">
+<h4>Example: Straight Wire<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>Let&#8217;s assume infinite straight wire carrying constant current <img class="math" src="../../_images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/fc020051aa8d928686f474f760d478d5f2b8da1c.png" alt="{\bf l} = (0, 0, l)
@@ -1601,7 +1775,7 @@ charged negative) and <img class="math" src="../../_images/math/0615acc3725de210
 value means recombination, a negative value generation of carriers). We get the
 carrier continuity equations:</p>
 <div class="math" id="equation-continuity">
-<p><span class="eqno">(8)</span><img src="../../_images/math/f553859214c7ec09ce9847bc163cd1e124820db6.png" alt="{\partial n\over\partial t} = -R + {1\over q} \nabla\cdot {\bf J}_n
+<p><span class="eqno">(9)</span><img src="../../_images/math/f553859214c7ec09ce9847bc163cd1e124820db6.png" alt="{\partial n\over\partial t} = -R + {1\over q} \nabla\cdot {\bf J}_n
 
 {\partial p\over\partial t} = -R - {1\over q} \nabla\cdot {\bf J}_p"/></p>
 </div><p>Then we need material relations that express how the current <img class="math" src="../../_images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is
@@ -1609,7 +1783,7 @@ generated using <img class="math" src="../../_images/math/99ee03f3854092e4a9bc48
 a drift current (<img class="math" src="../../_images/math/c100f968ad3c74575dfc8b204a4938bec1d479c1.png" alt="q\mu_n n {\bf E}"/>) and a diffusion (<img class="math" src="../../_images/math/a956eceaad82dd620cffae9fe68fad353f4cb0bb.png" alt="q D_n \nabla n"/>),
 which gives:</p>
 <div class="math" id="equation-drift">
-<p><span class="eqno">(9)</span><img src="../../_images/math/3f1097a5331fe909142714459235ff054a0d38aa.png" alt="{\bf J}_n = q\mu_n n {\bf E} + q D_n \nabla n
+<p><span class="eqno">(10)</span><img src="../../_images/math/3f1097a5331fe909142714459235ff054a0d38aa.png" alt="{\bf J}_n = q\mu_n n {\bf E} + q D_n \nabla n
 
 {\bf J}_p = q\mu_p p {\bf E} - q D_p \nabla p"/></p>
 </div><p>where <img class="math" src="../../_images/math/70edeef563162fc6212acb107a10dc7d81e7a99f.png" alt="\mu_n"/>, <img class="math" src="../../_images/math/cd3a37106c43d8f0931ee8a4da3f0aa455492221.png" alt="\mu_p"/>, <img class="math" src="../../_images/math/2eacbcb991af87d495f8689ac0e952b51317dbaa.png" alt="D_n"/>, <img class="math" src="../../_images/math/9fd0e5c87aa97864dbc938e52116649e1eef006a.png" alt="D_p"/> are the carrier mobilities and
@@ -1618,10 +1792,10 @@ diffusivities.</p>
 <div class="math">
 <p><img src="../../_images/math/7d99fddf9ea6d5b1473e223bda36515ef7456e2d.png" alt="\nabla\cdot (\varepsilon{\bf E}) = \rho"/></p>
 </div><div class="math" id="equation-gauss">
-<p><span class="eqno">(10)</span><img src="../../_images/math/04adf9877fe301cf89fd671262ed40ec3a97765e.png" alt="\nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)"/></p>
+<p><span class="eqno">(11)</span><img src="../../_images/math/04adf9877fe301cf89fd671262ed40ec3a97765e.png" alt="\nabla\cdot(\varepsilon {\bf E}) = q(p-n + C)"/></p>
 </div><div class="section" id="equations">
 <h2>Equations<a class="headerlink" href="#equations" title="Permalink to this headline">¶</a></h2>
-<p>Combining <a href="#equation-drift">(9)</a> and <a href="#equation-continuity">(8)</a> we get the following three
+<p>Combining <a href="#equation-drift">(10)</a> and <a href="#equation-continuity">(9)</a> we get the following three
 equations for three unknowns <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, <img class="math" src="../../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> and <img class="math" src="../../_images/math/99ee03f3854092e4a9bc48ff28bab3ffcb9d66b7.png" alt="{\bf E}"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/79f5ec3a2fbed650c1648b344f5e59a1310275ba.png" alt="{\partial n\over\partial t} = -R + \nabla\cdot (\mu_n n {\bf E})
@@ -1634,7 +1808,7 @@ equations for three unknowns <img class="math" src="../../_images/math/174fadd07
 </div><p>And it is usually assumed that the magnetic field is time independent, so
 <img class="math" src="../../_images/math/900a8e6f92c82b3ba02a3e6dfb65fe8ac9b7a168.png" alt="{\bf E}=-\nabla\phi"/> and we get:</p>
 <div class="math" id="equation-semicond-eq">
-<p><span class="eqno">(11)</span><img src="../../_images/math/caebfdf789e84cce77efdce81cf5e84789203e82.png" alt="{\partial n\over\partial t} = -R - \nabla\cdot (\mu_n n \nabla\phi)
+<p><span class="eqno">(12)</span><img src="../../_images/math/caebfdf789e84cce77efdce81cf5e84789203e82.png" alt="{\partial n\over\partial t} = -R - \nabla\cdot (\mu_n n \nabla\phi)
     +\nabla\cdot (D_n \nabla n)
 
 {\partial p\over\partial t} = -R + \nabla\cdot (\mu_p p \nabla\phi)
@@ -1713,7 +1887,7 @@ are position independent and <img class="math" src="../../_images/math/7296755ef
 </div>
 <div class="section" id="example-3">
 <h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s calculate the 1D pn-junction. We take the equations <a href="#equation-semicond-eq">(11)</a> and
+<p>Let&#8217;s calculate the 1D pn-junction. We take the equations <a href="#equation-semicond-eq">(12)</a> and
 write them in 1D for the stationary state
 (<img class="math" src="../../_images/math/01fb20e91338e18e41884c6365666e1b9eed23e7.png" alt="{\partial n\over\partial t}={\partial p\over\partial t}=0"/>):</p>
 <div class="math">
@@ -1731,7 +1905,7 @@ write them in 1D for the stationary state
 \varepsilon \phi'' = -q(p-n + C)"/></p>
 </div><p>and we put the second derivatives on the left hand side:</p>
 <div class="math" id="equation-1d-pn-junction1">
-<p><span class="eqno">(12)</span><img src="../../_images/math/f8b3de3f823ddae2eec96d5281aeabfff158072c.png" alt="n'' = {1\over D_n}(R + \mu_n n' \phi' + \mu_n n \phi'')
+<p><span class="eqno">(13)</span><img src="../../_images/math/f8b3de3f823ddae2eec96d5281aeabfff158072c.png" alt="n'' = {1\over D_n}(R + \mu_n n' \phi' + \mu_n n \phi'')
 
 p'' = {1\over D_p}(R - \mu_p p' \phi' - \mu_p p \phi'')
 
@@ -1749,7 +1923,7 @@ y_3 = y_2' = p'
 y_4 = \phi
 
 y_5 = y_4' = \phi'"/></p>
-</div><p>and rewrite <a href="#equation-1d-pn-junction1">(12)</a>:</p>
+</div><p>and rewrite <a href="#equation-1d-pn-junction1">(13)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/2c0a205242211d42cb2f44f70f096c1de77675bd.png" alt="y_1' = {1\over D_n}(R + \mu_n y_1 y_5 + \mu_n y_0 y_5')
 
@@ -1758,7 +1932,7 @@ y_3' = {1\over D_p}(R - \mu_p y_3 y_5 - \mu_p y_2 y_5')
 y_5' = -{q\over\varepsilon} (y_2-y_0 + C)"/></p>
 </div><p>So we are solving the following six nonlinear first order ODE:</p>
 <div class="math" id="equation-1d-pn-junction2">
-<p><span class="eqno">(13)</span><img src="../../_images/math/1b0d188519ab2653ba098bd4970e7dbb88cf6c0b.png" alt="y_5' = -{q\over\varepsilon} (y_2-y_0 + C)
+<p><span class="eqno">(14)</span><img src="../../_images/math/1b0d188519ab2653ba098bd4970e7dbb88cf6c0b.png" alt="y_5' = -{q\over\varepsilon} (y_2-y_0 + C)
 
 y_0' = y_1
 
@@ -1787,8 +1961,12 @@ y_4' = y_5"/></p>
 <li><a class="reference internal" href="#hamiltonian">Hamiltonian</a></li>
 <li><a class="reference internal" href="#electromagnetic-stress-tensor">Electromagnetic Stress Tensor</a></li>
 <li><a class="reference internal" href="#examples">Examples</a><ul>
-<li><a class="reference internal" href="#biot-savart-law">Biot-Savart Law</a><ul>
+<li><a class="reference internal" href="#coulomb-law">Coulomb Law</a><ul>
 <li><a class="reference internal" href="#example-straight-wire">Example: Straight Wire</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#biot-savart-law">Biot-Savart Law</a><ul>
+<li><a class="reference internal" href="#id2">Example: Straight Wire</a></li>
 <li><a class="reference internal" href="#example-circular-loop">Example: Circular Loop</a></li>
 <li><a class="reference internal" href="#helmholtz-coil">Helmholtz Coil</a></li>
 </ul>
