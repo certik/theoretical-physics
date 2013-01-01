@@ -805,8 +805,51 @@ and:
 .. math::
 
     {\bf E}({\bf x}, t)
-        = {1\over 4\pi\epsilon_0}\int \lambda({\bf y}, t)
-        {{\bf x} - {\bf y} \over | {\bf x} - {\bf y}|^3 } \d l
+        = {1\over 4\pi\epsilon_0}\int \lambda({\bf l}, t)
+        {{\bf x} - {\bf l} \over | {\bf x} - {\bf l}|^3 } \d l
+
+Example: Straight Wire
+^^^^^^^^^^^^^^^^^^^^^^
+
+Let's assume infinite straight wire with constant linear charge
+density $\lambda$:
+
+.. math::
+
+    {\bf l} = (0, 0, l)
+
+    \d {\bf l} = (0, 0, 1)\d l
+
+    {\bf x} = (x, y, z)
+
+    {\bf x}-{\bf l} = (x, y, z-l)
+
+    {\bf E}({\bf x})
+         ={\lambda\over 4\pi\epsilon_0}\int_{-\infty}^\infty
+            {{\bf x} - {\bf l} \over |{\bf x} - {\bf l}|^3 } \d l =
+
+         ={\lambda\over 4\pi\epsilon_0} \int_{-\infty}^\infty
+             {(x, y, z-l) \d l
+                \over (x^2 + y^2 + (z-l)^2)^{3\over 2} } =
+
+         ={\lambda\over 4\pi\epsilon_0} \int_{-\infty}^\infty
+             {(x, y, 0) \d l
+                \over (x^2 + y^2 + (z-l)^2)^{3\over 2} } =
+
+         =(x, y, 0) {\lambda\over 4\pi\epsilon_0} \int_{-\infty}^\infty
+             {\d u \over (x^2 + y^2 + u^2)^{3\over 2} } =
+
+         =(x, y, 0) {\lambda\over 4\pi\epsilon_0} {2\over x^2 + y^2 } =
+
+         =(x, y, 0) {\lambda\over 2\pi\epsilon_0} {1\over x^2 + y^2 }
+
+For $y=0$:
+
+.. math::
+
+    {\bf E}(x, 0, z)
+         =(x, 0, 0) {\lambda\over 2\pi\epsilon_0} {1\over x^2 }
+         =(1, 0, 0) {\lambda\over 2\pi\epsilon_0 x}
 
 Biot-Savart Law
 ~~~~~~~~~~~~~~~
