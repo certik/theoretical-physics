@@ -867,6 +867,9 @@ We can also calculate the scalar potential as follows:
 
         = \infty
 
+Note that in the radial direction (let's set for example $y=0$) the result is
+scale (translation) invariant, i.e. $\phi(kx) = \phi(x)$.
+
 In order to calculate with $\phi({\bf x})$, we need to regularize it first.
 Cutoff regularization is:
 
@@ -881,6 +884,28 @@ Cutoff regularization is:
                 \sqrt{x^2+y^2+L^2} - L}
 
 where $L$ is the regulator and also an auxiliary scale.
+In this regularization, we lost the translational symmetry. The physical
+quantities don't depend on $L$ in the limit $L\to\infty$:
+
+.. math::
+
+    E_x = -{\partial \over \partial x} \phi(x)
+    = {\lambda\over 2\pi\epsilon_0 x} {L\over\sqrt{L^2+x^2}}
+    \to {\lambda\over 2\pi\epsilon_0 x}
+
+and
+
+.. math::
+
+    \Delta \phi = \phi(x_2) - \phi(x_1) =
+        {\lambda\over 4\pi\epsilon_0}
+            \log {\sqrt{x_2^2+L^2} + L \over
+                \sqrt{x_2^2+L^2} - L}
+            {\sqrt{x_1^2+L^2} - L \over
+                \sqrt{x_1^2+L^2} + L}
+    \to
+    {\lambda\over 4\pi\epsilon_0} \log {x_1^2\over x_2^2}
+
 Dimensional regularization expresses the integral in the dimension
 $n=1-2\epsilon$ as follows:
 
@@ -905,6 +930,7 @@ $n=1-2\epsilon$ as follows:
             + \log{\Lambda^2\over x^2 + y^2} + O(\epsilon)\right]
 
 Here $\epsilon$ is the regulator and $\Lambda$ is the auxiliary scale.
+This regularization preserves the translational symmetry.
 Now we can renormalize the integral. The minimal subtraction (MS)
 renormalization is:
 
@@ -937,7 +963,19 @@ follows:
 
     = {\lambda\over 2\pi\epsilon_0} {1\over x}
 
-In agreement with the previous result.
+and the potential difference as:
+
+.. math::
+
+    \Delta \phi = \phi_{\overline{\mathrm{MS}}}(x_2)
+        - \phi_{\overline{\mathrm{MS}}}(x_1) =
+        {\lambda\over 4\pi\epsilon_0}
+            \log {\Lambda^2\over x_2^2}{x_1^2\over \Lambda^2}
+    =
+    {\lambda\over 4\pi\epsilon_0} \log {x_1^2\over x_2^2}
+
+In agreement with the previous result. The final results don't depend on the
+auxiliary scale $\Lambda$ and we are not doing any limits.
 
 Biot-Savart Law
 ~~~~~~~~~~~~~~~
