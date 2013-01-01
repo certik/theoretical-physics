@@ -927,7 +927,7 @@ follows:
 
 .. math::
 
-    E_x = -{\partial \phi_{\overline{\rm MS}}(x)\over \partial x}
+    E_x = -{\partial \over \partial x} \phi_{\overline{\mathrm{MS}}}(x)
     = -{\partial \over \partial x}
         {\lambda\over 4\pi\epsilon_0} \log{\Lambda^2\over
         x^2}=
