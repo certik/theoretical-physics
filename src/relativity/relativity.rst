@@ -1811,15 +1811,15 @@ $\boldsymbol\zeta=(\zeta, 0, 0)$, e.g.:
 
 .. math::
 
-    A= C^{-1}e^{-i\zeta M_1}C = C^{-1}\left( \one-M_1^2+iM_1\sinh\zeta+ M_1^2\cosh\zeta\right)C=
+    A= C^{-1}e^{-i\zeta M_1}C = C^{-1}\left( \one+M_1^2-iM_1\sinh\zeta- M_1^2\cosh\zeta\right)C=
 
 
 .. math::
 
-     = C^{-1} \mat{ \cosh\zeta & -\sinh\zeta & 0 & 0\cr -\sinh\zeta & \cosh\zeta & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr} C = \mat{ \cosh\zeta & -{1\over c}\sinh\zeta & 0 & 0\cr -c\sinh\zeta & \cosh\zeta & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr}
+     = C^{-1} \mat{ \cosh\zeta & \sinh\zeta & 0 & 0\cr \sinh\zeta & \cosh\zeta & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr} C = \mat{ \cosh\zeta & {1\over c}\sinh\zeta & 0 & 0\cr c\sinh\zeta & \cosh\zeta & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr}
 
 from the construction, $-\infty<\zeta<\infty$, so we may do the
-substitution $\zeta={v\over c}\,{\rm atanh}\left({v\over c}\right)$, where
+substitution $\zeta={\rm atanh}\left({v\over c}\right)$, where
 $-c<v<c$. The inverse transformation is:
 
 .. math::
@@ -1835,7 +1835,10 @@ and we get the boost given above:
 
 .. math::
 
-    A= \mat{ \cosh\zeta & -{1\over c}\sinh\zeta & 0 & 0\cr -c\sinh\zeta & \cosh\zeta & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr} = \mat{ {1\over\sqrt{1-{v^2\over c^2}}}& -{{v\over c^2}\over\sqrt{1-{v^2\over c^2}}} & 0 & 0\cr -{v\over\sqrt{1-{v^2\over c^2}}} & {1\over\sqrt{1-{v^2\over c^2}}} & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr}
+    A= \mat{ \cosh\zeta & {1\over c}\sinh\zeta & 0 & 0\cr c\sinh\zeta & \cosh\zeta & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr} = \mat{ {1\over\sqrt{1-{v^2\over c^2}}}& {{v\over c^2}\over\sqrt{1-{v^2\over c^2}}} & 0 & 0\cr {v\over\sqrt{1-{v^2\over c^2}}} & {1\over\sqrt{1-{v^2\over c^2}}} & 0 & 0\cr 0 & 0 & 1 & 0\cr 0 & 0 & 0 & 1\cr}
+
+Depending on the sign of $v$, we can also put a minus sign in front of the
+off-diagonal elements.
 
 Adding two boosts together:
 
