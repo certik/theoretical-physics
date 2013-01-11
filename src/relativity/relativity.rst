@@ -1658,9 +1658,7 @@ a diagonal matrix with odd number of -1, below we list all of them together
 with their construction using time reversal, parity and spatial rotations:
 
 .. math::
-    :nowrap:
 
-    \begin{align*}
     \diag(-1, 1, 1, 1) &= T\\
     \diag(1, -1, 1, 1) &= PR_1(\pi)\\
     \diag(1, 1, -1, 1) &= PR_2(\pi)\\
@@ -1669,7 +1667,6 @@ with their construction using time reversal, parity and spatial rotations:
     \diag(-1, 1, -1, -1) &= TR_1(\pi)\\
     \diag(-1, -1, 1, -1) &= TR_2(\pi)\\
     \diag(-1, -1, -1, 1) &= TR_3(\pi)\\
-    \end{align*}
 
 But $R_i(\pi)$ belongs to ${\rm SO}^+(3, 1)$, so we just need two extra
 elements, $T$ and $P$ to construct all matrices with $\det\Lambda=-1$ using
