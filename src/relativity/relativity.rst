@@ -1594,8 +1594,7 @@ element of the discrete group:
 
     \{\one,\ P,\ T,\ PT\}
 
-where $P$ is space inversion (also called space reflection or parity
-transformation):
+where $P$ is parity (also called space reflection or space inversion):
 
 .. math::
 
