@@ -1661,14 +1661,14 @@ with their construction using time reversal, parity and spatial rotations:
     :nowrap:
 
     \begin{align*}
-    \diag(-1, 0, 0, 0) &= T\\
-    \diag(0, -1, 0, 0) &= PR_1(\pi)\\
-    \diag(0, 0, -1, 0) &= PR_2(\pi)\\
-    \diag(0, 0, 0, -1) &= PR_3(\pi)\\
-    \diag(0, -1, -1, -1) &= P\\
-    \diag(-1, 0, -1, -1) &= TR_1(\pi)\\
-    \diag(-1, -1, 0, -1) &= TR_2(\pi)\\
-    \diag(-1, -1, -1, 0) &= TR_3(\pi)\\
+    \diag(-1, 1, 1, 1) &= T\\
+    \diag(1, -1, 1, 1) &= PR_1(\pi)\\
+    \diag(1, 1, -1, 1) &= PR_2(\pi)\\
+    \diag(1, 1, 1, -1) &= PR_3(\pi)\\
+    \diag(1, -1, -1, -1) &= P\\
+    \diag(-1, 1, -1, -1) &= TR_1(\pi)\\
+    \diag(-1, -1, 1, -1) &= TR_2(\pi)\\
+    \diag(-1, -1, -1, 1) &= TR_3(\pi)\\
     \end{align*}
 
 But $R_i(\pi)$ belongs to ${\rm SO}^+(3, 1)$, so we just need two extra
