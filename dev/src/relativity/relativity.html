@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -1079,8 +1077,7 @@ group can be written as products of an element from <img class="math" src="../..
 element of the discrete group:</p>
 <div class="math">
 <p><img src="../../_images/math/3eaebdafa91f8ab8ddf475594626fce3af8789fe.png" alt="\{\one,\ P,\ T,\ PT\}"/></p>
-</div><p>where <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> is space inversion (also called space reflection or parity
-transformation):</p>
+</div><p>where <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> is parity (also called space reflection or space inversion):</p>
 <div class="math">
 <p><img src="../../_images/math/4112b2c05a1409614c865e7c9a0bcccf00daeb0e.png" alt="P= \mat{ 1 &amp; 0 &amp; 0 &amp; 0\cr 0 &amp; -1 &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; -1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; -1\cr}"/></p>
 </div><p>and <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> is time reversal (also called time inversion):</p>
@@ -1128,16 +1125,14 @@ with <img class="math" src="../../_images/math/03e1f8f4057d467f63986a2bffb746b83
 a diagonal matrix with odd number of -1, below we list all of them together
 with their construction using time reversal, parity and spatial rotations:</p>
 <div class="math">
-<p><img src="../../_images/math/8bd29740018c2ba177ffebb7f25e99edfb40153f.png" alt="\begin{align*}
-\diag(-1, 0, 0, 0) &amp;= T\\
-\diag(0, -1, 0, 0) &amp;= PR_1(\pi)\\
-\diag(0, 0, -1, 0) &amp;= PR_2(\pi)\\
-\diag(0, 0, 0, -1) &amp;= PR_3(\pi)\\
-\diag(0, -1, -1, -1) &amp;= P\\
-\diag(-1, 0, -1, -1) &amp;= TR_1(\pi)\\
-\diag(-1, -1, 0, -1) &amp;= TR_2(\pi)\\
-\diag(-1, -1, -1, 0) &amp;= TR_3(\pi)\\
-\end{align*}"/></p>
+<p><img src="../../_images/math/d9a448e19403ba96b9dfab0d14e7d074033be9e1.png" alt="\diag(-1, 1, 1, 1) &amp;= T\\
+\diag(1, -1, 1, 1) &amp;= PR_1(\pi)\\
+\diag(1, 1, -1, 1) &amp;= PR_2(\pi)\\
+\diag(1, 1, 1, -1) &amp;= PR_3(\pi)\\
+\diag(1, -1, -1, -1) &amp;= P\\
+\diag(-1, 1, -1, -1) &amp;= TR_1(\pi)\\
+\diag(-1, -1, 1, -1) &amp;= TR_2(\pi)\\
+\diag(-1, -1, -1, 1) &amp;= TR_3(\pi)\\"/></p>
 </div><p>But <img class="math" src="../../_images/math/48ef1cdbc0ae5bb4190bf74d5a07d919231189af.png" alt="R_i(\pi)"/> belongs to <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/>, so we just need two extra
 elements, <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> and <img class="math" src="../../_images/math/4b4cade9ca8a2c8311fafcf040bc5b15ca507f52.png" alt="P"/> to construct all matrices with <img class="math" src="../../_images/math/fc03dcb072bde0bcc95524915c99767f8476ff9d.png" alt="\det\Lambda=-1"/> using
 matrices from SO(3, 1). So to recapitulate, if we start with <img class="math" src="../../_images/math/1ad6ef0a406a6b60b6063a49fb560d07d1ab5e5d.png" alt="{\rm SO}^+(3, 1)"/>
@@ -1216,11 +1211,11 @@ and the final relation shows that boosts do not in general commute.</p>
 </div><p>The boost in the <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>-direction is <img class="math" src="../../_images/math/1a6fffd34c1d58206980981a407378440be892c3.png" alt="\boldsymbol\varphi=0"/> and
 <img class="math" src="../../_images/math/a74a2939860eef8d71ebfb3fbee7b955afe9b98b.png" alt="\boldsymbol\zeta=(\zeta, 0, 0)"/>, e.g.:</p>
 <div class="math">
-<p><img src="../../_images/math/b6ffa3ab9c917d80df9aa2a962b092aee27dd3a2.png" alt="A= C^{-1}e^{-i\zeta M_1}C = C^{-1}\left( \one-M_1^2+iM_1\sinh\zeta+ M_1^2\cosh\zeta\right)C="/></p>
+<p><img src="../../_images/math/2131ba6c5dc8bb5a6316ff69df34988d15c7025b.png" alt="A= C^{-1}e^{-i\zeta M_1}C = C^{-1}\left( \one+M_1^2-iM_1\sinh\zeta- M_1^2\cosh\zeta\right)C="/></p>
 </div><div class="math">
-<p><img src="../../_images/math/c0c972efc6bc5395d4a783c5e38c46231b58e04e.png" alt="= C^{-1} \mat{ \cosh\zeta &amp; -\sinh\zeta &amp; 0 &amp; 0\cr -\sinh\zeta &amp; \cosh\zeta &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} C = \mat{ \cosh\zeta &amp; -{1\over c}\sinh\zeta &amp; 0 &amp; 0\cr -c\sinh\zeta &amp; \cosh\zeta &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}"/></p>
+<p><img src="../../_images/math/01a33a3ce820c98fec435a80ee88beb6df9bb079.png" alt="= C^{-1} \mat{ \cosh\zeta &amp; \sinh\zeta &amp; 0 &amp; 0\cr \sinh\zeta &amp; \cosh\zeta &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} C = \mat{ \cosh\zeta &amp; {1\over c}\sinh\zeta &amp; 0 &amp; 0\cr c\sinh\zeta &amp; \cosh\zeta &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}"/></p>
 </div><p>from the construction, <img class="math" src="../../_images/math/9c030edf99ca031880768a9d5897a0169a012325.png" alt="-\infty&lt;\zeta&lt;\infty"/>, so we may do the
-substitution <img class="math" src="../../_images/math/db1406080e883dec5d0f64bc4bac2d42a5a981bd.png" alt="\zeta={v\over c}\,{\rm atanh}\left({v\over c}\right)"/>, where
+substitution <img class="math" src="../../_images/math/e70d8d35637208300e15b587456df8ece1b69375.png" alt="\zeta={\rm atanh}\left({v\over c}\right)"/>, where
 <img class="math" src="../../_images/math/621099444a1ef72afab92ee1137787ff664bfc28.png" alt="-c&lt;v&lt;c"/>. The inverse transformation is:</p>
 <div class="math">
 <p><img src="../../_images/math/8f0fcc3c70fdabbca38da5d801114eea1d0b924f.png" alt="\cosh\zeta={1\over\sqrt{1-{v^2\over c^2}}}"/></p>
@@ -1228,8 +1223,10 @@ substitution <img class="math" src="../../_images/math/db1406080e883dec5d0f64bc4
 <p><img src="../../_images/math/f5ba3018933ccb06e8fd27eb240a23738de4690d.png" alt="\sinh\zeta={{v\over c}\over\sqrt{1-{v^2\over c^2}}}"/></p>
 </div><p>and we get the boost given above:</p>
 <div class="math">
-<p><img src="../../_images/math/d5598bdbf0e5d01a636a23f35d2593c5428d2218.png" alt="A= \mat{ \cosh\zeta &amp; -{1\over c}\sinh\zeta &amp; 0 &amp; 0\cr -c\sinh\zeta &amp; \cosh\zeta &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} = \mat{ {1\over\sqrt{1-{v^2\over c^2}}}&amp; -{{v\over c^2}\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr -{v\over\sqrt{1-{v^2\over c^2}}} &amp; {1\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}"/></p>
-</div><p>Adding two boosts together:</p>
+<p><img src="../../_images/math/2759a15d39231684f4eb2e8b80621d96f735e39c.png" alt="A= \mat{ \cosh\zeta &amp; {1\over c}\sinh\zeta &amp; 0 &amp; 0\cr c\sinh\zeta &amp; \cosh\zeta &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} = \mat{ {1\over\sqrt{1-{v^2\over c^2}}}&amp; {{v\over c^2}\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr {v\over\sqrt{1-{v^2\over c^2}}} &amp; {1\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr}"/></p>
+</div><p>Depending on the sign of <img class="math" src="../../_images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/>, we can also put a minus sign in front of the
+off-diagonal elements.</p>
+<p>Adding two boosts together:</p>
 <div class="math">
 <p><img src="../../_images/math/03ee847bc41135c99c6ea4f053b3d1267ef2be93.png" alt="A(u)A(v) = \mat{ {1\over\sqrt{1-{u^2\over c^2}}}&amp; -{{u\over c^2}\over\sqrt{1-{u^2\over c^2}}} &amp; 0 &amp; 0\cr -{u\over\sqrt{1-{u^2\over c^2}}} &amp; {1\over\sqrt{1-{u^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} \mat{ {1\over\sqrt{1-{v^2\over c^2}}}&amp; -{{v\over c^2}\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr -{v\over\sqrt{1-{v^2\over c^2}}} &amp; {1\over\sqrt{1-{v^2\over c^2}}} &amp; 0 &amp; 0\cr 0 &amp; 0 &amp; 1 &amp; 0\cr 0 &amp; 0 &amp; 0 &amp; 1\cr} ="/></p>
 </div><div class="math">
@@ -1648,7 +1645,7 @@ are.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2009-2011, Ondřej Čertík.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

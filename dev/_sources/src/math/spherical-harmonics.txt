@@ -932,7 +932,7 @@ permutation of columns:
 
         = \begin{pmatrix} j_3 & j_1 & j_2 \\ m_3 & m_1 & m_2 \end{pmatrix}
 
-For an odd permutation of columns it changes sign if $j_1+j_2+j+3$ is an odd
+For an odd permutation of columns it changes sign if $j_1+j_2+j_3$ is an odd
 integer:
 
 .. math::
