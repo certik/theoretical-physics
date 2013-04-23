@@ -336,6 +336,13 @@ Polylogarithm:
 
     \mbox{Li}_s(z) = z\ {}_{s+1}F_s(1, 1, \dots, 1; 2, \dots, 2; z)
 
+Fermi-Dirac integral:
+
+.. math::
+
+    I_\nu(x) = \int_0^\infty {t^\nu\over 1 + e^{t-x}} \d t
+        = -\Gamma(\nu+1) \mbox{Li}_{\nu+1}(-e^x)
+
 
 Example I
 =========
