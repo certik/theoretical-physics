@@ -1,7 +1,7 @@
 Fourier Transform
 -----------------
 
-The Fourier transform is:
+The 1D Fourier transform is:
 
 .. math::
 
@@ -32,6 +32,75 @@ To show that it works:
     \int_{-\infty}^{\infty} f(x') \delta(x-x') \,\d x'
     =f(x)
 
+If $x$ is time (unit $[\mathrm{s}]$), then $\omega$ is angular frequency (unit
+$[\mathrm{rad}/\mathrm{s}]$). One can express the Fourier transform in terms of
+ordinary frequency $\nu$ (unit $[1/\mathrm{s}] = [\mathrm{Hz}]$) by
+substituting $\omega = 2\pi \nu$:
+
+.. math::
+
+    \tilde f(\omega) = \tilde f(2\pi \nu) \equiv \tilde f'(\nu)
+        = \int_{-\infty}^{\infty} f(x) e^{-2\pi i\nu x}\,\d x
+
+    f(x) = \int_{-\infty}^{\infty} \tilde f'(\nu) e^{+2\pi i\nu x}\,\d \nu
+
+Both transformations are equivalent, one only has to be careful whether one is
+dealing with the transform as a function of $\omega$ or $\nu$, the conversion
+being given by $\tilde f(\omega) = \tilde f(2\pi \nu) \equiv \tilde f'(\nu)$.
+Third convention that is frequently used is:
+
+.. math::
+
+    \tilde f(k)
+        = {1\over\sqrt{2\pi}}
+          \int_{-\infty}^{\infty} f(x) e^{-ik x}\,\d x
+
+    f(x)
+        = {1\over\sqrt{2\pi}}
+          \int_{-\infty}^{\infty} \tilde f(k) e^{+ik x}\,\d k
+
+The 3D Fourier transform is:
+
+.. math::
+
+    F[f(\mathbf{x})] \equiv \tilde f(\bomega)
+        = \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x
+
+    F^{-1}[\tilde f(\bomega)] = f(\mathbf{x})
+        = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+        \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+
+With obvious analogs for other conventions and dimensions.
+
+The sign convention in the exponentials $e^{\pm i\omega x}$ is arbitrary, one
+can as well flip the sign of the direct and inverse transforms. In particular,
+one often uses both sign conventions in the same equation. Consider a spacetime
+plane-wave $e^{i k\cdot x} = e^{i(\omega t - \mathbf{k}\cdot\mathbf{x})}$. Then
+we obtain (using plus sign convention in the $e^{ik \cdot x}$ exponential for
+the direct transformation):
+
+.. math::
+
+    F[f(x)] \equiv \tilde f(k)
+        = \int_{-\infty}^{\infty} f(x) e^{ik \cdot x}\,\d^4 x
+        = \int_{-\infty}^{\infty} f(x)
+            e^{i(\omega t - \mathbf{k}\cdot\mathbf{x})}\,\d^4 x
+
+    F^{-1}[f(k)] \equiv f(x)
+        = {1\over(2\pi)^4} \int_{-\infty}^{\infty} \tilde f(k)
+            e^{-ik \cdot x}\,\d^4 k
+        = {1\over(2\pi)^4} \int_{-\infty}^{\infty} \tilde f(k)
+            e^{-i(\omega t - \mathbf{k}\cdot\mathbf{x})}\,\d^4 k
+
+Finally, the equation $k\cdot x = \omega t - \mathbf{k}\cdot\mathbf{x}$ depends
+on the metric signature, in this case $\diag({1, -1, -1, -1})$.
+For a signature $\diag({-1, 1, 1, 1})$ we would get
+$k\cdot x = -\omega t + \mathbf{k}\cdot\mathbf{x}$.
+
+Unlike the normalization convention, where one has to be very careful, the sign
+convention in Fourier transform is not a problem, one just has to remember to
+flip the sign for the inverse transform.
 
 Laplace Transform
 -----------------
