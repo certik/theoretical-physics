@@ -102,6 +102,43 @@ Unlike the normalization convention, where one has to be very careful, the sign
 convention in Fourier transform is not a problem, one just has to remember to
 flip the sign for the inverse transform.
 
+Discrete Fourier Transform
+--------------------------
+
+Starting from
+
+.. math::
+
+    \tilde f(\nu)
+        = \int_{-\infty}^{\infty} f(x) e^{-2\pi i\nu x}\,\d x
+
+    f(x) = \int_{-\infty}^{\infty} \tilde f(\nu) e^{+2\pi i\nu x}\,\d \nu
+
+When the $x$ space is discrete, that is $f(x)\to f(x_k)\equiv f_k$, where
+$x_k = k\Delta$ and $k=0, 1, \cdots, N-1$, we obtain:
+
+.. math::
+
+    \tilde f(\nu)
+        = \int_0^{(N-1)\Delta} f(x) e^{-2\pi i\nu x}\,\d x
+        = \sum_{k=0}^{N-1} f_k e^{-2\pi i\nu x_k}
+        = \sum_{k=0}^{N-1} f_k e^{-2\pi i\nu k \Delta}
+
+We only need to sample the reciprocal space at the intervals
+$\nu = {n\over N \Delta}$ where $n=0, 1, \cdots, N-1$. We finally get:
+
+.. math::
+
+    \tilde f(\nu_n) \equiv \tilde f_n
+        = \sum_{k=0}^{N-1} f_k e^{-2\pi i {n\over N} k}
+
+For the inverse transform, we obtain:
+
+.. math::
+
+    f_k
+        = {1\over N} \sum_{n=0}^{N-1} \tilde f_n e^{2\pi i {n\over N} k}
+
 Laplace Transform
 -----------------
 
