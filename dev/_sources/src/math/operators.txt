@@ -582,6 +582,11 @@ where $\hat f(\lambda)$ is called the Fourier transform of $f(x)$:
     = {1\over\sqrt{2\pi}}\int_{-\infty}^\infty
         e^{-i\lambda x} f(x) \d x
 
+Note that both for Fourier series and Fourier transform, the sign convention in
+the exponentials ($e^{\pm i\lambda x}$) follows from choosing the sign in $A =
+-i {\d \over \d x}$ and as such it is arbitrary. We can also choose $A' = i {\d
+\over \d x}$ and then the sign will be flipped.
+
 Sturm–Liouville Operator
 ========================
 
