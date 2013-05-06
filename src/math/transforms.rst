@@ -44,10 +44,11 @@ substituting $\omega = 2\pi \nu$:
 
     f(x) = \int_{-\infty}^{\infty} \tilde f'(\nu) e^{+2\pi i\nu x}\,\d \nu
 
-Both transformations are equivalent, one only has to be careful whether one is
-dealing with the transform as a function of $\omega$ or $\nu$, the conversion
+Both transformations are equivalent and only differ in whether we
+express the transform in terms of $\omega$ or $\nu$,
+the conversion
 being given by $\tilde f(\omega) = \tilde f(2\pi \nu) \equiv \tilde f'(\nu)$.
-Third convention that is frequently used is:
+Third frequently used convention that is however not equivalent to the above is:
 
 .. math::
 
