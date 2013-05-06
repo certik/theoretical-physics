@@ -72,10 +72,10 @@
 <h2>Finite Difference Formulas<a class="headerlink" href="#finite-difference-formulas" title="Permalink to this headline">¶</a></h2>
 <p>We define the backward difference operator <img class="math" src="../../_images/math/10e9553a425fbc2a2b4ab0e03203d69927d13133.png" alt="\nabla_h"/> by:</p>
 <div class="math">
-<p><span class="eqno">(1)</span><img src="../../_images/math/0b0633a581b67a1618905ee62f1bbc34da203825.png" alt="\nabla_h f(a) = f(a) - f(a-h)"/></p>
+<p><img src="../../_images/math/0b0633a581b67a1618905ee62f1bbc34da203825.png" alt="\nabla_h f(a) = f(a) - f(a-h)"/></p>
 </div><p>Repeated application gives:</p>
 <div class="math">
-<p><span class="eqno">(2)</span><img src="../../_images/math/48a85212919cc8e83615904827dbac9b47d570ea.png" alt="\nabla_h^2 f(a) = \nabla_h (f(a) - f(a-h))
+<p><img src="../../_images/math/48a85212919cc8e83615904827dbac9b47d570ea.png" alt="\nabla_h^2 f(a) = \nabla_h (f(a) - f(a-h))
     = f(a) - f(a-h) -f(a-h) + f(a-2h)
     = f(a) - 2f(a-h) + f(a-2h)
 
@@ -85,7 +85,7 @@
 </div><p>We can also derive a formula for <img class="math" src="../../_images/math/d2a98856b79db131e6dba318b2c19be3654bdc94.png" alt="f(a+t)"/> where <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is any real number,
 independent of <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/>:</p>
 <div class="math">
-<p><span class="eqno">(3)</span><img src="../../_images/math/c47f7b15bb7d89ecbd59ef3da5d86bfc3e1ab202.png" alt="f(a-h) = (1-\nabla_h) f(a)
+<p><img src="../../_images/math/c47f7b15bb7d89ecbd59ef3da5d86bfc3e1ab202.png" alt="f(a-h) = (1-\nabla_h) f(a)
 
 (1-\nabla_h)^{-1} f(a-h) = f(a)
 
@@ -97,7 +97,7 @@ independent of <img class="math" src="../../_images/math/8189a5b5a0917b8c9335082
 </div><p>Now we can express the following general integral using the function value from
 either left (<img class="math" src="../../_images/math/1acc6639de4f1c620680bec4adf3e668f4db723f.png" alt="f(a)"/>) or right (<img class="math" src="../../_images/math/e88bef0f90f0bbe4d107a713801ba523b69e4dee.png" alt="f(a+h)"/>) hand side of the interval <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/>:</p>
 <div class="math">
-<p><span class="eqno">(4)</span><img src="../../_images/math/f0486e467c514bf57c61bbb746800a2067d9e968.png" alt="\int_a^{a+h} f(t) \,\d t
+<p><img src="../../_images/math/f0486e467c514bf57c61bbb746800a2067d9e968.png" alt="\int_a^{a+h} f(t) \,\d t
     = \int_0^h f(a+t) \,\d t
     = \int_0^h (1-\nabla_h)^{-{t\over h}} f(a) \,\d t
     =
@@ -130,7 +130,7 @@ either left (<img class="math" src="../../_images/math/1acc6639de4f1c620680bec4a
 </div>
 <p>Keeping terms only to third-order, we obtain:</p>
 <div class="math">
-<p><span class="eqno">(5)</span><img src="../../_images/math/f44e719ee5ba68707df1cb69bcb0c726f205beaf.png" alt="\int_a^{a+h} f(t) \,\d t
+<p><img src="../../_images/math/f44e719ee5ba68707df1cb69bcb0c726f205beaf.png" alt="\int_a^{a+h} f(t) \,\d t
     = - {h\nabla_h\over (1-\nabla_h) \log(1-\nabla_h)}f(a)
     \approx h \left(1+\half\nabla_h + {5\over 12}\nabla_h^2+{3\over8}
         \nabla_h^3\right) f(a)
@@ -156,7 +156,7 @@ either left (<img class="math" src="../../_images/math/1acc6639de4f1c620680bec4a
     = {h\over24}\left(55f(a) -59f(a-h) + 37f(a-2h) -9f(a-3h)\right)"/></p>
 </div><p>Similarly:</p>
 <div class="math">
-<p><span class="eqno">(6)</span><img src="../../_images/math/98455a7d647d0262a7d80863ff8e2ede64d944eb.png" alt="\int_a^{a+h} f(t) \,\d t
+<p><img src="../../_images/math/98455a7d647d0262a7d80863ff8e2ede64d944eb.png" alt="\int_a^{a+h} f(t) \,\d t
     = - {h\nabla_h\over\log(1-\nabla_h)}f(a+h)
     \approx h \left(1-\half\nabla_h - {1\over 12}\nabla_h^2-{1\over24}
         \nabla_h^3\right) f(a+h)
@@ -181,10 +181,10 @@ either left (<img class="math" src="../../_images/math/1acc6639de4f1c620680bec4a
 <h2>Integrating ODE<a class="headerlink" href="#integrating-ode" title="Permalink to this headline">¶</a></h2>
 <p>Set of linear ODEs can be written in the form:</p>
 <div class="math" id="equation-ode_eq">
-<p><span class="eqno">(7)</span><img src="../../_images/math/e8d43e3a8a93f628aa78cda11ebca2d66fe490ca.png" alt="{\d y\over\d r} = G y"/></p>
+<p><span class="eqno">(1)</span><img src="../../_images/math/e8d43e3a8a93f628aa78cda11ebca2d66fe490ca.png" alt="{\d y\over\d r} = G y"/></p>
 </div><p>For example for the Schrödinger we have</p>
 <div class="math">
-<p><span class="eqno">(8)</span><img src="../../_images/math/c144a6b2a22c880cb39a2ecceabfc76bd5890a2f.png" alt="y = \begin{pmatrix}
+<p><img src="../../_images/math/c144a6b2a22c880cb39a2ecceabfc76bd5890a2f.png" alt="y = \begin{pmatrix}
     P \\
     Q
     \end{pmatrix}
@@ -196,19 +196,19 @@ G = \begin{pmatrix}
 </div><p>Now we need to choose a grid <img class="math" src="../../_images/math/258d51d7f19dc55e32e54a7228c2954d6bbd38ad.png" alt="r = r(t)"/>, where <img class="math" src="../../_images/math/e0d2bf360290fd61d1c1557e763f2622363b3d35.png" alt="t"/> is some uniform grid. For
 example <img class="math" src="../../_images/math/3e3a72573d07a09025385a57eef07c7c06a75aca.png" alt="r = r_0 (e^t-1)"/>:</p>
 <div class="math">
-<p><span class="eqno">(9)</span><img src="../../_images/math/f4da6b24c198de46469670fe6d0892e24f72019a.png" alt="r_i = r_0 (e^{t_i} - 1)
+<p><img src="../../_images/math/f4da6b24c198de46469670fe6d0892e24f72019a.png" alt="r_i = r_0 (e^{t_i} - 1)
 
 t_i = (i-1)h"/></p>
 </div><p>where <img class="math" src="../../_images/math/ff52527934669b955341c083e3bdaf63f62c27c8.png" alt="i = 1, 2, 3, \dots, N"/>. We also need the derivative, for the exampe
 above we get:</p>
 <div class="math">
-<p><span class="eqno">(10)</span><img src="../../_images/math/4747903af2562137abba593ccebd0c5335d67c1d.png" alt="{\d r\over\d t} = r_0 e^t"/></p>
-</div><p>Now we substitute this into <a href="#equation-ode_eq">(7)</a>:</p>
+<p><img src="../../_images/math/4747903af2562137abba593ccebd0c5335d67c1d.png" alt="{\d r\over\d t} = r_0 e^t"/></p>
+</div><p>Now we substitute this into <a href="#equation-ode_eq">(1)</a>:</p>
 <div class="math">
-<p><span class="eqno">(11)</span><img src="../../_images/math/423c7a7976c8a41a1fb683ad056b1b736416bf73.png" alt="{\d y\over\d t} = {\d r\over\d t} G y"/></p>
+<p><img src="../../_images/math/423c7a7976c8a41a1fb683ad056b1b736416bf73.png" alt="{\d y\over\d t} = {\d r\over\d t} G y"/></p>
 </div><p>We can integrate this system from <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/> to <img class="math" src="../../_images/math/ec2ac3b93c1551b226a92d7446fd4316867f921b.png" alt="a+h"/> on a uniform grid <img class="math" src="../../_images/math/273e0046b505d99f3d1167caa82b2ac76c96d075.png" alt="t_i"/>:</p>
 <div class="math">
-<p><span class="eqno">(12)</span><img src="../../_images/math/e81ab984b606bd314a3c0e87706223c872cdd1b4.png" alt="y(a+h) = y(a) + \int_a^{a+h} {\d r\over\d t} G y\,\d t
+<p><img src="../../_images/math/e81ab984b606bd314a3c0e87706223c872cdd1b4.png" alt="y(a+h) = y(a) + \int_a^{a+h} {\d r\over\d t} G y\,\d t
     = y(a) + \int_a^{a+h} f(t)\,\d t"/></p>
 </div><p>where <img class="math" src="../../_images/math/f5a46fb36c750824df9c13194d51b38fb7056eb5.png" alt="f(t) = {\d r\over\d t} G y"/> and we use some method to approximate the
 integral, see the previous section.</p>
@@ -217,22 +217,22 @@ integral, see the previous section.</p>
 <h2>Radial Poisson Equation<a class="headerlink" href="#radial-poisson-equation" title="Permalink to this headline">¶</a></h2>
 <p>Radial Poisson equation is:</p>
 <div class="math" id="equation-poisson-V">
-<p><span class="eqno">(13)</span><img src="../../_images/math/b073af06566e513e74496a5ef9358b2602096043.png" alt="V''(r) + {2\over r} V'(r) = -4\pi n(r)"/></p>
+<p><span class="eqno">(2)</span><img src="../../_images/math/b073af06566e513e74496a5ef9358b2602096043.png" alt="V''(r) + {2\over r} V'(r) = -4\pi n(r)"/></p>
 </div><p>The left hand side can be written as:</p>
 <div class="math">
-<p><span class="eqno">(14)</span><img src="../../_images/math/dcad752967ea2eadb5ebe0fcadbe4e85b3e63c9e.png" alt="V'' + {2\over r} V'
+<p><img src="../../_images/math/dcad752967ea2eadb5ebe0fcadbe4e85b3e63c9e.png" alt="V'' + {2\over r} V'
     = {1\over r} \left(r V'' + 2V'\right)
     = {1\over r} \left(r V\right)''"/></p>
 </div><p>So the Poisson equation can also be written as:</p>
 <div class="math" id="equation-poisson-rV">
-<p><span class="eqno">(15)</span><img src="../../_images/math/f33a65b25d75ebfa0c2066939731d6e78e456806.png" alt="(rV)'' = -4\pi r\, n"/></p>
+<p><span class="eqno">(3)</span><img src="../../_images/math/f33a65b25d75ebfa0c2066939731d6e78e456806.png" alt="(rV)'' = -4\pi r\, n"/></p>
 </div><p>Now we determine the values of <img class="math" src="../../_images/math/48672d6e6e5d0a0b70361cbc39e616b04793436c.png" alt="V(0)"/>, <img class="math" src="../../_images/math/7593bfff6b8100c2010b9e87a1380e8dd5092274.png" alt="V'(0)"/> and the behavior of
 <img class="math" src="../../_images/math/f3bc25f27bfe53652375a7ae2ec7f84b72509f76.png" alt="V(\infty)"/> and <img class="math" src="../../_images/math/fa441b4c2dad595040b9696954d5014e53ba0d4b.png" alt="V'(\infty)"/>. The equation determines <img class="math" src="../../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> up to an
 arbitrary constant, so we set <img class="math" src="../../_images/math/8f16a3c702151496cb5680dee7517fa04f51fd7c.png" alt="V(\infty) = 0"/> and now the potential <img class="math" src="../../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> is
 determined uniquely.</p>
 <p>The 3D integral of the (number) density is equal to the total (numeric) charge, which is equal to <img class="math" src="../../_images/math/3ead47fb9fb4a4c273feee398f72ff2a09702b84.png" alt="Z"/> (number of electrons). We can then use the Poisson equation to rewrite the integral in terms of <img class="math" src="../../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/>:</p>
 <div class="math">
-<p><span class="eqno">(16)</span><img src="../../_images/math/0b17edd0a4996c6a1323df0b203f243a94923da0.png" alt="Z = \int n({\bf x}) \d^3 x
+<p><img src="../../_images/math/0b17edd0a4996c6a1323df0b203f243a94923da0.png" alt="Z = \int n({\bf x}) \d^3 x
     = \int n(r) r^2\d\Omega\d r
     = \int_0^\infty 4\pi n(r) r^2\d r =
 
@@ -249,34 +249,34 @@ determined uniquely.</p>
     = -\lim_{r\to\infty} V'(r)r^2"/></p>
 </div><p>So in the limit <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/>, we get the equation:</p>
 <div class="math">
-<p><span class="eqno">(17)</span><img src="../../_images/math/d45c324c0d07f67f03e14991dde4f739f171ff0c.png" alt="V'(r) = -{Z\over r^2}"/></p>
+<p><img src="../../_images/math/d45c324c0d07f67f03e14991dde4f739f171ff0c.png" alt="V'(r) = -{Z\over r^2}"/></p>
 </div><p>by integrating (and requiring that <img class="math" src="../../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> vanished in infinity to get rid of the
 integration constant), we get for <img class="math" src="../../_images/math/bf3427c52f12556ca750265a7da828a20ee9bbe3.png" alt="r\to\infty"/>:</p>
 <div class="math">
-<p><span class="eqno">(18)</span><img src="../../_images/math/02c1a9c9cbfc90ca67aee937dde1589a80455078.png" alt="V(r) = {Z\over r}"/></p>
-</div><p>Integrating <a href="#equation-poisson-rV">(15)</a> directly, we get:</p>
+<p><img src="../../_images/math/02c1a9c9cbfc90ca67aee937dde1589a80455078.png" alt="V(r) = {Z\over r}"/></p>
+</div><p>Integrating <a href="#equation-poisson-rV">(3)</a> directly, we get:</p>
 <div class="math">
-<p><span class="eqno">(19)</span><img src="../../_images/math/8c84b6dbba5afb7683f3ce0a24aad32f95d7fb71.png" alt="[(rV)']_0^\infty = -4\pi\int_0^\infty r n(r) \d r
+<p><img src="../../_images/math/8c84b6dbba5afb7683f3ce0a24aad32f95d7fb71.png" alt="[(rV)']_0^\infty = -4\pi\int_0^\infty r n(r) \d r
 
 [V + rV']_0^\infty = -4\pi\int_0^\infty r n(r) \d r"/></p>
 </div><p>We already know that <img class="math" src="../../_images/math/153922b5d53dfe63544ac7bc5c7b3ea8e21d6610.png" alt="V'"/> behaves like <img class="math" src="../../_images/math/5e524633c1b151632e9fecc74a0333d713607d58.png" alt="-{Z\over r^2}"/> in infinity,
 so <img class="math" src="../../_images/math/16772cac689c76b613869aab123b067cdc35a534.png" alt="rV'"/> vanishes. Requiring <img class="math" src="../../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> itself to
 vanish in infinity, the left hand side simplifies to <img class="math" src="../../_images/math/1b09bf0cebf3f13963f4a21ab79dbc6b0e13eda1.png" alt="-V(0)"/> and we get:</p>
 <div class="math">
-<p><span class="eqno">(20)</span><img src="../../_images/math/4707697c382ebac45c300c7b1089e1b93d845019.png" alt="V(0) = 4\pi\int_0^\infty r n(r) \d r"/></p>
+<p><img src="../../_images/math/4707697c382ebac45c300c7b1089e1b93d845019.png" alt="V(0) = 4\pi\int_0^\infty r n(r) \d r"/></p>
 </div><p>Last thing to determine is <img class="math" src="../../_images/math/7593bfff6b8100c2010b9e87a1380e8dd5092274.png" alt="V'(0)"/>. To do that, we expand the charge density
 and potential (and it&#8217;s derivatives) into a series around the origin:</p>
 <div class="math">
-<p><span class="eqno">(21)</span><img src="../../_images/math/73398d759b5900af0f3f70e27020aafd494f2349.png" alt="n(r) = n_0 + n_1 r + n_2 r^2 + \cdots = \sum_{k=0}^\infty n_k r^k
+<p><img src="../../_images/math/73398d759b5900af0f3f70e27020aafd494f2349.png" alt="n(r) = n_0 + n_1 r + n_2 r^2 + \cdots = \sum_{k=0}^\infty n_k r^k
 
 V(r) = V_0 + V_1 r + V_2 r^2 + \cdots = \sum_{k=0}^\infty V_k r^k
 
 V'(r) = \sum_{k=1}^\infty V_k k r^{k-1}
 
 V''(r) = \sum_{k=2}^\infty V_k k(k-1) r^{k-2}"/></p>
-</div><p>And substitute into the equation <a href="#equation-poisson-V">(13)</a>:</p>
+</div><p>And substitute into the equation <a href="#equation-poisson-V">(2)</a>:</p>
 <div class="math">
-<p><span class="eqno">(22)</span><img src="../../_images/math/ca9923dd958ca74a827a47098b69e474215b3362.png" alt="\sum_{k=2}^\infty V_k k(k-1) r^{k-2} +
+<p><img src="../../_images/math/ca9923dd958ca74a827a47098b69e474215b3362.png" alt="\sum_{k=2}^\infty V_k k(k-1) r^{k-2} +
     {2\over r}\sum_{k=1}^\infty V_k k r^{k-1} =
     -4\pi \sum_{k=0}^\infty n_k r^k
 
@@ -309,23 +309,23 @@ V''(r) = \sum_{k=2}^\infty V_k k(k-1) r^{k-2}"/></p>
 </div><p>We now multiply the whole equation by <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> and then set <img class="math" src="../../_images/math/400365c088499af977542271fc6363b086a63499.png" alt="r=0"/>. We get
 <img class="math" src="../../_images/math/237dd0320e52464f034ab738e9faafd19bc43dd9.png" alt="V_1 = 0"/>, so <img class="math" src="../../_images/math/50517c498bab6ab1b80637676e2efd8c4e934b5d.png" alt="V'(0) = V_1 = 0"/>. We put it back into the equation to get:</p>
 <div class="math">
-<p><span class="eqno">(23)</span><img src="../../_images/math/2e23b4a12afa0e23c58667c6ce505e40caf5c3f0.png" alt="\sum_{k=0}^\infty \left(4\pi n_k+V_{k+2} (k+2)(k+3)\right) r^k = 0"/></p>
+<p><img src="../../_images/math/2e23b4a12afa0e23c58667c6ce505e40caf5c3f0.png" alt="\sum_{k=0}^\infty \left(4\pi n_k+V_{k+2} (k+2)(k+3)\right) r^k = 0"/></p>
 </div><p>This must hold for all <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/>, so we get the following set of equations for <img class="math" src="../../_images/math/fad52f920621ed9487b73562a35bd18eac008e63.png" alt="k=0,
 1, \cdots"/>:</p>
 <div class="math">
-<p><span class="eqno">(24)</span><img src="../../_images/math/d083d2e0bd04dfaab54075f84edad0a9f8984f7a.png" alt="4\pi n_k+V_{k+2} (k+2)(k+3) = 0"/></p>
+<p><img src="../../_images/math/d083d2e0bd04dfaab54075f84edad0a9f8984f7a.png" alt="4\pi n_k+V_{k+2} (k+2)(k+3) = 0"/></p>
 </div><p>from which we express <img class="math" src="../../_images/math/40b514f3d50ab12888fa4886e266bb6a1e8a7e9f.png" alt="V_k"/> for all <img class="math" src="../../_images/math/c17d88e2fdeef66df0e37def936f39b773567278.png" alt="k \ge 2"/>.
 We already know the values for <img class="math" src="../../_images/math/5ed8470bc717a49aafe4556c7e2c2e11ddc7b687.png" alt="k=1"/> and
 <img class="math" src="../../_images/math/badf0ecd1ef8289387d8462393438c6e2710ff28.png" alt="k=0"/> from earlier, so overall we get:</p>
 <div class="math">
-<p><span class="eqno">(25)</span><img src="../../_images/math/6dacec682608d842dcabe72e4dbbc144c0a98013.png" alt="V_0 = 4\pi\int_0^\infty r n(r) \d r
+<p><img src="../../_images/math/6dacec682608d842dcabe72e4dbbc144c0a98013.png" alt="V_0 = 4\pi\int_0^\infty r n(r) \d r
 
 V_1 = 0
 
 V_{k+2} = -{4\pi n_k\over (k+2)(k+3)}"/></p>
 </div><p>in particular:</p>
 <div class="math">
-<p><span class="eqno">(26)</span><img src="../../_images/math/d6f42058e8c12703cee8b9da45fe0f8eaf20f97c.png" alt="V_2 = - {4\pi n_0\over 6} = -{2\pi\over 3} n_0
+<p><img src="../../_images/math/d6f42058e8c12703cee8b9da45fe0f8eaf20f97c.png" alt="V_2 = - {4\pi n_0\over 6} = -{2\pi\over 3} n_0
 
 V_3 = - {4\pi n_1\over 12} = -{\pi\over 3} n_1
 
@@ -336,7 +336,7 @@ V_5 = - {4\pi n_3\over 30} = -{2\pi\over 15} n_3
 \cdots"/></p>
 </div><p>So we get the following series expansion for <img class="math" src="../../_images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> and <img class="math" src="../../_images/math/153922b5d53dfe63544ac7bc5c7b3ea8e21d6610.png" alt="V'"/>:</p>
 <div class="math">
-<p><span class="eqno">(27)</span><img src="../../_images/math/be6955ce7d0247dad9d2a4b3c8052551e7d35dad.png" alt="V = V_0 -{2\pi\over 3} n_0 r^2 -{\pi\over 3} n_1 r^3-{\pi\over 5} n_2 r^4
+<p><img src="../../_images/math/be6955ce7d0247dad9d2a4b3c8052551e7d35dad.png" alt="V = V_0 -{2\pi\over 3} n_0 r^2 -{\pi\over 3} n_1 r^3-{\pi\over 5} n_2 r^4
     -{2\pi\over 15} n_3 r^5 - \cdots
 
 V' = -{4\pi\over 3} n_0 r -\pi n_1 r^2-{4\pi\over 5} n_2 r^3
@@ -345,7 +345,7 @@ V' = -{4\pi\over 3} n_0 r -\pi n_1 r^2-{4\pi\over 5} n_2 r^3
 <h3>Analytic Testing Example<a class="headerlink" href="#analytic-testing-example" title="Permalink to this headline">¶</a></h3>
 <p>Good analytic testing solution, that satisfies the asymptotic relations is:</p>
 <div class="math">
-<p><span class="eqno">(28)</span><img src="../../_images/math/7882a8e636d0fbf52a1048ec8bf1b5de92b6b447.png" alt="V(r) = Z \,{\mbox{erf}(\alpha r) \over r}
+<p><img src="../../_images/math/7882a8e636d0fbf52a1048ec8bf1b5de92b6b447.png" alt="V(r) = Z \,{\mbox{erf}(\alpha r) \over r}
 
 V'(r) = -Z\, {\mbox{erf}(\alpha r) \over r^2} +
             {2 Z \alpha\over r\sqrt\pi } e^{-\alpha^2 r^2}
