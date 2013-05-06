@@ -79,7 +79,7 @@
 <p><span class="eqno">(3)</span><img src="../../_images/math/fe589bf7df7c221d7cdfbc96026d813a9670678b.png" alt="\lim_{\alpha\to\infty}\int f(x)\delta_\alpha(x)\d x = \int f(x)\lim_{\alpha\to\infty}\delta_\alpha(x)\d x = f(0)"/></p>
 </div><p>one example of such a sequence is:</p>
 <div class="math">
-<p><img src="../../_images/math/985953302d003ceba1d8875c342e5f0e91a23d5e.png" alt="\delta_\alpha(x) = {1\over\pi x}\sin(\alpha x)"/></p>
+<p><span class="eqno">(4)</span><img src="../../_images/math/985953302d003ceba1d8875c342e5f0e91a23d5e.png" alt="\delta_\alpha(x) = {1\over\pi x}\sin(\alpha x)"/></p>
 </div><p>It&#8217;s clear that <a href="#equation-deltaprec">(3)</a> holds for any well behaved function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>.
 Some mathematicians like to say that it&#8217;s incorrect to use such a notation when
 in fact the integral <a href="#equation-deltadef">(1)</a> doesn&#8217;t &#8220;exist&#8221;, but we will not follow
@@ -94,29 +94,29 @@ label it using spherical coordinates <img class="math" src="../../_images/math/f
 We can also express it in cartesian coordinates as <img class="math" src="../../_images/math/ec8c1e000bd7364bd7b07560e1ca96f389e6925f.png" alt="{\bf\hat
 r}(\theta,\phi)=(\cos\phi\sin\theta,\sin\phi\sin\theta,\cos\theta)"/>.</p>
 <div class="math" id="equation-deltar">
-<p><span class="eqno">(4)</span><img src="../../_images/math/5c15c46e981e59ee00d587d70467ae1be2635308.png" alt="f({\bf\hat r'})=\int\delta({\bf\hat r}-{\bf\hat r'})f({\bf\hat r})\,\d {\bf\hat r}"/></p>
+<p><span class="eqno">(5)</span><img src="../../_images/math/5c15c46e981e59ee00d587d70467ae1be2635308.png" alt="f({\bf\hat r'})=\int\delta({\bf\hat r}-{\bf\hat r'})f({\bf\hat r})\,\d {\bf\hat r}"/></p>
 </div><p>Expressing <img class="math" src="../../_images/math/d9ac27a474a538a9993248c321a8bf06ef1d35d8.png" alt="f({\bf\hat r})=f(\theta,\phi)"/> as a function of <img class="math" src="../../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> and
 <img class="math" src="../../_images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/> we have</p>
 <div class="math" id="equation-deltaangles">
-<p><span class="eqno">(5)</span><img src="../../_images/math/2f6317f81bae336bd5129779bb399493e1c86dfb.png" alt="f(\theta',\phi')=\int\delta(\theta-\theta')\delta(\phi-\phi') f(\theta,\phi)\,\d\theta\d\phi"/></p>
-</div><p>Expressing <a href="#equation-deltar">(4)</a> in spherical coordinates we get</p>
+<p><span class="eqno">(6)</span><img src="../../_images/math/2f6317f81bae336bd5129779bb399493e1c86dfb.png" alt="f(\theta',\phi')=\int\delta(\theta-\theta')\delta(\phi-\phi') f(\theta,\phi)\,\d\theta\d\phi"/></p>
+</div><p>Expressing <a href="#equation-deltar">(5)</a> in spherical coordinates we get</p>
 <div class="math">
-<p><img src="../../_images/math/da6f2197ffa093a4c817c4b1d9339bd02756cfbd.png" alt="f(\theta',\phi')=\int\delta({\bf\hat r}-{\bf\hat r'}) f(\theta,\phi)\sin\theta\,\d\theta\d\phi"/></p>
-</div><p>and comparing to <a href="#equation-deltaangles">(5)</a> we finally get</p>
+<p><span class="eqno">(7)</span><img src="../../_images/math/da6f2197ffa093a4c817c4b1d9339bd02756cfbd.png" alt="f(\theta',\phi')=\int\delta({\bf\hat r}-{\bf\hat r'}) f(\theta,\phi)\sin\theta\,\d\theta\d\phi"/></p>
+</div><p>and comparing to <a href="#equation-deltaangles">(6)</a> we finally get</p>
 <div class="math">
-<p><img src="../../_images/math/415d227e629b59900f3a49687f510d03a63f24c9.png" alt="\delta({\bf\hat r}-{\bf\hat r'})={1\over\sin\theta} \delta(\theta-\theta')\delta(\phi-\phi')"/></p>
+<p><span class="eqno">(8)</span><img src="../../_images/math/415d227e629b59900f3a49687f510d03a63f24c9.png" alt="\delta({\bf\hat r}-{\bf\hat r'})={1\over\sin\theta} \delta(\theta-\theta')\delta(\phi-\phi')"/></p>
 </div><p>In exactly the same manner we get</p>
 <div class="math">
-<p><img src="../../_images/math/667f371581c4b47ec593df60da58e49c4cce5302.png" alt="\delta({\bf r}-{\bf r'})=\delta({\bf\hat r}-{\bf\hat r'}) {\delta(\rho-\rho')\over\rho^2}"/></p>
-</div><p>See also <a href="#equation-functionalderdel">(6)</a> for an example of how to deal with more
+<p><span class="eqno">(9)</span><img src="../../_images/math/667f371581c4b47ec593df60da58e49c4cce5302.png" alt="\delta({\bf r}-{\bf r'})=\delta({\bf\hat r}-{\bf\hat r'}) {\delta(\rho-\rho')\over\rho^2}"/></p>
+</div><p>See also <a href="#equation-functionalderdel">(68)</a> for an example of how to deal with more
 complex expressions involving the delta function like <img class="math" src="../../_images/math/1bec111a10bc85bf078a470cfe949dec671665b9.png" alt="\delta^2(x)"/>.</p>
 <p>When integrating over finite interval, this formula is very useful:</p>
 <div class="math">
-<p><img src="../../_images/math/afbb3024d2f5ea069ad4e62f5d77b840bab02641.png" alt="\int_a^b f(x)\delta(x-t)\d x = f(t) \theta(b-t) \theta(t-a)"/></p>
+<p><span class="eqno">(10)</span><img src="../../_images/math/afbb3024d2f5ea069ad4e62f5d77b840bab02641.png" alt="\int_a^b f(x)\delta(x-t)\d x = f(t) \theta(b-t) \theta(t-a)"/></p>
 </div><p>in other words, the integral vanishes unless <img class="math" src="../../_images/math/607b857ca6817a9555d9e8ff89a2710032f97a4b.png" alt="a &lt; t &lt; b"/>. In the limit <img class="math" src="../../_images/math/c5b2f670761289e8800d3847525a5fde63d183e1.png" alt="a\to
 -\infty"/> and <img class="math" src="../../_images/math/348589e8f2157db9368aeb524abf1e1b9782db62.png" alt="b\to\infty"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/5407a657d8bdebc4aac76dd8ca5a000b51a43dc6.png" alt="\theta(b-t) \to \theta(\infty - t) = 1
+<p><span class="eqno">(11)</span><img src="../../_images/math/5407a657d8bdebc4aac76dd8ca5a000b51a43dc6.png" alt="\theta(b-t) \to \theta(\infty - t) = 1
 
 \theta(t-a) \to \theta(t - (-\infty)) = \theta(t+\infty) = 1"/></p>
 </div></div>
@@ -133,12 +133,12 @@ with a distribution <img class="math" src="../../_images/math/11c3d7e6bc3f6be6df
 (<img class="math" src="../../_images/math/5b6475d5b6b7e8f05c0d5fee775ef5053fe89d79.png" alt="\varphi(x)"/>
 is a test function):</p>
 <div class="math">
-<p><img src="../../_images/math/c004a8ee2c59ea1683df4072bf90043953706bb3.png" alt="\mathnot{T_f(\phi(x))} \equiv \int f(x)\varphi(x) \d x \equiv
+<p><span class="eqno">(12)</span><img src="../../_images/math/c004a8ee2c59ea1683df4072bf90043953706bb3.png" alt="\mathnot{T_f(\phi(x))} \equiv \int f(x)\varphi(x) \d x \equiv
 \mathnot{f(\varphi(x))} \equiv \mathnot{(f(x), \varphi(x))}"/></p>
 </div><p>besides that, one can also define distributions that can&#8217;t be identified with
 regular functions, one example is a delta distribution (Dirac delta function):</p>
 <div class="math">
-<p><img src="../../_images/math/bbd3031bec74f1d289f7ff24871aa4df63a4d6f5.png" alt="\mathnot{\delta(\phi(x))} \equiv \phi(0) \equiv \int \delta(x) \phi(x) \d x"/></p>
+<p><span class="eqno">(13)</span><img src="../../_images/math/bbd3031bec74f1d289f7ff24871aa4df63a4d6f5.png" alt="\mathnot{\delta(\phi(x))} \equiv \phi(0) \equiv \int \delta(x) \phi(x) \d x"/></p>
 </div><p>The last integral is not used in mathematics, in physics on the other hand, the
 first expressions (<img class="math" src="../../_images/math/bde1c6a4847ce7cf07eccbe409240350d8791be1.png" alt="\mathnot{\delta(\phi(x))}"/>) is not used, so <img class="math" src="../../_images/math/06999c5a62eadb46890f6f92bba26bb075f5ac84.png" alt="\delta(x)"/> always means
 that you have to integrate it, as explained in the previous section, so it
@@ -149,28 +149,28 @@ identification above with distributions).</p>
 observes the pattern and defines it for all distributions. For example
 differentiation:</p>
 <div class="math">
-<p><img src="../../_images/math/fc34dadc8239b216bbea5b1fb87ce6b1070ae6f1.png" alt="\mathnot{{\d\over\d x}T_f(\varphi)} =
+<p><span class="eqno">(14)</span><img src="../../_images/math/fc34dadc8239b216bbea5b1fb87ce6b1070ae6f1.png" alt="\mathnot{{\d\over\d x}T_f(\varphi)} =
 \mathnot{T_{f'}(\varphi)} =
 \int f'\varphi \d x =
 -\int f\varphi' \d x =
 \mathnot{-T_f(\varphi')}"/></p>
 </div><p>so:</p>
 <div class="math">
-<p><img src="../../_images/math/ab33fd59ec50725c088658b086e0bcbe1d695f2f.png" alt="\mathnot{{\d\over\d x}T(\varphi)} =
+<p><span class="eqno">(15)</span><img src="../../_images/math/ab33fd59ec50725c088658b086e0bcbe1d695f2f.png" alt="\mathnot{{\d\over\d x}T(\varphi)} =
 \mathnot{-T(\varphi')}"/></p>
 </div><p>Multiplication:</p>
 <div class="math">
-<p><img src="../../_images/math/9eb87a864479c956630d823915f313d8ec0c8430.png" alt="\mathnot{gT_f(\varphi)} =
+<p><span class="eqno">(16)</span><img src="../../_images/math/9eb87a864479c956630d823915f313d8ec0c8430.png" alt="\mathnot{gT_f(\varphi)} =
 \mathnot{T_{gf}(\varphi)} =
 \int gf\varphi \d x =
 \mathnot{T_f(g\varphi)}"/></p>
 </div><p>so:</p>
 <div class="math">
-<p><img src="../../_images/math/48c4524098e9287cefd6ca4fa19eb8326fb8b6d4.png" alt="\mathnot{gT(\varphi)} =
+<p><span class="eqno">(17)</span><img src="../../_images/math/48c4524098e9287cefd6ca4fa19eb8326fb8b6d4.png" alt="\mathnot{gT(\varphi)} =
 \mathnot{T(g\varphi)}"/></p>
 </div><p>Fourier transform:</p>
 <div class="math">
-<p><img src="../../_images/math/99ff14da52d12b993ca97412c35f70755ffe200a.png" alt="\mathnot{FT_f(\varphi)} =
+<p><span class="eqno">(18)</span><img src="../../_images/math/99ff14da52d12b993ca97412c35f70755ffe200a.png" alt="\mathnot{FT_f(\varphi)} =
 \mathnot{T_{Ff}(\varphi)} =
 \int F(f)\varphi \d x =
 
@@ -184,18 +184,18 @@ differentiation:</p>
 \mathnot{T_f(F\varphi)}"/></p>
 </div><p>so:</p>
 <div class="math">
-<p><img src="../../_images/math/b26339b23a4c54068480bdf92b02ed240944d468.png" alt="\mathnot{FT(\varphi)} =
+<p><span class="eqno">(19)</span><img src="../../_images/math/b26339b23a4c54068480bdf92b02ed240944d468.png" alt="\mathnot{FT(\varphi)} =
 \mathnot{T(F\varphi)}"/></p>
 </div><p>But as you can see, the notation is just making things more complex, since it&#8217;s
 enough to just work with the integrals and forget about the rest. One can then
 even omit the integrals, with the understanding that they are implicit.</p>
 <p>Some more examples:</p>
 <div class="math">
-<p><img src="../../_images/math/03bace887aa4b5ff51bf45c4f512329c257fcbc3.png" alt="\int \delta(x-x_0)\varphi(x) \d x = \int \delta(x)\varphi(x+x_0) \d x
+<p><span class="eqno">(20)</span><img src="../../_images/math/03bace887aa4b5ff51bf45c4f512329c257fcbc3.png" alt="\int \delta(x-x_0)\varphi(x) \d x = \int \delta(x)\varphi(x+x_0) \d x
 = \varphi(x_0) \equiv \mathnot{\delta(\varphi(x+x_0))}"/></p>
 </div><p>Proof of <img class="math" src="../../_images/math/e6dc32c2daf1fa44e21d510addd420fb05b87f3a.png" alt="\delta(-x) = \delta(x)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/90787a821a5ce9efd49c01bf5463ce1d583f407f.png" alt="\int_{-\infty}^\infty \delta(-x)\varphi(x)\d x =
+<p><span class="eqno">(21)</span><img src="../../_images/math/90787a821a5ce9efd49c01bf5463ce1d583f407f.png" alt="\int_{-\infty}^\infty \delta(-x)\varphi(x)\d x =
 -\int_{\infty}^{-\infty} \delta(y)\varphi(-y)\d y =
 \int_{-\infty}^\infty \delta(x)\varphi(-x)\d x
 \equiv \mathnot{\delta(\varphi(-x))} = \varphi(0)
@@ -204,11 +204,11 @@ even omit the integrals, with the understanding that they are implicit.</p>
 \int_{-\infty}^\infty \delta(x)\varphi(x)\d x"/></p>
 </div><p>Proof of <img class="math" src="../../_images/math/d4277a3e2d730726d62571b5facf73f5e0967b82.png" alt="x\delta(x) = 0"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/3745cfe681c1f0931bf44fdb2b8b54ff6896a31c.png" alt="\int x\delta(x)\varphi(x)\d x = \mathnot{\delta(x\varphi(x))}
+<p><span class="eqno">(22)</span><img src="../../_images/math/3745cfe681c1f0931bf44fdb2b8b54ff6896a31c.png" alt="\int x\delta(x)\varphi(x)\d x = \mathnot{\delta(x\varphi(x))}
 = 0 \cdot \varphi(0) = 0"/></p>
 </div><p>Proof of <img class="math" src="../../_images/math/1e832a5b8b59ff02efd92ffba35a365f012ad07b.png" alt="\delta(cx) = {\delta(x)\over |c|}"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/b16f879685caddee6740537cf1166a3f8a749229.png" alt="\int \delta(cx)\varphi(x)\d x = {1\over|c|}\int\delta(x)\varphi\left({x\over
+<p><span class="eqno">(23)</span><img src="../../_images/math/b16f879685caddee6740537cf1166a3f8a749229.png" alt="\int \delta(cx)\varphi(x)\d x = {1\over|c|}\int\delta(x)\varphi\left({x\over
 c}\right)\d x
 =\mathnot{\delta\left(\varphi\left({x\over c}\right)\over|c|\right)}
 ={\delta(0)\over|c|}
@@ -228,29 +228,29 @@ We will use an approach that directly generalizes to multivariable functions
 and functionals.
 The differential <img class="math" src="../../_images/math/f09888b5da88ed35d47158b7d3efd29f87ee05d5.png" alt="\d f"/> is defined as:</p>
 <div class="math">
-<p><img src="../../_images/math/7d707aa7d0c895362285c29e0ea9d94fc06f734e.png" alt="\d f
+<p><span class="eqno">(24)</span><img src="../../_images/math/7d707aa7d0c895362285c29e0ea9d94fc06f734e.png" alt="\d f
     \equiv \lim_{\varepsilon\to0} {f(x+\varepsilon h)
         -f(x)\over\varepsilon}
     = a h"/></p>
 </div><p>Last equality follows from the fact, that the limit is a linear function of
 <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/4f4e695631fe974c6977e24928481a582b4b44fb.png" alt="\lim_{\varepsilon\to0} {f(x+\varepsilon h) -f(x)\over\varepsilon}
+<p><span class="eqno">(25)</span><img src="../../_images/math/4f4e695631fe974c6977e24928481a582b4b44fb.png" alt="\lim_{\varepsilon\to0} {f(x+\varepsilon h) -f(x)\over\varepsilon}
     = \lim_{\eta\to0} {f(x+\eta) -f(x)\over\left(\eta\over h\right)}
     = \left(\lim_{\eta\to0} {f(x+\eta) -f(x)\over\eta}\right) h"/></p>
 </div><p>Where we used the substitution <img class="math" src="../../_images/math/55f446a63187d0ec959abd4099491bf2da862352.png" alt="\eta = \varepsilon h"/>.
 We define the derivative <img class="math" src="../../_images/math/a3c386ffc8278cbbafa50083467affefff28d6ec.png" alt="\d f\over \d x"/> as:</p>
 <div class="math">
-<p><img src="../../_images/math/43704b86e65280dfa246d1dd9af09931bc341f1c.png" alt="{\d f\over \d x} = a"/></p>
+<p><span class="eqno">(26)</span><img src="../../_images/math/43704b86e65280dfa246d1dd9af09931bc341f1c.png" alt="{\d f\over \d x} = a"/></p>
 </div><p>To get a formula for <img class="math" src="../../_images/math/30cc76ecc1c1bf64541bdcb8c86648e387fa969f.png" alt="{\d f\over \d x}"/>, we set <img class="math" src="../../_images/math/f0b2d4c8f33e34b6675b8e392a77c6656a27d21d.png" alt="h=1"/> and get:</p>
 <div class="math">
-<p><img src="../../_images/math/d0feb62d2e560dd9cedb6e1a7c78d1b3b1fd13fa.png" alt="{\d f\over \d x} = a = a \cdot 1
+<p><span class="eqno">(27)</span><img src="../../_images/math/d0feb62d2e560dd9cedb6e1a7c78d1b3b1fd13fa.png" alt="{\d f\over \d x} = a = a \cdot 1
     = \lim_{\varepsilon\to0} {f(x+\varepsilon \cdot 1)-f(x)\over\varepsilon}
     = \lim_{\varepsilon\to0} {f(x+\varepsilon)-f(x)\over\varepsilon}"/></p>
 </div><p>Using the formulas above we get an equivalent expression for the
 differential:</p>
 <div class="math">
-<p><img src="../../_images/math/72aad5694ed272956125d56a80cd3259eaf4bba3.png" alt="\left.{\d\over\d\varepsilon}f(x+\varepsilon h) \right|_{\varepsilon=0}
+<p><span class="eqno">(28)</span><img src="../../_images/math/72aad5694ed272956125d56a80cd3259eaf4bba3.png" alt="\left.{\d\over\d\varepsilon}f(x+\varepsilon h) \right|_{\varepsilon=0}
     = \left.\lim_{\eta\to0} {f(x+(\varepsilon+\eta) h)
         -f(x+\varepsilon h)\over\eta}\right|_{\varepsilon=0} =
 
@@ -259,7 +259,7 @@ differential:</p>
     = \lim_{\varepsilon\to0} {f(x+\varepsilon h) -f(x)\over\varepsilon}"/></p>
 </div><p>So we get a general formula (the analogy of which we will use later):</p>
 <div class="math">
-<p><img src="../../_images/math/67550155cbc18c278c1820534e6a6227b59d1338.png" alt="\d f
+<p><span class="eqno">(29)</span><img src="../../_images/math/67550155cbc18c278c1820534e6a6227b59d1338.png" alt="\d f
     \equiv\left.{\d\over\d\varepsilon}f(x+\varepsilon h)
         \right|_{\varepsilon=0}
     = \lim_{\varepsilon\to0} {f(x+\varepsilon h)
@@ -267,10 +267,10 @@ differential:</p>
     = a h"/></p>
 </div><p>The variable <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> can be treated as a function (a very simple one):</p>
 <div class="math">
-<p><img src="../../_images/math/1fd17e8bdd8f777c3dd9068df8ad61e50383d0eb.png" alt="x = g(x)"/></p>
+<p><span class="eqno">(30)</span><img src="../../_images/math/1fd17e8bdd8f777c3dd9068df8ad61e50383d0eb.png" alt="x = g(x)"/></p>
 </div><p>So we define <img class="math" src="../../_images/math/3ca6fc081e833b73d0a998eba9cccefb4faec3d2.png" alt="\d x"/> as:</p>
 <div class="math">
-<p><img src="../../_images/math/74c5ef592775f52d589328c018a5b4dcd729578e.png" alt="\d x \equiv \d g = {\d g\over\d x} h = h"/></p>
+<p><span class="eqno">(31)</span><img src="../../_images/math/74c5ef592775f52d589328c018a5b4dcd729578e.png" alt="\d x \equiv \d g = {\d g\over\d x} h = h"/></p>
 </div><p>As such, <img class="math" src="../../_images/math/3ca6fc081e833b73d0a998eba9cccefb4faec3d2.png" alt="\d x"/> can have two meanings: either <img class="math" src="../../_images/math/65f0bb824ca5c4c4a47513af549fe5b5e38a95a0.png" alt="\d x = h = x-x_0"/> (a finite
 change in the variable <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>) or a differential (if <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> depends on another
 variable, thanks to the chain rule everything will work).
@@ -278,18 +278,18 @@ With this understanding,
 for all calculations, we only need the following two formulas &#8212;
 the definition of the differential (using a limit):</p>
 <div class="math">
-<p><img src="../../_images/math/27e1517f7b80103400d955360eaed76a02fe1b10.png" alt="\d f = \lim_{\varepsilon\to0} {f(x+\varepsilon \d x) -f(x)\over\varepsilon}"/></p>
+<p><span class="eqno">(32)</span><img src="../../_images/math/27e1517f7b80103400d955360eaed76a02fe1b10.png" alt="\d f = \lim_{\varepsilon\to0} {f(x+\varepsilon \d x) -f(x)\over\varepsilon}"/></p>
 </div><p>and the definition of the derivative (using the differential):</p>
 <div class="math">
-<p><img src="../../_images/math/0242850b80d428fe11c6e12d15ce39305bae607d.png" alt="\d f = {\d f\over \d x} \d x"/></p>
+<p><span class="eqno">(33)</span><img src="../../_images/math/0242850b80d428fe11c6e12d15ce39305bae607d.png" alt="\d f = {\d f\over \d x} \d x"/></p>
 </div><p>where <img class="math" src="../../_images/math/3ca6fc081e833b73d0a998eba9cccefb4faec3d2.png" alt="\d x"/> is either a differential or a finite change in the variable <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>.</p>
 <p>If for example <img class="math" src="../../_images/math/aef732a0008303ac3ff6de605f5e95ea7989670f.png" alt="x=p(y)"/> is a function of <img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/> then in the above <img class="math" src="../../_images/math/3ca6fc081e833b73d0a998eba9cccefb4faec3d2.png" alt="\d x"/> is a
 differential and we get:</p>
 <div class="math">
-<p><img src="../../_images/math/8531d19f975cc89ca0adf4815b0ed1ea2c7418ca.png" alt="\d f = {\d f\over \d x} \d x = {\d f\over \d x}{\d x\over \d y} \d y"/></p>
+<p><span class="eqno">(34)</span><img src="../../_images/math/8531d19f975cc89ca0adf4815b0ed1ea2c7418ca.png" alt="\d f = {\d f\over \d x} \d x = {\d f\over \d x}{\d x\over \d y} \d y"/></p>
 </div><p>Thanks to the chain rule, this can also be written as:</p>
 <div class="math">
-<p><img src="../../_images/math/66524e3fb9a18bdedb776684508d17f17d272615.png" alt="\d f = {\d f\over \d y} \d y"/></p>
+<p><span class="eqno">(35)</span><img src="../../_images/math/66524e3fb9a18bdedb776684508d17f17d272615.png" alt="\d f = {\d f\over \d y} \d y"/></p>
 </div><p>and so the notation is consistent.</p>
 </div>
 <div class="section" id="functions-of-several-variables">
@@ -297,7 +297,7 @@ differential and we get:</p>
 <p>Let&#8217;s have <img class="math" src="../../_images/math/ab3e643c4d399e6999d2f7b4ce9a2a766eda80bc.png" alt="\x=(x_1,x_2,\dots,x_N)"/>. The function <img class="math" src="../../_images/math/56e8ab6bf81262934ed1d47271d748ca823f8705.png" alt="f(\x)"/> assigns a number to
 each <img class="math" src="../../_images/math/23a296aacd97e7c94f7dbb18d3b0e24bd474e3f9.png" alt="\x"/>. We define a differential of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> in the direction of <img class="math" src="../../_images/math/94485ae319e0b105fde1a55fa21fbe6ceea4f1d7.png" alt="{\bf h}"/> as:</p>
 <div class="math">
-<p><img src="../../_images/math/06379ea33b56aa5e9118427791a726d7d60c18b7.png" alt="\d f
+<p><span class="eqno">(36)</span><img src="../../_images/math/06379ea33b56aa5e9118427791a726d7d60c18b7.png" alt="\d f
     \equiv\left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon{\bf h})
         \right|_{\varepsilon=0}
     = \lim_{\varepsilon\to0} {f({\bf x}+\varepsilon{\bf h})
@@ -309,14 +309,14 @@ linear function of <img class="math" src="../../_images/math/94485ae319e0b105fde
 f\over\partial x_i}"/> of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> with respect to <img class="math" src="../../_images/math/67bc6daa9d6b964201d6cef60cbeb1ac5fd26ead.png" alt="x_i"/> as the <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>-th component of
 the vector <img class="math" src="../../_images/math/ccddf954eec352c62c56fb902fbc887ec139e191.png" alt="{\bf a}"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/7201b9ac4f3c63e06d3ad2c9dc210775ec08f8af.png" alt="{\bf a}
+<p><span class="eqno">(37)</span><img src="../../_images/math/7201b9ac4f3c63e06d3ad2c9dc210775ec08f8af.png" alt="{\bf a}
     \equiv \left({\partial f\over\partial x_1},
         {\partial f\over\partial x_2}, \dots,
         {\partial f\over\partial x_N}\right)
     \equiv \nabla f"/></p>
 </div><p>This also gives a formula for computing <img class="math" src="../../_images/math/1f5cd0fa6802be5440f542dbaa74c462236887ab.png" alt="{\partial f\over\partial x_i}"/>: we set <img class="math" src="../../_images/math/d76e65126033fa334e9f11e8a8522a82e1500019.png" alt="h_j=\delta_{ij}h_i"/> and</p>
 <div class="math">
-<p><img src="../../_images/math/7192f7b27cf103ae0b060c451f98d5b2ec8a51d2.png" alt="{\partial f\over\partial x_i}
+<p><span class="eqno">(38)</span><img src="../../_images/math/7192f7b27cf103ae0b060c451f98d5b2ec8a51d2.png" alt="{\partial f\over\partial x_i}
     = a_i
     = {\bf a}\cdot{\bf h}
     = \left.{\d\over\d\varepsilon} f(\x+\varepsilon(0,0,\dots,1,\dots,0))
@@ -329,13 +329,13 @@ definition, but here this formula is a consequence of our definition in terms
 of the components of <img class="math" src="../../_images/math/ccddf954eec352c62c56fb902fbc887ec139e191.png" alt="{\bf a}"/>.
 Every variable can be treated as a function (very simple one):</p>
 <div class="math">
-<p><img src="../../_images/math/b8748530915578741c04d2bb927915bf280bbcff.png" alt="x_i=g(x_1,\dots,x_N)=\delta_{ij}x_j"/></p>
+<p><span class="eqno">(39)</span><img src="../../_images/math/b8748530915578741c04d2bb927915bf280bbcff.png" alt="x_i=g(x_1,\dots,x_N)=\delta_{ij}x_j"/></p>
 </div><p>and so we define</p>
 <div class="math">
-<p><img src="../../_images/math/be46039ad27faef134674ae2ccb882902e97d945.png" alt="\d x_i\equiv\d g=\d(\delta_{ij}x_j)=h_i"/></p>
+<p><span class="eqno">(40)</span><img src="../../_images/math/be46039ad27faef134674ae2ccb882902e97d945.png" alt="\d x_i\equiv\d g=\d(\delta_{ij}x_j)=h_i"/></p>
 </div><p>and thus we write <img class="math" src="../../_images/math/265019391ff9de74ec4e9afe3c0ac90757a451bc.png" alt="h_i=\d x_i"/> and <img class="math" src="../../_images/math/237159f803bd86ef88a97f9586df4bd4308d68aa.png" alt="{\bf h}=\d\x"/> and</p>
 <div class="math">
-<p><img src="../../_images/math/b62e1affa0f41a26188b61f56d3795671623a571.png" alt="\d f={\d f\over\d x_i}\d x_i = (\nabla f) \cdot \d {\bf x}"/></p>
+<p><span class="eqno">(41)</span><img src="../../_images/math/b62e1affa0f41a26188b61f56d3795671623a571.png" alt="\d f={\d f\over\d x_i}\d x_i = (\nabla f) \cdot \d {\bf x}"/></p>
 </div><p>So <img class="math" src="../../_images/math/19509b51e805f2e9ba812355d9e9cc32f653d6e8.png" alt="\d{\bf x}"/> has two meanings &#8212; it&#8217;s either <img class="math" src="../../_images/math/c17ded8948d4b38bcd41462d690257d0e750f7a9.png" alt="{\bf h}={\bf x}-{\bf x}_0"/> (a
 finite change in the independent variable <img class="math" src="../../_images/math/81be9c56d3b198d87b4049cff4e32bb5c187c52d.png" alt="{\bf x}"/>) or a differential,
 depending on the context. The above is a detailed explanation why things
@@ -343,12 +343,12 @@ are defined the way they are and what the exact meaning is. With this
 understanding, the only things that are actually needed for any calculations
 are the following &#8211; the definition of a differential:</p>
 <div class="math">
-<p><img src="../../_images/math/520d10df810194c66682f335078090a711570c9c.png" alt="\d f = \left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon\d {\bf x})
+<p><span class="eqno">(42)</span><img src="../../_images/math/520d10df810194c66682f335078090a711570c9c.png" alt="\d f = \left.{\d\over\d\varepsilon}f({\bf x}+\varepsilon\d {\bf x})
         \right|_{\varepsilon=0}"/></p>
 </div><p>Only a regular derivative (defined in the previous section) is needed for this
 definition. The definition of a partial derivative (and a gradient):</p>
 <div class="math">
-<p><img src="../../_images/math/b62e1affa0f41a26188b61f56d3795671623a571.png" alt="\d f={\d f\over\d x_i}\d x_i = (\nabla f) \cdot \d {\bf x}"/></p>
+<p><span class="eqno">(43)</span><img src="../../_images/math/b62e1affa0f41a26188b61f56d3795671623a571.png" alt="\d f={\d f\over\d x_i}\d x_i = (\nabla f) \cdot \d {\bf x}"/></p>
 </div><p>And finally the understanding that <img class="math" src="../../_images/math/19509b51e805f2e9ba812355d9e9cc32f653d6e8.png" alt="\d{\bf x}"/> means
 either <img class="math" src="../../_images/math/c17ded8948d4b38bcd41462d690257d0e750f7a9.png" alt="{\bf h}={\bf x}-{\bf x}_0"/> or a differential depending on the context.
 That&#8217;s all there is to it.</p>
@@ -359,27 +359,27 @@ That&#8217;s all there is to it.</p>
 Functional <img class="math" src="../../_images/math/d5efc0eec270c88592417add1233cfeaa51564e3.png" alt="F[f]"/> assigns a number to each function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. The variation is
 defined as</p>
 <div class="math">
-<p><img src="../../_images/math/07dd13ee0b73980dd443e90f846d99b53b9b41ea.png" alt="\delta F[f]\equiv\left.{\d\over\d\varepsilon}F[f+\varepsilon h] \right|_{\varepsilon=0}=\lim_{\epsilon\to0}{F[f+\epsilon h]-F[f]\over\epsilon}= \int a(x)h(x)\d x"/></p>
+<p><span class="eqno">(44)</span><img src="../../_images/math/07dd13ee0b73980dd443e90f846d99b53b9b41ea.png" alt="\delta F[f]\equiv\left.{\d\over\d\varepsilon}F[f+\varepsilon h] \right|_{\varepsilon=0}=\lim_{\epsilon\to0}{F[f+\epsilon h]-F[f]\over\epsilon}= \int a(x)h(x)\d x"/></p>
 </div><p>We define <img class="math" src="../../_images/math/ce175f5b25609ca01080967f4d6f7be64dbb2328.png" alt="{\delta F\over\delta f(x)}"/> as</p>
 <div class="math">
-<p><img src="../../_images/math/71c7d3cbbf600ebf38f78d6689eb7304cd92c575.png" alt="a(x)\equiv{\delta F\over\delta f(x)}"/></p>
+<p><span class="eqno">(45)</span><img src="../../_images/math/71c7d3cbbf600ebf38f78d6689eb7304cd92c575.png" alt="a(x)\equiv{\delta F\over\delta f(x)}"/></p>
 </div><p>This also gives a formula for computing <img class="math" src="../../_images/math/ce175f5b25609ca01080967f4d6f7be64dbb2328.png" alt="{\delta F\over\delta f(x)}"/>: we set
 <img class="math" src="../../_images/math/3e5c24ab82805fe21c0e0fa20da3efd4dcf39972.png" alt="h(y)=\delta(x-y)"/> and</p>
 <div class="math">
-<p><img src="../../_images/math/ba48f6268c624bac2ad8ef20f325709c95e53e88.png" alt="{\delta F\over\delta f(x)}=a(x)=\int a(y)\delta(x-y)\d y= \left.{\d\over\d\varepsilon}F[f(y)+\varepsilon\delta(x-y)] \right|_{\varepsilon=0}=
+<p><span class="eqno">(46)</span><img src="../../_images/math/ba48f6268c624bac2ad8ef20f325709c95e53e88.png" alt="{\delta F\over\delta f(x)}=a(x)=\int a(y)\delta(x-y)\d y= \left.{\d\over\d\varepsilon}F[f(y)+\varepsilon\delta(x-y)] \right|_{\varepsilon=0}=
 
 =\lim_{\varepsilon\to0} {F[f(y)+\varepsilon\delta(x-y)]-F[f(y)]\over\varepsilon}"/></p>
 </div><p>Sometimes the functional derivative is defined using the last formula, here
 this formula just follows from our definition.
 Every function can be treated as a functional (although a very simple one):</p>
 <div class="math">
-<p><img src="../../_images/math/387f075e6d71f2a505dac776f7e17e0c76da8f10.png" alt="f(x)=G[f]=\int f(y)\delta(x-y)\d y"/></p>
+<p><span class="eqno">(47)</span><img src="../../_images/math/387f075e6d71f2a505dac776f7e17e0c76da8f10.png" alt="f(x)=G[f]=\int f(y)\delta(x-y)\d y"/></p>
 </div><p>and so we define</p>
 <div class="math">
-<p><img src="../../_images/math/7dd417d049064080709b9c9c5268279b1530fa30.png" alt="\delta f\equiv\delta G[f]= \left.{\d\over\d\varepsilon}G[f(x)+\varepsilon h(x)] \right|_{\varepsilon=0}= \left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x)) \right|_{\varepsilon=0}= h(x)"/></p>
+<p><span class="eqno">(48)</span><img src="../../_images/math/7dd417d049064080709b9c9c5268279b1530fa30.png" alt="\delta f\equiv\delta G[f]= \left.{\d\over\d\varepsilon}G[f(x)+\varepsilon h(x)] \right|_{\varepsilon=0}= \left.{\d\over\d\varepsilon}(f(x)+\varepsilon h(x)) \right|_{\varepsilon=0}= h(x)"/></p>
 </div><p>thus we write <img class="math" src="../../_images/math/241ec7abd4e85fd8418aab4de16cef4b9edd49ae.png" alt="h=\delta f"/> and</p>
 <div class="math">
-<p><img src="../../_images/math/fa073632306ec146fbbaab3afd4d93610653f6e3.png" alt="\delta F[f]=\int {\delta F\over\delta f(x)}\delta f(x)\d x"/></p>
+<p><span class="eqno">(49)</span><img src="../../_images/math/fa073632306ec146fbbaab3afd4d93610653f6e3.png" alt="\delta F[f]=\int {\delta F\over\delta f(x)}\delta f(x)\d x"/></p>
 </div><p>so <img class="math" src="../../_images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> have two meanings &#8212; it&#8217;s either
 <img class="math" src="../../_images/math/ea24093e786193699dab8e4702890acf9b24cbe1.png" alt="h(x)=f(x) - f_0(x)"/> (a finite change in the function <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>) or a variation
 of a functional, depending on the context.
@@ -387,23 +387,23 @@ It is completely analogous to <img class="math" src="../../_images/math/770d1acd
 in actual calculations &#8211; the definition of a variation (using a regular
 derivative):</p>
 <div class="math">
-<p><img src="../../_images/math/2f84e4f82f284e7893935401be4b974bb8707d14.png" alt="\delta F[f] = \left.{\d\over\d\varepsilon}F[f+\varepsilon \delta f]
+<p><span class="eqno">(50)</span><img src="../../_images/math/2f84e4f82f284e7893935401be4b974bb8707d14.png" alt="\delta F[f] = \left.{\d\over\d\varepsilon}F[f+\varepsilon \delta f]
     \right|_{\varepsilon=0}"/></p>
 </div><p>the definition of the functional derivative:</p>
 <div class="math">
-<p><img src="../../_images/math/aca9a01e7da7a50611a335ad9fda59410460a6aa.png" alt="\delta F[f]=\int {\delta F\over\delta f(x)} \delta f(x) \d x"/></p>
+<p><span class="eqno">(51)</span><img src="../../_images/math/aca9a01e7da7a50611a335ad9fda59410460a6aa.png" alt="\delta F[f]=\int {\delta F\over\delta f(x)} \delta f(x) \d x"/></p>
 </div><p>and the understanding that <img class="math" src="../../_images/math/49144f8c2e434d4507f9ecf8c8b0385481cb1506.png" alt="\delta f"/> means either
 <img class="math" src="../../_images/math/ea24093e786193699dab8e4702890acf9b24cbe1.png" alt="h(x)=f(x) - f_0(x)"/> or a variation.</p>
 <p>The correspondence between the finite and infinite dimensional case can be
 summarized as:</p>
 <div class="math">
-<p><img src="../../_images/math/847f04226ae2cb7a6dd56aee63bc4e3292504c66.png" alt="\begin{eqnarray*} f(x_i) \quad&amp;\Longleftrightarrow&amp;\quad F[f] \\ \d f=0 \quad&amp;\Longleftrightarrow&amp;\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&amp;\Longleftrightarrow&amp;\quad {\delta F\over\delta f(x)}=0 \\ f \quad&amp;\Longleftrightarrow&amp;\quad F \\ x_i \quad&amp;\Longleftrightarrow&amp;\quad f(x) \\ x \quad&amp;\Longleftrightarrow&amp;\quad f \\ i \quad&amp;\Longleftrightarrow&amp;\quad x \\ \end{eqnarray*}"/></p>
+<p><span class="eqno">(52)</span><img src="../../_images/math/847f04226ae2cb7a6dd56aee63bc4e3292504c66.png" alt="\begin{eqnarray*} f(x_i) \quad&amp;\Longleftrightarrow&amp;\quad F[f] \\ \d f=0 \quad&amp;\Longleftrightarrow&amp;\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&amp;\Longleftrightarrow&amp;\quad {\delta F\over\delta f(x)}=0 \\ f \quad&amp;\Longleftrightarrow&amp;\quad F \\ x_i \quad&amp;\Longleftrightarrow&amp;\quad f(x) \\ x \quad&amp;\Longleftrightarrow&amp;\quad f \\ i \quad&amp;\Longleftrightarrow&amp;\quad x \\ \end{eqnarray*}"/></p>
 </div><p>More generally, <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/>-variation can by applied to any function <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> which
 contains the function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> being varied, you just need to replace <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> by
 <img class="math" src="../../_images/math/c06519738d7b1dca4ef16eaf7c3ceeffdf769812.png" alt="f+\epsilon h"/> and apply <img class="math" src="../../_images/math/9f23bfd30193abbf05a0a4902dd0f07bca098b8a.png" alt="{\d\over\d\epsilon}"/> to the whole <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>, for example
 (here <img class="math" src="../../_images/math/863c88d6680dd27db9835a147c0ce37233109ee1.png" alt="g=\partial_\mu\phi"/> and <img class="math" src="../../_images/math/173ffb3899170071c1007f633772f81a1d284757.png" alt="f=\phi"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/5535a35a39b0a828b531b88d003224e066813507.png" alt="\delta\partial_\mu\phi
+<p><span class="eqno">(53)</span><img src="../../_images/math/5535a35a39b0a828b531b88d003224e066813507.png" alt="\delta\partial_\mu\phi
     = \left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon h) \right|_{\varepsilon=0}
     = \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon h) \right|_{\varepsilon=0}
     =\partial_\mu h
@@ -412,11 +412,11 @@ contains the function <img class="math" src="../../_images/math/c96dd6ec1dc4ad75
 following examples. First, when computing a variation of some integral, we
 can interchange <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/> and <img class="math" src="../../_images/math/c059b8f341d53786ae635d963ead37f20eb55b3b.png" alt="\int"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/90c6e5cb0f8047f52f0362c62ae0b152748eab17.png" alt="F[f]=\int K(x) f(x) \d x"/></p>
+<p><span class="eqno">(54)</span><img src="../../_images/math/90c6e5cb0f8047f52f0362c62ae0b152748eab17.png" alt="F[f]=\int K(x) f(x) \d x"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/70ab4de2d38d6c57caa103ccc11b380c68579d56.png" alt="\delta F=\delta \int K(x) f(x) \d x = \left.{\d\over\d\varepsilon}\int K(x) (f+\varepsilon h)\d x\right|_{\varepsilon=0}= \left.\int{\d\over\d\varepsilon} (K(x) (f+\varepsilon h))\d x\right|_{\varepsilon=0}="/></p>
+<p><span class="eqno">(55)</span><img src="../../_images/math/70ab4de2d38d6c57caa103ccc11b380c68579d56.png" alt="\delta F=\delta \int K(x) f(x) \d x = \left.{\d\over\d\varepsilon}\int K(x) (f+\varepsilon h)\d x\right|_{\varepsilon=0}= \left.\int{\d\over\d\varepsilon} (K(x) (f+\varepsilon h))\d x\right|_{\varepsilon=0}="/></p>
 </div><div class="math">
-<p><img src="../../_images/math/fbc410e58805cf509b6ace25b69fd9e9c015f9fa.png" alt="=\int\delta(K(x) f(x))\d x"/></p>
+<p><span class="eqno">(56)</span><img src="../../_images/math/fbc410e58805cf509b6ace25b69fd9e9c015f9fa.png" alt="=\int\delta(K(x) f(x))\d x"/></p>
 </div><p>In the expression <img class="math" src="../../_images/math/ed5a5d9abb8c74605f021d6fdb0ff6d83b9b4496.png" alt="\delta(K(x) f(x))"/> we must understand from the context if
 we are treating it as a functional of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> or <img class="math" src="../../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/>. In our case it&#8217;s a
 functional of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/>, so we have <img class="math" src="../../_images/math/a3023f177197f430d1b04f78ae944c56f37b0ec7.png" alt="\delta(K f)=K\delta f"/>.</p>
@@ -424,26 +424,26 @@ functional of <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c473
 the functional derivative or the variation, and the variation version is usually
 simpler):</p>
 <div class="math">
-<p><img src="../../_images/math/ff65a4ca9f2242c322a5c79026416d5adbfa540d.png" alt="{\delta\over\delta f(t)}\int\d t'f(t')g(t')= \left.{\d\over\d\varepsilon}\int\d t'(f(t')+\varepsilon\delta(t-t'))g(t') \right|_{\varepsilon=0}=g(t)
+<p><span class="eqno">(57)</span><img src="../../_images/math/ff65a4ca9f2242c322a5c79026416d5adbfa540d.png" alt="{\delta\over\delta f(t)}\int\d t'f(t')g(t')= \left.{\d\over\d\varepsilon}\int\d t'(f(t')+\varepsilon\delta(t-t'))g(t') \right|_{\varepsilon=0}=g(t)
 
 \delta \int \d t f(t)g(t) = \left.{\d\over\d\varepsilon}\int\d
     t(f(t)+\varepsilon \delta f(t))g(t) \right|_{\varepsilon=0}
  = \int g(t) (\delta f(t)) \d t"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/b8636d15e8aa10eb777a1857e0917bb71b1e8431.png" alt="{\delta f(t')\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t')+\varepsilon\delta(t-t')) \right|_{\varepsilon=0}=\delta(t-t')"/></p>
+<p><span class="eqno">(58)</span><img src="../../_images/math/b8636d15e8aa10eb777a1857e0917bb71b1e8431.png" alt="{\delta f(t')\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t')+\varepsilon\delta(t-t')) \right|_{\varepsilon=0}=\delta(t-t')"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/396bfffeee98b01eafa45a0f646a8cafbbe232a4.png" alt="{\delta f(t_1)f(t_2)\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta(t-t_1)) (f(t_2)+\varepsilon\delta(t-t_2)) \right|_{\varepsilon=0}=\delta(t-t_1)f(t_2)+f(t_1)\delta(t-t_2)"/></p>
+<p><span class="eqno">(59)</span><img src="../../_images/math/396bfffeee98b01eafa45a0f646a8cafbbe232a4.png" alt="{\delta f(t_1)f(t_2)\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta(t-t_1)) (f(t_2)+\varepsilon\delta(t-t_2)) \right|_{\varepsilon=0}=\delta(t-t_1)f(t_2)+f(t_1)\delta(t-t_2)"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/2f38f7dc3d9bb2f1aa158596756c51c51fbe3fda.png" alt="\delta (f(t_1)f(t_2))
+<p><span class="eqno">(60)</span><img src="../../_images/math/2f38f7dc3d9bb2f1aa158596756c51c51fbe3fda.png" alt="\delta (f(t_1)f(t_2))
     = \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta f(t_1))
         (f(t_2)+\varepsilon\delta f(t_2)) \right|_{\varepsilon=0}
     =(\delta f(t_1))f(t_2)+f(t_1)(\delta f(t_2))"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/d8c3faf62a3e42c83b94db40e7c22c014bb34954.png" alt="{\delta\over\delta f(t)}\half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d t_2K(t_1,t_2){\delta f(t_1)f(t_2)\over\delta f(t)}=
+<p><span class="eqno">(61)</span><img src="../../_images/math/d8c3faf62a3e42c83b94db40e7c22c014bb34954.png" alt="{\delta\over\delta f(t)}\half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d t_2K(t_1,t_2){\delta f(t_1)f(t_2)\over\delta f(t)}=
 
 =\half\left(\int\d t_1 K(t_1,t)f(t_1)+\int\d t_2 K(t,t_2)f(t_2)\right) =\int\d t_2 K(t,t_2)f(t_2)"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/ad85c33bd867391b6194173af9cc1a80613dfb5e.png" alt="\delta \half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d
+<p><span class="eqno">(62)</span><img src="../../_images/math/ad85c33bd867391b6194173af9cc1a80613dfb5e.png" alt="\delta \half\int\d t_1\d t_2K(t_1,t_2)f(t_1)f(t_2)= \half\int\d t_1\d
 t_2K(t_1,t_2)(\delta f(t_1)f(t_2))=
 
 = \half\int\d t_1\d t_2K(t_1,t_2) ((\delta f(t_1))f(t_2)
@@ -455,7 +455,7 @@ part of a <img class="math" src="../../_images/math/dfb064112b6c94470339f6571f69
 <p>Another example is the derivation of Euler-Lagrange equations for the
 Lagrangian density <img class="math" src="../../_images/math/5dde232e7d98a7e226092bf4cc8886441e4f0a26.png" alt="\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/5d0daaac1d2cb9ccf560bfc270acfdd165709b2d.png" alt="0 = \delta I = \delta \int \L \,\d^4x^\mu
+<p><span class="eqno">(63)</span><img src="../../_images/math/5d0daaac1d2cb9ccf560bfc270acfdd165709b2d.png" alt="0 = \delta I = \delta \int \L \,\d^4x^\mu
 = \int \delta \L \,\d^4x^\mu
 = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
     +
@@ -495,27 +495,27 @@ Lagrangian density <img class="math" src="../../_images/math/5dde232e7d98a7e2260
     \,\d^4x^\mu"/></p>
 </div><p>Another example:</p>
 <div class="math">
-<p><img src="../../_images/math/7fda5810cd5b225833196609574ddeff17492eb1.png" alt="{\delta\over\delta f(t)}\int f^3(x)\d x= \left.{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta(x-t))^3\d x \right|_{\varepsilon=0}="/></p>
+<p><span class="eqno">(64)</span><img src="../../_images/math/7fda5810cd5b225833196609574ddeff17492eb1.png" alt="{\delta\over\delta f(t)}\int f^3(x)\d x= \left.{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta(x-t))^3\d x \right|_{\varepsilon=0}="/></p>
 </div><div class="math">
-<p><img src="../../_images/math/577aa4fdba4bbdbfbfb835af2096c522859d5ab7.png" alt="=\left.\int3(f(x)+\varepsilon\delta(x-t))^2\delta(x-t)\d x \right|_{\varepsilon=0}=\int3f^2(x)\delta(x-t)\d x=3f^2(t)"/></p>
+<p><span class="eqno">(65)</span><img src="../../_images/math/577aa4fdba4bbdbfbfb835af2096c522859d5ab7.png" alt="=\left.\int3(f(x)+\varepsilon\delta(x-t))^2\delta(x-t)\d x \right|_{\varepsilon=0}=\int3f^2(x)\delta(x-t)\d x=3f^2(t)"/></p>
 </div><p>One might thing that the above calculation is incorrect, because
 <img class="math" src="../../_images/math/c955fcd1c55ca1e65d9cf198d394293ad902f46c.png" alt="\delta^2(x-t)"/> is undefined. In case of
 such problems the above notation automatically implies working with some
 sequence <img class="math" src="../../_images/math/58584a8e48185211c80bb921f144dca3e5c08f31.png" alt="\delta_\alpha(x) \to \delta(x)"/> (for example <img class="math" src="../../_images/math/766e2be522002f4a969d89a59aa611633242b363.png" alt="\delta_\alpha(x) =
 {1\over\pi x}\sin(\alpha x)"/>) and taking the limit <img class="math" src="../../_images/math/67d0ab153257a7d8933eaa2870be9bb2aeb55ff6.png" alt="\alpha\to\infty"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/806767d1dc2d63de5be19a2e41aa3846748b2b0a.png" alt="{\delta\over\delta f(t)}\int f^3(x)\d x= \left.\lim_{\alpha\to\infty}{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta_\alpha(x-t))^3\d x \right|_{\varepsilon=0}="/></p>
+<p><span class="eqno">(66)</span><img src="../../_images/math/806767d1dc2d63de5be19a2e41aa3846748b2b0a.png" alt="{\delta\over\delta f(t)}\int f^3(x)\d x= \left.\lim_{\alpha\to\infty}{\d\over\d\varepsilon}\int(f(x)+\varepsilon\delta_\alpha(x-t))^3\d x \right|_{\varepsilon=0}="/></p>
 </div><div class="math">
-<p><img src="../../_images/math/a33e9edff6b8d70831d9d9c5606935f6d4df60eb.png" alt="=\left.\lim_{\alpha\to\infty}\int3(f(x)+\varepsilon\delta_\alpha(x-t))^2\delta_\alpha(x-t)\d x \right|_{\varepsilon=0}=\lim_{\alpha\to\infty}\int3f^2(x)\delta_\alpha(x-t)\d x="/></p>
+<p><span class="eqno">(67)</span><img src="../../_images/math/a33e9edff6b8d70831d9d9c5606935f6d4df60eb.png" alt="=\left.\lim_{\alpha\to\infty}\int3(f(x)+\varepsilon\delta_\alpha(x-t))^2\delta_\alpha(x-t)\d x \right|_{\varepsilon=0}=\lim_{\alpha\to\infty}\int3f^2(x)\delta_\alpha(x-t)\d x="/></p>
 </div><div class="math" id="equation-functionalderdel">
-<p><span class="eqno">(6)</span><img src="../../_images/math/f307d4a8c7baf08d7befd8f6640c6015126d34d0.png" alt="=\int3f^2(x)\lim_{\alpha\to\infty}\delta_\alpha(x-t)\d x= \int3f^2(x)\delta(x-t)\d x=3f^2(t)"/></p>
+<p><span class="eqno">(68)</span><img src="../../_images/math/f307d4a8c7baf08d7befd8f6640c6015126d34d0.png" alt="=\int3f^2(x)\lim_{\alpha\to\infty}\delta_\alpha(x-t)\d x= \int3f^2(x)\delta(x-t)\d x=3f^2(t)"/></p>
 </div><p>As you can see, we got the same result, with the same rigor, but using an
 obfuscating notation. That&#8217;s why such obvious manipulations with
 <img class="math" src="../../_images/math/3170671d37c1fceae2909ab5428e87ebbf731137.png" alt="\delta_\alpha"/> are tacitly implied.</p>
 <p>Another example with a metric as a function of coordinates
 <img class="math" src="../../_images/math/6608a1b744d0b091b2cf1ab98248cbf20579a552.png" alt="g_{\mu\nu} = g_{\mu\nu}(x^\mu)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/145ba5505622b0fd6b994893802418b15d15acf3.png" alt="\delta g_{\mu\nu}
+<p><span class="eqno">(69)</span><img src="../../_images/math/145ba5505622b0fd6b994893802418b15d15acf3.png" alt="\delta g_{\mu\nu}
     = \delta g_{\mu\nu}(x^\mu)
     = \left.{\d\over\d\varepsilon} g_{\mu\nu}(x^\mu+\varepsilon
             (\delta x^\mu)) \right|_{\varepsilon=0}
@@ -525,7 +525,7 @@ obfuscating notation. That&#8217;s why such obvious manipulations with
     = (\delta x^\sigma) \partial_\sigma g_{\mu\nu}"/></p>
 </div><p>And an example of varying with respect to a metric:</p>
 <div class="math">
-<p><img src="../../_images/math/06e72379d3a2f54cc13ec5271eb99223e5c69a54.png" alt="\delta \sqrt{ |\det g_{\mu\nu}| }
+<p><span class="eqno">(70)</span><img src="../../_images/math/06e72379d3a2f54cc13ec5271eb99223e5c69a54.png" alt="\delta \sqrt{ |\det g_{\mu\nu}| }
     =\sqrt{ |\det g_{\mu\nu}| }\, \delta \log \sqrt{ |\det g_{\mu\nu}| }
     =\half \sqrt{ |\det g_{\mu\nu}| }\, \delta \log |\det g_{\mu\nu}| =
 
@@ -538,7 +538,7 @@ obfuscating notation. That&#8217;s why such obvious manipulations with
     =-\half \sqrt{ |\det g_{\mu\nu}| }\, g_{\mu\nu} \delta g^{\mu\nu}"/></p>
 </div><p>Another example (varying energy functional):</p>
 <div class="math">
-<p><img src="../../_images/math/26010e32cd7922e1e8f4d5ce2a3b46f0ec95b739.png" alt="E[\rho] = 4\pi\int {a \rho(r)\over b + r_s(r)} r^2 \d r
+<p><span class="eqno">(71)</span><img src="../../_images/math/26010e32cd7922e1e8f4d5ce2a3b46f0ec95b739.png" alt="E[\rho] = 4\pi\int {a \rho(r)\over b + r_s(r)} r^2 \d r
 
 r_s(r) = \left(3\over 4\pi (-\rho)\right)^{1\over 3}
 
@@ -568,7 +568,7 @@ r_s(r) = \left(3\over 4\pi (-\rho)\right)^{1\over 3}
         +{1\over3} {a r_s\over (b + r_s)^2 }\right)"/></p>
 </div><p>Another example (Hartree energy):</p>
 <div class="math">
-<p><img src="../../_images/math/171de532d2c5b24b9589de2930343b615997fc9b.png" alt="E[n] = \half \int {n({\bf r}') n({\bf r}'')\over
+<p><span class="eqno">(72)</span><img src="../../_images/math/171de532d2c5b24b9589de2930343b615997fc9b.png" alt="E[n] = \half \int {n({\bf r}') n({\bf r}'')\over
     | {\bf r}' - {\bf r}''| } \d^3 r' \d^3 r''
 
 \delta E[n] = \half \delta \int {n({\bf r}') n({\bf r}'')\over
@@ -597,16 +597,16 @@ and related things. The notation is designed so that it is very easy to
 remember and it just guides you to write the correct equation.</p>
 <p>Let&#8217;s have a function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/>. We define</p>
 <div class="math">
-<p><img src="../../_images/math/d31064537d0d9fb8a54c3c6455e544ea76d5b175.png" alt="\begin{eqnarray*} \braket{x|f}&amp;\equiv&amp; f(x) \\ \braket{x'|f}&amp;\equiv&amp; f(x') \\ \braket{x'|x}&amp;\equiv&amp;\delta(x'-x) \\ \int\ket{x}\bra{x}\d x&amp;\equiv&amp;\one \\ \end{eqnarray*}"/></p>
+<p><span class="eqno">(73)</span><img src="../../_images/math/d31064537d0d9fb8a54c3c6455e544ea76d5b175.png" alt="\begin{eqnarray*} \braket{x|f}&amp;\equiv&amp; f(x) \\ \braket{x'|f}&amp;\equiv&amp; f(x') \\ \braket{x'|x}&amp;\equiv&amp;\delta(x'-x) \\ \int\ket{x}\bra{x}\d x&amp;\equiv&amp;\one \\ \end{eqnarray*}"/></p>
 </div><p>The following equation</p>
 <div class="math">
-<p><img src="../../_images/math/9715834cc8ef2f0b4d4acef14b5764688b5ca174.png" alt="f(x')=\int\delta(x'-x)f(x)\d x"/></p>
+<p><span class="eqno">(74)</span><img src="../../_images/math/9715834cc8ef2f0b4d4acef14b5764688b5ca174.png" alt="f(x')=\int\delta(x'-x)f(x)\d x"/></p>
 </div><p>then becomes</p>
 <div class="math">
-<p><img src="../../_images/math/e43283cc316f6e98880330b93a03418aeb301027.png" alt="\braket{x'|f}=\int\braket{x'|x}\braket{x|f}\d x"/></p>
+<p><span class="eqno">(75)</span><img src="../../_images/math/e43283cc316f6e98880330b93a03418aeb301027.png" alt="\braket{x'|f}=\int\braket{x'|x}\braket{x|f}\d x"/></p>
 </div><p>and thus we can interpret <img class="math" src="../../_images/math/1c747e3842af70c08b9b5d849a51e15348a8101f.png" alt="\ket{f}"/> as a vector, <img class="math" src="../../_images/math/72ee4347616aaecffcaa9580998be2662d0783a9.png" alt="\ket{x}"/> as a basis and <img class="math" src="../../_images/math/439e8ac0e147fdd7f1b9ed6f1435792713c15834.png" alt="\braket{x|f}"/> as the coefficients in the basis expansion:</p>
 <div class="math">
-<p><img src="../../_images/math/8fbb4a9da264260bddb4f0c55c213a1f3c8deb93.png" alt="\ket{f}=\one\ket{f}=\int\ket{x}\bra{x}\d x\ket{f}= \int\ket{x}\braket{x|f}\d x"/></p>
+<p><span class="eqno">(76)</span><img src="../../_images/math/8fbb4a9da264260bddb4f0c55c213a1f3c8deb93.png" alt="\ket{f}=\one\ket{f}=\int\ket{x}\bra{x}\d x\ket{f}= \int\ket{x}\braket{x|f}\d x"/></p>
 </div><p>That&#8217;s all there is to it. Take the above rules as the operational definition
 of the Dirac notation. It&#8217;s like with the delta function - written alone it
 doesn&#8217;t have any meaning, but there are clear and non-ambiguous rules to
@@ -621,111 +621,111 @@ with their equivalent expressions) &#8211; but it will be more complex and harde
 remember and &#8211; that is important &#8211; less general.</p>
 <p>Now, let&#8217;s look at the spherical harmonics:</p>
 <div class="math">
-<p><img src="../../_images/math/771a6f4775e528c8e3ce75bda7bf22a396304fc0.png" alt="Y_{lm}({\bf\hat r})\equiv\braket{{\bf\hat r}|lm}"/></p>
+<p><span class="eqno">(77)</span><img src="../../_images/math/771a6f4775e528c8e3ce75bda7bf22a396304fc0.png" alt="Y_{lm}({\bf\hat r})\equiv\braket{{\bf\hat r}|lm}"/></p>
 </div><p>on the unit sphere, we have</p>
 <div class="math">
-<p><img src="../../_images/math/eb2e0d9f7cea5a8b54d8dd65d3d2b899fe669722.png" alt="\int\ket{\bf\hat r}\bra{\bf\hat r}\d{\bf\hat r}= \int\ket{\bf\hat r}\bra{\bf\hat r}\d\Omega=\one"/></p>
+<p><span class="eqno">(78)</span><img src="../../_images/math/eb2e0d9f7cea5a8b54d8dd65d3d2b899fe669722.png" alt="\int\ket{\bf\hat r}\bra{\bf\hat r}\d{\bf\hat r}= \int\ket{\bf\hat r}\bra{\bf\hat r}\d\Omega=\one"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/ff668006a86773679adea732d534d9dd6e6952fa.png" alt="\delta({\bf\hat r}-{\bf\hat r'})=\braket{{\bf\hat r}|{\bf\hat r'}}"/></p>
+<p><span class="eqno">(79)</span><img src="../../_images/math/ff668006a86773679adea732d534d9dd6e6952fa.png" alt="\delta({\bf\hat r}-{\bf\hat r'})=\braket{{\bf\hat r}|{\bf\hat r'}}"/></p>
 </div><p>thus</p>
 <div class="math">
-<p><img src="../../_images/math/9bcb4dd1df7a28e404ffd041f71963fb013c9775.png" alt="\int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \int\braket{l'm'|{\bf\hat r}}\braket{{\bf\hat r}|lm}\d\Omega= \braket{l'm'|lm}"/></p>
+<p><span class="eqno">(80)</span><img src="../../_images/math/9bcb4dd1df7a28e404ffd041f71963fb013c9775.png" alt="\int_0^{2\pi}\int_0^{\pi} Y_{lm}(\theta,\phi)\,Y^*_{l'm'}(\theta,\phi)\sin\theta\,\d\theta\,\d\phi = \int\braket{l'm'|{\bf\hat r}}\braket{{\bf\hat r}|lm}\d\Omega= \braket{l'm'|lm}"/></p>
 </div><p>and from <a href="#equation-Yorto">(?)</a> we get</p>
 <div class="math">
-<p><img src="../../_images/math/bb890851c7504ec411898d2bdf2cf00a5cdf5a10.png" alt="\braket{l'm'|lm}=\delta_{mm'}\delta_{ll'}"/></p>
+<p><span class="eqno">(81)</span><img src="../../_images/math/bb890851c7504ec411898d2bdf2cf00a5cdf5a10.png" alt="\braket{l'm'|lm}=\delta_{mm'}\delta_{ll'}"/></p>
 </div><p>now</p>
 <div class="math">
-<p><img src="../../_images/math/e2f09e64938f0450ebd1e12b5e93adc544b12738.png" alt="\sum_{lm}Y_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}"/></p>
+<p><span class="eqno">(82)</span><img src="../../_images/math/e2f09e64938f0450ebd1e12b5e93adc544b12738.png" alt="\sum_{lm}Y_{lm}(\theta,\phi)Y_{lm}^*(\theta',\phi')= \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}"/></p>
 </div><p>from <a href="#equation-Ycomplete">(?)</a> we get</p>
 <div class="math">
-<p><img src="../../_images/math/f114dad12a6e05eab7be445dbf858339e3d63eb9.png" alt="\sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= \braket{{\bf\hat r}|{\bf\hat r'}}"/></p>
+<p><span class="eqno">(83)</span><img src="../../_images/math/f114dad12a6e05eab7be445dbf858339e3d63eb9.png" alt="\sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= \braket{{\bf\hat r}|{\bf\hat r'}}"/></p>
 </div><p>so we have</p>
 <div class="math">
-<p><img src="../../_images/math/b06a9af7259fca21d77404bbe7b0a2b4dc9dc817.png" alt="\sum_{lm}\ket{lm}\bra{lm}=\one"/></p>
+<p><span class="eqno">(84)</span><img src="../../_images/math/b06a9af7259fca21d77404bbe7b0a2b4dc9dc817.png" alt="\sum_{lm}\ket{lm}\bra{lm}=\one"/></p>
 </div><p>so <img class="math" src="../../_images/math/90e14ae31fbff7b8a91e85f47aaf5418eefb3bc5.png" alt="\ket{lm}"/> forms an orthonormal basis. Any function defined on the sphere <img class="math" src="../../_images/math/f2b5856241db09290eb364ae24b9ce9fe232b0b0.png" alt="f({\bf\hat r})"/> can be written using this basis:</p>
 <div class="math">
-<p><img src="../../_images/math/5cdf00c7c456c1e113555d38ca16fc92d991c5b4.png" alt="f({\bf\hat r}) =\braket{{\bf\hat r}|f} =\sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|f} =\sum_{lm}Y_{lm}({\bf\hat r})f_{lm}"/></p>
+<p><span class="eqno">(85)</span><img src="../../_images/math/5cdf00c7c456c1e113555d38ca16fc92d991c5b4.png" alt="f({\bf\hat r}) =\braket{{\bf\hat r}|f} =\sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|f} =\sum_{lm}Y_{lm}({\bf\hat r})f_{lm}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/2663567fb1bd4422a44d67219fc25e79b4d6db79.png" alt="f_{lm}=\braket{lm|f}=\int\braket{lm|{\bf\hat r}}\braket{{\bf\hat r}|f}\d\Omega =\int Y_{lm}^*({\bf\hat r}) f({\bf\hat r})\d\Omega"/></p>
+<p><span class="eqno">(86)</span><img src="../../_images/math/2663567fb1bd4422a44d67219fc25e79b4d6db79.png" alt="f_{lm}=\braket{lm|f}=\int\braket{lm|{\bf\hat r}}\braket{{\bf\hat r}|f}\d\Omega =\int Y_{lm}^*({\bf\hat r}) f({\bf\hat r})\d\Omega"/></p>
 </div><p>If we have a function <img class="math" src="../../_images/math/bdf9f1fabc228bfe13701a1154db7bef90941da2.png" alt="f({\bf r})"/> in 3D, we can write it as a function of <img class="math" src="../../_images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> and <img class="math" src="../../_images/math/9d0163998470ab71af420a0588995f79436153d3.png" alt="{\bf\hat r}"/> and expand only with respect to the variable <img class="math" src="../../_images/math/9d0163998470ab71af420a0588995f79436153d3.png" alt="{\bf\hat r}"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/6d418e02ebae8ee3eb1c97767af6082d02e75124.png" alt="f({\bf r})=f(\rho{\bf\hat r})\equiv g(\rho,{\bf\hat r})= \sum_{lm}Y_{lm}({\bf\hat r})g_{lm}(\rho)"/></p>
+<p><span class="eqno">(87)</span><img src="../../_images/math/6d418e02ebae8ee3eb1c97767af6082d02e75124.png" alt="f({\bf r})=f(\rho{\bf\hat r})\equiv g(\rho,{\bf\hat r})= \sum_{lm}Y_{lm}({\bf\hat r})g_{lm}(\rho)"/></p>
 </div><p>In Dirac notation we are doing the following: we decompose the space into the angular and radial part</p>
 <div class="math">
-<p><img src="../../_images/math/97980ab4811ef387e1045b3df4ddae148a57729c.png" alt="\ket{{\bf r}}=\ket{{\bf\hat r}}\otimes\ket{\rho} \equiv\ket{{\bf\hat r}}\ket{\rho}"/></p>
+<p><span class="eqno">(88)</span><img src="../../_images/math/97980ab4811ef387e1045b3df4ddae148a57729c.png" alt="\ket{{\bf r}}=\ket{{\bf\hat r}}\otimes\ket{\rho} \equiv\ket{{\bf\hat r}}\ket{\rho}"/></p>
 </div><p>and write</p>
 <div class="math">
-<p><img src="../../_images/math/ab2bea7e6ec8b83af545682f1799a64ac1d6eaf8.png" alt="f({\bf r})=\braket{{\bf r}|f}=\bra{{\bf\hat r}}\braket{\rho|f}= \sum_{lm}Y_{lm}({\bf\hat r})\bra{lm}\braket{\rho|f}"/></p>
+<p><span class="eqno">(89)</span><img src="../../_images/math/ab2bea7e6ec8b83af545682f1799a64ac1d6eaf8.png" alt="f({\bf r})=\braket{{\bf r}|f}=\bra{{\bf\hat r}}\braket{\rho|f}= \sum_{lm}Y_{lm}({\bf\hat r})\bra{lm}\braket{\rho|f}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/f571e86e3c16200ae97c5c061ce673d2af34b775.png" alt="\bra{lm}\braket{\rho|f}= \int\braket{lm|{\bf\hat r}}\bra{{\bf\hat r}}\braket{\rho|f}\d\Omega =\int Y_{lm}^*({\bf\hat r}) f({\bf r})\d\Omega"/></p>
+<p><span class="eqno">(90)</span><img src="../../_images/math/f571e86e3c16200ae97c5c061ce673d2af34b775.png" alt="\bra{lm}\braket{\rho|f}= \int\braket{lm|{\bf\hat r}}\bra{{\bf\hat r}}\braket{\rho|f}\d\Omega =\int Y_{lm}^*({\bf\hat r}) f({\bf r})\d\Omega"/></p>
 </div><p>Let&#8217;s calculate <img class="math" src="../../_images/math/1f5b14a6f20fbe1d0c007b7f8cdaadde495644e6.png" alt="\braket{\rho|\rho'}"/></p>
 <div class="math">
-<p><img src="../../_images/math/4777f82168dd8d03b55605514912248e6cda74ff.png" alt="\braket{{\bf r}|{\bf r'}}=\bra{\bf\hat r}\braket{\rho|\rho'}\ket{{\bf\hat r'}} =\braket{{\bf\hat r}|{\bf\hat r'}}\braket{\rho|\rho'}"/></p>
+<p><span class="eqno">(91)</span><img src="../../_images/math/4777f82168dd8d03b55605514912248e6cda74ff.png" alt="\braket{{\bf r}|{\bf r'}}=\bra{\bf\hat r}\braket{\rho|\rho'}\ket{{\bf\hat r'}} =\braket{{\bf\hat r}|{\bf\hat r'}}\braket{\rho|\rho'}"/></p>
 </div><p>so</p>
 <div class="math">
-<p><img src="../../_images/math/f6f3f261f3b06c2403f9b6cf501acb1856cca677.png" alt="\braket{\rho|\rho'} ={\braket{{\bf r}|{\bf r'}}\over\braket{{\bf\hat r}|{\bf\hat r'}}} ={\delta(\rho-\rho')\over\rho^2}"/></p>
+<p><span class="eqno">(92)</span><img src="../../_images/math/f6f3f261f3b06c2403f9b6cf501acb1856cca677.png" alt="\braket{\rho|\rho'} ={\braket{{\bf r}|{\bf r'}}\over\braket{{\bf\hat r}|{\bf\hat r'}}} ={\delta(\rho-\rho')\over\rho^2}"/></p>
 </div><p>We must stress that <img class="math" src="../../_images/math/90e14ae31fbff7b8a91e85f47aaf5418eefb3bc5.png" alt="\ket{lm}"/> only acts in the <img class="math" src="../../_images/math/c8673447ecec4cd5a986df7283ad5fcc2eff68de.png" alt="\ket{{\bf\hat r}}"/> space
 (not the <img class="math" src="../../_images/math/7262042b48fbe205998f5fcad751caa14b3fc18e.png" alt="\ket\rho"/> space) which means that</p>
 <div class="math">
-<p><img src="../../_images/math/3423f55e0baa499eb4fa5fbff5abb32c72d04cd6.png" alt="\braket{{\bf r}|lm} =\bra{\bf\hat r}\braket{\rho|lm} =\braket{{\bf\hat r}|lm}\bra{\rho} =Y_{lm}({\bf\hat r})\bra{\rho}"/></p>
+<p><span class="eqno">(93)</span><img src="../../_images/math/3423f55e0baa499eb4fa5fbff5abb32c72d04cd6.png" alt="\braket{{\bf r}|lm} =\bra{\bf\hat r}\braket{\rho|lm} =\braket{{\bf\hat r}|lm}\bra{\rho} =Y_{lm}({\bf\hat r})\bra{\rho}"/></p>
 </div><p>and <img class="math" src="../../_images/math/312548c890fd5bf5d3fe61caf509f81efa5755dd.png" alt="V\ket{lm}"/> leaves <img class="math" src="../../_images/math/70b1406e8690e7433e7093dcc6e7a370142343be.png" alt="V\ket\rho"/> intact. Similarly,</p>
 <div class="math">
-<p><img src="../../_images/math/70b0ff2a935b1cef935f24c086efbd7ce6e33068.png" alt="\sum_{lm} \ket{lm}\bra{lm}=\one"/></p>
+<p><span class="eqno">(94)</span><img src="../../_images/math/70b0ff2a935b1cef935f24c086efbd7ce6e33068.png" alt="\sum_{lm} \ket{lm}\bra{lm}=\one"/></p>
 </div><p>is a unity in the <img class="math" src="../../_images/math/b7f202c9ff14e303c94641201e6eb04c99fbef52.png" alt="\ket{\bf\hat r}"/> space only (i.e. on the unit sphere).</p>
 <p>Let&#8217;s rewrite the equation <a href="#equation-lsum">(?)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/7c280b7751deeb9d4f024315544c4d792a724d00.png" alt="\sum_m\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= {4\pi\over 2l+1} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}"/></p>
+<p><span class="eqno">(95)</span><img src="../../_images/math/7c280b7751deeb9d4f024315544c4d792a724d00.png" alt="\sum_m\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}= {4\pi\over 2l+1} \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}"/></p>
 </div><p>Using the completeness relation <a href="#equation-Lorto">(?)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/4816662c168bc68ca33b7978a8b689746ec17e5e.png" alt="\sum_l {2l+1\over2}\braket{x'|P_l}\braket{P_l|x}=\braket{x'|x}"/></p>
+<p><span class="eqno">(96)</span><img src="../../_images/math/4816662c168bc68ca33b7978a8b689746ec17e5e.png" alt="\sum_l {2l+1\over2}\braket{x'|P_l}\braket{P_l|x}=\braket{x'|x}"/></p>
 </div><div class="math">
-<p><img src="../../_images/math/987a0e6d1da522b3d094029bc6e852f096b054fd.png" alt="\sum_l \ket{P_l}{2l+1\over2}\bra{P_l}=\one"/></p>
+<p><span class="eqno">(97)</span><img src="../../_images/math/987a0e6d1da522b3d094029bc6e852f096b054fd.png" alt="\sum_l \ket{P_l}{2l+1\over2}\bra{P_l}=\one"/></p>
 </div><p>we can now derive a very important formula true for every function <img class="math" src="../../_images/math/b7171395e64d9a28d78eaec8e3c35a39a8ae9dae.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/701557869dae8c867cb9535253a88117e2739cf8.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})=\braket{{\bf\hat r}\cdot{\bf\hat r'}|f}= \sum_l \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}{2l+1\over2}\braket{P_l|f}= \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}{(2l+1)^2\over8\pi} \braket{P_l|f}="/></p>
+<p><span class="eqno">(98)</span><img src="../../_images/math/701557869dae8c867cb9535253a88117e2739cf8.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})=\braket{{\bf\hat r}\cdot{\bf\hat r'}|f}= \sum_l \braket{{\bf\hat r}\cdot{\bf\hat r'}|P_l}{2l+1\over2}\braket{P_l|f}= \sum_{lm}\braket{{\bf\hat r}|lm}\braket{lm|{\bf\hat r'}}{(2l+1)^2\over8\pi} \braket{P_l|f}="/></p>
 </div><div class="math">
-<p><img src="../../_images/math/0e60670a31a656bde260a3cc4015193de3789e32.png" alt="=\sum_{lm}\braket{{\bf\hat r}|lm}f_l \braket{lm|{\bf\hat r'}}"/></p>
+<p><span class="eqno">(99)</span><img src="../../_images/math/0e60670a31a656bde260a3cc4015193de3789e32.png" alt="=\sum_{lm}\braket{{\bf\hat r}|lm}f_l \braket{lm|{\bf\hat r'}}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/7e5d47d8dd40bb72107f0063eea69c3a015294ef.png" alt="f_l={(2l+1)^2\over8\pi}\braket{P_l|f} ={(2l+1)^2\over8\pi}\int_{-1}^1 \braket{P_l|x}\braket{x|f}\d x ={(2l+1)^2\over8\pi}\int_{-1}^1 P_l(x)f(x)\d x"/></p>
+<p><span class="eqno">(100)</span><img src="../../_images/math/7e5d47d8dd40bb72107f0063eea69c3a015294ef.png" alt="f_l={(2l+1)^2\over8\pi}\braket{P_l|f} ={(2l+1)^2\over8\pi}\int_{-1}^1 \braket{P_l|x}\braket{x|f}\d x ={(2l+1)^2\over8\pi}\int_{-1}^1 P_l(x)f(x)\d x"/></p>
 </div><p>or written explicitly</p>
 <div class="math" id="equation-fylm">
-<p><span class="eqno">(7)</span><img src="../../_images/math/7bd1af5aa845f0c38ef65e3737f73b62687e6ab5.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})"/></p>
+<p><span class="eqno">(101)</span><img src="../../_images/math/7bd1af5aa845f0c38ef65e3737f73b62687e6ab5.png" alt="f({\bf\hat r}\cdot{\bf\hat r'})= \sum_{l=0}^\infty\sum_{m=-l}^l Y_{lm}({\bf\hat r}) f_l Y_{lm}^*({\bf\hat r'})"/></p>
 </div></div>
 <div class="section" id="homogeneous-functions">
 <span id="index-2"></span><h1>Homogeneous functions<a class="headerlink" href="#homogeneous-functions" title="Permalink to this headline">¶</a></h1>
 <p>A function of several variables <img class="math" src="../../_images/math/83d951deadedf7bc68666c3abe5d13125b1841ca.png" alt="f(x_1, x_2, \dots) \equiv f(x_i)"/> is
 homogeneous of degree <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> if</p>
 <div class="math">
-<p><img src="../../_images/math/0880b4247dc96e2d0f50e57761a0afc72a2b053c.png" alt="f(\lambda x_i) = \lambda^k f(x_i)"/></p>
+<p><span class="eqno">(102)</span><img src="../../_images/math/0880b4247dc96e2d0f50e57761a0afc72a2b053c.png" alt="f(\lambda x_i) = \lambda^k f(x_i)"/></p>
 </div><p>By differentiating with respect to <img class="math" src="../../_images/math/ce4588fd900d02afcbd260bc07f54cce49a7dc4a.png" alt="\lambda"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/f906bd193908efd27e40786f0e21bef5465fd4ce.png" alt="x_i {\partial f(\lambda x_i)\over\partial x_i} = k\lambda^{k-1} f(x_i)"/></p>
+<p><span class="eqno">(103)</span><img src="../../_images/math/f906bd193908efd27e40786f0e21bef5465fd4ce.png" alt="x_i {\partial f(\lambda x_i)\over\partial x_i} = k\lambda^{k-1} f(x_i)"/></p>
 </div><p>and setting <img class="math" src="../../_images/math/c932ecfb55276fff7c312aa00a4b564c3ec42fc3.png" alt="\lambda=1"/> we get the so called Euler equation:</p>
 <div class="math">
-<p><img src="../../_images/math/01f2b6dc47cebb2e19300680de9ddfae2701aa5c.png" alt="x_i {\partial f(x_i)\over\partial x_i} = k f(x_i)"/></p>
+<p><span class="eqno">(104)</span><img src="../../_images/math/01f2b6dc47cebb2e19300680de9ddfae2701aa5c.png" alt="x_i {\partial f(x_i)\over\partial x_i} = k f(x_i)"/></p>
 </div><p>in 3D this can also be written as:</p>
 <div class="math">
-<p><img src="../../_images/math/1e606c6a951337e852945027d4ade4dabd56bb44.png" alt="{\bf x} \cdot \nabla f({\bf x}) = k f({\bf x})"/></p>
+<p><span class="eqno">(105)</span><img src="../../_images/math/1e606c6a951337e852945027d4ade4dabd56bb44.png" alt="{\bf x} \cdot \nabla f({\bf x}) = k f({\bf x})"/></p>
 </div><div class="section" id="example-1">
 <h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
 <p>The function <img class="math" src="../../_images/math/25c8930c58dccfbb4c67d058b75092c834bdf1e8.png" alt="f(x, y, z) = {xy\over z}"/> is homogeneous of degree 1, because:</p>
 <div class="math">
-<p><img src="../../_images/math/eced7a878964174f007a4eb9f8be1ffe51386e84.png" alt="f(\lambda x, \lambda y, \lambda z) = {\lambda x\lambda y\over \lambda z}
+<p><span class="eqno">(106)</span><img src="../../_images/math/eced7a878964174f007a4eb9f8be1ffe51386e84.png" alt="f(\lambda x, \lambda y, \lambda z) = {\lambda x\lambda y\over \lambda z}
 = \lambda {xy\over z}
 = \lambda f(x, y, z)"/></p>
 </div><p>and the Euler equation is:</p>
 <div class="math">
-<p><img src="../../_images/math/1becc10b23324dbc7c3d391101d7f07aadf7745b.png" alt="x{\partial f\over\partial x} +
+<p><span class="eqno">(107)</span><img src="../../_images/math/1becc10b23324dbc7c3d391101d7f07aadf7745b.png" alt="x{\partial f\over\partial x} +
 y{\partial f\over\partial y} +
 z{\partial f\over\partial z}
 =
 f"/></p>
 </div><p>or</p>
 <div class="math">
-<p><img src="../../_images/math/a05ed5160391eec2b14bfe31a73b8c8822461ef6.png" alt="x{y\over z} +
+<p><span class="eqno">(108)</span><img src="../../_images/math/a05ed5160391eec2b14bfe31a73b8c8822461ef6.png" alt="x{y\over z} +
 y{x\over z} +
 z\left(-{xy\over z^2}\right)
 ={xy\over z}"/></p>
@@ -735,13 +735,13 @@ z\left(-{xy\over z^2}\right)
 <h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
 <p>The function <img class="math" src="../../_images/math/c780d266b1463ff54a85fc4c1e6c36d8d2a5e6e5.png" alt="V(r) = -{Z \over r}"/> is homogeneous of degree -1, because:</p>
 <div class="math">
-<p><img src="../../_images/math/0b254499db6b04075e86fb801506f1778e4928e0.png" alt="V(\lambda r) = -{Z\over \lambda r} = \lambda^{-1} V(r)"/></p>
+<p><span class="eqno">(109)</span><img src="../../_images/math/0b254499db6b04075e86fb801506f1778e4928e0.png" alt="V(\lambda r) = -{Z\over \lambda r} = \lambda^{-1} V(r)"/></p>
 </div><p>and the Euler equation is:</p>
 <div class="math">
-<p><img src="../../_images/math/b9108fd763648ed72428e7702f894418c67ee529.png" alt="r{\d V\over\d r} = -V"/></p>
+<p><span class="eqno">(110)</span><img src="../../_images/math/b9108fd763648ed72428e7702f894418c67ee529.png" alt="r{\d V\over\d r} = -V"/></p>
 </div><p>or</p>
 <div class="math">
-<p><img src="../../_images/math/b0a6f0cf301812882538a0cafb48f7b317adc727.png" alt="r{Z\over r^2} = -\left(-{Z\over r}\right)"/></p>
+<p><span class="eqno">(111)</span><img src="../../_images/math/b0a6f0cf301812882538a0cafb48f7b317adc727.png" alt="r{Z\over r^2} = -\left(-{Z\over r}\right)"/></p>
 </div><p>Which is true.</p>
 </div>
 </div>
@@ -754,18 +754,18 @@ them using FEM.</p>
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s put any ODE or PDE in the form:</p>
 <div class="math" id="equation-pde">
-<p><span class="eqno">(8)</span><img src="../../_images/math/0e94fd314ce5ed6286db2be01cdc933f1910a5ce.png" alt="Lu(x)=f(x)"/></p>
+<p><span class="eqno">(112)</span><img src="../../_images/math/0e94fd314ce5ed6286db2be01cdc933f1910a5ce.png" alt="Lu(x)=f(x)"/></p>
 </div><p>Here <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is a differential operator and <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> can have any dimension, e.g. 1D
 (ODE), 2D, 3D or more (PDE). Then we can express the solution as</p>
 <div class="math" id="equation-solution">
-<p><span class="eqno">(9)</span><img src="../../_images/math/faf0afda8955c3a14ba2801acb01c11789556cb3.png" alt="u(x) = L^{-1}f(x) = \int G(x, x')f(x')\d x'"/></p>
+<p><span class="eqno">(113)</span><img src="../../_images/math/faf0afda8955c3a14ba2801acb01c11789556cb3.png" alt="u(x) = L^{-1}f(x) = \int G(x, x')f(x')\d x'"/></p>
 </div><p>where <img class="math" src="../../_images/math/6bc4f2d79d5dea70cf823f874c36803ebd47e927.png" alt="G(x, x')"/> is a Green function, that needs to satisfy the equation:</p>
 <div class="math" id="equation-green">
-<p><span class="eqno">(10)</span><img src="../../_images/math/bc811e345dc60d606c3797476e52099dd38ed6c7.png" alt="LG(x, x')=\delta(x-x')"/></p>
-</div><p>Remember, that <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> acts on <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> only, so we can check, that <a href="#equation-solution">(9)</a>
-indeed solves the PDE <a href="#equation-pde">(8)</a>:</p>
+<p><span class="eqno">(114)</span><img src="../../_images/math/bc811e345dc60d606c3797476e52099dd38ed6c7.png" alt="LG(x, x')=\delta(x-x')"/></p>
+</div><p>Remember, that <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> acts on <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> only, so we can check, that <a href="#equation-solution">(113)</a>
+indeed solves the PDE <a href="#equation-pde">(112)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/a201266d087c1545cdfdf6aeb544ffca3ef4efc9.png" alt="Lu(x)
+<p><span class="eqno">(115)</span><img src="../../_images/math/a201266d087c1545cdfdf6aeb544ffca3ef4efc9.png" alt="Lu(x)
 = L\int G(x, x')f(x')\d x'
 = \int LG(x, x')f(x')\d x'
 = \int \delta(x-x')f(x')\d x'
@@ -773,30 +773,30 @@ indeed solves the PDE <a href="#equation-pde">(8)</a>:</p>
 </div></div>
 <div class="section" id="boundary-conditions">
 <h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
-<p>The equation <a href="#equation-green">(10)</a> doesn&#8217;t determine the Green function uniquely,
+<p>The equation <a href="#equation-green">(114)</a> doesn&#8217;t determine the Green function uniquely,
 because one can add to it any solution of the homogeneous equation <img class="math" src="../../_images/math/4c504c1feea8b32eddeda2f7582056840c052196.png" alt="Lu(x)=0"/>.
-We can use this freedom to solve <a href="#equation-green">(10)</a> for any boundary condition.
+We can use this freedom to solve <a href="#equation-green">(114)</a> for any boundary condition.
 So we prescribe a boundary condition
-and find the Green function (by solving <a href="#equation-green">(10)</a>) that satisfies the
+and find the Green function (by solving <a href="#equation-green">(114)</a>) that satisfies the
 boundary condition. It can be shown, that <img class="math" src="../../_images/math/4216c54b9c66ea6a2e02c7b59fb228bfbebc590b.png" alt="u(x)"/> determined from
-<a href="#equation-solution">(9)</a> then also needs to satisfy the same boundary condition.</p>
+<a href="#equation-solution">(113)</a> then also needs to satisfy the same boundary condition.</p>
 </div>
 <div class="section" id="symmetry">
 <h2>Symmetry<a class="headerlink" href="#symmetry" title="Permalink to this headline">¶</a></h2>
 <p>We write the equation for Green functions at two different points <img class="math" src="../../_images/math/ccada11db7b2b90693e2fac4f887a57fce6f96bf.png" alt="x_1"/>
 and <img class="math" src="../../_images/math/6a7d010bbff66a0c41e43310a51efbaa6bf63396.png" alt="x_2"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/f92a66786482a04b90e68df2c94e9a25e4580535.png" alt="L G(x, x_1) = \delta(x-x_1)
+<p><span class="eqno">(116)</span><img src="../../_images/math/f92a66786482a04b90e68df2c94e9a25e4580535.png" alt="L G(x, x_1) = \delta(x-x_1)
 
 L G(x, x_2) = \delta(x-x_2)"/></p>
 </div><p>and multiply the first equation by <img class="math" src="../../_images/math/65a7142b5c49bafc9982585f452d194d6f75fa8c.png" alt="G(x, x_2)"/>, second by <img class="math" src="../../_images/math/a518722ac51323e96de30a888f4a8ec1854ae581.png" alt="G(x, x_1)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/3915b4a075121338396928dd32cc61b63768e3bf.png" alt="G(x, x_2) L G(x, x_1) = \delta(x-x_1) G(x, x_2)
+<p><span class="eqno">(117)</span><img src="../../_images/math/3915b4a075121338396928dd32cc61b63768e3bf.png" alt="G(x, x_2) L G(x, x_1) = \delta(x-x_1) G(x, x_2)
 
 G(x, x_1) L G(x, x_2) = \delta(x-x_2) G(x, x_1)"/></p>
 </div><p>substract them and integrate over <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/cd02ee3a74ba20fbe085478fd3fc9fda7e414383.png" alt="G(x, x_2) L G(x, x_1) - G(x, x_1) L G(x, x_2)
+<p><span class="eqno">(118)</span><img src="../../_images/math/cd02ee3a74ba20fbe085478fd3fc9fda7e414383.png" alt="G(x, x_2) L G(x, x_1) - G(x, x_1) L G(x, x_2)
     = \delta(x-x_1) G(x, x_2) - \delta(x-x_2) G(x, x_1)
 
 \int \left(G(x, x_2) L G(x, x_1) - G(x, x_1) L G(x, x_2) \right) \d x
@@ -807,7 +807,7 @@ G(x, x_1) L G(x, x_2) = \delta(x-x_2) G(x, x_1)"/></p>
     = G(x_1, x_2) - G(x_2, x_1)"/></p>
 </div><p>Assuming that the operator <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is Hermitean, we get:</p>
 <div class="math">
-<p><img src="../../_images/math/278f37c34c2124c25ba9943702441383d0a3a865.png" alt="\int \left((L G(x, x_2)) G(x, x_1) - G(x, x_1) L G(x, x_2) \right) \d x
+<p><span class="eqno">(119)</span><img src="../../_images/math/278f37c34c2124c25ba9943702441383d0a3a865.png" alt="\int \left((L G(x, x_2)) G(x, x_1) - G(x, x_1) L G(x, x_2) \right) \d x
     = G(x_1, x_2) - G(x_2, x_1)
 
 0 = G(x_1, x_2) - G(x_2, x_1)"/></p>
@@ -819,10 +819,10 @@ G(x, x_1) L G(x, x_2) = \delta(x-x_2) G(x, x_1)"/></p>
 <h3>Poisson Equation in 1D<a class="headerlink" href="#poisson-equation-in-1d" title="Permalink to this headline">¶</a></h3>
 <p>Poisson equation:</p>
 <div class="math">
-<p><img src="../../_images/math/dfdf95b6a2344ea8298750eee5f5d923e0199539.png" alt="-{\d^2\over\d x^2} u(x) = f(x)"/></p>
+<p><span class="eqno">(120)</span><img src="../../_images/math/dfdf95b6a2344ea8298750eee5f5d923e0199539.png" alt="-{\d^2\over\d x^2} u(x) = f(x)"/></p>
 </div><p>We calculate the Green function using the Fourier transform:</p>
 <div class="math">
-<p><img src="../../_images/math/631424090c5f1aa0f43f5556b79737764c1a623d.png" alt="-{\partial^2\over\partial x^2} G(x, x') = \delta(x-x')
+<p><span class="eqno">(121)</span><img src="../../_images/math/631424090c5f1aa0f43f5556b79737764c1a623d.png" alt="-{\partial^2\over\partial x^2} G(x, x') = \delta(x-x')
 
 -(ik)^2 \tilde G(k, x') = {e^{ikx'}\over\sqrt{2\pi}}
 
@@ -833,7 +833,7 @@ G(x, x') = -\half (x-x') \sign(x-x')
     = H(x-x') (x'-x) +\half(x-x')"/></p>
 </div><p>Check:</p>
 <div class="math">
-<p><img src="../../_images/math/1eaeb6c5b5a9cdaa3d23f4383878aa85b98ee6c0.png" alt="{\partial\over\partial x} G(x, x')
+<p><span class="eqno">(122)</span><img src="../../_images/math/1eaeb6c5b5a9cdaa3d23f4383878aa85b98ee6c0.png" alt="{\partial\over\partial x} G(x, x')
     = \delta(x-x') (x'-x) + H(x-x') (-1) + \half
     = - H(x-x') + \half
 
@@ -841,19 +841,19 @@ G(x, x') = -\half (x-x') \sign(x-x')
     = - \delta(x-x')"/></p>
 </div><p>Then:</p>
 <div class="math">
-<p><img src="../../_images/math/3b4a91ffb2483e6637370dafe73495fdf5958483.png" alt="u(x) = \int G(x, x') f(x') \d x'
+<p><span class="eqno">(123)</span><img src="../../_images/math/3b4a91ffb2483e6637370dafe73495fdf5958483.png" alt="u(x) = \int G(x, x') f(x') \d x'
     = \int \left(H(x-x') (x'-x) +\half(x-x')\right) f(x') \d x'"/></p>
 </div><p>The green function can also be written using <img class="math" src="../../_images/math/95628e2f9736c180c7f8df90798f97040b878fcb.png" alt="x_&lt;=\min(x, x')"/> and
 <img class="math" src="../../_images/math/58911edbdd85c6ffa5ccfc8f05a2eef6ede10700.png" alt="x_&gt; = \max(x, x')"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/e13387480be31a91686be1eb53aea9c0f483aea8.png" alt="G(x, x') = H(x-x') (x'-x) +\half(x-x')
+<p><span class="eqno">(124)</span><img src="../../_images/math/e13387480be31a91686be1eb53aea9c0f483aea8.png" alt="G(x, x') = H(x-x') (x'-x) +\half(x-x')
     = \half(x_&lt; - x_&gt;)"/></p>
 </div></div>
 <div class="section" id="radial-poisson-equation">
 <h3>Radial Poisson Equation<a class="headerlink" href="#radial-poisson-equation" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s write <img class="math" src="../../_images/math/604c6b1d2d351b60dba77e9bfb5a11e20910a794.png" alt="r_&gt;"/> and <img class="math" src="../../_images/math/d58f9bdf6be12bce826918cbd8f0cca144dc3c0f.png" alt="r_&lt;"/> using the Heaviside step function:</p>
 <div class="math">
-<p><img src="../../_images/math/3f442180e8225e516dd48682732c83e38ce56d83.png" alt="r_&gt; = \max(r, r')
+<p><span class="eqno">(125)</span><img src="../../_images/math/3f442180e8225e516dd48682732c83e38ce56d83.png" alt="r_&gt; = \max(r, r')
     =
 \begin{cases}
 r&amp;\quad\mbox{for $r&gt;r'$}\cr
@@ -865,7 +865,7 @@ r'&amp;\quad\mbox{for $r&lt;r'$}\cr
 = H(r-r') (r-r') + r'"/></p>
 </div><p>and:</p>
 <div class="math">
-<p><img src="../../_images/math/18f2aabd3644364dac2f802389bbc6a5dc95ce7d.png" alt="r_&lt; = \min(r, r')
+<p><span class="eqno">(126)</span><img src="../../_images/math/18f2aabd3644364dac2f802389bbc6a5dc95ce7d.png" alt="r_&lt; = \min(r, r')
     =
 \begin{cases}
 r'&amp;\quad\mbox{for $r&gt;r'$}\cr
@@ -877,7 +877,7 @@ r&amp;\quad\mbox{for $r&lt;r'$}\cr
 = H(r-r') (r'-r) + r"/></p>
 </div><p>Then we can differentiate:</p>
 <div class="math">
-<p><img src="../../_images/math/b9883d5f4bb37e07191b620b46d84d3ff36ad48c.png" alt="{\partial\over\partial r} r_&gt;
+<p><span class="eqno">(127)</span><img src="../../_images/math/b9883d5f4bb37e07191b620b46d84d3ff36ad48c.png" alt="{\partial\over\partial r} r_&gt;
     = \delta(r-r')(r-r') + H(r-r')
     = H(r-r')
 
@@ -892,49 +892,49 @@ r&amp;\quad\mbox{for $r&lt;r'$}\cr
     = -\delta(r-r')"/></p>
 </div><p>Given:</p>
 <div class="math" id="equation-rad_integral_u">
-<p><span class="eqno">(11)</span><img src="../../_images/math/6e4d21981043944587763ce65f7c96ebeae48c7a.png" alt="u(r) = \int_0^\infty {f(r') r'^2 \over r_&gt;} \d r'"/></p>
+<p><span class="eqno">(128)</span><img src="../../_images/math/6e4d21981043944587763ce65f7c96ebeae48c7a.png" alt="u(r) = \int_0^\infty {f(r') r'^2 \over r_&gt;} \d r'"/></p>
 </div><p>The Green function is</p>
 <div class="math">
-<p><img src="../../_images/math/e01196d3599c94f9ff705a5ae01d238073fb2f9e.png" alt="G(r, r') = {r'^2\over r_&gt;}"/></p>
+<p><span class="eqno">(129)</span><img src="../../_images/math/e01196d3599c94f9ff705a5ae01d238073fb2f9e.png" alt="G(r, r') = {r'^2\over r_&gt;}"/></p>
 </div><p>Let&#8217;s differentiate:</p>
 <div class="math">
-<p><img src="../../_images/math/5508b6b3c10043945a2f1c86107b872af0a86f0a.png" alt="{\partial\over\partial r} G(r, r') = -{r'^2\over r_&gt;^2}
+<p><span class="eqno">(130)</span><img src="../../_images/math/5508b6b3c10043945a2f1c86107b872af0a86f0a.png" alt="{\partial\over\partial r} G(r, r') = -{r'^2\over r_&gt;^2}
         {\partial\over\partial r} r_&gt;
 = -{r'^2\over r_&gt;^2} H(r-r')
 = -{r'^2\over r^2} H(r-r')"/></p>
 </div><p>and</p>
 <div class="math">
-<p><img src="../../_images/math/fe4405b4385429c3d36fd46ba573ceaa50791eac.png" alt="{\partial^2\over\partial r^2} G(r, r') = +{2\over r}{r'^2\over r^2}
+<p><span class="eqno">(131)</span><img src="../../_images/math/fe4405b4385429c3d36fd46ba573ceaa50791eac.png" alt="{\partial^2\over\partial r^2} G(r, r') = +{2\over r}{r'^2\over r^2}
     H(r-r') -{r'^2\over r^2} \delta(r-r')"/></p>
 </div><p>So we get:</p>
 <div class="math">
-<p><img src="../../_images/math/de434c459e6d9fc1b2eaa8540f0a0f69e8ca37ee.png" alt="-{\partial^2\over\partial r^2} G(r, r')
+<p><span class="eqno">(132)</span><img src="../../_images/math/de434c459e6d9fc1b2eaa8540f0a0f69e8ca37ee.png" alt="-{\partial^2\over\partial r^2} G(r, r')
     -{2\over r}{\partial\over\partial r} G(r, r')
     =-{2\over r}{r'^2\over r^2} H(r-r') +{r'^2\over r^2} \delta(r-r')
         +{2\over r}{r'^2\over r^2} H(r-r')
     ={r'^2\over r^2} \delta(r-r') = \delta(r-r')"/></p>
-</div><p>So <img class="math" src="../../_images/math/a9c51f7d45d37418b1d30650b363c184eabc52e9.png" alt="u(r)"/> from <a href="#equation-rad_integral_u">(11)</a> is a solution to the radial Poisson
+</div><p>So <img class="math" src="../../_images/math/a9c51f7d45d37418b1d30650b363c184eabc52e9.png" alt="u(r)"/> from <a href="#equation-rad_integral_u">(128)</a> is a solution to the radial Poisson
 equation:</p>
 <div class="math">
-<p><img src="../../_images/math/75375138de5098bf1d6ef6bad9a36cf1655bf5ff.png" alt="-{\d^2\over\d r^2} u(r) - {2\over r}{\d\over\d r}u(r) = f(r)"/></p>
+<p><span class="eqno">(133)</span><img src="../../_images/math/75375138de5098bf1d6ef6bad9a36cf1655bf5ff.png" alt="-{\d^2\over\d r^2} u(r) - {2\over r}{\d\over\d r}u(r) = f(r)"/></p>
 </div></div>
 <div class="section" id="helmholtz-equation-in-1d">
 <h3>Helmholtz Equation in 1D<a class="headerlink" href="#helmholtz-equation-in-1d" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/a88b00015f9d05e05103893f53b5f6f2ef10089c.png" alt="\left({\d^2\over\d x^2}+1\right)u(x)=f(x)
+<p><span class="eqno">(134)</span><img src="../../_images/math/a88b00015f9d05e05103893f53b5f6f2ef10089c.png" alt="\left({\d^2\over\d x^2}+1\right)u(x)=f(x)
 
 \left({\d^2\over\d x^2}+1\right)G(x, x')=\delta(x-x')"/></p>
 </div><p>with boundary conditions <img class="math" src="../../_images/math/e8b3141742ac93dbf237b1d583f18e8a05d92d09.png" alt="u(0)=u({\pi\over2})=0"/>.
 We use the Fourier transform:</p>
 <div class="math">
-<p><img src="../../_images/math/637591dee9c5dceaa382005277149d75114f9e69.png" alt="\left((ik)^2+1\right)\tilde G(k, x')={e^{ikx'}\over\sqrt{2\pi}}
+<p><span class="eqno">(135)</span><img src="../../_images/math/637591dee9c5dceaa382005277149d75114f9e69.png" alt="\left((ik)^2+1\right)\tilde G(k, x')={e^{ikx'}\over\sqrt{2\pi}}
 
 \tilde G(k, x')={e^{ikx'}\over \sqrt{2\pi} (1-k^2)}
 
 G(x, x') = \half\sign(x-x')\sin(x-x')"/></p>
 </div><p>Check:</p>
 <div class="math">
-<p><img src="../../_images/math/76b80bab522a30d62ff4b4b36f4868ea12e8e8e3.png" alt="{\partial\over\partial x} G(x, x') = \delta(x-x')\sin(x-x')
+<p><span class="eqno">(136)</span><img src="../../_images/math/76b80bab522a30d62ff4b4b36f4868ea12e8e8e3.png" alt="{\partial\over\partial x} G(x, x') = \delta(x-x')\sin(x-x')
     +\half\sign(x-x')\cos(x-x') =
 
     = \half\sign(x-x')\cos(x-x')
@@ -948,21 +948,21 @@ G(x, x') = \half\sign(x-x')\sin(x-x')"/></p>
 +{\partial\over\partial x} G(x, x') = \delta(x-x')"/></p>
 </div><p>The general solution of the homogeneous equation is:</p>
 <div class="math">
-<p><img src="../../_images/math/b146fd02a167b3c42f6f498a5287dbf1807d225a.png" alt="u(x) = C_1 \sin x + C_2 \cos x"/></p>
+<p><span class="eqno">(137)</span><img src="../../_images/math/b146fd02a167b3c42f6f498a5287dbf1807d225a.png" alt="u(x) = C_1 \sin x + C_2 \cos x"/></p>
 </div><p>so the general Green function is:</p>
 <div class="math">
-<p><img src="../../_images/math/49607c022d251fada0488b9214a02a2efcf5103e.png" alt="G(x, x') = \half\sign(x-x')\sin(x-x') + C_1 \sin (x+x')
+<p><span class="eqno">(138)</span><img src="../../_images/math/49607c022d251fada0488b9214a02a2efcf5103e.png" alt="G(x, x') = \half\sign(x-x')\sin(x-x') + C_1 \sin (x+x')
     + C_2 \cos (x+x')"/></p>
 </div><p>Satisfying the boundary conditions (for all <img class="math" src="../../_images/math/498cc7e462563a90d71df05069a7b86506579ef9.png" alt="x' \ne 0"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/555b6c68959c14a05e263fe02f4b1ac1a48a13ae.png" alt="G(0, x') = G({\pi\over 2}, x') = 0"/></p>
+<p><span class="eqno">(139)</span><img src="../../_images/math/555b6c68959c14a05e263fe02f4b1ac1a48a13ae.png" alt="G(0, x') = G({\pi\over 2}, x') = 0"/></p>
 </div><p>we get:</p>
 <div class="math">
-<p><img src="../../_images/math/213220895ee27c87cab8f51bd9ded32af8746139.png" alt="C_1 &amp; = -\half \\
+<p><span class="eqno">(140)</span><img src="../../_images/math/213220895ee27c87cab8f51bd9ded32af8746139.png" alt="C_1 &amp; = -\half \\
 C_2 &amp; = 0"/></p>
 </div><p>and:</p>
 <div class="math">
-<p><img src="../../_images/math/db4db3a89380a9ae745de591b69ff545364f64f8.png" alt="G(x, x') = \half\sign(x-x')\sin(x-x') -\half \sin (x+x') =
+<p><span class="eqno">(141)</span><img src="../../_images/math/db4db3a89380a9ae745de591b69ff545364f64f8.png" alt="G(x, x') = \half\sign(x-x')\sin(x-x') -\half \sin (x+x') =
 
 =-H(x'-x)\sin x\cos x' - H(x - x') \cos x \sin x' =
 
@@ -974,12 +974,12 @@ C_2 &amp; = 0"/></p>
 =-\sin x_&lt; \cos x_&gt;"/></p>
 </div><p>and</p>
 <div class="math">
-<p><img src="../../_images/math/f0ae6205195f2c385a48d579bb853df4e7258a26.png" alt="u(x) = \int G(x, x')f(x')\d x'
+<p><span class="eqno">(142)</span><img src="../../_images/math/f0ae6205195f2c385a48d579bb853df4e7258a26.png" alt="u(x) = \int G(x, x')f(x')\d x'
 =-\cos x\int_0^xf(x')\sin x'\d x'
 -\sin x\int_x^{\pi\over2}f(x')\cos x'\d x'"/></p>
 </div><p>To show that this really works, let&#8217;s take for example <img class="math" src="../../_images/math/42caa80b6f855f97f5c604e1a193ee3b13600ce0.png" alt="f(x)=3\sin2x"/>. Then</p>
 <div class="math">
-<p><img src="../../_images/math/bc5614d0f430653f080c213aaf944c934549456c.png" alt="u(x)
+<p><span class="eqno">(143)</span><img src="../../_images/math/bc5614d0f430653f080c213aaf944c934549456c.png" alt="u(x)
 =-\cos x\int_0^x3\sin 2x'\sin x'\d x'
 -\sin x\int_x^{\pi\over2}3\sin 2x'\cos x'\d x'"/></p>
 </div><p>We can use SymPy to evaluate the integrals:</p>
@@ -1001,7 +1001,7 @@ Out[4]: -sin(2*x)</pre>
 </div>
 <p>And we get</p>
 <div class="math">
-<p><img src="../../_images/math/006f6faf2fc1c8c9b8d50d49b30f1ad7f41b4f01.png" alt="u(x)=-\sin 2x"/></p>
+<p><span class="eqno">(144)</span><img src="../../_images/math/006f6faf2fc1c8c9b8d50d49b30f1ad7f41b4f01.png" alt="u(x)=-\sin 2x"/></p>
 </div><p>We can easily check, that <img class="math" src="../../_images/math/af709e18b8bde8116a6af712713636af6b9cbd11.png" alt="u''+u=3\sin2x"/>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">u</span>
@@ -1015,13 +1015,13 @@ solution.</p>
 <h3>Poisson Equation in 2D<a class="headerlink" href="#poisson-equation-in-2d" title="Permalink to this headline">¶</a></h3>
 <p>Let <img class="math" src="../../_images/math/29386f5856bf6d3d892b0509adeb74c42f11feed.png" alt="{\bf x}=(x, y)"/> and we want to solve:</p>
 <div class="math">
-<p><img src="../../_images/math/1eda2a1c766d1ed84770a3944b716b92cf2a8a58.png" alt="\nabla^2u({\bf x})=f({\bf x})"/></p>
+<p><span class="eqno">(145)</span><img src="../../_images/math/1eda2a1c766d1ed84770a3944b716b92cf2a8a58.png" alt="\nabla^2u({\bf x})=f({\bf x})"/></p>
 </div><p>So we have:</p>
 <div class="math">
-<p><img src="../../_images/math/bd491434e223ec138e273a726faebfa59dfc44d5.png" alt="\nabla^2G({\bf x}, {\bf x'})=\delta({\bf x}-{\bf x'})"/></p>
+<p><span class="eqno">(146)</span><img src="../../_images/math/bd491434e223ec138e273a726faebfa59dfc44d5.png" alt="\nabla^2G({\bf x}, {\bf x'})=\delta({\bf x}-{\bf x'})"/></p>
 </div><p>The solution is:</p>
 <div class="math">
-<p><img src="../../_images/math/8658444c55ef28c154ee08a604a982aef3bf6a37.png" alt="G({\bf x}, {\bf x'})
+<p><span class="eqno">(147)</span><img src="../../_images/math/8658444c55ef28c154ee08a604a982aef3bf6a37.png" alt="G({\bf x}, {\bf x'})
 ={1\over2\pi}\log|{\bf x}-{\bf x'}|
 ={1\over4\pi}\log|{\bf x}-{\bf x'}|^2
 ={1\over4\pi}\log((x-x')^2+(y-y')^2)"/></p>
@@ -1029,25 +1029,25 @@ solution.</p>
 <div class="section" id="poisson-equation-in-3d">
 <h3>Poisson Equation in 3D<a class="headerlink" href="#poisson-equation-in-3d" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/cc0aba7e5a5f28360f855036b7df14a9fed6f6a4.png" alt="\nabla^2u(x)=f(x)
+<p><span class="eqno">(148)</span><img src="../../_images/math/cc0aba7e5a5f28360f855036b7df14a9fed6f6a4.png" alt="\nabla^2u(x)=f(x)
 
 \nabla^2G(x, x')=\delta(x-x')"/></p>
 </div><p>with boundary condition <img class="math" src="../../_images/math/7aa1bcbb0a32d05e1db594936c35c8a9bda1980f.png" alt="G(x) = 0"/> at infinity. Then:</p>
 <div class="math">
-<p><img src="../../_images/math/aad7dfcf65012fb36c8826c066d62d962b16e5f4.png" alt="G(x, x')=-{1\over4\pi}{1\over|x-x'| }"/></p>
+<p><span class="eqno">(149)</span><img src="../../_images/math/aad7dfcf65012fb36c8826c066d62d962b16e5f4.png" alt="G(x, x')=-{1\over4\pi}{1\over|x-x'| }"/></p>
 </div><p>and</p>
 <div class="math">
-<p><img src="../../_images/math/e82354574626bf90a7466a6f18ce29741ca16627.png" alt="u(x) = -{1\over4\pi}\int {f(x')\over|x-x'| }\d x'"/></p>
+<p><span class="eqno">(150)</span><img src="../../_images/math/e82354574626bf90a7466a6f18ce29741ca16627.png" alt="u(x) = -{1\over4\pi}\int {f(x')\over|x-x'| }\d x'"/></p>
 </div></div>
 <div class="section" id="helmholtz-equation-in-3d">
 <h3>Helmholtz Equation in 3D<a class="headerlink" href="#helmholtz-equation-in-3d" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/95065179bb2f6519b6f994c0c02e03d65ffa9ae6.png" alt="(\nabla^2+k^2)u(x)=f(x)
+<p><span class="eqno">(151)</span><img src="../../_images/math/95065179bb2f6519b6f994c0c02e03d65ffa9ae6.png" alt="(\nabla^2+k^2)u(x)=f(x)
 
 (\nabla^2+k^2)G(x, x')=\delta(x-x')"/></p>
 </div><p>with boundary condition <img class="math" src="../../_images/math/7aa1bcbb0a32d05e1db594936c35c8a9bda1980f.png" alt="G(x) = 0"/> at infinity. Then:</p>
 <div class="math">
-<p><img src="../../_images/math/8357c030eddb6b054c014d79696d6b9708668ef4.png" alt="G(x, x')=-{1\over4\pi}{e^{ik|x-x'| }\over|x-x'| }
+<p><span class="eqno">(152)</span><img src="../../_images/math/8357c030eddb6b054c014d79696d6b9708668ef4.png" alt="G(x, x')=-{1\over4\pi}{e^{ik|x-x'| }\over|x-x'| }
 
 u(x) = -{1\over4\pi}\int {f(x')e^{ik|x-x'| }\over|x-x'| }\d x'"/></p>
 </div></div>
@@ -1055,18 +1055,18 @@ u(x) = -{1\over4\pi}\int {f(x')e^{ik|x-x'| }\over|x-x'| }\d x'"/></p>
 <h3>Finite Element Method<a class="headerlink" href="#finite-element-method" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s show it on the Laplace equation. We want to solve:</p>
 <div class="math">
-<p><img src="../../_images/math/d3b15c64e5ec0b4d9568c36594b00fd3fd9851ba.png" alt="\nabla^2G(x, x')=\delta(x-x')"/></p>
+<p><span class="eqno">(153)</span><img src="../../_images/math/d3b15c64e5ec0b4d9568c36594b00fd3fd9851ba.png" alt="\nabla^2G(x, x')=\delta(x-x')"/></p>
 </div><p>We will treat <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/> as a parameter, so we define <img class="math" src="../../_images/math/c740d72c5c0f7597e74ee1af7c33f1811c8a9abf.png" alt="g_{x'}(x)\equiv G(x, x')"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/75806481a93f0c2f1c5628bbcc870e6bee1a07b3.png" alt="\nabla^2g_{x'}(x)=\delta(x-x')"/></p>
+<p><span class="eqno">(154)</span><img src="../../_images/math/75806481a93f0c2f1c5628bbcc870e6bee1a07b3.png" alt="\nabla^2g_{x'}(x)=\delta(x-x')"/></p>
 </div><p>We set <img class="math" src="../../_images/math/52cd9ffb6a13e6d1fec51b4d4c24423c28d46c20.png" alt="g_{x'}(x)=0"/> on the boundary and we get:</p>
 <div class="math">
-<p><img src="../../_images/math/ef14a3e7d96727f4d2fa4001a7105f9fc49e0c9d.png" alt="-\int\nabla g_{x'}(x) \cdot \nabla v(x) \d x = \int v(x)\delta(x-x')\d x
+<p><span class="eqno">(155)</span><img src="../../_images/math/ef14a3e7d96727f4d2fa4001a7105f9fc49e0c9d.png" alt="-\int\nabla g_{x'}(x) \cdot \nabla v(x) \d x = \int v(x)\delta(x-x')\d x
 
 -\int\nabla g_{x'}(x) \cdot \nabla v(x) \d x = v(x')"/></p>
 </div><p>So we choose <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/> and then solve for <img class="math" src="../../_images/math/f0f989d590a53bc101f21905b0ce3fa602c749cd.png" alt="g_{x'}(x)"/> using FEM and we get the
 Green function <img class="math" src="../../_images/math/6bc4f2d79d5dea70cf823f874c36803ebd47e927.png" alt="G(x, x')"/> for all <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> and one particular <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/>. We can then
-evaluate the integral <a href="#equation-solution">(9)</a> numerically &#8211; one would have to use FEM
+evaluate the integral <a href="#equation-solution">(113)</a> numerically &#8211; one would have to use FEM
 for all <img class="math" src="../../_images/math/8a606841183a001b6a780a104a40bd9d8d8b4aee.png" alt="x'"/> that are needed in the integral, so that is not efficient, but it
 should work. One will then be able to play with Green functions and be able to
 calculate them numerically for any boundary condition (which is not possible
@@ -1078,20 +1078,20 @@ analytically).</p>
 <h1>Binomial Coefficients<a class="headerlink" href="#binomial-coefficients" title="Permalink to this headline">¶</a></h1>
 <p>For <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> and <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> integers, the binomial coefficients are defined by:</p>
 <div class="math">
-<p><img src="../../_images/math/3dff4705614f84df7609f3d2278ede44a72b9da5.png" alt="\binom{n}{k} = {n!\over k! (n-k)!} =
+<p><span class="eqno">(156)</span><img src="../../_images/math/3dff4705614f84df7609f3d2278ede44a72b9da5.png" alt="\binom{n}{k} = {n!\over k! (n-k)!} =
     {n (n-1) \cdots (n-k+1)\over k!}"/></p>
 </div><p>For <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> real, one just uses the second formula as a definition:</p>
 <div class="math">
-<p><img src="../../_images/math/9bbdc4748fc749ec59c9c9565e77ffdc84e0d098.png" alt="\binom{r}{k} = {r (r-1) \cdots (r-k+1)\over k!}"/></p>
+<p><span class="eqno">(157)</span><img src="../../_images/math/9bbdc4748fc749ec59c9c9565e77ffdc84e0d098.png" alt="\binom{r}{k} = {r (r-1) \cdots (r-k+1)\over k!}"/></p>
 </div><p>Example I:</p>
 <div class="math">
-<p><img src="../../_images/math/9cda2b102210117b1abe355d869c95ac6d9a69a2.png" alt="\binom{-n}{k}
+<p><span class="eqno">(158)</span><img src="../../_images/math/9cda2b102210117b1abe355d869c95ac6d9a69a2.png" alt="\binom{-n}{k}
     = {(-n) (-n-1) \cdots (-n-k+1)\over k!}
     = (-1)^{k} {n (n+1) \cdots (n+k-1)\over k!}
     = (-1)^{k}\binom{n+k-1}{k}"/></p>
 </div><p>Example II:</p>
 <div class="math">
-<p><img src="../../_images/math/cdbacd96a48e5ee9fd706403e2303d903bff1c39.png" alt="\binom{k-\half}{k}
+<p><span class="eqno">(159)</span><img src="../../_images/math/cdbacd96a48e5ee9fd706403e2303d903bff1c39.png" alt="\binom{k-\half}{k}
     = {(k-\half) (k-\half-1) \cdots (k-\half-k+1)\over k!}
     = {(k-\half) (k-\half-1) \cdots \half\over k!} =
 
@@ -1101,18 +1101,18 @@ analytically).</p>
     = {1\over 4^k}\binom{2k}{k}"/></p>
 </div><p>The binomial formula is for <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> integer:</p>
 <div class="math">
-<p><img src="../../_images/math/30f1025587b5179ab4c3a145f44ba09e0e38eaee.png" alt="(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}"/></p>
+<p><span class="eqno">(160)</span><img src="../../_images/math/30f1025587b5179ab4c3a145f44ba09e0e38eaee.png" alt="(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}"/></p>
 </div><p>and for <img class="math" src="../../_images/math/b55ca7a0aa88ab7d58f4fc035317fdac39b17861.png" alt="r"/> real and <img class="math" src="../../_images/math/4880663de169301e011ab1b8b7b41d41cb3127f1.png" alt="|x| &lt; |y|"/> this can be generalized to:</p>
 <div class="math">
-<p><img src="../../_images/math/ca40d23dbab8aba00df5f02a3c392ff26c3627ed.png" alt="(x+y)^r = \sum_{k=0}^\infty \binom{r}{k} x^k y^{r-k}"/></p>
+<p><span class="eqno">(161)</span><img src="../../_images/math/ca40d23dbab8aba00df5f02a3c392ff26c3627ed.png" alt="(x+y)^r = \sum_{k=0}^\infty \binom{r}{k} x^k y^{r-k}"/></p>
 </div><p>Example: (for <img class="math" src="../../_images/math/796af557812a3e6b3f7bff6d89875f9d7721d320.png" alt="|x| &lt; 1"/>)</p>
 <div class="math">
-<p><img src="../../_images/math/729e7a7e3e666cde98e975a1e1bcdc768926f511.png" alt="(1 + x)^{-n} = \sum_{k=0}^\infty \binom{-n}{k} x^k
+<p><span class="eqno">(162)</span><img src="../../_images/math/729e7a7e3e666cde98e975a1e1bcdc768926f511.png" alt="(1 + x)^{-n} = \sum_{k=0}^\infty \binom{-n}{k} x^k
     = \sum_{k=0}^\infty (-1)^k\binom{n+k-1}{k} x^k
     = \sum_{k=0}^\infty \binom{n+k-1}{k} (-x)^k"/></p>
 </div><p>so:</p>
 <div class="math">
-<p><img src="../../_images/math/176ff719b93c06390cdf74c5c5bd80e33cae64d0.png" alt="(1 - x)^{-n} = \sum_{k=0}^\infty \binom{n+k-1}{k} x^k
+<p><span class="eqno">(163)</span><img src="../../_images/math/176ff719b93c06390cdf74c5c5bd80e33cae64d0.png" alt="(1 - x)^{-n} = \sum_{k=0}^\infty \binom{n+k-1}{k} x^k
 
 (1 - x)^{-1} = \sum_{k=0}^\infty \binom{1+k-1}{k} x^k
     = \sum_{k=0}^\infty \binom{k}{k} x^k
@@ -1123,7 +1123,7 @@ analytically).</p>
 = \sum_{k=0}^\infty {1\over 4^k}\binom{2k}{k} x^k"/></p>
 </div><p>Another example:</p>
 <div class="math">
-<p><img src="../../_images/math/cfb5d74dac906768fe35babf335a94370c6c4d31.png" alt="{1\over\sqrt{1-2xt+t^2}} = \left(1-(2xt-t^2)\right)^{-\half}
+<p><span class="eqno">(164)</span><img src="../../_images/math/cfb5d74dac906768fe35babf335a94370c6c4d31.png" alt="{1\over\sqrt{1-2xt+t^2}} = \left(1-(2xt-t^2)\right)^{-\half}
     = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} (2xt-t^2)^n =
 
     = \sum_{n=0}^\infty {1\over 4^n}\binom{2n}{n} \sum_{k=0}^n
@@ -1169,20 +1169,20 @@ analytically).</p>
         \right) t^{n} =
 
     = \sum_{n=0}^\infty P_n(x) t^{n}"/></p>
-</div><p>where we used <a href="#equation-double_sum_2">(13)</a> and</p>
+</div><p>where we used <a href="#equation-double_sum_2">(167)</a> and</p>
 <div class="math">
-<p><img src="../../_images/math/c061241a78f999b6f9affc0deef00af036a7cf8b.png" alt="\binom{2n-2k}{n-k} \binom{n-k}{k} = \binom{2n-2k}{n} \binom{n}{k}"/></p>
+<p><span class="eqno">(165)</span><img src="../../_images/math/c061241a78f999b6f9affc0deef00af036a7cf8b.png" alt="\binom{2n-2k}{n-k} \binom{n-k}{k} = \binom{2n-2k}{n} \binom{n}{k}"/></p>
 </div><p>The <img class="math" src="../../_images/math/9f7ba371de1369bc2066fe2ef779dd977b4cbdf6.png" alt="P_n(x)"/> are <a class="reference internal" href="spherical-harmonics.html#legendre-polynomials"><em>Legendre Polynomials</em></a>.</p>
 </div>
 <div class="section" id="double-sums">
 <h1>Double Sums<a class="headerlink" href="#double-sums" title="Permalink to this headline">¶</a></h1>
 <p>When evaluating double sums, one can use triangular summation to reorder them:</p>
 <div class="math" id="equation-double_sum_1">
-<p><span class="eqno">(12)</span><img src="../../_images/math/e42f54f514796ec2bd0f617c24ed45f1182f7efb.png" alt="\sum_{n=0}^\infty \sum_{k=0}^\infty a_{n k} =
+<p><span class="eqno">(166)</span><img src="../../_images/math/e42f54f514796ec2bd0f617c24ed45f1182f7efb.png" alt="\sum_{n=0}^\infty \sum_{k=0}^\infty a_{n k} =
 \sum_{n=0}^\infty \sum_{k=0}^n a_{n-k, k}"/></p>
 </div><p>Also it holds</p>
 <div class="math" id="equation-double_sum_2">
-<p><span class="eqno">(13)</span><img src="../../_images/math/64aa84a09cd270d9fb8684f8cbff83dfde2e3614.png" alt="\sum_{n=0}^\infty \sum_{k=0}^n a_{n k} =
+<p><span class="eqno">(167)</span><img src="../../_images/math/64aa84a09cd270d9fb8684f8cbff83dfde2e3614.png" alt="\sum_{n=0}^\infty \sum_{k=0}^n a_{n k} =
     \sum_{n=0}^\infty \sum_{k=0}^{\left\lfloor n\over 2 \right\rfloor}
         a_{n-k, k}"/></p>
 </div></div>
@@ -1191,110 +1191,110 @@ analytically).</p>
 <p>Triangle inequality (condition) means that none of the three
 quantities <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>, <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/>, <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is greater than the sum of the other two:</p>
 <div class="math" id="equation-trig_three">
-<p><span class="eqno">(14)</span><img src="../../_images/math/63f93f945d8220a1cc7399a27e0968aac6715f40.png" alt="a + b \ge c
+<p><span class="eqno">(168)</span><img src="../../_images/math/63f93f945d8220a1cc7399a27e0968aac6715f40.png" alt="a + b \ge c
 
 b + c \ge a
 
 c + a \ge b"/></p>
 </div><p>This is equivalent to just one equation:</p>
 <div class="math" id="equation-trig_one">
-<p><span class="eqno">(15)</span><img src="../../_images/math/34fcbc530a181a24e6e519a374afce380cafb11c.png" alt="|a-b| \le c \le a+b"/></p>
+<p><span class="eqno">(169)</span><img src="../../_images/math/34fcbc530a181a24e6e519a374afce380cafb11c.png" alt="|a-b| \le c \le a+b"/></p>
 </div><p>we can do any permutation of the symbols, i.e. the above equation is equivalent
 to any of these:</p>
 <div class="math">
-<p><img src="../../_images/math/6fcb2b0944901b3a897eea074abdd9689d8f689d.png" alt="|b-c| \le a \le b+c
+<p><span class="eqno">(170)</span><img src="../../_images/math/6fcb2b0944901b3a897eea074abdd9689d8f689d.png" alt="|b-c| \le a \le b+c
 
 |c-a| \le b \le c+a"/></p>
-</div><p>So instead of stating the three inequalities <a href="#equation-trig_three">(14)</a> it is more
-convenient to just write <a href="#equation-trig_one">(15)</a>, using any permutation that we like.</p>
-<p>To show, that <a href="#equation-trig_three">(14)</a> implies <a href="#equation-trig_one">(15)</a> we rewrite
-<a href="#equation-trig_three">(14)</a>:</p>
+</div><p>So instead of stating the three inequalities <a href="#equation-trig_three">(168)</a> it is more
+convenient to just write <a href="#equation-trig_one">(169)</a>, using any permutation that we like.</p>
+<p>To show, that <a href="#equation-trig_three">(168)</a> implies <a href="#equation-trig_one">(169)</a> we rewrite
+<a href="#equation-trig_three">(168)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/8370f0a9f90f9a8d7089933237acb1032c0a5503.png" alt="a + b \ge c
+<p><span class="eqno">(171)</span><img src="../../_images/math/8370f0a9f90f9a8d7089933237acb1032c0a5503.png" alt="a + b \ge c
 
 c \ge a-b
 
 c \ge b-a"/></p>
 </div><p>so</p>
 <div class="math">
-<p><img src="../../_images/math/e5d52fd4492f6ef9023e12ccf54ded2436db47b2.png" alt="a + b \ge c
+<p><span class="eqno">(172)</span><img src="../../_images/math/e5d52fd4492f6ef9023e12ccf54ded2436db47b2.png" alt="a + b \ge c
 
 c \ge |a-b|"/></p>
-</div><p>and we get <a href="#equation-trig_one">(15)</a>.
-To show, that <a href="#equation-trig_one">(15)</a> implies <a href="#equation-trig_three">(14)</a> we rewrite
-<a href="#equation-trig_one">(15)</a> for <img class="math" src="../../_images/math/f5e9c6413bbd9fe3bc5f285cdbb8920f5bb47c98.png" alt="a\ge b"/> first:</p>
+</div><p>and we get <a href="#equation-trig_one">(169)</a>.
+To show, that <a href="#equation-trig_one">(169)</a> implies <a href="#equation-trig_three">(168)</a> we rewrite
+<a href="#equation-trig_one">(169)</a> for <img class="math" src="../../_images/math/f5e9c6413bbd9fe3bc5f285cdbb8920f5bb47c98.png" alt="a\ge b"/> first:</p>
 <div class="math">
-<p><img src="../../_images/math/ba85c798d565c143977eceb1ca68a4dc1597a4e1.png" alt="a \ge b
+<p><span class="eqno">(173)</span><img src="../../_images/math/ba85c798d565c143977eceb1ca68a4dc1597a4e1.png" alt="a \ge b
 
 |a-b| \le c \le a+b"/></p>
 </div><p>so:</p>
 <div class="math">
-<p><img src="../../_images/math/4e152f4b159bc3e0a8eaba9bb4a6c8ea7bb02970.png" alt="a \ge b
+<p><span class="eqno">(174)</span><img src="../../_images/math/4e152f4b159bc3e0a8eaba9bb4a6c8ea7bb02970.png" alt="a \ge b
 
 a-b \le c \le a+b"/></p>
 </div><p>rearranging:</p>
 <div class="math">
-<p><img src="../../_images/math/3594c9f584c20c13ba7af7707c934947f244ce3e.png" alt="a + b \ge c
+<p><span class="eqno">(175)</span><img src="../../_images/math/3594c9f584c20c13ba7af7707c934947f244ce3e.png" alt="a + b \ge c
 
 b + c \ge a
 
 a \ge b"/></p>
 </div><p>since <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is positive, if <img class="math" src="../../_images/math/f5e9c6413bbd9fe3bc5f285cdbb8920f5bb47c98.png" alt="a\ge b"/> then also <img class="math" src="../../_images/math/254cfc0cf485b38c808f49dc71c34752bc2c787b.png" alt="c+a\ge b"/> and we get
-<a href="#equation-trig_three">(14)</a>. Finally, for <img class="math" src="../../_images/math/55f8abc0d69ac6ab491f6125f9550af6b25e22fb.png" alt="a &lt; b"/>:</p>
+<a href="#equation-trig_three">(168)</a>. Finally, for <img class="math" src="../../_images/math/55f8abc0d69ac6ab491f6125f9550af6b25e22fb.png" alt="a &lt; b"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/dd95588a356e92a540fa321dcf6432318270a8b7.png" alt="a &lt; b
+<p><span class="eqno">(176)</span><img src="../../_images/math/dd95588a356e92a540fa321dcf6432318270a8b7.png" alt="a &lt; b
 
 |a-b| \le c \le a+b"/></p>
 </div><p>so:</p>
 <div class="math">
-<p><img src="../../_images/math/69feace8eacd3d5c533488ed3e7b890ef81edb71.png" alt="a &lt; b
+<p><span class="eqno">(177)</span><img src="../../_images/math/69feace8eacd3d5c533488ed3e7b890ef81edb71.png" alt="a &lt; b
 
 -(a-b) \le c \le a+b"/></p>
 </div><p>rearranging:</p>
 <div class="math">
-<p><img src="../../_images/math/d423552fc3d9988a32c6ea66bf07ab8ba3fd273f.png" alt="a + b \ge c
+<p><span class="eqno">(178)</span><img src="../../_images/math/d423552fc3d9988a32c6ea66bf07ab8ba3fd273f.png" alt="a + b \ge c
 
 b &gt; a
 
 c + a \ge b"/></p>
 </div><p>since <img class="math" src="../../_images/math/3372c1cb6d68cf97c2d231acc0b47b95a9ed04cc.png" alt="c"/> is positive, if <img class="math" src="../../_images/math/18850c5a6f67139956c8c1e35094c0a864ecb8ca.png" alt="b &gt; a"/> then also <img class="math" src="../../_images/math/6ff26c9514349439d29c60e8ce67d0ad3a64e765.png" alt="b+c\ge a"/> and we get
-<a href="#equation-trig_three">(14)</a>.</p>
+<a href="#equation-trig_three">(168)</a>.</p>
 </div>
 <div class="section" id="gamma-function">
 <h1>Gamma Function<a class="headerlink" href="#gamma-function" title="Permalink to this headline">¶</a></h1>
 <p>The Gamma function <img class="math" src="../../_images/math/36edacaf2ec3d06fb117f981d12f42cdee6cf940.png" alt="\Gamma(x)"/> is defined by the following properties
 for <img class="math" src="../../_images/math/cae4fd68f44ac9b909f8d91f9d498de5759bb45b.png" alt="x &gt; 0"/>:</p>
 <div class="math" id="equation-gamma1">
-<p><span class="eqno">(16)</span><img src="../../_images/math/269006932a9e644a750249893630fba613acd509.png" alt="\Gamma(1) = 1"/></p>
+<p><span class="eqno">(179)</span><img src="../../_images/math/269006932a9e644a750249893630fba613acd509.png" alt="\Gamma(1) = 1"/></p>
 </div><div class="math" id="equation-gamma2">
-<p><span class="eqno">(17)</span><img src="../../_images/math/b5bddd5093001356e5e14333d46ace5485a37a17.png" alt="\Gamma(x+1) = x \Gamma(x)"/></p>
+<p><span class="eqno">(180)</span><img src="../../_images/math/b5bddd5093001356e5e14333d46ace5485a37a17.png" alt="\Gamma(x+1) = x \Gamma(x)"/></p>
 </div><div class="math" id="equation-gamma3">
-<p><span class="eqno">(18)</span><img src="../../_images/math/44de5beb0385b7926addf706d610d0722e2312c6.png" alt="\log\Gamma(x) \quad\mbox{is convex}"/></p>
+<p><span class="eqno">(181)</span><img src="../../_images/math/44de5beb0385b7926addf706d610d0722e2312c6.png" alt="\log\Gamma(x) \quad\mbox{is convex}"/></p>
 </div><p>It can be shown that this determines the function uniquely for <img class="math" src="../../_images/math/cae4fd68f44ac9b909f8d91f9d498de5759bb45b.png" alt="x &gt; 0"/> (this is
 called the Bohr-Mollerup theorem) and then it can be extended analytically to
 the whole complex plane.</p>
-<p>The most common formula for <img class="math" src="../../_images/math/f3bdf82eb6ddbd7c4870a75d6652ffbbb8f9224b.png" alt="\Gamma(z)"/> that satisfies <a href="#equation-gamma1">(16)</a>,
-<a href="#equation-gamma2">(17)</a> and <a href="#equation-gamma3">(18)</a>
+<p>The most common formula for <img class="math" src="../../_images/math/f3bdf82eb6ddbd7c4870a75d6652ffbbb8f9224b.png" alt="\Gamma(z)"/> that satisfies <a href="#equation-gamma1">(179)</a>,
+<a href="#equation-gamma2">(180)</a> and <a href="#equation-gamma3">(181)</a>
 is:</p>
 <div class="math" id="equation-gamma_int">
-<p><span class="eqno">(19)</span><img src="../../_images/math/31a4365bb9931271dca7f929fced47503c5fca77.png" alt="\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \d t"/></p>
-</div><p>It satisfies <a href="#equation-gamma1">(16)</a> because:</p>
+<p><span class="eqno">(182)</span><img src="../../_images/math/31a4365bb9931271dca7f929fced47503c5fca77.png" alt="\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \d t"/></p>
+</div><p>It satisfies <a href="#equation-gamma1">(179)</a> because:</p>
 <div class="math">
-<p><img src="../../_images/math/2b4bfe80d6879c06ddcbd31976503ca67c2807d1.png" alt="\Gamma(1)
+<p><span class="eqno">(183)</span><img src="../../_images/math/2b4bfe80d6879c06ddcbd31976503ca67c2807d1.png" alt="\Gamma(1)
     = \int_0^\infty t^{1-1} e^{-t} \d t
     = \int_0^\infty e^{-t} \d t
     = [-e^{-t}]_0^\infty
     = 1"/></p>
-</div><p>It satisfies <a href="#equation-gamma2">(17)</a> by integrating by parts:</p>
+</div><p>It satisfies <a href="#equation-gamma2">(180)</a> by integrating by parts:</p>
 <div class="math">
-<p><img src="../../_images/math/6578ff5f0fccbfb26ce613f0a8e971f010d2e406.png" alt="\Gamma(z)
+<p><span class="eqno">(184)</span><img src="../../_images/math/6578ff5f0fccbfb26ce613f0a8e971f010d2e406.png" alt="\Gamma(z)
     = \int_0^\infty t^{z-1} e^{-t} \d t
     = (z-1)\int_0^\infty t^{z-2} e^{-t} \d t-[t^{z-1}e^{-t}]_0^\infty
     = (z-1)\Gamma(z-1)"/></p>
-</div><p>Finally it satisfies <a href="#equation-gamma3">(18)</a> by verifying the convex condition
+</div><p>Finally it satisfies <a href="#equation-gamma3">(181)</a> by verifying the convex condition
 directly (<img class="math" src="../../_images/math/4523f34b2de94e387dd238429086654ba71cd69a.png" alt="x, y &gt; 0"/> and <img class="math" src="../../_images/math/73d6d29984816d60f4497fd1f18725778060fea7.png" alt="0\le \lambda \le 1"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/e79e22b65ddae8140d0c2538e8110a1cc918ba91.png" alt="\log\Gamma(\lambda x + (1-\lambda) y)
+<p><span class="eqno">(185)</span><img src="../../_images/math/e79e22b65ddae8140d0c2538e8110a1cc918ba91.png" alt="\log\Gamma(\lambda x + (1-\lambda) y)
     = \log\int_0^\infty t^{\lambda x + (1-\lambda) y - 1} e^{-t} \d t =
 
     = \log \int_0^\infty (t^{x-1} e^{-t})^\lambda
@@ -1305,10 +1305,10 @@ directly (<img class="math" src="../../_images/math/4523f34b2de94e387dd238429086
         \left(\int_0^\infty t^{y-1} e^{-t} \d t\right)^{1-\lambda}\right) =
 
     = \lambda \log\Gamma(x) + (1-\lambda) \log \Gamma(y)"/></p>
-</div><p>And thus <a href="#equation-gamma_int">(19)</a> uniquely determines the Gamma function.
-We can use <a href="#equation-gamma_int">(19)</a> to calculate <img class="math" src="../../_images/math/df26fbadfec877df085cc3296518f68b3beae03a.png" alt="\Gamma(\half)"/>:</p>
+</div><p>And thus <a href="#equation-gamma_int">(182)</a> uniquely determines the Gamma function.
+We can use <a href="#equation-gamma_int">(182)</a> to calculate <img class="math" src="../../_images/math/df26fbadfec877df085cc3296518f68b3beae03a.png" alt="\Gamma(\half)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/849d6f89c18c8cb7b87a82ff86cc25273d52bec4.png" alt="\Gamma(\half)
+<p><span class="eqno">(186)</span><img src="../../_images/math/849d6f89c18c8cb7b87a82ff86cc25273d52bec4.png" alt="\Gamma(\half)
     = \int_0^\infty t^{{1\over2}-1} e^{-t} \d t
     = \int_0^\infty {e^{-t}\over\sqrt t} \d t
     = \int_0^\infty {e^{-x^2}\over x} 2x\, \d x
@@ -1326,14 +1326,14 @@ We can use <a href="#equation-gamma_int">(19)</a> to calculate <img class="math"
 </div><p>From this and the definition of the Gamma function we get
 for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>:</p>
 <div class="math" id="equation-gamma_fact">
-<p><span class="eqno">(20)</span><img src="../../_images/math/c32bbeae78065450f5166b806ed946fad64d4a92.png" alt="\Gamma(n+1) = n\Gamma(n) = n(n-1)\Gamma(n-1)
+<p><span class="eqno">(187)</span><img src="../../_images/math/c32bbeae78065450f5166b806ed946fad64d4a92.png" alt="\Gamma(n+1) = n\Gamma(n) = n(n-1)\Gamma(n-1)
     = n(n-1)(n-2)\cdots 2\cdot1\cdot\Gamma(1) =
 
     = n(n-1)(n-2)\cdots 1
     = n!"/></p>
 </div><p>and</p>
 <div class="math" id="equation-gamma_double_fact">
-<p><span class="eqno">(21)</span><img src="../../_images/math/82f65d1a8306b6bb040716590ebde7b97f1ca1e9.png" alt="\Gamma(n+\half) = (n-\half)\Gamma(n-\half)
+<p><span class="eqno">(188)</span><img src="../../_images/math/82f65d1a8306b6bb040716590ebde7b97f1ca1e9.png" alt="\Gamma(n+\half) = (n-\half)\Gamma(n-\half)
     = (n-\half)(n-1-\half)\Gamma(n-1-\half)
     = (n-\half)(n-1-\half)\cdots\half\Gamma(\half) =
 
@@ -1345,16 +1345,16 @@ for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e9655
 <h1>Incomplete Gamma Function<a class="headerlink" href="#incomplete-gamma-function" title="Permalink to this headline">¶</a></h1>
 <p>The upper incomplete gamma function is defined by:</p>
 <div class="math">
-<p><img src="../../_images/math/1d3051ff6524cd0f135f44897db91758bea01b01.png" alt="\Gamma(z, x) = \int_x^\infty t^{z-1} e^{-t} \d t"/></p>
+<p><span class="eqno">(189)</span><img src="../../_images/math/1d3051ff6524cd0f135f44897db91758bea01b01.png" alt="\Gamma(z, x) = \int_x^\infty t^{z-1} e^{-t} \d t"/></p>
 </div><p>Integrating by parts we get:</p>
 <div class="math">
-<p><img src="../../_images/math/10bad91594816d07d8fefc471b90f3d37284eab8.png" alt="\Gamma(z+1, x)
+<p><span class="eqno">(190)</span><img src="../../_images/math/10bad91594816d07d8fefc471b90f3d37284eab8.png" alt="\Gamma(z+1, x)
     = \int_x^\infty t^z e^{-t} \d t
     = z\int_x^\infty t^{z-1} e^{-t} \d t-[t^ze^{-t}]_x^\infty
     = z\Gamma(z, x) + x^z e^{-x}"/></p>
 </div><p>Some special values are:</p>
 <div class="math">
-<p><img src="../../_images/math/87ae9a06dbdfac59aefc6957503283ff13ab58d0.png" alt="\Gamma(z, 0) = \int_0^\infty t^{z-1} e^{-t} \d t = \Gamma(z)
+<p><span class="eqno">(191)</span><img src="../../_images/math/87ae9a06dbdfac59aefc6957503283ff13ab58d0.png" alt="\Gamma(z, 0) = \int_0^\infty t^{z-1} e^{-t} \d t = \Gamma(z)
 
 \Gamma(1, x) = \int_x^\infty e^{-t} \d t = -[e^{-t}]_x^\infty = e^{-x}
 
@@ -1364,7 +1364,7 @@ for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e9655
     = \sqrt{\pi} \mbox{erfc}(\sqrt{x})"/></p>
 </div><p>For integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/41a162ab28a13b678943e757c9e20a1fedb30d4d.png" alt="\Gamma(n+1, x)
+<p><span class="eqno">(192)</span><img src="../../_images/math/41a162ab28a13b678943e757c9e20a1fedb30d4d.png" alt="\Gamma(n+1, x)
     = n\Gamma(n, x) + x^n e^{-x}
     = n(n-1)\Gamma(n-1, x) + (n x^{n-1} + x^n) e^{-x} =
 
@@ -1381,7 +1381,7 @@ for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e9655
     = n! e^{-x}\sum_{\nu=0}^n {x^\nu\over\nu!}"/></p>
 </div><p>and</p>
 <div class="math">
-<p><img src="../../_images/math/9546a7847c70187d272c3ade1965b4fb816866f7.png" alt="\Gamma(n+\half, x)
+<p><span class="eqno">(193)</span><img src="../../_images/math/9546a7847c70187d272c3ade1965b4fb816866f7.png" alt="\Gamma(n+\half, x)
     = (n-\half)\Gamma(n-\half, x) + x^{n-\half} e^{-x}
     = (n-\half)(n-1-\half)\Gamma(n-1-\half, x)
         + ((n-\half) x^{n-1-\half} + x^{n-\half})) e^{-x} =
@@ -1401,17 +1401,17 @@ for integer <img class="math" src="../../_images/math/174fadd07fd54c9afe288e9655
             {2^\nu x^{\nu-\half}\over(2\nu-1)!!} \right)"/></p>
 </div><p>The lower incomplete gamma function is defined by:</p>
 <div class="math">
-<p><img src="../../_images/math/48ab60760e819c5e6e15b623a2ab257fc9993e58.png" alt="\gamma(z, x) = \int_0^x t^{z-1} e^{-t} \d t = \Gamma(z) - \Gamma(z, x)"/></p>
+<p><span class="eqno">(194)</span><img src="../../_images/math/48ab60760e819c5e6e15b623a2ab257fc9993e58.png" alt="\gamma(z, x) = \int_0^x t^{z-1} e^{-t} \d t = \Gamma(z) - \Gamma(z, x)"/></p>
 </div><p>and as such all expressions can be easily derived using the gamma and upper
 incomplete gamma functions.
 The recursion relation is then:</p>
 <div class="math">
-<p><img src="../../_images/math/083586b60dd276d96efdbcebd32c004bbd7a603f.png" alt="\gamma(z+1, x) = \Gamma(z+1) - \Gamma(z+1, x)
+<p><span class="eqno">(195)</span><img src="../../_images/math/083586b60dd276d96efdbcebd32c004bbd7a603f.png" alt="\gamma(z+1, x) = \Gamma(z+1) - \Gamma(z+1, x)
     = z \Gamma(z) - (z\Gamma(z, x) + x^z e^{-x})
     = z \gamma(z, x) - x^z e^{-x}"/></p>
 </div><p>Some special values are:</p>
 <div class="math">
-<p><img src="../../_images/math/7da61817d06d4b4bc66783779040c51b9a2d5129.png" alt="\gamma(z, 0) = \Gamma(z) - \Gamma(z, 0) = \Gamma(z) - \Gamma(z) = 0
+<p><span class="eqno">(196)</span><img src="../../_images/math/7da61817d06d4b4bc66783779040c51b9a2d5129.png" alt="\gamma(z, 0) = \Gamma(z) - \Gamma(z, 0) = \Gamma(z) - \Gamma(z) = 0
 
 \gamma(1, x) = \Gamma(1) - \Gamma(1, x) = 1 - e^{-x}
 
@@ -1420,7 +1420,7 @@ The recursion relation is then:</p>
     = \sqrt\pi \mbox{erf}(\sqrt x)"/></p>
 </div><p>By repeated application of the recursion formula we get:</p>
 <div class="math">
-<p><img src="../../_images/math/10d7fdf1e99a95791c4c024b382663b6b02e9d91.png" alt="\gamma(z, x)
+<p><span class="eqno">(197)</span><img src="../../_images/math/10d7fdf1e99a95791c4c024b382663b6b02e9d91.png" alt="\gamma(z, x)
     = {1\over z}\gamma(z+1, x) + e^{-x} {x^z\over z}
     = {1\over z(z+1)}\gamma(z+2, x) + e^{-x} \left({x^z\over z}
         + {x^{z+1}\over z(z+1)}\right) =
@@ -1431,15 +1431,15 @@ The recursion relation is then:</p>
     = {\Gamma(z)\over \Gamma(z+n+1)}\gamma(z+n+1, x) + x^z
         \Gamma(z) e^{-x} \sum_{k=0}^n {x^k\over \Gamma(z+k+1)} ="/></p>
 </div><div class="math" id="equation-gamma_series">
-<p><span class="eqno">(22)</span><img src="../../_images/math/013774a7ff502aaf6ede50eabc5b06d52846a1ae.png" alt="= x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}"/></p>
+<p><span class="eqno">(198)</span><img src="../../_images/math/013774a7ff502aaf6ede50eabc5b06d52846a1ae.png" alt="= x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}"/></p>
 </div><p>where we used:</p>
 <div class="math">
-<p><img src="../../_images/math/1cd793700e5aaff1fe87b5e081adbac1cef356b1.png" alt="\lim_{z\to\infty} {\gamma(z, x)\over\Gamma(z)} = 0"/></p>
+<p><span class="eqno">(199)</span><img src="../../_images/math/1cd793700e5aaff1fe87b5e081adbac1cef356b1.png" alt="\lim_{z\to\infty} {\gamma(z, x)\over\Gamma(z)} = 0"/></p>
 </div><p>which can be proven by the following inequality which uses the fact that the
 function <img class="math" src="../../_images/math/c1e9f1ad9c09f8e308643efa37501b5584e4a3aa.png" alt="f(t) = t^{z-1} e^{-t}"/> is an increasing function for <img class="math" src="../../_images/math/cdfc21db6d75c089faba98ea6bc367a4ec8172d0.png" alt="t &lt; z-1"/>, so as
 long as <img class="math" src="../../_images/math/18cbbd4e8f6dcd6a361603509fe5aa91332e7bed.png" alt="x &lt; z-1"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/77e460ec9be9be03fe4fcdb6ed378dfbf91d2815.png" alt="\gamma(z, x)
+<p><span class="eqno">(200)</span><img src="../../_images/math/77e460ec9be9be03fe4fcdb6ed378dfbf91d2815.png" alt="\gamma(z, x)
     = \int_0^x t^{z-1} e^{-t} \d t
     = \int_0^x f(t) \d t &lt;
 
@@ -1452,10 +1452,10 @@ long as <img class="math" src="../../_images/math/18cbbd4e8f6dcd6a361603509fe5aa
     &lt; {x \over z - 1 - x} \int_0^\infty f(t) \d t =
 
     = {x \over z - 1 - x} \Gamma(z)"/></p>
-</div><p>Using <a href="#equation-gamma_series">(22)</a> we can now write <img class="math" src="../../_images/math/37dc74fde916a060d1f776c99339043d9f96185e.png" alt="\gamma(z, x)"/> using the Kummer
+</div><p>Using <a href="#equation-gamma_series">(198)</a> we can now write <img class="math" src="../../_images/math/37dc74fde916a060d1f776c99339043d9f96185e.png" alt="\gamma(z, x)"/> using the Kummer
 confluent hypergeometric function <img class="math" src="../../_images/math/ca791e1dad73de175bd26d5677d1705f717d8db5.png" alt="{}_1F_1(a, b, z)"/> as follows:</p>
 <div class="math">
-<p><img src="../../_images/math/80ab0ddd5ada9bb69729924d685f23a8fb5ffb0c.png" alt="\gamma(z, x)
+<p><span class="eqno">(201)</span><img src="../../_images/math/80ab0ddd5ada9bb69729924d685f23a8fb5ffb0c.png" alt="\gamma(z, x)
     = x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}
     = x^z z^{-1} e^{-x}\, {}_1F_1(1, z+1, x)
     = x^z z^{-1}\, {}_1F_1(z, z+1, -x)"/></p>
@@ -1463,27 +1463,27 @@ confluent hypergeometric function <img class="math" src="../../_images/math/ca79
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>Consider the class of integrals:</p>
 <div class="math">
-<p><img src="../../_images/math/7efa5d1608f780b56a7b4652ee3c6a684d4780c4.png" alt="F_m(t) = \int_0^1 u^{2m} e^{-tu^2} \d u, \quad\quad
+<p><span class="eqno">(202)</span><img src="../../_images/math/7efa5d1608f780b56a7b4652ee3c6a684d4780c4.png" alt="F_m(t) = \int_0^1 u^{2m} e^{-tu^2} \d u, \quad\quad
     \mbox{($t&gt;0$; $m=0,1,2,\dots$)}"/></p>
 </div><p>We write them using the lower incomplete gamma function as:</p>
 <div class="math">
-<p><img src="../../_images/math/3db7af938fb11ea7c593b1c267619ebd0130ea02.png" alt="F_m(t) = \int_0^t \left(v\over t\right)^m e^{-v}
+<p><span class="eqno">(203)</span><img src="../../_images/math/3db7af938fb11ea7c593b1c267619ebd0130ea02.png" alt="F_m(t) = \int_0^t \left(v\over t\right)^m e^{-v}
         \left(v\over t\right)^{-\half}{\d v\over 2 t}
     = {1\over 2 t^{m+\half}}\int_0^t v^{m-\half} e^{-v} \d v
     = {\gamma(m+\half, t)\over 2 t^{m+\half}}"/></p>
 </div><p>We can also write it using the confluent hypergeometric function as follows:</p>
 <div class="math">
-<p><img src="../../_images/math/0cbfbb70de975be2db15f7b4f4e9fd6a11a28fac.png" alt="F_m(t) = {\gamma(m+\half, t)\over 2 t^{m+\half}}
+<p><span class="eqno">(204)</span><img src="../../_images/math/0cbfbb70de975be2db15f7b4f4e9fd6a11a28fac.png" alt="F_m(t) = {\gamma(m+\half, t)\over 2 t^{m+\half}}
     = {t^{m+\half}(m+\half)^{-1} \over 2 t^{m+\half}}
         \,{}_1F_1(m+\half, m+{\textstyle{3\over2}}, -t)
     = {{}_1F_1(m+\half, m+{\textstyle{3\over2}}, -t)\over 2m+1}"/></p>
 </div><p>For <img class="math" src="../../_images/math/2e275495e7e44d279fb3e5051b3a63115e79ead5.png" alt="m=0"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/fc3d2655c949e06989a2eae7460cb5c1a4b34f21.png" alt="F_0(t) = {\gamma(\half, t)\over 2 t^{\half}}
+<p><span class="eqno">(205)</span><img src="../../_images/math/fc3d2655c949e06989a2eae7460cb5c1a4b34f21.png" alt="F_0(t) = {\gamma(\half, t)\over 2 t^{\half}}
     = \half \sqrt{\pi\over t} \mbox{erf}(\sqrt t)"/></p>
 </div><p>Using the recursion relation we get:</p>
 <div class="math">
-<p><img src="../../_images/math/0544b6686ec8e22741e600713a494063698da5fc.png" alt="F_{m+1}(t)
+<p><span class="eqno">(206)</span><img src="../../_images/math/0544b6686ec8e22741e600713a494063698da5fc.png" alt="F_{m+1}(t)
     = {\gamma(m+\half+1, t)\over 2 t^{m+\half+1}}
     = {(m+\half)\gamma(m+\half, t)-t^{m+\half}e^{-t}\over 2 t^{m+\half} t}
     = {(m+\half)\over t}F_m(t)-{e^{-t}\over 2 t} =
@@ -1491,10 +1491,10 @@ confluent hypergeometric function <img class="math" src="../../_images/math/ca79
     = {(2m+1) F_m(t)-e^{-t}\over 2 t}"/></p>
 </div><p>By expressing <img class="math" src="../../_images/math/7ab4a27df18032fa5b4b6db4871d3eda96450c1f.png" alt="F_m(t)"/> from the equation we obtain the inverse relation:</p>
 <div class="math">
-<p><img src="../../_images/math/9f0a100b7cfb95041a3df4c0e269213e96b0b44e.png" alt="F_m(t) = {2t F_{m+1}(t) + e^{-t}\over 2m+1}"/></p>
-</div><p>From <a href="#equation-gamma_series">(22)</a> we get:</p>
+<p><span class="eqno">(207)</span><img src="../../_images/math/9f0a100b7cfb95041a3df4c0e269213e96b0b44e.png" alt="F_m(t) = {2t F_{m+1}(t) + e^{-t}\over 2m+1}"/></p>
+</div><p>From <a href="#equation-gamma_series">(198)</a> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/e2ab7541c7f7b5cb4be9ff024dd5d31cfe0d11a7.png" alt="F_m(t)
+<p><span class="eqno">(208)</span><img src="../../_images/math/e2ab7541c7f7b5cb4be9ff024dd5d31cfe0d11a7.png" alt="F_m(t)
     = {\gamma(m+\half, t)\over 2 t^{m+\half}}
     = {1\over 2 t^{m+\half}}
     t^{m+\half} \Gamma(m+\half) e^{-t} \sum_{k=0}^\infty {t^k\over
@@ -1515,22 +1515,22 @@ confluent hypergeometric function <img class="math" src="../../_images/math/ca79
 <h1>Factorial<a class="headerlink" href="#factorial" title="Permalink to this headline">¶</a></h1>
 <p>The factorial <img class="math" src="../../_images/math/63f344e7d8b14a7886fc7fb72da53cd0a3271dcc.png" alt="n!"/> is defined as</p>
 <div class="math">
-<p><img src="../../_images/math/d6c12d6ee30c8fd297ca8456a4b57a41c37656e7.png" alt="n! = n(n-1)(n-2)\cdots 3\cdot2\cdot 1"/></p>
-</div><p>By <a href="#equation-gamma_fact">(20)</a> it can be written using the Gamma function as:</p>
+<p><span class="eqno">(209)</span><img src="../../_images/math/d6c12d6ee30c8fd297ca8456a4b57a41c37656e7.png" alt="n! = n(n-1)(n-2)\cdots 3\cdot2\cdot 1"/></p>
+</div><p>By <a href="#equation-gamma_fact">(187)</a> it can be written using the Gamma function as:</p>
 <div class="math">
-<p><img src="../../_images/math/75c06ec67b40d1419bf500bec5dce6cc65be2a01.png" alt="n! = \Gamma(n+1)"/></p>
+<p><span class="eqno">(210)</span><img src="../../_images/math/75c06ec67b40d1419bf500bec5dce6cc65be2a01.png" alt="n! = \Gamma(n+1)"/></p>
 </div></div>
 <div class="section" id="double-factorial">
 <h1>Double Factorial<a class="headerlink" href="#double-factorial" title="Permalink to this headline">¶</a></h1>
 <p>The double factorial <img class="math" src="../../_images/math/a48b26e0e333328642ad64597080192f303f88cf.png" alt="n!!"/> is defined as:</p>
 <div class="math">
-<p><img src="../../_images/math/1383bdbe17c4798b10f31e4fb40c479191bf29ad.png" alt="n!! = \begin{cases}
+<p><span class="eqno">(211)</span><img src="../../_images/math/1383bdbe17c4798b10f31e4fb40c479191bf29ad.png" alt="n!! = \begin{cases}
     n(n-2)(n-4)(n-6)\cdots 5\cdot3\cdot1\quad\quad\mbox{for odd $n=2k+1$} \\
     n(n-2)(n-4)(n-6)\cdots 6\cdot4\cdot2\quad\quad\mbox{for even $n=2k$}
 \end{cases}"/></p>
 </div><p>One can rewrite double factorial using a factorial as:</p>
 <div class="math">
-<p><img src="../../_images/math/497651345af9b7be2262fdd69a45042e6a2d0a8d.png" alt="(2k)!! = 2\cdot4\cdot6\cdots (2k)
+<p><span class="eqno">(212)</span><img src="../../_images/math/497651345af9b7be2262fdd69a45042e6a2d0a8d.png" alt="(2k)!! = 2\cdot4\cdot6\cdots (2k)
     = 2^k (1\cdot2\cdot3\cdots k)
     = 2^k k!
 
@@ -1538,13 +1538,13 @@ confluent hypergeometric function <img class="math" src="../../_images/math/ca79
     = 1\cdot3\cdot5\cdots(2k-1)
     = {1\cdot2\cdot3\cdot4\cdot5\cdots(2k) \over 2\cdot4\cdot6\cdots (2k)}
     = {(2k)!\over (2k)!!} = {(2k)!\over 2^k k!}"/></p>
-</div><p>For odd <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> it can be written using the Gamma function, see <a href="#equation-gamma_double_fact">(21)</a>:</p>
+</div><p>For odd <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> it can be written using the Gamma function, see <a href="#equation-gamma_double_fact">(188)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/6410fa87f077a0af590956eaf7c948eb22138906.png" alt="(2k-1)!! = {1\over\sqrt\pi} 2^k \Gamma\left(k+\half\right)"/></p>
+<p><span class="eqno">(213)</span><img src="../../_images/math/6410fa87f077a0af590956eaf7c948eb22138906.png" alt="(2k-1)!! = {1\over\sqrt\pi} 2^k \Gamma\left(k+\half\right)"/></p>
 </div><div class="section" id="id1">
 <h2>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="math">
-<p><img src="../../_images/math/63060ccffb922e30be5411f05e36f90966ff77a9.png" alt="A(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
+<p><span class="eqno">(214)</span><img src="../../_images/math/63060ccffb922e30be5411f05e36f90966ff77a9.png" alt="A(n) = {1\cdot3\cdot5 \cdot \dots \cdot (2n-1) \over
     1\cdot 2\cdot 3\cdot \dots \cdot n}
     = {(2n-1)!!\over n!}
     = {(2n)!\over 2^n (n!)^2}

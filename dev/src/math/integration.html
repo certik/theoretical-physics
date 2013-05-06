@@ -76,7 +76,7 @@ geometry section.</p>
 <p>We want to integrate a function <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> over a <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>-manifold in <img class="math" src="../../_images/math/5f1a7b76db27e141b76722911bbb568cb785751d.png" alt="\R^n"/>, parametrized
 as:</p>
 <div class="math">
-<p><img src="../../_images/math/7f3ae765437552e8dd8b23f9104e7a22df21103a.png" alt="\mathbf{\varphi}: \R^k \to \R^n\quad \mathbf{\varphi}(t_1, t_2, \dots, t_k) =
+<p><span class="eqno">(1)</span><img src="../../_images/math/7f3ae765437552e8dd8b23f9104e7a22df21103a.png" alt="\mathbf{\varphi}: \R^k \to \R^n\quad \mathbf{\varphi}(t_1, t_2, \dots, t_k) =
 \mat{\varphi_1(t_1, t_2, \dots, t_k)\cr
     \varphi_2(t_1, t_2, \dots, t_k)\cr
     \vdots \cr
@@ -84,11 +84,11 @@ as:</p>
 }"/></p>
 </div><p>then the integral of <img class="math" src="../../_images/math/503728b47daf13610fcee386d9596af1eca39e97.png" alt="f(x_1, x_2, \dots, x_n)"/> over <img class="math" src="../../_images/math/921aade3100afbc11d0d13f71cdd7e68d83ad52e.png" alt="\varphi"/> is:</p>
 <div class="math">
-<p><img src="../../_images/math/570ea37a7211d7b21fe98c4acb233bf4d051402e.png" alt="\int_M f(x_1, x_2, \dots, x_n)\,\d S = \int_{\R^n} f(\mathbf{\varphi}(t_1,
+<p><span class="eqno">(2)</span><img src="../../_images/math/570ea37a7211d7b21fe98c4acb233bf4d051402e.png" alt="\int_M f(x_1, x_2, \dots, x_n)\,\d S = \int_{\R^n} f(\mathbf{\varphi}(t_1,
 t_2, \dots, t_k))\sqrt{\det{\bf G}}\,\d t_1\d t_2\cdots\d t_k"/></p>
 </div><p>where <img class="math" src="../../_images/math/716c649fcc570e4ec644a64b6746649c118f0bc2.png" alt="{\bf G}"/> is called a Gram matrix and <img class="math" src="../../_images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is a Jacobian:</p>
 <div class="math">
-<p><img src="../../_images/math/5ead551abca855ed2548698fd00b7d1673a8ab68.png" alt="({\bf G})_{ij} = ({\bf J}^T{\bf J})_{ij} = J_{ik}J_{kj} =
+<p><span class="eqno">(3)</span><img src="../../_images/math/5ead551abca855ed2548698fd00b7d1673a8ab68.png" alt="({\bf G})_{ij} = ({\bf J}^T{\bf J})_{ij} = J_{ik}J_{kj} =
 {\partial\varphi_k\over\partial t_i} {\partial\varphi_k\over\partial t_j}
 
 ({\bf J})_{ij} = {\partial\varphi_i\over\partial t_j} = \mat{
@@ -103,10 +103,10 @@ t_2, \dots, t_k))\sqrt{\det{\bf G}}\,\d t_1\d t_2\cdots\d t_k"/></p>
 </div><p>The idea behind this comes from the fact that the volume of the <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>-dimensional
 parallelepiped spanned by the vectors</p>
 <div class="math">
-<p><img src="../../_images/math/750e5fe8e311d2a8f4dce25e0e1ee2e3ad4ccf16.png" alt="{\partial\mathbf{\varphi}\over\partial t_1}, \dots, {\partial\mathbf{\varphi}\over\partial t_k}"/></p>
+<p><span class="eqno">(4)</span><img src="../../_images/math/750e5fe8e311d2a8f4dce25e0e1ee2e3ad4ccf16.png" alt="{\partial\mathbf{\varphi}\over\partial t_1}, \dots, {\partial\mathbf{\varphi}\over\partial t_k}"/></p>
 </div><p>is given by</p>
 <div class="math">
-<p><img src="../../_images/math/563fa29ffd57eccc087863e93ceed7a9de3e8a30.png" alt="V = \sqrt{\det {\bf J}^T{\bf J}}"/></p>
+<p><span class="eqno">(5)</span><img src="../../_images/math/563fa29ffd57eccc087863e93ceed7a9de3e8a30.png" alt="V = \sqrt{\det {\bf J}^T{\bf J}}"/></p>
 </div><p>where <img class="math" src="../../_images/math/acf8b78bcf615f4ed1ad4e04d91f077d86a0d1e9.png" alt="{\bf J}"/> is an <img class="math" src="../../_images/math/fa58979ec0dfb0484cbc233a89bf9d79eebbc24b.png" alt="n\times k"/> matrix having those vectors as its column
 vectors.</p>
 <div class="section" id="example">
@@ -114,7 +114,7 @@ vectors.</p>
 <p>Let&#8217;s integrate a function <img class="math" src="../../_images/math/7cebc8e877b25bf055ee36f9066a750ee41a9688.png" alt="f(x, y, z)"/> over the surface of a sphere in 3D
 (e.g. <img class="math" src="../../_images/math/4f681bd84648c174d45eed0037702cae77ed0686.png" alt="k=2"/> and <img class="math" src="../../_images/math/5635737307f5f0651cced8ee2e6558a426fd27b5.png" alt="n=3"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/a06a03dfbd7ab3f902831c51f008bbd2077bb254.png" alt="\mathbf{\varphi}(\theta, \phi) = \mat{
+<p><span class="eqno">(6)</span><img src="../../_images/math/a06a03dfbd7ab3f902831c51f008bbd2077bb254.png" alt="\mathbf{\varphi}(\theta, \phi) = \mat{
     r\sin\theta\cos\phi \cr
     r\sin\theta\sin\phi \cr
     r\cos\theta \cr
@@ -154,7 +154,7 @@ r\sin\theta\sin\phi, r\cos\theta)\, r^2\sin\theta"/></p>
 </div><p>Let&#8217;s say we want to calculate the surface area of a sphere, so we set <img class="math" src="../../_images/math/f041d065f40f9b71e34599f1337d96be02008940.png" alt="f(x, y,
 z) = 1"/> and get:</p>
 <div class="math">
-<p><img src="../../_images/math/7a0a4c7be6b7ce577a64d8ee819c2a3eabe4d2c9.png" alt="\int_M \d S
+<p><span class="eqno">(7)</span><img src="../../_images/math/7a0a4c7be6b7ce577a64d8ee819c2a3eabe4d2c9.png" alt="\int_M \d S
 = \int_0^\pi\d\theta \int_0^{2\pi}\d\phi\, r^2\sin\theta
 = 2\pi r^2\int_0^\pi\d\theta \sin\theta
 = 4\pi r^2"/></p>
@@ -165,14 +165,14 @@ z) = 1"/> and get:</p>
 <div class="section" id="k-n">
 <span id="index-1"></span><h3>k = n<a class="headerlink" href="#k-n" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/617b47c5719641cab5a4f21ce82ec721e21e5a14.png" alt="\det{\bf G} = \det {\bf J}^R{\bf J} = (\det {\bf J})^2
+<p><span class="eqno">(8)</span><img src="../../_images/math/617b47c5719641cab5a4f21ce82ec721e21e5a14.png" alt="\det{\bf G} = \det {\bf J}^R{\bf J} = (\det {\bf J})^2
 
 \d S = |\det {\bf J}|\,\d t_1\,\d t_2\cdots\d t_k"/></p>
 </div></div>
 <div class="section" id="k-1">
 <span id="index-2"></span><h3>k = 1<a class="headerlink" href="#k-1" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/25af50743a3d2188d53c7ba2ecf8f594ab9f63f1.png" alt="\det{\bf G} = \det \left(
+<p><span class="eqno">(9)</span><img src="../../_images/math/25af50743a3d2188d53c7ba2ecf8f594ab9f63f1.png" alt="\det{\bf G} = \det \left(
     \left({\d\varphi_1\over\d t}\right)^2+
     \left({\d\varphi_2\over\d t}\right)^2+
     \cdots
@@ -184,7 +184,7 @@ z) = 1"/> and get:</p>
 <div class="section" id="k-n-1">
 <span id="index-3"></span><h3>k = n - 1<a class="headerlink" href="#k-n-1" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/6231480525305fbc96793b88e6dd03dfe477da7a.png" alt="\det{\bf G} = \det {\bf J}^R{\bf J} =
+<p><span class="eqno">(10)</span><img src="../../_images/math/6231480525305fbc96793b88e6dd03dfe477da7a.png" alt="\det{\bf G} = \det {\bf J}^R{\bf J} =
 
 =\det(\cdots)^2 + \det(\cdots)^2+\cdots+\det(\dots)^2 =
 
@@ -208,7 +208,7 @@ removed, etc.).</p>
 <div class="section" id="k-2-n-3">
 <span id="index-4"></span><h3>k = 2, n = 3<a class="headerlink" href="#k-2-n-3" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/893cc48b48c980d40934e685c6c565a32bf2c883.png" alt="\det{\bf G} = \left|{\partial\mathbf{\varphi}\over\partial t_1}\times
+<p><span class="eqno">(11)</span><img src="../../_images/math/893cc48b48c980d40934e685c6c565a32bf2c883.png" alt="\det{\bf G} = \left|{\partial\mathbf{\varphi}\over\partial t_1}\times
 {\partial\mathbf{\varphi}\over\partial t_2}\right|^2
 
 \d S = \left|{\partial\mathbf{\varphi}\over\partial t_1}\times
@@ -217,7 +217,7 @@ removed, etc.).</p>
 <div class="section" id="y-f-x-z">
 <h3>y = f(x, z)<a class="headerlink" href="#y-f-x-z" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/62b3f9c2aaf1e758f4fc6621d0957976c43ac98e.png" alt="\det{\bf G} = 1
+<p><span class="eqno">(12)</span><img src="../../_images/math/62b3f9c2aaf1e758f4fc6621d0957976c43ac98e.png" alt="\det{\bf G} = 1
 +\left({\partial f\over\partial x}\right)^2
 +\left({\partial f\over\partial z}\right)^2
 
@@ -227,7 +227,7 @@ removed, etc.).</p>
 }\,\d x\,\d z"/></p>
 </div><p>in general for <img class="math" src="../../_images/math/fec7486909f405fb73ac0b809c27fd5079fc5e2a.png" alt="x_j = f(x_1, x_2, \dots, x_n)"/> we get:</p>
 <div class="math">
-<p><img src="../../_images/math/438e3b9d7a7dc0df6ea471784e9dd28d1413647a.png" alt="\det{\bf G} = 1
+<p><span class="eqno">(13)</span><img src="../../_images/math/438e3b9d7a7dc0df6ea471784e9dd28d1413647a.png" alt="\det{\bf G} = 1
 +\left({\partial f\over\partial x_1}\right)^2
 +\left({\partial f\over\partial x_2}\right)^2
 +\cdots
@@ -243,22 +243,22 @@ removed, etc.).</p>
 <span id="index-5"></span><h3>Implicit Surface<a class="headerlink" href="#implicit-surface" title="Permalink to this headline">¶</a></h3>
 <p>For a surface given explicitly by</p>
 <div class="math">
-<p><img src="../../_images/math/0c636634de06a2a1918c54b6398667403e642517.png" alt="F(x_1, x_2, ..., x_n) = 0"/></p>
+<p><span class="eqno">(14)</span><img src="../../_images/math/0c636634de06a2a1918c54b6398667403e642517.png" alt="F(x_1, x_2, ..., x_n) = 0"/></p>
 </div><p>we get:</p>
 <div class="math">
-<p><img src="../../_images/math/7bfa25a576c205d99b3932dfa82b003d8c718182.png" alt="\d S = |\nabla F| \left|{\partial F\over\partial x_n}\right|\,\d
+<p><span class="eqno">(15)</span><img src="../../_images/math/7bfa25a576c205d99b3932dfa82b003d8c718182.png" alt="\d S = |\nabla F| \left|{\partial F\over\partial x_n}\right|\,\d
 x_1\cdots\d x_{n-1}"/></p>
 </div></div>
 <div class="section" id="orthogonal-coordinates">
 <span id="index-6"></span><h3>Orthogonal Coordinates<a class="headerlink" href="#orthogonal-coordinates" title="Permalink to this headline">¶</a></h3>
 <p>If the coordinate vectors are orthogonal to each other:</p>
 <div class="math">
-<p><img src="../../_images/math/ce0abca946ddf552cae5d828fb86639262ab863f.png" alt="{\partial\mathbf{\varphi}\over\partial t_i} \cdot
+<p><span class="eqno">(16)</span><img src="../../_images/math/ce0abca946ddf552cae5d828fb86639262ab863f.png" alt="{\partial\mathbf{\varphi}\over\partial t_i} \cdot
 {\partial\mathbf{\varphi}\over\partial t_i} = 0
 \quad\text{for $i\neq j$}"/></p>
 </div><p>we get:</p>
 <div class="math">
-<p><img src="../../_images/math/530b94e3617c01711dd64756273254137296f68d.png" alt="\d S =
+<p><span class="eqno">(17)</span><img src="../../_images/math/530b94e3617c01711dd64756273254137296f68d.png" alt="\d S =
 \left|{\partial\mathbf{\varphi}\over\partial t_1}\right|
 \left|{\partial\mathbf{\varphi}\over\partial t_2}\right|
 \cdots
@@ -270,12 +270,12 @@ x_1\cdots\d x_{n-1}"/></p>
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <p>Let the <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>-dimensional parallelepiped P be spanned by the vectors</p>
 <div class="math">
-<p><img src="../../_images/math/ea5050c80c0a4b9e55667a9a167f3a543aa8e85c.png" alt="{\partial\mathbf{\varphi}\over t_1}, \dots,
+<p><span class="eqno">(18)</span><img src="../../_images/math/ea5050c80c0a4b9e55667a9a167f3a543aa8e85c.png" alt="{\partial\mathbf{\varphi}\over t_1}, \dots,
 {\partial\mathbf{\varphi}\over t_k}"/></p>
 </div><p>and let <img class="math" src="../../_images/math/bf588c2fc196815c50c0812ee0f68ba1b408a372.png" alt="\mathbf{J}"/> is <img class="math" src="../../_images/math/fa58979ec0dfb0484cbc233a89bf9d79eebbc24b.png" alt="n\times k"/> matrix having these vectors as its column
 vectors. Then the area of P is</p>
 <div class="math">
-<p><img src="../../_images/math/563fa29ffd57eccc087863e93ceed7a9de3e8a30.png" alt="V = \sqrt{\det {\bf J}^T{\bf J}}"/></p>
+<p><span class="eqno">(19)</span><img src="../../_images/math/563fa29ffd57eccc087863e93ceed7a9de3e8a30.png" alt="V = \sqrt{\det {\bf J}^T{\bf J}}"/></p>
 </div><p>so the definition of the integral over a manifold is just approximating the
 surface by infinitesimal parallelepipeds and integrating over them.</p>
 </div>
@@ -284,7 +284,7 @@ surface by infinitesimal parallelepipeds and integrating over them.</p>
 <p>Let&#8217;s calculate the total distance traveled by a body in 1D, whose position is
 given by <img class="math" src="../../_images/math/2d236a1d89440ad4181fc6183d27042831274bfc.png" alt="s(t)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/e3cc3675afce61d262ee55b234b317d16a7b5f95.png" alt="l = \int_\gamma \d s = \int_{t_1}^{t_2}\left|{\d s\over \d t}\right| \d t =
+<p><span class="eqno">(20)</span><img src="../../_images/math/e3cc3675afce61d262ee55b234b317d16a7b5f95.png" alt="l = \int_\gamma \d s = \int_{t_1}^{t_2}\left|{\d s\over \d t}\right| \d t =
 
 = \int_{t_1}^{t'}\left|{\d s\over \d t}\right| \d t
 + \int_{t'}^{t''}\left|{\d s\over \d t}\right| \d t +

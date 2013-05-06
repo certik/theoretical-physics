@@ -67,7 +67,7 @@
 <p>We can use the Density Functional Theory (DFT) to reduce the many body problem
 to solve a single particle Schrödinger equation:</p>
 <div class="math">
-<p><img src="../../_images/math/a3f1a8068177c12dff40635bb1cda9ebb6f2c2c6.png" alt="H\ket{\psi_n} = \epsilon_n\ket{\psi_n}"/></p>
+<p><span class="eqno">(1)</span><img src="../../_images/math/a3f1a8068177c12dff40635bb1cda9ebb6f2c2c6.png" alt="H\ket{\psi_n} = \epsilon_n\ket{\psi_n}"/></p>
 </div><p>The wavefunctions contain cusps (and are oscillatory around each nucleus), also
 one needs to solve this for all core states.</p>
 <p>Next step is to use the known behavior around each atom and take advantage of
@@ -80,35 +80,35 @@ latter approach.</p>
 <p>We introduce <em>smooth wavefunctions</em> (we&#8217;ll use &#8220;~&#8221; for smooth functions) by
 a linear transformation operator <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/c41f1837c18afeb95d7625e213a1ee993d4710cf.png" alt="\ket{\psi_n} = T \ket{\tilde\psi_n}"/></p>
+<p><span class="eqno">(2)</span><img src="../../_images/math/c41f1837c18afeb95d7625e213a1ee993d4710cf.png" alt="\ket{\psi_n} = T \ket{\tilde\psi_n}"/></p>
 </div><p>We construct <em>augmentation spheres</em> <img class="math" src="../../_images/math/7a1c11579f19b4e1a65af0e3cce52881ba69706e.png" alt="|{\bf r} - {\bf R}^a| &lt; r_c^a"/> around each
 atom <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/> (one can imagine a muffin-tin), where <img class="math" src="../../_images/math/6b45124cf7d49203fdb196c4c64a6315d43d89c4.png" alt="r_c^a"/> is a cut-off radius, <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>
 is the atom index, <img class="math" src="../../_images/math/6d49e72aa62e764765a9894f94a13801dfca0300.png" alt="{\bf R}^a"/> is the atom position.</p>
 <p>We write <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> as:</p>
 <div class="math">
-<p><img src="../../_images/math/69ba0a1fb55ebc7f2c99360141edee9f163622ad.png" alt="T = \one + \sum_a T^a"/></p>
+<p><span class="eqno">(3)</span><img src="../../_images/math/69ba0a1fb55ebc7f2c99360141edee9f163622ad.png" alt="T = \one + \sum_a T^a"/></p>
 </div><p>where <img class="math" src="../../_images/math/4e5ea0afada3b9f48a400f6ec0119c893943c3b4.png" alt="T^a"/> only acts in the augmentation sphere. We choose a complete basis
 <img class="math" src="../../_images/math/b966c95fc3d364cfa7a1486ab948d4ed7adccf09.png" alt="\ket{\phi_i^a}"/> (also called <em>partial waves</em>) inside the sphere. The smooth
 partial waves can be obtained using the <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> operator:</p>
 <div class="math">
-<p><img src="../../_images/math/cf7515249c69f2d25426d36cb51c049d576d7fc9.png" alt="\ket{\phi_i^a}
+<p><span class="eqno">(4)</span><img src="../../_images/math/cf7515249c69f2d25426d36cb51c049d576d7fc9.png" alt="\ket{\phi_i^a}
     = T\ket{\tilde\phi_i^a}
     = \left(\one+\sum_{a'} T^{a'}\right) \ket{\tilde\phi_i^a}
 
     = (\one+T^a) \ket{\tilde\phi_i^a}"/></p>
 </div><p>Because <img class="math" src="../../_images/math/4e5ea0afada3b9f48a400f6ec0119c893943c3b4.png" alt="T^a"/> only acts in the sphere, it follows that</p>
 <div class="math">
-<p><img src="../../_images/math/fa79e235682267af44f2cf8e8e720c7fc477598f.png" alt="\ket{\phi_i^a} = \ket{\tilde\phi_i^a}\quad\quad
+<p><span class="eqno">(5)</span><img src="../../_images/math/fa79e235682267af44f2cf8e8e720c7fc477598f.png" alt="\ket{\phi_i^a} = \ket{\tilde\phi_i^a}\quad\quad
     \mbox{for $r&gt;r_c^a$}"/></p>
 </div><p>outside the sphere (i.e.
 <img class="math" src="../../_images/math/1091e64a5c66225fd5b745e3544ef8b56dfce0ce.png" alt="\braket{{\bf r} | \phi_i^a} = \braket{{\bf r} | \tilde\phi_i^a}"/>
 for <img class="math" src="../../_images/math/2ab75f7dce0b7877f892bf9ae091a0d03645ad67.png" alt="r&gt;r_c^a"/>). We can now expand the smooth wavefunctions using the partial
 waves basis:</p>
 <div class="math" id="equation-smooth-partial-waves">
-<p><span class="eqno">(1)</span><img src="../../_images/math/3a3fc5a309d75f1648ec2f5e97593804caa8f776.png" alt="\ket{\tilde\psi_n} = \sum_i P_{ni}^a\ket{\tilde \phi_i^a}"/></p>
+<p><span class="eqno">(6)</span><img src="../../_images/math/3a3fc5a309d75f1648ec2f5e97593804caa8f776.png" alt="\ket{\tilde\psi_n} = \sum_i P_{ni}^a\ket{\tilde \phi_i^a}"/></p>
 </div><p>inside the augmentation sphere. Multiplying both sides by <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/>:</p>
 <div class="math" id="equation-non-smooth-partial-waves">
-<p><span class="eqno">(2)</span><img src="../../_images/math/fd3e156fa1475c003ab61ae768339737b2425e38.png" alt="T\ket{\tilde\psi_n} = T\sum_i P_{ni}^a\ket{\tilde \phi_i^a}
+<p><span class="eqno">(7)</span><img src="../../_images/math/fd3e156fa1475c003ab61ae768339737b2425e38.png" alt="T\ket{\tilde\psi_n} = T\sum_i P_{ni}^a\ket{\tilde \phi_i^a}
 
 T\ket{\tilde\psi_n} = \sum_i P_{ni}^a\, T\ket{\tilde \phi_i^a}
 
@@ -120,40 +120,40 @@ orthogonality and completeness relations inside the augmentation spheres (no
 restrictions are imposed outside the spheres, so we just define
 <img class="math" src="../../_images/math/86ab4961f2630952c198e7a0dd5bd39706cd32ff.png" alt="\braket{{\bf r} | \tilde p_i^a} = 0"/>):</p>
 <div class="math" id="equation-projector-functions">
-<p><span class="eqno">(3)</span><img src="../../_images/math/3b214efde6ff35ded5d85ef8631ffec18837b4af.png" alt="\braket{\tilde p_i^a | \tilde \phi_j^a} = \delta_{ij}
+<p><span class="eqno">(8)</span><img src="../../_images/math/3b214efde6ff35ded5d85ef8631ffec18837b4af.png" alt="\braket{\tilde p_i^a | \tilde \phi_j^a} = \delta_{ij}
 
 \sum_i \ket{\tilde \phi_i^a}\bra{\tilde p_i^a}  = \one"/></p>
-</div><p>then multiplying <a href="#equation-smooth-partial-waves">(1)</a> by <img class="math" src="../../_images/math/76d6c055b455a05779b1185868180aa0aa36d3f6.png" alt="\bra{\tilde p_i^a}"/>
-and using <a href="#equation-projector-functions">(3)</a>:</p>
+</div><p>then multiplying <a href="#equation-smooth-partial-waves">(6)</a> by <img class="math" src="../../_images/math/76d6c055b455a05779b1185868180aa0aa36d3f6.png" alt="\bra{\tilde p_i^a}"/>
+and using <a href="#equation-projector-functions">(8)</a>:</p>
 <div class="math">
-<p><img src="../../_images/math/cce2cf80009345e65fae1af72cb68a9f11b068d8.png" alt="\braket{\tilde p_i^a | \tilde \psi_n }
+<p><span class="eqno">(9)</span><img src="../../_images/math/cce2cf80009345e65fae1af72cb68a9f11b068d8.png" alt="\braket{\tilde p_i^a | \tilde \psi_n }
     = \sum_j P_{nj}^a\braket{\tilde p_i^a | \tilde \phi_j^a}
     = \sum_j P_{nj}^a\delta_{ij}
     = P_{ni}^a"/></p>
-</div><p>we can rewrite <a href="#equation-smooth-partial-waves">(1)</a> and <a href="#equation-non-smooth-partial-waves">(2)</a>:</p>
+</div><p>we can rewrite <a href="#equation-smooth-partial-waves">(6)</a> and <a href="#equation-non-smooth-partial-waves">(7)</a>:</p>
 <div class="math" id="equation-partial-waves">
-<p><span class="eqno">(4)</span><img src="../../_images/math/3c3d075d8f0cedaef09e4dd66b66369543b0c08c.png" alt="\ket{\tilde\psi_n} = \sum_i \braket{\tilde p_i^a | \tilde \psi_n }
+<p><span class="eqno">(10)</span><img src="../../_images/math/3c3d075d8f0cedaef09e4dd66b66369543b0c08c.png" alt="\ket{\tilde\psi_n} = \sum_i \braket{\tilde p_i^a | \tilde \psi_n }
     \ket{\tilde \phi_i^a}
 
 \ket{\psi_n} = \sum_i \braket{\tilde p_i^a | \tilde \psi_n }
     \ket{\phi_i^a}"/></p>
 </div><p>Let&#8217;s write <img class="math" src="../../_images/math/4e5ea0afada3b9f48a400f6ec0119c893943c3b4.png" alt="T^a"/> using the projectors:</p>
 <div class="math">
-<p><img src="../../_images/math/4a401422eb5ec1e8bca8543849fec644cac7b755.png" alt="T^a
+<p><span class="eqno">(11)</span><img src="../../_images/math/4a401422eb5ec1e8bca8543849fec644cac7b755.png" alt="T^a
     = T^a \one
     = T^a \sum_i \ket{\tilde \phi_i^a}\bra{\tilde p_i^a}
     = \sum_i (T^a\ket{\tilde \phi_i^a})\bra{\tilde p_i^a}
     = \sum_i (\ket{\phi_i^a} - \ket{\tilde \phi_i^a})\bra{\tilde p_i^a}"/></p>
 </div><p>Note that the right hand side is zero outside the augmentation sphere. Thus</p>
 <div class="math">
-<p><img src="../../_images/math/bda9def25248a39a7f983fe1897b6def9449b161.png" alt="T
+<p><span class="eqno">(12)</span><img src="../../_images/math/bda9def25248a39a7f983fe1897b6def9449b161.png" alt="T
     = \one + \sum_a T^a
     = \one + \sum_a \sum_i (\ket{\phi_i^a} - \ket{\tilde \phi_i^a})\bra{\tilde p_i^a}"/></p>
 </div><p>In other words, the transformation operator <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> is completely defined using the
 smooth and non-smooth partial waves and the projector functions. In terms of
 the wavefunction:</p>
 <div class="math">
-<p><img src="../../_images/math/a40eee86806e7841b2174cc91c0b1300c7a5dbf6.png" alt="\ket{\psi_n} = T\ket{\tilde\psi_n}
+<p><span class="eqno">(13)</span><img src="../../_images/math/a40eee86806e7841b2174cc91c0b1300c7a5dbf6.png" alt="\ket{\psi_n} = T\ket{\tilde\psi_n}
     =\ket{\tilde\psi_n} + \sum_a \sum_i
         (\ket{\phi_i^a} - \ket{\tilde \phi_i^a})
         \braket{\tilde p_i^a | \tilde\psi_n} =
@@ -167,7 +167,7 @@ wavefunction and sum over atoms (centers), at each atom we have &#8220;1-center 
 electron&#8221; minus &#8220;1-center pseudo&#8221;.</p>
 <p>The projection functions can always be written as</p>
 <div class="math">
-<p><img src="../../_images/math/74302ed62d368ac9c2e012fae9eb66a4391eff1e.png" alt="\bra{\tilde p_i^a}
+<p><span class="eqno">(14)</span><img src="../../_images/math/74302ed62d368ac9c2e012fae9eb66a4391eff1e.png" alt="\bra{\tilde p_i^a}
     = \sum_j\left\{\braket{f_k^a | \tilde\phi_l^a}\right\}_{ij}^{-1}
         \bra{f_j^a}"/></p>
 </div><p>where <img class="math" src="../../_images/math/720ec8b7593d2561a695a65fdd61268877883785.png" alt="\ket{f_k^a}"/> is any set of linearly independent functions.</p>
@@ -180,7 +180,7 @@ the valence states.</p>
 the valence electrons and treat the core states separately. The simplest option
 is to introduce a <em>frozen core approximation</em>, where</p>
 <div class="math">
-<p><img src="../../_images/math/5c4a5982d80263c0881e34803afb7beca2efd0d5.png" alt="\ket{\psi_n} = \ket{\phi_\alpha^{a,\mbox{core}}}"/></p>
+<p><span class="eqno">(15)</span><img src="../../_images/math/5c4a5982d80263c0881e34803afb7beca2efd0d5.png" alt="\ket{\psi_n} = \ket{\phi_\alpha^{a,\mbox{core}}}"/></p>
 </div><p>for all core states <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/>, here <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> runs over <img class="math" src="../../_images/math/56cd382382cc6d81c4ac6f00b7bd21e3d2a7433a.png" alt="(a, \alpha)"/>, where <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/> is the
 atom index and <img class="math" src="../../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha"/> are the core states of an atom. This approximation
 can also be relaxed in various ways.</p>
@@ -189,7 +189,7 @@ can also be relaxed in various ways.</p>
 <h2>Expectation Values of Local Operators<a class="headerlink" href="#expectation-values-of-local-operators" title="Permalink to this headline">¶</a></h2>
 <p>In the frozen core approximation:</p>
 <div class="math">
-<p><img src="../../_images/math/bbeecd34f4e46cfd02f404b904fb6ea4112f7f54.png" alt="\braket{O} = \sum_n^{\mbox{val}} f_n \braket{\psi_n | O | \psi_n}
+<p><span class="eqno">(16)</span><img src="../../_images/math/bbeecd34f4e46cfd02f404b904fb6ea4112f7f54.png" alt="\braket{O} = \sum_n^{\mbox{val}} f_n \braket{\psi_n | O | \psi_n}
     + \sum_a \sum_\alpha^{\mbox{core}}
     \braket{\phi_\alpha^{a,\mbox{core}} | O | \phi_\alpha^{a,\mbox{core}}}
     = \cdots =
@@ -203,12 +203,12 @@ can also be relaxed in various ways.</p>
     \braket{\phi_\alpha^{a,\mbox{core}} | O | \phi_\alpha^{a,\mbox{core}}}"/></p>
 </div><p>where the tensor <img class="math" src="../../_images/math/06a66c17878ce11604aa32ee529f2891a8fa1430.png" alt="D_{ij}^a"/> is:</p>
 <div class="math">
-<p><img src="../../_images/math/4360f8b795c11a4f10b4a494b935ff1fd23f33d0.png" alt="D_{ij}^a = \sum_n f_n \braket{\tilde \psi_n|\tilde p_i^a}
+<p><span class="eqno">(17)</span><img src="../../_images/math/4360f8b795c11a4f10b4a494b935ff1fd23f33d0.png" alt="D_{ij}^a = \sum_n f_n \braket{\tilde \psi_n|\tilde p_i^a}
     \braket{\tilde p_j^a|\tilde\psi_n}"/></p>
 </div><div class="section" id="density">
 <h3>Density<a class="headerlink" href="#density" title="Permalink to this headline">¶</a></h3>
 <div class="math">
-<p><img src="../../_images/math/47f6072016cbc4b5a0265265a75e7fd864847878.png" alt="n({\bf r})
+<p><span class="eqno">(18)</span><img src="../../_images/math/47f6072016cbc4b5a0265265a75e7fd864847878.png" alt="n({\bf r})
     = \sum_n f_n |\psi_n({\bf r})|^2
     = \sum_n f_n \braket{\psi_n | {\bf r} }\braket{{\bf r} | \psi_n}
     = \Big&lt; \ket{\bf r}\bra{\bf r} \Big&gt; =
@@ -228,34 +228,34 @@ the augmentation sphere.</p>
 <p>We multiply the original equations by <img class="math" src="../../_images/math/f3543eadd57f4da1271b839eb3b60472456f93c9.png" alt="T^\dag"/> from the left and introduce the
 smooth wavefunctions:</p>
 <div class="math">
-<p><img src="../../_images/math/62ee864ec104482126fe573dbe12174756367ad2.png" alt="H\ket{\psi_n} = \epsilon_n\ket{\psi_n}
+<p><span class="eqno">(19)</span><img src="../../_images/math/62ee864ec104482126fe573dbe12174756367ad2.png" alt="H\ket{\psi_n} = \epsilon_n\ket{\psi_n}
 
 T^\dag H\ket{\psi_n} = \epsilon_n T^\dag\ket{\psi_n}
 
 T^\dag H T\ket{\tilde\psi_n} = \epsilon_n T^\dag T \ket{\tilde\psi_n}"/></p>
 </div><p>The orthogonality of wavefunctions is:</p>
 <div class="math">
-<p><img src="../../_images/math/29f612895432470ffc83dd97771a24c59a84410e.png" alt="\braket{\psi_n | \psi_m} = \delta_{nm}
+<p><span class="eqno">(20)</span><img src="../../_images/math/29f612895432470ffc83dd97771a24c59a84410e.png" alt="\braket{\psi_n | \psi_m} = \delta_{nm}
 
 \braket{\tilde \psi_n | T^\dag T | \tilde \psi_m} = \delta_{nm}"/></p>
 </div><p>The overlap operator <img class="math" src="../../_images/math/73f34bcd4236c6e63327227c9aba1005c50abcee.png" alt="T^\dag T"/> can be written as:</p>
 <div class="math">
-<p><img src="../../_images/math/1e5db16a08dcca092c1144ef5c4ff72bf7cf3fb8.png" alt="T^\dag T = \cdots = \one + \sum_a \sum_{i,j}
+<p><span class="eqno">(21)</span><img src="../../_images/math/1e5db16a08dcca092c1144ef5c4ff72bf7cf3fb8.png" alt="T^\dag T = \cdots = \one + \sum_a \sum_{i,j}
     \ket{\tilde p_i^a} Q_{ij} \bra{\tilde p_j^a}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/ab69d65eca0c000dcdbdca39c277a3322ccbcdde.png" alt="Q_{ij} = \braket{\phi_i^a | \phi_j^a}
+<p><span class="eqno">(22)</span><img src="../../_images/math/ab69d65eca0c000dcdbdca39c277a3322ccbcdde.png" alt="Q_{ij} = \braket{\phi_i^a | \phi_j^a}
         -\braket{\tilde \phi_i^a | \tilde\phi_j^a}"/></p>
 </div><p>The transformed Hamiltonian is</p>
 <div class="math">
-<p><img src="../../_images/math/8f75ed3b87ae9f691d66d2b6ebca908059b4808a.png" alt="H =-\half\nabla^2 + V_H({\bf r}) + V_{xc}({\bf r}) + v({\bf r})
+<p><span class="eqno">(23)</span><img src="../../_images/math/8f75ed3b87ae9f691d66d2b6ebca908059b4808a.png" alt="H =-\half\nabla^2 + V_H({\bf r}) + V_{xc}({\bf r}) + v({\bf r})
 
 T^\dag H T = \cdots =
     -\half\nabla^2 + V_H(\tilde n) + V_{xc}(\tilde n) +
         \sum_a \sum_{ij}\ket{\tilde p_i^a} H_{ij}^a \bra{\tilde p_j^a}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/ff89226fcc0944fced5c09ca24c9538b7be434a7.png" alt="H_{ij}^a = \braket{\phi_i^a |-\half \nabla^2 + v_{\mbox{eff}} | \phi_j^a}
+<p><span class="eqno">(24)</span><img src="../../_images/math/ff89226fcc0944fced5c09ca24c9538b7be434a7.png" alt="H_{ij}^a = \braket{\phi_i^a |-\half \nabla^2 + v_{\mbox{eff}} | \phi_j^a}
         -\braket{\tilde \phi_i^a |-\half \nabla^2 + \tilde v_{\mbox{eff}} | \tilde\phi_j^a}"/></p>
 </div></div>
 </div>

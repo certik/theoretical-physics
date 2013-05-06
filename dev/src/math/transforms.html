@@ -70,7 +70,7 @@
 <h1>Fourier Transform<a class="headerlink" href="#fourier-transform" title="Permalink to this headline">¶</a></h1>
 <p>The 1D Fourier transform is:</p>
 <div class="math">
-<p><img src="../../_images/math/9fb62c3445027a0cb4e744bb622c727f548308f3.png" alt="F[f(x)] \equiv \tilde f(\omega)
+<p><span class="eqno">(1)</span><img src="../../_images/math/9fb62c3445027a0cb4e744bb622c727f548308f3.png" alt="F[f(x)] \equiv \tilde f(\omega)
     = \int_{-\infty}^{\infty} f(x) e^{-i\omega x}\,\d x
 
 F^{-1}[\tilde f(\omega)] = f(x)
@@ -78,7 +78,7 @@ F^{-1}[\tilde f(\omega)] = f(x)
     \tilde f(\omega) e^{+i\omega x}\,\d \omega"/></p>
 </div><p>To show that it works:</p>
 <div class="math">
-<p><img src="../../_images/math/a0f1e4fbee5dd57836921191bbe74736bff28d4a.png" alt="F^{-1} F [f(x)]
+<p><span class="eqno">(2)</span><img src="../../_images/math/a0f1e4fbee5dd57836921191bbe74736bff28d4a.png" alt="F^{-1} F [f(x)]
 =
 {1\over2\pi}\int_{-\infty}^{\infty} \left[\int_{-\infty}^{\infty}
     f(x) e^{-i\omega x}\,\d x\right] e^{+i\omega x}\,\d \omega
@@ -98,7 +98,7 @@ F^{-1}[\tilde f(\omega)] = f(x)
 ordinary frequency <img class="math" src="../../_images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu"/> (unit <img class="math" src="../../_images/math/f449771115817b9606dfe5405d2aa2411c62eddd.png" alt="[1/\mathrm{s}] = [\mathrm{Hz}]"/>) by
 substituting <img class="math" src="../../_images/math/c917a2d660e3cec03a921006df1a979440ed355a.png" alt="\omega = 2\pi \nu"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/ceb54bda54060ee8434819513e546e5c95220172.png" alt="\tilde f(\omega) = \tilde f(2\pi \nu) \equiv \tilde f'(\nu)
+<p><span class="eqno">(3)</span><img src="../../_images/math/ceb54bda54060ee8434819513e546e5c95220172.png" alt="\tilde f(\omega) = \tilde f(2\pi \nu) \equiv \tilde f'(\nu)
     = \int_{-\infty}^{\infty} f(x) e^{-2\pi i\nu x}\,\d x
 
 f(x) = \int_{-\infty}^{\infty} \tilde f'(\nu) e^{+2\pi i\nu x}\,\d \nu"/></p>
@@ -107,7 +107,7 @@ dealing with the transform as a function of <img class="math" src="../../_images
 being given by <img class="math" src="../../_images/math/dfe7c6cc11ba9f9805c49b775d45763bc319a24f.png" alt="\tilde f(\omega) = \tilde f(2\pi \nu) \equiv \tilde f'(\nu)"/>.
 Third convention that is frequently used is:</p>
 <div class="math">
-<p><img src="../../_images/math/dc6b0c5cdd355c2e4f8d4cc2e714758a7beb0248.png" alt="\tilde f(k)
+<p><span class="eqno">(4)</span><img src="../../_images/math/dc6b0c5cdd355c2e4f8d4cc2e714758a7beb0248.png" alt="\tilde f(k)
     = {1\over\sqrt{2\pi}}
       \int_{-\infty}^{\infty} f(x) e^{-ik x}\,\d x
 
@@ -116,7 +116,7 @@ f(x)
       \int_{-\infty}^{\infty} \tilde f(k) e^{+ik x}\,\d k"/></p>
 </div><p>The 3D Fourier transform is:</p>
 <div class="math">
-<p><img src="../../_images/math/363a5fbf231c33e18af3afc0440f7a970caac6d8.png" alt="F[f(\mathbf{x})] \equiv \tilde f(\bomega)
+<p><span class="eqno">(5)</span><img src="../../_images/math/363a5fbf231c33e18af3afc0440f7a970caac6d8.png" alt="F[f(\mathbf{x})] \equiv \tilde f(\bomega)
     = \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
         \mathbf{x}}\,\d^3 x
 
@@ -131,7 +131,7 @@ plane-wave <img class="math" src="../../_images/math/ca818affa24d5a57639c001d718
 we obtain (using plus sign convention in the <img class="math" src="../../_images/math/255a308ec183ddd1675089271e850db35865c3df.png" alt="e^{ik \cdot x}"/> exponential for
 the direct transformation):</p>
 <div class="math">
-<p><img src="../../_images/math/32ffba18dd123b1df27ef951911ede8752bbc3ac.png" alt="F[f(x)] \equiv \tilde f(k)
+<p><span class="eqno">(6)</span><img src="../../_images/math/32ffba18dd123b1df27ef951911ede8752bbc3ac.png" alt="F[f(x)] \equiv \tilde f(k)
     = \int_{-\infty}^{\infty} f(x) e^{ik \cdot x}\,\d^4 x
     = \int_{-\infty}^{\infty} f(x)
         e^{i(\omega t - \mathbf{k}\cdot\mathbf{x})}\,\d^4 x
@@ -153,32 +153,32 @@ flip the sign for the inverse transform.</p>
 <h1>Discrete Fourier Transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this headline">¶</a></h1>
 <p>Starting from</p>
 <div class="math">
-<p><img src="../../_images/math/02fb9f7f85ce4cd08f84a50dd38eb1f40e04c3c9.png" alt="\tilde f(\nu)
+<p><span class="eqno">(7)</span><img src="../../_images/math/02fb9f7f85ce4cd08f84a50dd38eb1f40e04c3c9.png" alt="\tilde f(\nu)
     = \int_{-\infty}^{\infty} f(x) e^{-2\pi i\nu x}\,\d x
 
 f(x) = \int_{-\infty}^{\infty} \tilde f(\nu) e^{+2\pi i\nu x}\,\d \nu"/></p>
 </div><p>When the <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> space is discrete, that is <img class="math" src="../../_images/math/53a7737fd23ad1594b5a6a73430980b21f866358.png" alt="f(x)\to f(x_k)\equiv f_k"/>, where
 <img class="math" src="../../_images/math/140526fab2317adbf819d480b059136f3ac53a42.png" alt="x_k = k\Delta"/> and <img class="math" src="../../_images/math/4658918b7798dcce82deb53bfb45f6dcb68857f5.png" alt="k=0, 1, \cdots, N-1"/>, we obtain:</p>
 <div class="math">
-<p><img src="../../_images/math/00df0dafb6f52e208a63a4b16f49aac6b2d0428d.png" alt="\tilde f(\nu)
+<p><span class="eqno">(8)</span><img src="../../_images/math/00df0dafb6f52e208a63a4b16f49aac6b2d0428d.png" alt="\tilde f(\nu)
     = \int_0^{(N-1)\Delta} f(x) e^{-2\pi i\nu x}\,\d x
     = \sum_{k=0}^{N-1} f_k e^{-2\pi i\nu x_k}
     = \sum_{k=0}^{N-1} f_k e^{-2\pi i\nu k \Delta}"/></p>
 </div><p>We only need to sample the reciprocal space at the intervals
 <img class="math" src="../../_images/math/072a4548568e9d98ac82e0fb5049b87115293746.png" alt="\nu = {n\over N \Delta}"/> where <img class="math" src="../../_images/math/5679149c91ecd0814c39918f732437caca82da1c.png" alt="n=0, 1, \cdots, N-1"/>. We finally get:</p>
 <div class="math">
-<p><img src="../../_images/math/e69f965d73c74fcbdb658b60be174579b747e980.png" alt="\tilde f(\nu_n) \equiv \tilde f_n
+<p><span class="eqno">(9)</span><img src="../../_images/math/e69f965d73c74fcbdb658b60be174579b747e980.png" alt="\tilde f(\nu_n) \equiv \tilde f_n
     = \sum_{k=0}^{N-1} f_k e^{-2\pi i {n\over N} k}"/></p>
 </div><p>For the inverse transform, we obtain:</p>
 <div class="math">
-<p><img src="../../_images/math/cba2bf74306153824da682a96c345e3b714caacd.png" alt="f_k
+<p><span class="eqno">(10)</span><img src="../../_images/math/cba2bf74306153824da682a96c345e3b714caacd.png" alt="f_k
     = {1\over N} \sum_{n=0}^{N-1} \tilde f_n e^{2\pi i {n\over N} k}"/></p>
 </div></div>
 <div class="section" id="laplace-transform">
 <h1>Laplace Transform<a class="headerlink" href="#laplace-transform" title="Permalink to this headline">¶</a></h1>
 <p>Laplace transform of <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> is:</p>
 <div class="math">
-<p><img src="../../_images/math/8939823ab6133af32f1845a2d1adef453446dcd2.png" alt="L[f(x)] = \int_0^{\infty} f(x) e^{-s x}\,\d x
+<p><span class="eqno">(11)</span><img src="../../_images/math/8939823ab6133af32f1845a2d1adef453446dcd2.png" alt="L[f(x)] = \int_0^{\infty} f(x) e^{-s x}\,\d x
 
 L^{-1}[\bar f(s)]
 = {1\over2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty}
@@ -190,7 +190,7 @@ because the Laplace transform <img class="math" src="../../_images/math/2cce8230
 the residues, so we have to integrate in this range as well).  It can be shown
 that the integral over the left semicircle goes to zero:</p>
 <div class="math">
-<p><img src="../../_images/math/4a8097935cc530eeef3a35998c76507853f9e7c9.png" alt="\left|\int_\Omega e^{sx}g(s) \d s \right|
+<p><span class="eqno">(12)</span><img src="../../_images/math/4a8097935cc530eeef3a35998c76507853f9e7c9.png" alt="\left|\int_\Omega e^{sx}g(s) \d s \right|
 =\left|\int_{\pi\over2}^{3\pi\over2} e^{(\sigma + Re^{i\varphi})x}
 g(\sigma+Re^{i\varphi})iRe^{i\varphi}\d\varphi\right|
 \le
@@ -213,7 +213,7 @@ g(\sigma+Re^{i\varphi})iRe^{i\varphi}\d\varphi\right|
 f(s)e^{sx}"/> in the complex plane.</p>
 <p>To show that it works:</p>
 <div class="math">
-<p><img src="../../_images/math/e35a8957cafe2ab1c2039d94f29c8fd06596c54f.png" alt="L^{-1} L [f(x)]
+<p><span class="eqno">(13)</span><img src="../../_images/math/e35a8957cafe2ab1c2039d94f29c8fd06596c54f.png" alt="L^{-1} L [f(x)]
 =
 {1\over2\pi i}\int_{\sigma-i\infty}^{\sigma+i\infty}
     \left[\int_0^{\infty}
@@ -233,7 +233,7 @@ f(s)e^{sx}"/> in the complex plane.</p>
 =f(x)"/></p>
 </div><p>where we used:</p>
 <div class="math">
-<p><img src="../../_images/math/f002cb90e9caa541a6d4b9ace65944eb782e77a8.png" alt="{1\over2\pi i}
+<p><span class="eqno">(14)</span><img src="../../_images/math/f002cb90e9caa541a6d4b9ace65944eb782e77a8.png" alt="{1\over2\pi i}
 \int_{\sigma-i\infty}^{\sigma+i\infty} e^{s (x- x')}\,\d s
 =
 {1\over2\pi i}
@@ -251,13 +251,13 @@ f(s)e^{sx}"/> in the complex plane.</p>
 </div><p>and it can be derived from the Fourier transform by
 transforming a function <img class="math" src="../../_images/math/073f69367cee601cff7c1b8684c1453c6dd75e27.png" alt="U(x)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/5f197daf6c9926eae698592b2172aa92b08eadf5.png" alt="U(x) = \begin{cases}
+<p><span class="eqno">(15)</span><img src="../../_images/math/5f197daf6c9926eae698592b2172aa92b08eadf5.png" alt="U(x) = \begin{cases}
     f(x)e^{-\sigma x} &amp;\text{for $x\ge0$}\cr
     0 &amp;\text{for $x&lt;0$}\cr
     \end{cases}"/></p>
 </div><p>and making a substitution <img class="math" src="../../_images/math/ac15f719720433a411b0e6bfd7208e95958f2a6e.png" alt="s = \sigma + i\omega"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/2be27d3ddb29bec572de95bb7e366faad0dc3748.png" alt="L[f(x)] \equiv \bar f(s) = F[U(x)] \equiv \tilde U(\omega)
+<p><span class="eqno">(16)</span><img src="../../_images/math/2be27d3ddb29bec572de95bb7e366faad0dc3748.png" alt="L[f(x)] \equiv \bar f(s) = F[U(x)] \equiv \tilde U(\omega)
 = \int_{-\infty}^{\infty} U(x) e^{-i\omega x}\,\d x
 = \int_0^{\infty} f(x) e^{-\sigma x} e^{-i\omega x}\,\d x
 = \int_0^{\infty} f(x) e^{-s x}\,\d x

@@ -70,24 +70,24 @@
 <span id="index-0"></span><h1>Hypergeometric Functions<a class="headerlink" href="#hypergeometric-functions" title="Permalink to this headline">¶</a></h1>
 <p>The series:</p>
 <div class="math">
-<p><img src="../../_images/math/b2b1fc0a9c1455a7e122e49fb9556863fa61f6b8.png" alt="\sum_{k=0}^\infty t_k"/></p>
+<p><span class="eqno">(1)</span><img src="../../_images/math/b2b1fc0a9c1455a7e122e49fb9556863fa61f6b8.png" alt="\sum_{k=0}^\infty t_k"/></p>
 </div><p>with <img class="math" src="../../_images/math/fb2e8b9c0f59e19d7676a6ddad033f48d165e842.png" alt="t_0=1"/>
 is geometric if the ratio of two consecutive terms <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> is a constant
 (with respect to <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/bb8111a6610a1d20e4f045fad98435920943c434.png" alt="{t_{k+1} \over t_k} = x"/></p>
+<p><span class="eqno">(2)</span><img src="../../_images/math/bb8111a6610a1d20e4f045fad98435920943c434.png" alt="{t_{k+1} \over t_k} = x"/></p>
 </div><p>then we get:</p>
 <div class="math">
-<p><img src="../../_images/math/f3a75486e6336fb25acd5c56832a774f79849d01.png" alt="\sum_{k=0}^\infty t_k =
+<p><span class="eqno">(3)</span><img src="../../_images/math/f3a75486e6336fb25acd5c56832a774f79849d01.png" alt="\sum_{k=0}^\infty t_k =
     \sum_{k=0}^\infty x^k"/></p>
 </div><p>It is hypergeometric if the ratio <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> is a rational function (with
 respect to <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>):</p>
 <div class="math">
-<p><img src="../../_images/math/3129647eb6deb9517e652d8ac2b0238a1f056458.png" alt="{t_{k+1} \over t_k} = {P(k)\over Q(k)}"/></p>
+<p><span class="eqno">(4)</span><img src="../../_images/math/3129647eb6deb9517e652d8ac2b0238a1f056458.png" alt="{t_{k+1} \over t_k} = {P(k)\over Q(k)}"/></p>
 </div><p>where <img class="math" src="../../_images/math/5a2f7534d08cd1d4672bef4ce465aa829667750f.png" alt="P(k)"/> and <img class="math" src="../../_images/math/0232c514ed15c8b0d781b916f843e4334f79b4bc.png" alt="Q(k)"/> are polynomials in <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/>, which we can completely factor
 into the form</p>
 <div class="math" id="equation-hyper_ratio">
-<p><span class="eqno">(1)</span><img src="../../_images/math/de738c485d2314d196dd036eadb63b1f8e800bdf.png" alt="{t_{k+1} \over t_k} = {P(k)\over Q(k)}
+<p><span class="eqno">(5)</span><img src="../../_images/math/de738c485d2314d196dd036eadb63b1f8e800bdf.png" alt="{t_{k+1} \over t_k} = {P(k)\over Q(k)}
     = {(k+a_1)(k+a_2)\cdots(k+a_p)\over
         (k+b_1)(k+b_2)\cdots(k+b_q)(k+1)} x"/></p>
 </div><p>where <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> is a constant and the <img class="math" src="../../_images/math/9cba1efe0450bd8158d00008780f2ad6b1dba387.png" alt="(k+1)"/> factor is just a convention (if the
@@ -95,20 +95,20 @@ polynomial <img class="math" src="../../_images/math/0232c514ed15c8b0d781b916f84
 both numerator and denominator and absorb the &#8220;1&#8221; into <img class="math" src="../../_images/math/a2205a574bf35511af0c75a074c072406257086d.png" alt="a_p"/>). The
 hypergeometric series is then given by:</p>
 <div class="math">
-<p><img src="../../_images/math/ea70125505096a5cfaffbf968d98869a7e0dd223.png" alt="{}_p F_q(a_1, a_2, \dots, a_p; b_1, b_2, \dots, b_q; x)
+<p><span class="eqno">(6)</span><img src="../../_images/math/ea70125505096a5cfaffbf968d98869a7e0dd223.png" alt="{}_p F_q(a_1, a_2, \dots, a_p; b_1, b_2, \dots, b_q; x)
     = \sum_{k=0}^\infty {(a_1)_k (a_2)_k \cdots (a_p)_k \over
         (b_1)_k (b_2)_k \cdots (b_q)_k} {x^k\over k!}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/ca35de92cb28d7abd5f1e5502d1bd09ac023a99b.png" alt="(a)_k = {\Gamma(a+k)\over\Gamma(a)} = \begin{cases}
+<p><span class="eqno">(7)</span><img src="../../_images/math/ca35de92cb28d7abd5f1e5502d1bd09ac023a99b.png" alt="(a)_k = {\Gamma(a+k)\over\Gamma(a)} = \begin{cases}
     a(a+1)(a+2)\cdots(a+k-1), &amp; \mbox{if $k\ge 1$;} \\
     1, &amp; \mbox{if $k=0$}\\
     \end{cases}"/></p>
 </div><p>is the rising factorial function (also called the Pochhammer symbol).</p>
 <p>To write a function as a hypergeometric series, we simply expand it in series
-and then write the ratio <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> in the form <a href="#equation-hyper_ratio">(1)</a> and
+and then write the ratio <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> in the form <a href="#equation-hyper_ratio">(5)</a> and
 immediately identify the proper <img class="math" src="../../_images/math/4036c5e32f53dddc63aa65964b5cae2b518c4278.png" alt="{}_p F_q"/> function. If the ratio cannot be
-put into the form <a href="#equation-hyper_ratio">(1)</a> then the function is not hypergeometric.</p>
+put into the form <a href="#equation-hyper_ratio">(5)</a> then the function is not hypergeometric.</p>
 <div class="section" id="convergence-conditions">
 <h2>Convergence Conditions<a class="headerlink" href="#convergence-conditions" title="Permalink to this headline">¶</a></h2>
 <p>If any <img class="math" src="../../_images/math/4c88cec22fbb8996056971808108cf3bb908937b.png" alt="a_i=0, -1, -2, \dots"/>, then the series is a polynomial of degree
@@ -119,7 +119,7 @@ point) and the series is undefined.</p>
 <p>Except the previous two cases, the radius of convergence <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/> of the
 hypergeometric series is:</p>
 <div class="math">
-<p><img src="../../_images/math/613c23ee10f7d0bbb7d8aa4387d1dcd74420aad8.png" alt="R = \begin{cases}
+<p><span class="eqno">(8)</span><img src="../../_images/math/613c23ee10f7d0bbb7d8aa4387d1dcd74420aad8.png" alt="R = \begin{cases}
     \infty &amp; \mbox{if $p \le q$;} \\
     1 &amp; \mbox{if $p = q+1$;} \\
     0 &amp; \mbox{if $p &gt; q+1$.} \\
@@ -150,7 +150,7 @@ hypergeometric series is:</p>
 <h3>The Series 0F0<a class="headerlink" href="#the-series-0f0" title="Permalink to this headline">¶</a></h3>
 <p>Elementary functions:</p>
 <div class="math">
-<p><img src="../../_images/math/36097cd867af936b9d26724a13ffc0cdfadee947.png" alt="e^{x}
+<p><span class="eqno">(9)</span><img src="../../_images/math/36097cd867af936b9d26724a13ffc0cdfadee947.png" alt="e^{x}
     = \sum_{k=0}^\infty {x^k\over k!}
     = {}_0 F_0(x)"/></p>
 </div></div>
@@ -158,7 +158,7 @@ hypergeometric series is:</p>
 <h3>The Series 1F0<a class="headerlink" href="#the-series-1f0" title="Permalink to this headline">¶</a></h3>
 <p>Elementary functions:</p>
 <div class="math">
-<p><img src="../../_images/math/1d2845661f0aeceaf005019d9481be81cb98a7aa.png" alt="{1\over 1-x} = \sum_{k=0}^\infty x^k = {}_1 F_0(1; x)
+<p><span class="eqno">(10)</span><img src="../../_images/math/1d2845661f0aeceaf005019d9481be81cb98a7aa.png" alt="{1\over 1-x} = \sum_{k=0}^\infty x^k = {}_1 F_0(1; x)
 
 {1\over (1-x)^a} = \sum_{k=0}^\infty {(a+k-1)!\over (a-1)! k!} x^k
     = {}_1 F_0(a; x)
@@ -171,7 +171,7 @@ x^a = {}_1 F_0(-a; 1-x)
 <h3>The Series 0F1<a class="headerlink" href="#the-series-0f1" title="Permalink to this headline">¶</a></h3>
 <p>Elementary functions:</p>
 <div class="math">
-<p><img src="../../_images/math/e1d5823223f1401c25d6d52bdbe772864ccdba6d.png" alt="\sin z = z \ {}_0F_1({\textstyle{3\over2}}; -{z^2\over 4})
+<p><span class="eqno">(11)</span><img src="../../_images/math/e1d5823223f1401c25d6d52bdbe772864ccdba6d.png" alt="\sin z = z \ {}_0F_1({\textstyle{3\over2}}; -{z^2\over 4})
 
 \cos z = {}_0F_1(\half; -{z^2\over 4})
 
@@ -180,13 +180,13 @@ x^a = {}_1 F_0(-a; 1-x)
 \cosh z = {}_0F_1(\half; {z^2\over 4})"/></p>
 </div><p>Bessel function:</p>
 <div class="math">
-<p><img src="../../_images/math/89404ae69e23839dff1d0e26ae8c1b0d80cc281e.png" alt="J_\alpha(x) = \sum_{k=0}^\infty {(-1)^k \left(x\over 2\right)^{2k+\alpha}
+<p><span class="eqno">(12)</span><img src="../../_images/math/89404ae69e23839dff1d0e26ae8c1b0d80cc281e.png" alt="J_\alpha(x) = \sum_{k=0}^\infty {(-1)^k \left(x\over 2\right)^{2k+\alpha}
         \over k! (k+\alpha)!}
     = {\left(x\over2\right)^\alpha \over \Gamma(\alpha+1)}
         \ {}_0F_1\left(\alpha+1; -{x^2\over 4}\right)"/></p>
 </div><p>Modified Bessel functions:</p>
 <div class="math">
-<p><img src="../../_images/math/aaef9a6ffe52bd0e5ac77e4dd0567a6b2e03f945.png" alt="I_\nu(z) = i^{-\nu} J_\nu(iz)
+<p><span class="eqno">(13)</span><img src="../../_images/math/aaef9a6ffe52bd0e5ac77e4dd0567a6b2e03f945.png" alt="I_\nu(z) = i^{-\nu} J_\nu(iz)
     = \sum_{k=0}^\infty {\left(x\over 2\right)^{2k+\nu}
         \over k! (k+\nu)!}
     = {1\over \Gamma(\nu+1)} \left(z\over 2\right)^\nu
@@ -201,32 +201,32 @@ K_\nu(z) = {\Gamma(\nu)\over 2} \left(2\over z\right)^\nu
 <h3>The Series 1F1<a class="headerlink" href="#the-series-1f1" title="Permalink to this headline">¶</a></h3>
 <p>Elementary functions:</p>
 <div class="math">
-<p><img src="../../_images/math/2f1699c69d23275df0badb9ff5288b40f5d6c737.png" alt="z^a e^z = {}_1F_1(a; a-\half; -2z)"/></p>
+<p><span class="eqno">(14)</span><img src="../../_images/math/2f1699c69d23275df0badb9ff5288b40f5d6c737.png" alt="z^a e^z = {}_1F_1(a; a-\half; -2z)"/></p>
 </div><p>Lower incomplete gamma function:</p>
 <div class="math">
-<p><img src="../../_images/math/bb15ee3dc91a333becce9ba37291789d34a3f3ba.png" alt="\gamma(z, x)
+<p><span class="eqno">(15)</span><img src="../../_images/math/bb15ee3dc91a333becce9ba37291789d34a3f3ba.png" alt="\gamma(z, x)
     = x^z \Gamma(z) e^{-x} \sum_{k=0}^\infty {x^k\over \Gamma(z+k+1)}
     = x^z z^{-1} e^{-x}\ {}_1F_1(1; z+1; x)
     = x^z z^{-1}\ {}_1F_1(z; z+1; -x)"/></p>
 </div><p>Error function:</p>
 <div class="math">
-<p><img src="../../_images/math/6be79110f6c67adfb22326cad751ca3d5e8bf5db.png" alt="\mbox{erf}(x)
+<p><span class="eqno">(16)</span><img src="../../_images/math/6be79110f6c67adfb22326cad751ca3d5e8bf5db.png" alt="\mbox{erf}(x)
     = {1\over\sqrt\pi}\gamma(\half, x^2)
     = {2x\over\sqrt\pi}\ {}_1F_1(\half; {\textstyle{3\over2}}, -x^2)"/></p>
 </div><p>Hermite polynomials:</p>
 <div class="math">
-<p><img src="../../_images/math/c899510e90b76bdb697a7dae38378e827ece52d2.png" alt="H_{2n}(x) = (-1)^n {(2n)!\over n!}\ {}_1F_1(-n;\half; x^2)
+<p><span class="eqno">(17)</span><img src="../../_images/math/c899510e90b76bdb697a7dae38378e827ece52d2.png" alt="H_{2n}(x) = (-1)^n {(2n)!\over n!}\ {}_1F_1(-n;\half; x^2)
 
 H_{2n+1}(x) = (-1)^n {(2n+1)!\over n!}2x
     \ {}_1F_1(-n;{\textstyle{3\over2}}; x^2)"/></p>
 </div><p>Laguerre polynomials:</p>
 <div class="math" id="equation-laguerre_hyper">
-<p><span class="eqno">(2)</span><img src="../../_images/math/098cd66bab63912174364972efc2d5d4abfba14e.png" alt="L_n^\alpha(x) = \binom{n+\alpha}{n}\ {}_1F_1(-n;\alpha+1;x)"/></p>
+<p><span class="eqno">(18)</span><img src="../../_images/math/098cd66bab63912174364972efc2d5d4abfba14e.png" alt="L_n^\alpha(x) = \binom{n+\alpha}{n}\ {}_1F_1(-n;\alpha+1;x)"/></p>
 </div><p>Solution <img class="math" src="../../_images/math/fd80dd65aad139dfe000e0afe5eb4aee5483d66a.png" alt="P_{nl}(r)=r R_{nl}(r)"/> of the radial Schrödinger equation in the
-Coulomb potential <img class="math" src="../../_images/math/7bcfb0cbdf0ffb89889db4a139e61547b59b43b2.png" alt="V(r) = -{Z/r}"/> (we use <a href="#equation-laguerre_hyper">(2)</a> in the second
+Coulomb potential <img class="math" src="../../_images/math/7bcfb0cbdf0ffb89889db4a139e61547b59b43b2.png" alt="V(r) = -{Z/r}"/> (we use <a href="#equation-laguerre_hyper">(18)</a> in the second
 equation below):</p>
 <div class="math">
-<p><img src="../../_images/math/cfb4a19e436377f45ceb383acc7c153349ff5ff9.png" alt="P_{nl}(r) = N_{nl} \left(2Zr\over n\right)^{l+1} e^{-{Zr\over n}}
+<p><span class="eqno">(19)</span><img src="../../_images/math/cfb4a19e436377f45ceb383acc7c153349ff5ff9.png" alt="P_{nl}(r) = N_{nl} \left(2Zr\over n\right)^{l+1} e^{-{Zr\over n}}
     \ {}_1F_1\left(-n+l+1; 2l+2; {2Zr\over n}\right) =
 
 = N_{nl} \left(2Zr\over n\right)^{l+1} e^{-{Zr\over n}}
@@ -243,7 +243,7 @@ N_{nl} = {1\over n(2l+1)!} \sqrt{Z(n+l)!\over (n-l-1)!}"/></p>
 <h3>The Series 2F1<a class="headerlink" href="#the-series-2f1" title="Permalink to this headline">¶</a></h3>
 <p>Elementary functions:</p>
 <div class="math">
-<p><img src="../../_images/math/9e963ba93637d615a9257f4eefa0672358825f49.png" alt="\log(1+z) = z\ {}_2F_1(1, 1; 2; -z)
+<p><span class="eqno">(20)</span><img src="../../_images/math/9e963ba93637d615a9257f4eefa0672358825f49.png" alt="\log(1+z) = z\ {}_2F_1(1, 1; 2; -z)
 
 \log(z) = (z-1)\ {}_2F_1(1, 1; 2; 1-z)
 
@@ -254,24 +254,24 @@ N_{nl} = {1\over n(2l+1)!} \sqrt{Z(n+l)!\over (n-l-1)!}"/></p>
 \arctan z = z\ {}_2F_1(1, \half; {\textstyle{3\over2}}; -z^2)"/></p>
 </div><p>Legendre polynomials:</p>
 <div class="math">
-<p><img src="../../_images/math/257edf76e66813ecfbe9771e8e1e75ef82f45088.png" alt="P_n(z) = {}_2F_1\left(-n, n+1; 1; {1-z\over 2}\right)"/></p>
+<p><span class="eqno">(21)</span><img src="../../_images/math/257edf76e66813ecfbe9771e8e1e75ef82f45088.png" alt="P_n(z) = {}_2F_1\left(-n, n+1; 1; {1-z\over 2}\right)"/></p>
 </div><p>Chebyshev polynomials:</p>
 <div class="math">
-<p><img src="../../_images/math/5105865b2170132db2b55f1673335b92a3d6be31.png" alt="T_n(z) = {}_2F_1\left(-n, n;\half; {1-z\over 2}\right)
+<p><span class="eqno">(22)</span><img src="../../_images/math/5105865b2170132db2b55f1673335b92a3d6be31.png" alt="T_n(z) = {}_2F_1\left(-n, n;\half; {1-z\over 2}\right)
 
 U_n(z) = (n+1)\ {}_2F_1\left(-n, n+2;{\textstyle{3\over2}};
     {1-z\over 2}\right)"/></p>
 </div><p>Gegenbauer polynomials:</p>
 <div class="math">
-<p><img src="../../_images/math/a5dfdb73b40728ccfe2783890b59da04d3138fde.png" alt="C_n^\alpha(z) = {(2\alpha)_n \over n!}
+<p><span class="eqno">(23)</span><img src="../../_images/math/a5dfdb73b40728ccfe2783890b59da04d3138fde.png" alt="C_n^\alpha(z) = {(2\alpha)_n \over n!}
     \ {}_2F_1\left(-n, 2\alpha + n;\alpha+\half; {1-z\over 2}\right)"/></p>
 </div><p>Jacobi polynomials:</p>
 <div class="math">
-<p><img src="../../_images/math/b316bf7e489f980a7c37d2ab9447a0e2d9fe8e68.png" alt="P_n^{(\alpha, \beta)}(z) = {(\alpha+1)_n \over n!}
+<p><span class="eqno">(24)</span><img src="../../_images/math/b316bf7e489f980a7c37d2ab9447a0e2d9fe8e68.png" alt="P_n^{(\alpha, \beta)}(z) = {(\alpha+1)_n \over n!}
     \ {}_2F_1\left(-n, 1+\alpha+\beta+n;\alpha+1; {1-z\over 2}\right)"/></p>
 </div><p>Complete elliptic integrals:</p>
 <div class="math">
-<p><img src="../../_images/math/7f5acbabb679ede4e0775f418301a797f22e0bf9.png" alt="K(k) = {\pi\over 2}\ {}_2F_1( \half, \half; 1; k^2)
+<p><span class="eqno">(25)</span><img src="../../_images/math/7f5acbabb679ede4e0775f418301a797f22e0bf9.png" alt="K(k) = {\pi\over 2}\ {}_2F_1( \half, \half; 1; k^2)
 
 E(k) = {\pi\over 2}\ {}_2F_1(-\half, \half; 1; k^2)"/></p>
 </div></div>
@@ -279,18 +279,18 @@ E(k) = {\pi\over 2}\ {}_2F_1(-\half, \half; 1; k^2)"/></p>
 <h3>The Series 3F2<a class="headerlink" href="#the-series-3f2" title="Permalink to this headline">¶</a></h3>
 <p>Elementary functions:</p>
 <div class="math">
-<p><img src="../../_images/math/52747e7ec4b986776070d65c38894b3928938327.png" alt="\tan(z) = {8z\over \pi^2-4z^2}
+<p><span class="eqno">(26)</span><img src="../../_images/math/52747e7ec4b986776070d65c38894b3928938327.png" alt="\tan(z) = {8z\over \pi^2-4z^2}
 \ {}_3F_2(1, \half-{z\over\pi}, \half + {z\over\pi};
     {\textstyle{3\over2}}-{z\over\pi}, {\textstyle{3\over2}} + {z\over\pi}; 1)"/></p>
 </div><p>Dilogarithm:</p>
 <div class="math">
-<p><img src="../../_images/math/5c3dbf8812a3f109738ea7198122a3150e863136.png" alt="\mbox{Li}_2(z) = z\ {}_3F_2(1, 1, 1; 2, 2; z)"/></p>
+<p><span class="eqno">(27)</span><img src="../../_images/math/5c3dbf8812a3f109738ea7198122a3150e863136.png" alt="\mbox{Li}_2(z) = z\ {}_3F_2(1, 1, 1; 2, 2; z)"/></p>
 </div><p>Digamma:</p>
 <div class="math">
-<p><img src="../../_images/math/69a605715e05ec24aa32ff3be08491a7f61c7f42.png" alt="\psi(z) = (z-1)\ {}_3F_2(1, 1, 2-z; 2, 2; 1) -\gamma"/></p>
+<p><span class="eqno">(28)</span><img src="../../_images/math/69a605715e05ec24aa32ff3be08491a7f61c7f42.png" alt="\psi(z) = (z-1)\ {}_3F_2(1, 1, 2-z; 2, 2; 1) -\gamma"/></p>
 </div><p>The Wigner 3j symbol:</p>
 <div class="math">
-<p><img src="../../_images/math/40c0177f33d0e9ece769e2cc2565f785986bd17c.png" alt="\begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; m_3 \end{pmatrix}
+<p><span class="eqno">(29)</span><img src="../../_images/math/40c0177f33d0e9ece769e2cc2565f785986bd17c.png" alt="\begin{pmatrix} j_1 &amp; j_2 &amp; j_3 \\ m_1 &amp; m_2 &amp; m_3 \end{pmatrix}
 = (-1)^{-j_1 + j_2 + m_3} \delta_{-m_3, m_1+m_2}
 {1\over(-j_2+j_3+m_1)! (-j_1+j_3-m_2)!}
 
@@ -305,10 +305,10 @@ E(k) = {\pi\over 2}\ {}_2F_1(-\half, \half; 1; k^2)"/></p>
 <h3>The Series pFq<a class="headerlink" href="#the-series-pfq" title="Permalink to this headline">¶</a></h3>
 <p>Polylogarithm:</p>
 <div class="math">
-<p><img src="../../_images/math/444987ca24e21e2a7bf2c79baba58e068601a742.png" alt="\mbox{Li}_s(z) = z\ {}_{s+1}F_s(1, 1, \dots, 1; 2, \dots, 2; z)"/></p>
+<p><span class="eqno">(30)</span><img src="../../_images/math/444987ca24e21e2a7bf2c79baba58e068601a742.png" alt="\mbox{Li}_s(z) = z\ {}_{s+1}F_s(1, 1, \dots, 1; 2, \dots, 2; z)"/></p>
 </div><p>Fermi-Dirac integral:</p>
 <div class="math">
-<p><img src="../../_images/math/2e70cb6f556b6ee4681ab5b3bc9594718da24c40.png" alt="I_\nu(x) = \int_0^\infty {t^\nu\over 1 + e^{t-x}} \d t
+<p><span class="eqno">(31)</span><img src="../../_images/math/2e70cb6f556b6ee4681ab5b3bc9594718da24c40.png" alt="I_\nu(x) = \int_0^\infty {t^\nu\over 1 + e^{t-x}} \d t
     = -\Gamma(\nu+1) \mbox{Li}_{\nu+1}(-e^x)"/></p>
 </div></div>
 </div>
@@ -317,22 +317,22 @@ E(k) = {\pi\over 2}\ {}_2F_1(-\half, \half; 1; k^2)"/></p>
 <p>By writing out the series expansion for the <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> ratio we can prove
 that:</p>
 <div class="math">
-<p><img src="../../_images/math/9d1ce1ee4b9d42e3005f4e85d51745de6f10ecad.png" alt="p\ {}_1F_1(a; b; x) +
+<p><span class="eqno">(32)</span><img src="../../_images/math/9d1ce1ee4b9d42e3005f4e85d51745de6f10ecad.png" alt="p\ {}_1F_1(a; b; x) +
 q\ {}_1F_1(a+1; b; x) =
     (p+q)\ {}_2F_2\left(a, a\left({p\over q}+1\right)+1;
         b, a\left({p\over q}+1\right); x \right)"/></p>
 </div><p>The left hand side is equal to:</p>
 <div class="math">
-<p><img src="../../_images/math/d83340eb39077e0ba900570d6125dbcd739fbf01.png" alt="p\ {}_1F_1(a; b; x) +
+<p><span class="eqno">(33)</span><img src="../../_images/math/d83340eb39077e0ba900570d6125dbcd739fbf01.png" alt="p\ {}_1F_1(a; b; x) +
 q\ {}_1F_1(a+1; b; x) =
     \sum_{k=0}^\infty {p (a)_k + q(a+1)_k \over (b)_k k!} x^k"/></p>
 </div><p>We simplify the <img class="math" src="../../_images/math/5df9ff73586b830a77fd20e48c09ec0621c07db8.png" alt="t_k"/> term:</p>
 <div class="math">
-<p><img src="../../_images/math/c56ab04ff1911b5ed633b9271c2bb7494c49ae56.png" alt="t_k = {p (a)_k + q(a+1)_k \over (b)_k k!} x^k
+<p><span class="eqno">(34)</span><img src="../../_images/math/c56ab04ff1911b5ed633b9271c2bb7494c49ae56.png" alt="t_k = {p (a)_k + q(a+1)_k \over (b)_k k!} x^k
     = {(a)_k \left(p+q+{qk\over a}\right) \over (b)_k k!} x^k"/></p>
 </div><p>We calculate the ratio <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> as well as <img class="math" src="../../_images/math/10fde25257f32317828fde97047bbe76438b6305.png" alt="t_0"/> to get the normalization:</p>
 <div class="math">
-<p><img src="../../_images/math/36f4844fa46fcac3cf90d3f8c8c96ae96006a434.png" alt="t_0 = p + q
+<p><span class="eqno">(35)</span><img src="../../_images/math/36f4844fa46fcac3cf90d3f8c8c96ae96006a434.png" alt="t_0 = p + q
 
 {t_{k+1}\over t_k} = {(k+a)\left(p+q+{q(k+1)\over a}\right) \over
         (k+b)(k+1) \left(p+q+{qk\over a}\right)} x
@@ -347,15 +347,15 @@ the right hand side and we need to multiply it by the normalization factor <img 
 <p>By writing out the series expansion for the <img class="math" src="../../_images/math/1b0f103e2988acee2eebcca7c325ce7669fceb40.png" alt="t_{k+1}/t_k"/> ratio we can prove
 that:</p>
 <div class="math">
-<p><img src="../../_images/math/e07571ade3083d455feb7ff0f8cc7fe6d6933dfc.png" alt="e^{-x}\ {}_1F_1(1; 2; 2x)
+<p><span class="eqno">(36)</span><img src="../../_images/math/e07571ade3083d455feb7ff0f8cc7fe6d6933dfc.png" alt="e^{-x}\ {}_1F_1(1; 2; 2x)
     = {}_0F_1\left({\textstyle{3\over 2}}; {x^2\over 4}\right)"/></p>
 </div><p>We can also use the substitution <img class="math" src="../../_images/math/d846fe23cf57f1f27726dc98ef9ae63051c76660.png" alt="z={x^2\over 4}"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/fd3be16e8e6659b9a89ad68f2ed15e39d6331998.png" alt="e^{-2\sqrt z}\ {}_1F_1(1; 2; 4\sqrt z)
+<p><span class="eqno">(37)</span><img src="../../_images/math/fd3be16e8e6659b9a89ad68f2ed15e39d6331998.png" alt="e^{-2\sqrt z}\ {}_1F_1(1; 2; 4\sqrt z)
     = {}_0F_1\left({\textstyle{3\over 2}}; z\right)"/></p>
 </div><p>Which is a special case of</p>
 <div class="math">
-<p><img src="../../_images/math/fd04f69333a8d648d60b1cc0007c4e0045cbca00.png" alt="{}_0F_1\left(a; z\right)
+<p><span class="eqno">(38)</span><img src="../../_images/math/fd04f69333a8d648d60b1cc0007c4e0045cbca00.png" alt="{}_0F_1\left(a; z\right)
     = e^{-2\sqrt z}\ {}_1F_1(a-\half; 2a-1; 4\sqrt z)"/></p>
 </div><p>for <img class="math" src="../../_images/math/f3ad420b2c0cc07e3597b4917a1632e6e4db4362.png" alt="a={3\over 2}"/>.</p>
 </div>
@@ -363,10 +363,10 @@ that:</p>
 <h2>Example III<a class="headerlink" href="#example-iii" title="Permalink to this headline">¶</a></h2>
 <p>One way to express <img class="math" src="../../_images/math/b1623213632e8b9de6d0c558dbc1bc68203d4df5.png" alt="\sinh(z)"/> is:</p>
 <div class="math">
-<p><img src="../../_images/math/3f00421f872123991d48c1b85f4657c4aa832799.png" alt="\sinh z = z e^{-z}\ {}_1F_1(1; 2; 2z)"/></p>
+<p><span class="eqno">(39)</span><img src="../../_images/math/3f00421f872123991d48c1b85f4657c4aa832799.png" alt="\sinh z = z e^{-z}\ {}_1F_1(1; 2; 2z)"/></p>
 </div><p>using the previous example, this is equal to:</p>
 <div class="math">
-<p><img src="../../_images/math/6128ae119ae5e231118e215b80c30a052a4048b0.png" alt="\sinh z
+<p><span class="eqno">(40)</span><img src="../../_images/math/6128ae119ae5e231118e215b80c30a052a4048b0.png" alt="\sinh z
     = z e^{-z}\ {}_1F_1(1; 2; 2z)
     = z\ {}_0F_1\left({\textstyle{3\over 2}}; {z^2\over 4}\right)"/></p>
 </div><p>So the lowest hypergeometric function that can express <img class="math" src="../../_images/math/b1623213632e8b9de6d0c558dbc1bc68203d4df5.png" alt="\sinh(z)"/>

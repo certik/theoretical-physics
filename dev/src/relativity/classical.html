@@ -73,12 +73,12 @@
 <p>In all the sections below, the rigid body is rotating around
 the <img class="math" src="../../_images/math/3d60306d6601bee96e70de9d22d49cc5d09e76e0.png" alt="\bomega"/> axis, so:</p>
 <div class="math">
-<p><img src="../../_images/math/0c397d33fc5d6b621a65f7beed733075ca8f2108.png" alt="{\bf v} = \bomega \times {\bf r}"/></p>
+<p><span class="eqno">(1)</span><img src="../../_images/math/0c397d33fc5d6b621a65f7beed733075ca8f2108.png" alt="{\bf v} = \bomega \times {\bf r}"/></p>
 </div><div class="section" id="kinetic-energy">
 <h3>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Permalink to this headline">¶</a></h3>
 <p>The kinetic energy is:</p>
 <div class="math">
-<p><img src="../../_images/math/5241845ccc9f07acb5b3efc121ecad40d038829d.png" alt="T = \int \half\rho({\bf r}) v^2 \d^3 r =
+<p><span class="eqno">(2)</span><img src="../../_images/math/5241845ccc9f07acb5b3efc121ecad40d038829d.png" alt="T = \int \half\rho({\bf r}) v^2 \d^3 r =
 
   = \int \half\rho({\bf r}) {\bf v}\cdot{\bf v} \d^3 r =
 
@@ -91,13 +91,13 @@ the <img class="math" src="../../_images/math/3d60306d6601bee96e70de9d22d49cc5d0
   = \half \bomega \cdot {\bf L}"/></p>
 </div><p>where <img class="math" src="../../_images/math/863bb95f198b32a7d29ed351c4a3b3b0c7831a45.png" alt="{\bf L}"/> is the total angular momentum:</p>
 <div class="math">
-<p><img src="../../_images/math/350c38d9f80a57a370aff11217a01bc826c15850.png" alt="{\bf L} = \int\rho({\bf r}) ({\bf r}\times {\bf v}) \d^3 r"/></p>
+<p><span class="eqno">(3)</span><img src="../../_images/math/350c38d9f80a57a370aff11217a01bc826c15850.png" alt="{\bf L} = \int\rho({\bf r}) ({\bf r}\times {\bf v}) \d^3 r"/></p>
 </div></div>
 <div class="section" id="angular-momentum">
 <h3>Angular Momentum<a class="headerlink" href="#angular-momentum" title="Permalink to this headline">¶</a></h3>
 <p>Total angular momentum is:</p>
 <div class="math">
-<p><img src="../../_images/math/879528765473edb032b12da1f900f5a256779cf7.png" alt="{\bf L}
+<p><span class="eqno">(4)</span><img src="../../_images/math/879528765473edb032b12da1f900f5a256779cf7.png" alt="{\bf L}
     = \int \rho({\bf r}) ({\bf r} \times {\bf v}) \d^3 r =
 
     = \int \rho({\bf r}) ({\bf r} \times (\bomega \times {\bf r}))
@@ -112,25 +112,25 @@ the <img class="math" src="../../_images/math/3d60306d6601bee96e70de9d22d49cc5d0
     = {\bf I} \cdot \bomega"/></p>
 </div><p>Where <img class="math" src="../../_images/math/d1142d920fef37d7ccc2c79337cff25ed997ce61.png" alt="{\bf I}"/> is the moment of inertia tensor:</p>
 <div class="math">
-<p><img src="../../_images/math/b23944c45bbbb0d1b9d84099df078ca3412c0287.png" alt="{\bf I} = \int \rho({\bf r}) (\one r^2 - {\bf r} {\bf r}) \d^3 r"/></p>
+<p><span class="eqno">(5)</span><img src="../../_images/math/b23944c45bbbb0d1b9d84099df078ca3412c0287.png" alt="{\bf I} = \int \rho({\bf r}) (\one r^2 - {\bf r} {\bf r}) \d^3 r"/></p>
 </div></div>
 <div class="section" id="moment-of-inertia">
 <h3>Moment of Inertia<a class="headerlink" href="#moment-of-inertia" title="Permalink to this headline">¶</a></h3>
 <p>The moment of inertia tensor and its components are:</p>
 <div class="math">
-<p><img src="../../_images/math/53600c4f662ab927e6389302611b4d4a6ceb7bd9.png" alt="{\bf I} = \int \rho({\bf r}) (\one r^2 - {\bf r} {\bf r}) \d^3 r
+<p><span class="eqno">(6)</span><img src="../../_images/math/53600c4f662ab927e6389302611b4d4a6ceb7bd9.png" alt="{\bf I} = \int \rho({\bf r}) (\one r^2 - {\bf r} {\bf r}) \d^3 r
 
 I^{ij} = \int \rho({\bf r}) (\delta^{ij} r_k r^k - r^i r^j) \d^3 r"/></p>
 </div><p>Let&#8217;s write <img class="math" src="../../_images/math/239230d5c5ac424bbd6d68747e87f74830ec3fdc.png" alt="\bomega=\omega {\bf n}"/> (where <img class="math" src="../../_images/math/7167e63ccb518e7049027f1ab62f768759b9f97c.png" alt="{\bf n}"/> is a unit vector),
 then the kinetic energy is:</p>
 <div class="math">
-<p><img src="../../_images/math/14de670b40bdeb2292766783cf2b0de78cdce5d2.png" alt="T = \half \bomega \cdot {\bf L}
+<p><span class="eqno">(7)</span><img src="../../_images/math/14de670b40bdeb2292766783cf2b0de78cdce5d2.png" alt="T = \half \bomega \cdot {\bf L}
   = \half \bomega \cdot {\bf I} \cdot \bomega
   = \half {\bf n} \cdot {\bf I} \cdot {\bf n}\, \omega^2
   = \half I \omega^2"/></p>
 </div><p>where <img class="math" src="../../_images/math/027f4a11d6090f9eac0ce2488df6384dad1263ea.png" alt="I"/> is the moment of inertia about the axis of rotation:</p>
 <div class="math">
-<p><img src="../../_images/math/528b34adfb321634766c5a17302ab94633009457.png" alt="I = {\bf n} \cdot {\bf I} \cdot {\bf n} =
+<p><span class="eqno">(8)</span><img src="../../_images/math/528b34adfb321634766c5a17302ab94633009457.png" alt="I = {\bf n} \cdot {\bf I} \cdot {\bf n} =
 
   = {\bf n} \cdot \int \rho({\bf r}) (\one r^2 - {\bf r} {\bf r}) \d^3 r
     \cdot {\bf n} =
@@ -141,7 +141,7 @@ then the kinetic energy is:</p>
 <p>Solid cylinder of radius <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248bc4d3a9d0cd4.png" alt="R"/>, height <img class="math" src="../../_images/math/8189a5b5a0917b8c93350827be4038af1839139d.png" alt="h"/> and mass <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/>. We&#8217;ll use cylindrical
 coordinates. First for rotation about the <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> axis:</p>
 <div class="math">
-<p><img src="../../_images/math/637f67cfeca350e87422371441bafbae7a988d92.png" alt="V = \pi R^2 h
+<p><span class="eqno">(9)</span><img src="../../_images/math/637f67cfeca350e87422371441bafbae7a988d92.png" alt="V = \pi R^2 h
 
 {\bf n} = (0, 0, 1)
 
@@ -174,7 +174,7 @@ I = \int \rho({\bf r}) (r^2 - ({\bf r}\cdot {\bf n})^2) \d^3 r
 </div>
 <p>And about the <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> axis:</p>
 <div class="math">
-<p><img src="../../_images/math/a16a3ab201bb08465323703865bd9c51da2fd90a.png" alt="{\bf n} = (1, 0, 0)
+<p><span class="eqno">(10)</span><img src="../../_images/math/a16a3ab201bb08465323703865bd9c51da2fd90a.png" alt="{\bf n} = (1, 0, 0)
 
 {\bf r} = (\rho\cos\phi, \rho\sin\phi, z)
 
@@ -216,7 +216,7 @@ of radius <img class="math" src="../../_images/math/eff43e84f8a3bcf7b6965f0a3248
 coordinates. All axes are equivalent, so we use
 rotation about the <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> axis:</p>
 <div class="math">
-<p><img src="../../_images/math/700b4d4cb711d42480b5668818e8edbf9c998d63.png" alt="V = {4\over3} \pi R^3
+<p><span class="eqno">(11)</span><img src="../../_images/math/700b4d4cb711d42480b5668818e8edbf9c998d63.png" alt="V = {4\over3} \pi R^3
 
 {\bf n} = (0, 0, 1)
 

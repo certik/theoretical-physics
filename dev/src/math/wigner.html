@@ -72,12 +72,12 @@
 in the <img class="math" src="../../_images/math/b411dcb8306f0951dede20bea23ba18cd4485830.png" alt="jm"/>-representation. For the Euler angles <img class="math" src="../../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha"/>, <img class="math" src="../../_images/math/fdb63b9e51abe6bbb16acfb5d7b773ddbb5bf4a8.png" alt="\beta"/>, <img class="math" src="../../_images/math/66981fa3920210c6ad8dbe5e968783d5dd7520c3.png" alt="\gamma"/>,
 the <img class="math" src="../../_images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D"/> function is defined as:</p>
 <div class="math">
-<p><img src="../../_images/math/201ae97419f7fa52badbcc3cf004aa4227b8c702.png" alt="\braket{j,m| R(\alpha, \beta, \gamma) |j',m'} =
+<p><span class="eqno">(1)</span><img src="../../_images/math/201ae97419f7fa52badbcc3cf004aa4227b8c702.png" alt="\braket{j,m| R(\alpha, \beta, \gamma) |j',m'} =
     \delta_{jj'} D(j, m, m', \alpha, \beta, \gamma)"/></p>
 </div><p>Where the rotation operator <img class="math" src="../../_images/math/c4bf533f1735dc509dcd8fd510b8faacb107d12f.png" alt="R(\alpha, \beta, \gamma)"/> is defined using the
 <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>-<img class="math" src="../../_images/math/092e364e1d9d19ad5fffb0b46ef4cc7f2da02c1c.png" alt="y"/>-<img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/> convention:</p>
 <div class="math">
-<p><img src="../../_images/math/1061e68e43fbaecff9a4f9c7c139785c61b3b103.png" alt="R(\alpha, \beta, \gamma) =
+<p><span class="eqno">(2)</span><img src="../../_images/math/1061e68e43fbaecff9a4f9c7c139785c61b3b103.png" alt="R(\alpha, \beta, \gamma) =
     e^{-i\alpha J_z}
     e^{-i\beta J_y}
     e^{-i\gamma J_z}"/></p>
@@ -87,7 +87,7 @@ Using the fact that <img class="math" src="../../_images/math/3a707971131b671187
 see that the Wigner <img class="math" src="../../_images/math/9ffb448918db29f2a72f8f87f421b3b3cad18f95.png" alt="D"/> function can always be written using the Wigner
 small-<img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> function as:</p>
 <div class="math">
-<p><img src="../../_images/math/9f3b530ad7c2950701864acf5240fb02e1f06b7c.png" alt="D(j, m, m', \alpha, \beta, \gamma)
+<p><span class="eqno">(3)</span><img src="../../_images/math/9f3b530ad7c2950701864acf5240fb02e1f06b7c.png" alt="D(j, m, m', \alpha, \beta, \gamma)
     = \braket{j,m| R(\alpha, \beta, \gamma) |j,m'}
     = \braket{j,m| e^{-i\alpha J_z} e^{-i\beta J_y} e^{-i\gamma J_z} |j,m'}
     =
@@ -96,10 +96,10 @@ small-<img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45
     = e^{-i m \alpha} d(j, m, m', \beta) e^{-i m' \gamma}"/></p>
 </div><p>where</p>
 <div class="math">
-<p><img src="../../_images/math/f8510910a3d2ffa5cf395bc052bdb32a5aae599c.png" alt="d(j, m, m', \beta) = \braket{j,m| e^{-i\beta J_y} |j,m'}"/></p>
+<p><span class="eqno">(4)</span><img src="../../_images/math/f8510910a3d2ffa5cf395bc052bdb32a5aae599c.png" alt="d(j, m, m', \beta) = \braket{j,m| e^{-i\beta J_y} |j,m'}"/></p>
 </div><p>We can use the following relations to evaluate <img class="math" src="../../_images/math/b1b5b72b927371e53b27e76968e445726894906d.png" alt="d(j, m, m', \beta)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/79d07006abacfe9d2bf8af62461f3a9ca709da06.png" alt="d(j, m, m', \beta) = i^{2j-m-m'} (-1)^{2m}\sum_{m''=-j}^j
+<p><span class="eqno">(5)</span><img src="../../_images/math/79d07006abacfe9d2bf8af62461f3a9ca709da06.png" alt="d(j, m, m', \beta) = i^{2j-m-m'} (-1)^{2m}\sum_{m''=-j}^j
     d(j, m, m'', {\pi\over2})
     e^{-i m'' \beta}
     d(j, m'', -m', {\pi\over2})
@@ -111,19 +111,19 @@ d(j, m, m', {\pi\over2}) = (-1)^{m-m'} {1\over 2^j}
 <h2>Derivation<a class="headerlink" href="#derivation" title="Permalink to this headline">¶</a></h2>
 <p>The small-<img class="math" src="../../_images/math/96ab646de7704969b91c76a214126b45f2b07b25.png" alt="d"/> function formula above can be derived from the following formula:</p>
 <div class="math">
-<p><img src="../../_images/math/b7c9a0863056e511922c278c1a022661a9622c03.png" alt="d(j, m, m', \beta) = \sum_k (-1)^k
+<p><span class="eqno">(6)</span><img src="../../_images/math/b7c9a0863056e511922c278c1a022661a9622c03.png" alt="d(j, m, m', \beta) = \sum_k (-1)^k
     {\sqrt{(j+m)! (j-m)! (j+m')! (j-m')!} \over
         (j-m'-k)! (j+m-k)! k! (k+m'-m)! }
     \cos^{2j+m-m'-2k} {\beta\over2}
     \sin^{2k+m'-m} {\beta\over2}"/></p>
 </div><p>by substituting</p>
 <div class="math">
-<p><img src="../../_images/math/281d4ad6626e31dd8fb0ba2dc854c87e155e1a4a.png" alt="a = +e^{-\half i \alpha} \cos {\beta\over 2} e^{-\half i \gamma}
+<p><span class="eqno">(7)</span><img src="../../_images/math/281d4ad6626e31dd8fb0ba2dc854c87e155e1a4a.png" alt="a = +e^{-\half i \alpha} \cos {\beta\over 2} e^{-\half i \gamma}
 
 b = -e^{-\half i \alpha} \sin {\beta\over 2} e^{+\half i \gamma}"/></p>
 </div><p>into</p>
 <div class="math">
-<p><img src="../../_images/math/0731b12d01151e747281e708f3168ddf37cd97ad.png" alt="\sum_k (-1)^k
+<p><span class="eqno">(8)</span><img src="../../_images/math/0731b12d01151e747281e708f3168ddf37cd97ad.png" alt="\sum_k (-1)^k
     {\sqrt{(j+m)! (j-m)! (j+m')! (j-m')!} \over
         (j-m'-k)! (j+m-k)! k! (k+m'-m)! }
     a^{j-m'-k}
@@ -132,16 +132,16 @@ b = -e^{-\half i \alpha} \sin {\beta\over 2} e^{+\half i \gamma}"/></p>
     {b^*}^{k+m'-m}"/></p>
 </div><p>This follows from:</p>
 <div class="math">
-<p><img src="../../_images/math/fc18af4df2d60727916bf093cbe6ba8640df80a5.png" alt="\epsilon' = a\epsilon + b\zeta
+<p><span class="eqno">(9)</span><img src="../../_images/math/fc18af4df2d60727916bf093cbe6ba8640df80a5.png" alt="\epsilon' = a\epsilon + b\zeta
 
 \zeta' = -b^*\epsilon + a^*\zeta"/></p>
 </div><p>let the polynomial be:</p>
 <div class="math">
-<p><img src="../../_images/math/7edd4023c9dc7f29a2d01b9deb8905493311b05b.png" alt="f_m(\epsilon, \zeta) = {\epsilon^{j+m} \zeta^{j-m} \over
+<p><span class="eqno">(10)</span><img src="../../_images/math/7edd4023c9dc7f29a2d01b9deb8905493311b05b.png" alt="f_m(\epsilon, \zeta) = {\epsilon^{j+m} \zeta^{j-m} \over
     \sqrt{(j+m)! (j-m)!}}"/></p>
 </div><p>and (using binomial theorem in the process):</p>
 <div class="math">
-<p><img src="../../_images/math/bd8950829b643206f89e7208b0cea965ee16a39d.png" alt="{\bf P_u} f_m(\epsilon, \zeta) = f_m(a^*\epsilon - b\zeta,
+<p><span class="eqno">(11)</span><img src="../../_images/math/bd8950829b643206f89e7208b0cea965ee16a39d.png" alt="{\bf P_u} f_m(\epsilon, \zeta) = f_m(a^*\epsilon - b\zeta,
     b^*\epsilon + a\zeta) =
         {(a^*\epsilon - b\zeta)^{j+m} (b^*\epsilon + a\zeta)^{j-m} \over
     \sqrt{(j+m)! (j-m)!}}
