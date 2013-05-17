@@ -457,6 +457,7 @@ This also gives a formula for computing ${\delta F\over\delta f(x)}$: we set
 $h(y)=\delta(x-y)$ and
 
 .. math::
+    :label: functional_derivative_def
 
        {\delta F\over\delta f(x)}=a(x)=\int a(y)\delta(x-y)\d y= \left.{\d\over\d\varepsilon}F[f(y)+\varepsilon\delta(x-y)] \right|_{\varepsilon=0}=
 
@@ -501,7 +502,10 @@ the definition of the functional derivative:
        \delta F[f]=\int {\delta F\over\delta f(x)} \delta f(x) \d x
 
 and the understanding that $\delta f$ means either
-$h(x)=f(x) - f_0(x)$ or a variation.
+$h(x)=f(x) - f_0(x)$ or a variation. The last equation is the best way to
+calculate functional derivative --- apply $\delta$ variation, until you get the
+integral into the form $\int \big(\ \ \big) \delta f(x) \d x$ and then you read off
+the functional derivative from the expression in the parentheses.
 
 The correspondence between the finite and infinite dimensional case can be
 summarized as:
@@ -548,9 +552,13 @@ In the expression $\delta(K(x) f(x))$ we must understand from the context if
 we are treating it as a functional of $f$ or $K$. In our case it's a
 functional of $f$, so we have $\delta(K f)=K\delta f$.
 
-A few more examples (notice that one can do each calculation either in terms of
-the functional derivative or the variation, and the variation version is usually
-simpler):
+Examples
+~~~~~~~~
+
+Some of these examples show how to use the delta function definition of the
+functional derivative in equation :eq:`functional_derivative_def`. However, the
+simplest way is to calculate variation first and then read off the functional
+derivative from the result, as explained above.
 
 .. math::
 
@@ -602,7 +610,7 @@ Lagrangian density $\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)$:
 
 .. math::
 
-    0 = \delta I = \delta \int \L \,\d^4x^\mu
+    0 = \delta S = \delta \int \L \,\d^4x^\mu
     = \int \delta \L \,\d^4x^\mu
     = \int { \partial \L\over\partial \eta_\rho}\delta\eta_\rho
         +
@@ -641,6 +649,18 @@ Lagrangian density $\L=\L(\eta_\rho, \partial_\nu \eta_\rho, x^\nu)$:
         \delta\eta_\rho
         \,\d^4x^\mu
 
+We can also write it using a functional derivative ${\delta
+S\over\delta\eta_\rho}$ as:
+
+.. math::
+
+    {\delta S\over\delta\eta_\rho}
+        = { \partial \L\over\partial \eta_\rho}
+        -
+        \partial_\nu\left(
+        { \partial \L\over\partial (\partial_\nu \eta_\rho)}
+        \right)
+
 Another example:
 
 .. math::
@@ -652,7 +672,7 @@ Another example:
 
        =\left.\int3(f(x)+\varepsilon\delta(x-t))^2\delta(x-t)\d x \right|_{\varepsilon=0}=\int3f^2(x)\delta(x-t)\d x=3f^2(t)
 
-One might thing that the above calculation is incorrect, because
+One might think that the above calculation is incorrect, because
 $\delta^2(x-t)$ is undefined. In case of
 such problems the above notation automatically implies working with some
 sequence $\delta_\alpha(x) \to \delta(x)$ (for example $\delta_\alpha(x) =
@@ -675,7 +695,19 @@ sequence $\delta_\alpha(x) \to \delta(x)$ (for example $\delta_\alpha(x) =
 
 As you can see, we got the same result, with the same rigor, but using an
 obfuscating notation. That's why such obvious manipulations with
-$\delta_\alpha$ are tacitly implied.
+$\delta_\alpha$ are tacitly implied. However, the best method is to first
+calculate the variation:
+
+.. math::
+
+    \delta \int f^3(x) \d x = \int \delta f^3(x) \d x
+    =\int 3 f^2(x) \delta f(x) \d x
+
+and immediately read off the functional derivative:
+
+.. math::
+
+    {\delta\over\delta f(t)} \int f^3(x) \d x = 3 f^2(t)
 
 Another example with a metric as a function of coordinates
 $g_{\mu\nu} = g_{\mu\nu}(x^\mu)$:
@@ -747,6 +779,10 @@ Another example (Hartree energy):
     E[n] = \half \int {n({\bf r}') n({\bf r}'')\over
         | {\bf r}' - {\bf r}''| } \d^3 r' \d^3 r''
 
+we calculate the variation first:
+
+.. math::
+
     \delta E[n] = \half \delta \int {n({\bf r}') n({\bf r}'')\over
         | {\bf r}' - {\bf r}''| } \d^3 r' \d^3 r'' =
 
@@ -760,8 +796,62 @@ Another example (Hartree energy):
         = \int { n({\bf r}') \over | {\bf r} - {\bf r}'| }
             (\delta n({\bf r})) \d^3 r' \d^3 r
 
+so the functional derivative is:
+
+.. math::
+
     {\delta E[n]\over \delta n({\bf r})}
         = \int { n({\bf r}') \over | {\bf r} - {\bf r}'| } \d^3 r'
+
+Another example (functional with gradients):
+
+.. math::
+
+    F[n] = \int h(n) {| \nabla n|^2 \over n} \d^3 r
+
+the variation is:
+
+.. math::
+
+    \delta F[n]
+        = \int \delta \left( h(n) {| \nabla n|^2 \over n} \right) \d^3 r =
+
+        = \int {\d h \over \d n} {| \nabla n|^2 \over n} \delta n
+            + h(n)\left(2n\nabla n \cdot \nabla \delta n - | \nabla n|^2
+              \delta n
+              \over n^2\right) \d^3 r =
+
+        = \int \left({\d h \over \d n} - {h(n)\over n}\right)
+            {| \nabla n|^2 \over n}
+            \delta n
+            + 2 h(n){\nabla n \cdot \nabla \delta n \over n} \d^3 r =
+
+        = \int \left({\d h \over \d n} - {h(n)\over n} \right)
+            {| \nabla n|^2 \over n}
+            \delta n
+            - 2 \nabla\cdot\left(h(n){\nabla n \over n}\right)\delta n\ \d^3 r =
+
+        = \int \left({\d h \over \d n} - {h(n)\over n} \right)
+            {| \nabla n|^2 \over n}
+            \delta n
+            - 2 \left({\d h \over \d n}{| \nabla n|^2 \over n}
+              +h(n){\nabla^2 n \over n}
+              -h(n){| \nabla n|^2 \over n^2}
+              \right)\delta n\ \d^3 r =
+
+        = \int \left[ \left({h(n)\over n} - {\d h \over \d n}\right)
+            {| \nabla n|^2 \over n}
+            - 2 h(n){\nabla^2 n \over n}\right]
+              \delta n\ \d^3 r
+
+from which we read off the functional derivative:
+
+.. math::
+
+    {\delta F[n] \over \delta n({\bf r})}
+        = \left({h(n)\over n} - {\d h \over \d n}\right)
+            {| \nabla n|^2 \over n}
+            - 2 h(n){\nabla^2 n \over n}
 
 .. index:: dirac notation
 
