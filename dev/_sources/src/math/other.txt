@@ -508,12 +508,26 @@ integral into the form $\int \big(\ \ \big) \delta f(x) \d x$ and then you read 
 the functional derivative from the expression in the parentheses.
 
 The correspondence between the finite and infinite dimensional case can be
-summarized as:
+summarized using a functional $F[n]$, function $n({\bf x})$ of continuous
+parameter ${\bf x}$ (which can be a scalar or a vector) and its discretized
+version $n_i \equiv n({\bf x}_i)$, together with a function $F(n)$:
 
 .. math::
-    :nowrap:
 
-    \begin{eqnarray*} f(x_i) \quad&\Longleftrightarrow&\quad F[f] \\ \d f=0 \quad&\Longleftrightarrow&\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&\Longleftrightarrow&\quad {\delta F\over\delta f(x)}=0 \\ f \quad&\Longleftrightarrow&\quad F \\ x_i \quad&\Longleftrightarrow&\quad f(x) \\ x \quad&\Longleftrightarrow&\quad f \\ i \quad&\Longleftrightarrow&\quad x \\ \end{eqnarray*}
+    i \quad & \Longleftrightarrow \quad {\bf x} \\
+    n_i \quad & \Longleftrightarrow \quad n({\bf x}) \\
+    F(n_i) \quad & \Longleftrightarrow \quad F[n] \\
+    \d F = 0 \quad & \Longleftrightarrow \quad \delta F = 0 \\
+    {\partial F\over\partial n_i} = 0 \quad & \Longleftrightarrow \quad
+        {\delta F \over \delta n({\bf x})} = 0 \\
+
+In other words, the basic difference is that the continuous parameter ${\bf x}$
+has been replaced with a discrete parameter $i$. Then the function $n({\bf x})$
+becomes a vector of values $n_i$, variation becomes a differential and
+functional derivative becomes a partial derivative. To minimize a functional,
+one must search for zero functional derivative, while in the discrete case one
+searches for zero partial derivatives (gradient).
+
 
 
 More generally, $\delta$-variation can by applied to any function $g$ which

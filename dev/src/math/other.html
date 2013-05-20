@@ -398,10 +398,23 @@ calculate functional derivative &#8212; apply <img class="math" src="../../_imag
 integral into the form <img class="math" src="../../_images/math/0245dd994739dbab8e681fde6d01835ae6a04cd3.png" alt="\int \big(\ \ \big) \delta f(x) \d x"/> and then you read off
 the functional derivative from the expression in the parentheses.</p>
 <p>The correspondence between the finite and infinite dimensional case can be
-summarized as:</p>
+summarized using a functional <img class="math" src="../../_images/math/bba4cdb965199558e715ee20309f3740b9a9f6c1.png" alt="F[n]"/>, function <img class="math" src="../../_images/math/f10e663a3514899631dbd824742529f30025fb21.png" alt="n({\bf x})"/> of continuous
+parameter <img class="math" src="../../_images/math/81be9c56d3b198d87b4049cff4e32bb5c187c52d.png" alt="{\bf x}"/> (which can be a scalar or a vector) and its discretized
+version <img class="math" src="../../_images/math/d61b106df5eb764de9d8a63ffe92e0d83dfd08ea.png" alt="n_i \equiv n({\bf x}_i)"/>, together with a function <img class="math" src="../../_images/math/2663041fd2b9fbd85c85ad832f67c7a743a09c52.png" alt="F(n)"/>:</p>
 <div class="math">
-<p><img src="../../_images/math/847f04226ae2cb7a6dd56aee63bc4e3292504c66.png" alt="\begin{eqnarray*} f(x_i) \quad&amp;\Longleftrightarrow&amp;\quad F[f] \\ \d f=0 \quad&amp;\Longleftrightarrow&amp;\quad \delta F=0 \\ {\partial f\over\partial x_i}=0 \quad&amp;\Longleftrightarrow&amp;\quad {\delta F\over\delta f(x)}=0 \\ f \quad&amp;\Longleftrightarrow&amp;\quad F \\ x_i \quad&amp;\Longleftrightarrow&amp;\quad f(x) \\ x \quad&amp;\Longleftrightarrow&amp;\quad f \\ i \quad&amp;\Longleftrightarrow&amp;\quad x \\ \end{eqnarray*}"/></p>
-</div><p>More generally, <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/>-variation can by applied to any function <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> which
+<p><img src="../../_images/math/231ed30ad0c5bcd393b754bc75612fb4147d46df.png" alt="i \quad &amp; \Longleftrightarrow \quad {\bf x} \\
+n_i \quad &amp; \Longleftrightarrow \quad n({\bf x}) \\
+F(n_i) \quad &amp; \Longleftrightarrow \quad F[n] \\
+\d F = 0 \quad &amp; \Longleftrightarrow \quad \delta F = 0 \\
+{\partial F\over\partial n_i} = 0 \quad &amp; \Longleftrightarrow \quad
+    {\delta F \over \delta n({\bf x})} = 0 \\"/></p>
+</div><p>In other words, the basic difference is that the continuous parameter <img class="math" src="../../_images/math/81be9c56d3b198d87b4049cff4e32bb5c187c52d.png" alt="{\bf x}"/>
+has been replaced with a discrete parameter <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/>. Then the function <img class="math" src="../../_images/math/f10e663a3514899631dbd824742529f30025fb21.png" alt="n({\bf x})"/>
+becomes a vector of values <img class="math" src="../../_images/math/7eb75ccf06e046206cb4c636a54d7be11d049fbf.png" alt="n_i"/>, variation becomes a differential and
+functional derivative becomes a partial derivative. To minimize a functional,
+one must search for zero functional derivative, while in the discrete case one
+searches for zero partial derivatives (gradient).</p>
+<p>More generally, <img class="math" src="../../_images/math/0a42a8b725c200085e5253db2d2fbf8dab898a8f.png" alt="\delta"/>-variation can by applied to any function <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/> which
 contains the function <img class="math" src="../../_images/math/c96dd6ec1dc4ad7520fbdc78fcdbec9edd068d0c.png" alt="f(x)"/> being varied, you just need to replace <img class="math" src="../../_images/math/bb2c93730dbb48558bb3c4738c956c4e8f816437.png" alt="f"/> by
 <img class="math" src="../../_images/math/c06519738d7b1dca4ef16eaf7c3ceeffdf769812.png" alt="f+\epsilon h"/> and apply <img class="math" src="../../_images/math/9f23bfd30193abbf05a0a4902dd0f07bca098b8a.png" alt="{\d\over\d\epsilon}"/> to the whole <img class="math" src="../../_images/math/311cabda3a9b09f0dde217303ca9d1cd9201dcf6.png" alt="g"/>, for example
 (here <img class="math" src="../../_images/math/863c88d6680dd27db9835a147c0ce37233109ee1.png" alt="g=\partial_\mu\phi"/> and <img class="math" src="../../_images/math/173ffb3899170071c1007f633772f81a1d284757.png" alt="f=\phi"/>):</p>
