@@ -889,6 +889,110 @@ can then be written in the compact form</p>
 making the Jacobian <img class="math" src="../../_images/math/f54abaaa7e2a86fbbd85f9710538c2f68965e650.png" alt="J_{ik}"/> dense.</p>
 </div>
 </div>
+<div class="section" id="orbital-free-density-functional-theory">
+<h2>Orbital Free Density Functional Theory<a class="headerlink" href="#orbital-free-density-functional-theory" title="Permalink to this headline">¶</a></h2>
+<p>The orbital-free electronic free energy is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/8a6b7d48acc763f0f7e1f6521b717026ae408d67.png" alt="F_e[n_e] = T_0[n_e] + U_{en}[n_e] + U_{ee}[n_e] + F_{xc}[n_e]\,,"/></p>
+</div><p>where the kinetic energy is</p>
+<div class="math">
+<p><img src="../../_images/math/15fa9573e7697d64d8bd2b6fbe1f5087a952d48c.png" alt="T_0[n_e] = {1\over\beta}\!\! \int\!\! \left(\!
+n_e(\mathbf{x}) \Phi(n_e(\mathbf{x})) -
+{2\sqrt2\over 3\pi^2 \beta^{3\over2}} I_{3\over2}(\Phi(n_e(\mathbf{x})))
+\!\!\right) \!\d^3 x =
+
+={1\over\beta} \int n_e(\mathbf{x}) f(y) \d^3 x\,;\quad\quad
+y={\pi^2\over\sqrt2}\beta^{3\over2} n_e\,,"/></p>
+</div><p>the electron-nuclei term has the form</p>
+<div class="math">
+<p><img src="../../_images/math/abf4ccb0c505b546ec7e5fe3a3c1acc33b7acf51.png" alt="U_{en}[n_e]
+    = \int {n_e(\mathbf{x}) n_n(\mathbf{x}')\over
+        |\mathbf{x} - \mathbf{x}'|}\d^3 x\d^3 x'
+    = \int n_e(\mathbf{x}) V_{en}(\mathbf{x}) \d^3 x\,,"/></p>
+</div><p>The electron-electron (Hartree) term takes the form:</p>
+<div class="math">
+<p><img src="../../_images/math/845eae531516da0e4fd07eb2ebb2d21b0143e183.png" alt="U_{ee}[n_e]
+    = \half \int {n_e(\mathbf{x}) n_e(\mathbf{x}')\over
+        |\mathbf{x} - \mathbf{x}'|}\d^3 x\d^3 x'
+    = \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,,"/></p>
+</div><p>and the exchange and correlation functional <img class="math" src="../../_images/math/752859a9a17275459b8072d7cbbe1293c42cedc5.png" alt="F_{xc}[n_e]"/> is given by
+the Perdew-Zunger LDA:</p>
+<div class="math">
+<p><img src="../../_images/math/22b9e8ec5b547a74f613d5df44f9533dc621ea21.png" alt="F_{xc}[n_e]
+    = \int n_e(\mathbf{x}) \epsilon_{xc}^{LD}(n_e) \d^3 x\,,"/></p>
+</div><p><img class="math" src="../../_images/math/336c2b651c2542cc84619afaeb897a6125e2cd72.png" alt="n_e(\mathbf{x})"/> is the (positive) electron density,
+<img class="math" src="../../_images/math/f83adb8b32fe5d8fa9fec8e2b048456c66120f9d.png" alt="n_n(\mathbf{x})"/> is the (positive) nuclei density.</p>
+<p>We minimize this free energy under the condition of particle conservation. The
+constrained functional is (we use <img class="math" src="../../_images/math/cf61ff423c543431b95a8c81dbdd0a043294c8e8.png" alt="n\equiv n_e"/> from now on):</p>
+<div class="math">
+<p><img src="../../_images/math/d7f96eadfb3c9844f46e4c5048fa2ce86789e6e5.png" alt="\Omega[n] = F_e[n] - \epsilon \left(\int n(\mathbf{x}) \d^3 x - N\right)"/></p>
+</div><p>The variational solution is:</p>
+<div class="math">
+<p><img src="../../_images/math/c25c6abd82cef774b081f4d77f921348e7209405.png" alt="{\delta \Omega[n] \over \delta n} = 0"/></p>
+</div><p>Or:</p>
+<div class="math">
+<p><img src="../../_images/math/a0dc9b58871d32bedf36553bb5a11e0feb426975.png" alt="{\delta F_e[n] \over \delta n} = \epsilon"/></p>
+</div><p>Finally we get:</p>
+<div class="math" id="equation-of-dft">
+<p><span class="eqno">(17)</span><img src="../../_images/math/a990e4bf0d19a06b194f4fd1efa3691142539a6e.png" alt="H[n] \equiv
+{\delta T_0[n] \over \delta n}
++ {\delta U_{en}[n] \over \delta n}
++ {\delta U_{ee}[n] \over \delta n}
++ {\delta F_{xc}[n] \over \delta n}
+= \epsilon"/></p>
+</div><p>The individual terms are:</p>
+<div class="math">
+<p><img src="../../_images/math/588542f9b1d29115903c22c5a834269cdbe8eb5f.png" alt="{\delta T_0[n] \over \delta n} =
+    {1\over\beta} \left( f(y) + n(\mathbf{x}) {\d f(y) \over \d y}
+    {\pi^2\over\sqrt2}\beta^{3\over2} \right)"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/8402703ecc8357a4cc7700aafdc49ecbef23f1de.png" alt="{\delta U_{en}[n] \over \delta n}
+    = \int {n_n(\mathbf{x}')\over
+        |\mathbf{x} - \mathbf{x}'|}\d^3 x'
+    \equiv V_{en}(\mathbf{x})"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/ce43406f029a696f8cdb1df4e8bf01589fee97f0.png" alt="{\delta U_{ee}[n] \over \delta n}
+    = \int {n(\mathbf{x}')\over
+        |\mathbf{x} - \mathbf{x}'|}\d^3 x'
+    \equiv V_{ee}(\mathbf{x})"/></p>
+</div><p>and</p>
+<div class="math">
+<p><img src="../../_images/math/049ba9c5d339b22f95e065f92611cf7614c15956.png" alt="{\delta F_{xc}[n] \over \delta n}
+    = \epsilon_{xc}^{LD}(n) + n(\mathbf{x})
+        {\d \epsilon_{xc}^{LD}(n) \over \d n}
+    \equiv V_{xc}(\mathbf{x})"/></p>
+</div><p>All together the Hamiltonian is:</p>
+<div class="math">
+<p><img src="../../_images/math/73d31bc6eb51cab54b32b83b7f41e59c1a03c7b5.png" alt="H[n] =
+    {1\over\beta} \left( f(y) + n(\mathbf{x}) {\d f(y) \over \d y}
+    {\pi^2\over\sqrt2}\beta^{3\over2} \right)
+    +
+    V_{en}(\mathbf{x})
+    +
+    V_{ee}(\mathbf{x})
+    +
+    V_{xc}(\mathbf{x})"/></p>
+</div><p>We can also introduce an artificial orbital <img class="math" src="../../_images/math/ebcbd2fc4a510a5859473cc1961a33be1faf9b9b.png" alt="\psi(\mathbf{x})"/> as follows:</p>
+<div class="math">
+<p><img src="../../_images/math/b2f1a0331805689567d75aa779031fa8c3ab501c.png" alt="n(\mathbf{x}) = \psi^2(\mathbf{x})"/></p>
+</div><p>and minimize <img class="math" src="../../_images/math/9e2b196e9b7e57d1ec99f6534c581ea9759d2170.png" alt="\Omega"/> with respect to <img class="math" src="../../_images/math/8ada738001410f131563551fb68731e4f302048d.png" alt="\psi"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/9aa4c68caee10f9101bb9c583576a0319a365453.png" alt="{\delta \Omega[n] \over \delta \psi} = 0 \,."/></p>
+</div><p>Using the relation</p>
+<div class="math">
+<p><img src="../../_images/math/5323b003277d19d8a98c98647f62376638e8d0aa.png" alt="{\delta \over \delta \psi}
+    = {\d n \over \d \psi} {\delta \over \delta n}
+    = 2 \psi {\delta \over \delta n}"/></p>
+</div><p>we obtain:</p>
+<div class="math">
+<p><img src="../../_images/math/dd488eeea59bc0c83ff438d5b016f4d96e657e85.png" alt="{\delta \Omega[n] \over \delta \psi}
+    = 2 \psi {\delta \Omega[n] \over \delta n} = 0 \,."/></p>
+</div><p>So the equation <a href="#equation-of-dft">(17)</a> gets multiplied by <img class="math" src="../../_images/math/6a5502479dff907db00f7eb1e257b7d41c6c249e.png" alt="2\psi"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/0c048b9304edab3b39b225bbae7fb1f388b8138b.png" alt="2 H[n] \psi = 2\epsilon \psi"/></p>
+</div></div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <table class="docutils citation" frame="void" id="dft" rules="none">
@@ -949,6 +1053,7 @@ making the Jacobian <img class="math" src="../../_images/math/f54abaaa7e2a86fbbd
 <li><a class="reference internal" href="#jacobian">Jacobian</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#orbital-free-density-functional-theory">Orbital Free Density Functional Theory</a></li>
 <li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
