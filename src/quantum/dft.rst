@@ -1157,6 +1157,171 @@ so for each $k$ there is some contribution from the integral $\int_\Omega
 {v_k(x')\over |x'-x|}\d x'$ for such $x$ where $v_i(x)$ is nonzero, thus
 making the Jacobian $J_{ik}$ dense.
 
+Orbital Free Density Functional Theory
+--------------------------------------
+
+The orbital-free electronic free energy is given by:
+
+.. math::
+
+    F_e[n_e] = T_0[n_e] + U_{en}[n_e] + U_{ee}[n_e] + F_{xc}[n_e]\,,
+
+where the kinetic energy is
+
+.. math::
+
+    T_0[n_e] = {1\over\beta}\!\! \int\!\! \left(\!
+    n_e(\mathbf{x}) \Phi(n_e(\mathbf{x})) -
+    {2\sqrt2\over 3\pi^2 \beta^{3\over2}} I_{3\over2}(\Phi(n_e(\mathbf{x})))
+    \!\!\right) \!\d^3 x =
+
+    ={1\over\beta} \int n_e(\mathbf{x}) f(y) \d^3 x\,;\quad\quad
+    y={\pi^2\over\sqrt2}\beta^{3\over2} n_e\,,
+
+the electron-nuclei term has the form
+
+.. math::
+
+    U_{en}[n_e]
+        = \int {n_e(\mathbf{x}) n_n(\mathbf{x}')\over
+            |\mathbf{x} - \mathbf{x}'|}\d^3 x\d^3 x'
+        = \int n_e(\mathbf{x}) V_{en}(\mathbf{x}) \d^3 x\,,
+
+The electron-electron (Hartree) term takes the form:
+
+.. math::
+
+    U_{ee}[n_e]
+        = \half \int {n_e(\mathbf{x}) n_e(\mathbf{x}')\over
+            |\mathbf{x} - \mathbf{x}'|}\d^3 x\d^3 x'
+        = \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,,
+
+
+and the exchange and correlation functional $F_{xc}[n_e]$ is given by
+the Perdew-Zunger LDA:
+
+.. math::
+
+    F_{xc}[n_e]
+        = \int n_e(\mathbf{x}) \epsilon_{xc}^{LD}(n_e) \d^3 x\,,
+
+$n_e(\mathbf{x})$ is the (positive) electron density,
+$n_n(\mathbf{x})$ is the (positive) nuclei density.
+
+We minimize this free energy under the condition of particle conservation. The
+constrained functional is (we use $n\equiv n_e$ from now on):
+
+.. math::
+
+    \Omega[n] = F_e[n] - \epsilon \left(\int n(\mathbf{x}) \d^3 x - N\right)
+
+The variational solution is:
+
+.. math::
+
+    {\delta \Omega[n] \over \delta n} = 0
+
+Or:
+
+.. math::
+
+    {\delta F_e[n] \over \delta n} = \epsilon
+
+Finally we get:
+
+.. math::
+    :label: of-dft
+
+    H[n] \equiv
+    {\delta T_0[n] \over \delta n}
+    + {\delta U_{en}[n] \over \delta n}
+    + {\delta U_{ee}[n] \over \delta n}
+    + {\delta F_{xc}[n] \over \delta n}
+    = \epsilon
+
+The individual terms are:
+
+.. math::
+
+    {\delta T_0[n] \over \delta n} =
+        {1\over\beta} \left( f(y) + n(\mathbf{x}) {\d f(y) \over \d y}
+        {\pi^2\over\sqrt2}\beta^{3\over2} \right)
+
+and
+
+.. math::
+
+    {\delta U_{en}[n] \over \delta n}
+        = \int {n_n(\mathbf{x}')\over
+            |\mathbf{x} - \mathbf{x}'|}\d^3 x'
+        \equiv V_{en}(\mathbf{x})
+
+and
+
+.. math::
+
+    {\delta U_{ee}[n] \over \delta n}
+        = \int {n(\mathbf{x}')\over
+            |\mathbf{x} - \mathbf{x}'|}\d^3 x'
+        \equiv V_{ee}(\mathbf{x})
+
+and
+
+.. math::
+
+    {\delta F_{xc}[n] \over \delta n}
+        = \epsilon_{xc}^{LD}(n) + n(\mathbf{x})
+            {\d \epsilon_{xc}^{LD}(n) \over \d n}
+        \equiv V_{xc}(\mathbf{x})
+
+All together the Hamiltonian is:
+
+.. math::
+
+    H[n] =
+        {1\over\beta} \left( f(y) + n(\mathbf{x}) {\d f(y) \over \d y}
+        {\pi^2\over\sqrt2}\beta^{3\over2} \right)
+        +
+        V_{en}(\mathbf{x})
+        +
+        V_{ee}(\mathbf{x})
+        +
+        V_{xc}(\mathbf{x})
+
+
+We can also introduce an artificial orbital $\psi(\mathbf{x})$ as follows:
+
+.. math::
+
+    n(\mathbf{x}) = \psi^2(\mathbf{x})
+
+and minimize $\Omega$ with respect to $\psi$:
+
+.. math::
+
+    {\delta \Omega[n] \over \delta \psi} = 0 \,.
+
+Using the relation
+
+.. math::
+
+    {\delta \over \delta \psi}
+        = {\d n \over \d \psi} {\delta \over \delta n}
+        = 2 \psi {\delta \over \delta n}
+
+we obtain:
+
+.. math::
+
+    {\delta \Omega[n] \over \delta \psi}
+        = 2 \psi {\delta \Omega[n] \over \delta n} = 0 \,.
+
+So the equation :eq:`of-dft` gets multiplied by $2\psi$:
+
+.. math::
+
+    2 H[n] \psi = 2\epsilon \psi
+
 
 References
 ----------
