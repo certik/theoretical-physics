@@ -1224,6 +1224,7 @@ The variational solution is:
 Or:
 
 .. math::
+    :label: of-dft0
 
     {\delta F_e[n] \over \delta n} = \epsilon
 
@@ -1232,7 +1233,7 @@ Finally we get:
 .. math::
     :label: of-dft
 
-    H[n] \equiv
+    H[n] \equiv {\delta F_e[n] \over \delta n} =
     {\delta T_0[n] \over \delta n}
     + {\delta U_{en}[n] \over \delta n}
     + {\delta U_{ee}[n] \over \delta n}
@@ -1316,11 +1317,20 @@ we obtain:
     {\delta \Omega[n] \over \delta \psi}
         = 2 \psi {\delta \Omega[n] \over \delta n} = 0 \,.
 
-So the equation :eq:`of-dft` gets multiplied by $2\psi$:
+So the equation :eq:`of-dft0` gets multiplied by $2\psi$:
 
 .. math::
 
-    2 H[n] \psi = 2\epsilon \psi
+    2\psi {\delta F_e[n] \over \delta n} = 2\epsilon \psi
+
+as well as the equation :eq:`of-dft`:
+
+.. math::
+
+    H[\psi] \equiv {\delta F_e[n] \over \delta \psi}
+        = 2 \psi {\delta F_e[n] \over \delta n}
+        = 2 H[n] \psi
+        = 2\epsilon \psi
 
 
 References
