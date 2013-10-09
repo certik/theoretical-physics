@@ -1332,6 +1332,85 @@ as well as the equation :eq:`of-dft`:
         = 2 H[n] \psi
         = 2\epsilon \psi
 
+Free Energy Minimization
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+For clarity, we will be using $H[n]$ from equation :eq:`of-dft` as our main
+quantity, but we will also write the final relations using $H[\psi]$ for
+completeness.
+
+We start with some initial guess for $\ket{\psi}$ (it must be normalized
+as $\braket{\psi | \psi}=N$).
+Let's calculate $\epsilon$:
+
+.. math::
+
+    H[n] = \epsilon
+
+    H[n]\ket{\psi} = \epsilon\ket{\psi}
+
+    \braket{\psi | H[n] | \psi} = \epsilon\braket{\psi | \psi}
+
+    \braket{\psi | H[n] | \psi} = \epsilon N
+
+    \epsilon = {1\over N} \braket{\psi | H[n] | \psi}
+        \equiv {1\over N} \int H[n] \psi^2(\mathbf{x}) \d^3 x
+        = {1\over 2N} \int H[\psi] \psi(\mathbf{x}) \d^3 x
+
+We calculate the steepest-descent (SD) vector $\ket{\chi}$:
+
+.. math::
+
+    \ket{\chi} = 2(\epsilon - H[n])\ket{\psi}
+        \equiv 2\epsilon \ket{\psi} - \ket{H[\psi]}
+
+The conjugate-gradient (CG) vector $\ket{\varphi}$ is calculated as:
+
+.. math::
+
+    \ket{\varphi} = \ket{\chi} + {\braket{\chi | \chi} \over
+        \braket{\chi_{k-1} | \chi_{k-1}}} \ket{\varphi}
+
+To satisfy the normalization constraint of $\ket{\psi}$, the CG vector is
+further orthogonalized to $\ket{\psi}$ and normalized to $N$:
+
+.. math::
+
+    \ket{\varphi'} = \left(1 - {1\over N} \ket{\psi}\bra{\psi}\right)
+        \ket{\varphi}
+
+    \ket{\varphi''} = \sqrt{N \over \braket{\varphi' | \varphi'}} \,
+        \ket{\varphi'}
+
+That is, now $\braket{\varphi'' | \psi}=0$ and
+$\braket{\varphi'' | \varphi''} = N$.
+The new CG vector $\ket{\psi_{k+1}}$ is then updated by a linear combination
+of $\ket{\psi}$ and $\ket{\varphi''}$:
+
+.. math::
+
+    \ket{\psi_{k+1}} = a \ket{\psi} + b \ket{\varphi''}
+
+such that it remains normalized:
+
+.. math::
+
+    \braket{\psi_{k+1} | \psi_{k+1}}
+        = (a \bra{\psi} + b \bra{\varphi''})
+        (a \ket{\psi} + b \ket{\varphi''})
+        = (a^2 + b^2) N = N
+
+So $a$, $b$ are any real numbers satisfying the equation $a^2+b^2=1$, whose
+parametric solution is $a=\cos\theta$, $b=\sin\theta$ with $0 \le \theta <
+2\pi$:
+
+.. math::
+
+    \ket{\psi_{k+1}} = \cos\theta \ket{\psi} + \sin\theta \ket{\varphi''}
+
+where $\theta$ is determined by minimizing the free energy $F_e[\psi_{k+1}]$ as
+a function of $\theta$.
+
 
 References
 ----------

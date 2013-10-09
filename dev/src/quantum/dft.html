@@ -998,7 +998,63 @@ constrained functional is (we use <img class="math" src="../../_images/math/cf61
     = 2 \psi {\delta F_e[n] \over \delta n}
     = 2 H[n] \psi
     = 2\epsilon \psi"/></p>
-</div></div>
+</div><div class="section" id="free-energy-minimization">
+<h3>Free Energy Minimization<a class="headerlink" href="#free-energy-minimization" title="Permalink to this headline">¶</a></h3>
+<p>For clarity, we will be using <img class="math" src="../../_images/math/eb2a2355c17771876e3591158a2764de90ddd060.png" alt="H[n]"/> from equation <a href="#equation-of-dft">(18)</a> as our main
+quantity, but we will also write the final relations using <img class="math" src="../../_images/math/95c7e0b64f06eafa769937322d579047555ce187.png" alt="H[\psi]"/> for
+completeness.</p>
+<p>We start with some initial guess for <img class="math" src="../../_images/math/74278dfad8580edbb58308d239ac08d4959d067a.png" alt="\ket{\psi}"/> (it must be normalized
+as <img class="math" src="../../_images/math/910813c26166ae047befb63336704f8b1592c82d.png" alt="\braket{\psi | \psi}=N"/>).
+Let&#8217;s calculate <img class="math" src="../../_images/math/eaf4418fbe935c15a606516d8f55dc380cd8e822.png" alt="\epsilon"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/6744b0ba4f116870c7751f772d4c08ad80ef366a.png" alt="H[n] = \epsilon
+
+H[n]\ket{\psi} = \epsilon\ket{\psi}
+
+\braket{\psi | H[n] | \psi} = \epsilon\braket{\psi | \psi}
+
+\braket{\psi | H[n] | \psi} = \epsilon N
+
+\epsilon = {1\over N} \braket{\psi | H[n] | \psi}
+    \equiv {1\over N} \int H[n] \psi^2(\mathbf{x}) \d^3 x
+    = {1\over 2N} \int H[\psi] \psi(\mathbf{x}) \d^3 x"/></p>
+</div><p>We calculate the steepest-descent (SD) vector <img class="math" src="../../_images/math/aaf619ca4d207ada7cea8e3068c20bfeb7f4456d.png" alt="\ket{\chi}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/93777d2ca649087834bb3199360acf3ff6413fef.png" alt="\ket{\chi} = 2(\epsilon - H[n])\ket{\psi}
+    \equiv 2\epsilon \ket{\psi} - \ket{H[\psi]}"/></p>
+</div><p>The conjugate-gradient (CG) vector <img class="math" src="../../_images/math/9c964045d7bd5edc233306832780b5d62cdf6073.png" alt="\ket{\varphi}"/> is calculated as:</p>
+<div class="math">
+<p><img src="../../_images/math/31f5be591cbdb3e9d2a84d546d55f0ed3b93ebd0.png" alt="\ket{\varphi} = \ket{\chi} + {\braket{\chi | \chi} \over
+    \braket{\chi_{k-1} | \chi_{k-1}}} \ket{\varphi}"/></p>
+</div><p>To satisfy the normalization constraint of <img class="math" src="../../_images/math/74278dfad8580edbb58308d239ac08d4959d067a.png" alt="\ket{\psi}"/>, the CG vector is
+further orthogonalized to <img class="math" src="../../_images/math/74278dfad8580edbb58308d239ac08d4959d067a.png" alt="\ket{\psi}"/> and normalized to <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/06f6c494712c3bb65f9e153a1d78f17d7ae4195f.png" alt="\ket{\varphi'} = \left(1 - {1\over N} \ket{\psi}\bra{\psi}\right)
+    \ket{\varphi}
+
+\ket{\varphi''} = \sqrt{N \over \braket{\varphi' | \varphi'}} \,
+    \ket{\varphi'}"/></p>
+</div><p>That is, now <img class="math" src="../../_images/math/487083e5a7f8d84ba8506a97fc8ec7f430deb313.png" alt="\braket{\varphi'' | \psi}=0"/> and
+<img class="math" src="../../_images/math/ac0926c90b40c6d53775c16b2043bbab415c510c.png" alt="\braket{\varphi'' | \varphi''} = N"/>.
+The new CG vector <img class="math" src="../../_images/math/058c1e1dde5af604244f53a46fbb8227fa01b1e2.png" alt="\ket{\psi_{k+1}}"/> is then updated by a linear combination
+of <img class="math" src="../../_images/math/74278dfad8580edbb58308d239ac08d4959d067a.png" alt="\ket{\psi}"/> and <img class="math" src="../../_images/math/c0028abbbc500a8af3c326c96e898da4f12f7cd2.png" alt="\ket{\varphi''}"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/f5949380992dd94a4279cd206886f23138871d03.png" alt="\ket{\psi_{k+1}} = a \ket{\psi} + b \ket{\varphi''}"/></p>
+</div><p>such that it remains normalized:</p>
+<div class="math">
+<p><img src="../../_images/math/22b534fb21c4715119ca0137d820ef0f842a1cb0.png" alt="\braket{\psi_{k+1} | \psi_{k+1}}
+    = (a \bra{\psi} + b \bra{\varphi''})
+    (a \ket{\psi} + b \ket{\varphi''})
+    = (a^2 + b^2) N = N"/></p>
+</div><p>So <img class="math" src="../../_images/math/c7d457e388298246adb06c587bccd419ea67f7e8.png" alt="a"/>, <img class="math" src="../../_images/math/8136a7ef6a03334a7246df9097e5bcc31ba33fd2.png" alt="b"/> are any real numbers satisfying the equation <img class="math" src="../../_images/math/cb41a338501ac2431badf6cf14cc97e8f8b64ad6.png" alt="a^2+b^2=1"/>, whose
+parametric solution is <img class="math" src="../../_images/math/c5f0dbcdcefe509b25ada66a4ae3768aaa5920a5.png" alt="a=\cos\theta"/>, <img class="math" src="../../_images/math/5e042426101b5f4a66a65632fe6bcaa1d2535bc0.png" alt="b=\sin\theta"/> with <img class="math" src="../../_images/math/8319bc715dad32147fec82df8f7c0aee3e0f7cf6.png" alt="0 \le \theta &lt;
+2\pi"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/9cc34f7456d71d30faa54a6c56dc0df6d5e353b4.png" alt="\ket{\psi_{k+1}} = \cos\theta \ket{\psi} + \sin\theta \ket{\varphi''}"/></p>
+</div><p>where <img class="math" src="../../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> is determined by minimizing the free energy <img class="math" src="../../_images/math/b3ef860a4f2b092b3d32e0c1045e379a714f8a3a.png" alt="F_e[\psi_{k+1}]"/> as
+a function of <img class="math" src="../../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/>.</p>
+</div>
+</div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <table class="docutils citation" frame="void" id="dft" rules="none">
@@ -1059,7 +1115,10 @@ constrained functional is (we use <img class="math" src="../../_images/math/cf61
 <li><a class="reference internal" href="#jacobian">Jacobian</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#orbital-free-density-functional-theory">Orbital Free Density Functional Theory</a></li>
+<li><a class="reference internal" href="#orbital-free-density-functional-theory">Orbital Free Density Functional Theory</a><ul>
+<li><a class="reference internal" href="#free-energy-minimization">Free Energy Minimization</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
