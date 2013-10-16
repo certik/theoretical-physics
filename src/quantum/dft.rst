@@ -1164,10 +1164,10 @@ The number of states in a box of side $L$ is given by:
 
 .. math::
 
-    N = \int 2 {L^3 \over h^3} \d^3 p
-      = \int 2 {L^3 \over (2\pi\hbar)^3} \d^3 p
-      = \int 2 {L^3 \over (2\pi)^3} \d^3 p
-      = \int_0^{p_f} 2 {L^3 \over (2\pi)^3} 4\pi p^2 \d p
+    N = \int {\d^3 p \over h^3} 2 L^3
+      = \int {\d^3 p \over (2\pi\hbar)^3} 2 L^3
+      = \int {\d^3 p \over (2\pi)^3} 2 L^3
+      = \int_0^{p_f} {4\pi p^2 \d p\over (2\pi)^3} 2 L^3
       = {L^3\over\pi^2} \int_0^{p_f} p^2 \d p
 
 We use atomic units, so $\hbar=1$.
