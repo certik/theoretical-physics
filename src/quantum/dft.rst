@@ -1157,6 +1157,79 @@ so for each $k$ there is some contribution from the integral $\int_\Omega
 {v_k(x')\over |x'-x|}\d x'$ for such $x$ where $v_i(x)$ is nonzero, thus
 making the Jacobian $J_{ik}$ dense.
 
+Thomas-Fermi-Dirac Theory
+-------------------------
+
+The number of states in a box of side $L$ is given by:
+
+.. math::
+
+    N = \int 2 {L^3 \over h^3} \d^3 p
+      = \int 2 {L^3 \over (2\pi\hbar)^3} \d^3 p
+      = \int 2 {L^3 \over (2\pi)^3} \d^3 p
+      = \int_0^{p_f} 2 {L^3 \over (2\pi)^3} 4\pi p^2 \d p
+      = {L^3\over\pi^2} \int_0^{p_f} p^2 \d p
+
+We use atomic units, so $\hbar=1$.
+The electronic particle density is:
+
+.. math::
+    :label: tf_low
+
+    n_e = {N \over L^3}
+      = {1\over\pi^2} \int_0^{p_f} p^2 \d p
+      = {p_f^3 \over 3\pi^2}
+      = {\left[2(E_f - V)\right]^{3\over2} \over 3\pi^2}
+
+where we used the relation for Fermi energy $E_f = {p_f^2\over 2} + V$.
+At finite temperature $T$ we need to use the Fermi distribution and this
+generalizes to:
+
+.. math::
+
+    n_e
+      = {1\over\pi^2} \int_0^{\infty} {p^2 \d p \over
+            e^{\beta(E-\mu)} + 1}
+
+Now we use the relation $E = {p^2\over 2} + V$ and substitutions
+$\epsilon={p^2\over 2}$, $y = \beta \epsilon$ to rewrite this using the Fermi
+integral:
+
+.. math::
+
+    n_e
+      = {1\over\pi^2} \int_0^{\infty} {p^2 \d p \over
+            e^{\beta(E-\mu)} + 1}
+      = {1\over\pi^2} \int_0^{\infty} {p^2 \d p \over
+            e^{\beta({p^2\over 2} + V-\mu)} + 1}
+      = {\sqrt 2\over\pi^2} \int_0^{\infty} {\sqrt\epsilon \d \epsilon \over
+            e^{\beta(\epsilon + V-\mu)} + 1}
+      =
+
+      = {\sqrt 2\over\pi^2 \beta^{3\over2}} \int_0^{\infty} {\sqrt y \d y \over
+            e^{y - \beta(\mu - V)} + 1}
+      = {\sqrt 2\over\pi^2 \beta^{3\over2}}
+            I_{1\over2}\left(\beta(\mu - V)\right)
+
+At low temperature ($T\to0$) we have
+$\beta \to \infty$, $I_{1\over2}(x) \to {2\over3} x^{3\over 2}$ and we obtain:
+
+.. math::
+
+    n_e \to
+      {2\sqrt 2\over 3\pi^2 \beta^{3\over2}}
+            \left(\beta(\mu - V)\right)^{3\over2}
+      ={\left[2(\mu - V)\right]^{3\over2} \over 3\pi^2}
+
+Identical with :eq:`tf_low`. We can see that the chemical potential $\mu$
+becomes the Fermi energy $E_f$ in the limit $T\to0$. In the finite-temperature
+case, $\mu$ is determined from the normalization condition for the number of
+electrons $N$:
+
+.. math::
+
+    N = \int n_e\, d^3 x
+
 Orbital Free Density Functional Theory
 --------------------------------------
 
