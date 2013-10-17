@@ -103,6 +103,52 @@ Unlike the normalization convention, where one has to be very careful, the sign
 convention in Fourier transform is not a problem, one just has to remember to
 flip the sign for the inverse transform.
 
+Radial Fourier Transform
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+As a special case when the function $f(\mathbf{x})=f(r)$ is spherically symmetric,
+we introduce spherical coordinates such that the $z$-axis is along the
+$\bomega$ vector and calculate (we use $r=|\mathbf{x}|$ and $\omega=|\bomega|$):
+
+.. math::
+
+    F[f(\mathbf{x})] \equiv \tilde f(\bomega)
+        = \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x
+        = \int_{-\infty}^{\infty} f(r) e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x =
+
+        = \int_0^\infty\d r \int_0^\pi\d\theta \int_0^{2\pi}\d\phi f(r)
+            e^{-i \omega r \cos\theta}\,r^2\sin\theta =
+
+        = 2\pi \int_0^\infty\d r \int_0^\pi\d\theta f(r)
+            e^{-i \omega r \cos\theta}\,r^2\sin\theta =
+
+        = 4\pi \int_0^\infty\d r f(r) {\sin\omega r \over \omega r}\,r^2 =
+
+        = {4\pi\over\omega} \int_0^\infty r\sin(\omega r) f(r) \,\d r
+
+So the transform is real and spherically symmetric, since the result only
+depends on $\omega$.
+
+Similarly, for the inverse transform:
+
+.. math::
+
+    F^{-1}[\tilde f(\bomega)] = f(\mathbf{x})
+        = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+        \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega =
+
+        = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+        \tilde f(\omega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega =
+
+        = {1\over(2\pi)^3}
+        {4\pi\over r} \int_0^\infty \omega\sin(\omega r) f(\omega) \,\d \omega
+        =
+
+        = {1\over 2\pi^2 r}
+        \int_0^\infty \omega\sin(\omega r) f(\omega) \,\d \omega
+
 Discrete Fourier Transform
 --------------------------
 
