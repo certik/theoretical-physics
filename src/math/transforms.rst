@@ -63,6 +63,7 @@ Third frequently used convention that is however not equivalent to the above is:
 The 3D Fourier transform is:
 
 .. math::
+    :label: fourier1
 
     F[f(\mathbf{x})] \equiv \tilde f(\bomega)
         = \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
@@ -167,6 +168,111 @@ Similarly, for the inverse transform:
 
         = {1\over 2\pi^2 r}
         \int_0^\infty \omega\sin(\omega r) f(\omega) \,\d \omega
+
+
+Fourier Transform of a Periodic Function (e.g. in a Crystal)
+------------------------------------------------------------
+
+The Fourier transform in :eq:`fourier1` requires the function $f(\mathbf{x})$
+to be decaying fast enough in order to converge. In an infinite crystal, on the
+other hand, the function $f(\mathbf{x})$ is typically periodic (and thus not
+decaying):
+
+.. math::
+
+    f(\mathbf{x}+\mathbf{T}(n_1, n_2, n_3)) = f(\mathbf{x})
+
+where $\mathbf{T}(\mathbf{n})=\mathbf{T}(n_1, n_2,
+n_3)=n_1\mathbf{a}_1+n_2\mathbf{a}_2+n_3\mathbf{a}_3$ are the crystal
+translation vectors. As such, the Fourier transform in :eq:`fourier1` is
+infinite, but it can be made finite by the following definition:
+
+.. math::
+    :label: fourier2
+
+    F[f(\mathbf{x})] \equiv \tilde f(\bomega)
+        = {1\over\Omega_\mathrm{crystal}}\int_{\Omega_\mathrm{crystal}} f(\mathbf{x}) e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x =
+
+        = {1\over\Omega_\mathrm{crystal}} \sum_\mathbf{n} \int_{\Omega_\mathrm{cell}}
+        f(\mathbf{x}+\mathbf{T}(\mathbf{n}))
+        e^{-i\bomega \cdot (\mathbf{x}+\mathbf{T}(\mathbf{n}))}\,\d^3 x =
+
+        = {1\over\Omega_\mathrm{crystal}} \sum_\mathbf{n} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+        e^{-i\bomega \cdot (\mathbf{x}+\mathbf{T}(\mathbf{n}))}\,\d^3 x =
+
+        = {1\over\Omega_\mathrm{crystal}} \sum_\mathbf{n} e^{-i\bomega \cdot \mathbf{T}(\mathbf{n})} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+        e^{-i\bomega \cdot \mathbf{x}}\,\d^3 x =
+
+        = {1\over\Omega_\mathrm{crystal}} N_\mathrm{cell} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+        e^{-i\bomega \cdot \mathbf{x}}\,\d^3 x =
+
+        = {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+        e^{-i\bomega \cdot \mathbf{x}}\,\d^3 x
+
+This assumes that the wave vector $\bomega=\mathbf{G}$ is equal to the
+reciprocal space vectors $\mathbf{G}$, defined by
+
+.. math::
+    :label: G
+
+    e^{i\mathbf{G} \cdot \mathbf{T}(\mathbf{n})} = 1\,,
+
+because then $\sum_\mathbf{n} e^{-i\bomega \cdot \mathbf{T}(\mathbf{n})} =
+\sum_\mathbf{n} 1 = N_\mathrm{cell}$.
+
+For $\bomega\neq\mathbf{G}$, the expression ${1\over\Omega_\mathrm{crystal}}
+\sum_\mathbf{n} e^{-i\bomega \cdot \mathbf{T}(\mathbf{n})} = 0$ vanishes,
+because the sum is bounded, and so dividing by the (infinite) crystal volume
+makes the expression vanish, and so $\tilde f(\bomega)=0$.  In other words, the
+only non-zero Fourier components $\tilde f(\bomega)$ of any periodic function
+$f(\mathbf{x})$ are those with $\bomega=\mathbf{G}$. Equivalently said, if the
+Fourier components of a given function are non-zero for some
+$\bomega\neq\mathbf{G}$, then the function is not periodic.
+
+Summary: the only difference between the crystal Fourier transform
+:eq:`fourier2` and the usual Fourier transform :eq:`fourier1` is the
+$\Omega_\mathrm{crystal}$ factor. The Fourier transform :eq:`fourier2` of a
+periodic function is nonzero only for $\omega=\mathbf{G}$ and is equal to:
+
+.. math::
+    :label: fourier2b
+
+    F[f(\mathbf{x})] \equiv \tilde f(\mathbf{G})
+        = {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+        e^{-i\mathbf{G} \cdot \mathbf{x}}\,\d^3 x
+
+Note: the fact that the sum is bounded follows from:
+
+.. math::
+
+    \left| \sum_{n=-\infty}^\infty e^{ikn} \right|
+        = \left| \lim_{N\to\infty} \sum_{n=-N}^N e^{ikn} \right|
+        = \left| \lim_{N\to\infty} \left(1+2\sum_{n=1}^N \cos kn\right) \right|=
+
+        = \left| \lim_{N\to\infty} {\cos kN - \cos k(N+1) \over 1-\cos k}
+            \right|
+        < {2 \over | 1-\cos k | }
+
+Because $| \cos kN - \cos k(N+1) | < 2$.  So for $k\neq 2\pi$ (i.e. the
+denominator is non-zero), the sum is bounded (to be precise, the infinite sum
+does not converge, because it oscillates, but the point is that the partial sum
+is always bounded). For $k=2\pi$, the sum is infinite, because $e^{i2\pi n} =
+1$.
+
+Since we divided the direct Fourier transform in :eq:`fourier1` by
+$\Omega_\mathrm{crystal}$ to obtain :eq:`fourier2`, we need to multiply the
+inverse transform in :eq:`fourier1` by $\Omega_\mathrm{crystal}$:
+
+.. math::
+    :label: fourier2b_inv
+
+    F^{-1}[\tilde f(\bomega)] = f(\mathbf{x})
+        = {\Omega_\mathrm{crystal}\over(2\pi)^3}\int_{-\infty}^{\infty}
+        \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+        = \sum_{\mathbf{G}}
+        \tilde f(\mathbf{G}) e^{+i\mathbf{G} \cdot \mathbf{x}}
+
 
 Discrete Fourier Transform
 --------------------------
