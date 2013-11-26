@@ -103,6 +103,25 @@ Unlike the normalization convention, where one has to be very careful, the sign
 convention in Fourier transform is not a problem, one just has to remember to
 flip the sign for the inverse transform.
 
+Shift Theorem
+~~~~~~~~~~~~~
+
+The Fourier transform of a shifted function, in 3D:
+
+.. math::
+
+    F[f(\mathbf{x}+\mathbf{b})]
+        = \int_{-\infty}^{\infty} f(\mathbf{x}+\mathbf{b}) e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x =
+
+        = \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
+            (\mathbf{x}-\mathbf{b})}\,\d^3 x =
+
+        = e^{i\bomega\cdot \mathbf{b}} \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x =
+
+        = e^{i\bomega\cdot \mathbf{b}} F[f(\mathbf{x})]
+
 Radial Fourier Transform
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
