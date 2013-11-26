@@ -270,6 +270,32 @@ inverse transform in :eq:`fourier1` by $\Omega_\mathrm{crystal}$:
     F^{-1}[\tilde f(\bomega)] = f(\mathbf{x})
         = {\Omega_\mathrm{crystal}\over(2\pi)^3}\int_{-\infty}^{\infty}
         \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+        =
+
+        = {\Omega_\mathrm{cell}N_\mathrm{cell}\over(2\pi)^3}\int_{-\infty}^{\infty}
+        \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+        =
+
+        = {N_\mathrm{cell}\over\Omega_\mathrm{BZ}}
+        \sum_{\mathbf{G}}
+        \int_{\Omega_\mathrm{BZ}}
+        \tilde f(\mathbf{G}+\bomega)
+            e^{+i(\mathbf{G}+\bomega) \cdot \mathbf{x}}\,\d^3 \omega
+        =
+
+        = {N_\mathrm{cell}\over\Omega_\mathrm{BZ}}
+        \sum_{\mathbf{G}} e^{+i\mathbf{G} \cdot \mathbf{x}}
+        \int_{\Omega_\mathrm{BZ}}
+        \tilde f(\mathbf{G}+\bomega)
+            e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+        =
+
+        = {N_\mathrm{cell}\over\Omega_\mathrm{BZ}}
+        \sum_{\mathbf{G}} e^{+i\mathbf{G} \cdot \mathbf{x}}
+        {\Omega_\mathrm{BZ} \over N_\mathrm{cell}}
+        \tilde f(\mathbf{G})
+        =
+
         = \sum_{\mathbf{G}}
         \tilde f(\mathbf{G}) e^{+i\mathbf{G} \cdot \mathbf{x}}
 
