@@ -144,9 +144,21 @@ $\bomega$ vector and calculate (we use $r=|\mathbf{x}|$ and $\omega=|\bomega|$):
         = 2\pi \int_0^\infty\d r \int_0^\pi\d\theta f(r)
             e^{-i \omega r \cos\theta}\,r^2\sin\theta =
 
-        = 4\pi \int_0^\infty\d r f(r) {\sin\omega r \over \omega r}\,r^2 =
+        = 4\pi \int_0^\infty f(r) j_0(\omega r) \,r^2 \d r =
 
-        = {4\pi\over\omega} \int_0^\infty r\sin(\omega r) f(r) \,\d r
+        = 4\pi \int_0^\infty f(r) {\sin\omega r \over \omega r}\,r^2 \d r =
+
+        = {4\pi\over\omega} \int_0^\infty r\sin(\omega r) f(r) \,\d r\,,
+
+where we used:
+
+.. math::
+
+    \int_0^\pi e^{-i \omega r \cos\theta}\,\sin\theta \d\theta
+        = \int_{-1}^1 e^{i\omega r u} \d u
+        = \left[e^{i\omega r u} \over i\omega r\right]_{-1}^1
+        = {e^{i\omega r} - e^{-i\omega r} \over i \omega r}
+        = 2 {\sin \omega r \over \omega r} = 2 j_0(\omega r)\,.
 
 So the transform is real and spherically symmetric, since the result only
 depends on $\omega$.
