@@ -302,14 +302,55 @@ inverse transform in :eq:`fourier1` by $\Omega_\mathrm{crystal}$:
             e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
         =
 
-        = {N_\mathrm{cell}\over\Omega_\mathrm{BZ}}
-        \sum_{\mathbf{G}} e^{+i\mathbf{G} \cdot \mathbf{x}}
-        {\Omega_\mathrm{BZ} \over N_\mathrm{cell}}
-        \tilde f(\mathbf{G})
+        =
+        \sum_{\mathbf{G}} \tilde f(\mathbf{G}) e^{+i\mathbf{G} \cdot \mathbf{x}}
+        \int_{\Omega_\mathrm{BZ}}
+        \delta(\boldsymbol\omega)
+            e^{+i\boldsymbol\omega \cdot \mathbf{x}}\,d^3 \omega
         =
 
-        = \sum_{\mathbf{G}}
-        \tilde f(\mathbf{G}) e^{+i\mathbf{G} \cdot \mathbf{x}}
+        =
+        \sum_{\mathbf{G}} \tilde f(\mathbf{G}) e^{+i\mathbf{G} \cdot \mathbf{x}}
+
+where we used the fact that:
+
+.. math::
+
+    {N_\mathrm{cell}\over\Omega_\mathrm{BZ}}\tilde f(\mathbf{G}+\boldsymbol\omega)
+    =\tilde f(\mathbf{G})\delta(\boldsymbol\omega) \,.
+
+Alternatively, if one is only interested to show that the inverse
+transformation works, one can directly substitute the direct formula
+:eq:`fourier2b` into :eq:`fourier2b_inv` as follows:
+
+.. math::
+
+    F^{-1}[\tilde f(\mathbf{G})] = \sum_{\mathbf{G}}
+        \tilde f(\mathbf{G}) e^{+i\mathbf{G} \cdot \mathbf{x}} =
+
+    = \sum_{\mathbf{G}}
+        \left({1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}}
+        f(\mathbf{x'})
+        e^{-i\mathbf{G} \cdot \mathbf{x'}}\,d^3 x'\right)
+        e^{+i\mathbf{G} \cdot \mathbf{x}} =
+
+    = {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x'})
+        \sum_{\mathbf{G}} e^{i\mathbf{G}
+         \cdot (\mathbf{x}-\mathbf{x'})}\,d^3 x' =
+
+    = {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x'})
+        (2\pi)^3
+        \delta\left({(2\pi)^3\over\Omega_\mathrm{cell}}
+            (\mathbf{x}-\mathbf{x'})\right) \,d^3 x' =
+
+    = {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x'})
+        (2\pi)^3 {\Omega_\mathrm{cell}\over (2\pi)^3}
+        \delta(\mathbf{x}-\mathbf{x'}) \,d^3 x' =
+
+    =f(\mathbf{x})
+
+Thus we have shown that $F^{-1}[\tilde f(\mathbf{G})] = f(\mathbf{x})$.
+
 
 One Dimension (Fourier Series)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
