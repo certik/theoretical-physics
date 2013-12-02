@@ -889,6 +889,81 @@ can then be written in the compact form</p>
 making the Jacobian <img class="math" src="../../_images/math/f54abaaa7e2a86fbbd85f9710538c2f68965e650.png" alt="J_{ik}"/> dense.</p>
 </div>
 </div>
+<div class="section" id="thomas-fermi-dirac-theory">
+<h2>Thomas-Fermi-Dirac Theory<a class="headerlink" href="#thomas-fermi-dirac-theory" title="Permalink to this headline">¶</a></h2>
+<p>The number of states in a box of side <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> is given by:</p>
+<div class="math">
+<p><img src="../../_images/math/cd3d2705469a9324b59818cc933df75074f4a800.png" alt="N = \int {\d^3 p \over h^3} 2 L^3
+  = \int {\d^3 p \over (2\pi\hbar)^3} 2 L^3
+  = \int {\d^3 p \over (2\pi)^3} 2 L^3
+  = \int_0^{p_f} {4\pi p^2 \d p\over (2\pi)^3} 2 L^3
+  = {L^3\over\pi^2} \int_0^{p_f} p^2 \d p"/></p>
+</div><p>We use atomic units, so <img class="math" src="../../_images/math/ed569ff537c0c175847d3c6052d99f4194bba470.png" alt="\hbar=1"/>.
+The electronic particle density is:</p>
+<div class="math" id="equation-tf_low">
+<p><span class="eqno">(17)</span><img src="../../_images/math/fd205e35c51127ce79ce87023574c3029d7cc816.png" alt="n_e = {N \over L^3}
+  = {1\over\pi^2} \int_0^{p_f} p^2 \d p
+  = {p_f^3 \over 3\pi^2}
+  = {\left[2(E_f - V)\right]^{3\over2} \over 3\pi^2}"/></p>
+</div><p>where we used the relation for Fermi energy <img class="math" src="../../_images/math/5df8bc3283c4d161273a98ec1d51b83b84c7a239.png" alt="E_f = {p_f^2\over 2} + V"/>.
+At finite temperature <img class="math" src="../../_images/math/2554b6496c3b678897e9b060ef00aa9f0a7d7ece.png" alt="T"/> we need to use the Fermi distribution and this
+generalizes to:</p>
+<div class="math">
+<p><img src="../../_images/math/df68ec1aabf0dcbd050614428befca1aa3e55ad2.png" alt="n_e
+  = {1\over\pi^2} \int_0^{\infty} {p^2 \d p \over
+        e^{\beta(E-\mu)} + 1}"/></p>
+</div><p>Now we use the relation <img class="math" src="../../_images/math/9ee8d196f29e6fa673f4be8d561bd5237e579d73.png" alt="E = {p^2\over 2} + V"/> and substitutions
+<img class="math" src="../../_images/math/28867e06913dfc3965651ede001a351c8947b2a3.png" alt="\epsilon={p^2\over 2}"/>, <img class="math" src="../../_images/math/262166c4f716c6441dc5f4508924022860478c6b.png" alt="y = \beta \epsilon"/> to rewrite this using the Fermi
+integral:</p>
+<div class="math">
+<p><img src="../../_images/math/23a0555bbc9645d7b0ff3b2e8adf706f1a135e08.png" alt="n_e
+  = {1\over\pi^2} \int_0^{\infty} {p^2 \d p \over
+        e^{\beta(E-\mu)} + 1}
+  = {1\over\pi^2} \int_0^{\infty} {p^2 \d p \over
+        e^{\beta({p^2\over 2} + V-\mu)} + 1}
+  = {\sqrt 2\over\pi^2} \int_0^{\infty} {\sqrt\epsilon \d \epsilon \over
+        e^{\beta(\epsilon + V-\mu)} + 1}
+  =
+
+  = {\sqrt 2\over\pi^2 \beta^{3\over2}} \int_0^{\infty} {\sqrt y \d y \over
+        e^{y - \beta(\mu - V)} + 1}
+  = {\sqrt 2\over\pi^2 \beta^{3\over2}}
+        I_{1\over2}\left(\beta(\mu - V)\right)"/></p>
+</div><p>At low temperature (<img class="math" src="../../_images/math/45ee3b5608f160813948b8f46e4b136d2b870d29.png" alt="T\to0"/>) we have
+<img class="math" src="../../_images/math/a46f79fb206a0f1c0fdccde6d69c05ea25653f3a.png" alt="\beta \to \infty"/>, <img class="math" src="../../_images/math/63671688c6e98210b24e72360a1f758438d6bce8.png" alt="I_{1\over2}(x) \to {2\over3} x^{3\over 2}"/> and we obtain:</p>
+<div class="math">
+<p><img src="../../_images/math/1e17c181a41e06742f7f9d857aac1f2134a543f0.png" alt="n_e \to
+  {2\sqrt 2\over 3\pi^2 \beta^{3\over2}}
+        \left(\beta(\mu - V)\right)^{3\over2}
+  ={\left[2(\mu - V)\right]^{3\over2} \over 3\pi^2}"/></p>
+</div><p>Identical with <a href="#equation-tf_low">(17)</a>. We can see that the chemical potential <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/>
+becomes the Fermi energy <img class="math" src="../../_images/math/d8a32d7a83907b7b58a17afe106d2d8dd6a0afbf.png" alt="E_f"/> in the limit <img class="math" src="../../_images/math/45ee3b5608f160813948b8f46e4b136d2b870d29.png" alt="T\to0"/>. In the finite-temperature
+case, <img class="math" src="../../_images/math/2d8c833ed800824727cd7bd2fb9de1a12ad7e674.png" alt="\mu"/> is determined from the normalization condition for the number of
+electrons <img class="math" src="../../_images/math/fc97ef67268cd4e91bacdf12b8901d7036c9a056.png" alt="N"/>:</p>
+<div class="math">
+<p><img src="../../_images/math/761b1c694a5465e463013e06a0e55fde2bec4d24.png" alt="N = \int n_e\, d^3 x"/></p>
+</div><p>The kinetic energy is</p>
+<div class="math">
+<p><img src="../../_images/math/a0076b4d09959c2f7e023eb37ee381ae8f5ac999.png" alt="E_{kin} = \int d^3 x \int 2 {\d^3p\over (2\pi)^3} {p^2\over 2}
+    {1\over e^{\beta(E-\mu)}+1}
+=
+
+= \int d^3 x \int_0^\infty 2 {4\pi p^2 \d p\over (2\pi)^3} {p^2\over 2}
+    {1\over e^{\beta(E-\mu)}+1} =
+
+= \int d^3 x \int_0^\infty 2 {4\pi \sqrt 2\sqrt \epsilon \d \epsilon \over
+    (2\pi)^3} \epsilon {1\over e^{\beta(\epsilon + V-\mu)}+1} =
+
+= {\sqrt 2 \over \pi^2} \int d^3 x \int_0^\infty
+    {\epsilon^{3\over2} \d \epsilon \over
+    e^{\beta(\epsilon + V-\mu)}+1} =
+
+= {\sqrt 2 \over \pi^2 \beta^{5\over2}} \int d^3 x \int_0^\infty
+    {y^{3\over2} \d y \over e^{y - \beta(\mu -V)}+1} =
+
+= {\sqrt 2 \over \pi^2 \beta^{5\over2}}
+    \int I_{3\over2}\left(\beta(\mu - V)\right) d^3 x"/></p>
+</div></div>
 <div class="section" id="orbital-free-density-functional-theory">
 <h2>Orbital Free Density Functional Theory<a class="headerlink" href="#orbital-free-density-functional-theory" title="Permalink to this headline">¶</a></h2>
 <p>The orbital-free electronic free energy is given by:</p>
@@ -931,10 +1006,10 @@ constrained functional is (we use <img class="math" src="../../_images/math/cf61
 <p><img src="../../_images/math/c25c6abd82cef774b081f4d77f921348e7209405.png" alt="{\delta \Omega[n] \over \delta n} = 0"/></p>
 </div><p>Or:</p>
 <div class="math" id="equation-of-dft0">
-<p><span class="eqno">(17)</span><img src="../../_images/math/a0dc9b58871d32bedf36553bb5a11e0feb426975.png" alt="{\delta F_e[n] \over \delta n} = \epsilon"/></p>
+<p><span class="eqno">(18)</span><img src="../../_images/math/a0dc9b58871d32bedf36553bb5a11e0feb426975.png" alt="{\delta F_e[n] \over \delta n} = \epsilon"/></p>
 </div><p>Finally we get:</p>
 <div class="math" id="equation-of-dft">
-<p><span class="eqno">(18)</span><img src="../../_images/math/4247854d667d98e6dc55a7b63b66b14fe751ef1b.png" alt="H[n] \equiv {\delta F_e[n] \over \delta n} =
+<p><span class="eqno">(19)</span><img src="../../_images/math/4247854d667d98e6dc55a7b63b66b14fe751ef1b.png" alt="H[n] \equiv {\delta F_e[n] \over \delta n} =
 {\delta T_0[n] \over \delta n}
 + {\delta U_{en}[n] \over \delta n}
 + {\delta U_{ee}[n] \over \delta n}
@@ -989,10 +1064,10 @@ constrained functional is (we use <img class="math" src="../../_images/math/cf61
 <div class="math">
 <p><img src="../../_images/math/dd488eeea59bc0c83ff438d5b016f4d96e657e85.png" alt="{\delta \Omega[n] \over \delta \psi}
     = 2 \psi {\delta \Omega[n] \over \delta n} = 0 \,."/></p>
-</div><p>So the equation <a href="#equation-of-dft0">(17)</a> gets multiplied by <img class="math" src="../../_images/math/6a5502479dff907db00f7eb1e257b7d41c6c249e.png" alt="2\psi"/>:</p>
+</div><p>So the equation <a href="#equation-of-dft0">(18)</a> gets multiplied by <img class="math" src="../../_images/math/6a5502479dff907db00f7eb1e257b7d41c6c249e.png" alt="2\psi"/>:</p>
 <div class="math">
 <p><img src="../../_images/math/cb5ea16dfc83e59af9429cea2ffd9371a924c45c.png" alt="2\psi {\delta F_e[n] \over \delta n} = 2\epsilon \psi"/></p>
-</div><p>as well as the equation <a href="#equation-of-dft">(18)</a>:</p>
+</div><p>as well as the equation <a href="#equation-of-dft">(19)</a>:</p>
 <div class="math">
 <p><img src="../../_images/math/0237f39f3e52f462a99ffc86e571e3a39de8452c.png" alt="H[\psi] \equiv {\delta F_e[n] \over \delta \psi}
     = 2 \psi {\delta F_e[n] \over \delta n}
@@ -1000,7 +1075,7 @@ constrained functional is (we use <img class="math" src="../../_images/math/cf61
     = 2\epsilon \psi"/></p>
 </div><div class="section" id="free-energy-minimization">
 <h3>Free Energy Minimization<a class="headerlink" href="#free-energy-minimization" title="Permalink to this headline">¶</a></h3>
-<p>For clarity, we will be using <img class="math" src="../../_images/math/eb2a2355c17771876e3591158a2764de90ddd060.png" alt="H[n]"/> from equation <a href="#equation-of-dft">(18)</a> as our main
+<p>For clarity, we will be using <img class="math" src="../../_images/math/eb2a2355c17771876e3591158a2764de90ddd060.png" alt="H[n]"/> from equation <a href="#equation-of-dft">(19)</a> as our main
 quantity, but we will also write the final relations using <img class="math" src="../../_images/math/95c7e0b64f06eafa769937322d579047555ce187.png" alt="H[\psi]"/> for
 completeness.</p>
 <p>We start with some initial guess for <img class="math" src="../../_images/math/74278dfad8580edbb58308d239ac08d4959d067a.png" alt="\ket{\psi}"/> (it must be normalized
@@ -1115,6 +1190,7 @@ a function of <img class="math" src="../../_images/math/52e8ed7a3ba22130ad3984eb
 <li><a class="reference internal" href="#jacobian">Jacobian</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#thomas-fermi-dirac-theory">Thomas-Fermi-Dirac Theory</a></li>
 <li><a class="reference internal" href="#orbital-free-density-functional-theory">Orbital Free Density Functional Theory</a><ul>
 <li><a class="reference internal" href="#free-energy-minimization">Free Energy Minimization</a></li>
 </ul>

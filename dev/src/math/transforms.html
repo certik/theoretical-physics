@@ -116,8 +116,8 @@ f(x)
     = {1\over\sqrt{2\pi}}
       \int_{-\infty}^{\infty} \tilde f(k) e^{+ik x}\,\d k"/></p>
 </div><p>The 3D Fourier transform is:</p>
-<div class="math">
-<p><img src="../../_images/math/363a5fbf231c33e18af3afc0440f7a970caac6d8.png" alt="F[f(\mathbf{x})] \equiv \tilde f(\bomega)
+<div class="math" id="equation-fourier1">
+<p><span class="eqno">(1)</span><img src="../../_images/math/363a5fbf231c33e18af3afc0440f7a970caac6d8.png" alt="F[f(\mathbf{x})] \equiv \tilde f(\bomega)
     = \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
         \mathbf{x}}\,\d^3 x
 
@@ -149,6 +149,226 @@ For a signature <img class="math" src="../../_images/math/742b7002ebd418b263a808
 <p>Unlike the normalization convention, where one has to be very careful, the sign
 convention in Fourier transform is not a problem, one just has to remember to
 flip the sign for the inverse transform.</p>
+<div class="section" id="shift-theorem">
+<h2>Shift Theorem<a class="headerlink" href="#shift-theorem" title="Permalink to this headline">¶</a></h2>
+<p>The Fourier transform of a shifted function, in 3D:</p>
+<div class="math">
+<p><img src="../../_images/math/f2b6218f6df8a6d59138fd351a390d2985a17416.png" alt="F[f(\mathbf{x}+\mathbf{b})]
+    = \int_{-\infty}^{\infty} f(\mathbf{x}+\mathbf{b}) e^{-i\bomega \cdot
+        \mathbf{x}}\,\d^3 x =
+
+    = \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
+        (\mathbf{x}-\mathbf{b})}\,\d^3 x =
+
+    = e^{i\bomega\cdot \mathbf{b}} \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
+        \mathbf{x}}\,\d^3 x =
+
+    = e^{i\bomega\cdot \mathbf{b}} F[f(\mathbf{x})]"/></p>
+</div></div>
+<div class="section" id="radial-fourier-transform">
+<h2>Radial Fourier Transform<a class="headerlink" href="#radial-fourier-transform" title="Permalink to this headline">¶</a></h2>
+<p>As a special case when the function <img class="math" src="../../_images/math/c9392fa3753b06b346e51952e909adf296a14453.png" alt="f(\mathbf{x})=f(r)"/> is spherically symmetric,
+we introduce spherical coordinates such that the <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>-axis is along the
+<img class="math" src="../../_images/math/3d60306d6601bee96e70de9d22d49cc5d09e76e0.png" alt="\bomega"/> vector and calculate (we use <img class="math" src="../../_images/math/66230c4dd11be2e3bb614402f3d6426a53fed467.png" alt="r=|\mathbf{x}|"/> and <img class="math" src="../../_images/math/9dea4929d6effd73252a857f75396a3d6e236abe.png" alt="\omega=|\bomega|"/>):</p>
+<div class="math">
+<p><img src="../../_images/math/5d50740835b11f1df1ce6e1aa48ee46dde030cb5.png" alt="F[f(\mathbf{x})] \equiv \tilde f(\bomega)
+    = \int_{-\infty}^{\infty} f(\mathbf{x}) e^{-i\bomega \cdot
+        \mathbf{x}}\,\d^3 x
+    = \int_{-\infty}^{\infty} f(r) e^{-i\bomega \cdot
+        \mathbf{x}}\,\d^3 x =
+
+    = \int_0^\infty\d r \int_0^\pi\d\theta \int_0^{2\pi}\d\phi f(r)
+        e^{-i \omega r \cos\theta}\,r^2\sin\theta =
+
+    = 2\pi \int_0^\infty\d r \int_0^\pi\d\theta f(r)
+        e^{-i \omega r \cos\theta}\,r^2\sin\theta =
+
+    = 4\pi \int_0^\infty f(r) j_0(\omega r) \,r^2 \d r =
+
+    = 4\pi \int_0^\infty f(r) {\sin\omega r \over \omega r}\,r^2 \d r =
+
+    = {4\pi\over\omega} \int_0^\infty r\sin(\omega r) f(r) \,\d r\,,"/></p>
+</div><p>where we used:</p>
+<div class="math">
+<p><img src="../../_images/math/30217556dc4e8dbedc0a422fca42e4fb2106f3fb.png" alt="\int_0^\pi e^{-i \omega r \cos\theta}\,\sin\theta \d\theta
+    = \int_{-1}^1 e^{i\omega r u} \d u
+    = \left[e^{i\omega r u} \over i\omega r\right]_{-1}^1
+    = {e^{i\omega r} - e^{-i\omega r} \over i \omega r}
+    = 2 {\sin \omega r \over \omega r} = 2 j_0(\omega r)\,."/></p>
+</div><p>So the transform is real and spherically symmetric, since the result only
+depends on <img class="math" src="../../_images/math/54d7d48553f4d9e7ab418118607ea324cbfddfda.png" alt="\omega"/>.</p>
+<p>Similarly, for the inverse transform:</p>
+<div class="math">
+<p><img src="../../_images/math/6407d4b6b9aa557ab5b1273f065d511154d31261.png" alt="F^{-1}[\tilde f(\bomega)] = f(\mathbf{x})
+    = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+    \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega =
+
+    = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+    \tilde f(\omega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega =
+
+    = {1\over(2\pi)^3}
+    {4\pi\over r} \int_0^\infty \omega\sin(\omega r) f(\omega) \,\d \omega
+    =
+
+    = {1\over 2\pi^2 r}
+    \int_0^\infty \omega\sin(\omega r) f(\omega) \,\d \omega"/></p>
+</div></div>
+</div>
+<div class="section" id="fourier-transform-of-a-periodic-function-e-g-in-a-crystal">
+<h1>Fourier Transform of a Periodic Function (e.g. in a Crystal)<a class="headerlink" href="#fourier-transform-of-a-periodic-function-e-g-in-a-crystal" title="Permalink to this headline">¶</a></h1>
+<p>The Fourier transform in <a href="#equation-fourier1">(1)</a> requires the function <img class="math" src="../../_images/math/873966ab6208920d791267d0a516a2641e7b3d87.png" alt="f(\mathbf{x})"/>
+to be decaying fast enough in order to converge. In an infinite crystal, on the
+other hand, the function <img class="math" src="../../_images/math/873966ab6208920d791267d0a516a2641e7b3d87.png" alt="f(\mathbf{x})"/> is typically periodic (and thus not
+decaying):</p>
+<div class="math">
+<p><img src="../../_images/math/226ed6d0a016bdb7afb3ddef82ff1aaf0ff4c8c4.png" alt="f(\mathbf{x}+\mathbf{T}(n_1, n_2, n_3)) = f(\mathbf{x})"/></p>
+</div><p>where <img class="math" src="../../_images/math/4ce00b945d4b00a31f227f8193e7dc2d71cca5be.png" alt="\mathbf{T}(\mathbf{n})=\mathbf{T}(n_1, n_2,
+n_3)=n_1\mathbf{a}_1+n_2\mathbf{a}_2+n_3\mathbf{a}_3"/> are the crystal
+translation vectors. As such, the Fourier transform in <a href="#equation-fourier1">(1)</a> is
+infinite, but it can be made finite by the following definition:</p>
+<div class="math" id="equation-fourier2">
+<p><span class="eqno">(2)</span><img src="../../_images/math/32bd4ecf75020161f9e3e1727ef1326c814164a2.png" alt="F[f(\mathbf{x})] \equiv \tilde f(\bomega)
+    = {1\over\Omega_\mathrm{crystal}}\int_{\Omega_\mathrm{crystal}} f(\mathbf{x}) e^{-i\bomega \cdot
+        \mathbf{x}}\,\d^3 x =
+
+    = {1\over\Omega_\mathrm{crystal}} \sum_\mathbf{n} \int_{\Omega_\mathrm{cell}}
+    f(\mathbf{x}+\mathbf{T}(\mathbf{n}))
+    e^{-i\bomega \cdot (\mathbf{x}+\mathbf{T}(\mathbf{n}))}\,\d^3 x =
+
+    = {1\over\Omega_\mathrm{crystal}} \sum_\mathbf{n} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+    e^{-i\bomega \cdot (\mathbf{x}+\mathbf{T}(\mathbf{n}))}\,\d^3 x =
+
+    = {1\over\Omega_\mathrm{crystal}} \sum_\mathbf{n} e^{-i\bomega \cdot \mathbf{T}(\mathbf{n})} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+    e^{-i\bomega \cdot \mathbf{x}}\,\d^3 x =
+
+    = {1\over\Omega_\mathrm{crystal}} N_\mathrm{cell} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+    e^{-i\bomega \cdot \mathbf{x}}\,\d^3 x =
+
+    = {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+    e^{-i\bomega \cdot \mathbf{x}}\,\d^3 x"/></p>
+</div><p>This assumes that the wave vector <img class="math" src="../../_images/math/4c4f42d087c7349c44f73af6a2af9458633332f8.png" alt="\bomega=\mathbf{G}"/> is equal to the
+reciprocal space vectors <img class="math" src="../../_images/math/597c852cd8d4be79f01a80b6317d2096dd10c544.png" alt="\mathbf{G}"/>, defined by</p>
+<div class="math" id="equation-G">
+<p><span class="eqno">(3)</span><img src="../../_images/math/3c13d5c59aafdeec5682eed26a72ab37187bd70c.png" alt="e^{i\mathbf{G} \cdot \mathbf{T}(\mathbf{n})} = 1\,,"/></p>
+</div><p>because then <img class="math" src="../../_images/math/70b793518ba7d407408ba9bb3c4504bc3aaa6847.png" alt="\sum_\mathbf{n} e^{-i\bomega \cdot \mathbf{T}(\mathbf{n})} =
+\sum_\mathbf{n} 1 = N_\mathrm{cell}"/>.</p>
+<p>For <img class="math" src="../../_images/math/9538fa0648d848bccec22a5a3e49d7d5233362aa.png" alt="\bomega\neq\mathbf{G}"/>, the expression <img class="math" src="../../_images/math/0cdd003ae40e0bcabf8783d55978587e15cff6ea.png" alt="{1\over\Omega_\mathrm{crystal}}
+\sum_\mathbf{n} e^{-i\bomega \cdot \mathbf{T}(\mathbf{n})} = 0"/> vanishes,
+because the sum is bounded, and so dividing by the (infinite) crystal volume
+makes the expression vanish, and so <img class="math" src="../../_images/math/e0650e61f6518c3c160fa5bd9b6ef706775c3a7a.png" alt="\tilde f(\bomega)=0"/>.  In other words, the
+only non-zero Fourier components <img class="math" src="../../_images/math/122d4fd94b8be8cf55fa1f562bbe242a356a1611.png" alt="\tilde f(\bomega)"/> of any periodic function
+<img class="math" src="../../_images/math/873966ab6208920d791267d0a516a2641e7b3d87.png" alt="f(\mathbf{x})"/> are those with <img class="math" src="../../_images/math/4c4f42d087c7349c44f73af6a2af9458633332f8.png" alt="\bomega=\mathbf{G}"/>. Equivalently said, if the
+Fourier components of a given function are non-zero for some
+<img class="math" src="../../_images/math/9538fa0648d848bccec22a5a3e49d7d5233362aa.png" alt="\bomega\neq\mathbf{G}"/>, then the function is not periodic.</p>
+<p>Summary: the only difference between the crystal Fourier transform
+<a href="#equation-fourier2">(2)</a> and the usual Fourier transform <a href="#equation-fourier1">(1)</a> is the
+<img class="math" src="../../_images/math/567f4bec3bb3c201050a68653a0daaecc25ea049.png" alt="\Omega_\mathrm{crystal}"/> factor. The Fourier transform <a href="#equation-fourier2">(2)</a> of a
+periodic function is nonzero only for <img class="math" src="../../_images/math/400fcf5ba719b5d0f22ef845317f14bb5d75762a.png" alt="\omega=\mathbf{G}"/> and is equal to:</p>
+<div class="math" id="equation-fourier2b">
+<p><span class="eqno">(4)</span><img src="../../_images/math/1a3afbe2f0e43382ad62b5ed586698bc1615b1ce.png" alt="F[f(\mathbf{x})] \equiv \tilde f(\mathbf{G})
+    = {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x})
+    e^{-i\mathbf{G} \cdot \mathbf{x}}\,\d^3 x"/></p>
+</div><p>Note: the fact that the sum is bounded follows from:</p>
+<div class="math">
+<p><img src="../../_images/math/325083ba307e01c292894884e9577d133068189d.png" alt="\left| \sum_{n=-\infty}^\infty e^{ikn} \right|
+    = \left| \lim_{N\to\infty} \sum_{n=-N}^N e^{ikn} \right|
+    = \left| \lim_{N\to\infty} \left(1+2\sum_{n=1}^N \cos kn\right) \right|=
+
+    = \left| \lim_{N\to\infty} {\cos kN - \cos k(N+1) \over 1-\cos k}
+        \right|
+    &lt; {2 \over | 1-\cos k | }"/></p>
+</div><p>Because <img class="math" src="../../_images/math/b185df0b706669c03c1b3476eae4df9057f233e5.png" alt="| \cos kN - \cos k(N+1) | &lt; 2"/>.  So for <img class="math" src="../../_images/math/1a6ea20d1ea2b4e7ea0a909b2c0ba18831d729e2.png" alt="k\neq 2\pi"/> (i.e. the
+denominator is non-zero), the sum is bounded (to be precise, the infinite sum
+does not converge, because it oscillates, but the point is that the partial sum
+is always bounded). For <img class="math" src="../../_images/math/119e65d218eae53f30bc36405bb491214aa2ce16.png" alt="k=2\pi"/>, the sum is infinite, because <img class="math" src="../../_images/math/53ba5cb41fcf1e1b153125a504aab4fd130fd33d.png" alt="e^{i2\pi n} =
+1"/>.</p>
+<p>Since we divided the direct Fourier transform in <a href="#equation-fourier1">(1)</a> by
+<img class="math" src="../../_images/math/567f4bec3bb3c201050a68653a0daaecc25ea049.png" alt="\Omega_\mathrm{crystal}"/> to obtain <a href="#equation-fourier2">(2)</a>, we need to multiply the
+inverse transform in <a href="#equation-fourier1">(1)</a> by <img class="math" src="../../_images/math/567f4bec3bb3c201050a68653a0daaecc25ea049.png" alt="\Omega_\mathrm{crystal}"/>:</p>
+<div class="math" id="equation-fourier2b_inv">
+<p><span class="eqno">(5)</span><img src="../../_images/math/a08ab937558651e45b27e1b9b4034d46568bce14.png" alt="F^{-1}[\tilde f(\bomega)] = f(\mathbf{x})
+    = {\Omega_\mathrm{crystal}\over(2\pi)^3}\int_{-\infty}^{\infty}
+    \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+    =
+
+    = {\Omega_\mathrm{cell}N_\mathrm{cell}\over(2\pi)^3}\int_{-\infty}^{\infty}
+    \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+    =
+
+    = {N_\mathrm{cell}\over\Omega_\mathrm{BZ}}
+    \sum_{\mathbf{G}}
+    \int_{\Omega_\mathrm{BZ}}
+    \tilde f(\mathbf{G}+\bomega)
+        e^{+i(\mathbf{G}+\bomega) \cdot \mathbf{x}}\,\d^3 \omega
+    =
+
+    = {N_\mathrm{cell}\over\Omega_\mathrm{BZ}}
+    \sum_{\mathbf{G}} e^{+i\mathbf{G} \cdot \mathbf{x}}
+    \int_{\Omega_\mathrm{BZ}}
+    \tilde f(\mathbf{G}+\bomega)
+        e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+    =
+
+    =
+    \sum_{\mathbf{G}} \tilde f(\mathbf{G}) e^{+i\mathbf{G} \cdot \mathbf{x}}
+    \int_{\Omega_\mathrm{BZ}}
+    \delta(\boldsymbol\omega)
+        e^{+i\boldsymbol\omega \cdot \mathbf{x}}\,d^3 \omega
+    =
+
+    =
+    \sum_{\mathbf{G}} \tilde f(\mathbf{G}) e^{+i\mathbf{G} \cdot \mathbf{x}}"/></p>
+</div><p>where we used the fact that:</p>
+<div class="math">
+<p><img src="../../_images/math/feae350934a368e0752681a16d02333996adf3bf.png" alt="{N_\mathrm{cell}\over\Omega_\mathrm{BZ}}\tilde f(\mathbf{G}+\boldsymbol\omega)
+=\tilde f(\mathbf{G})\delta(\boldsymbol\omega) \,."/></p>
+</div><p>Alternatively, if one is only interested to show that the inverse
+transformation works, one can directly substitute the direct formula
+<a href="#equation-fourier2b">(4)</a> into <a href="#equation-fourier2b_inv">(5)</a> as follows:</p>
+<div class="math">
+<p><img src="../../_images/math/9bb4f6f1007a99bdad9b92ae9628963a2438096d.png" alt="F^{-1}[\tilde f(\mathbf{G})] = \sum_{\mathbf{G}}
+    \tilde f(\mathbf{G}) e^{+i\mathbf{G} \cdot \mathbf{x}} =
+
+= \sum_{\mathbf{G}}
+    \left({1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}}
+    f(\mathbf{x'})
+    e^{-i\mathbf{G} \cdot \mathbf{x'}}\,d^3 x'\right)
+    e^{+i\mathbf{G} \cdot \mathbf{x}} =
+
+= {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x'})
+    \sum_{\mathbf{G}} e^{i\mathbf{G}
+     \cdot (\mathbf{x}-\mathbf{x'})}\,d^3 x' =
+
+= {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x'})
+    (2\pi)^3
+    \delta\left({(2\pi)^3\over\Omega_\mathrm{cell}}
+        (\mathbf{x}-\mathbf{x'})\right) \,d^3 x' =
+
+= {1\over\Omega_\mathrm{cell}} \int_{\Omega_\mathrm{cell}} f(\mathbf{x'})
+    (2\pi)^3 {\Omega_\mathrm{cell}\over (2\pi)^3}
+    \delta(\mathbf{x}-\mathbf{x'}) \,d^3 x' =
+
+=f(\mathbf{x})"/></p>
+</div><p>Thus we have shown that <img class="math" src="../../_images/math/096ef7faa82ab2fce9f269e4e625fd7f8dced3ce.png" alt="F^{-1}[\tilde f(\mathbf{G})] = f(\mathbf{x})"/>.</p>
+<div class="section" id="one-dimension-fourier-series">
+<h2>One Dimension (Fourier Series)<a class="headerlink" href="#one-dimension-fourier-series" title="Permalink to this headline">¶</a></h2>
+<p>In one dimension with a periodic function <img class="math" src="../../_images/math/c07f2792470f5cc757767d0ef7585533665f3276.png" alt="f(x+L)=f(x)"/>,
+the volume of a unit cell is <img class="math" src="../../_images/math/5883634311503d62c53079edc560e3ef81a14910.png" alt="\Omega_\mathrm{cell}=L"/>
+and the reciprocal space vectors <img class="math" src="../../_images/math/6e28ce12d49d39f160d5a0ef54077fc98e4b9d2b.png" alt="G"/> are defined using
+<img class="math" src="../../_images/math/a5296d39bc0b0abfa0a875f4b2a865ddf9ce7a4b.png" alt="e^{iGL}=1"/> from which <img class="math" src="../../_images/math/8d8e4a9ae3a2c572ba06c0760c6f50b9ea49eac5.png" alt="G_n = {2\pi\over L} n"/>.
+The equation <a href="#equation-fourier2b">(4)</a> then becomes:</p>
+<div class="math" id="equation-fourier2b_1d">
+<p><span class="eqno">(6)</span><img src="../../_images/math/bd0fa329d463781518f493ff76378f4980734bb8.png" alt="F[f(x)] \equiv \tilde f(G_n) \equiv c_n
+    = {1\over L} \int_{-{L\over2}}^{L\over2} f(x)
+    e^{-i G_n x}\,\d x
+    = {1\over L} \int_{-{L\over2}}^{L\over2} f(x)
+    e^{-i(2\pi n x/L)}\,\d x"/></p>
+</div><p>This is exactly the definition of a Fourier series (<img class="math" src="../../_images/math/73dad573cdaca95ffccd89d8931d5c1f85c4186a.png" alt="c_n"/> are the Fourier
+coefficients). The inverse transform follows from <a href="#equation-fourier2b_inv">(5)</a>:</p>
+<div class="math">
+<p><img src="../../_images/math/b9742e31c2be895de052f377891aabe01a2d917f.png" alt="f(x) = \sum_{n=-\infty}^\infty \tilde f(G_n) e^{i G_n x}
+    = \sum_{n=-\infty}^\infty c_n e^{i(2\pi nx/L)}"/></p>
+</div></div>
 </div>
 <div class="section" id="discrete-fourier-transform">
 <h1>Discrete Fourier Transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this headline">¶</a></h1>
@@ -285,7 +505,15 @@ means the Fourier transform.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Fourier Transform</a></li>
+<li><a class="reference internal" href="#">Fourier Transform</a><ul>
+<li><a class="reference internal" href="#shift-theorem">Shift Theorem</a></li>
+<li><a class="reference internal" href="#radial-fourier-transform">Radial Fourier Transform</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fourier-transform-of-a-periodic-function-e-g-in-a-crystal">Fourier Transform of a Periodic Function (e.g. in a Crystal)</a><ul>
+<li><a class="reference internal" href="#one-dimension-fourier-series">One Dimension (Fourier Series)</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#discrete-fourier-transform">Discrete Fourier Transform</a></li>
 <li><a class="reference internal" href="#laplace-transform">Laplace Transform</a></li>
 </ul>

@@ -156,6 +156,14 @@ Bessel function:
         = {\left(x\over2\right)^\alpha \over \Gamma(\alpha+1)}
             \ {}_0F_1\left(\alpha+1; -{x^2\over 4}\right)
 
+Spherical Bessel function of the first kind:
+
+.. math::
+
+    j_\nu(x) = \sqrt{\pi\over 2x} J_{\nu+\half}(x)
+        = {\sqrt\pi\left(x\over2\right)^\nu \over 2\Gamma(\nu+{3\over2})}
+            \ {}_0F_1\left(\nu+{3\over2}; -{x^2\over 4}\right)
+
 Modified Bessel functions:
 
 .. math::
@@ -251,11 +259,14 @@ Elementary functions:
 
     \arctan z = z\ {}_2F_1(1, \half; {\textstyle{3\over2}}; -z^2)
 
-Legendre polynomials:
+Legendre polynomials (and associated Legendre polynomials):
 
 .. math::
 
     P_n(z) = {}_2F_1\left(-n, n+1; 1; {1-z\over 2}\right)
+
+    P_n^\mu(z) = {1\over\Gamma(1-\mu)} \left(1+z\over1-z\right)^{\mu\over2}
+        {}_2F_1\left(-n, n+1; 1-\mu; {1-z\over 2}\right)
 
 Chebyshev polynomials:
 
