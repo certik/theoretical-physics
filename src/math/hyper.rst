@@ -251,11 +251,14 @@ Elementary functions:
 
     \arctan z = z\ {}_2F_1(1, \half; {\textstyle{3\over2}}; -z^2)
 
-Legendre polynomials:
+Legendre polynomials (and associated Legendre polynomials):
 
 .. math::
 
     P_n(z) = {}_2F_1\left(-n, n+1; 1; {1-z\over 2}\right)
+
+    P_n^\mu(z) = {1\over\Gamma(1-\mu)} \left(1+z\over1-z\right)^{\mu\over2}
+        {}_2F_1\left(-n, n+1; 1-\mu; {1-z\over 2}\right)
 
 Chebyshev polynomials:
 
