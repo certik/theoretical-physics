@@ -156,6 +156,14 @@ Bessel function:
         = {\left(x\over2\right)^\alpha \over \Gamma(\alpha+1)}
             \ {}_0F_1\left(\alpha+1; -{x^2\over 4}\right)
 
+Spherical Bessel function of the first kind:
+
+.. math::
+
+    j_\nu(x) = \sqrt{\pi\over 2x} J_{\nu+\half}(x)
+        = {\sqrt\pi\left(x\over2\right)^\nu \over 2\Gamma(\nu+{3\over2})}
+            \ {}_0F_1\left(\nu+{3\over2}; -{x^2\over 4}\right)
+
 Modified Bessel functions:
 
 .. math::
