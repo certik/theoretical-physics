@@ -3,48 +3,171 @@
 
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Theoretical Physics Reference</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-28893880-1']);
+        _gaq.push(['_trackPageview']);
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-28893880-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
     </script>
+    <style>
+        .container {
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+        .container h1{
+            text-align: center;
+            font-size: 250%;
+            margin-top: 0.7em;
+            font-family: "omnes-pro", sans-serif;
+            font-weight: 100;
+        }
+        .container h2{
+            text-align: center;
+            font-size: 150%;
+            font-weight: 100;
+            color: #555;
+        }
+        .big {
+            text-align: center;
+            margin-top: 5em;
+            margin-bottom: 2em;
+        }
+        .big a {
+            align-self: center;
+            border: 3px solid black;
+            padding: 1em 1.6em;
+            font-weight: bold;
+            border-radius: 5px;
+            line-height: 1em;
+            text-decoration: none;
+            font-size: 120%;
+        }
+        
+        /* Glyph, by Harry Roberts */ hr.pa { padding: 0; border: none; border-top: medium double #333; color: #333; text-align: center; } hr.pa:after { content: "§"; display: inline-block; position: relative; top: -0.7em; font-size: 1.5em; padding: 0 0.25em; background: white; }
+
+        .pure-menu-heading {
+            font-weight: bold;
+            font-size: 110% !important;
+            text-align: center;
+            display: block !important;
+            background-color: lightgreen;
+            margin-bottom: 1em !important;
+            padding-bottom: 1em;
+        }
+        .stable-ver {
+            text-align: center;
+        }
+        .dev-ver {
+            background-color: orange;
+        }
+        .list-menu li {
+            font-size: 75%;
+        }
+        .list-menu a i {
+            margin-right: 5px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Theoretical Physics Reference</h1>
 
-    <p>
-    Opensource theoretical physics book.
-    </p>
-    <p>
-    <a href="dev/index.html">Go to the online book</a>
-    </p>
 
-    <p>
-    All versions:
-    <ul>
-        <li><a href="0.1/index.html">0.1 (1st-edition)</a> (options:
-        <a href="0.1/index.html">html</a>,
-        <a href="0.1/theoretical-physics.pdf">pdf</a>,
-        <a href="http://www.lulu.com/product/hardcover/theoretical-physics-reference/11612144">book</a>,
-        <a href="http://github.com/certik/theoretical-physics/tree/1st-edition">source</a>,
-        <a href="http://ondrejcertik.blogspot.com/2010/07/theoretical-physics-reference-book.html">blog post</a>)
-        </li>
-        <li><a href="dev/index.html">development version</a> (options:
-        <a href="dev/index.html">html</a>,
-        <a href="dev/theoretical-physics.pdf">pdf</a>,
-        <a href="http://github.com/certik/theoretical-physics/">source</a>)</li>
-    </ul>
-    </p>
+
+
+    <div class="container">
+        <h1>Theoretical Physics Reference</h1>
+        <h2>
+            Open source theoretical physics book.
+        </h2>
+        <hr class="pa" style="margin-top:2em;">
+        <div class="big">
+            <a href="dev/index.html">Go to the online book</a>
+        </div>
+
+
+
+
+
+        <div style="margin-top:4em;border-top:1px solid lightblue;" class="pure-u-1">
+            <h2>All versions</h2>
+
+            <div class="pure-g">
+                <div class="pure-u-1-24">
+                </div>
+                <div class="pure-u-10-24">
+                    <div class="stable-ver pure-menu pure-menu-open pure-menu-horizontal list-menu">
+                        <a href="0.1/index.html" class="pure-menu-heading">0.1 (1st-edition)</a>
+                        <ul>
+                            <li>
+                                <a href="0.1/index.html">
+                                    <i class="fa fa-bookmark-o"></i>HTML</a>
+                            </li>
+                            <li>
+                                <a href="0.1/theoretical-physics.pdf">
+                                    <i class="fa fa-file-text-o"></i>PDF</a>
+                            </li>
+                            <li>
+                                <a href="http://www.lulu.com/product/hardcover/theoretical-physics-reference/11612144">
+                                    <i class="fa fa-book"></i>BOOK</a>
+                            </li>
+                            <li>
+                                <a href="http://github.com/certik/theoretical-physics/tree/1st-edition">
+                                    <i class="fa fa-github"></i>SOURCE</a>
+                            </li>
+                            <li>
+                                <a href="http://ondrejcertik.blogspot.com/2010/07/theoretical-physics-reference-book.html">
+                                    <i class="fa fa-link"></i>BLOG POST</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pure-u-2-24">
+                </div>
+                <div class="pure-u-10-24">
+                    <div class="pure-u-1-2 pure-menu pure-menu-open pure-menu-horizontal list-menu">
+                        <a href="dev/index.html" class="pure-menu-heading dev-ver">development version</a>
+                        <ul>
+                            <li>
+                                <a href="dev/index.html">
+                                    <i class="fa fa-bookmark-o"></i>HTML</a>
+                            </li>
+                            <li>
+                                <a href="dev/theoretical-physics.pdf">
+                                    <i class="fa fa-file-text-o"></i>PDF</a>
+                            </li>
+                            <li>
+                                <a href="http://github.com/certik/theoretical-physics/">
+                                    <i class="fa fa-github"></i>SOURCE</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pure-u-1-24">
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
 </body>
+
 </html>
