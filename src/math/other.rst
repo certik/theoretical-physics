@@ -491,6 +491,7 @@ in actual calculations -- the definition of a variation (using a regular
 derivative):
 
 .. math::
+    :label: functional_deriv
 
     \delta F[f] = \left.{\d\over\d\varepsilon}F[f+\varepsilon \delta f]
         \right|_{\varepsilon=0}
@@ -530,7 +531,7 @@ searches for zero partial derivatives (gradient).
 
 
 
-More generally, $\delta$-variation can by applied to any function $g$ which
+We now extend the $\delta$-variation notation to any any function $g$ which
 contains the function $f(x)$ being varied, you just need to replace $f$ by
 $f+\epsilon h$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for example
 (here $g=\partial_\mu\phi$ and $f=\phi$):
@@ -544,8 +545,12 @@ $f+\epsilon h$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for example
         =\partial_\mu \delta\phi
 
 
+As such, the $F$ in :eq:`functional_deriv` can be either a functional or any
+expression that contains the function $f$.
 This notation allows us a very convenient computation, as shown in the
-following examples. First, when computing a variation of some integral, we
+following examples.
+
+First, when computing a variation of some integral, we
 can interchange $\delta$ and $\int$:
 
 .. math::
