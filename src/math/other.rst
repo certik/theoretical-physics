@@ -533,15 +533,14 @@ searches for zero partial derivatives (gradient).
 
 We now extend the $\delta$-variation notation to any any function $g$ which
 contains the function $f(x)$ being varied, you just need to replace $f$ by
-$f+\epsilon h$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for example
-(here $g=\partial_\mu\phi$ and $f=\phi$):
+$f+\epsilon \delta f$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for
+example (here $g=\partial_\mu\phi$ and $f=\phi$):
 
 .. math::
 
     \delta\partial_\mu\phi
-        = \left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon h) \right|_{\varepsilon=0}
-        = \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon h) \right|_{\varepsilon=0}
-        =\partial_\mu h
+        = \left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon \delta\phi) \right|_{\varepsilon=0}
+        = \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon \delta\phi) \right|_{\varepsilon=0}
         =\partial_\mu \delta\phi
 
 
@@ -571,6 +570,31 @@ In the expression $\delta(K(x) f(x))$ we must understand from the context if
 we are treating it as a functional of $f$ or $K$. In our case it's a
 functional of $f$, so we have $\delta(K f)=K\delta f$.
 
+The second very important note is when taking variation of expression like:
+
+.. math::
+
+    \delta \int f(t_1)f(t_2) \d t_1 \d t_2 =
+
+    = \int \delta (f(t_1)f(t_2)) \d t_1 \d t_2 =
+
+    = \int \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta f(t_1))
+        (f(t_2)+\varepsilon\delta f(t_2)) \right|_{\varepsilon=0}
+        \d t_1 \d t_2 =
+
+    = \int (\delta f(t_1))f(t_2)+f(t_1)(\delta f(t_2)) \d t_1 \d t_2 =
+
+    = \int (\delta f(t_1))f(t_2)+f(t_2)(\delta f(t_1)) \d t_1 \d t_2 =
+
+    = 2 \int f(t_2) \delta f(t_1) \d t_1 \d t_2
+
+then when $f$ is replaced by $f+\epsilon \delta f$, one has to keep track of
+the independent variable, so $f(t_1)$ gets replaced by $f(t_1)+\epsilon \delta
+f(t_1)$ and $f(t_2)$ gets replaced by $f(t_2)+\epsilon \delta f(t_2)$. Thus the
+two variations $\delta f(t_1)$ and $\delta f(t_2)$ are different (independent).
+If there is only one indepenent variable, one can simply write $\delta f$ as it
+is clear what the independent variable is. 
+
 Examples
 ~~~~~~~~
 
@@ -596,6 +620,10 @@ derivative from the result, as explained above.
 .. math::
 
        {\delta f(t_1)f(t_2)\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta(t-t_1)) (f(t_2)+\varepsilon\delta(t-t_2)) \right|_{\varepsilon=0}=\delta(t-t_1)f(t_2)+f(t_1)\delta(t-t_2)
+
+The next example shows that when taking variation of an expression containing
+the function $f$ of different independent variables, one has to keep track of
+these variables in the variations:
 
 .. math::
 
