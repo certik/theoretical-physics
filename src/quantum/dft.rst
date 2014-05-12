@@ -1399,6 +1399,8 @@ and minimize $\Omega$ with respect to $\psi$:
 
     {\delta \Omega[n] \over \delta \psi} = 0 \,.
 
+We will use tilde to denote functions in terms of $\psi$. So $\Omega[n] =
+\Omega[\psi^2] = \tilde \Omega[\psi]$.
 Using the relation
 
 .. math::
@@ -1424,16 +1426,21 @@ as well as the equation :eq:`of-dft`:
 
 .. math::
 
-    H[\psi] \equiv {\delta F_e[n] \over \delta \psi}
+    \tilde H[\psi] \equiv {\delta \tilde F_e[\psi] \over \delta \psi}
+        = {\delta F_e[n] \over \delta \psi}
         = 2 \psi {\delta F_e[n] \over \delta n}
         = 2 H[n] \psi
         = 2\epsilon \psi
+
+So the Hamiltonian $H[n]$ expressed using $n$ and the Hamiltonian
+$\tilde H[\psi]$ expressed using $\psi$ are related by
+$\tilde H[\psi] = 2 H[n] \psi$.
 
 Free Energy Minimization
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 For clarity, we will be using $H[n]$ from equation :eq:`of-dft` as our main
-quantity, but we will also write the final relations using $H[\psi]$ for
+quantity, but we will also write the final relations using $\tilde H[\psi]$ for
 completeness.
 
 We start with some initial guess for $\ket{\psi}$ (it must be normalized
@@ -1452,14 +1459,14 @@ Let's calculate $\epsilon$:
 
     \epsilon = {1\over N} \braket{\psi | H[n] | \psi}
         \equiv {1\over N} \int H[n] \psi^2(\mathbf{x}) \d^3 x
-        = {1\over 2N} \int H[\psi] \psi(\mathbf{x}) \d^3 x
+        = {1\over 2N} \int \tilde H[\psi] \psi(\mathbf{x}) \d^3 x
 
 We calculate the steepest-descent (SD) vector $\ket{\chi}$:
 
 .. math::
 
     \ket{\chi} = 2(\epsilon - H[n])\ket{\psi}
-        \equiv 2\epsilon \ket{\psi} - \ket{H[\psi]}
+        \equiv 2\epsilon \ket{\psi} - \ket{\tilde H[\psi]}
 
 The conjugate-gradient (CG) vector $\ket{\varphi}$ is calculated as:
 
