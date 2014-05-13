@@ -491,6 +491,7 @@ in actual calculations -- the definition of a variation (using a regular
 derivative):
 
 .. math::
+    :label: functional_deriv
 
     \delta F[f] = \left.{\d\over\d\varepsilon}F[f+\varepsilon \delta f]
         \right|_{\varepsilon=0}
@@ -530,22 +531,25 @@ searches for zero partial derivatives (gradient).
 
 
 
-More generally, $\delta$-variation can by applied to any function $g$ which
+We now extend the $\delta$-variation notation to any any function $g$ which
 contains the function $f(x)$ being varied, you just need to replace $f$ by
-$f+\epsilon h$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for example
-(here $g=\partial_\mu\phi$ and $f=\phi$):
+$f+\epsilon \delta f$ and apply ${\d\over\d\epsilon}$ to the whole $g$, for
+example (here $g=\partial_\mu\phi$ and $f=\phi$):
 
 .. math::
 
     \delta\partial_\mu\phi
-        = \left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon h) \right|_{\varepsilon=0}
-        = \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon h) \right|_{\varepsilon=0}
-        =\partial_\mu h
+        = \left.{\d\over\d\varepsilon}\partial_\mu(\phi+\varepsilon \delta\phi) \right|_{\varepsilon=0}
+        = \partial_\mu\left.{\d\over\d\varepsilon}(\phi+\varepsilon \delta\phi) \right|_{\varepsilon=0}
         =\partial_\mu \delta\phi
 
 
+As such, the $F$ in :eq:`functional_deriv` can be either a functional or any
+expression that contains the function $f$.
 This notation allows us a very convenient computation, as shown in the
-following examples. First, when computing a variation of some integral, we
+following examples.
+
+First, when computing a variation of some integral, we
 can interchange $\delta$ and $\int$:
 
 .. math::
@@ -565,6 +569,34 @@ can interchange $\delta$ and $\int$:
 In the expression $\delta(K(x) f(x))$ we must understand from the context if
 we are treating it as a functional of $f$ or $K$. In our case it's a
 functional of $f$, so we have $\delta(K f)=K\delta f$.
+
+The second very important note is when taking variation of expression like:
+
+.. math::
+
+    \delta \int f(t_1)f(t_2) \d t_1 \d t_2 =
+
+    = \int \delta (f(t_1)f(t_2)) \d t_1 \d t_2 =
+
+    = \int \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta f(t_1))
+        (f(t_2)+\varepsilon\delta f(t_2)) \right|_{\varepsilon=0}
+        \d t_1 \d t_2 =
+
+    = \int (\delta f(t_1))f(t_2)+f(t_1)(\delta f(t_2)) \d t_1 \d t_2 =
+
+    = \int (\delta f(t_1))f(t_2)+f(t_2)(\delta f(t_1)) \d t_1 \d t_2 =
+
+    = 2 \int f(t_2) \delta f(t_1) \d t_1 \d t_2
+
+then when $f$ is replaced by $f+\epsilon \delta f$, one has to keep track of
+the independent variable, so $f(t_1)$ gets replaced by $f(t_1)+\epsilon \delta
+f(t_1)$ and $f(t_2)$ gets replaced by $f(t_2)+\epsilon \delta f(t_2)$. Thus the
+two variations $\delta f(t_1)$ and $\delta f(t_2)$ are different (independent).
+If there is only one indepenent variable, one can simply write $\delta f$ as it
+is clear what the independent variable is. This is analogous to using
+differentials, e.g. $\d (f(x) f(y)) = (\d f(x)) f(y) + f(x) \d f(y)
+=f'(x) \d x f(y) + f(x) f'(y) \d y$, where one has to keep track of the
+independent variable as well for each $\d f$.
 
 Examples
 ~~~~~~~~
@@ -591,6 +623,10 @@ derivative from the result, as explained above.
 .. math::
 
        {\delta f(t_1)f(t_2)\over\delta f(t)}= \left.{\d\over\d\varepsilon}(f(t_1)+\varepsilon\delta(t-t_1)) (f(t_2)+\varepsilon\delta(t-t_2)) \right|_{\varepsilon=0}=\delta(t-t_1)f(t_2)+f(t_1)\delta(t-t_2)
+
+The next example shows that when taking variation of an expression containing
+the function $f$ of different independent variables, one has to keep track of
+these variables in the variations:
 
 .. math::
 
