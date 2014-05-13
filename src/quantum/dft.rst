@@ -1476,7 +1476,8 @@ The conjugate-gradient (CG) vector $\ket{\varphi}$ is calculated as:
         \braket{\chi_{k-1} | \chi_{k-1}}} \ket{\varphi}
 
 To satisfy the normalization constraint of $\ket{\psi}$, the CG vector is
-further orthogonalized to $\ket{\psi}$ and normalized to $N$:
+further orthogonalized to $\ket{\psi}$ and normalized to $N$ (this step is one
+particular, but not the only way to impose the normalization constraint):
 
 .. math::
 
@@ -1488,7 +1489,9 @@ further orthogonalized to $\ket{\psi}$ and normalized to $N$:
 
 That is, now $\braket{\varphi'' | \psi}=0$ and
 $\braket{\varphi'' | \varphi''} = N$.
-The new CG vector $\ket{\psi_{k+1}}$ is then updated by a linear combination
+The new CG vector $\ket{\psi_{k+1}}$ is then updated as usual in CG by
+$\ket{\psi} + \alpha \ket{\varphi''}$, but then it must be normalized.
+As such, equivalently, it is updated by a linear combination
 of $\ket{\psi}$ and $\ket{\varphi''}$:
 
 .. math::
