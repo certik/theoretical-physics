@@ -593,7 +593,10 @@ the independent variable, so $f(t_1)$ gets replaced by $f(t_1)+\epsilon \delta
 f(t_1)$ and $f(t_2)$ gets replaced by $f(t_2)+\epsilon \delta f(t_2)$. Thus the
 two variations $\delta f(t_1)$ and $\delta f(t_2)$ are different (independent).
 If there is only one indepenent variable, one can simply write $\delta f$ as it
-is clear what the independent variable is. 
+is clear what the independent variable is. This is analogous to using
+differentials, e.g. $\d (f(x) f(y)) = (\d f(x)) f(y) + f(x) \d f(y)
+=f'(x) \d x f(y) + f(x) f'(y) \d y$, where one has to keep track of the
+independent variable as well for each $\d f$.
 
 Examples
 ~~~~~~~~
