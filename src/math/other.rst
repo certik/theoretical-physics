@@ -598,6 +598,28 @@ differentials, e.g. $\d (f(x) f(y)) = (\d f(x)) f(y) + f(x) \d f(y)
 =f'(x) \d x f(y) + f(x) f'(y) \d y$, where one has to keep track of the
 independent variable as well for each $\d f$.
 
+Another useful formula is differentiation of a functional $F[\psi(\theta)]$
+where the function $\psi(\theta)$ depends on a parameter $\theta$:
+
+.. math::
+
+    {\d F[\psi(\theta)] \over \d \theta}
+    =\left.{\d\over\d\epsilon} F[\psi(\theta+\epsilon)] \right|_{\epsilon=0}
+    =\left.{\d\over\d\epsilon} F\left[\psi(\theta)+\epsilon {d \psi(\theta)
+        \over d \theta} + O(\epsilon^2)\right] \right|_{\epsilon=0}
+    =\left.{\d\over\d\epsilon} F\left[\psi(\theta)+\epsilon {d \psi(\theta)
+        \over d \theta}\right] \right|_{\epsilon=0}
+    = \int {\delta F[\psi] \over \delta \psi} {\d\psi(\theta)\over\d\theta}\d x
+
+where we used the definition of a variation and a functional derivative with
+$\delta\psi={\d\psi(\theta) \over\d\theta}$:
+
+.. math::
+
+    \delta F = \left.{\d\over\d\epsilon}
+        F[\psi+\epsilon\delta\psi]\right|_{\epsilon=0}
+    = \int{\delta F\over\delta\psi}\delta\psi\d x
+
 Examples
 ~~~~~~~~
 
