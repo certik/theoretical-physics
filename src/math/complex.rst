@@ -280,8 +280,26 @@ Using :eq:`log(ab)`:
       = i\pi + i\pi + 2\pi i \left\lfloor-\half\right\rfloor
       = i\pi + i\pi - 2\pi i = 0
 
+Code:
+
+    >>> from math import floor, pi
+    >>> from cmath import log
+    >>> log((-1)*(-1))
+    0j
+    >>> log(-1)+log(-1)+2*pi*1j*floor((pi-pi-pi)/(2*pi))
+    0j
+
 Another example:
 
 .. math::
 
     i^i = e^{i \log i} = e^{i^2 \arg i} = e^{-{\pi\over 2}}
+
+Code:
+
+    >>> from math import exp, pi
+    >>> 1j**1j
+    (0.20787957635076193+0j)
+    >>> exp(-pi/2)
+    0.20787957635076193
+
