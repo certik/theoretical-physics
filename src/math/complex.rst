@@ -24,6 +24,12 @@ A complex number $z$ can be written using its real and imaginary parts:
 
     z = \Re z + i \Im z
 
+The absolute value $|z|$ is defined as:
+
+.. math::
+
+    |z| = \sqrt{\Re^2 z + \Im^2 z}
+
 Argument Function
 -----------------
 
@@ -31,7 +37,7 @@ Principal value of $\arg(z)$ is defined as
 
 .. math::
 
-    \arg z = \arg(\Re z + i \Im z) = \atan2(\Im z, \Re z)
+    \arg z = \atan2(\Im z, \Re z)
 
 thus we have $-\pi < \arg z \le \pi$. Few formulas:
 
@@ -43,21 +49,43 @@ thus we have $-\pi < \arg z \le \pi$. Few formulas:
 Exponential
 -----------
 
+Exponential is defined using:
+
 .. math::
 
     e^z = e^{\Re z + i\Im z} = e^{\Re z} (\cos\Im z + i \sin \Im z)
 
-It holds:
+It follows:
 
 .. math::
 
-    e^{a+b} = e^a e^b
+    e^{a+b}
+        = e^{\Re(a+b)} (\cos\Im(a+b) + i \sin \Im(a+b)) =
 
-Any complex number can then be written in a polar form:
+        = e^{\Re a}e^{\Re b} \left(
+            \cos(\Im a)\cos(\Im b) - \sin(\Im a)\sin(\Im b)
+            + i \sin(\Im a)\cos(\Im b) + i\cos(\Im a) \sin(\Im b)\right) =
+
+        = e^{\Re a} (\cos\Im a + i \sin \Im a)
+          e^{\Re b} (\cos\Im b + i \sin \Im b) =
+
+        = e^a e^b
+
+Any complex number can be written in a polar form as follows:
 
 .. math::
 
-    z = |z| e^{i\arg z}
+    z = \Re z + i \Im z = |z| \left( {\Re z \over |z|} + i {\Im z\over
+        |z|}\right) =
+
+    = |z| \left( {\Re z \over\sqrt{\Re^2 z + \Im^2 z}}
+        + i {\Im z\over\sqrt{\Re^2 z + \Im^2 z}}\right) =
+
+    = |z| \left(\cos\atan2(\Im z, \Re z) + i \sin\atan2(\Im z, \Re z)\right) =
+
+    = |z| \left(\cos\arg z + i \sin\arg z\right) =
+
+    = |z| e^{i\arg z}
 
 Logarithm
 ---------
