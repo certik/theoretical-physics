@@ -39,12 +39,8 @@ Principal value of $\arg(z)$ is defined as
 
     \arg z = \atan2(\Im z, \Re z)
 
-thus we have $-\pi < \arg z \le \pi$. Few formulas:
-
-.. math::
-
-    \arg ab = \arg a + \arg b + 2\pi
-        \left\lfloor \pi-\arg a-\arg b \over 2\pi \right\rfloor
+Thus we have $-\pi < \arg z \le \pi$. All operations with $\arg z$ are then
+derived using the properties of the real $\atan2$ function.
 
 Exponential
 -----------
@@ -98,6 +94,24 @@ The following formula holds:
         = \atan2(\sin\Im z, \cos\Im z) =
 
         = \Im z + 2\pi \left\lfloor \pi-\Im z \over 2\pi \right\rfloor
+
+and also:
+
+.. math::
+
+    \arg ab
+        = \arg(|a| e^{i\arg a} |b| e^{i\arg b}) =
+
+        = \arg(|a| |b| e^{i(\arg a+\arg b)}) =
+
+        = \arg(e^{i(\arg a+\arg b)}) =
+
+        = \arg(\cos(\arg a+\arg b) + i\sin(\arg a + \arg b)) =
+
+        = \atan2(\sin(\arg a+\arg b), \cos(\arg a + \arg b)) =
+
+        = \arg a + \arg b + 2\pi
+            \left\lfloor \pi-\arg a-\arg b\over 2\pi \right\rfloor
 
 
 Logarithm
