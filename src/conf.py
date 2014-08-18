@@ -61,6 +61,9 @@ latex_preamble = r"""
 \newcommand{\bfc}{\mbox{\boldmath $c$}}
 \newcommand{\bfxi}{\mbox{\boldmath $\xi$}}
 
+\renewcommand\Re{\operatorname{Re}}
+\renewcommand\Im{\operatorname{Im}}
+
 
 %\def\back{\!\!\!\!\!\!\!\!\!\!}
 \def\back{}

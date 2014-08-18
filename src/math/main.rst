@@ -5,6 +5,7 @@ Mathematics
     :maxdepth: 2
 
     integration.rst
+    complex.rst
     residue.rst
     transforms.rst
     trig.rst
