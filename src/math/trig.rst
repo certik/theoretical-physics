@@ -360,7 +360,8 @@ The following useful relations hold:
     \atan2(ky, kx) = \atan2(y, x)
         \quad\quad\quad\mbox{for $k>0$}
 
-    \atan2(\sin x, \cos x) = x
+    \atan2(\sin x, \cos x) = x + 2\pi
+        \left\lfloor \pi-x \over 2\pi \right\rfloor
 
 We now prove them. The following works for all $x, y$ except for $x=y=0$:
 
@@ -434,7 +435,8 @@ Finally:
         =\begin{cases}x &x=\pi;\cr
             2\,\atan\left(\tan {x\over 2}\right)&
                 \rm otherwise\cr\end{cases}
-        = x
+        = x + 2\pi
+        \left\lfloor \pi-x \over 2\pi \right\rfloor
 
 In the above, we used the following double angle formulas:
 
