@@ -266,7 +266,7 @@ Using :eq:`(e^a)^b`:
         \pi i\left\lfloor \pi-\Im x \over 2\pi \right\rfloor
     } =
         (-1)^{\pi i\left\lfloor \pi-\Im x \over 2\pi \right\rfloor}
-        e^{x\over 2} 
+        e^{x\over 2}
 
 Using :eq:`log(ab)`:
 
