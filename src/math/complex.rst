@@ -87,6 +87,19 @@ Any complex number can be written in a polar form as follows:
 
     = |z| e^{i\arg z}
 
+The following formula holds:
+
+.. math::
+
+    \arg e^z = \arg e^{\Re z} e^{i\Im z} = \arg e^{i\Im z} =
+
+        = \arg(\cos\Im z + i\sin\Im z) =
+
+        = \atan2(\sin\Im z, \cos\Im z) =
+
+        = \Im z + 2\pi \left\lfloor \pi-\Im z \over 2\pi \right\rfloor
+
+
 Logarithm
 ---------
 
@@ -118,9 +131,6 @@ define logarithm using the equation :eq:`def_log` exactly.
 We can now derive a few important formulas:
 
 .. math::
-
-    \arg e^z = \arg e^{\Re z} e^{i\Im z} = \arg e^{i\Im z}
-        = \Im z + 2\pi \left\lfloor \pi-\Im z \over 2\pi \right\rfloor
 
     \log | e^z | = \log | e^{\Re z} e^{i \Im z} | = \log | e^{\Re z} | = \Re z
 
