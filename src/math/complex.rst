@@ -158,6 +158,7 @@ We can now derive a few important formulas:
 and
 
 .. math::
+    :label: log(ab)
 
     \log ab = \log |ab| + i\arg ab =
 
@@ -196,6 +197,7 @@ It follows:
 and
 
 .. math::
+    :label: (x^a)^b
 
     (x^a)^b = e^{b \log x^a} = e^{b \left(
         a\log x
@@ -213,6 +215,7 @@ and
 As a special case for $x=e$ one gets:
 
 .. math::
+    :label: (e^a)^b
 
     (e^a)^b = e^{a b} e^{
         2\pi i b\left\lfloor \pi-\Im a \over 2\pi \right\rfloor
@@ -230,3 +233,48 @@ Similarly:
     = x^a y^a e^{2\pi i a
             \left\lfloor \pi-\arg x-\arg y \over 2\pi \right\rfloor
             }
+
+Examples
+--------
+
+For integer $n$ we get from :eq:`(x^a)^b`:
+
+.. math::
+
+    (x^a)^n
+    = x^{a n} e^{
+        2\pi i n\left\lfloor \pi-\Im a\log x \over 2\pi \right\rfloor
+    } = x^{a n}
+
+Using :eq:`(x^a)^b`:
+
+.. math::
+
+    \sqrt{x^2} = (x^2)^{1\over 2} = x^{{1\over 2}\cdot 2}
+            e^{
+            2\pi i {1\over 2}
+            \left\lfloor \pi-\Im 2\log x \over 2\pi \right\rfloor}
+        = x e^{
+            \pi i
+            \left\lfloor \pi-2\arg x \over 2\pi \right\rfloor}
+
+Using :eq:`(e^a)^b`:
+
+.. math::
+
+    \sqrt {e^x} = (e^x)^{1\over 2} = e^{x\over 2} e^{
+        \pi i\left\lfloor \pi-\Im x \over 2\pi \right\rfloor
+    } =
+        (-1)^{\pi i\left\lfloor \pi-\Im x \over 2\pi \right\rfloor}
+        e^{x\over 2} 
+
+Using :eq:`log(ab)`:
+
+.. math::
+
+    0 = \log 1 = \log(-1)(-1) =
+        \log(-1) + \log(-1) + 2\pi i
+            \left\lfloor \pi-\pi-\pi \over 2\pi \right\rfloor =
+
+      = i\pi + i\pi + 2\pi i \left\lfloor-\half\right\rfloor
+      = i\pi + i\pi - 2\pi i = 0
