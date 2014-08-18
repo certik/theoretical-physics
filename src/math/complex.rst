@@ -4,13 +4,15 @@ Complex Numbers
 ===============
 
 We start by defining $\arg(z)$ by its principal value, then everything else
-follows from this definitino.  We could have also used any other branch, but
+follows from this definition.  We could have also used any other branch, but
 then most results in this chapter would need to be updated with the new
 convention.
 
 Then we define exponential, logarithm, power and so on using simple natural
-formulas. Everything else follows directly from those. In the derivation of
-each formula, only formulas introduced before (above) are used.
+formulas. From these definitions, everything else follows using a very simple
+algebra manipulation, all the "messy" features are hidden in the definition and
+properties of the real $\atan2$ function. In the derivation of each formula,
+only formulas introduced before (above) are used.
 
 Every formula in this chapter holds for all complex numbers, unless explicitly
 specified otherwise.
