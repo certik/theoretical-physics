@@ -257,6 +257,7 @@ Using :eq:`(x^a)^b`:
         = x e^{
             \pi i
             \left\lfloor \pi-2\arg x \over 2\pi \right\rfloor}
+        = (-1)^{\left\lfloor \pi-2\arg x \over 2\pi \right\rfloor} x
 
 Using :eq:`(e^a)^b`:
 
@@ -265,7 +266,7 @@ Using :eq:`(e^a)^b`:
     \sqrt {e^x} = (e^x)^{1\over 2} = e^{x\over 2} e^{
         \pi i\left\lfloor \pi-\Im x \over 2\pi \right\rfloor
     } =
-        (-1)^{\pi i\left\lfloor \pi-\Im x \over 2\pi \right\rfloor}
+        (-1)^{\left\lfloor \pi-\Im x \over 2\pi \right\rfloor}
         e^{x\over 2}
 
 Using :eq:`log(ab)`:
