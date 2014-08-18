@@ -279,3 +279,9 @@ Using :eq:`log(ab)`:
 
       = i\pi + i\pi + 2\pi i \left\lfloor-\half\right\rfloor
       = i\pi + i\pi - 2\pi i = 0
+
+Another example:
+
+.. math::
+
+    i^i = e^{i \log i} = e^{i^2 \arg i} = e^{-{\pi\over 2}}
