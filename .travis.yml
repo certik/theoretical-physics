@@ -3,6 +3,8 @@ python:
   - 2.7
 env:
   - TEST_SPHINX="yes"
+  global:
+    secure: "XDUg9Nw0B4uOVTqlGM79lpGbB+O8Q3sAPtIRfGyAjAt9VsDqdVnURrD5EN+LsBaD8JfJ67Pl2DzI6YAs/i1FeaMyM1N8ij76jxnDSOHpHo5YrY/ZvQaipx6rnX4tAmv+6hKAdZUtnNskdN8jSeS6afRoNZhXaUFBZB/gmZgVUxA="
 before_install:
   - sudo apt-get update
   - if [[ "${TEST_SPHINX}" == "yes" ]]; then
