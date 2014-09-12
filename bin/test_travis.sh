@@ -6,5 +6,5 @@ set -e
 set -x
 
 echo "Here is the token:"
-echo ${GH_TOKEN}
+echo "${GH_TOKEN} and Some other $GH_TOKEN stuff"
 echo "Done."
