@@ -3,7 +3,7 @@ python:
   - 2.7
 env:
   - TEST_SPHINX="yes"
-  secure: "AsBSEzcTAPvddsJLmdCl4BVU5+QBXb3JArUxP6OFNP/o+UgKjPGnlXrpk5AiQTvhD/5Q2pZpSAe1zIrx4gbDs+9YCQg5rONHQq4jGxUN/KWEWerqYqfb4JDs5fPZeeqZ70HTBVUBCnZozgBtjXhcWLNB4K+cA274SISfn2ixf1I="
+  - secure: "AsBSEzcTAPvddsJLmdCl4BVU5+QBXb3JArUxP6OFNP/o+UgKjPGnlXrpk5AiQTvhD/5Q2pZpSAe1zIrx4gbDs+9YCQg5rONHQq4jGxUN/KWEWerqYqfb4JDs5fPZeeqZ70HTBVUBCnZozgBtjXhcWLNB4K+cA274SISfn2ixf1I="
 before_install:
   - sudo apt-get update
   - if [[ "${TEST_SPHINX}" == "yes" ]]; then
