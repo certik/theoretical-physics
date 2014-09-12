@@ -5,4 +5,6 @@ set -e
 # Echo each command
 set -x
 
-make web
+echo "Here is the token:"
+echo "${GH_TOKEN} and Some other $GH_TOKEN stuff"
+echo "Done."
