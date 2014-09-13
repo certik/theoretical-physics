@@ -11,7 +11,7 @@ long term (e.g. like over the summer). I don't remember formulas for
 perturbation theory (neither time dependent or time independent), I don't
 remember Feynman rules in quantum field theory, I don't even remember the Dirac
 equation exactly (where the $i$ should be, if there is $m$ or $m^2$, ...). The
-thing about quantum field theory is not that some particular steps are 
+thing about quantum field theory is not that some particular steps are
 difficult, but that there are so many of them and one has to master all of them
 at once, in order to really "get it".
 
