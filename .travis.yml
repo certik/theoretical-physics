@@ -2,7 +2,10 @@ language: python
 python:
   - 2.7
 env:
+  matrix:
   - TEST_SPHINX="yes"
+  global:
+    secure: "Gvj1wlkQCofC20POkTos1hif3iteKFKlOqPfAX8+/K2s5Jm6v+TTHyQv59iOIm9hEaZ0UnRSel5zrgsXdj3vdT11vGbJodT+QLf4Czv8FfE9VBYxm/vYdk7m+SpPc7dikEIWMVYTotB3y88+xhCz1LfZIurAJw4CLQYPP01dXkY="
 before_install:
   - sudo apt-get update
   - if [[ "${TEST_SPHINX}" == "yes" ]]; then
@@ -11,5 +14,7 @@ before_install:
     fi
 script:
   - bin/test_travis.sh
+after_success:
+  - bin/deploy.sh
 notifications:
   email: false
