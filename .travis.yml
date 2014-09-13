@@ -11,5 +11,7 @@ before_install:
     fi
 script:
   - bin/test_travis.sh
+after_success:
+  - bin/deploy.sh
 notifications:
   email: false
