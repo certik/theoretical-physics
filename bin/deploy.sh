@@ -27,8 +27,9 @@ set -e
 set +x
 
 ACTUAL_TRAVIS_JOB_NUMBER=`echo $TRAVIS_JOB_NUMBER| cut -d'.' -f 2`
+CURRENT_GIT_BRANCH=`git rev-parse --abbrev-ref HEAD`
 
-if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] && [[ "$ACTUAL_TRAVIS_JOB_NUMBER" == "1" ]]; then
+if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] && [[ "$ACTUAL_TRAVIS_JOB_NUMBER" == "1" ]] && [[ "$CURRENT_GIT_BRANCH" == "master" ]]; then
         git config --global user.email "ondrej.certik@gmail.com"
         git config --global user.name "Automatic Deployment (Travis CI)"
         git clone https://${GH_TOKEN}@github.com/certik/tfn-deploy
