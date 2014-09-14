@@ -362,8 +362,45 @@ So we get the following series expansion for $V$ and $V'$:
     V' = -{4\pi\over 3} n_0 r -\pi n_1 r^2-{4\pi\over 5} n_2 r^3
         -{2\pi\over 3} n_3 r^4 - \cdots
 
-Analytic Testing Example
-~~~~~~~~~~~~~~~~~~~~~~~~
+Examples
+~~~~~~~~
+
+It is useful to have analytic solutions to test the numerical solvers. Here we
+present a few.
+
+Gaussian Charge
+^^^^^^^^^^^^^^^
+
+The Gaussian charge is simply a Gaussian, normalized in such a way that the
+total charge is $Z$:
+
+.. math::
+
+    n(r) = {Z\alpha^3 \over \pi^{3\over2} } e^{-\alpha^2 r^2}
+
+Let us verify the normalization by calculating the total charge $Q$:
+
+.. math::
+
+    Q = \int n({\bf x}) \d^3 x
+        = 4\pi \int_0^\infty n(r) r^2 \d r =
+
+    = 4\pi \int_0^\infty {Z\alpha^3 \over \pi^{3\over2} } e^{-\alpha^2 r^2}
+        r^2 \d r =
+
+    = {4 Z \alpha^3 \over \sqrt\pi} \int_0^\infty e^{-\alpha^2 r^2} r^2 \d r =
+
+    = {4 Z \alpha^3 \over \sqrt\pi} {\sqrt\pi\over 4\alpha^3} = Z
+
+So the total charge is $Q=Z$, as expected. Code::
+
+    >>> from sympy import var, integrate, exp, Symbol, oo
+    >>> var("r")
+    r
+    >>> alpha=Symbol("alpha", positive=True)
+    >>> integrate(exp(-alpha**2*r**2)*r**2, (r, 0, oo))
+    sqrt(pi)/(4*alpha**3)
+
 
 Good analytic testing solution, that satisfies the asymptotic relations is:
 
@@ -377,7 +414,6 @@ Good analytic testing solution, that satisfies the asymptotic relations is:
 
     (rV)'' = -{4\alpha^3 r Z\over \sqrt\pi } e^{-\alpha^2 r^2}
 
-    n(r) = {Z\alpha^3 \over \pi^{3\over2} } e^{-\alpha^2 r^2}
 
 This solution satisfies equation :eq:`poisson-rV`:
 
@@ -399,3 +435,23 @@ charge $V(r)$:
 
     = {4 Z^2 \alpha^3 \over \sqrt\pi}
         \int_0^\infty e^{-\alpha^2 r^2} \mbox{erf}(\alpha r) r \d r =
+
+    = {4 Z^2 \alpha^3 \over \sqrt\pi} {\sqrt 2 \over 4\alpha^2} =
+
+    = {Z^2 \alpha\sqrt 2 \over \sqrt\pi}
+
+Code::
+
+    >>> from sympy import var, integrate, exp, Symbol, oo, erf
+    >>> var("r")
+    r
+    >>> alpha=Symbol("alpha", positive=True)
+    >>> integrate(exp(-alpha**2*r**2)*erf(alpha*r)*r, (r, 0, oo))
+    sqrt(2)/(4*alpha**2)
+
+
+Exponential Charge
+^^^^^^^^^^^^^^^^^^
+
+The exponential charge is simply an exponential, normalized in such a way that
+the total charge is $Z$:
