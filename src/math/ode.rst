@@ -570,3 +570,182 @@ Code::
     -B + Z
     >>> integrate(exp(-alpha*r)*((1-exp(-alpha*r))/r-alpha/2)*r**2, (r, 0, oo))
     -1/(4*alpha**2)
+
+Piecewise Polynomial Charge
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We will use a second-derivative continuous piecewise polynomial for $n(r)$,
+normalized in such a way that the total charge is $Z$:
+
+.. math::
+    :label: poly_charge
+
+    n(r) = \begin{cases}
+    -21Z(r-r_c)^3(6r^2+3rr_c+r_c^2)/(5\pi r_c^8) &\quad\mbox{for $0\le r \le r_c$}\cr
+    0&\quad\mbox{for $r>r_c$}\cr
+    \end{cases}
+
+Let us verify the normalization by calculating the total charge $Q$:
+
+.. math::
+
+    Q = \int n({\bf x}) \d^3 x
+        = 4\pi \int_0^\infty n(r) r^2 \d r =
+
+    = 4\pi \int_0^{r_c} -21Z(r-r_c)^3(6r^2+3rr_c+r_c^2)/(5\pi r_c^8)
+        r^2 \d r =
+
+    = Z
+
+So the total charge is $Q=Z$, as expected.
+
+Now we calculate the potential $V(r)$ from the Poisson equation
+:eq:`poisson-rV`:
+
+.. math::
+
+    \left(rV(r)\right)'' = -4\pi r n(r)
+        = 4\pi r \cdot 21Z(r-r_c)^3(6r^2+3rr_c+r_c^2)/(5\pi r_c^8)
+
+    V(r) = \begin{cases}
+    \frac{Z r^{2}}{5 r_{c}^{8}} \left(9 r^{5} - 30 r^{4} r_{c} + 28
+    r^{3} r_{c}^{2} - 14 r_{c}^{5}\right) + A_1 + {B_1\over r}
+    &\quad\mbox{for $0\le r \le r_c$}\cr
+    A_2 + {B_2\over r}&\quad\mbox{for $r>r_c$}\cr
+    \end{cases}
+
+
+Similarly as for the Gaussian charge, we require the potential $V(r)$ to vanish
+at infinity, which implies $A_2=0$. Then we calculate the point charge at the
+origin:
+
+.. math::
+
+    C = \lim_{r\to0} V'(r)r^2 =
+
+    = \lim_{r\to0}\left(
+    - B_1 + \frac{63 Z r^{8}}{5 r_{c}^{8}} - \frac{36 Z}{r_{c}^{7}} r^{7} +
+      \frac{28 Z}{r_{c}^{6}} r^{6} - \frac{28 Z r^{3}}{5 r_{c}^{3}}
+      \right)
+
+    = -B_1
+
+We do not have any point charge at the origin, so $C=-B_1 = 0$, from which it
+follows $B_1 = 0$. Then $B_2$ is calculated from the condition of a continuous
+first derivative at $r=r_c$:
+
+.. math::
+
+    V'(r_c) = \begin{cases}
+    -{Z\over r_c^2} &\quad\mbox{for $0\le r \le r_c$}\cr
+    -{B_2\over r_c^2}&\quad\mbox{for $r>r_c$}\cr
+    \end{cases}
+
+So $B_2=Z$. Finally, $A_1$ is calculated from the continuous
+values of $V(r_c)$:
+
+.. math::
+
+    V(r_c) = \begin{cases}
+    A-{7Z\over 5r_c} &\quad\mbox{for $0\le r \le r_c$}\cr
+    {Z\over r_c}&\quad\mbox{for $r>r_c$}\cr
+    \end{cases}
+
+which implies $A_1={12Z\over 5r_c}$. We finally obtain:
+
+.. math::
+
+    V(r) = \begin{cases}
+    \frac{Z}{5 r_{c}^{8}} \left(9r^7 - 30r^6r_c + 28r^5r_c^2 - 14r^2r_c^5
+        + 12 r_c^7\right) &\quad\mbox{for $0\le r \le r_c$}\cr
+    {Z\over r}&\quad\mbox{for $r>r_c$}\cr
+    \end{cases}
+
+Let us calculate the self-energy:
+
+.. math::
+
+    E_\mathrm{self} =
+    \half \int n({\bf x}) V({\bf x}) \d^3 x
+        = {4\pi\over2} \int_0^\infty n(r) V(r) r^2 \d r =
+
+    = 2\pi \int_0^{r_c}
+    -21Z(r-r_c)^3(6r^2+3rr_c+r_c^2)/(5\pi r_c^8)
+    \frac{Z}{5 r_{c}^{8}} \left(9r^7 - 30r^6r_c + 28r^5r_c^2 - 14r^2r_c^5
+        + 12 r_c^7\right)
+    r^2 \d r =
+
+    = {15962 Z^2 \over 17875 r_c}
+
+Let us also calculate the following integral:
+
+.. math::
+
+    I_g =
+    \int n({\bf x}) \left({Z\over r}-V({\bf x})\right) \d^3 x
+        = 4\pi \int_0^\infty n(r) \left({Z\over r}-V(r)\right) r^2 \d r =
+
+    = {10976 Z^2 \over 17875 r_c}
+
+Which agrees with [Pask2012]_, equation (10c).
+
+
+Code::
+
+    >>> from sympy import var, pi, integrate, solve
+    >>> var("r r_c Z A B")
+    (r, r_c, Z, A, B)
+    >>> n = -21*Z*(r-r_c)**3*(6*r**2+3*r*r_c+r_c**2)/(5*pi* r_c**8)
+    >>> 4*pi*integrate(n*r**2, (r, 0, r_c))
+    Z
+    >>> V = integrate(-4*pi*r*n, r, r)/r
+    >>> V.simplify()
+    Z*r**2*(9*r**5 - 30*r**4*r_c + 28*r**3*r_c**2 - 14*r_c**5)/(5*r_c**8)
+    >>> ((V+A+B/r).diff(r)*r**2).simplify()
+    -B + 63*Z*r**8/(5*r_c**8) - 36*Z*r**7/r_c**7 + 28*Z*r**6/r_c**6 - 28*Z*r**3/(5*r_c**3)
+    >>> (V+A).diff(r).subs(r, r_c)
+    -Z/r_c**2
+    >>> (V+A).subs(r, r_c)
+    A - 7*Z/(5*r_c)
+    >>> A = solve((V+A).subs(r, r_c)-Z/r_c, A)[0]
+    >>> A
+    12*Z/(5*r_c)
+    >>> V = V + A
+    >>> V.simplify()
+    Z*(r**2*(9*r**5 - 30*r**4*r_c + 28*r**3*r_c**2 - 14*r_c**5) + 12*r_c**7)/(5*r_c**8)
+    >>> 2*pi*integrate(n*V*r**2, (r, 0, r_c))
+    15962*Z**2/(17875*r_c)
+    >>> 4*pi*integrate(n*(Z/r-V)*r**2, (r, 0, r_c))
+    10976*Z**2/(17875*r_c)
+
+Alternatively, one can also calculate this using a ``Piecewise`` function::
+
+
+    >>> from sympy import var, pi, integrate, solve, Piecewise, oo, Symbol
+    >>> var("r Z A B")
+    (r, Z, A, B)
+    >>> r_c = Symbol("r_c", positive=True)
+    >>> n = Piecewise((-21*Z*(r - r_c)**3*(6*r**2 + 3*r*r_c + r_c**2)/(5*pi*r_c**8), r <= r_c), (0, True))
+    >>> 4*pi*integrate(n*r**2, (r, 0, oo))
+    Z
+    >>> V = integrate(-4*pi*r*n, r, r)/r
+    >>> V.simplify()
+    Piecewise((Z*r**2*(9*r**5 - 30*r**4*r_c + 28*r**3*r_c**2 - 14*r_c**5)/(5*r_c**8), r <= r_c), (0, True))
+    >>> ((V+A+B/r).diff(r)*r**2).simplify()
+    Piecewise((-B + 63*Z*r**8/(5*r_c**8) - 36*Z*r**7/r_c**7 + 28*Z*r**6/r_c**6 - 28*Z*r**3/(5*r_c**3), r <= r_c), (-B, True))
+    >>> (V+A).diff(r).subs(r, r_c)
+    -Z/r_c**2
+    >>> (V+A).subs(r, r_c)
+    A - 7*Z/(5*r_c)
+    >>> A = solve((V+A).subs(r, r_c)-Z/r_c, A)[0]
+    >>> A
+    12*Z/(5*r_c)
+    >>> V = V + Piecewise((A, r <= r_c), (0, True))
+    >>> V.simplify()
+    Piecewise((Z*(r**2*(9*r**5 - 30*r**4*r_c + 28*r**3*r_c**2 - 14*r_c**5)/r_c**7 + 12)/(5*r_c), r <= r_c), (0, True))
+    >>> 2*pi*integrate(n*V*r**2, (r, 0, oo))
+    15962*Z**2/(17875*r_c)
+    >>> 4*pi*integrate(n*(Z/r-V)*r**2, (r, 0, oo))
+    10976*Z**2/(17875*r_c)
+
+.. [Pask2012] Pask, J. E., Sukumar, N., Mousavi, S. E. (2012). Linear scaling solution of the all-electron Coulomb problem in solids. International Journal for Multiscale Computational Engineering, 10(1), 83–99.  doi:10.1615/IntJMultCompEng.2011002201
