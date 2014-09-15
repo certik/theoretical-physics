@@ -647,7 +647,7 @@ values of $V(r_c)$:
 .. math::
 
     V(r_c) = \begin{cases}
-    A-{7Z\over 5r_c} &\quad\mbox{for $0\le r \le r_c$}\cr
+    A_1-{7Z\over 5r_c} &\quad\mbox{for $0\le r \le r_c$}\cr
     {Z\over r_c}&\quad\mbox{for $r>r_c$}\cr
     \end{cases}
 
