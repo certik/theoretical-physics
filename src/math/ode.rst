@@ -427,18 +427,19 @@ charge $V(r)$:
 
 .. math::
 
-    \int n({\bf x}) V({\bf x}) \d^3 x
-        = 4\pi \int_0^\infty n(r) V(r) r^2 \d r =
+    E_\mathrm{self} =
+    \half \int n({\bf x}) V({\bf x}) \d^3 x
+        = {4\pi\over2} \int_0^\infty n(r) V(r) r^2 \d r =
 
-    = 4\pi \int_0^\infty {Z\alpha^3 \over \pi^{3\over2} } e^{-\alpha^2 r^2}
+    = 2\pi \int_0^\infty {Z\alpha^3 \over \pi^{3\over2} } e^{-\alpha^2 r^2}
         Z \,{\mbox{erf}(\alpha r) \over r} r^2 \d r =
 
-    = {4 Z^2 \alpha^3 \over \sqrt\pi}
+    = {2 Z^2 \alpha^3 \over \sqrt\pi}
         \int_0^\infty e^{-\alpha^2 r^2} \mbox{erf}(\alpha r) r \d r =
 
-    = {4 Z^2 \alpha^3 \over \sqrt\pi} {\sqrt 2 \over 4\alpha^2} =
+    = {2 Z^2 \alpha^3 \over \sqrt\pi} {\sqrt 2 \over 4\alpha^2} =
 
-    = {Z^2 \alpha\sqrt 2 \over \sqrt\pi}
+    = {Z^2 \alpha\over \sqrt{2\pi}}
 
 Code::
 
