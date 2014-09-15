@@ -687,7 +687,18 @@ Let us also calculate the following integral:
 
     = {10976 Z^2 \over 17875 r_c}
 
-Which agrees with [Pask2012]_, equation (10c).
+Which agrees with [Pask2012]_, equation (10c). The following integral over the
+sphere of radius $r_c$:
+
+.. math::
+
+    I_{sph} =
+    \int_{\Omega: r < r_c} \left({Z\over r}-V({\bf x})\right) \d^3 x
+        = 4\pi \int_0^{r_c} \left({Z\over r}-V(r)\right) r^2 \d r =
+
+    = {14 \pi Z r_c^2 \over 75}
+
+Again in agreement with [Pask2012]_, the paragraph after equation (17).
 
 
 Code::
@@ -717,6 +728,8 @@ Code::
     15962*Z**2/(17875*r_c)
     >>> 4*pi*integrate(n*(Z/r-V)*r**2, (r, 0, r_c))
     10976*Z**2/(17875*r_c)
+    >>> 4*pi*integrate((Z/r-V)*r**2, (r, 0, r_c))
+    14*pi*Z*r_c**2/75
 
 Alternatively, one can also calculate this using a ``Piecewise`` function::
 
