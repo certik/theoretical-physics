@@ -233,13 +233,23 @@ The 3D integral of the (number) density is equal to the total (numeric) charge, 
 
         = -[V'r^2]_0^\infty =
 
-        = -\lim_{r\to\infty} V'(r)r^2
+        = \lim_{r\to0} V'(r)r^2 -\lim_{r\to\infty} V'(r)r^2
 
-So in the limit $r\to\infty$, we get the equation:
+Let
 
 .. math::
 
-    V'(r) = -{Z\over r^2}
+    \lim_{r\to0} V'(r)r^2 = C
+
+Then around $r\to0$ we get $V'(r) = {C\over r^2}$ and $V(r) = -{C\over r}+D$
+(for some constant $D$). As such, $C$ is a point charge (delta function) at
+the origin. From now on, we will assume no point charge, i.e. $C=0$.
+
+In the limit $r\to\infty$, we get the equation:
+
+.. math::
+
+    V'(r) = -{Z-C\over r^2} = -{Z\over r^2}
 
 by integrating (and requiring that $V$ vanished in infinity to get rid of the
 integration constant), we get for $r\to\infty$:
