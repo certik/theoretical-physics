@@ -473,3 +473,100 @@ Exponential Charge
 
 The exponential charge is simply an exponential, normalized in such a way that
 the total charge is $Z$:
+
+.. math::
+    :label: exp_charge
+
+    n(r) = {Z\alpha^3 \over 8\pi} e^{-\alpha r}
+
+Let us verify the normalization by calculating the total charge $Q$:
+
+.. math::
+
+    Q = \int n({\bf x}) \d^3 x
+        = 4\pi \int_0^\infty n(r) r^2 \d r =
+
+    = 4\pi \int_0^\infty {Z\alpha^3 \over 8\pi} e^{-\alpha r}
+        r^2 \d r =
+
+    = {Z \alpha^3 \over 2} \int_0^\infty e^{-\alpha r} r^2 \d r =
+
+    = {Z \alpha^3 \over 2} {2\over\alpha^3} = Z
+
+So the total charge is $Q=Z$, as expected.
+
+Now we calculate the potential $V(r)$ from the Poisson equation
+:eq:`poisson-rV`:
+
+.. math::
+
+    \left(rV(r)\right)'' = -4\pi r n(r)
+        = -{Z\alpha^3 \over 2} r e^{-\alpha r}
+
+    V(r) = - Z \left({\alpha\over2} + {1\over r}\right) e^{-\alpha r} + A + {B\over r}
+
+
+Similarly as for the Gaussian charge, we require the potential $V(r)$ to vanish
+at infinity, which implies $A=0$. Then we calculate the point charge at the
+origin:
+
+.. math::
+
+    C = \lim_{r\to0} V'(r)r^2 =
+
+    = \lim_{r\to0}
+    \half \left(- 2 B e^{\alpha r} + Z \alpha r \left(\alpha r + 1\right)
+    + Z \left(\alpha r + 2\right)\right) e^{- \alpha r} =
+
+    = Z - B
+
+We do not have any point charge at the origin, so $C=Z - B = 0$, from which it
+follows $B = Z$. We finally obtain:
+
+.. math::
+
+    V(r) = - Z \left({\alpha\over2} + {1\over r}\right) e^{-\alpha r}
+        + {Z \over r}
+        = Z \left({1-e^{-\alpha r} \over r} - {\alpha/2}\right)
+
+Let us calculate the self-energy:
+
+.. math::
+
+    E_\mathrm{self} =
+    \half \int n({\bf x}) V({\bf x}) \d^3 x
+        = {4\pi\over2} \int_0^\infty n(r) V(r) r^2 \d r =
+
+    = 2\pi \int_0^\infty
+    {Z\alpha^3 \over 8\pi} e^{-\alpha r}
+    Z \left({1-e^{-\alpha r} \over r} - {\alpha/2}\right)
+    r^2 \d r =
+
+    = {Z^2 \alpha^3 \over 4}
+        \int_0^\infty e^{-\alpha r}
+       \left({1-e^{-\alpha r} \over r} - {\alpha/2}\right)
+        r^2 \d r =
+
+    = {Z^2 \alpha^3 \over 4}
+        \left(-{1\over 4\alpha^2}\right) =
+
+    = {Z^2 \alpha \over 16}
+
+Code::
+
+    >>> from sympy import var, integrate, exp, Symbol, oo
+    >>> var("r Z B")
+    (r, Z, B)
+    >>> alpha=Symbol("alpha", positive=True)
+    >>> integrate(exp(-alpha*r)*r**2, (r, 0, oo))
+    2/alpha**3
+    >>> V = integrate(-Z*alpha**3/2 * r * exp(-alpha*r), r, r)/r
+    >>> V.simplify()
+    -Z*(alpha*r + 2)*exp(-alpha*r)/(2*r)
+    >>> ((V+B/r).diff(r)*r**2).simplify()
+    (-2*B*exp(alpha*r) + Z*alpha*r*(alpha*r + 1) + Z*(alpha*r +
+    2))*exp(-alpha*r)/2
+    >>> ((V+B/r).diff(r)*r**2).limit(r, 0)
+    -B + Z
+    >>> integrate(exp(-alpha*r)*((1-exp(-alpha*r))/r-alpha/2)*r**2, (r, 0, oo))
+    -1/(4*alpha**2)
