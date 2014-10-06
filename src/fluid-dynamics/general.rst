@@ -578,6 +578,22 @@ where the strain rate is:
 
     \epsilon_{ij}={1\over 2}\left(\partial_j v_i+\partial_i v_j\right)
 
+The trace of $\mathds{T}$ is:
+
+.. math::
+
+    \Tr \mathds{T} = T_{ii}
+        = 2\mu\epsilon_{ii} + \delta_{ii} \lambda \nabla\cdot{\bf v}
+        = (2\mu + 3 \lambda) \nabla\cdot{\bf v}
+
+Note that $\mathds{T}$ has zero trace, which is automatically satisfied for
+incompressible flow ($\nabla\cdot{\bf v}=0$), but for compressible flow this
+imposes:
+
+.. math::
+
+    \lambda = -{2\over 3}\mu
+
 The divergence of the tensor is:
 
 .. math::
