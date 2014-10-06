@@ -335,6 +335,9 @@ and using the continuity equation:
         {\bf v}\right)
         + \nabla p = 0
 
+.. math::
+    :label: euler_momentum2
+
     \rho\left({\partial {\bf v}\over\partial t}
         + {\bf v}\cdot \nabla{\bf v}\right)
         + \nabla p = 0
@@ -638,8 +641,10 @@ Euler equations (for perfect fluid):
 
     \nabla \cdot \mathds{T}=0
 
-Note about compressibility: incompressible flow means that the material
-derivative of density is zero:
+Incompressible Equations
+------------------------
+
+Incompressible flow means that the material derivative of density is zero:
 
 .. math::
     :label: mat_deriv_zero
@@ -659,6 +664,21 @@ But also :eq:`div_free` implies :eq:`mat_deriv_zero`, so these two equations
 are equivalent: the divergence of the velocity field is zero if and only if the
 material derivative of the density is zero.
 
+Using the condition $\nabla\cdot{\bf v}=0$ and $\rho=\rm const.$ in
+:eq:`euler_continuity` and :eq:`euler_momentum2` we obtain:
+
+.. math::
+
+    \rho=\mathrm{const.}
+
+    \nabla\cdot{\bf v}=0
+
+    \rho\left({\partial {\bf v}\over\partial t}
+        + {\bf v}\cdot \nabla{\bf v}\right)
+        + \nabla p = \mu\nabla^2{\bf v}
+
+These are incompressible Navier-Stokes equations, for $\mu=0$ they become the
+incompressible Euler equations.
 
 Bernoulli's Principle
 ---------------------
