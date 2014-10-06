@@ -304,11 +304,18 @@ $c\to\infty$ (which implies $\gamma\to1$):
 those are the Euler equations, also sometimes written as:
 
 .. math::
+    :label: euler_continuity
 
     {\partial \rho\over \partial t} + \nabla\cdot(\rho{\bf v}) = 0
 
+.. math::
+    :label: euler_momentum
+
     {\partial (\rho{\bf v})\over\partial t} + \nabla \cdot
         (\rho {\bf v}{\bf v}^T) + \nabla p = 0
+
+.. math::
+    :label: euler_energy
 
     {\partial E\over\partial t}
         + \nabla\cdot\left({\bf v}\left(E + p \right)\right) = 0
@@ -620,6 +627,27 @@ Euler equations (for perfect fluid):
 .. math::
 
     \nabla \cdot \mathds{T}=0
+
+Note about compressibility: incompressible flow means that the material
+derivative of density is zero:
+
+.. math::
+    :label: mat_deriv_zero
+
+    {\d \rho\over\d t} = {\partial \rho\over \partial t}
+        + {\bf v}\cdot\nabla\rho = 0\,.
+
+Putting this into the equation of continuity :eq:`euler_continuity` one obtains
+$\rho\nabla\cdot{\bf v}=0$ or equivalently:
+
+.. math::
+    :label: div_free
+
+    \nabla\cdot{\bf v}=0\,.
+
+But also :eq:`div_free` implies :eq:`mat_deriv_zero`, so these two equations
+are equivalent: the divergence of the velocity field is zero if and only if the
+material derivative of the density is zero.
 
 
 Bernoulli's Principle
