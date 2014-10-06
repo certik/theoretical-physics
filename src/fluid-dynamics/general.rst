@@ -331,13 +331,23 @@ and using the continuity equation:
     \underbrace{\left(
     {\partial \rho\over \partial t} + \nabla\cdot(\rho{\bf v})\right)}_0
     {\bf v} +
-    \rho\left({\partial {\bf v}\over\partial t} + {\bf v}\nabla \cdot
+    \rho\left({\partial {\bf v}\over\partial t} + {\bf v}\cdot \nabla
         {\bf v}\right)
         + \nabla p = 0
 
-    \rho\left({\partial {\bf v}\over\partial t} + {\bf v}\nabla \cdot
-        {\bf v}\right)
+    \rho\left({\partial {\bf v}\over\partial t}
+        + {\bf v}\cdot \nabla{\bf v}\right)
         + \nabla p = 0
+
+Where we used:
+
+.. math::
+
+    \left[\nabla \cdot (\rho {\bf v}{\bf v}^T)\right]^i
+        = \partial_j (\rho v^iv^j)
+        = v^i \partial_j (\rho v^j) + \rho v^j \partial_j v^i
+        = \left[{\bf v}\nabla \cdot (\rho {\bf v})
+            + \rho {\bf v}\cdot\nabla{\bf v}\right]^i
 
 Alternative Derivation
 ^^^^^^^^^^^^^^^^^^^^^^
