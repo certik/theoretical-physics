@@ -664,21 +664,32 @@ But also :eq:`div_free` implies :eq:`mat_deriv_zero`, so these two equations
 are equivalent: the divergence of the velocity field is zero if and only if the
 material derivative of the density is zero.
 
-Using the condition $\nabla\cdot{\bf v}=0$ and $\rho=\rm const.$ in
-:eq:`euler_continuity` and :eq:`euler_momentum2` we obtain:
+Using the condition $\nabla\cdot{\bf v}=0$ in :eq:`euler_continuity` and
+:eq:`euler_momentum2` we obtain:
 
 .. math::
 
-    \rho=\mathrm{const.}
+    \nabla\cdot{\bf v}=0\,,
 
-    \nabla\cdot{\bf v}=0
+    {\partial \rho\over \partial t} + {\bf v}\cdot\nabla\rho = 0\,,
 
     \rho\left({\partial {\bf v}\over\partial t}
         + {\bf v}\cdot \nabla{\bf v}\right)
-        + \nabla p = \mu\nabla^2{\bf v}
+        + \nabla p = \mu\nabla^2{\bf v}\,.
 
-These are incompressible Navier-Stokes equations, for $\mu=0$ they become the
-incompressible Euler equations.
+In addition to incompressibility, we can also assume a constant density
+$\rho(x, y, z)=\rho_0$, then we obtain the incompressible Navier-Stokes
+equations:
+
+.. math::
+
+    \nabla\cdot{\bf v}=0\,,
+
+    \rho_0\left({\partial {\bf v}\over\partial t}
+        + {\bf v}\cdot \nabla{\bf v}\right)
+        + \nabla p = \mu\nabla^2{\bf v}\,.
+
+For $\mu=0$ they become the incompressible Euler equations.
 
 Bernoulli's Principle
 ---------------------
