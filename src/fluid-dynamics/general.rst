@@ -682,14 +682,66 @@ $\rho(x, y, z)=\rho_0$, then we obtain the incompressible Navier-Stokes
 equations:
 
 .. math::
+    :label: incomp_euler_1
 
     \nabla\cdot{\bf v}=0\,,
+
+.. math::
+    :label: incomp_euler_2
 
     \rho_0\left({\partial {\bf v}\over\partial t}
         + {\bf v}\cdot \nabla{\bf v}\right)
         + \nabla p = \mu\nabla^2{\bf v}\,.
 
-For $\mu=0$ they become the incompressible Euler equations.
+For $\mu=0$ they become the incompressible Euler equations. At the given time
+step with known ${\bf v}$ and $p$, the equation :eq:`incomp_euler_2` is solved
+for ${\bf v}$ at the new time step. Then we solve for new $p$ as follows.
+Apply divergence to :eq:`incomp_euler_2`:
+
+.. math::
+
+    \rho_0\nabla\cdot\left({\partial {\bf v}\over\partial t}
+        + {\bf v}\cdot \nabla{\bf v}\right)
+        + \nabla\cdot\nabla p = \mu\nabla\cdot\nabla^2{\bf v}\,,
+
+    \rho_0\left({\partial (\nabla\cdot{\bf v})\over\partial t}
+        + \nabla\cdot({\bf v}\cdot \nabla{\bf v})\right)
+        + \nabla^2 p = \mu\nabla\cdot\nabla^2{\bf v}\,,
+
+now we use the following identities:
+
+.. math::
+
+    \nabla\cdot({\bf v}\cdot \nabla{\bf v})
+        = \partial_i(v^j \partial_j v^i)
+        = (\partial_i v^j) (\partial_j v^i)
+            + v^j \partial_j \partial_i v^i
+        = \Tr (\nabla {\bf v})^2 + {\bf v}\cdot\nabla(\nabla\cdot{\bf v})\,,
+
+    \nabla\cdot\nabla^2{\bf v}
+        = \partial_i\partial^j\partial_j v^i
+        = \partial^j\partial_j \partial_i v^i
+        = \nabla^2(\nabla\cdot {\bf v})\,,
+
+to get:
+
+.. math::
+
+    \rho_0\left({\partial (\nabla\cdot{\bf v})\over\partial t}
+        + \Tr (\nabla {\bf v})^2 + {\bf v}\cdot\nabla(\nabla\cdot{\bf v})
+          \right)
+        + \nabla^2 p = \mu \nabla^2(\nabla\cdot {\bf v}) \,.
+
+Finally we use the equation :eq:`incomp_euler_1` to simplify:
+
+.. math::
+    :label: incomp_euler_3
+
+    -\nabla^2 p = \rho_0\Tr (\nabla {\bf v})^2\,,
+
+which is a Poisson equation for $p$. Note again that
+$\Tr (\nabla {\bf v})^2 = (\partial_i v^j) (\partial_j v^i)$. The equation
+:eq:`incomp_euler_3` is then used to solve for $p$ at the new time step.
 
 Bernoulli's Principle
 ---------------------
