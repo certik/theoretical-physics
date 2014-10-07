@@ -304,11 +304,18 @@ $c\to\infty$ (which implies $\gamma\to1$):
 those are the Euler equations, also sometimes written as:
 
 .. math::
+    :label: euler_continuity
 
     {\partial \rho\over \partial t} + \nabla\cdot(\rho{\bf v}) = 0
 
+.. math::
+    :label: euler_momentum
+
     {\partial (\rho{\bf v})\over\partial t} + \nabla \cdot
         (\rho {\bf v}{\bf v}^T) + \nabla p = 0
+
+.. math::
+    :label: euler_energy
 
     {\partial E\over\partial t}
         + \nabla\cdot\left({\bf v}\left(E + p \right)\right) = 0
@@ -324,13 +331,26 @@ and using the continuity equation:
     \underbrace{\left(
     {\partial \rho\over \partial t} + \nabla\cdot(\rho{\bf v})\right)}_0
     {\bf v} +
-    \rho\left({\partial {\bf v}\over\partial t} + {\bf v}\nabla \cdot
+    \rho\left({\partial {\bf v}\over\partial t} + {\bf v}\cdot \nabla
         {\bf v}\right)
         + \nabla p = 0
 
-    \rho\left({\partial {\bf v}\over\partial t} + {\bf v}\nabla \cdot
-        {\bf v}\right)
+.. math::
+    :label: euler_momentum2
+
+    \rho\left({\partial {\bf v}\over\partial t}
+        + {\bf v}\cdot \nabla{\bf v}\right)
         + \nabla p = 0
+
+Where we used:
+
+.. math::
+
+    \left[\nabla \cdot (\rho {\bf v}{\bf v}^T)\right]^i
+        = \partial_j (\rho v^iv^j)
+        = v^i \partial_j (\rho v^j) + \rho v^j \partial_j v^i
+        = \left[{\bf v}\nabla \cdot (\rho {\bf v})
+            + \rho {\bf v}\cdot\nabla{\bf v}\right]^i
 
 Alternative Derivation
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -578,6 +598,22 @@ where the strain rate is:
 
     \epsilon_{ij}={1\over 2}\left(\partial_j v_i+\partial_i v_j\right)
 
+The trace of $\mathds{T}$ is:
+
+.. math::
+
+    \Tr \mathds{T} = T_{ii}
+        = 2\mu\epsilon_{ii} + \delta_{ii} \lambda \nabla\cdot{\bf v}
+        = (2\mu + 3 \lambda) \nabla\cdot{\bf v}
+
+Note that $\mathds{T}$ has zero trace, which is automatically satisfied for
+incompressible flow ($\nabla\cdot{\bf v}=0$), but for compressible flow this
+imposes:
+
+.. math::
+
+    \lambda = -{2\over 3}\mu
+
 The divergence of the tensor is:
 
 .. math::
@@ -605,6 +641,44 @@ Euler equations (for perfect fluid):
 
     \nabla \cdot \mathds{T}=0
 
+Incompressible Equations
+------------------------
+
+Incompressible flow means that the material derivative of density is zero:
+
+.. math::
+    :label: mat_deriv_zero
+
+    {\d \rho\over\d t} = {\partial \rho\over \partial t}
+        + {\bf v}\cdot\nabla\rho = 0\,.
+
+Putting this into the equation of continuity :eq:`euler_continuity` one obtains
+$\rho\nabla\cdot{\bf v}=0$ or equivalently:
+
+.. math::
+    :label: div_free
+
+    \nabla\cdot{\bf v}=0\,.
+
+But also :eq:`div_free` implies :eq:`mat_deriv_zero`, so these two equations
+are equivalent: the divergence of the velocity field is zero if and only if the
+material derivative of the density is zero.
+
+Using the condition $\nabla\cdot{\bf v}=0$ and $\rho=\rm const.$ in
+:eq:`euler_continuity` and :eq:`euler_momentum2` we obtain:
+
+.. math::
+
+    \rho=\mathrm{const.}
+
+    \nabla\cdot{\bf v}=0
+
+    \rho\left({\partial {\bf v}\over\partial t}
+        + {\bf v}\cdot \nabla{\bf v}\right)
+        + \nabla p = \mu\nabla^2{\bf v}
+
+These are incompressible Navier-Stokes equations, for $\mu=0$ they become the
+incompressible Euler equations.
 
 Bernoulli's Principle
 ---------------------
