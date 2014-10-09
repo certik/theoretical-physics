@@ -743,6 +743,59 @@ which is a Poisson equation for $p$. Note again that
 $\Tr (\nabla {\bf v})^2 = (\partial_i v^j) (\partial_j v^i)$. The equation
 :eq:`incomp_euler_3` is then used to solve for $p$ at the new time step.
 
+Divergence Free Velocity
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Typically by propagating :eq:`incomp_euler_2`, we obtain a velocity ${\bf v}^*$
+that is not divergence free. To make it so, we minimize the following
+functional:
+
+.. math::
+
+    R[{\bf v}] = \int \half({\bf v}-{\bf v}^*)^2
+        - \lambda \nabla\cdot{\bf v}\, \d^3 x\,,
+
+where we used a Langrange multiplier $\lambda$ in the second term to impose the
+zero divergence on ${\bf v}$ and in the first term we ensure that ${\bf v}$ is
+as close as possible to the original field ${\bf v}^*$. Let's calculate the
+variation:
+
+.. math::
+
+    \delta R[{\bf v}] = \int ({\bf v}-{\bf v}^*)\cdot\delta {\bf v}
+            - \lambda \nabla\cdot \delta{\bf v}\, \d^3 x =
+
+        = \int ({\bf v}-{\bf v}^*)\cdot\delta {\bf v}
+            + (\nabla\lambda) \cdot \delta{\bf v}\, \d^3 x
+         +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S =
+
+        = \int ({\bf v}-{\bf v}^* + \nabla\lambda)\cdot\delta {\bf v}\, \d^3 x
+         +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S
+
+From the condition $\delta R[{\bf v}]=0$ and assuming the surface integral
+vanishes (i.e. either $\lambda=0$ or $\delta{\bf v}\cdot{\bf n}=0$ everywhere
+on the boundary) we obtain:
+
+.. math::
+    :label: lambda_eq1
+
+    {\bf v}-{\bf v}^* + \nabla\lambda = 0
+
+Applying divergence and using $\nabla\cdot{\bf v}=0$ we obtain:
+
+.. math::
+    :label: lambda_eq2
+
+    \nabla^2\lambda = \nabla\cdot{\bf v}^*
+
+After solving this Poisson equation for $\lambda$ we can calculate the
+divergence free ${\bf v}$ from :eq:`lambda_eq1`:
+
+.. math::
+    :label: lambda_eq3
+
+    {\bf v} = {\bf v}^* - \nabla\lambda
+
 Bernoulli's Principle
 ---------------------
 
