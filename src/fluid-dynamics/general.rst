@@ -819,7 +819,7 @@ g\nabla z$, so:
 
 .. math::
 
-    \rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = -\nabla p - \rho g\nabla z
+    \rho\left({\partial {\bf v}\over\partial t} +{\bf v}\cdot\nabla{\bf v} \right) = -\nabla p - \rho g\nabla z\,,
 
 we divide by $\rho$:
 
@@ -832,20 +832,20 @@ and use the identity ${\bf v}\cdot\nabla{\bf v}={1\over 2}\nabla v^2
 
 .. math::
 
-    {\partial {\bf v}\over\partial t} +{1\over 2}\nabla v^2+(\nabla \times {\bf v})\times{\bf v} +\nabla \left({p\over\rho} + g z\right)=0
+    {\partial {\bf v}\over\partial t} +{1\over 2}\nabla v^2+(\nabla \times {\bf v})\times{\bf v} +\nabla \left({p\over\rho} + g z\right)=0\,,
 
 so:
 
 .. math::
 
-    {\partial {\bf v}\over\partial t} +(\nabla \times {\bf v})\times{\bf v} +\nabla \left({v^2\over 2} + gz + {p\over\rho} \right)=0
+    {\partial {\bf v}\over\partial t} +(\nabla \times {\bf v})\times{\bf v} +\nabla \left({v^2\over 2} + gz + {p\over\rho} \right)=0\,.
 
 If the fluid is moving, we integrate this along a streamline from the point $A$
 to $B$:
 
 .. math::
 
-    \int {\partial {\bf v}\over\partial t} \cdot \d {\bf l} +\left[{v^2\over 2} + gz + {p\over\rho} \right]_A^B=0
+    \int {\partial {\bf v}\over\partial t} \cdot \d {\bf l} +\left[{v^2\over 2} + gz + {p\over\rho} \right]_A^B=0\,.
 
 So far we didn't do any approximation (besides having a perfect fluid in a
 vertical gravitation field).
