@@ -752,7 +752,7 @@ functional:
 
 .. math::
 
-    R[{\bf v}] = \int \half({\bf v}-{\bf v}^*)^2
+    R[{\bf v}, \lambda] = \int \half({\bf v}-{\bf v}^*)^2
         - \lambda \nabla\cdot{\bf v}\, \d^3 x\,,
 
 where we used a Langrange multiplier $\lambda=\lambda({\bf x})$ in the second
@@ -773,9 +773,9 @@ original field ${\bf v}^*$. Let's calculate the variation:
         = \int ({\bf v}-{\bf v}^* + \nabla\lambda)\cdot\delta {\bf v}\, \d^3 x
          +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S\,.
 
-From the condition $\delta R[{\bf v}]=0$ and assuming the surface integral
-vanishes (i.e. either $\lambda=0$ or $\delta{\bf v}\cdot{\bf n}=0$ everywhere
-on the boundary) we obtain the two Euler-Lagrange equations:
+From the condition $\delta R[{\bf v}, \lambda]=0$ and assuming the surface
+integral vanishes (i.e. either $\lambda=0$ or $\delta{\bf v}\cdot{\bf n}=0$
+everywhere on the boundary) we obtain the two Euler-Lagrange equations:
 
 .. math::
     :label: lambda_eq1a
