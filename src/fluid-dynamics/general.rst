@@ -755,14 +755,15 @@ functional:
     R[{\bf v}] = \int \half({\bf v}-{\bf v}^*)^2
         - \lambda \nabla\cdot{\bf v}\, \d^3 x\,,
 
-where we used a Langrange multiplier $\lambda$ in the second term to impose the
-zero divergence on ${\bf v}$ and in the first term we ensure that ${\bf v}$ is
-as close as possible to the original field ${\bf v}^*$. Let's calculate the
-variation:
+where we used a Langrange multiplier $\lambda=\lambda({\bf x})$ in the second
+term to impose the zero divergence on ${\bf v}={\bf v}({\bf x})$ for all points
+${\bf x}$ (that is why $\lambda$ is a function of ${\bf x}$ and not a constant)
+and in the first term we ensure that ${\bf v}$ is as close as possible to the
+original field ${\bf v}^*$. Let's calculate the variation:
 
 .. math::
 
-    \delta R[{\bf v}] = \int ({\bf v}-{\bf v}^*)\cdot\delta {\bf v}
+    \delta R[{\bf v}, \lambda] = \int ({\bf v}-{\bf v}^*)\cdot\delta {\bf v}
             - \lambda \nabla\cdot \delta{\bf v}\, \d^3 x =
 
         = \int ({\bf v}-{\bf v}^*)\cdot\delta {\bf v}
@@ -770,31 +771,38 @@ variation:
          +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S =
 
         = \int ({\bf v}-{\bf v}^* + \nabla\lambda)\cdot\delta {\bf v}\, \d^3 x
-         +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S
+         +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S\,.
 
 From the condition $\delta R[{\bf v}]=0$ and assuming the surface integral
 vanishes (i.e. either $\lambda=0$ or $\delta{\bf v}\cdot{\bf n}=0$ everywhere
-on the boundary) we obtain:
+on the boundary) we obtain the two Euler-Lagrange equations:
 
 .. math::
-    :label: lambda_eq1
+    :label: lambda_eq1a
 
-    {\bf v}-{\bf v}^* + \nabla\lambda = 0
+    {\delta R[{\bf v}, \lambda] \over \delta {\bf v}}
+        = {\bf v}-{\bf v}^* + \nabla\lambda = 0\,,
 
-Applying divergence and using $\nabla\cdot{\bf v}=0$ we obtain:
+.. math::
+    :label: lambda_eq1b
+
+    {\delta R[{\bf v}, \lambda] \over \delta \lambda}
+        = \nabla\cdot{\bf v} = 0\,.
+
+Applying divergence to :eq:`lambda_eq1a` and using :eq:`lambda_eq1b` we obtain:
 
 .. math::
     :label: lambda_eq2
 
-    \nabla^2\lambda = \nabla\cdot{\bf v}^*
+    \nabla^2\lambda = \nabla\cdot{\bf v}^*\,.
 
 After solving this Poisson equation for $\lambda$ we can calculate the
-divergence free ${\bf v}$ from :eq:`lambda_eq1`:
+divergence free ${\bf v}$ from :eq:`lambda_eq1a`:
 
 .. math::
     :label: lambda_eq3
 
-    {\bf v} = {\bf v}^* - \nabla\lambda
+    {\bf v} = {\bf v}^* - \nabla\lambda\,.
 
 Bernoulli's Principle
 ---------------------
