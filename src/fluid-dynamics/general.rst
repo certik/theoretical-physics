@@ -682,14 +682,119 @@ $\rho(x, y, z)=\rho_0$, then we obtain the incompressible Navier-Stokes
 equations:
 
 .. math::
+    :label: incomp_euler_1
 
     \nabla\cdot{\bf v}=0\,,
+
+.. math::
+    :label: incomp_euler_2
 
     \rho_0\left({\partial {\bf v}\over\partial t}
         + {\bf v}\cdot \nabla{\bf v}\right)
         + \nabla p = \mu\nabla^2{\bf v}\,.
 
-For $\mu=0$ they become the incompressible Euler equations.
+For $\mu=0$ they become the incompressible Euler equations. At the given time
+step with known ${\bf v}$ and $p$, the equation :eq:`incomp_euler_2` is solved
+for ${\bf v}$ at the new time step. Then we solve for new $p$ as follows.
+Apply divergence to :eq:`incomp_euler_2`:
+
+.. math::
+
+    \rho_0\nabla\cdot\left({\partial {\bf v}\over\partial t}
+        + {\bf v}\cdot \nabla{\bf v}\right)
+        + \nabla\cdot\nabla p = \mu\nabla\cdot\nabla^2{\bf v}\,,
+
+    \rho_0\left({\partial (\nabla\cdot{\bf v})\over\partial t}
+        + \nabla\cdot({\bf v}\cdot \nabla{\bf v})\right)
+        + \nabla^2 p = \mu\nabla\cdot\nabla^2{\bf v}\,,
+
+now we use the following identities:
+
+.. math::
+
+    \nabla\cdot({\bf v}\cdot \nabla{\bf v})
+        = \partial_i(v^j \partial_j v^i)
+        = (\partial_i v^j) (\partial_j v^i)
+            + v^j \partial_j \partial_i v^i
+        = \Tr (\nabla {\bf v})^2 + {\bf v}\cdot\nabla(\nabla\cdot{\bf v})\,,
+
+    \nabla\cdot\nabla^2{\bf v}
+        = \partial_i\partial^j\partial_j v^i
+        = \partial^j\partial_j \partial_i v^i
+        = \nabla^2(\nabla\cdot {\bf v})\,,
+
+to get:
+
+.. math::
+
+    \rho_0\left({\partial (\nabla\cdot{\bf v})\over\partial t}
+        + \Tr (\nabla {\bf v})^2 + {\bf v}\cdot\nabla(\nabla\cdot{\bf v})
+          \right)
+        + \nabla^2 p = \mu \nabla^2(\nabla\cdot {\bf v}) \,.
+
+Finally we use the equation :eq:`incomp_euler_1` to simplify:
+
+.. math::
+    :label: incomp_euler_3
+
+    -\nabla^2 p = \rho_0\Tr (\nabla {\bf v})^2\,,
+
+which is a Poisson equation for $p$. Note again that
+$\Tr (\nabla {\bf v})^2 = (\partial_i v^j) (\partial_j v^i)$. The equation
+:eq:`incomp_euler_3` is then used to solve for $p$ at the new time step.
+
+Divergence Free Velocity
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Typically by propagating :eq:`incomp_euler_2`, we obtain a velocity ${\bf v}^*$
+that is not divergence free. To make it so, we minimize the following
+functional:
+
+.. math::
+
+    R[{\bf v}] = \int \half({\bf v}-{\bf v}^*)^2
+        - \lambda \nabla\cdot{\bf v}\, \d^3 x\,,
+
+where we used a Langrange multiplier $\lambda$ in the second term to impose the
+zero divergence on ${\bf v}$ and in the first term we ensure that ${\bf v}$ is
+as close as possible to the original field ${\bf v}^*$. Let's calculate the
+variation:
+
+.. math::
+
+    \delta R[{\bf v}] = \int ({\bf v}-{\bf v}^*)\cdot\delta {\bf v}
+            - \lambda \nabla\cdot \delta{\bf v}\, \d^3 x =
+
+        = \int ({\bf v}-{\bf v}^*)\cdot\delta {\bf v}
+            + (\nabla\lambda) \cdot \delta{\bf v}\, \d^3 x
+         +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S =
+
+        = \int ({\bf v}-{\bf v}^* + \nabla\lambda)\cdot\delta {\bf v}\, \d^3 x
+         +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S
+
+From the condition $\delta R[{\bf v}]=0$ and assuming the surface integral
+vanishes (i.e. either $\lambda=0$ or $\delta{\bf v}\cdot{\bf n}=0$ everywhere
+on the boundary) we obtain:
+
+.. math::
+    :label: lambda_eq1
+
+    {\bf v}-{\bf v}^* + \nabla\lambda = 0
+
+Applying divergence and using $\nabla\cdot{\bf v}=0$ we obtain:
+
+.. math::
+    :label: lambda_eq2
+
+    \nabla^2\lambda = \nabla\cdot{\bf v}^*
+
+After solving this Poisson equation for $\lambda$ we can calculate the
+divergence free ${\bf v}$ from :eq:`lambda_eq1`:
+
+.. math::
+    :label: lambda_eq3
+
+    {\bf v} = {\bf v}^* - \nabla\lambda
 
 Bernoulli's Principle
 ---------------------
