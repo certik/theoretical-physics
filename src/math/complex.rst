@@ -307,6 +307,6 @@ Testing Identities Using Computer Code
 --------------------------------------
 
 All the complex identities in this chapter can be tested using the following
-code (:download:`spherical_harmonics.py <code/test_complex.py>`):
+code (:download:`test_complex.py <code/test_complex.py>`):
 
 .. literalinclude:: code/test_complex.py
