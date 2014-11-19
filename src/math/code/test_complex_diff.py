@@ -101,24 +101,15 @@ def diff2(dfdz, dfdconjz, z0, theta, eps=1e-8):
     return dfdz(z0) + dfdconjz(z0)*exp(-2*I*theta)
 
 def test_zero(f, dfdz, dfdconjz, z0, theta, eps=1e-8):
-    print abs(diff(f, z0, theta, eps) - diff2(dfdz, dfdconjz, z0, theta, eps))
+    assert feq(diff(f, z0, theta, eps), diff2(dfdz, dfdconjz, z0, theta, eps))
 
 from math import floor, pi
 from cmath import sqrt, exp, log
 I = 1j
 
-x = I+1
-test_zero(lambda x: abs(x), lambda x: x.conjugate()/(2*abs(x)), lambda x:
-        x/(2*abs(x)), x, 0)
-test_zero(lambda x: abs(x), lambda x: x.conjugate()/(2*abs(x)), lambda x:
-        x/(2*abs(x)), x, pi/4)
-test_zero(lambda x: abs(x), lambda x: x.conjugate()/(2*abs(x)), lambda x:
-        x/(2*abs(x)), x, pi/2)
-test_zero(lambda x: abs(x), lambda x: x.conjugate()/(2*abs(x)), lambda x:
-        x/(2*abs(x)), x, pi)
+angles = [0, pi/7, pi/4, pi/2, 3*pi/4, pi]
 
-print "-----"
-test_zero(lambda x: log(x), lambda x: 1/x, lambda x: 0, x, 0)
-test_zero(lambda x: log(x), lambda x: 1/x, lambda x: 0, x, pi/4)
-test_zero(lambda x: log(x), lambda x: 1/x, lambda x: 0, x, pi/2)
-test_zero(lambda x: log(x), lambda x: 1/x, lambda x: 0, x, pi)
+for x in values:
+    test_zero(lambda x: abs(x), lambda x: x.conjugate()/(2*abs(x)), lambda x:
+            x/(2*abs(x)), x, 0)
+    test_zero(lambda x: log(x), lambda x: 1/x, lambda x: 0, x, 0)
