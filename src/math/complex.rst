@@ -520,8 +520,9 @@ Let's repeat the important result:
 The equation :eq:`complex_deriv` states that the complex derivative along the
 direction $\theta$ of any function can be calculated, but the result in general
 depends on $\theta$. The derivatives for all possible angles $\theta$ lie on a
-circle, with the center ${\partial f \over \partial z}$ and radius
-${\partial f \over \partial \bar z}$. When the derivative has different values
+circle, with the center ${\partial f \over \partial z}$ and the radius
+$\left|{\partial f \over \partial \bar z}\right|$.
+When the derivative has different values
 for different $\theta$, i.e. when ${\partial f \over \partial \bar z}\neq0$, it
 means that the complex limit :eq:`complex_deriv_lim` does not exist. On the
 other hand, if the derivative does not depend on $\theta$, i.e.
