@@ -391,6 +391,42 @@ Another example, following from :eq:`def_log` and :eq:`log(a/b)`:
           \right)
         = {1\over i} \log {z\over|z|}
 
+Complex Conjugate
+-----------------
+
+The complex conjugate is defined by:
+
+.. math::
+
+    z = \Re z + i \Im z
+
+    \bar z = \Re z - i \Im z
+
+Now we can solve for $\Re z$ and $\Im z$:
+
+.. math::
+
+    \Re z = {1\over 2}(z + \bar z)
+
+    \Im z = {i\over 2}(-z + \bar z)
+
+Any complex function can be expressed using $\Re z$ and $\Im z$, or
+alternatively using $z$ and $\bar z$.
+
+Examples
+~~~~~~~~
+
+.. math::
+
+    |z| = \sqrt{\Re^2 z + \Im^2 z} = \sqrt{
+        \left({1\over 2}(z + \bar z)\right)^2 +
+        \left({i\over 2}(-z + \bar z)\right)^2}
+        =\sqrt{z\bar z}
+
+    \arg z = \atan2(\Im z, \Re z)
+        =\atan2\left({i\over 2}(-z + \bar z), {1\over 2}(z + \bar z)\right)
+        =\atan2\left(i(-z + \bar z), z + \bar z\right)
+
 Testing Identities Using Computer Code
 --------------------------------------
 
