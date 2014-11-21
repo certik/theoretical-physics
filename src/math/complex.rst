@@ -450,14 +450,7 @@ z$, $y=\Im z$ to simplify the notation:
         = \lim_{t\to0} {f(x+t\cos\theta, y+t\sin\theta)-f(x, y) \over t}
             e^{-i\theta} =
 
-        = \left(\lim_{t\to0} {f(x+t\cos\theta, y+t\sin\theta)
-            -f(x, y+t\sin\theta) \over t}
-        + \lim_{t\to0} {f(x, y+t\sin\theta)-f(x, y) \over t}
-          \right) e^{-i\theta} =
-
-        = \left(\lim_{t\to0} {f(x+t, y) -f(x, y) \over t} \cos\theta
-        + \lim_{t\to0} {f(x, y+t)-f(x, y) \over t} \sin\theta
-          \right) e^{-i\theta} =
+        = {\d \over \d t} f(x+t\cos\theta, y+t\sin\theta) e^{-i\theta} =
 
         = \left({\partial f \over \partial x} \cos\theta
         + {\partial f \over \partial y} \sin\theta \right) e^{-i\theta} =
