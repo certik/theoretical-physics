@@ -633,6 +633,11 @@ Examples
         = {\bar z + z e^{-2i\theta}\over 2\sqrt{z\bar z}}
         = {\bar z + z e^{-2i\theta}\over 2|z|}
 
+    {\d |f(z)| \over \d z}
+        = {\partial |f| \over \partial f} {\d f \over \d z}
+        + {\partial |f| \over \partial \bar f} {\d \bar f \over \d z}
+        = {\bar f{\d f\over\d z} + f{\d \bar f\over\d z}\over 2|f|}
+
     {\d \arg z \over \d z}
         ={\d\, \atan2\left(i(-z + \bar z), z + \bar z\right) \over \d z}
         ={\partial\, \atan2\left(i(-z + \bar z), z + \bar z\right) \over
@@ -646,11 +651,30 @@ Examples
         = {i\over2}\left( -{1\over z} + {1\over \bar z} e^{-2i\theta} \right)
         = {i\over2}\left( -\bar z + z e^{-2i\theta} \over | z|^2 \right)
 
+    {\d \log|z| \over \d z}
+        = {1\over|z|} {\bar z + z e^{-2i\theta}\over 2|z|}
+        = {\bar z + z e^{-2i\theta}\over 2|z|^2}
+
     {\d \log z \over \d z}
         = {\d (\log|z| +i\arg z) \over \d z}
-        = {1\over|z|} {\bar z + z e^{-2i\theta}\over 2|z|}
+        = {\bar z + z e^{-2i\theta}\over 2|z|^2}
         +i {i\over2}\left( -\bar z + z e^{-2i\theta} \over | z|^2 \right)
         = {\bar z \over | z|^2} = {\bar z\over z\bar z} = {1\over z}
+
+    {\d \overline{\log z} \over \d z}
+        = {\partial \overline{\log z} \over \partial z}
+        + {\partial \overline{\log z} \over \partial \bar z} e^{-2i\theta}
+        = \overline{\partial \log z \over \partial \bar z}
+        + \overline{\partial \log z \over \partial z} e^{-2i\theta}
+        = {1\over\bar z} e^{-2i\theta}
+
+    {\d |\log z| \over \d z}
+        = {\overline{\log z}{\d \log z\over\d z}
+            + \log z{\d \overline{\log z}\over\d z}\over 2|\log z|}
+        = {{1\over z}\overline{\log z}
+            + {1\over\bar z}(\log z) e^{-2i\theta}\over 2|\log z|}
+        = {\bar z\overline{\log z}
+            + z (\log z) e^{-2i\theta}\over 2z\bar z|\log z|}
 
 Note that if $z$ is real, i.e. $z = \bar z$, we recover the real derivative
 results by setting $\theta=0$, i.e. taking the derivative along the $x$-axis:
@@ -665,9 +689,21 @@ results by setting $\theta=0$, i.e. taking the derivative along the $x$-axis:
 
     {\d |x| \over \d x} = {x + x \over 2|x|} = {x \over |x|}
 
+    {\d |f(x)| \over \d x}
+        = {f{\d f\over\d x} + f{\d f\over\d z}\over 2|f|}
+        = {f{\d f\over\d x} \over |f|}
+
     {\d \arg x \over \d x} = {i\over2}\left( -{1\over x} + {1\over x}\right) = 0
 
+    {\d \log|x| \over \d x}
+        = {x + x \over 2|x|^2}
+        = {x \over | x|^2}
+
     {\d \log x \over \d x} = {1\over x}
+
+    {\d |\log x| \over \d x}
+        = {x\log x + x \log x\over 2x^2|\log x|}
+        = {\log x\over x|\log x|}
 
 Testing Identities Using Computer Code
 --------------------------------------
