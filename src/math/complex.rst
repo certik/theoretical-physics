@@ -427,6 +427,17 @@ Examples
         =\atan2\left({i\over 2}(-z + \bar z), {1\over 2}(z + \bar z)\right)
         =\atan2\left(i(-z + \bar z), z + \bar z\right)
 
+    \arg \bar z = \atan2(-\Im z, \Re z)
+        =-\atan2(\Im z, \Re z) + 2\pi
+            \left\lfloor \atan2(\Im z, \Re z)+\pi \over 2\pi \right\rfloor
+        =-\arg z + 2\pi \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
+
+    \overline{\log z} = \log|z| -i\arg z
+        = \log|\bar z| +i\arg \bar z -2\pi i
+            \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
+        = \log \bar z -2\pi i
+            \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
+
 Complex Derivatives
 -------------------
 
