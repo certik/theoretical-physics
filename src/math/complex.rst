@@ -527,7 +527,7 @@ means that the complex limit :eq:`complex_deriv_lim` does not exist. On the
 other hand, if the derivative does not depend on $\theta$, i.e.
 when ${\partial f \over \partial \bar z}=0$, then the complex limit
 :eq:`complex_deriv_lim` exists, and the function has a complex derivative ---
-such functions are called analytic. Analytic functions thus does not depend on
+such functions are called analytic. Analytic functions thus do not depend on
 $\bar z$ and we can write just $f = f(z)$ for those.
 
 The ${\partial f \over \partial z}$ and ${\partial f \over \partial \bar z}$
