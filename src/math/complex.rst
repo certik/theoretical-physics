@@ -115,6 +115,33 @@ and also:
         = \arg a + \arg b + 2\pi
             \left\lfloor \pi-\arg a-\arg b\over 2\pi \right\rfloor
 
+and
+
+.. math::
+
+    \arg {1\over z} = -\arg z + 2\pi
+            \left\lfloor \pi+\arg z\over 2\pi \right\rfloor
+
+and
+
+.. math::
+
+    \arg {a\over b}
+        = \arg\left(|a| e^{i\arg a} \left|{1\over b}\right| e^{i\arg {1\over
+            b}}\right) =
+
+        = \arg\left(|a| \left|{1\over b}\right| e^{i(\arg a-\arg b)
+            +2\pi i \left\lfloor \pi+\arg b\over 2\pi \right\rfloor }\right) =
+
+        = \arg(e^{i(\arg a-\arg b)}) =
+
+        = \arg(\cos(\arg a-\arg b) + i\sin(\arg a - \arg b)) =
+
+        = \atan2(\sin(\arg a-\arg b), \cos(\arg a - \arg b)) =
+
+        = \arg a - \arg b + 2\pi
+            \left\lfloor \pi-\arg a+\arg b\over 2\pi \right\rfloor
+
 
 Logarithm
 ---------
@@ -168,6 +195,20 @@ and
     = \log a + \log b + 2\pi i
             \left\lfloor \pi-\arg a-\arg b \over 2\pi \right\rfloor
 
+and
+
+.. math::
+    :label: log(a/b)
+
+    \log {a\over b} = \log \left|{a\over b}\right| + i\arg {a\over b} =
+
+    = \log |a| - \log |b| + i\arg a - i\arg b + 2\pi i
+            \left\lfloor \pi-\arg a+\arg b \over 2\pi \right\rfloor =
+
+    = \log a - \log b + 2\pi i
+            \left\lfloor \pi-\arg a+\arg b \over 2\pi \right\rfloor
+
+
 Power
 -----
 
@@ -190,6 +231,7 @@ z}$.
 It follows:
 
 .. math::
+    :label: log(x^a)
 
     \log x^a = \log e^{a\log x} = a\log x
         + 2\pi i \left\lfloor \pi-\Im a\log x \over 2\pi \right\rfloor
@@ -302,6 +344,52 @@ Code:
     (0.20787957635076193+0j)
     >>> exp(-pi/2)
     0.20787957635076193
+
+Another example, using :eq:`log(x^a)`:
+
+.. math::
+
+    \log(\sqrt z)
+        = \log(z^{1\over2})
+        = \half \log z
+        + 2\pi i \left\lfloor \pi-\Im {1\over2}\log z \over 2\pi \right\rfloor =
+
+    = \half \log z
+    + 2\pi i \left\lfloor \pi-{1\over2}\arg z \over 2\pi \right\rfloor
+    = \half \log z
+
+and
+
+.. math::
+
+    \log(z^2)
+        = 2 \log z
+        + 2\pi i \left\lfloor \pi-\Im 2\log z \over 2\pi \right\rfloor =
+
+    = 2 \log z
+    + 2\pi i \left\lfloor \pi-2\arg z \over 2\pi \right\rfloor
+
+and
+
+.. math::
+
+    \log\left({1\over z}\right)
+        = \log(z^{-1})
+        = - \log z
+        + 2\pi i \left\lfloor \pi-\Im (-1)\log z \over 2\pi \right\rfloor =
+
+    = - \log z
+    + 2\pi i \left\lfloor \pi+\arg z \over 2\pi \right\rfloor
+
+Another example, following from :eq:`def_log` and :eq:`log(a/b)`:
+
+.. math::
+
+    \arg z = {1\over i}(\log z - \log|z|)
+        = {1\over i}\left(\log {z\over|z|}
+          - 2\pi i \left\lfloor \pi-\arg z+\arg |z| \over 2\pi \right\rfloor
+          \right)
+        = {1\over i} \log {z\over|z|}
 
 Testing Identities Using Computer Code
 --------------------------------------
