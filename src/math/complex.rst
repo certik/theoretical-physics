@@ -410,8 +410,8 @@ Now we can solve for $\Re z$ and $\Im z$:
 
     \Im z = {i\over 2}(-z + \bar z)
 
-Any complex function can be expressed using $\Re z$ and $\Im z$, or
-alternatively using $z$ and $\bar z$.
+Any complex function $f$ can be written using $\Re z$ and $\Im z$, i.e. $f =
+f(\Re z, \Im z)$ or using $z$ and $\bar z$, i.e. $f=f(z, \bar z)$.
 
 Examples
 ~~~~~~~~
@@ -426,6 +426,243 @@ Examples
     \arg z = \atan2(\Im z, \Re z)
         =\atan2\left({i\over 2}(-z + \bar z), {1\over 2}(z + \bar z)\right)
         =\atan2\left(i(-z + \bar z), z + \bar z\right)
+
+Complex Derivatives
+-------------------
+
+The complex derivative is defined by
+
+.. math::
+    :label: complex_deriv_lim
+
+    {\d f \over \d z}
+        = \lim_{h\to0} {f(z+h)-f(z) \over h}
+
+Let's calculate the complex derivative in the direction $\theta$, i.e.
+we use $h=te^{i\theta}$ with real $t$ and we introduce $f=f(x, y)$ with $x=\Re
+z$, $y=\Im z$ to simplify the notation:
+
+.. math::
+
+    {\d f \over \d z}
+        = \lim_{t\to0} {f(z+t e^{i\theta})-f(z) \over t e^{i\theta}} =
+
+        = \lim_{t\to0} {f(x+t\cos\theta, y+t\sin\theta)-f(x, y) \over t}
+            e^{-i\theta} =
+
+        = \left(\lim_{t\to0} {f(x+t\cos\theta, y+t\sin\theta)
+            -f(x, y+t\sin\theta) \over t}
+        + \lim_{t\to0} {f(x, y+t\sin\theta)-f(x, y) \over t}
+          \right) e^{-i\theta} =
+
+        = \left(\lim_{t\to0} {f(x+t, y) -f(x, y) \over t} \cos\theta
+        + \lim_{t\to0} {f(x, y+t)-f(x, y) \over t} \sin\theta
+          \right) e^{-i\theta} =
+
+        = \left({\partial f \over \partial x} \cos\theta
+        + {\partial f \over \partial y} \sin\theta \right) e^{-i\theta} =
+
+        = \left({\partial f \over \partial x}
+            {e^{i\theta}+e^{-i\theta} \over 2}
+        + {\partial f \over \partial y} {e^{i\theta}-e^{-i\theta} \over 2i}
+            \right) e^{-i\theta} =
+
+        = {\partial f \over \partial x}
+            {1+e^{-2i\theta} \over 2}
+        + {\partial f \over \partial y} {1-e^{-2i\theta} \over 2i} =
+
+        = \half\left({\partial f \over \partial x}
+                   -i {\partial f \over \partial y}\right)
+        + \half\left({\partial f \over \partial x}
+                   +i {\partial f \over \partial y}\right)e^{-2i\theta} =
+
+        = {\partial f \over \partial z}
+            + {\partial f \over \partial \bar z} e^{-2i\theta}
+
+In the last step we have expressed the derivatives with respect to $x$, $y$ in
+terms of derivatives with respect to $z$, $\bar z$, using the relations:
+
+.. math::
+    :label: dfdz
+
+    {\partial f \over \partial z}
+        = {\partial x \over \partial z} {\partial f \over \partial x}
+            + {\partial y \over \partial z} {\partial f \over \partial y} =
+
+        = {1\over2} {\partial f \over \partial x}
+            - {i\over2} {\partial f \over \partial y} =
+
+        = \half\left( {\partial f \over \partial x}
+            - i {\partial f \over \partial y} \right)
+
+.. math::
+    :label: dfdconjugate(z)
+
+    {\partial f \over \partial \bar z}
+        = {\partial x \over \partial \bar z} {\partial f \over \partial x}
+            + {\partial y \over \partial \bar z} {\partial f \over \partial y} =
+
+        = {1\over2} {\partial f \over \partial x}
+            + {i\over2} {\partial f \over \partial y} =
+
+        = \half\left( {\partial f \over \partial x}
+            + i {\partial f \over \partial y} \right)
+
+Let's repeat the important result:
+
+.. math::
+    :label: complex_deriv
+
+    {\d f(z, \bar z) \over \d z}
+        = {\partial f(z, \bar z) \over \partial z}
+            + {\partial f(z, \bar z) \over \partial \bar z} e^{-2i\theta}
+
+The equation :eq:`complex_deriv` states that the complex derivative along the
+direction $\theta$ of any function can be calculated, but the result in general
+depends on $\theta$. The derivatives for all possible angles $\theta$ lie on a
+circle, with the center ${\partial f \over \partial z}$ and radius
+${\partial f \over \partial \bar z}$. When the derivative has different values
+for different $\theta$, i.e. when ${\partial f \over \partial \bar z}\neq0$, it
+means that the complex limit :eq:`complex_deriv_lim` does not exist. On the
+other hand, if the derivative does not depend on $\theta$, i.e.
+when ${\partial f \over \partial \bar z}=0$, then the complex limit
+:eq:`complex_deriv_lim` exists, and the function has a complex derivative ---
+such functions are called analytic. Analytic functions thus does not depend on
+$\bar z$ and we can write just $f = f(z)$ for those.
+
+The ${\partial f \over \partial z}$ and ${\partial f \over \partial \bar z}$
+are called Wirtinger derivatives.
+
+We can see that the function is analytic (i.e. has a complex derivative) if and
+only if:
+
+.. math::
+
+    {\partial f \over \partial \bar z}
+        = \half\left( {\partial f \over \partial x}
+            + i {\partial f \over \partial y} \right) = 0
+
+We can write $f = u+iv$:
+
+.. math::
+
+    {\partial f \over \partial x} + i {\partial f \over \partial y} = 0
+
+    {\partial (u+iv) \over \partial x}
+        + i {\partial (u+iv) \over \partial y} = 0
+
+    \left({\partial u \over \partial x}
+    -{\partial v \over \partial y}\right)
+        + i \left({\partial u \over \partial y}
+          + {\partial v \over \partial x}\right)= 0
+
+both the real and imaginary parts must be equal to zero:
+
+.. math::
+
+    {\partial u \over \partial x} = {\partial v \over \partial y}
+
+    {\partial u \over \partial y} = - {\partial v \over \partial x}
+
+These are called the Cauchy-Riemann equations.
+
+We can derive the chain rule:
+
+.. math::
+    :label: chain_rule
+
+    {\d f(g) \over \d z}
+        = {\partial f(g) \over \partial z}
+            + {\partial f(g) \over \partial \bar z} e^{-2i\theta} =
+
+        = \left({\partial f \over \partial g}{\partial g \over \partial z}
+        + {\partial f \over \partial \bar g}{\partial \bar g \over \partial
+          z}\right)
+        + \left({\partial f \over \partial g}{\partial g \over \partial \bar z}
+        + {\partial f \over \partial \bar g}{\partial \bar g \over \partial
+          \bar z}\right)
+        e^{-2i\theta} =
+
+        = {\partial f \over \partial g}
+        \left({\partial g \over \partial z}+{\partial g \over \partial \bar z}
+            e^{-2i\theta} \right)
+        +
+          {\partial f \over \partial \bar g}
+        \left({\partial \bar g \over \partial z}+{\partial \bar g \over \partial \bar z}
+            e^{-2i\theta} \right) =
+
+        = {\partial f \over \partial g} {\d g \over \d z}
+        +
+          {\partial f \over \partial \bar g} {\d \bar g \over \d z}
+
+Examples
+~~~~~~~~
+
+.. math::
+
+    {\d z \over \d z}
+         = {\partial z \over \partial z}
+         + {\partial z \over \partial \bar z} e^{-2i\theta}
+         = 1
+
+    {\d \bar z \over \d z}
+         = {\partial \bar z \over \partial z}
+         + {\partial \bar z \over \partial \bar z} e^{-2i\theta}
+         = e^{-2i\theta}
+
+    {\d \Re z \over \d z} = {\d {1\over 2}(z + \bar z) \over \d z}
+         = {\partial {1\over 2}(z + \bar z) \over \partial z}
+         + {\partial {1\over 2}(z + \bar z) \over \partial \bar z} e^{-2i\theta}
+         = \half + \half e^{-2i\theta}
+
+    {\d \Im z \over \d z} = {\d {i\over 2}(-z + \bar z) \over \d z}
+         = {\partial {i\over 2}(-z + \bar z) \over \partial z}
+         + {\partial {i\over 2}(-z + \bar z) \over \partial \bar z}
+            e^{-2i\theta}
+         = -{i\over2} + {i\over2} e^{-2i\theta}
+
+    {\d |z| \over \d z}
+        = {\d \sqrt{z\bar z} \over \d z}
+        = {\partial \sqrt{z\bar z} \over \partial z}
+        + {\partial \sqrt{z\bar z} \over \partial \bar z} e^{-2i\theta}
+        = {\bar z + z e^{-2i\theta}\over 2\sqrt{z\bar z}}
+        = {\bar z + z e^{-2i\theta}\over 2|z|}
+
+    {\d \arg z \over \d z}
+        ={\d\, \atan2\left(i(-z + \bar z), z + \bar z\right) \over \d z}
+        ={\partial\, \atan2\left(i(-z + \bar z), z + \bar z\right) \over
+            \partial z}
+        +{\partial\, \atan2\left(i(-z + \bar z), z + \bar z\right) \over
+            \partial \bar z} e^{-2i\theta} =
+
+        = {(z+\bar z)(-i)- i(-z+\bar z)\over 4z\bar z}
+        + {(z+\bar z)i- i(-z+\bar z)\over 4z\bar z}e^{-2i\theta} =
+
+        = {i\over2}\left( -{1\over z} + {1\over \bar z} e^{-2i\theta} \right)
+        = {i\over2}\left( -\bar z + z e^{-2i\theta} \over | z|^2 \right)
+
+    {\d \log z \over \d z}
+        = {\d (\log|z| +i\arg z) \over \d z}
+        = {1\over|z|} {\bar z + z e^{-2i\theta}\over 2|z|}
+        +i {i\over2}\left( -\bar z + z e^{-2i\theta} \over | z|^2 \right)
+        = {\bar z \over | z|^2} = {\bar z\over z\bar z} = {1\over z}
+
+Note that if $z$ is real, i.e. $z = \bar z$, we recover the real derivative
+results by setting $\theta=0$, i.e. taking the derivative along the $x$-axis:
+
+.. math::
+
+    {\d x \over \d x} = 1
+
+    {\d \Re x \over \d x} = \half + \half = 1
+
+    {\d \Im x \over \d x} = -{i\over2} + {i\over2} = 0
+
+    {\d |x| \over \d x} = {x + x \over 2|x|} = {x \over |x|}
+
+    {\d \arg x \over \d x} = {i\over2}\left( -{1\over x} + {1\over x}\right) = 0
+
+    {\d \log x \over \d x} = {1\over x}
 
 Testing Identities Using Computer Code
 --------------------------------------
