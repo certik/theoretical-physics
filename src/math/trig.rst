@@ -363,6 +363,12 @@ The following useful relations hold:
     \atan2(\sin x, \cos x) = x + 2\pi
         \left\lfloor \pi-x \over 2\pi \right\rfloor
 
+    {\partial \over \partial y} \atan2(y, x)
+        = {x\over x^2 + y^2}
+
+    {\partial \over \partial x} \atan2(y, x)
+        = -{y\over x^2 + y^2}
+
 We now prove them. The following works for all $x, y$ except for $x=y=0$:
 
 .. math::
@@ -532,6 +538,27 @@ Finally, for all $k>0$ we get:
         2\,\atan{y\over\sqrt{x^2+y^2}+x}&\rm otherwise\cr\end{cases}
     = \Arg(x+iy) = \atan2(y, x)
 
+To prove the derivatives, we do:
+
+.. math::
+
+    {\partial \over \partial y} \atan2(y, x)
+        = 2{\partial \over \partial y} \atan{y\over\sqrt{x^2+y^2}+x}
+        = {x\over x^2 + y^2}
+
+    {\partial \over \partial x} \atan2(y, x)
+        = 2{\partial \over \partial x} \atan{y\over\sqrt{x^2+y^2}+x}
+        = -{y\over x^2 + y^2}
+
+Code::
+
+    >>> from sympy import atan, sqrt, var
+    >>> var("x y")
+    (x, y)
+    >>> (2*atan(y/(sqrt(x**2+y**2)+x)).diff(y)).simplify()
+    x/(x**2 + y**2)
+    >>> (2*atan(y/(sqrt(x**2+y**2)+x)).diff(x)).simplify()
+    -y/(x**2 + y**2)
 
 An example of an application:
 
