@@ -363,6 +363,9 @@ The following useful relations hold:
     \atan2(\sin x, \cos x) = x + 2\pi
         \left\lfloor \pi-x \over 2\pi \right\rfloor
 
+    \atan2(-y, x) = -\atan2(y, x) + 2\pi
+        \left\lfloor \atan2(y, x)+\pi \over 2\pi \right\rfloor
+
     {\partial \over \partial y} \atan2(y, x)
         = {x\over x^2 + y^2}
 
@@ -537,6 +540,23 @@ Finally, for all $k>0$ we get:
     =\begin{cases}\pi&y=0;x<0;\cr
         2\,\atan{y\over\sqrt{x^2+y^2}+x}&\rm otherwise\cr\end{cases}
     = \Arg(x+iy) = \atan2(y, x)
+
+The symmetry property can be proven by:
+
+.. math::
+
+    \atan2(-y, x)
+        =\begin{cases}\pi&y=0;x<0;\cr
+            2\,\atan{-y\over\sqrt{x^2+(-y)^2}+x}
+                &\rm otherwise\cr\end{cases} =
+
+        =\begin{cases}\pi&y=0;x<0;\cr
+            -\left(2\,\atan{y\over\sqrt{x^2+y^2}+x}\right)
+                &\rm otherwise\cr\end{cases} =
+
+        =-\atan2(y, x) + 2\pi
+            \left\lfloor \atan2(y, x)+\pi \over 2\pi \right\rfloor
+
 
 To prove the derivatives, we do:
 

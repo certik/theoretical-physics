@@ -427,6 +427,17 @@ Examples
         =\atan2\left({i\over 2}(-z + \bar z), {1\over 2}(z + \bar z)\right)
         =\atan2\left(i(-z + \bar z), z + \bar z\right)
 
+    \arg \bar z = \atan2(-\Im z, \Re z)
+        =-\atan2(\Im z, \Re z) + 2\pi
+            \left\lfloor \atan2(\Im z, \Re z)+\pi \over 2\pi \right\rfloor
+        =-\arg z + 2\pi \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
+
+    \overline{\log z} = \log|z| -i\arg z
+        = \log|\bar z| +i\arg \bar z -2\pi i
+            \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
+        = \log \bar z -2\pi i
+            \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
+
 Complex Derivatives
 -------------------
 
@@ -450,14 +461,7 @@ z$, $y=\Im z$ to simplify the notation:
         = \lim_{t\to0} {f(x+t\cos\theta, y+t\sin\theta)-f(x, y) \over t}
             e^{-i\theta} =
 
-        = \left(\lim_{t\to0} {f(x+t\cos\theta, y+t\sin\theta)
-            -f(x, y+t\sin\theta) \over t}
-        + \lim_{t\to0} {f(x, y+t\sin\theta)-f(x, y) \over t}
-          \right) e^{-i\theta} =
-
-        = \left(\lim_{t\to0} {f(x+t, y) -f(x, y) \over t} \cos\theta
-        + \lim_{t\to0} {f(x, y+t)-f(x, y) \over t} \sin\theta
-          \right) e^{-i\theta} =
+        = {\d \over \d t} f(x+t\cos\theta, y+t\sin\theta) e^{-i\theta} =
 
         = \left({\partial f \over \partial x} \cos\theta
         + {\partial f \over \partial y} \sin\theta \right) e^{-i\theta} =
@@ -520,14 +524,15 @@ Let's repeat the important result:
 The equation :eq:`complex_deriv` states that the complex derivative along the
 direction $\theta$ of any function can be calculated, but the result in general
 depends on $\theta$. The derivatives for all possible angles $\theta$ lie on a
-circle, with the center ${\partial f \over \partial z}$ and radius
-${\partial f \over \partial \bar z}$. When the derivative has different values
+circle, with the center ${\partial f \over \partial z}$ and the radius
+$\left|{\partial f \over \partial \bar z}\right|$.
+When the derivative has different values
 for different $\theta$, i.e. when ${\partial f \over \partial \bar z}\neq0$, it
 means that the complex limit :eq:`complex_deriv_lim` does not exist. On the
 other hand, if the derivative does not depend on $\theta$, i.e.
 when ${\partial f \over \partial \bar z}=0$, then the complex limit
 :eq:`complex_deriv_lim` exists, and the function has a complex derivative ---
-such functions are called analytic. Analytic functions thus does not depend on
+such functions are called analytic. Analytic functions thus do not depend on
 $\bar z$ and we can write just $f = f(z)$ for those.
 
 The ${\partial f \over \partial z}$ and ${\partial f \over \partial \bar z}$
@@ -628,6 +633,11 @@ Examples
         = {\bar z + z e^{-2i\theta}\over 2\sqrt{z\bar z}}
         = {\bar z + z e^{-2i\theta}\over 2|z|}
 
+    {\d |f(z)| \over \d z}
+        = {\partial |f| \over \partial f} {\d f \over \d z}
+        + {\partial |f| \over \partial \bar f} {\d \bar f \over \d z}
+        = {\bar f{\d f\over\d z} + f{\d \bar f\over\d z}\over 2|f|}
+
     {\d \arg z \over \d z}
         ={\d\, \atan2\left(i(-z + \bar z), z + \bar z\right) \over \d z}
         ={\partial\, \atan2\left(i(-z + \bar z), z + \bar z\right) \over
@@ -641,11 +651,30 @@ Examples
         = {i\over2}\left( -{1\over z} + {1\over \bar z} e^{-2i\theta} \right)
         = {i\over2}\left( -\bar z + z e^{-2i\theta} \over | z|^2 \right)
 
+    {\d \log|z| \over \d z}
+        = {1\over|z|} {\bar z + z e^{-2i\theta}\over 2|z|}
+        = {\bar z + z e^{-2i\theta}\over 2|z|^2}
+
     {\d \log z \over \d z}
         = {\d (\log|z| +i\arg z) \over \d z}
-        = {1\over|z|} {\bar z + z e^{-2i\theta}\over 2|z|}
+        = {\bar z + z e^{-2i\theta}\over 2|z|^2}
         +i {i\over2}\left( -\bar z + z e^{-2i\theta} \over | z|^2 \right)
         = {\bar z \over | z|^2} = {\bar z\over z\bar z} = {1\over z}
+
+    {\d \overline{\log z} \over \d z}
+        = {\partial \overline{\log z} \over \partial z}
+        + {\partial \overline{\log z} \over \partial \bar z} e^{-2i\theta}
+        = \overline{\partial \log z \over \partial \bar z}
+        + \overline{\partial \log z \over \partial z} e^{-2i\theta}
+        = {1\over\bar z} e^{-2i\theta}
+
+    {\d |\log z| \over \d z}
+        = {\overline{\log z}{\d \log z\over\d z}
+            + \log z{\d \overline{\log z}\over\d z}\over 2|\log z|}
+        = {{1\over z}\overline{\log z}
+            + {1\over\bar z}(\log z) e^{-2i\theta}\over 2|\log z|}
+        = {\bar z\overline{\log z}
+            + z (\log z) e^{-2i\theta}\over 2z\bar z|\log z|}
 
 Note that if $z$ is real, i.e. $z = \bar z$, we recover the real derivative
 results by setting $\theta=0$, i.e. taking the derivative along the $x$-axis:
@@ -660,9 +689,21 @@ results by setting $\theta=0$, i.e. taking the derivative along the $x$-axis:
 
     {\d |x| \over \d x} = {x + x \over 2|x|} = {x \over |x|}
 
+    {\d |f(x)| \over \d x}
+        = {f{\d f\over\d x} + f{\d f\over\d z}\over 2|f|}
+        = {f{\d f\over\d x} \over |f|}
+
     {\d \arg x \over \d x} = {i\over2}\left( -{1\over x} + {1\over x}\right) = 0
 
+    {\d \log|x| \over \d x}
+        = {x + x \over 2|x|^2}
+        = {x \over | x|^2}
+
     {\d \log x \over \d x} = {1\over x}
+
+    {\d |\log x| \over \d x}
+        = {x\log x + x \log x\over 2x^2|\log x|}
+        = {\log x\over x|\log x|}
 
 Testing Identities Using Computer Code
 --------------------------------------
