@@ -600,6 +600,38 @@ We can derive the chain rule:
         +
           {\partial f \over \partial \bar g} {\d \bar g \over \d z}
 
+Another useful formula is the derivative of a conjugate function:
+
+.. math::
+    :label: deriv_conj
+
+    {\d \bar f \over \d z}
+        = {\partial \bar f \over \partial z}
+            + {\partial \bar f \over \partial \bar z} e^{-2i\theta}
+        = \overline{\partial f \over \partial \bar z}
+            + \overline{\partial f \over \partial z} e^{-2i\theta} =
+
+        = \left(\overline{{\partial f \over \partial \bar z} e^{-2i\theta}
+            + {\partial f \over \partial z}}\right) e^{-2i\theta}
+        = \overline{\d f \over \d z} e^{-2i\theta}
+
+Using :eq:`deriv_conj`, the chain rule :eq:`chain_rule` can also be written as:
+
+.. math::
+    :label: chain_rule2
+
+    {\d f(g) \over \d z}
+        = {\partial f \over \partial g} {\d g \over \d z}
+        + {\partial f \over \partial \bar g} {\d \bar g \over \d z}
+        = {\partial f \over \partial g} {\d g \over \d z}
+        + {\partial f \over \partial \bar g} \overline {\d g \over \d z}
+            e^{-2i\theta}
+
+Which has the advantage that only the ${\d g \over \d z}$ derivative is needed,
+the rest is just conjugation and multiplication. If $f$ is analytic, then
+${\partial f \over \partial \bar g}=0$, the second term vanishes and the chain
+rule is analogous to real functions.
+
 Examples
 ~~~~~~~~
 
