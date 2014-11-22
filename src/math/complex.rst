@@ -737,6 +737,23 @@ results by setting $\theta=0$, i.e. taking the derivative along the $x$-axis:
         = {x\log x + x \log x\over 2x^2|\log x|}
         = {\log x\over x|\log x|}
 
+The above approach to first express things in terms of $z$ and $\bar z$ and
+then differentiate is probably the easiest, but we can do things in any order
+we want. For example the derivative of $|z|$ can also be calculated in this
+(arguably more complicated) way:
+
+.. math::
+
+    {\d |z| \over \d z} = {\d \sqrt{\Re^2 z + \Im^2 z} \over \d z}
+        = {\Re z {\d \Re z \over \d z} + \Im z {\d \Im z \over \d z} \over |z|}=
+
+        = {\left({1\over 2}(z + \bar z)\right)
+            \left(\half + \half e^{-2i\theta}\right)
+            + \left({i\over 2}(-z + \bar z)\right)
+              \left(-{i\over2} + {i\over2} e^{-2i\theta}\right) \over |z|}=
+
+        = {\bar z + z e^{-2i\theta}\over 2|z|}
+
 Testing Identities Using Computer Code
 --------------------------------------
 
