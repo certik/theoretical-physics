@@ -97,11 +97,12 @@ def diff(f, z0, theta, eps=1e-8):
     h = eps*exp(I*theta)
     return (f(z0+h)-f(z0)) / h
 
-def diff2(dfdz, dfdconjz, z0, theta, eps=1e-8):
+def diff2(dfdz, dfdconjz, z0, theta):
     return dfdz(z0) + dfdconjz(z0)*exp(-2*I*theta)
 
 def test_zero(f, dfdz, dfdconjz, z0, theta, eps=1e-8):
-    assert feq(diff(f, z0, theta, eps), diff2(dfdz, dfdconjz, z0, theta, eps))
+    assert feq(diff(f, z0, theta, eps), diff2(dfdz, dfdconjz, z0, theta),
+            max_relative_error=eps*1e2, max_absolute_error=eps*1e2)
 
 from math import floor, pi
 from cmath import sqrt, exp, log
