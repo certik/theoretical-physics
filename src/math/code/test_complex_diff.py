@@ -117,3 +117,5 @@ for x in values:
         test_zero(lambda x: log(x), lambda x: 1/x, lambda x: 0, x, theta)
         test_zero(lambda x: log(exp(x-x.conjugate())), lambda x: 1,
                 lambda x: -1, x, theta)
+        test_zero(lambda x: sqrt(x**2), lambda x: sqrt(x**2)/x, lambda x: 0, x, theta)
+        test_zero(lambda x: sqrt(x**2), lambda x: x/sqrt(x**2), lambda x: 0, x, theta)
