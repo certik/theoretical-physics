@@ -111,6 +111,7 @@ I = 1j
 angles = [0, pi/7, pi/4, pi/2, 3*pi/4, pi]
 
 for x in values:
-    test_zero(lambda x: abs(x), lambda x: x.conjugate()/(2*abs(x)), lambda x:
-            x/(2*abs(x)), x, 0)
-    test_zero(lambda x: log(x), lambda x: 1/x, lambda x: 0, x, 0)
+    for theta in angles:
+        test_zero(lambda x: abs(x), lambda x: x.conjugate()/(2*abs(x)),
+                lambda x: x/(2*abs(x)), x, theta)
+        test_zero(lambda x: log(x), lambda x: 1/x, lambda x: 0, x, theta)
