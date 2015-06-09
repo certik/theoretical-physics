@@ -2381,3 +2381,6 @@ Examples:
 
     I_{3\over 2}(\mu) = \int_0^\infty {\epsilon^{3\over2} \d\epsilon \over
         e^{\epsilon-\mu} + 1}
+
+The Fermi-Dirac integral can also be written using the polylogarithm, see
+:ref:`fermi-dirac-poly` for details.
