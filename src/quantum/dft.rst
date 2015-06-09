@@ -1255,7 +1255,7 @@ The kinetic energy is
         \int I_{3\over2}\left(\beta(\mu - V)\right) d^3 x
 
 
-Another way to derive the quantities above is to start with a grand canonical
+Another way to derive the quantities above is to start with a grand
 potential:
 
 .. math::
@@ -1284,7 +1284,7 @@ The density is:
         = {\sqrt2 \over \pi^2 \beta^{3\over2}} I_{1\over2}(\beta\mu)
 
 By defining the function $\Phi(n_e) = \beta\mu$ we can express the grand
-canonical potential using $n_e$ as follows:
+potential using $n_e$ as follows:
 
 .. math::
 
