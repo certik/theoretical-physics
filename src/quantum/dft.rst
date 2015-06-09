@@ -1270,24 +1270,41 @@ where the kinetic energy can be written in a few different equivalent ways as
     T_0[n_e] =
 
     = {\sqrt 2\over\pi^2 \beta^{5\over2}}
-      \int\!\! \left(\!
+      \int \left(
                 I_{1\over2}\left(\beta(\mu - V)\right)
     \beta(\mu-V) -
     {2\over 3} I_{3\over2}(\beta(\mu-V))
-    \!\!\right) \!\d^3 x =
+    \right) \d^3 x =
 
-    = {1\over\beta}\!\! \int\!\! \left(\!
+    = {1\over\beta} \int \left(
     n_e(\mathbf{x}) \beta(\mu-V) -
     {2\sqrt2\over 3\pi^2 \beta^{3\over2}} I_{3\over2}(\beta(\mu-V))
-    \!\!\right) \!\d^3 x =
+    \right) \d^3 x =
 
-    = {1\over\beta}\!\! \int\!\! \left(\!
+    = {1\over\beta} \int \left(
     n_e(\mathbf{x}) \Phi(n_e(\mathbf{x})) -
     {2\sqrt2\over 3\pi^2 \beta^{3\over2}} I_{3\over2}(\Phi(n_e(\mathbf{x})))
-    \!\!\right) \!\d^3 x =
+    \right) \d^3 x =
+
+    = {1\over\beta} \int \left(
+    n_e(\mathbf{x}) I_{1\over2}^{-1}(y) -
+    {2n_e(\mathbf{x})\over 3 y} I_{3\over2}(I_{1\over2}^{-1}(y))
+    \right) \d^3 x =
+
+    = {1\over\beta} \int
+    n_e(\mathbf{x}) \left( I_{1\over2}^{-1}(y) -
+    {2\over 3 y} I_{3\over2}(I_{1\over2}^{-1}(y))\right)
+    \d^3 x =
 
     ={1\over\beta} \int n_e(\mathbf{x}) f(y) \d^3 x\,;\quad\quad
     y={\pi^2\over\sqrt2}\beta^{3\over2} n_e\,,
+
+where $f(y)$ is a special function of one variable, composed of a
+:ref:`fermi_integral` of order $3\over2$ and its inverse of order $1\over2$:
+
+.. math::
+
+    f(y) = I_{1\over2}^{-1}(y) - {2\over 3 y} I_{3\over2}(I_{1\over2}^{-1}(y))
 
 the electron-nuclei term has the form
 
