@@ -338,6 +338,8 @@ The Wigner 3j symbol:
     {}_3F_2(-j_1-j_2+j_3, m_1-j_1, -j_2-m_2;
         -j_1+j_3-m_2+1, -j_2+j_3+m_1+1; 1)
 
+.. _fermi-dirac-poly:
+
 The Series pFq
 --------------
 

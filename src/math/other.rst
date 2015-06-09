@@ -2358,3 +2358,29 @@ Example
         = {(2n-1)!!\over (2n)!!}
         = {(2n)!\over (2^n n!)^2}
         = {1\over 4^n}\binom{2n}{n}
+
+.. _fermi_integral:
+
+Fermi-Dirac Integral
+--------------------
+
+The Fermi-Dirac integral (sometimes just called a Fermi integral) is defined
+as:
+
+.. math::
+
+    I_\alpha(\mu) = \int_0^\infty {\epsilon^\alpha \d\epsilon \over
+        e^{\epsilon-\mu} + 1}
+
+Examples:
+
+.. math::
+
+    I_{1\over 2}(\mu) = \int_0^\infty {\sqrt \epsilon \d\epsilon \over
+        e^{\epsilon-\mu} + 1}
+
+    I_{3\over 2}(\mu) = \int_0^\infty {\epsilon^{3\over2} \d\epsilon \over
+        e^{\epsilon-\mu} + 1}
+
+The Fermi-Dirac integral can also be written using the polylogarithm, see
+:ref:`fermi-dirac-poly` for details.
