@@ -1254,6 +1254,59 @@ The kinetic energy is
     = {\sqrt 2 \over \pi^2 \beta^{5\over2}}
         \int I_{3\over2}\left(\beta(\mu - V)\right) d^3 x
 
+
+Another way to derive the quantities above is to start with a grand canonical
+potential:
+
+.. math::
+
+    \Omega[\beta, \mu] = -{1\over \pi^2 \beta}
+        \int_0^\infty p^2 \log\left(1 +
+            e^{-\beta\left({p^2\over 2} - \mu\right)}\right) \d p =
+
+    = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        \int_0^\infty {u^{3\over2} \over
+            1 + e^{u-\beta\mu}} \d u =
+
+    = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        I_{3\over2}(\beta\mu)
+
+The density is:
+
+.. math::
+
+    n_e = - {\partial \Omega[\beta, \mu] \over \partial \mu}
+        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            {\partial \over \partial \mu} I_{3\over2}(\beta\mu)
+        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \beta {3\over 2} I_{1\over2}(\beta\mu) =
+
+        = {\sqrt2 \over \pi^2 \beta^{3\over2}} I_{1\over2}(\beta\mu)
+
+By defining the function $\Phi(n_e) = \beta\mu$ we can express the grand
+canonical potential using $n_e$ as follows:
+
+.. math::
+
+    \Omega[\beta, n_e]
+        = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            I_{3\over2}(\Phi(n_e))
+
+Now we can calculate the free energy (per unit volume):
+
+.. math::
+
+    F_e[\beta, n_e] = \Omega[\beta, n_e] + \mu n_e
+        = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}} I_{3\over2}(\Phi(n_e))
+            + {1\over \beta} n_e \Phi(n_e)
+
+and pressure:
+
+.. math::
+
+    P = -\Omega[\beta, n_e] = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            I_{3\over2}(\Phi(n_e))
+
 Orbital Free Density Functional Theory
 --------------------------------------
 
