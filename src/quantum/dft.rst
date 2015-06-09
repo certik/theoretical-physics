@@ -1192,8 +1192,8 @@ generalizes to:
             e^{\beta(E-\mu)} + 1}
 
 Now we use the relation $E = {p^2\over 2} + V$ and substitutions
-$\epsilon={p^2\over 2}$, $y = \beta \epsilon$ to rewrite this using the Fermi
-integral:
+$\epsilon={p^2\over 2}$, $y = \beta \epsilon$ to rewrite this using the
+:ref:`fermi_integral`:
 
 .. math::
 

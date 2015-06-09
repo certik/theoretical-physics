@@ -2359,6 +2359,8 @@ Example
         = {(2n)!\over (2^n n!)^2}
         = {1\over 4^n}\binom{2n}{n}
 
+.. _fermi_integral:
+
 Fermi-Dirac Integral
 --------------------
 
