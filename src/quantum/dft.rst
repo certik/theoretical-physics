@@ -1263,11 +1263,25 @@ The orbital-free electronic free energy is given by:
 
     F_e[n_e] = T_0[n_e] + U_{en}[n_e] + U_{ee}[n_e] + F_{xc}[n_e]\,,
 
-where the kinetic energy is
+where the kinetic energy can be written in a few different equivalent ways as
 
 .. math::
 
-    T_0[n_e] = {1\over\beta}\!\! \int\!\! \left(\!
+    T_0[n_e] =
+
+    = {\sqrt 2\over\pi^2 \beta^{5\over2}}
+      \int\!\! \left(\!
+                I_{1\over2}\left(\beta(\mu - V)\right)
+    \beta(\mu-V) -
+    {2\over 3} I_{3\over2}(\beta(\mu-V))
+    \!\!\right) \!\d^3 x =
+
+    = {1\over\beta}\!\! \int\!\! \left(\!
+    n_e(\mathbf{x}) \beta(\mu-V) -
+    {2\sqrt2\over 3\pi^2 \beta^{3\over2}} I_{3\over2}(\beta(\mu-V))
+    \!\!\right) \!\d^3 x =
+
+    = {1\over\beta}\!\! \int\!\! \left(\!
     n_e(\mathbf{x}) \Phi(n_e(\mathbf{x})) -
     {2\sqrt2\over 3\pi^2 \beta^{3\over2}} I_{3\over2}(\Phi(n_e(\mathbf{x})))
     \!\!\right) \!\d^3 x =
