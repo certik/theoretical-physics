@@ -1160,6 +1160,94 @@ making the Jacobian $J_{ik}$ dense.
 Thomas-Fermi-Dirac Theory
 -------------------------
 
+There are two ways to derive equations for Thomas-Fermi-Dirac theory. One way
+is to start from grand potential and derive all equations from it. The other
+way is to start with low level equations and build our way up. Will start with
+the former.
+
+Top Down Approach
+~~~~~~~~~~~~~~~~~
+
+We start with a grand potential:
+
+.. math::
+
+    \Omega[\beta, \mu] = -{1\over \pi^2 \beta}
+        \int \d^3 x \int_0^\infty p^2 \log\left(1 +
+            e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right) \d p =
+
+    = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        \int \d^3 x \int_0^\infty {u^{3\over2} \over
+            1 + e^{u-\beta\left(\mu-V({\bf x})\right)}} \d u =
+
+    = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        \int I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right) \,\d^3 x
+
+The potential $V({\bf x})$ is the total potential that the electrons
+experience (it contains Hartree, nuclear and XC terms)
+The density is a functional derivative with respect to $\mu$:
+
+.. math::
+
+    n_e({\bf x}) = - {\delta \Omega[\beta, \mu] \over \delta \mu}
+        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            {\partial \over \partial \mu}
+                I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right)
+        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \beta {3\over 2} I_{1\over2}
+                \left(\beta\left(\mu-V({\bf x})\right)\right) =
+
+        = {\sqrt2 \over \pi^2 \beta^{3\over2}} I_{1\over2}
+                \left(\beta\left(\mu-V({\bf x})\right)\right)
+
+By defining the function $\Phi(n_e({\bf x}))$:
+
+.. math::
+
+    \Phi(n_e({\bf x})) = \beta\left(\mu-V({\bf x})\right)
+        = I_{1\over2}^{-1}\left(
+                {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e({\bf x})
+            \right)
+
+we can express the grand potential using $n_e$ as follows:
+
+.. math::
+
+    \Omega[\beta, n_e]
+        = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+
+Now we can calculate the free energy:
+
+.. math::
+
+    F_e[\beta, n_e] = \Omega[\beta, n_e] + \mu N
+        = \Omega[\beta, n_e] + \mu \int n_e({\bf x}) \,\d^3 x
+        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+              I_{3\over2}(\Phi(n_e({\bf x})))
+            + \mu n_e({\bf x}) \right)\d^3 x =
+
+        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+              I_{3\over2}(\Phi(n_e({\bf x})))
+            + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
+                + n_e({\bf x}) V({\bf x}) \right)\d^3 x
+
+where we used the fact that $\mu = {1\over \beta} \Phi(n_e({\bf x})) + V({\bf
+x})$, i.e. the left hand side $\mu$ is a constant, thus the sum of the terms on
+the right hand side is also constant (even though the individual terms are
+not).
+
+We can calculate pressure:
+
+.. math::
+
+    P = -\Omega[\beta, n_e] = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \,\d^3 x
+
+Bottom Up Approach
+~~~~~~~~~~~~~~~~~~
+
+The other way to derive these equations is to use the following considerations.
 The number of states in a box of side $L$ is given by:
 
 .. math::
@@ -1176,50 +1264,52 @@ The electronic particle density is:
 .. math::
     :label: tf_low
 
-    n_e = {N \over L^3}
+    n_e({\bf x}) = {N \over L^3}
       = {1\over\pi^2} \int_0^{p_f} p^2 \d p
       = {p_f^3 \over 3\pi^2}
-      = {\left[2(E_f - V)\right]^{3\over2} \over 3\pi^2}
+      = {\left[2(E_f - V({\bf x}))\right]^{3\over2} \over 3\pi^2}
 
-where we used the relation for Fermi energy $E_f = {p_f^2\over 2} + V$.
+where we used the relation for Fermi energy $E_f = {p_f^2\over 2} + V({\bf
+x})$. The potential $V({\bf x})$ is the total potential that the electrons
+experience (it contains Hartree, nuclear and XC terms).
 At finite temperature $T$ we need to use the Fermi distribution and this
 generalizes to:
 
 .. math::
 
-    n_e
+    n_e({\bf x})
       = {1\over\pi^2} \int_0^{\infty} {p^2 \d p \over
             e^{\beta(E-\mu)} + 1}
 
-Now we use the relation $E = {p^2\over 2} + V$ and substitutions
+Now we use the relation $E = {p^2\over 2} + V({\bf x})$ and substitutions
 $\epsilon={p^2\over 2}$, $y = \beta \epsilon$ to rewrite this using the
 :ref:`fermi_integral`:
 
 .. math::
 
-    n_e
+    n_e({\bf x})
       = {1\over\pi^2} \int_0^{\infty} {p^2 \d p \over
             e^{\beta(E-\mu)} + 1}
       = {1\over\pi^2} \int_0^{\infty} {p^2 \d p \over
-            e^{\beta({p^2\over 2} + V-\mu)} + 1}
+            e^{\beta({p^2\over 2} + V({\bf x})-\mu)} + 1}
       = {\sqrt 2\over\pi^2} \int_0^{\infty} {\sqrt\epsilon \d \epsilon \over
-            e^{\beta(\epsilon + V-\mu)} + 1}
+            e^{\beta(\epsilon + V({\bf x})-\mu)} + 1}
       =
 
       = {\sqrt 2\over\pi^2 \beta^{3\over2}} \int_0^{\infty} {\sqrt y \d y \over
-            e^{y - \beta(\mu - V)} + 1}
+            e^{y - \beta(\mu - V({\bf x}))} + 1}
       = {\sqrt 2\over\pi^2 \beta^{3\over2}}
-            I_{1\over2}\left(\beta(\mu - V)\right)
+            I_{1\over2}\left(\beta(\mu - V({\bf x}))\right)
 
 At low temperature ($T\to0$) we have
 $\beta \to \infty$, $I_{1\over2}(x) \to {2\over3} x^{3\over 2}$ and we obtain:
 
 .. math::
 
-    n_e \to
+    n_e({\bf x}) \to
       {2\sqrt 2\over 3\pi^2 \beta^{3\over2}}
-            \left(\beta(\mu - V)\right)^{3\over2}
-      ={\left[2(\mu - V)\right]^{3\over2} \over 3\pi^2}
+            \left(\beta(\mu - V({\bf x}))\right)^{3\over2}
+      ={\left[2(\mu - V({\bf x}))\right]^{3\over2} \over 3\pi^2}
 
 Identical with :eq:`tf_low`. We can see that the chemical potential $\mu$
 becomes the Fermi energy $E_f$ in the limit $T\to0$. In the finite-temperature
@@ -1228,7 +1318,7 @@ electrons $N$:
 
 .. math::
 
-    N = \int n_e\, d^3 x
+    N = \int n_e({\bf x})\, d^3 x
 
 The kinetic energy is
 
@@ -1242,70 +1332,19 @@ The kinetic energy is
         {1\over e^{\beta(E-\mu)}+1} =
 
     = \int d^3 x \int_0^\infty 2 {4\pi \sqrt 2\sqrt \epsilon \d \epsilon \over
-        (2\pi)^3} \epsilon {1\over e^{\beta(\epsilon + V-\mu)}+1} =
+        (2\pi)^3} \epsilon {1\over e^{\beta(\epsilon + V({\bf x})-\mu)}+1} =
 
     = {\sqrt 2 \over \pi^2} \int d^3 x \int_0^\infty
         {\epsilon^{3\over2} \d \epsilon \over
-        e^{\beta(\epsilon + V-\mu)}+1} =
+        e^{\beta(\epsilon + V({\bf x})-\mu)}+1} =
 
     = {\sqrt 2 \over \pi^2 \beta^{5\over2}} \int d^3 x \int_0^\infty
-        {y^{3\over2} \d y \over e^{y - \beta(\mu -V)}+1} =
+        {y^{3\over2} \d y \over e^{y - \beta(\mu -V({\bf x}))}+1} =
 
     = {\sqrt 2 \over \pi^2 \beta^{5\over2}}
-        \int I_{3\over2}\left(\beta(\mu - V)\right) d^3 x
+        \int I_{3\over2}\left(\beta(\mu - V({\bf x}))\right) d^3 x
 
 
-Another way to derive the quantities above is to start with a grand
-potential:
-
-.. math::
-
-    \Omega[\beta, \mu] = -{1\over \pi^2 \beta}
-        \int_0^\infty p^2 \log\left(1 +
-            e^{-\beta\left({p^2\over 2} - \mu\right)}\right) \d p =
-
-    = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-        \int_0^\infty {u^{3\over2} \over
-            1 + e^{u-\beta\mu}} \d u =
-
-    = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-        I_{3\over2}(\beta\mu)
-
-The density is:
-
-.. math::
-
-    n_e = - {\partial \Omega[\beta, \mu] \over \partial \mu}
-        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            {\partial \over \partial \mu} I_{3\over2}(\beta\mu)
-        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \beta {3\over 2} I_{1\over2}(\beta\mu) =
-
-        = {\sqrt2 \over \pi^2 \beta^{3\over2}} I_{1\over2}(\beta\mu)
-
-By defining the function $\Phi(n_e) = \beta\mu$ we can express the grand
-potential using $n_e$ as follows:
-
-.. math::
-
-    \Omega[\beta, n_e]
-        = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            I_{3\over2}(\Phi(n_e))
-
-Now we can calculate the free energy (per unit volume):
-
-.. math::
-
-    F_e[\beta, n_e] = \Omega[\beta, n_e] + \mu n_e
-        = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}} I_{3\over2}(\Phi(n_e))
-            + {1\over \beta} n_e \Phi(n_e)
-
-and pressure:
-
-.. math::
-
-    P = -\Omega[\beta, n_e] = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            I_{3\over2}(\Phi(n_e))
 
 Orbital Free Density Functional Theory
 --------------------------------------
@@ -1324,14 +1363,14 @@ where the kinetic energy can be written in a few different equivalent ways as
 
     = {\sqrt 2\over\pi^2 \beta^{5\over2}}
       \int \left(
-                I_{1\over2}\left(\beta(\mu - V)\right)
-    \beta(\mu-V) -
-    {2\over 3} I_{3\over2}(\beta(\mu-V))
+                I_{1\over2}\left(\beta(\mu - V({\bf x}))\right)
+    \beta(\mu-V({\bf x})) -
+    {2\over 3} I_{3\over2}(\beta(\mu-V({\bf x})))
     \right) \d^3 x =
 
     = {1\over\beta} \int \left(
-    n_e(\mathbf{x}) \beta(\mu-V) -
-    {2\sqrt2\over 3\pi^2 \beta^{3\over2}} I_{3\over2}(\beta(\mu-V))
+    n_e(\mathbf{x}) \beta(\mu-V({\bf x})) -
+    {2\sqrt2\over 3\pi^2 \beta^{3\over2}} I_{3\over2}(\beta(\mu-V({\bf x})))
     \right) \d^3 x =
 
     = {1\over\beta} \int \left(
