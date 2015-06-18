@@ -1239,11 +1239,11 @@ x})$, i.e. the left hand side $\mu$ is a constant, thus the sum of the terms on
 the right hand side is also constant (even though the individual terms are
 not).
 
-We can calculate pressure:
+We can calculate pressure (times volume):
 
 .. math::
 
-    P = -\Omega[\beta, n_e] = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+    PV = -\Omega[\beta, n_e] = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \,\d^3 x
 
 Bottom Up Approach
