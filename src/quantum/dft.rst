@@ -1183,9 +1183,11 @@ We start with a grand potential:
     = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
         \int I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right) \,\d^3 x
 
-The potential $V({\bf x})$ is the total potential that the electrons
-experience (it contains Hartree, nuclear and XC terms)
-The density is a functional derivative with respect to $\mu$:
+The potential
+$V({\bf x}) = V_{en}({\bf x}) + V_{ee}({\bf x}) + V_{xc}({\bf x})$
+is the total potential that the electrons experience (it contains nuclear,
+Hartree, and XC terms) The density is a functional derivative with respect to
+$\mu$:
 
 .. math::
 
@@ -1344,7 +1346,81 @@ The kinetic energy is
     = {\sqrt 2 \over \pi^2 \beta^{5\over2}}
         \int I_{3\over2}\left(\beta(\mu - V({\bf x}))\right) d^3 x
 
+From the last formula it can be shown that the kinetic energy is equal to
 
+.. math::
+
+    E_{kin} = {3\over 2} P V - {1\over 2} E_{en} - {1\over 2} E_{ee}
+
+The potential energy is equal to:
+
+.. math::
+
+    E_{pot} = E_{en} + E_{ee}
+
+
+The internal energy $E$ is equal to:
+
+.. math::
+
+    E = E_{kin} + E_{pot}
+        = E_{kin} + E_{en} + E_{ee} =
+
+        = {3\over 2} P V + {1\over 2} E_{en} + {1\over 2} E_{ee}
+
+The entropy $S$ is equal to:
+
+.. math::
+
+    TS = {5\over3}E_{kin} + E_{en} + 2 E_{ee} -\mu N =
+
+       = {5\over2}P V + {1\over6}E_{en} + {7\over6}E_{ee} -\mu N
+
+The free energy is equal to:
+
+.. math::
+
+    F = E - TS = -{2\over3}E_{kin} - E_{ee} + \mu N =
+
+        = -PV + {1\over3}E_{en} - {2\over3}E_{ee} +\mu N
+
+We can now express the free energy functional $F_e[\beta, n_e]$ as a function
+of the density:
+
+.. math::
+
+    F_e[\beta, n_e] = -{2\over3}E_{kin} - E_{ee} + \mu N =
+
+        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+              I_{3\over2}(\Phi(n_e({\bf x})))
+              -\half n_e({\bf x}) V_{ee}({\bf x})
+            + \mu n_e({\bf x}) \right)\d^3 x =
+
+        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+              I_{3\over2}(\Phi(n_e({\bf x})))
+              -\half n_e({\bf x}) V_{ee}({\bf x})
+            + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
+                + n_e({\bf x}) V({\bf x}) \right)\d^3 x =
+
+        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+              I_{3\over2}(\Phi(n_e({\bf x})))
+              -\half n_e({\bf x}) V_{ee}({\bf x})
+            + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
+                + n_e({\bf x}) (V_{en}({\bf x}) + V_{ee}({\bf x})
+                    + V_{xc}({\bf x}))
+                  \right)\d^3 x =
+
+        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+              I_{3\over2}(\Phi(n_e({\bf x})))
+            + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
+                + n_e({\bf x}) (V_{en}({\bf x}) +\half V_{ee}({\bf x})
+                    + V_{xc}({\bf x}))
+                  \right)\d^3 x =
+
+        = \left( -{2\over3}E_{kin}
+            + \int {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))\, \d^3 x
+              \right)
+            + E_{en} + E_{ee} + E_{xc}
 
 Orbital Free Density Functional Theory
 --------------------------------------
