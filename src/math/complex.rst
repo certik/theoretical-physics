@@ -774,6 +774,10 @@ Testing Identities Using Computer Code
 --------------------------------------
 
 All the complex identities in this chapter can be tested using the following
-code (:download:`test_complex.py <code/test_complex.py>`):
+codes. :download:`test_complex.py <code/test_complex.py>`:
 
 .. literalinclude:: code/test_complex.py
+
+:download:`test_complex_diff.py <code/test_complex_diff.py>`:
+
+.. literalinclude:: code/test_complex_diff.py
