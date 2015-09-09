@@ -423,6 +423,10 @@ Examples
         \left({i\over 2}(-z + \bar z)\right)^2}
         =\sqrt{z\bar z}
 
+    |\bar z| = \sqrt{\Re^2 \bar z + \Im^2 \bar z}
+        = \sqrt{\Re^2 z + \left(-\Im z\right)^2}
+        =|z|
+
     \arg z = \atan2(\Im z, \Re z)
         =\atan2\left({i\over 2}(-z + \bar z), {1\over 2}(z + \bar z)\right)
         =\atan2\left(i(-z + \bar z), z + \bar z\right)
