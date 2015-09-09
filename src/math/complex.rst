@@ -781,3 +781,82 @@ codes. :download:`test_complex.py <code/test_complex.py>`:
 :download:`test_complex_diff.py <code/test_complex_diff.py>`:
 
 .. literalinclude:: code/test_complex_diff.py
+
+Multivalued Approach
+--------------------
+
+There is another approach to complex analysis. Instead of keeping all functions
+single valued, one defines $\arg(z)$ as multivalued function as follows:
+
+.. math::
+
+    \arg z = \atan2(\Im z, \Re z) + 2\pi n
+
+for all integer $n$. Then one builds all other function using it, absorbing the
+multivalues into $n$ if possible. For example, we get:
+
+.. math::
+
+    \arg e^z = \arg e^{\Re z} e^{i\Im z} = \arg e^{i\Im z} =
+
+        = \arg(\cos\Im z + i\sin\Im z) =
+
+        = \atan2(\sin\Im z, \cos\Im z) + 2\pi n =
+
+        = \Im z + 2\pi \left\lfloor \pi-\Im z \over 2\pi \right\rfloor
+            + 2\pi n
+
+        = \Im z + 2\pi n'
+
+where $n'=n+\left\lfloor \pi-\Im z \over 2\pi \right\rfloor$ is an integer. In
+a similar manner, we get the following identities:
+
+.. math::
+
+    \sqrt{x^2} = (-1)^n x
+
+    \log ab = \log a + \log b
+
+    \log ab - \log a - \log b = 2\pi i n
+
+    \overline{\log z} = \log \bar z
+
+    \overline{\log z} - \log \bar z = 2\pi i n
+
+The LHS is multivalued, and all those values can be assigned one to one to the
+multivalued RHS, i.e. all the multivalues are equivalent. If both sides contain
+functions that can absorb those $n$ terms, then we do not need to list them
+explicitly, but if the RHS is say, zero, then one has to list the $n$ term
+explicitly. All formulas hold for all $x$, $a$, $b$, but when evaluating
+numerically, one has to keep the $n$ dependence in them and treat them as a
+collection of (multi) values.
+
+It is not clear what happens for this:
+
+.. math::
+
+    \log x^a = a \log x + 2\pi n
+
+for say, $a=2$, we can absorb the terms as follows:
+
+.. math::
+
+    \log x^2 = 2 \log x + 2\pi n
+
+    \log x^2 = 2 (\log x + 2\pi m) + 2\pi n
+
+    \log x^2 = 2 \log x + 2\pi (n + 2m)
+
+    \log x^2 = 2 \log x + 2\pi k
+
+where $k = n + 2m$. But for say, $a=\half$, we get:
+
+.. math::
+
+    \log x^\half = \half \log x + 2\pi n
+
+    \log x^\half = \half (\log x + 2\pi m) + 2\pi n
+
+    \log x^\half = \half \log x + 2\pi (n + \half m)
+
+The last term is not an integer multiple of $2 \pi$.
