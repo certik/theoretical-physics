@@ -105,6 +105,7 @@ test_zero1(lambda x: log(abs(exp(x))), lambda x: x.real)
 test_zero1(lambda z: z, lambda z: abs(z)*exp(I*arg(z)))
 test_zero1(lambda z: arg(exp(z)), lambda z: z.imag + 2*pi*floor((pi-z.imag)/(2*pi)))
 test_zero1(lambda z: sqrt(z).conjugate(), lambda z: (-1)**floor((arg(z)+pi)/(2*pi))*sqrt(z.conjugate()))
+test_zero1(lambda z: arg(z.conjugate()), lambda z: -arg(z) + 2*pi*floor((arg(z)+pi)/(2*pi)))
 
 test_zero2(lambda a,b: exp(a)**b, lambda a,b: exp(a*b)*exp(2*pi*I*b*floor((pi-a.imag)/(2*pi))))
 test_zero2(lambda x,a: log(x**a), lambda x,a: a*log(x)+2*pi*I*floor((pi-(a*log(x)).imag)/(2*pi)))
