@@ -423,6 +423,10 @@ Examples
         \left({i\over 2}(-z + \bar z)\right)^2}
         =\sqrt{z\bar z}
 
+    |\bar z| = \sqrt{\Re^2 \bar z + \Im^2 \bar z}
+        = \sqrt{\Re^2 z + \left(-\Im z\right)^2}
+        =|z|
+
     \arg z = \atan2(\Im z, \Re z)
         =\atan2\left({i\over 2}(-z + \bar z), {1\over 2}(z + \bar z)\right)
         =\atan2\left(i(-z + \bar z), z + \bar z\right)
@@ -437,6 +441,18 @@ Examples
             \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
         = \log \bar z -2\pi i
             \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
+
+    \overline{\sqrt z} = \overline{z^\half}
+        = \overline{e^{\half\log z}}
+        = \overline{e^{\half(\log|z| + i\arg z)}}
+        = e^{\half(\log|z| - i\arg z)}
+        = e^{\half\left(\log|\bar z| + i\arg \bar z
+                - 2\pi i \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
+            \right)} =
+
+        = \left(\bar z\right)^\half
+            e^{-\pi i \left\lfloor \arg z+\pi \over 2\pi \right\rfloor}
+        = (-1)^{\left\lfloor \arg z+\pi \over 2\pi \right\rfloor} \sqrt{\bar z}
 
 Complex Derivatives
 -------------------
