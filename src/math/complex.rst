@@ -442,6 +442,18 @@ Examples
         = \log \bar z -2\pi i
             \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
 
+    \overline{\sqrt z} = \overline{z^\half}
+        = \overline{e^{\half\log z}}
+        = \overline{e^{\half(\log|z| + i\arg z)}}
+        = e^{\half(\log|z| - i\arg z)}
+        = e^{\half\left(\log|\bar z| + i\arg \bar z
+                - 2\pi i \left\lfloor \arg z+\pi \over 2\pi \right\rfloor
+            \right)} =
+
+        = \left(\bar z\right)^\half
+            e^{-\pi i \left\lfloor \arg z+\pi \over 2\pi \right\rfloor}
+        = (-1)^{\left\lfloor \arg z+\pi \over 2\pi \right\rfloor} \sqrt{\bar z}
+
 Complex Derivatives
 -------------------
 
