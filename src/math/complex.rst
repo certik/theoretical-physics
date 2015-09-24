@@ -819,6 +819,10 @@ a similar manner, we get the following identities:
 
     \log ab - \log a - \log b = 2\pi i n
 
+    \log x^a = a \log x
+
+    \log x^a - a \log x = 2\pi i n
+
     \overline{\log z} = \log \bar z
 
     \overline{\log z} - \log \bar z = 2\pi i n
@@ -831,32 +835,50 @@ explicitly. All formulas hold for all $x$, $a$, $b$, but when evaluating
 numerically, one has to keep the $n$ dependence in them and treat them as a
 collection of (multi) values.
 
-It is not clear what happens for this:
+For example, to numerically evaluate the identity:
 
 .. math::
 
-    \log x^a = a \log x + 2\pi n
+    \log x^a = a \log x
 
-for say, $a=2$, we can absorb the terms as follows:
-
-.. math::
-
-    \log x^2 = 2 \log x + 2\pi n
-
-    \log x^2 = 2 (\log x + 2\pi m) + 2\pi n
-
-    \log x^2 = 2 \log x + 2\pi (n + 2m)
-
-    \log x^2 = 2 \log x + 2\pi k
-
-where $k = n + 2m$. But for say, $a=\half$, we get:
+Say for $a=2$, $x=-1$ we get for LHS:
 
 .. math::
 
-    \log x^\half = \half \log x + 2\pi n
+    \log x^a = \log (-1)^2 + 2\pi i n = 0 + 2\pi i n = 2\pi i n
 
-    \log x^\half = \half (\log x + 2\pi m) + 2\pi n
+and RHS:
 
-    \log x^\half = \half \log x + 2\pi (n + \half m)
+.. math::
 
-The last term is not an integer multiple of $2 \pi$.
+    a \log x = 2 \log (-1) + 4\pi i m = 2\pi i + 4\pi i m =
+
+    = 2\pi i (2 m+1)
+
+And for $n=2 m+1$ the LHS is equal to RHS. $n$ is any integer, so it follows
+that $m$ is integer or half-integer. One can evaluate the value of $\log x$
+for $x=-1$ at any branch (we used the principal branch above), because the
+differences between branches are captures in the multivalued term $2\pi i n$,
+and so the result is identical for any branch we chose. The multivalued term
+can be absorbed in $\log x$, but once we put an actual number for $x$, we need
+to add the multivalued term $2\pi i n$ explicitly.
+
+Another example with $a=\half$, $x=-1$, LHS:
+
+.. math::
+
+    \log x^a = \log (-1)^\half + 2\pi i n = \log i + 2\pi i n =
+
+    = \half \pi i + 2\pi i n = \pi i (2 n+\half)
+
+and RHS:
+
+.. math::
+
+    a \log x = \half \log (-1) + \pi i m = \half \pi i + \pi i m =
+
+    = \pi i (m+\half)
+
+And we get $2n = m$. Here $n$ is integer, and $m$ is thus an even integer.
+This is a problem, since why couldn't we choose $m$ to be odd? Then LHS is not
+equal to RHS.
