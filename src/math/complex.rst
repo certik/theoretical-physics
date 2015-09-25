@@ -882,3 +882,9 @@ and RHS:
 And we get $2n = m$. Here $n$ is integer, and $m$ is thus an even integer.
 This is a problem, since why couldn't we choose $m$ to be odd? Then LHS is not
 equal to RHS.
+
+The conclusion seems to be that when evaluating numerically, one **must** use
+the same branch when evaluating LHS and RHS, for example the principal branch.
+From the previous section we know that then the formula holds for all values of
+$x$ and $a$. The question is then how to add there the
+$2\pi i n$ factors so that LHS is still equal to RHS.
