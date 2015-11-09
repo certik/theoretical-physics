@@ -293,7 +293,7 @@ gas):
 
   \hat H_s=\hat T+\hat V_s
 
-the Schrödinger then becomes:
+the Schrödinger equation then becomes:
 
 .. math::
 
