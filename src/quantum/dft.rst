@@ -520,21 +520,21 @@ We already derived all the necessary things above, so we just summarize it here.
 The total energy is given by:
 
 .. math::
-
+    
     E[n]=(T+U)[n]+V[n]=T_s[n]+E_H[n]+(T-T_s+U-E_H)[n]+V[n]=
-
+    :label: E_tot_toteng
     =T_s[n]+E_H[n]+E_{xc}[n]+V[n]
 
 where
 
 .. math::
-
+    :label: T_s_toteng
     T_s[n] = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r
-
+    :label: E_H_toteng
     E_H[n] = \half\int V_H({\bf r}) n({\bf r}) \d^3r
-
+    :label: E_xc_toteng
     E_{xc}[n]=\int \epsilon_{xc}({\bf r};n) n({\bf r}) \d^3r
-
+    :label: V_toteng
     V[n]=\int v({\bf r}) n({\bf r}) \d^3r
 
 This is the correct, quadratically convergent expression for the total energy.
@@ -548,13 +548,13 @@ i.e., confusing $V_{in}$ with $V_{out}$, one gets a slowly converging formula
 for the total energy. By expanding $v_s$ using :eq:`V_in`:
 
 .. math::
-
+  
     \int v_s n({\bf r})\d^3 r
         = \int (V_H + V_{xc} + v) n({\bf r})\d^3 r
         = 2 \half\int V_H n({\bf r})\d^3 r
         + \int V_{xc} n({\bf r})\d^3 r
         + \int v n({\bf r})\d^3 r =
-
+        :label: vs_vin_toteng
         = 2 E_H[n] + \int V_{xc} n({\bf r})\d^3 r + V[n]
 
 So $T_s$ is equal to:
@@ -562,7 +562,7 @@ So $T_s$ is equal to:
 .. math::
 
     T_s[n] = \sum_i \epsilon_i -\int v_s({\bf r})n({\bf r})\d^3r =
-
+        :label: T_s_toteng_2
         = \sum_i \epsilon_i - 2 E_H[n] - \int V_{xc} n({\bf r})\d^3 r - V[n]
 
 And then the slowly converging form of total energy is:
@@ -572,7 +572,7 @@ And then the slowly converging form of total energy is:
     E[n] = T_s[n]+E_H[n]+E_{xc}[n]+V[n]
         = \sum_i \epsilon_i - 2 E_H[n] - \int V_{xc} n({\bf r})\d^3 r - V[n]
             +E_H[n]+E_{xc}[n]+V[n] =
-
+        :label: E_tot_togeng
         = \sum_i \epsilon_i - E_H[n] + E_{xc}[n]
             -\int V_{xc}({\bf r};n) n({\bf r}) \d^3r
 
