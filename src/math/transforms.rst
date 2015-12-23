@@ -371,7 +371,13 @@ transformation works, one can directly substitute the direct formula
         (2\pi)^3 {\Omega_\mathrm{cell}\over (2\pi)^3}
         \delta(\mathbf{x}-\mathbf{x'}) \,d^3 x' =
 
-    =f(\mathbf{x})
+    =f(\mathbf{x})\,,
+
+where we used the fact that:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty e^{inx} = 2\pi\delta(x)\,.
 
 Thus we have shown that $F^{-1}[\tilde f(\mathbf{G})] = f(\mathbf{x})$.
 
