@@ -123,6 +123,30 @@ The Fourier transform of a shifted function, in 3D:
 
         = e^{i\bomega\cdot \mathbf{b}} F[f(\mathbf{x})]
 
+Derivative
+~~~~~~~~~~
+
+The Fourier transform of a derivative, in 3D:
+
+.. math::
+
+    F[\partial_i f(\mathbf{x})]
+        = \int_{-\infty}^{\infty} (\partial_i f(\mathbf{x})) e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x =
+
+        = \left[f(\mathbf{x}) e^{-i\bomega \cdot
+                \mathbf{x}}\right]_{-\infty}^{\infty}
+          -\int_{-\infty}^{\infty} f(\mathbf{x}) \partial_i e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x =
+
+        = -\int_{-\infty}^{\infty} f(\mathbf{x}) \partial_i e^{-i\omega_j
+            x^j}\,\d^3 x =
+
+        = -(-i\omega_i)\int_{-\infty}^{\infty} f(\mathbf{x})
+            e^{-i\bomega \cdot \mathbf{x}}\,\d^3 x =
+
+        = i\omega_i F[f(\mathbf{x})]
+
 Radial Fourier Transform
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
