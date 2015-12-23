@@ -145,7 +145,37 @@ The Fourier transform of a derivative, in 3D:
         = -(-i\omega_i)\int_{-\infty}^{\infty} f(\mathbf{x})
             e^{-i\bomega \cdot \mathbf{x}}\,\d^3 x =
 
-        = i\omega_i F[f(\mathbf{x})]
+        = i\omega_i F[f(\mathbf{x})]\,.
+
+An alternative derivation is to start from:
+
+.. math::
+
+    f(\mathbf{x}) = F^{-1}[\tilde f(\bomega)]
+        = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+        \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+
+and differentiate both sides:
+
+
+.. math::
+
+    \partial_i f(\mathbf{x})
+        = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+        \tilde f(\bomega) \partial_i e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+
+    \partial_i f(\mathbf{x})
+        = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+        i\omega_i \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+        \,,
+
+from which:
+
+.. math::
+
+    F[\partial_i f(\mathbf{x})]
+        = i\omega_i \tilde f(\bomega)
+        = i\omega_i F[f(\mathbf{x})]\,.
 
 Radial Fourier Transform
 ~~~~~~~~~~~~~~~~~~~~~~~~
