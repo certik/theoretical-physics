@@ -434,48 +434,142 @@ This is exactly the definition of a Fourier series ($c_n$ are the Fourier
 coefficients). The inverse transform follows from :eq:`fourier2b_inv`:
 
 .. math::
+    :label: fourier2b_1d_inv
 
     f(x) = \sum_{n=-\infty}^\infty \tilde f(G_n) e^{i G_n x}
         = \sum_{n=-\infty}^\infty c_n e^{i(2\pi nx/L)}
 
+
 Discrete Fourier Transform
 --------------------------
 
-Starting from
+In the discrete case, we only have a finite
+number $N$ of reciprocal points:
 
 .. math::
 
-    \tilde f(\nu)
-        = \int_{-\infty}^{\infty} f(x) e^{-2\pi i\nu x}\,\d x
+    n=0, 1, \dots, N/2-1, -N/2, -N/2+1, \dots, -1 \quad\mbox{if $n$ is even}
 
-    f(x) = \int_{-\infty}^{\infty} \tilde f(\nu) e^{+2\pi i\nu x}\,\d \nu
+    n=0, 1, \dots, (N-1)/2, -(N-1)/2, -(N-1)/2+1, \dots, -1 \quad\mbox{if $n$ is odd}
 
-When the $x$ space is discrete, that is $f(x)\to f(x_k)\equiv f_k$, where
-$x_k = k\Delta$ and $k=0, 1, \cdots, N-1$, we obtain:
+E.g. for:
 
 .. math::
 
-    \tilde f(\nu)
-        = \int_0^{(N-1)\Delta} f(x) e^{-2\pi i\nu x}\,\d x
-        = \sum_{k=0}^{N-1} f_k e^{-2\pi i\nu x_k}
-        = \sum_{k=0}^{N-1} f_k e^{-2\pi i\nu k \Delta}
+    N=8 \quad \mbox{we get} \quad n=0, 1, 2, 3, -4, -3, -2, -1
 
-We only need to sample the reciprocal space at the intervals
-$\nu = {n\over N \Delta}$ where $n=0, 1, \cdots, N-1$. We finally get:
+    N=9 \quad \mbox{we get} \quad n=0, 1, 2, 3, 4, -4, -3, -2, -1
+
+The real space function $f(x)$ is sampled at points $x_k={L\over N}k$ for
+$k=-N/2,\dots,N/2-1$ and the equation :eq:`fourier2b_1d` becomes:
+
+.. math::
+
+    c_n
+        = {1\over L} \int_{-{L\over2}}^{L\over2} f(x)
+        e^{-i(2\pi n x/L)}\,\d x =
+
+        = \lim_{N\to\infty}
+        {1\over L}\sum_{k=-N/2}^{N/2-1}
+        f(x_k)
+        e^{-i(2\pi n x_k/L)}\,{L\over N} =
+
+        = \lim_{N\to\infty}
+        {1\over N}\sum_{k=-N/2}^{N/2-1}
+        f(x_k)
+        e^{-2\pi i {n\over N} k}
+
+The equation :eq:`fourier2b_1d_inv` becomes:
+
+.. math::
+
+    f(x_k) = \sum_{n=-\infty}^\infty c_n e^{i(2\pi nx_k/L)} =
+
+        = \lim_{N\to\infty}
+        \sum_{n=-N/2}^{N/2-1} c_n e^{i(2\pi nx_k/L)} =
+
+        = \lim_{N\to\infty}
+        \sum_{n=-N/2}^{N/2-1} c_n e^{2\pi i {n\over N} k}
+
+Using the fact
+
+.. math::
+
+    x_k + L = {L\over N}k + L = {L\over N}(k + N) = x_{k+N}\,,
+
+we can express the periodicity $f(x_k+L)=f(x_k)$ as $f(x_{k+N})=f(x_k)$. The
+sums can then be rearranged:
+
+.. math::
+
+    c_n
+        = \lim_{N\to\infty}
+        {1\over N}\sum_{k=-N/2}^{N/2-1}
+        f(x_k)
+        e^{-2\pi i {n\over N} k} =
+
+        = \lim_{N\to\infty} {1\over N} \left(
+        \sum_{k=-N/2}^{-1}
+        f(x_k)
+        e^{-2\pi i {n\over N} k}
+            +
+        \sum_{k=0}^{N/2-1}
+        f(x_k)
+        e^{-2\pi i {n\over N} k} \right) =
+
+        = \lim_{N\to\infty} {1\over N} \left(
+        \sum_{k=N/2}^{N-1}
+        f(x_{k-N})
+        e^{-2\pi i {n\over N} (k-N)}
+            +
+        \sum_{k=0}^{N/2-1}
+        f(x_k)
+        e^{-2\pi i {n\over N} k} \right) =
+
+        = \lim_{N\to\infty} {1\over N}
+        \sum_{k=0}^{N-1} f(x_k) e^{-2\pi i {n\over N} k}
+
+and if we drop the limit and consider a finite $N$ only:
+
+.. math::
+
+    f(x_k)
+        = \sum_{n=-N/2}^{N/2-1} c_n e^{2\pi i {n\over N} k} =
+
+        = \left(
+        \sum_{n=-N/2}^{-1} c_n e^{2\pi i {n\over N} k}
+        +
+        \sum_{n=0}^{N/2-1} c_n e^{2\pi i {n\over N} k}
+        \right) =
+
+        = \left(
+        \sum_{n=N/2}^{N-1} c_{n-N} e^{2\pi i {(n-N)\over N} k}
+        +
+        \sum_{n=0}^{N/2-1} c_n e^{2\pi i {n\over N} k}
+        \right) =
+
+        = \sum_{n=0}^{N-1} c_n e^{2\pi i {n\over N} k}
+
+Summary, the direct transform:
 
 .. math::
     :label: dft
 
-    \tilde f(\nu_n) \equiv \tilde f_n
-        = \sum_{k=0}^{N-1} f_k e^{-2\pi i {n\over N} k}
+    c_n
+        = {1\over N} \sum_{k=0}^{N-1} f(x_k) e^{-2\pi i {n\over N} k}
 
-For the inverse transform, we obtain:
+and inverse transform:
 
 .. math::
     :label: idft
 
-    f_k
-        = {1\over N} \sum_{n=0}^{N-1} \tilde f_n e^{2\pi i {n\over N} k}
+    f(x_k)
+        = \sum_{n=0}^{N-1} c_n e^{2\pi i {n\over N} k}\,,
+
+with $x_k={L\over N}k$.
+
+The ${1\over N}$ factor is sometimes moved from the direct to the inverse
+transform.
 
 Fast Fourier Transform (FFT)
 ----------------------------
