@@ -566,10 +566,14 @@ and inverse transform:
     f(x_n)
         = \sum_{k=0}^{N-1} c_k e^{2\pi i {k\over N} n}\,,
 
-with $x_n={L\over N}n$.
+with $x_n={L\over N}n$. In the limit $N\to\infty$, the equation :eq:`dft`
+becomes :eq:`fourier2b_1d` and equation :eq:`idft` becomes
+:eq:`fourier2b_1d_inv` and as we increase $N$, the discrete Fourier
+transform numerically converges towards the Fourier series results.
 
 The ${1\over N}$ factor is sometimes moved from the direct to the inverse
-transform.
+transform, but then the correspondence with Fourier series is broken (one has
+to divide and multiply by $N$ appropriately to recover it).
 
 Fast Fourier Transform (FFT)
 ----------------------------
