@@ -418,26 +418,26 @@ One Dimension (Fourier Series)
 In one dimension with a periodic function $f(x+L)=f(x)$,
 the volume of a unit cell is $\Omega_\mathrm{cell}=L$
 and the reciprocal space vectors $G$ are defined using
-$e^{iGL}=1$ from which $G_n = {2\pi\over L} n$.
+$e^{iGL}=1$ from which $G_k = {2\pi\over L} k$.
 The equation :eq:`fourier2b` then becomes:
 
 .. math::
     :label: fourier2b_1d
 
-    F[f(x)] \equiv \tilde f(G_n) \equiv c_n
+    F[f(x)] \equiv \tilde f(G_k) \equiv c_k
         = {1\over L} \int_{-{L\over2}}^{L\over2} f(x)
-        e^{-i G_n x}\,\d x
+        e^{-i G_k x}\,\d x
         = {1\over L} \int_{-{L\over2}}^{L\over2} f(x)
-        e^{-i(2\pi n x/L)}\,\d x
+        e^{-i(2\pi k x/L)}\,\d x
 
-This is exactly the definition of a Fourier series ($c_n$ are the Fourier
+This is exactly the definition of a Fourier series ($c_k$ are the Fourier
 coefficients). The inverse transform follows from :eq:`fourier2b_inv`:
 
 .. math::
     :label: fourier2b_1d_inv
 
-    f(x) = \sum_{n=-\infty}^\infty \tilde f(G_n) e^{i G_n x}
-        = \sum_{n=-\infty}^\infty c_n e^{i(2\pi nx/L)}
+    f(x) = \sum_{k=-\infty}^\infty \tilde f(G_k) e^{i G_k x}
+        = \sum_{k=-\infty}^\infty c_k e^{i(2\pi kx/L)}
 
 
 Discrete Fourier Transform
