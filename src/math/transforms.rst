@@ -460,8 +460,8 @@ E.g. for:
 
     N=9 \quad \mbox{we get} \quad K=0, 1, 2, 3, 4, -4, -3, -2, -1
 
-The real space function $f(x)$ is sampled at points $x_k={L\over N}k$ for
-$k=-N/2,\dots,N/2-1$ and the equation :eq:`fourier2b_1d` becomes:
+The real space function $f(x)$ is sampled at points $x_n={L\over N}n$ for
+$n=-N/2,\dots,N/2-1$ and the equation :eq:`fourier2b_1d` becomes:
 
 .. math::
 
@@ -470,85 +470,85 @@ $k=-N/2,\dots,N/2-1$ and the equation :eq:`fourier2b_1d` becomes:
         e^{-i(2\pi K x/L)}\,\d x =
 
         = \lim_{N\to\infty}
-        {1\over L}\sum_{k=-N/2}^{N/2-1}
-        f(x_k)
-        e^{-i(2\pi K x_k/L)}\,{L\over N} =
+        {1\over L}\sum_{n=-N/2}^{N/2-1}
+        f(x_n)
+        e^{-i(2\pi K x_n/L)}\,{L\over N} =
 
         = \lim_{N\to\infty}
-        {1\over N}\sum_{k=-N/2}^{N/2-1}
-        f(x_k)
-        e^{-2\pi i {K\over N} k}
+        {1\over N}\sum_{n=-N/2}^{N/2-1}
+        f(x_n)
+        e^{-2\pi i {K\over N} n}
 
 The equation :eq:`fourier2b_1d_inv` becomes:
 
 .. math::
 
-    f(x_k) = \sum_{K=-\infty}^\infty c_K e^{i(2\pi Kx_k/L)} =
+    f(x_n) = \sum_{K=-\infty}^\infty c_K e^{i(2\pi Kx_n/L)} =
 
         = \lim_{N\to\infty}
-        \sum_{K=-N/2}^{N/2-1} c_K e^{i(2\pi Kx_k/L)} =
+        \sum_{K=-N/2}^{N/2-1} c_K e^{i(2\pi Kx_n/L)} =
 
         = \lim_{N\to\infty}
-        \sum_{K=-N/2}^{N/2-1} c_K e^{2\pi i {K\over N} k}
+        \sum_{K=-N/2}^{N/2-1} c_K e^{2\pi i {K\over N} n}
 
 Using the fact
 
 .. math::
 
-    x_k + L = {L\over N}k + L = {L\over N}(k + N) = x_{k+N}\,,
+    x_n + L = {L\over N}n + L = {L\over N}(n + N) = x_{n+N}\,,
 
-we can express the periodicity $f(x_k+L)=f(x_k)$ as $f(x_{k+N})=f(x_k)$. The
+we can express the periodicity $f(x_n+L)=f(x_n)$ as $f(x_{n+N})=f(x_n)$. The
 sums can then be rearranged:
 
 .. math::
 
     c_K
         = \lim_{N\to\infty}
-        {1\over N}\sum_{k=-N/2}^{N/2-1}
-        f(x_k)
-        e^{-2\pi i {K\over N} k} =
+        {1\over N}\sum_{n=-N/2}^{N/2-1}
+        f(x_n)
+        e^{-2\pi i {K\over N} n} =
 
         = \lim_{N\to\infty} {1\over N} \left(
-        \sum_{k=-N/2}^{-1}
-        f(x_k)
-        e^{-2\pi i {K\over N} k}
+        \sum_{n=-N/2}^{-1}
+        f(x_n)
+        e^{-2\pi i {K\over N} n}
             +
-        \sum_{k=0}^{N/2-1}
-        f(x_k)
-        e^{-2\pi i {K\over N} k} \right) =
+        \sum_{n=0}^{N/2-1}
+        f(x_n)
+        e^{-2\pi i {K\over N} n} \right) =
 
         = \lim_{N\to\infty} {1\over N} \left(
-        \sum_{k=N/2}^{N-1}
-        f(x_{k-N})
-        e^{-2\pi i {K\over N} (k-N)}
+        \sum_{n=N/2}^{N-1}
+        f(x_{n-N})
+        e^{-2\pi i {K\over N} (n-N)}
             +
-        \sum_{k=0}^{N/2-1}
-        f(x_k)
-        e^{-2\pi i {K\over N} k} \right) =
+        \sum_{n=0}^{N/2-1}
+        f(x_n)
+        e^{-2\pi i {K\over N} n} \right) =
 
         = \lim_{N\to\infty} {1\over N}
-        \sum_{k=0}^{N-1} f(x_k) e^{-2\pi i {K\over N} k}
+        \sum_{n=0}^{N-1} f(x_n) e^{-2\pi i {K\over N} n}
 
 and if we drop the limit and consider a finite $N$ only:
 
 .. math::
 
-    f(x_k)
-        = \sum_{K=-N/2}^{N/2-1} c_K e^{2\pi i {K\over N} k} =
+    f(x_n)
+        = \sum_{K=-N/2}^{N/2-1} c_K e^{2\pi i {K\over N} n} =
 
         = \left(
-        \sum_{K=-N/2}^{-1} c_K e^{2\pi i {K\over N} k}
+        \sum_{K=-N/2}^{-1} c_K e^{2\pi i {K\over N} n}
         +
-        \sum_{K=0}^{N/2-1} c_K e^{2\pi i {K\over N} k}
+        \sum_{K=0}^{N/2-1} c_K e^{2\pi i {K\over N} n}
         \right) =
 
         = \left(
-        \sum_{K=N/2}^{N-1} c_{K-N} e^{2\pi i {(K-N)\over N} k}
+        \sum_{K=N/2}^{N-1} c_{K-N} e^{2\pi i {(K-N)\over N} n}
         +
-        \sum_{K=0}^{N/2-1} c_K e^{2\pi i {K\over N} k}
+        \sum_{K=0}^{N/2-1} c_K e^{2\pi i {K\over N} n}
         \right) =
 
-        = \sum_{K=0}^{N-1} c_K e^{2\pi i {K\over N} k}
+        = \sum_{K=0}^{N-1} c_K e^{2\pi i {K\over N} n}
 
 Summary, the direct transform:
 
@@ -556,17 +556,17 @@ Summary, the direct transform:
     :label: dft
 
     c_K
-        = {1\over N} \sum_{k=0}^{N-1} f(x_k) e^{-2\pi i {K\over N} k}
+        = {1\over N} \sum_{n=0}^{N-1} f(x_n) e^{-2\pi i {K\over N} n}
 
 and inverse transform:
 
 .. math::
     :label: idft
 
-    f(x_k)
-        = \sum_{K=0}^{N-1} c_K e^{2\pi i {K\over N} k}\,,
+    f(x_n)
+        = \sum_{K=0}^{N-1} c_K e^{2\pi i {K\over N} n}\,,
 
-with $x_k={L\over N}k$.
+with $x_n={L\over N}n$.
 
 The ${1\over N}$ factor is sometimes moved from the direct to the inverse
 transform.
