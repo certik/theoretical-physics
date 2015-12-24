@@ -123,6 +123,60 @@ The Fourier transform of a shifted function, in 3D:
 
         = e^{i\bomega\cdot \mathbf{b}} F[f(\mathbf{x})]
 
+Derivative
+~~~~~~~~~~
+
+The Fourier transform of a derivative, in 3D:
+
+.. math::
+
+    F[\partial_i f(\mathbf{x})]
+        = \int_{-\infty}^{\infty} (\partial_i f(\mathbf{x})) e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x =
+
+        = \left[f(\mathbf{x}) e^{-i\bomega \cdot
+                \mathbf{x}}\right]_{-\infty}^{\infty}
+          -\int_{-\infty}^{\infty} f(\mathbf{x}) \partial_i e^{-i\bomega \cdot
+            \mathbf{x}}\,\d^3 x =
+
+        = -\int_{-\infty}^{\infty} f(\mathbf{x}) \partial_i e^{-i\omega_j
+            x^j}\,\d^3 x =
+
+        = -(-i\omega_i)\int_{-\infty}^{\infty} f(\mathbf{x})
+            e^{-i\bomega \cdot \mathbf{x}}\,\d^3 x =
+
+        = i\omega_i F[f(\mathbf{x})]\,.
+
+An alternative derivation is to start from:
+
+.. math::
+
+    f(\mathbf{x}) = F^{-1}[\tilde f(\bomega)]
+        = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+        \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+
+and differentiate both sides:
+
+
+.. math::
+
+    \partial_i f(\mathbf{x})
+        = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+        \tilde f(\bomega) \partial_i e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+
+    \partial_i f(\mathbf{x})
+        = {1\over(2\pi)^3}\int_{-\infty}^{\infty}
+        i\omega_i \tilde f(\bomega) e^{+i\bomega \cdot \mathbf{x}}\,\d^3 \omega
+        \,,
+
+from which:
+
+.. math::
+
+    F[\partial_i f(\mathbf{x})]
+        = i\omega_i \tilde f(\bomega)
+        = i\omega_i F[f(\mathbf{x})]\,.
+
 Radial Fourier Transform
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -347,7 +401,13 @@ transformation works, one can directly substitute the direct formula
         (2\pi)^3 {\Omega_\mathrm{cell}\over (2\pi)^3}
         \delta(\mathbf{x}-\mathbf{x'}) \,d^3 x' =
 
-    =f(\mathbf{x})
+    =f(\mathbf{x})\,,
+
+where we used the fact that:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty e^{inx} = 2\pi\delta(x)\,.
 
 Thus we have shown that $F^{-1}[\tilde f(\mathbf{G})] = f(\mathbf{x})$.
 
@@ -358,64 +418,162 @@ One Dimension (Fourier Series)
 In one dimension with a periodic function $f(x+L)=f(x)$,
 the volume of a unit cell is $\Omega_\mathrm{cell}=L$
 and the reciprocal space vectors $G$ are defined using
-$e^{iGL}=1$ from which $G_n = {2\pi\over L} n$.
+$e^{iGL}=1$ from which $G_k = {2\pi\over L} k$.
 The equation :eq:`fourier2b` then becomes:
 
 .. math::
     :label: fourier2b_1d
 
-    F[f(x)] \equiv \tilde f(G_n) \equiv c_n
+    F[f(x)] \equiv \tilde f(G_k) \equiv c_k
         = {1\over L} \int_{-{L\over2}}^{L\over2} f(x)
-        e^{-i G_n x}\,\d x
+        e^{-i G_k x}\,\d x
         = {1\over L} \int_{-{L\over2}}^{L\over2} f(x)
-        e^{-i(2\pi n x/L)}\,\d x
+        e^{-i(2\pi k x/L)}\,\d x
 
-This is exactly the definition of a Fourier series ($c_n$ are the Fourier
+This is exactly the definition of a Fourier series ($c_k$ are the Fourier
 coefficients). The inverse transform follows from :eq:`fourier2b_inv`:
 
 .. math::
+    :label: fourier2b_1d_inv
 
-    f(x) = \sum_{n=-\infty}^\infty \tilde f(G_n) e^{i G_n x}
-        = \sum_{n=-\infty}^\infty c_n e^{i(2\pi nx/L)}
+    f(x) = \sum_{k=-\infty}^\infty \tilde f(G_k) e^{i G_k x}
+        = \sum_{k=-\infty}^\infty c_k e^{i(2\pi kx/L)}
+
 
 Discrete Fourier Transform
 --------------------------
 
-Starting from
+In the discrete case, we only have a finite
+number $N$ of reciprocal points:
 
 .. math::
 
-    \tilde f(\nu)
-        = \int_{-\infty}^{\infty} f(x) e^{-2\pi i\nu x}\,\d x
+    k=0, 1, \dots, N/2-1, -N/2, -N/2+1, \dots, -1 \quad\mbox{if $N$ is even}
 
-    f(x) = \int_{-\infty}^{\infty} \tilde f(\nu) e^{+2\pi i\nu x}\,\d \nu
+    k=0, 1, \dots, (N-1)/2, -(N-1)/2, -(N-1)/2+1, \dots, -1 \quad\mbox{if $N$ is odd}
 
-When the $x$ space is discrete, that is $f(x)\to f(x_k)\equiv f_k$, where
-$x_k = k\Delta$ and $k=0, 1, \cdots, N-1$, we obtain:
+E.g. for:
 
 .. math::
 
-    \tilde f(\nu)
-        = \int_0^{(N-1)\Delta} f(x) e^{-2\pi i\nu x}\,\d x
-        = \sum_{k=0}^{N-1} f_k e^{-2\pi i\nu x_k}
-        = \sum_{k=0}^{N-1} f_k e^{-2\pi i\nu k \Delta}
+    N=8 \quad \mbox{we get} \quad k=0, 1, 2, 3, -4, -3, -2, -1
 
-We only need to sample the reciprocal space at the intervals
-$\nu = {n\over N \Delta}$ where $n=0, 1, \cdots, N-1$. We finally get:
+    N=9 \quad \mbox{we get} \quad k=0, 1, 2, 3, 4, -4, -3, -2, -1
+
+The real space function $f(x)$ is sampled at points $x_n={L\over N}n$ for
+$n=-N/2,\dots,N/2-1$ and the equation :eq:`fourier2b_1d` becomes:
+
+.. math::
+
+    c_k
+        = {1\over L} \int_{-{L\over2}}^{L\over2} f(x)
+        e^{-i(2\pi k x/L)}\,\d x =
+
+        = \lim_{N\to\infty}
+        {1\over L}\sum_{n=-N/2}^{N/2-1}
+        f(x_n)
+        e^{-i(2\pi k x_n/L)}\,{L\over N} =
+
+        = \lim_{N\to\infty}
+        {1\over N}\sum_{n=-N/2}^{N/2-1}
+        f(x_n)
+        e^{-2\pi i {k\over N} n}
+
+The equation :eq:`fourier2b_1d_inv` becomes:
+
+.. math::
+
+    f(x_n) = \sum_{k=-\infty}^\infty c_k e^{i(2\pi kx_n/L)} =
+
+        = \lim_{N\to\infty}
+        \sum_{k=-N/2}^{N/2-1} c_k e^{i(2\pi kx_n/L)} =
+
+        = \lim_{N\to\infty}
+        \sum_{k=-N/2}^{N/2-1} c_k e^{2\pi i {k\over N} n}
+
+Using the fact
+
+.. math::
+
+    x_n + L = {L\over N}n + L = {L\over N}(n + N) = x_{n+N}\,,
+
+we can express the periodicity $f(x_n+L)=f(x_n)$ as $f(x_{n+N})=f(x_n)$. The
+sums can then be rearranged:
+
+.. math::
+
+    c_k
+        = \lim_{N\to\infty}
+        {1\over N}\sum_{n=-N/2}^{N/2-1}
+        f(x_n)
+        e^{-2\pi i {k\over N} n} =
+
+        = \lim_{N\to\infty} {1\over N} \left(
+        \sum_{n=-N/2}^{-1}
+        f(x_n)
+        e^{-2\pi i {k\over N} n}
+            +
+        \sum_{n=0}^{N/2-1}
+        f(x_n)
+        e^{-2\pi i {k\over N} n} \right) =
+
+        = \lim_{N\to\infty} {1\over N} \left(
+        \sum_{n=N/2}^{N-1}
+        f(x_{n-N})
+        e^{-2\pi i {k\over N} (n-N)}
+            +
+        \sum_{n=0}^{N/2-1}
+        f(x_n)
+        e^{-2\pi i {k\over N} n} \right) =
+
+        = \lim_{N\to\infty} {1\over N}
+        \sum_{n=0}^{N-1} f(x_n) e^{-2\pi i {k\over N} n}
+
+and if we drop the limit and consider a finite $N$ only:
+
+.. math::
+
+    f(x_n)
+        = \sum_{k=-N/2}^{N/2-1} c_k e^{2\pi i {k\over N} n} =
+
+        = \left(
+        \sum_{k=-N/2}^{-1} c_k e^{2\pi i {k\over N} n}
+        +
+        \sum_{k=0}^{N/2-1} c_k e^{2\pi i {k\over N} n}
+        \right) =
+
+        = \left(
+        \sum_{k=N/2}^{N-1} c_{k-N} e^{2\pi i {(k-N)\over N} n}
+        +
+        \sum_{k=0}^{N/2-1} c_k e^{2\pi i {k\over N} n}
+        \right) =
+
+        = \sum_{k=0}^{N-1} c_k e^{2\pi i {k\over N} n}
+
+Summary, the direct transform:
 
 .. math::
     :label: dft
 
-    \tilde f(\nu_n) \equiv \tilde f_n
-        = \sum_{k=0}^{N-1} f_k e^{-2\pi i {n\over N} k}
+    c_k
+        = {1\over N} \sum_{n=0}^{N-1} f(x_n) e^{-2\pi i {k\over N} n}
 
-For the inverse transform, we obtain:
+and inverse transform:
 
 .. math::
     :label: idft
 
-    f_k
-        = {1\over N} \sum_{n=0}^{N-1} \tilde f_n e^{2\pi i {n\over N} k}
+    f(x_n)
+        = \sum_{k=0}^{N-1} c_k e^{2\pi i {k\over N} n}\,,
+
+with $x_n={L\over N}n$. In the limit $N\to\infty$, the equation :eq:`dft`
+becomes :eq:`fourier2b_1d` and equation :eq:`idft` becomes
+:eq:`fourier2b_1d_inv` and as we increase $N$, the discrete Fourier
+transform numerically converges towards the Fourier series results.
+
+The ${1\over N}$ factor is sometimes moved from the direct to the inverse
+transform, but then the correspondence with Fourier series is broken (one has
+to divide and multiply by $N$ appropriately to recover it).
 
 Fast Fourier Transform (FFT)
 ----------------------------
