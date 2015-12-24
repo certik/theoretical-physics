@@ -448,48 +448,48 @@ number $N$ of reciprocal points:
 
 .. math::
 
-    n=0, 1, \dots, N/2-1, -N/2, -N/2+1, \dots, -1 \quad\mbox{if $N$ is even}
+    K=0, 1, \dots, N/2-1, -N/2, -N/2+1, \dots, -1 \quad\mbox{if $N$ is even}
 
-    n=0, 1, \dots, (N-1)/2, -(N-1)/2, -(N-1)/2+1, \dots, -1 \quad\mbox{if $N$ is odd}
+    K=0, 1, \dots, (N-1)/2, -(N-1)/2, -(N-1)/2+1, \dots, -1 \quad\mbox{if $N$ is odd}
 
 E.g. for:
 
 .. math::
 
-    N=8 \quad \mbox{we get} \quad n=0, 1, 2, 3, -4, -3, -2, -1
+    N=8 \quad \mbox{we get} \quad K=0, 1, 2, 3, -4, -3, -2, -1
 
-    N=9 \quad \mbox{we get} \quad n=0, 1, 2, 3, 4, -4, -3, -2, -1
+    N=9 \quad \mbox{we get} \quad K=0, 1, 2, 3, 4, -4, -3, -2, -1
 
 The real space function $f(x)$ is sampled at points $x_k={L\over N}k$ for
 $k=-N/2,\dots,N/2-1$ and the equation :eq:`fourier2b_1d` becomes:
 
 .. math::
 
-    c_n
+    c_K
         = {1\over L} \int_{-{L\over2}}^{L\over2} f(x)
-        e^{-i(2\pi n x/L)}\,\d x =
+        e^{-i(2\pi K x/L)}\,\d x =
 
         = \lim_{N\to\infty}
         {1\over L}\sum_{k=-N/2}^{N/2-1}
         f(x_k)
-        e^{-i(2\pi n x_k/L)}\,{L\over N} =
+        e^{-i(2\pi K x_k/L)}\,{L\over N} =
 
         = \lim_{N\to\infty}
         {1\over N}\sum_{k=-N/2}^{N/2-1}
         f(x_k)
-        e^{-2\pi i {n\over N} k}
+        e^{-2\pi i {K\over N} k}
 
 The equation :eq:`fourier2b_1d_inv` becomes:
 
 .. math::
 
-    f(x_k) = \sum_{n=-\infty}^\infty c_n e^{i(2\pi nx_k/L)} =
+    f(x_k) = \sum_{K=-\infty}^\infty c_K e^{i(2\pi Kx_k/L)} =
 
         = \lim_{N\to\infty}
-        \sum_{n=-N/2}^{N/2-1} c_n e^{i(2\pi nx_k/L)} =
+        \sum_{K=-N/2}^{N/2-1} c_K e^{i(2\pi Kx_k/L)} =
 
         = \lim_{N\to\infty}
-        \sum_{n=-N/2}^{N/2-1} c_n e^{2\pi i {n\over N} k}
+        \sum_{K=-N/2}^{N/2-1} c_K e^{2\pi i {K\over N} k}
 
 Using the fact
 
@@ -502,61 +502,61 @@ sums can then be rearranged:
 
 .. math::
 
-    c_n
+    c_K
         = \lim_{N\to\infty}
         {1\over N}\sum_{k=-N/2}^{N/2-1}
         f(x_k)
-        e^{-2\pi i {n\over N} k} =
+        e^{-2\pi i {K\over N} k} =
 
         = \lim_{N\to\infty} {1\over N} \left(
         \sum_{k=-N/2}^{-1}
         f(x_k)
-        e^{-2\pi i {n\over N} k}
+        e^{-2\pi i {K\over N} k}
             +
         \sum_{k=0}^{N/2-1}
         f(x_k)
-        e^{-2\pi i {n\over N} k} \right) =
+        e^{-2\pi i {K\over N} k} \right) =
 
         = \lim_{N\to\infty} {1\over N} \left(
         \sum_{k=N/2}^{N-1}
         f(x_{k-N})
-        e^{-2\pi i {n\over N} (k-N)}
+        e^{-2\pi i {K\over N} (k-N)}
             +
         \sum_{k=0}^{N/2-1}
         f(x_k)
-        e^{-2\pi i {n\over N} k} \right) =
+        e^{-2\pi i {K\over N} k} \right) =
 
         = \lim_{N\to\infty} {1\over N}
-        \sum_{k=0}^{N-1} f(x_k) e^{-2\pi i {n\over N} k}
+        \sum_{k=0}^{N-1} f(x_k) e^{-2\pi i {K\over N} k}
 
 and if we drop the limit and consider a finite $N$ only:
 
 .. math::
 
     f(x_k)
-        = \sum_{n=-N/2}^{N/2-1} c_n e^{2\pi i {n\over N} k} =
+        = \sum_{K=-N/2}^{N/2-1} c_K e^{2\pi i {K\over N} k} =
 
         = \left(
-        \sum_{n=-N/2}^{-1} c_n e^{2\pi i {n\over N} k}
+        \sum_{K=-N/2}^{-1} c_K e^{2\pi i {K\over N} k}
         +
-        \sum_{n=0}^{N/2-1} c_n e^{2\pi i {n\over N} k}
+        \sum_{K=0}^{N/2-1} c_K e^{2\pi i {K\over N} k}
         \right) =
 
         = \left(
-        \sum_{n=N/2}^{N-1} c_{n-N} e^{2\pi i {(n-N)\over N} k}
+        \sum_{K=N/2}^{N-1} c_{K-N} e^{2\pi i {(K-N)\over N} k}
         +
-        \sum_{n=0}^{N/2-1} c_n e^{2\pi i {n\over N} k}
+        \sum_{K=0}^{N/2-1} c_K e^{2\pi i {K\over N} k}
         \right) =
 
-        = \sum_{n=0}^{N-1} c_n e^{2\pi i {n\over N} k}
+        = \sum_{K=0}^{N-1} c_K e^{2\pi i {K\over N} k}
 
 Summary, the direct transform:
 
 .. math::
     :label: dft
 
-    c_n
-        = {1\over N} \sum_{k=0}^{N-1} f(x_k) e^{-2\pi i {n\over N} k}
+    c_K
+        = {1\over N} \sum_{k=0}^{N-1} f(x_k) e^{-2\pi i {K\over N} k}
 
 and inverse transform:
 
@@ -564,7 +564,7 @@ and inverse transform:
     :label: idft
 
     f(x_k)
-        = \sum_{n=0}^{N-1} c_n e^{2\pi i {n\over N} k}\,,
+        = \sum_{K=0}^{N-1} c_K e^{2\pi i {K\over N} k}\,,
 
 with $x_k={L\over N}k$.
 
