@@ -238,6 +238,81 @@ Similarly, for the inverse transform:
         \int_0^\infty \omega\sin(\omega r) f(\omega) \,\d \omega
 
 
+Examples
+~~~~~~~~
+
+Rectangular Function
+^^^^^^^^^^^^^^^^^^^^
+
+The rectangular function is defined as:
+
+.. math::
+
+    \Pi(x) = H(x+\half) - H(x-\half)
+
+The Fourier transform is:
+
+.. math::
+
+    F[\Pi(x)] \equiv \tilde \Pi(\omega)
+        = \int_{-\infty}^{\infty} \Pi(x) e^{-i\omega x}\,\d x
+        = \int_{-\half}^{\half} e^{-i\omega x}\,\d x =
+
+        = \left[e^{-i\omega x} \over -i\omega x\right]_{x=-\half}^\half
+        = {e^{i{\omega\over 2}} - e^{-i{\omega \over 2}} \over i
+            {\omega\over2}}
+        = 2{\sin({\omega \over 2}) \over {\omega \over 2}}
+        = 2\sinc\left({\omega\over 2}\right)\,.
+
+Dirac Comb (Shah) Function
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Dirac comb function, also called the Shah function, is defined as:
+
+.. math::
+
+    \Sh(x) = \sum_{n=-\infty}^\infty \delta(x-n)
+
+It has the following scaling property:
+
+.. math::
+
+    \Sh(ax) = \sum_{n=-\infty}^\infty \delta(ax-n)
+    = \sum_{n=-\infty}^\infty \delta\left(a\left(x-{n\over a}\right)\right)
+    = \sum_{n=-\infty}^\infty {1\over|a|}\delta\left(x-{n\over a}\right)
+
+and for $a={1\over L}$ with $L>0$:
+
+.. math::
+
+    \Sh\left({x\over L}\right) = \sum_{n=-\infty}^\infty L\delta(x-nL)
+
+From which a train of delta functions $L$ distance apart is expressed using a
+Dirac comb as:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty \delta(x-nL) = {1\over L}\Sh\left({x\over L}\right)
+
+The Fourier transform is:
+
+.. math::
+
+    F[\Sh(x)] \equiv \tilde \Sh(\omega)
+        = \int_{-\infty}^{\infty} \Sh(x) e^{-i\omega x}\,\d x =
+
+        = \int_{-\infty}^{\infty} \sum_{n=-\infty}^\infty \delta(x-n)
+            e^{-i\omega x}\,\d x =
+
+        = \sum_{n=-\infty}^\infty \int_{-\infty}^{\infty} \delta(x-n)
+            e^{-i\omega x}\,\d x =
+
+        = \sum_{n=-\infty}^\infty e^{-i\omega n} =
+
+        = 2\pi \sum_{n=-\infty}^\infty \delta(\omega-2\pi n) =
+
+        = \Sh\left({\omega\over 2\pi}\right)
+
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
 
