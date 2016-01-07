@@ -313,6 +313,81 @@ The Fourier transform is:
 
         = \Sh\left({\omega\over 2\pi}\right)
 
+Fourier Series
+^^^^^^^^^^^^^^
+
+On the interval $[-\pi, \pi]$:
+
+.. math::
+
+    f(x) = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
+        f(y) e^{-iny} \d y\,  e^{inx} =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        {1\over 2\pi}\sum_{n=-N}^N e^{in(x-y)} f(y) \d y =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi D_N(x-y) f(y) \d y
+
+where $D_N(x)$ is called a Dirichlet kernel:
+
+.. math::
+
+    D_N(x) = {1\over 2\pi}\sum_{n=-N}^N e^{inx} =
+
+    = {1\over 2\pi}\left(1+2\sum_{n=1}^N \cos(nx)\right) =
+
+    = {1\over 2\pi \sin\left(x\over2\right)}\left(\sin\left(x\over2\right)
+        +2\sum_{n=1}^N \cos(nx)\sin\left(x\over2\right)\right) =
+
+    = {1\over 2\pi \sin\left(x\over2\right)}\left(\sin\left(x\over2\right)
+        +\sum_{n=1}^N\left(
+        \sin\left(\left(n+\half\right)x\right)
+        -\sin\left(\left(n-\half\right)x\right)
+        \right)\right) =
+
+    = {\sin\left(\left(N+\half\right)x\right)
+        \over 2\pi \sin\left(x\over2\right)}
+
+Using the fact that:
+
+.. math::
+
+    \int_{-\pi}^\pi D_N(x) \d x
+    = \int_{-\pi}^\pi {1\over 2\pi}\left(1+2\sum_{n=1}^N \cos(nx)\right) \d x =
+
+    = 1 + {1\over \pi}\sum_{n=1}^N \int_{-\pi}^\pi  \cos(nx)\, \d x = 1
+
+and
+
+.. math::
+
+    \int_{-\pi}^\pi D_N(x-y) \d y = 1
+
+We can now calculate the difference between the Fourier series and the function
+value:
+
+.. math::
+
+    \lim_{N\to\infty} \int_{-\pi}^\pi D_N(x-y) f(y) \d y - f(x) =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi D_N(x-y) \left(f(y)-f(x)\right) \d y =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi {f(y)-f(x)\over
+        2\pi\sin\left(x-y\over 2\right)}
+        \sin\left(\left(N+\half\right)(x-y)\right) \d y = 0
+
+The integral is zero because the more and more oscillating $\sin$ function
+cancels the contributions of positive and negative parts of the integrand. This
+can be proven explicitly as follows using the fact that $f(x)$, $f'(x)$ and
+$\cos(Nx)$ is bounded as $N\to\infty$:
+
+.. math::
+
+    \lim_{N\to\infty} \int_a^b f(x) \sin(Nx)\,\d x =
+
+    = \lim_{N\to\infty}{1\over N} \left(\left[-f(x)\cos(Nx)\right]_a^b
+    + \int_a^b f'(x) \cos(Nx)\,\d x \right) = 0
+
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
 
