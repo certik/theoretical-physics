@@ -344,6 +344,9 @@ so
 
     f_n = {1\over2\pi} \int_{-\pi}^\pi f(x) e^{-inx} \d x
 
+Convergence of Fourier Series
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To see what conditions the function $f(x)$ must satisfy in order for the
 Fourier series to converge towards it, we can do the following analysis.
 Substituting :eq:`fs2` into :eq:`fs1` yields:
@@ -441,6 +444,19 @@ $\cos(Nx)$ is bounded as $N\to\infty$:
 The conditions that we used are that the function $h(u)$ can be integrated,
 which is satisfied if e.g. $f(x)$ has derivatives. These conditions can be
 loosened in various ways.
+
+The Dirichlet kernel $D_N(x)$ converges towards the Dirac comb:
+
+.. math::
+
+    {1\over 2\pi}\sum_{n=-\infty}^\infty e^{inx}
+        = \lim_{N\to\infty} {1\over 2\pi}\sum_{n=-N}^N e^{inx}
+        = \lim_{N\to\infty} D_N(x) =
+
+        = \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
+            \over 2\pi \sin\left(x\over2\right)}
+        = \sum_{n=-\infty}^\infty \delta(x-2\pi n)
+        = {1\over2\pi} \Sh\left({x\over 2\pi}\right)
 
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
