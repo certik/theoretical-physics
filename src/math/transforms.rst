@@ -324,8 +324,7 @@ Consider a periodic function on an interval $[-\pi, \pi]$:
     f(x) = \sum_{n=-\infty}^\infty f_n e^{inx}
 
 To calculate the Fourier coefficients $f_n$, we multiply both sides of
-:eq:`fs1` by
-$e^{-imx}$ and integrate:
+:eq:`fs1` by $e^{-imx}$ and integrate:
 
 .. math::
 
@@ -345,6 +344,8 @@ so
 
     f_n = {1\over2\pi} \int_{-\pi}^\pi f(x) e^{-inx} \d x
 
+To see what conditions the function $f(x)$ must satisfy in order for the
+Fourier series to converge towards it, we can do the following analysis.
 Substituting :eq:`fs2` into :eq:`fs1` yields:
 
 
@@ -436,6 +437,10 @@ $\cos(Nx)$ is bounded as $N\to\infty$:
 
     = \lim_{N\to\infty}{1\over N} \left(\left[-h(x)\cos(Nx)\right]_a^b
     + \int_a^b h'(x) \cos(Nx)\,\d x \right) = 0
+
+The conditions that we used are that the function $h(u)$ can be integrated,
+which is satisfied if e.g. $f(x)$ has derivatives. These conditions can be
+loosened in various ways.
 
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
