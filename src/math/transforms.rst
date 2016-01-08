@@ -462,7 +462,7 @@ Let us do the crucial step in more details using distributions:
 
 .. math::
 
-    = \int_{-\infty}^\infty
+    \int_{-\infty}^\infty
         \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
             \over 2\pi \sin\left(x\over2\right)}
         \varphi(x) \,\d x =
