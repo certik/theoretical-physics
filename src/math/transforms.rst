@@ -458,6 +458,50 @@ The Dirichlet kernel $D_N(x)$ converges towards the Dirac comb:
         = \sum_{n=-\infty}^\infty \delta(x-2\pi n)
         = {1\over2\pi} \Sh\left({x\over 2\pi}\right)
 
+Let us do the crucial step in more details using distributions:
+
+.. math::
+
+    = \int_{-\infty}^\infty
+        \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
+            \over 2\pi \sin\left(x\over2\right)}
+        \varphi(x) \,\d x =
+
+    = \sum_{n=-\infty}^\infty \lim_{N\to\infty} \int_{-\pi}^\pi
+        {\sin\left(\left(N+\half\right)(x+2\pi n)\right)
+            \over 2\pi \sin\left(x+2\pi n\over2\right)}
+        \varphi(x+2\pi n) \,\d x =
+
+    = \sum_{n=-\infty}^\infty \varphi(2\pi n) =
+
+    =\int_{-\infty}^\infty \sum_{n=-\infty}^\infty \delta(x-2\pi n)
+        \varphi(x)\,\d x
+
+Where we used the fact that
+
+.. math::
+
+    \left[\lim_{N\to\infty} \int_{-\pi}^\pi
+        {\sin\left(\left(N+\half\right)(x+2\pi n)\right)
+            \over 2\pi \sin\left(x+2\pi n\over2\right)}
+        \varphi(x+2\pi n) \,\d x \right] - \varphi(2\pi n) =
+
+    = \left[\lim_{N\to\infty} \int_{-\pi}^\pi
+        D_N(x+2\pi n)
+        \varphi(x+2\pi n) \,\d x \right] - \varphi(2\pi n) =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        D_N(x+2\pi n)
+        \left(\varphi(x+2\pi n)-\varphi(2\pi n)\right) \,\d x =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        {\varphi(x+2\pi n)-\varphi(2\pi n)
+        \over 2\pi\sin\left(x+2\pi n\over 2\right)}
+        \sin\left(\left(N+\half\right)(x+2\pi n)\right)
+        \,\d x =
+
+    = 0
+
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
 
