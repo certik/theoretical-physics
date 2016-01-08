@@ -264,6 +264,104 @@ The Fourier transform is:
         = 2{\sin({\omega \over 2}) \over {\omega \over 2}}
         = 2\sinc\left({\omega\over 2}\right)\,.
 
+Dirichlet Kernel
+^^^^^^^^^^^^^^^^
+
+The Dirichlet kernel $D_N(x)$ is a partial sum of complex exponentials:
+
+.. math::
+
+    D_N(x) = {1\over 2\pi}\sum_{n=-N}^N e^{inx} =
+
+    = {1\over 2\pi}\left(1+2\sum_{n=1}^N \cos(nx)\right) =
+
+    = {1\over 2\pi \sin\left(x\over2\right)}\left(\sin\left(x\over2\right)
+        +2\sum_{n=1}^N \cos(nx)\sin\left(x\over2\right)\right) =
+
+    = {1\over 2\pi \sin\left(x\over2\right)}\left(\sin\left(x\over2\right)
+        +\sum_{n=1}^N\left(
+        \sin\left(\left(n+\half\right)x\right)
+        -\sin\left(\left(n-\half\right)x\right)
+        \right)\right) =
+
+    = {\sin\left(\left(N+\half\right)x\right)
+        \over 2\pi \sin\left(x\over2\right)}
+
+From the definition, it is a periodic function with period $2\pi$.
+
+Integral of it is equal to one:
+
+.. math::
+
+    \int_{-\pi}^\pi D_N(x) \d x
+    = \int_{-\pi}^\pi {1\over 2\pi}\left(1+2\sum_{n=1}^N \cos(nx)\right) \d x =
+
+    = 1 + {1\over \pi}\sum_{n=1}^N \int_{-\pi}^\pi  \cos(nx)\, \d x = 1
+
+also
+
+.. math::
+
+    \int_{-\pi}^\pi D_N(x-y) \d y = 1
+
+The Dirichlet kernel $D_N(x)$ converges towards a train of delta functions
+(called Dirac comb, see the equation :eq:`delta_exp2` in the next section):
+
+.. math::
+    :label: delta_exp
+
+    {1\over 2\pi}\sum_{n=-\infty}^\infty e^{inx}
+        = \lim_{N\to\infty} {1\over 2\pi}\sum_{n=-N}^N e^{inx}
+        = \lim_{N\to\infty} D_N(x) =
+
+        = \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
+            \over 2\pi \sin\left(x\over2\right)}
+        = \sum_{n=-\infty}^\infty \delta(x-2\pi n)
+
+Let us do the crucial step in more details using distributions:
+
+.. math::
+
+    \int_{-\infty}^\infty
+        \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
+            \over 2\pi \sin\left(x\over2\right)}
+        \varphi(x) \,\d x =
+
+    = \sum_{n=-\infty}^\infty \lim_{N\to\infty} \int_{-\pi}^\pi
+        {\sin\left(\left(N+\half\right)(x+2\pi n)\right)
+            \over 2\pi \sin\left(x+2\pi n\over2\right)}
+        \varphi(x+2\pi n) \,\d x =
+
+    = \sum_{n=-\infty}^\infty \varphi(2\pi n) =
+
+    =\int_{-\infty}^\infty \sum_{n=-\infty}^\infty \delta(x-2\pi n)
+        \varphi(x)\,\d x
+
+Where we used the fact that
+
+.. math::
+
+    \left[\lim_{N\to\infty} \int_{-\pi}^\pi
+        {\sin\left(\left(N+\half\right)(x+2\pi n)\right)
+            \over 2\pi \sin\left(x+2\pi n\over2\right)}
+        \varphi(x+2\pi n) \,\d x \right] - \varphi(2\pi n) =
+
+    = \left[\lim_{N\to\infty} \int_{-\pi}^\pi
+        D_N(x+2\pi n)
+        \varphi(x+2\pi n) \,\d x \right] - \varphi(2\pi n) =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        D_N(x+2\pi n)
+        \left(\varphi(x+2\pi n)-\varphi(2\pi n)\right) \,\d x =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        {\varphi(x+2\pi n)-\varphi(2\pi n)
+        \over 2\pi\sin\left(x+2\pi n\over 2\right)}
+        \sin\left(\left(N+\half\right)(x+2\pi n)\right)
+        \,\d x =
+
+    = 0
+
 Dirac Comb (Shah) Function
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -294,7 +392,22 @@ Dirac comb as:
 
     \sum_{n=-\infty}^\infty \delta(x-nL) = {1\over L}\Sh\left({x\over L}\right)
 
-The Fourier transform is:
+Using the identity :eq:`delta_exp`, the infinite sum of complex exponentials is
+also equal to a Dirac comb:
+
+.. math::
+    :label: delta_exp2
+
+    {1\over 2\pi}\sum_{n=-\infty}^\infty e^{inx}
+        = \lim_{N\to\infty} {1\over 2\pi}\sum_{n=-N}^N e^{inx}
+        = \lim_{N\to\infty} D_N(x) =
+
+        = \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
+            \over 2\pi \sin\left(x\over2\right)}
+        = \sum_{n=-\infty}^\infty \delta(x-2\pi n)
+        = {1\over 2\pi}\Sh\left({x\over 2\pi}\right)
+
+Using :eq:`delta_exp2` we can now calculate the Fourier transform:
 
 .. math::
 
@@ -312,6 +425,70 @@ The Fourier transform is:
         = 2\pi \sum_{n=-\infty}^\infty \delta(\omega-2\pi n) =
 
         = \Sh\left({\omega\over 2\pi}\right)
+
+Poisson Summation Formula
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Poisson summation formula:
+
+.. math::
+    :label: poisson_summation_formula
+
+    \sum_{n=-\infty}^\infty f(2\pi n)
+        = {1\over 2\pi} \sum_{n=-\infty}^\infty \tilde f(n)
+
+can be derived using a Dirac comb:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty f(2\pi n)
+        = \int_{-\infty}^\infty f(x) \sum_{n=-\infty}^\infty
+            \delta(x-2\pi n) \,\d x =
+
+        = \int_{-\infty}^\infty f(x) {1\over 2\pi}
+            \Sh\left(x\over2\pi\right) \,\d x =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty f(x) \cdot
+            F[\Sh(\omega)](x) \,\d x =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty F[f(x)](\omega) \cdot
+            \Sh(\omega) \,\d \omega =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty \tilde f(\omega) \cdot
+            \sum_{n=-\infty}^\infty \delta(\omega-n) \,\d \omega =
+
+        = {1\over 2\pi} \sum_{n=-\infty}^\infty \tilde f(x)
+
+An alternative derivation using Fourier series (see next sections):
+
+.. math::
+
+    \sum_{n=-\infty}^\infty f(x+2\pi n)
+        = g(x)
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
+            g(y) e^{-iny} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
+            \sum_{m=-\infty}^\infty f(y+2\pi m)
+            e^{-iny} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            \sum_{m=-\infty}^\infty
+            \int_{-\pi}^\pi
+            f(y+2\pi m)
+            e^{-in(y+2\pi m)} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            \int_{-\infty}^\infty
+            f(y) e^{-iny} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            \tilde f(n) \,  e^{inx}
+
+And setting $x=0$ we get the Poisson summation formula
+:eq:`poisson_summation_formula`.
+
+
 
 Fourier Series
 ^^^^^^^^^^^^^^
@@ -362,41 +539,6 @@ Substituting :eq:`fs2` into :eq:`fs1` yields:
 
     = \lim_{N\to\infty} \int_{-\pi}^\pi D_N(x-y) f(y) \d y
 
-where $D_N(x)$ is called a Dirichlet kernel:
-
-.. math::
-
-    D_N(x) = {1\over 2\pi}\sum_{n=-N}^N e^{inx} =
-
-    = {1\over 2\pi}\left(1+2\sum_{n=1}^N \cos(nx)\right) =
-
-    = {1\over 2\pi \sin\left(x\over2\right)}\left(\sin\left(x\over2\right)
-        +2\sum_{n=1}^N \cos(nx)\sin\left(x\over2\right)\right) =
-
-    = {1\over 2\pi \sin\left(x\over2\right)}\left(\sin\left(x\over2\right)
-        +\sum_{n=1}^N\left(
-        \sin\left(\left(n+\half\right)x\right)
-        -\sin\left(\left(n-\half\right)x\right)
-        \right)\right) =
-
-    = {\sin\left(\left(N+\half\right)x\right)
-        \over 2\pi \sin\left(x\over2\right)}
-
-Using the fact that:
-
-.. math::
-
-    \int_{-\pi}^\pi D_N(x) \d x
-    = \int_{-\pi}^\pi {1\over 2\pi}\left(1+2\sum_{n=1}^N \cos(nx)\right) \d x =
-
-    = 1 + {1\over \pi}\sum_{n=1}^N \int_{-\pi}^\pi  \cos(nx)\, \d x = 1
-
-and
-
-.. math::
-
-    \int_{-\pi}^\pi D_N(x-y) \d y = 1
-
 We can now calculate the difference between the Fourier series and the function
 value:
 
@@ -444,119 +586,6 @@ $\cos(Nx)$ is bounded as $N\to\infty$:
 The conditions that we used are that the function $h(u)$ can be integrated,
 which is satisfied if e.g. $f(x)$ has derivatives. These conditions can be
 loosened in various ways.
-
-The Dirichlet kernel $D_N(x)$ converges towards the Dirac comb:
-
-.. math::
-
-    {1\over 2\pi}\sum_{n=-\infty}^\infty e^{inx}
-        = \lim_{N\to\infty} {1\over 2\pi}\sum_{n=-N}^N e^{inx}
-        = \lim_{N\to\infty} D_N(x) =
-
-        = \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
-            \over 2\pi \sin\left(x\over2\right)}
-        = \sum_{n=-\infty}^\infty \delta(x-2\pi n)
-        = {1\over2\pi} \Sh\left({x\over 2\pi}\right)
-
-Let us do the crucial step in more details using distributions:
-
-.. math::
-
-    \int_{-\infty}^\infty
-        \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
-            \over 2\pi \sin\left(x\over2\right)}
-        \varphi(x) \,\d x =
-
-    = \sum_{n=-\infty}^\infty \lim_{N\to\infty} \int_{-\pi}^\pi
-        {\sin\left(\left(N+\half\right)(x+2\pi n)\right)
-            \over 2\pi \sin\left(x+2\pi n\over2\right)}
-        \varphi(x+2\pi n) \,\d x =
-
-    = \sum_{n=-\infty}^\infty \varphi(2\pi n) =
-
-    =\int_{-\infty}^\infty \sum_{n=-\infty}^\infty \delta(x-2\pi n)
-        \varphi(x)\,\d x
-
-Where we used the fact that
-
-.. math::
-
-    \left[\lim_{N\to\infty} \int_{-\pi}^\pi
-        {\sin\left(\left(N+\half\right)(x+2\pi n)\right)
-            \over 2\pi \sin\left(x+2\pi n\over2\right)}
-        \varphi(x+2\pi n) \,\d x \right] - \varphi(2\pi n) =
-
-    = \left[\lim_{N\to\infty} \int_{-\pi}^\pi
-        D_N(x+2\pi n)
-        \varphi(x+2\pi n) \,\d x \right] - \varphi(2\pi n) =
-
-    = \lim_{N\to\infty} \int_{-\pi}^\pi
-        D_N(x+2\pi n)
-        \left(\varphi(x+2\pi n)-\varphi(2\pi n)\right) \,\d x =
-
-    = \lim_{N\to\infty} \int_{-\pi}^\pi
-        {\varphi(x+2\pi n)-\varphi(2\pi n)
-        \over 2\pi\sin\left(x+2\pi n\over 2\right)}
-        \sin\left(\left(N+\half\right)(x+2\pi n)\right)
-        \,\d x =
-
-    = 0
-
-Poisson Summation Formula
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. math::
-
-    \sum_{n=-\infty}^\infty f(x+2\pi n)
-        = g(x)
-        = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
-            g(y) e^{-iny} \d y\,  e^{inx} =
-
-        = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
-            \sum_{m=-\infty}^\infty f(y+2\pi m)
-            e^{-iny} \d y\,  e^{inx} =
-
-        = \sum_{n=-\infty}^\infty {1\over 2\pi}
-            \sum_{m=-\infty}^\infty
-            \int_{-\pi}^\pi
-            f(y+2\pi m)
-            e^{-in(y+2\pi m)} \d y\,  e^{inx} =
-
-        = \sum_{n=-\infty}^\infty {1\over 2\pi}
-            \int_{-\infty}^\infty
-            f(y) e^{-iny} \d y\,  e^{inx} =
-
-        = \sum_{n=-\infty}^\infty {1\over 2\pi}
-            \tilde f(n) \,  e^{inx}
-
-And setting $x=0$ we get the Poisson summation formula:
-
-.. math::
-
-    \sum_{n=-\infty}^\infty f(2\pi n)
-        = {1\over 2\pi} \sum_{n=-\infty}^\infty \tilde f(n)
-
-An alternative derivation using a Dirac comb is:
-
-.. math::
-
-    \sum_{n=-\infty}^\infty f(2\pi n)
-        = \int_{-\infty}^\infty f(x) \sum_{n=-\infty}^\infty
-            \delta(x-2\pi n) \,\d x =
-
-        = \int_{-\infty}^\infty f(x) {1\over 2\pi}
-            \Sh\left(x\over2\pi\right) \,\d x =
-
-        = {1\over 2\pi} \int_{-\infty}^\infty f(x) \cdot
-            F[\Sh(\omega)](x) \,\d x =
-
-        = {1\over 2\pi} \int_{-\infty}^\infty F[f(x)](\omega) \cdot
-            \Sh(\omega) \,\d \omega =
-
-        = {1\over 2\pi} \int_{-\infty}^\infty \tilde f(\omega) \cdot
-            \sum_{n=-\infty}^\infty \delta(\omega-n) \,\d \omega =
-
-        = {1\over 2\pi} \sum_{n=-\infty}^\infty \tilde f(x)
 
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
