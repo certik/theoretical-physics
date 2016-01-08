@@ -477,7 +477,7 @@ Using :eq:`delta_exp2` we can now calculate the Fourier transform:
 
 .. math::
 
-    F[\Sh(x)] \equiv \tilde \Sh(\omega)
+    F[\Sh(x)](\omega) \equiv \tilde \Sh(\omega)
         = \int_{-\infty}^{\infty} \Sh(x) e^{-i\omega x}\,\d x =
 
         = \int_{-\infty}^{\infty} \sum_{n=-\infty}^\infty \delta(x-n)
@@ -491,6 +491,16 @@ Using :eq:`delta_exp2` we can now calculate the Fourier transform:
         = 2\pi \sum_{n=-\infty}^\infty \delta(\omega-2\pi n) =
 
         = \Sh\left({\omega\over 2\pi}\right)
+
+For the inverse Fourier transform we get (using the previous result):
+
+.. math::
+
+    F^{-1}[\Sh(\omega)](x)
+        = F^{-1}\left[\ \Sh\left({(2\pi\omega)\over2\pi}\right) \ \right](x)
+        = F^{-1}[\ F[\Sh(x)](2\pi\omega) \ ](x)
+        = F^{-1}\left[\ F\left[{1\over2\pi}\Sh\left({x\over2\pi}\right)\right](\omega) \ \right](x)
+        = {1\over2\pi}\Sh\left({x\over2\pi}\right)
 
 Periodic Summation
 ^^^^^^^^^^^^^^^^^^
