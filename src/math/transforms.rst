@@ -408,15 +408,15 @@ value:
 
 The integral is zero because the more and more oscillating $\sin$ function
 cancels the contributions of positive and negative parts of the integrand. This
-can be proven explicitly as follows using the fact that $f(x)$, $f'(x)$ and
+can be proven explicitly as follows using the fact that $h(x)$, $h'(x)$ and
 $\cos(Nx)$ is bounded as $N\to\infty$:
 
 .. math::
 
-    \lim_{N\to\infty} \int_a^b f(x) \sin(Nx)\,\d x =
+    \lim_{N\to\infty} \int_a^b h(x) \sin(Nx)\,\d x =
 
-    = \lim_{N\to\infty}{1\over N} \left(\left[-f(x)\cos(Nx)\right]_a^b
-    + \int_a^b f'(x) \cos(Nx)\,\d x \right) = 0
+    = \lim_{N\to\infty}{1\over N} \left(\left[-h(x)\cos(Nx)\right]_a^b
+    + \int_a^b h'(x) \cos(Nx)\,\d x \right) = 0
 
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
