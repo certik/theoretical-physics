@@ -402,9 +402,28 @@ value:
 
     = \lim_{N\to\infty} \int_{-\pi}^\pi D_N(x-y) \left(f(y)-f(x)\right) \d y =
 
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        {\sin\left(\left(N+\half\right)(x-y)\right)
+            \over 2\pi \sin\left(x-y\over2\right)}
+        \left(f(y)-f(x)\right) \d y =
+
     = \lim_{N\to\infty} \int_{-\pi}^\pi {f(y)-f(x)\over
         2\pi\sin\left(x-y\over 2\right)}
-        \sin\left(\left(N+\half\right)(x-y)\right) \d y = 0
+        \sin\left(\left(N+\half\right)(x-y)\right) \d y =
+
+    = \lim_{N\to\infty} \int_{x-\pi}^{x+\pi} {f(x-u)-f(x)\over
+        2\pi\sin\left(u\over 2\right)}
+        \sin\left(\left(N+\half\right)u\right) \d u =
+
+    = \lim_{N\to\infty} \int_{x-\pi}^{x+\pi} h(u)
+        \sin\left(\left(N+\half\right)u\right) \d u = 0
+
+where $h(u)$ is finite and well behaved at the origin $u=0$:
+
+.. math::
+
+    h(u) = {f(x-u)-f(x)\over 2\pi\sin\left(u\over 2\right)}
+        = - {f'(x)\over \pi} + {f''(x)\over 2\pi} u + O(u^2)
 
 The integral is zero because the more and more oscillating $\sin$ function
 cancels the contributions of positive and negative parts of the integrand. This
