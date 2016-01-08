@@ -123,6 +123,20 @@ The Fourier transform of a shifted function, in 3D:
 
         = e^{i\bomega\cdot \mathbf{b}} F[f(\mathbf{x})]
 
+Scaling
+~~~~~~~
+
+For $a>0$:
+
+.. math::
+
+    F[f(ax)](\omega)
+        = \int_{-\infty}^{\infty} f(ax) e^{-i\omega x}\,\d x =
+
+        = {1\over a}\int_{-\infty}^{\infty} f(y) e^{-i{\omega\over a} y}\,\d y =
+
+        = {1\over a}F[f(x)]\left({\omega\over a}\right)
+
 Derivative
 ~~~~~~~~~~
 
