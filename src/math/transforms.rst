@@ -604,7 +604,27 @@ An alternative derivation using Fourier series (see next sections):
 And setting $x=0$ we get the Poisson summation formula
 :eq:`poisson_summation_formula`.
 
+The last derivation can actually also be done using a Dirac comb function as
+follows:
 
+.. math::
+
+    \sum_{n=-\infty}^\infty f(x+2\pi n)
+        = f(x) * {1\over2\pi}\Sh\left(x \over 2\pi \right ) =
+
+        = F^{-1}\left[\ F\left[f(x) * {1\over2\pi}\Sh\left(x \over
+            2\pi \right ) \right](\omega)\ \right](x) =
+
+        = F^{-1}\left[\ F[f(x)](\omega)\ F\left[{1\over2\pi}\Sh\left(x \over
+            2\pi \right )\right](\omega)\ \right](x) =
+
+        = F^{-1}[\ F[f(x)](\omega)\ \Sh(\omega)\ ](x) =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty
+            F[f(x)](\omega) \Sh(\omega) e^{i\omega x} \d x =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            F[f(x)](n) \,  e^{inx}
 
 Fourier Series
 ^^^^^^^^^^^^^^
