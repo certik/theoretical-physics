@@ -316,7 +316,37 @@ The Fourier transform is:
 Fourier Series
 ^^^^^^^^^^^^^^
 
-On the interval $[-\pi, \pi]$:
+Consider a periodic function on an interval $[-\pi, \pi]$:
+
+.. math::
+    :label: fs1
+
+    f(x) = \sum_{n=-\infty}^\infty f_n e^{inx}
+
+To calculate the Fourier coefficients $f_n$, we multiply both sides of
+:eq:`fs1` by
+$e^{-imx}$ and integrate:
+
+.. math::
+
+    \int_{-\pi}^\pi f(x) e^{-imx} \d x
+        = \int_{-\pi}^\pi \sum_{n=-\infty}^\infty f_n e^{inx} e^{-imx} \d x =
+
+        = \sum_{n=-\infty}^\infty f_n \int_{-\pi}^\pi e^{i(n-m)x} \d x =
+
+        = \sum_{n=-\infty}^\infty f_n 2\pi\delta_{nm} =
+
+        = 2\pi f_m \,,
+
+so
+
+.. math::
+    :label: fs2
+
+    f_n = {1\over2\pi} \int_{-\pi}^\pi f(x) e^{-inx} \d x
+
+Substituting :eq:`fs2` into :eq:`fs1` yields:
+
 
 .. math::
 
