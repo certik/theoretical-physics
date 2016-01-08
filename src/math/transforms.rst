@@ -426,6 +426,32 @@ Using :eq:`delta_exp2` we can now calculate the Fourier transform:
 
         = \Sh\left({\omega\over 2\pi}\right)
 
+Periodic Summation
+^^^^^^^^^^^^^^^^^^
+
+The convolution $f(x) * g(x) = \int_{-\infty}^\infty f(y) g(x-y) \,\d y$ of a
+Dirac comb $\Sh(x)$ and an arbitrary function $f(x)$ is called a periodic
+summation:
+
+.. math::
+
+    f(x) * \Sh(x)
+        = \int_{-\infty}^\infty f(y) \Sh(x-y) \,\d y
+        = \int_{-\infty}^\infty f(y)
+            \sum_{n=-\infty}^\infty \delta(x-y-n) \,\d y =
+
+        = \sum_{n=-\infty}^\infty f(x-n)
+        = \sum_{n=-\infty}^\infty f(x+n)
+
+because the result is a periodic function with period 1:
+
+.. math::
+
+    (f * \Sh)(x+1)
+        = \sum_{n=-\infty}^\infty f(x+n+1)
+        = \sum_{m=-\infty}^\infty f(x+m)
+        = (f * \Sh)(x)
+
 Poisson Summation Formula
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
