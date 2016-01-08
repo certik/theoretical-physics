@@ -502,6 +502,62 @@ Where we used the fact that
 
     = 0
 
+Poisson Summation Formula
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. math::
+
+    \sum_{n=-\infty}^\infty f(x+2\pi n)
+        = g(x)
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
+            g(y) e^{-iny} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
+            \sum_{m=-\infty}^\infty f(y+2\pi m)
+            e^{-iny} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            \sum_{m=-\infty}^\infty
+            \int_{-\pi}^\pi
+            f(y+2\pi m)
+            e^{-in(y+2\pi m)} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            \int_{-\infty}^\infty
+            f(y) e^{-iny} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            \tilde f(n) \,  e^{inx}
+
+And setting $x=0$ we get the Poisson summation formula:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty f(2\pi n)
+        = {1\over 2\pi} \sum_{n=-\infty}^\infty \tilde f(n)
+
+An alternative derivation using a Dirac comb is:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty f(2\pi n)
+        = \int_{-\infty}^\infty f(x) \sum_{n=-\infty}^\infty
+            \delta(x-2\pi n) \,\d x =
+
+        = \int_{-\infty}^\infty f(x) {1\over 2\pi}
+            \Sh\left(x\over2\pi\right) \,\d x =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty f(x) \cdot
+            F[\Sh(\omega)](x) \,\d x =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty F[f(x)](\omega) \cdot
+            \Sh(\omega) \,\d \omega =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty \tilde f(\omega) \cdot
+            \sum_{n=-\infty}^\infty \delta(\omega-n) \,\d \omega =
+
+        = {1\over 2\pi} \sum_{n=-\infty}^\infty \tilde f(x)
+
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
 
