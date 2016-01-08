@@ -177,6 +177,72 @@ from which:
         = i\omega_i \tilde f(\bomega)
         = i\omega_i F[f(\mathbf{x})]\,.
 
+Convolution
+~~~~~~~~~~~
+
+The convolution of two functions $f(x)$ and $g(x)$ is defined as:
+
+.. math::
+
+    f(x) * g(x) = \int_{-\infty}^\infty f(y) g(x-y) \,\d y
+
+The Fourier transform of a convolution is:
+
+.. math::
+
+    F[f(x) * g(x)](\omega)
+        = \int_{-\infty}^\infty \int_{-\infty}^\infty
+            f(y) g(x-y) \,\d y\, e^{-i\omega x}\d x =
+
+        = \int_{-\infty}^\infty \int_{-\infty}^\infty
+            g(x-y) e^{-i\omega x} \d x\, f(y) \,\d y =
+
+        = \int_{-\infty}^\infty \int_{-\infty}^\infty
+            g(u) e^{-i\omega (u+y)} \d u\, f(y) \,\d y =
+
+        = \int_{-\infty}^\infty g(u) e^{-i\omega u} \d u
+        \int_{-\infty}^\infty f(y) e^{-i\omega y} \d y
+
+        = F[f(x)](\omega)\ F[g(x)](\omega)
+
+And for the inverse transform:
+
+.. math::
+
+    F^{-1}[f(\omega) * g(\omega)](x)
+        = {1\over 2\pi} \int_{-\infty}^\infty \int_{-\infty}^\infty
+            f(y) g(\omega-y) \,\d y\, e^{i\omega x}\d \omega =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty \int_{-\infty}^\infty
+            g(\omega-y) e^{i\omega x} \d \omega\, f(y) \,\d y =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty \int_{-\infty}^\infty
+            g(u) e^{ix (u+y)} \d u\, f(y) \,\d y =
+
+        = 2\pi {1\over 2\pi} \int_{-\infty}^\infty g(u) e^{ix u} \d u
+        {1\over 2\pi}
+        \int_{-\infty}^\infty f(y) e^{ix y} \d y
+
+        = 2\pi F^{-1}[f(\omega)](x)\ F^{-1}[g(\omega)](x)
+
+Fourier transform of a function multiplication is:
+
+.. math::
+
+    F [ f g ]
+        = F [\ F^{-1}[ F[f] ]\quad  F^{-1}[ F[g] ]\ ]
+        = {1\over 2\pi} F [ F^{-1} [ F[f] * F[g] ]]
+        = {1\over 2\pi} F[f] * F[g]
+
+and for the inverse transform:
+
+.. math::
+
+    F^{-1} [ f g ]
+        = F^{-1} [\ F[ F^{-1}[f] ]\quad  F[ F^{-1}[g] ]\ ]
+        = F^{-1} [ F [ F^{-1}[f] * F^{-1}[g] ]]
+        = F^{-1}[f] * F^{-1}[g]
+
 Radial Fourier Transform
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
