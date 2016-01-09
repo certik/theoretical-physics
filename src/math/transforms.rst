@@ -629,37 +629,9 @@ follows:
 Fourier Series
 ^^^^^^^^^^^^^^
 
-Consider a periodic function on an interval $[-\pi, \pi]$:
-
-.. math::
-    :label: fs1
-
-    f(x) = \sum_{n=-\infty}^\infty f_n e^{inx}
-
-To calculate the Fourier coefficients $f_n$, we multiply both sides of
-:eq:`fs1` by $e^{-imx}$ and integrate:
-
-.. math::
-
-    \int_{-\pi}^\pi f(x) e^{-imx} \d x
-        = \int_{-\pi}^\pi \sum_{n=-\infty}^\infty f_n e^{inx} e^{-imx} \d x =
-
-        = \sum_{n=-\infty}^\infty f_n \int_{-\pi}^\pi e^{i(n-m)x} \d x =
-
-        = \sum_{n=-\infty}^\infty f_n 2\pi\delta_{nm} =
-
-        = 2\pi f_m \,,
-
-so
-
-.. math::
-    :label: fs2
-
-    f_n = {1\over2\pi} \int_{-\pi}^\pi f(x) e^{-inx} \d x
-
-
-From Fourier transform: we define a new function $f_0(x)=f(x)$ in the
-the $[-\pi, \pi]$ interval and zero otherwise. Then:
+Consider a periodic function $f(x)$ with period $2\pi$ and let us calculate the
+Fourier transform of it. We define a new function $f_0(x)=f(x)$ in the the
+$[-\pi, \pi]$ interval and zero otherwise. Then:
 
 .. math::
 
@@ -685,7 +657,7 @@ Apply Fourier transform:
 
         = 2\pi \sum_{n=-\infty}^\infty f_n \delta(\omega-n)
 
-where:
+where $f_n$ are called Fourier coefficients:
 
 .. math::
 
@@ -719,8 +691,11 @@ inverse Fourier transform to the final result of :eq:`ffrelation` as follows:
 
         = \sum_{n=-\infty}^\infty f_n e^{i n x}
 
-Equation :eq:`ffrelation` provides the relation between a Fourier transform and
-a Fourier series. For example for $f(x) = \sin(x)$, the only nonzero Fourier
+The expansion :eq:`ffrelation2` is called a Fourier series. It is given by the
+Fourier coefficients $f_n$. The equation :eq:`ffrelation` provides the relation
+between a Fourier transform and a Fourier series.
+
+For example for $f(x) = \sin(x)$, the only nonzero Fourier
 coefficients are $f_{-1} = {i\over2}$ and $f_1 = -{i\over2}$. The Fourier
 transform then is:
 
@@ -759,6 +734,36 @@ are all equal to $f_n={1\over 2\pi}$ and the Fourier transform is:
     F[f(x)](\omega)
         = 2\pi \sum_{n=-\infty}^\infty f_n \delta(\omega-n)
         = \sum_{n=-\infty}^\infty \delta(\omega-n)
+
+
+Consider a periodic function on an interval $[-\pi, \pi]$:
+
+.. math::
+    :label: fs1
+
+    f(x) = \sum_{n=-\infty}^\infty f_n e^{inx}
+
+To calculate the Fourier coefficients $f_n$, we multiply both sides of
+:eq:`fs1` by $e^{-imx}$ and integrate:
+
+.. math::
+
+    \int_{-\pi}^\pi f(x) e^{-imx} \d x
+        = \int_{-\pi}^\pi \sum_{n=-\infty}^\infty f_n e^{inx} e^{-imx} \d x =
+
+        = \sum_{n=-\infty}^\infty f_n \int_{-\pi}^\pi e^{i(n-m)x} \d x =
+
+        = \sum_{n=-\infty}^\infty f_n 2\pi\delta_{nm} =
+
+        = 2\pi f_m \,,
+
+so
+
+.. math::
+    :label: fs2
+
+    f_n = {1\over2\pi} \int_{-\pi}^\pi f(x) e^{-inx} \d x
+
 
 Convergence of Fourier Series
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
