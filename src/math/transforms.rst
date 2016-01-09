@@ -687,7 +687,10 @@ Apply Fourier transform:
 
 We can see that the Fourier transform is zero for $\omega \neq n$. For
 $\omega=n$ it is equal to a delta function times a $2\pi$ multiple of a Fourier
-series coefficient.
+series coefficient. The delta functions structure is given by the period of
+the function $f(x)$. All the information that is stored in the answer is inside
+the $f_n$ coefficients, so those are the only ones that we need to calculate
+and store.
 
 Equation :eq:`ffrelation` provides the relation between a Fourier transform and
 a Fourier series. For example for $f(x) = \sin(x)$, the only nonzero Fourier
