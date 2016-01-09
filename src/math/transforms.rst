@@ -657,6 +657,39 @@ so
 
     f_n = {1\over2\pi} \int_{-\pi}^\pi f(x) e^{-inx} \d x
 
+
+From Fourier transform: we define a new function $f_0(x)=f(x)$ in the
+the $[-\pi, \pi]$ interval and zero otherwise. Then:
+
+.. math::
+
+    f(x) = f_0(x) * {1\over 2\pi}\Sh\left(x\over2\pi\right)
+        = \sum_{n=-\infty}^\infty f_0(x+2\pi n)
+
+Apply Fourier transform:
+
+.. math::
+    :label: ffrelation
+
+    F[f(x)](\omega)
+        = F\left[f_0(x)
+            * {1\over 2\pi}\Sh\left(x\over2\pi\right)\right](\omega) =
+
+        = F[f_0(x)](\omega)\ F\left[{1\over 2\pi}\Sh\left(x\over2\pi\right)\                    \right](\omega)
+        = F[f_0(x)](\omega)\ \Sh(\omega) =
+
+        = \sum_{n=-\infty}^\infty F[f_0(x)](n) \ \delta(\omega-n)=
+
+        = \sum_{n=-\infty}^\infty
+            \int_{-\pi}^\pi f(x) e^{-i n x} \d x \ \delta(\omega-n) =
+
+        = 2\pi \sum_{n=-\infty}^\infty f_n \delta(\omega-n)
+
+We can see that the Fourier transform is zero for $\omega \neq n$. For
+$\omega=n$ it is equal to a delta function times a $2\pi$ multiple of a Fourier
+series coefficient. Equation :eq:`ffrelation` provides the relation between a
+Fourier transform and a Fourier series.
+
 Convergence of Fourier Series
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
