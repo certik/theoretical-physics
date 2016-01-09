@@ -687,8 +687,48 @@ Apply Fourier transform:
 
 We can see that the Fourier transform is zero for $\omega \neq n$. For
 $\omega=n$ it is equal to a delta function times a $2\pi$ multiple of a Fourier
-series coefficient. Equation :eq:`ffrelation` provides the relation between a
-Fourier transform and a Fourier series.
+series coefficient.
+
+Equation :eq:`ffrelation` provides the relation between a Fourier transform and
+a Fourier series. For example for $f(x) = \sin(x)$, the only nonzero Fourier
+coefficients are $f_{-1} = {i\over2}$ and $f_1 = -{i\over2}$. The Fourier
+transform then is:
+
+.. math::
+
+    F[\sin(x)](\omega)
+        = 2\pi\left(f_{-1}\delta(\omega-(-1)) + f_1\delta(\omega-1)\right) =
+
+        = 2\pi\left({i\over 2}\delta(\omega+1))
+            -{i\over2}\delta(\omega-1)\right)
+        = i\pi\delta(\omega+1) - i\pi\delta(\omega-1)
+
+For $f(x) = 1$ the only nonzero Fourier coefficient is $f_0=1$, the Fourier
+transform then is:
+
+.. math::
+
+    F[1](\omega)
+        = 2\pi f_0 \delta(\omega-0)
+        = 2\pi \delta(\omega)
+
+For $f(x) = e^{3ix}$ the only nonzero Fourier coefficient is $f_3=1$, the
+Fourier transform then is:
+
+.. math::
+
+    F[e^{3ix}](\omega)
+        = 2\pi f_3 \delta(\omega-3)
+        = 2\pi \delta(\omega-3)
+
+For $f(x) = \sum_{n=-\infty}^\infty \delta(x-2\pi n)$ the Fourier coefficients
+are all equal to $f_n={1\over 2\pi}$ and the Fourier transform is:
+
+.. math::
+
+    F[f(x)](\omega)
+        = 2\pi \sum_{n=-\infty}^\infty f_n \delta(\omega-n)
+        = \sum_{n=-\infty}^\infty \delta(\omega-n)
 
 Convergence of Fourier Series
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
