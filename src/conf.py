@@ -31,10 +31,22 @@ latex_preamble = r"""
 \usepackage{slashed}
 \usepackage{yfonts}
 \usepackage{mathrsfs}
+
+% New math operators
+
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\diag}{diag}
+\renewcommand\Re{\operatorname{Re}}
+\renewcommand\Im{\operatorname{Im}}
+
+
 \def\degrees{^\circ}
 \def\d{{\rm d}}
-
-\def\sign{\mathop{\mathrm{sign}}}
 \def\L{{\mathcal L}}
 \def\H{{\mathcal H}}
 \def\M{{\mathcal M}}
@@ -61,8 +73,12 @@ latex_preamble = r"""
 \newcommand{\bfc}{\mbox{\boldmath $c$}}
 \newcommand{\bfxi}{\mbox{\boldmath $\xi$}}
 
-\renewcommand\Re{\operatorname{Re}}
-\renewcommand\Im{\operatorname{Im}}
+% For the cyrillic Sha
+\DeclareFontFamily{U}{wncy}{}
+\DeclareFontShape{U}{wncy}{m}{n}{<->wncyr10}{}
+\DeclareSymbolFont{mcy}{U}{wncy}{m}{n}
+\DeclareMathSymbol{\Sh}{\mathord}{mcy}{"58}
+
 
 
 %\def\back{\!\!\!\!\!\!\!\!\!\!}
@@ -78,12 +94,10 @@ latex_preamble = r"""
 {#1}{#2}{#3}
 {#4}{#5}{#6}
 }\right\}}
-\def\diag{\hbox{diag}}
 
 \font\dsrom=dsrom10
 \def\one{\hbox{\dsrom 1}}
 
-\def\res{\mathop{\mathrm{Res}}}
 
 \def\mathnot#1{\text{"$#1$"}}
 
@@ -156,9 +170,6 @@ latex_preamble = r"""
 \font\mibsmall=cmmib7
 \def\bsigmasmall{\hbox{\mibsmall\char"1B}}
 
-\def\Tr{\hbox{Tr}\,}
-\def\Arg{\hbox{Arg}}
-\def\atan{\hbox{atan}}
 """
 
 pngmath_latex_preamble = latex_preamble

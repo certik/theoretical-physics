@@ -123,6 +123,20 @@ The Fourier transform of a shifted function, in 3D:
 
         = e^{i\bomega\cdot \mathbf{b}} F[f(\mathbf{x})]
 
+Scaling
+~~~~~~~
+
+For $a>0$:
+
+.. math::
+
+    F[f(ax)](\omega)
+        = \int_{-\infty}^{\infty} f(ax) e^{-i\omega x}\,\d x =
+
+        = {1\over a}\int_{-\infty}^{\infty} f(y) e^{-i{\omega\over a} y}\,\d y =
+
+        = {1\over a}F[f(x)]\left({\omega\over a}\right)
+
 Derivative
 ~~~~~~~~~~
 
@@ -177,6 +191,72 @@ from which:
         = i\omega_i \tilde f(\bomega)
         = i\omega_i F[f(\mathbf{x})]\,.
 
+Convolution
+~~~~~~~~~~~
+
+The convolution of two functions $f(x)$ and $g(x)$ is defined as:
+
+.. math::
+
+    f(x) * g(x) = \int_{-\infty}^\infty f(y) g(x-y) \,\d y
+
+The Fourier transform of a convolution is:
+
+.. math::
+
+    F[f(x) * g(x)](\omega)
+        = \int_{-\infty}^\infty \int_{-\infty}^\infty
+            f(y) g(x-y) \,\d y\, e^{-i\omega x}\d x =
+
+        = \int_{-\infty}^\infty \int_{-\infty}^\infty
+            g(x-y) e^{-i\omega x} \d x\, f(y) \,\d y =
+
+        = \int_{-\infty}^\infty \int_{-\infty}^\infty
+            g(u) e^{-i\omega (u+y)} \d u\, f(y) \,\d y =
+
+        = \int_{-\infty}^\infty g(u) e^{-i\omega u} \d u
+        \int_{-\infty}^\infty f(y) e^{-i\omega y} \d y
+
+        = F[f(x)](\omega)\ F[g(x)](\omega)
+
+And for the inverse transform:
+
+.. math::
+
+    F^{-1}[f(\omega) * g(\omega)](x)
+        = {1\over 2\pi} \int_{-\infty}^\infty \int_{-\infty}^\infty
+            f(y) g(\omega-y) \,\d y\, e^{i\omega x}\d \omega =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty \int_{-\infty}^\infty
+            g(\omega-y) e^{i\omega x} \d \omega\, f(y) \,\d y =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty \int_{-\infty}^\infty
+            g(u) e^{ix (u+y)} \d u\, f(y) \,\d y =
+
+        = 2\pi {1\over 2\pi} \int_{-\infty}^\infty g(u) e^{ix u} \d u
+        {1\over 2\pi}
+        \int_{-\infty}^\infty f(y) e^{ix y} \d y
+
+        = 2\pi F^{-1}[f(\omega)](x)\ F^{-1}[g(\omega)](x)
+
+Fourier transform of a function multiplication is:
+
+.. math::
+
+    F [ f g ]
+        = F [\ F^{-1}[ F[f] ]\quad  F^{-1}[ F[g] ]\ ]
+        = {1\over 2\pi} F [ F^{-1} [ F[f] * F[g] ]]
+        = {1\over 2\pi} F[f] * F[g]
+
+and for the inverse transform:
+
+.. math::
+
+    F^{-1} [ f g ]
+        = F^{-1} [\ F[ F^{-1}[f] ]\quad  F[ F^{-1}[g] ]\ ]
+        = F^{-1} [ F [ F^{-1}[f] * F^{-1}[g] ]]
+        = F^{-1}[f] * F^{-1}[g]
+
 Radial Fourier Transform
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -198,7 +278,7 @@ $\bomega$ vector and calculate (we use $r=|\mathbf{x}|$ and $\omega=|\bomega|$):
         = 2\pi \int_0^\infty\d r \int_0^\pi\d\theta f(r)
             e^{-i \omega r \cos\theta}\,r^2\sin\theta =
 
-        = 4\pi \int_0^\infty f(r) j_0(\omega r) \,r^2 \d r =
+        = 4\pi \int_0^\infty f(r) \sinc(\omega r) \,r^2 \d r =
 
         = 4\pi \int_0^\infty f(r) {\sin\omega r \over \omega r}\,r^2 \d r =
 
@@ -211,8 +291,10 @@ where we used:
     \int_0^\pi e^{-i \omega r \cos\theta}\,\sin\theta \d\theta
         = \int_{-1}^1 e^{i\omega r u} \d u
         = \left[e^{i\omega r u} \over i\omega r\right]_{-1}^1
-        = {e^{i\omega r} - e^{-i\omega r} \over i \omega r}
-        = 2 {\sin \omega r \over \omega r} = 2 j_0(\omega r)\,.
+        = {e^{i\omega r} - e^{-i\omega r} \over i \omega r} =
+
+        = 2 {\sin(\omega r) \over \omega r}
+        = 2 \sinc(\omega r) = 2 j_0(\omega r)\,.
 
 So the transform is real and spherically symmetric, since the result only
 depends on $\omega$.
@@ -235,6 +317,537 @@ Similarly, for the inverse transform:
         = {1\over 2\pi^2 r}
         \int_0^\infty \omega\sin(\omega r) f(\omega) \,\d \omega
 
+
+Examples
+~~~~~~~~
+
+Rectangular Function
+^^^^^^^^^^^^^^^^^^^^
+
+The rectangular function is defined as:
+
+.. math::
+
+    \Pi(x) = H(x+\half) - H(x-\half)
+
+The Fourier transform is:
+
+.. math::
+
+    F[\Pi(x)] \equiv \tilde \Pi(\omega)
+        = \int_{-\infty}^{\infty} \Pi(x) e^{-i\omega x}\,\d x
+        = \int_{-\half}^{\half} e^{-i\omega x}\,\d x =
+
+        = \left[e^{-i\omega x} \over -i\omega x\right]_{x=-\half}^\half
+        = {e^{i{\omega\over 2}} - e^{-i{\omega \over 2}} \over i
+            {\omega\over2}}
+        = 2{\sin({\omega \over 2}) \over {\omega \over 2}}
+        = 2\sinc\left({\omega\over 2}\right)\,.
+
+Dirichlet Kernel
+^^^^^^^^^^^^^^^^
+
+The Dirichlet kernel $D_N(x)$ is a partial sum of complex exponentials:
+
+.. math::
+
+    D_N(x) = {1\over 2\pi}\sum_{n=-N}^N e^{inx} =
+
+    = {1\over 2\pi}\left(1+2\sum_{n=1}^N \cos(nx)\right) =
+
+    = {1\over 2\pi \sin\left(x\over2\right)}\left(\sin\left(x\over2\right)
+        +2\sum_{n=1}^N \cos(nx)\sin\left(x\over2\right)\right) =
+
+    = {1\over 2\pi \sin\left(x\over2\right)}\left(\sin\left(x\over2\right)
+        +\sum_{n=1}^N\left(
+        \sin\left(\left(n+\half\right)x\right)
+        -\sin\left(\left(n-\half\right)x\right)
+        \right)\right) =
+
+    = {\sin\left(\left(N+\half\right)x\right)
+        \over 2\pi \sin\left(x\over2\right)}
+
+From the definition, it is a periodic function with period $2\pi$.
+
+Integral of it is equal to one:
+
+.. math::
+
+    \int_{-\pi}^\pi D_N(x) \d x
+    = \int_{-\pi}^\pi {1\over 2\pi}\left(1+2\sum_{n=1}^N \cos(nx)\right) \d x =
+
+    = 1 + {1\over \pi}\sum_{n=1}^N \int_{-\pi}^\pi  \cos(nx)\, \d x = 1
+
+also
+
+.. math::
+
+    \int_{-\pi}^\pi D_N(x-y) \d y = 1
+
+The Dirichlet kernel $D_N(x)$ converges towards a train of delta functions
+(called Dirac comb, see the equation :eq:`delta_exp2` in the next section):
+
+.. math::
+    :label: delta_exp
+
+    {1\over 2\pi}\sum_{n=-\infty}^\infty e^{inx}
+        = \lim_{N\to\infty} {1\over 2\pi}\sum_{n=-N}^N e^{inx}
+        = \lim_{N\to\infty} D_N(x) =
+
+        = \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
+            \over 2\pi \sin\left(x\over2\right)}
+        = \sum_{n=-\infty}^\infty \delta(x-2\pi n)
+
+Let us do the crucial step in more details using distributions:
+
+.. math::
+
+    \int_{-\infty}^\infty
+        \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
+            \over 2\pi \sin\left(x\over2\right)}
+        \varphi(x) \,\d x =
+
+    = \sum_{n=-\infty}^\infty \lim_{N\to\infty} \int_{-\pi}^\pi
+        {\sin\left(\left(N+\half\right)(x+2\pi n)\right)
+            \over 2\pi \sin\left(x+2\pi n\over2\right)}
+        \varphi(x+2\pi n) \,\d x =
+
+    = \sum_{n=-\infty}^\infty \varphi(2\pi n) =
+
+    =\int_{-\infty}^\infty \sum_{n=-\infty}^\infty \delta(x-2\pi n)
+        \varphi(x)\,\d x
+
+Where we used the fact that
+
+.. math::
+
+    \left[\lim_{N\to\infty} \int_{-\pi}^\pi
+        {\sin\left(\left(N+\half\right)(x+2\pi n)\right)
+            \over 2\pi \sin\left(x+2\pi n\over2\right)}
+        \varphi(x+2\pi n) \,\d x \right] - \varphi(2\pi n) =
+
+    = \left[\lim_{N\to\infty} \int_{-\pi}^\pi
+        D_N(x+2\pi n)
+        \varphi(x+2\pi n) \,\d x \right] - \varphi(2\pi n) =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        D_N(x+2\pi n)
+        \left(\varphi(x+2\pi n)-\varphi(2\pi n)\right) \,\d x =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        {\varphi(x+2\pi n)-\varphi(2\pi n)
+        \over 2\pi\sin\left(x+2\pi n\over 2\right)}
+        \sin\left(\left(N+\half\right)(x+2\pi n)\right)
+        \,\d x =
+
+    = 0
+
+Dirac Comb (Shah) Function
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Dirac comb function, also called the Shah function, is defined as:
+
+.. math::
+
+    \Sh(x) = \sum_{n=-\infty}^\infty \delta(x-n)
+
+It has the following scaling property:
+
+.. math::
+
+    \Sh(ax) = \sum_{n=-\infty}^\infty \delta(ax-n)
+    = \sum_{n=-\infty}^\infty \delta\left(a\left(x-{n\over a}\right)\right)
+    = \sum_{n=-\infty}^\infty {1\over|a|}\delta\left(x-{n\over a}\right)
+
+and for $a={1\over L}$ with $L>0$:
+
+.. math::
+
+    \Sh\left({x\over L}\right) = \sum_{n=-\infty}^\infty L\delta(x-nL)
+
+From which a train of delta functions $L$ distance apart is expressed using a
+Dirac comb as:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty \delta(x-nL) = {1\over L}\Sh\left({x\over L}\right)
+
+Using the identity :eq:`delta_exp`, the infinite sum of complex exponentials is
+also equal to a Dirac comb:
+
+.. math::
+    :label: delta_exp2
+
+    {1\over 2\pi}\sum_{n=-\infty}^\infty e^{inx}
+        = \lim_{N\to\infty} {1\over 2\pi}\sum_{n=-N}^N e^{inx}
+        = \lim_{N\to\infty} D_N(x) =
+
+        = \lim_{N\to\infty} {\sin\left(\left(N+\half\right)x\right)
+            \over 2\pi \sin\left(x\over2\right)}
+        = \sum_{n=-\infty}^\infty \delta(x-2\pi n)
+        = {1\over 2\pi}\Sh\left({x\over 2\pi}\right)
+
+Using :eq:`delta_exp2` we can now calculate the Fourier transform:
+
+.. math::
+
+    F[\Sh(x)](\omega) \equiv \tilde \Sh(\omega)
+        = \int_{-\infty}^{\infty} \Sh(x) e^{-i\omega x}\,\d x =
+
+        = \int_{-\infty}^{\infty} \sum_{n=-\infty}^\infty \delta(x-n)
+            e^{-i\omega x}\,\d x =
+
+        = \sum_{n=-\infty}^\infty \int_{-\infty}^{\infty} \delta(x-n)
+            e^{-i\omega x}\,\d x =
+
+        = \sum_{n=-\infty}^\infty e^{-i\omega n} =
+
+        = 2\pi \sum_{n=-\infty}^\infty \delta(\omega-2\pi n) =
+
+        = \Sh\left({\omega\over 2\pi}\right)
+
+For the inverse Fourier transform we get (using the previous result):
+
+.. math::
+
+    F^{-1}[\Sh(\omega)](x)
+        = F^{-1}\left[\ \Sh\left({(2\pi\omega)\over2\pi}\right) \ \right](x)
+        = F^{-1}[\ F[\Sh(x)](2\pi\omega) \ ](x)
+        = F^{-1}\left[\ F\left[{1\over2\pi}\Sh\left({x\over2\pi}\right)\right](\omega) \ \right](x)
+        = {1\over2\pi}\Sh\left({x\over2\pi}\right)
+
+The following Fourier transform is also useful:
+
+.. math::
+
+    F\left[\sum_{n=-\infty}^\infty \delta(x-nL)\right](\omega)
+        = F\left[{1\over L}\Sh\left({x\over L}\right)\right](\omega)
+        = F[\Sh(x)](L\omega) =
+
+        = \Sh\left({L\over 2\pi}\omega\right)
+        = \sum_{n=-\infty}^\infty {2\pi\over L}
+            \delta\left(x-{2\pi n\over L}\right)
+
+Periodic Summation
+^^^^^^^^^^^^^^^^^^
+
+The convolution $f(x) * g(x) = \int_{-\infty}^\infty f(y) g(x-y) \,\d y$ of a
+Dirac comb $\Sh(x)$ and an arbitrary function $f(x)$ is called a periodic
+summation:
+
+.. math::
+
+    f(x) * \Sh(x)
+        = \int_{-\infty}^\infty f(y) \Sh(x-y) \,\d y
+        = \int_{-\infty}^\infty f(y)
+            \sum_{n=-\infty}^\infty \delta(x-y-n) \,\d y =
+
+        = \sum_{n=-\infty}^\infty f(x-n)
+        = \sum_{n=-\infty}^\infty f(x+n)
+
+because the result is a periodic function with period 1:
+
+.. math::
+
+    (f * \Sh)(x+1)
+        = \sum_{n=-\infty}^\infty f(x+n+1)
+        = \sum_{m=-\infty}^\infty f(x+m)
+        = (f * \Sh)(x)
+
+Poisson Summation Formula
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Poisson summation formula:
+
+.. math::
+    :label: poisson_summation_formula
+
+    \sum_{n=-\infty}^\infty f(2\pi n)
+        = {1\over 2\pi} \sum_{n=-\infty}^\infty \tilde f(n)
+
+can be derived using a Dirac comb:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty f(2\pi n)
+        = \int_{-\infty}^\infty f(x) \sum_{n=-\infty}^\infty
+            \delta(x-2\pi n) \,\d x =
+
+        = \int_{-\infty}^\infty f(x) {1\over 2\pi}
+            \Sh\left(x\over2\pi\right) \,\d x =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty f(x) \cdot
+            F[\Sh(\omega)](x) \,\d x =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty F[f(x)](\omega) \cdot
+            \Sh(\omega) \,\d \omega =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty \tilde f(\omega) \cdot
+            \sum_{n=-\infty}^\infty \delta(\omega-n) \,\d \omega =
+
+        = {1\over 2\pi} \sum_{n=-\infty}^\infty \tilde f(x)
+
+An alternative derivation using Fourier series (see next sections):
+
+.. math::
+
+    \sum_{n=-\infty}^\infty f(x+2\pi n)
+        = g(x)
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
+            g(y) e^{-iny} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
+            \sum_{m=-\infty}^\infty f(y+2\pi m)
+            e^{-iny} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            \sum_{m=-\infty}^\infty
+            \int_{-\pi}^\pi
+            f(y+2\pi m)
+            e^{-in(y+2\pi m)} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            \int_{-\infty}^\infty
+            f(y) e^{-iny} \d y\,  e^{inx} =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            \tilde f(n) \,  e^{inx}
+
+And setting $x=0$ we get the Poisson summation formula
+:eq:`poisson_summation_formula`.
+
+The last derivation can actually also be done using a Dirac comb function as
+follows:
+
+.. math::
+
+    \sum_{n=-\infty}^\infty f(x+2\pi n)
+        = f(x) * {1\over2\pi}\Sh\left(x \over 2\pi \right ) =
+
+        = F^{-1}\left[\ F\left[f(x) * {1\over2\pi}\Sh\left(x \over
+            2\pi \right ) \right](\omega)\ \right](x) =
+
+        = F^{-1}\left[\ F[f(x)](\omega)\ F\left[{1\over2\pi}\Sh\left(x \over
+            2\pi \right )\right](\omega)\ \right](x) =
+
+        = F^{-1}[\ F[f(x)](\omega)\ \Sh(\omega)\ ](x) =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty
+            F[f(x)](\omega) \Sh(\omega) e^{i\omega x} \d x =
+
+        = \sum_{n=-\infty}^\infty {1\over 2\pi}
+            F[f(x)](n) \,  e^{inx}
+
+Fourier Series
+^^^^^^^^^^^^^^
+
+Consider a periodic function $f(x)$ with a period $L$ and let us calculate the
+Fourier transform of it. We define a new function $f_0(x)=f(x)$ in the
+$[0, L]$ interval and zero otherwise. Then:
+
+.. math::
+
+    f(x) = f_0(x) * {1\over L}\Sh\left(x\over L\right)
+        = \sum_{n=-\infty}^\infty f_0(x+Ln)
+
+Apply Fourier transform:
+
+.. math::
+    :label: ffrelation
+
+    F[f(x)](\omega)
+        = F\left[f_0(x)
+            * {1\over L}\Sh\left(x\over L\right)\right](\omega) =
+
+        = F[f_0(x)](\omega)\ F\left[{1\over L}\Sh\left(x\over L\right)\                    \right](\omega)
+        = F[f_0(x)](\omega)\ \Sh\left({L\over2\pi}\omega\right) =
+
+        = \sum_{n=-\infty}^\infty F[f_0(x)]\left({2\pi n\over L}\right)
+            \ {2\pi\over L}\delta\left(\omega-{2\pi n\over L}\right)=
+
+        = \sum_{n=-\infty}^\infty
+            \int_0^L f(x) e^{-i 2\pi n x / L} \d x
+                \ {2\pi\over L}\delta\left(\omega-{2\pi n\over L}\right)=
+
+        = 2\pi \sum_{n=-\infty}^\infty f_n
+            \delta\left(\omega-{2\pi n\over L}\right)
+
+where $f_n$ are called Fourier coefficients:
+
+.. math::
+
+    f_n = {1\over L} \int_0^L f(x) e^{-i2\pi n x / L} \d x
+
+We can see that the Fourier transform is zero for $\omega \neq {2\pi n\over
+L}$. For $\omega={2\pi n\over L}$ it is equal to a delta function times a
+$2\pi$ multiple of a Fourier series coefficient. The delta functions structure
+is given by the period $L$ of the function $f(x)$. All the information that is
+stored in the answer is inside the $f_n$ coefficients, so those are the only
+ones that we need to calculate and store.
+
+The function $f(x)$ is calculated from the $f_n$ coefficients by applying the
+inverse Fourier transform to the final result of :eq:`ffrelation` as follows:
+
+.. math::
+    :label: ffrelation2
+
+    f(x)
+        = F^{-1} [F[f(x)](\omega)](x) =
+
+        = F^{-1}\left[
+        2\pi \sum_{n=-\infty}^\infty f_n
+            \delta\left(\omega-{2\pi n\over L}\right)
+            \right](x) =
+
+        = {1\over 2\pi} \int_{-\infty}^\infty
+        2\pi \sum_{n=-\infty}^\infty f_n
+            \delta\left(\omega-{2\pi n\over L}\right)
+        e^{i\omega x}
+        \d \omega
+        =
+
+        = \sum_{n=-\infty}^\infty f_n e^{i 2\pi n x / L}
+
+The expansion :eq:`ffrelation2` is called a Fourier series. It is given by the
+Fourier coefficients $f_n$. The equation :eq:`ffrelation` provides the relation
+between a Fourier transform and a Fourier series.
+
+For example for $f(x) = \sin(x)$, the only nonzero Fourier coefficients for
+$L=2\pi$ are $f_{-1} = {i\over2}$ and $f_1 = -{i\over2}$. The Fourier transform
+then is:
+
+.. math::
+
+    F[\sin(x)](\omega)
+        = 2\pi\left(f_{-1}\delta(\omega-(-1)) + f_1\delta(\omega-1)\right) =
+
+        = 2\pi\left({i\over 2}\delta(\omega+1))
+            -{i\over2}\delta(\omega-1)\right)
+        = i\pi\delta(\omega+1) - i\pi\delta(\omega-1)
+
+For $f(x) = 1$ the only nonzero Fourier coefficient is $f_0=1$, the Fourier
+transform then is:
+
+.. math::
+
+    F[1](\omega)
+        = 2\pi f_0 \delta(\omega-0)
+        = 2\pi \delta(\omega)
+
+For $f(x) = e^{3ix}$ the only nonzero Fourier coefficient for $L=2\pi$ is
+$f_3=1$, the Fourier transform then is:
+
+.. math::
+
+    F[e^{3ix}](\omega)
+        = 2\pi f_3 \delta(\omega-3)
+        = 2\pi \delta(\omega-3)
+
+For $f(x) = \sum_{n=-\infty}^\infty \delta(x-2\pi n)$ the Fourier coefficients
+for $L=2\pi$ are all equal to $f_n={1\over 2\pi}$ and the Fourier transform is:
+
+.. math::
+
+    F[f(x)](\omega)
+        = 2\pi \sum_{n=-\infty}^\infty f_n \delta(\omega-n)
+        = \sum_{n=-\infty}^\infty \delta(\omega-n)
+
+
+Note: if we start from :eq:`ffrelation2`, for simplicity on an interval $[-\pi,
+\pi]$:
+
+.. math::
+    :label: fs1
+
+    f(x) = \sum_{n=-\infty}^\infty f_n e^{inx}
+
+To calculate the Fourier coefficients $f_n$, we can just multiply both sides of
+:eq:`fs1` by $e^{-imx}$ and integrate:
+
+.. math::
+
+    \int_{-\pi}^\pi f(x) e^{-imx} \d x
+        = \int_{-\pi}^\pi \sum_{n=-\infty}^\infty f_n e^{inx} e^{-imx} \d x =
+
+        = \sum_{n=-\infty}^\infty f_n \int_{-\pi}^\pi e^{i(n-m)x} \d x =
+
+        = \sum_{n=-\infty}^\infty f_n 2\pi\delta_{nm} =
+
+        = 2\pi f_m \,,
+
+so
+
+.. math::
+    :label: fs2
+
+    f_n = {1\over2\pi} \int_{-\pi}^\pi f(x) e^{-inx} \d x
+
+
+Convergence of Fourier Series
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To see what conditions the function $f(x)$ must satisfy in order for the
+Fourier series to converge towards it, we can do the following analysis.
+Substituting :eq:`fs2` into :eq:`fs1` yields:
+
+
+.. math::
+
+    f(x) = \sum_{n=-\infty}^\infty {1\over 2\pi}\int_{-\pi}^\pi
+        f(y) e^{-iny} \d y\,  e^{inx} =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        {1\over 2\pi}\sum_{n=-N}^N e^{in(x-y)} f(y) \d y =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi D_N(x-y) f(y) \d y
+
+We can now calculate the difference between the Fourier series and the function
+value:
+
+.. math::
+
+    \lim_{N\to\infty} \int_{-\pi}^\pi D_N(x-y) f(y) \d y - f(x) =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi D_N(x-y) \left(f(y)-f(x)\right) \d y =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi
+        {\sin\left(\left(N+\half\right)(x-y)\right)
+            \over 2\pi \sin\left(x-y\over2\right)}
+        \left(f(y)-f(x)\right) \d y =
+
+    = \lim_{N\to\infty} \int_{-\pi}^\pi {f(y)-f(x)\over
+        2\pi\sin\left(x-y\over 2\right)}
+        \sin\left(\left(N+\half\right)(x-y)\right) \d y =
+
+    = \lim_{N\to\infty} \int_{x-\pi}^{x+\pi} {f(x-u)-f(x)\over
+        2\pi\sin\left(u\over 2\right)}
+        \sin\left(\left(N+\half\right)u\right) \d u =
+
+    = \lim_{N\to\infty} \int_{x-\pi}^{x+\pi} h(u)
+        \sin\left(\left(N+\half\right)u\right) \d u = 0
+
+where $h(u)$ is finite and well behaved at the origin $u=0$:
+
+.. math::
+
+    h(u) = {f(x-u)-f(x)\over 2\pi\sin\left(u\over 2\right)}
+        = - {f'(x)\over \pi} + {f''(x)\over 2\pi} u + O(u^2)
+
+The integral is zero because the more and more oscillating $\sin$ function
+cancels the contributions of positive and negative parts of the integrand. This
+can be proven explicitly as follows using the fact that $h(x)$, $h'(x)$ and
+$\cos(Nx)$ is bounded as $N\to\infty$:
+
+.. math::
+
+    \lim_{N\to\infty} \int_a^b h(x) \sin(Nx)\,\d x =
+
+    = \lim_{N\to\infty}{1\over N} \left(\left[-h(x)\cos(Nx)\right]_a^b
+    + \int_a^b h'(x) \cos(Nx)\,\d x \right) = 0
+
+The conditions that we used are that the function $h(u)$ can be integrated,
+which is satisfied if e.g. $f(x)$ has derivatives. These conditions can be
+loosened in various ways.
 
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
