@@ -641,14 +641,14 @@ follows:
 Fourier Series
 ^^^^^^^^^^^^^^
 
-Consider a periodic function $f(x)$ with period $2\pi$ and let us calculate the
-Fourier transform of it. We define a new function $f_0(x)=f(x)$ in the the
-$[-\pi, \pi]$ interval and zero otherwise. Then:
+Consider a periodic function $f(x)$ with a period $L$ and let us calculate the
+Fourier transform of it. We define a new function $f_0(x)=f(x)$ in the
+$[0, L]$ interval and zero otherwise. Then:
 
 .. math::
 
-    f(x) = f_0(x) * {1\over 2\pi}\Sh\left(x\over2\pi\right)
-        = \sum_{n=-\infty}^\infty f_0(x+2\pi n)
+    f(x) = f_0(x) * {1\over L}\Sh\left(x\over L\right)
+        = \sum_{n=-\infty}^\infty f_0(x+Ln)
 
 Apply Fourier transform:
 
@@ -657,30 +657,33 @@ Apply Fourier transform:
 
     F[f(x)](\omega)
         = F\left[f_0(x)
-            * {1\over 2\pi}\Sh\left(x\over2\pi\right)\right](\omega) =
+            * {1\over L}\Sh\left(x\over L\right)\right](\omega) =
 
-        = F[f_0(x)](\omega)\ F\left[{1\over 2\pi}\Sh\left(x\over2\pi\right)\                    \right](\omega)
-        = F[f_0(x)](\omega)\ \Sh(\omega) =
+        = F[f_0(x)](\omega)\ F\left[{1\over L}\Sh\left(x\over L\right)\                    \right](\omega)
+        = F[f_0(x)](\omega)\ \Sh\left({L\over2\pi}\omega\right) =
 
-        = \sum_{n=-\infty}^\infty F[f_0(x)](n) \ \delta(\omega-n)=
+        = \sum_{n=-\infty}^\infty F[f_0(x)]\left({2\pi n\over L}\right)
+            \ {2\pi\over L}\delta\left(\omega-{2\pi n\over L}\right)=
 
         = \sum_{n=-\infty}^\infty
-            \int_{-\pi}^\pi f(x) e^{-i n x} \d x \ \delta(\omega-n) =
+            \int_0^L f(x) e^{-i 2\pi n x / L} \d x
+                \ {2\pi\over L}\delta\left(\omega-{2\pi n\over L}\right)=
 
-        = 2\pi \sum_{n=-\infty}^\infty f_n \delta(\omega-n)
+        = 2\pi \sum_{n=-\infty}^\infty f_n
+            \delta\left(\omega-{2\pi n\over L}\right)
 
 where $f_n$ are called Fourier coefficients:
 
 .. math::
 
-    f_n = {1\over2\pi} \int_{-\pi}^\pi f(x) e^{-inx} \d x
+    f_n = {1\over L} \int_0^L f(x) e^{-i2\pi n x / L} \d x
 
-We can see that the Fourier transform is zero for $\omega \neq n$. For
-$\omega=n$ it is equal to a delta function times a $2\pi$ multiple of a Fourier
-series coefficient. The delta functions structure is given by the period of
-the function $f(x)$. All the information that is stored in the answer is inside
-the $f_n$ coefficients, so those are the only ones that we need to calculate
-and store.
+We can see that the Fourier transform is zero for $\omega \neq {2\pi n\over
+L}$. For $\omega={2\pi n\over L}$ it is equal to a delta function times a
+$2\pi$ multiple of a Fourier series coefficient. The delta functions structure
+is given by the period $L$ of the function $f(x)$. All the information that is
+stored in the answer is inside the $f_n$ coefficients, so those are the only
+ones that we need to calculate and store.
 
 The function $f(x)$ is calculated from the $f_n$ coefficients by applying the
 inverse Fourier transform to the final result of :eq:`ffrelation` as follows:
@@ -692,24 +695,26 @@ inverse Fourier transform to the final result of :eq:`ffrelation` as follows:
         = F^{-1} [F[f(x)](\omega)](x) =
 
         = F^{-1}\left[
-        2\pi \sum_{n=-\infty}^\infty f_n \delta(\omega-n)
+        2\pi \sum_{n=-\infty}^\infty f_n
+            \delta\left(\omega-{2\pi n\over L}\right)
             \right](x) =
 
         = {1\over 2\pi} \int_{-\infty}^\infty
-        2\pi \sum_{n=-\infty}^\infty f_n \delta(\omega-n)
+        2\pi \sum_{n=-\infty}^\infty f_n
+            \delta\left(\omega-{2\pi n\over L}\right)
         e^{i\omega x}
         \d \omega
         =
 
-        = \sum_{n=-\infty}^\infty f_n e^{i n x}
+        = \sum_{n=-\infty}^\infty f_n e^{i 2\pi n x / L}
 
 The expansion :eq:`ffrelation2` is called a Fourier series. It is given by the
 Fourier coefficients $f_n$. The equation :eq:`ffrelation` provides the relation
 between a Fourier transform and a Fourier series.
 
-For example for $f(x) = \sin(x)$, the only nonzero Fourier
-coefficients are $f_{-1} = {i\over2}$ and $f_1 = -{i\over2}$. The Fourier
-transform then is:
+For example for $f(x) = \sin(x)$, the only nonzero Fourier coefficients for
+$L=2\pi$ are $f_{-1} = {i\over2}$ and $f_1 = -{i\over2}$. The Fourier transform
+then is:
 
 .. math::
 
@@ -729,8 +734,8 @@ transform then is:
         = 2\pi f_0 \delta(\omega-0)
         = 2\pi \delta(\omega)
 
-For $f(x) = e^{3ix}$ the only nonzero Fourier coefficient is $f_3=1$, the
-Fourier transform then is:
+For $f(x) = e^{3ix}$ the only nonzero Fourier coefficient for $L=2\pi$ is
+$f_3=1$, the Fourier transform then is:
 
 .. math::
 
@@ -739,7 +744,7 @@ Fourier transform then is:
         = 2\pi \delta(\omega-3)
 
 For $f(x) = \sum_{n=-\infty}^\infty \delta(x-2\pi n)$ the Fourier coefficients
-are all equal to $f_n={1\over 2\pi}$ and the Fourier transform is:
+for $L=2\pi$ are all equal to $f_n={1\over 2\pi}$ and the Fourier transform is:
 
 .. math::
 
@@ -748,14 +753,15 @@ are all equal to $f_n={1\over 2\pi}$ and the Fourier transform is:
         = \sum_{n=-\infty}^\infty \delta(\omega-n)
 
 
-Consider a periodic function on an interval $[-\pi, \pi]$:
+Note: if we start from :eq:`ffrelation2`, for simplicity on an interval $[-\pi,
+\pi]$:
 
 .. math::
     :label: fs1
 
     f(x) = \sum_{n=-\infty}^\infty f_n e^{inx}
 
-To calculate the Fourier coefficients $f_n$, we multiply both sides of
+To calculate the Fourier coefficients $f_n$, we can just multiply both sides of
 :eq:`fs1` by $e^{-imx}$ and integrate:
 
 .. math::
