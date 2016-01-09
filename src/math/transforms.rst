@@ -516,6 +516,18 @@ For the inverse Fourier transform we get (using the previous result):
         = F^{-1}\left[\ F\left[{1\over2\pi}\Sh\left({x\over2\pi}\right)\right](\omega) \ \right](x)
         = {1\over2\pi}\Sh\left({x\over2\pi}\right)
 
+The following Fourier transform is also useful:
+
+.. math::
+
+    F\left[\sum_{n=-\infty}^\infty \delta(x-nL)\right](\omega)
+        = F\left[{1\over L}\Sh\left({x\over L}\right)\right](\omega)
+        = F[\Sh(x)](L\omega) =
+
+        = \Sh\left({L\over 2\pi}\omega\right)
+        = \sum_{n=-\infty}^\infty {2\pi\over L}
+            \delta\left(x-{2\pi n\over L}\right)
+
 Periodic Summation
 ^^^^^^^^^^^^^^^^^^
 
