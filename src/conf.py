@@ -23,7 +23,14 @@ sys.path.append(os.path.abspath('../exts'))
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.pngmath', "math_dollar"]
+extensions = ["math_dollar"]
+
+# Select one of the two:
+extensions += ['sphinx.ext.pngmath']
+#extensions += ['sphinx.ext.mathjax']
+
+# Point MathJax to a local installation:
+#mathjax_path="file:///path/to/MathJax/MathJax.js?config=TeX-AMS_HTML-full"
 
 latex_preamble = r"""
 \usepackage{dsfont}
