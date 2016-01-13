@@ -93,6 +93,14 @@ in other words, the integral vanishes unless $a < t < b$. In the limit $a\to
 
     \theta(t-a) \to \theta(t - (-\infty)) = \theta(t+\infty) = 1
 
+Another integral that converges to a delta function is:
+
+.. math::
+
+    {1\over 2\pi} \int_{-\infty}^\infty e^{i\omega x} \d x
+        = \lim_{L\to\infty} {1\over 2\pi} \int_{-L}^L e^{i\omega x} \d x
+        = \lim_{L\to\infty} {\sin \omega L \over \pi \omega} = \delta(\omega)
+
 Distributions
 -------------
 
