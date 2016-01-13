@@ -1,4 +1,5 @@
 {% extends "!layout.html" %}
+
 {% block extrahead %}
     <script type="text/javascript">
 
@@ -13,5 +14,22 @@
       })();
 
     </script>
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    <div style="display:none">
+    \(
+        \newcommand{\d}{\mathrm{d}}
+        \newcommand{\bomega}{\vec\omega}
+        \newcommand{\half}{ {1\over 2} }
+
+        %operators
+        \newcommand{\diag}{\mathrm{diag}}
+        \newcommand{\sinc}{\mathrm{sinc}}
+        \newcommand{\Sh}{ {\large\style{font-family:Times}{\text{Ш}}} }
+        \newcommand{\res}{\mathrm{Res}}
+    \)
+    </div>
     {{ super() }}
 {% endblock %}
