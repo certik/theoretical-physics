@@ -237,6 +237,28 @@ Proof of $\delta(cx) = {\delta(x)\over |c|}$:
     =
     \int {\delta(x)\over |c|}\varphi(x)\d x
 
+To prove that $\lim_{L\to\infty} {1\over\pi x}\sin(L x)=\delta(x)$ we do the
+following calculation:
+
+.. math::
+
+    \left[\int_{-\infty}^\infty \lim_{L\to\infty} {1\over\pi x}\sin(L x)
+        \varphi(x) \d x\right] - \varphi(0) =
+
+    = \lim_{L\to\infty} \int_{-\infty}^\infty {1\over\pi x}\sin(L x)
+        (\varphi(x)-\varphi(0)) \d x =
+
+    = \lim_{L\to\infty} {1\over\pi} \int_{-\infty}^\infty
+        {\varphi(x)-\varphi(0)\over x} \sin(L x) \d x =
+
+    = \lim_{L\to\infty} {1\over\pi} \int_{-\infty}^\infty
+        h(x) \sin(L x) \d x = 0
+
+where the function $h(x) = {\varphi(x)-\varphi(0)\over x}$ is bounded and $h(0)
+=\lim_{x\to0}{\varphi(x)-\varphi(0)\over x}=\varphi'(0)$ is finite since the
+test function $\varphi(x)$ is infinitely differentiable. From the
+Riemann–Lebesgue lemma, the integral then converges towards zero as
+$L\to\infty$.
 
 .. index:: variation, functional derivative
 
