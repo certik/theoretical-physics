@@ -35,6 +35,7 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] && [[ "$ACTUAL_TRAVIS_JOB_NUMBER" == 
         cd tfn-deploy
         rm -rf dev/
         cp -r ../_build/html/ dev/
+        cp -r ../_build/html_mathjax/ dev/
         cp -r ../_build/latex/theoretical-physics.pdf dev/
         git add dev
         git commit -am "Deploy after building $TRAVIS_BUILD_NUMBER"
