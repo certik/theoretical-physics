@@ -34,11 +34,18 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 html:
+	rm -f src/use_mathjax.cfg
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
-web: html latexpdf
+html_mathjax:
+	touch src/use_mathjax.cfg
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html_mathjax
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html_mathjax."
+
+web: html latexpdf html_mathjax
 
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
