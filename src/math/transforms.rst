@@ -849,6 +849,81 @@ The conditions that we used are that the function $h(u)$ can be integrated,
 which is satisfied if e.g. $f(x)$ has derivatives. These conditions can be
 loosened in various ways.
 
+Further Notes About Convergence
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Convergence $f_n\to f$ in distributions means that
+$\int f_n(x) \varphi(x) \d x = \int f(x) \varphi(x)\d x$ for all test functions
+$\varphi(x)$. This is called a weak convergence. To be even more precise, it is
+actually called a weak* convergence. A strong convergence means $\| f_n - f\|
+\to 0$ in some norm, for example the $L^2$ norm.
+
+The test functions are infinitely differentiable functions with compact support
+(i.e. nonzero on a finite interval), then the dual space is called
+distributions. The other widely used space are tempered distributions, where
+the test functions are infinitely differentiable functions that decay faster
+than any polynomial at infinity.
+
+Note: The definition of the integral is extended in the usual way to work when
+$f_n(x)$ or $f(x)$ are not regular functions but distributions (e.g.  a delta
+function), i.e. one can instead write $\braket{f_n|\varphi}=
+\braket{f|\varphi}$, where $\braket{T|\varphi}$ means the application of the
+distribution/functional $T$ on a test function $\varphi(x)$, producing a scalar
+value. We will continue using the (extended) integral notation, as there is no
+danger of ambiguities and it is a clear notation.
+
+This weak convergence is the only convergence that we can talk about in
+distributions.  If both $f_n$ and $f$ are from the $L^2(\R)$ space, and
+if the sequence $f_n$ is bounded (in the $L^2$ norm), then the sequence $f_n$
+converges weakly in $L^2(\R)$.
+
+This can be easily proven as follows:
+
+.. math::
+
+    | \braket{f_n - f| g} |
+        =  | \braket{f_n - f | g - \varphi + \varphi} |
+        \le | \braket{f_n - f | g - \varphi} | +  | \braket{f_n - f | \varphi} | \le
+
+        \le \| f_n - f \| \| g - \varphi \| + | \braket{f_n - f | \varphi} |
+        \le K \| g - \varphi \| + | \braket{f_n - f | \varphi} |
+
+where we used the fact that $\| f_n - f \| \le K$ for all $n$, since $f_n$ is
+bounded. In the limit the second term $| \braket{f_n - f | \varphi}|$ goes to
+zero because $f_n$ converges weakly to $f$ in distributions (i.e. for all test
+functions $\varphi(x)$) and we get:
+
+.. math::
+
+    \lim_{n\to\infty} | \braket{f_n - f| g} |
+        \le K \| g - \varphi \|
+
+$\varphi(x)$ is arbitrary and since it is dense in $L^2$, we can make
+$\| g - \varphi \|$ arbitrarily small, thus we get:
+
+.. math::
+
+    \lim_{n\to\infty} | \braket{f_n - f| g} | = 0
+
+for all test functions $g$ from $L^(\R)$, i.e. a weak convergence in $L^2$.
+
+The fact that both $f_n$ and $f$ must be from $L^2$ is obvious, for example if
+the sequence $f_n$ converged to a delta function $f=\delta(x)$ (which is not
+from $L^2$), then we cannot talk about a strong convergence at all, since
+$\| f_n - f\|_2$ is not defined.
+
+The only other condition is that $f_n$ is bounded in $L^2$. A counter example
+if $f_n$ is not bounded is $f_n=...$ THE MOVING DELTA FUNCTIONS.
+
+The conclusion is that if $f_n$ and $f$ are from $L^2$, then the weak
+convergence in distributions implies weak convergence in $L^2$, as long as
+$f_n$ is bounded. This is a very useful result, since we can simply work in
+distributions where things are easy to prove using the nice test functions.
+Then we just have to check that $f_n$ is bounded and we get weak convergence in
+$L^2$. Once we get weak convergence in $L^2$, then we can forget about
+distributions and simply work in $L^2$ and prove e.g. a strong convergence
+using some additional assumptions.
+
 Fourier Transform of a Periodic Function (e.g. in a Crystal)
 ------------------------------------------------------------
 
