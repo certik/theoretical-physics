@@ -1496,3 +1496,72 @@ and making a substitution $s = \sigma + i\omega$:
 
 Where the bar ($\bar f$) means the Laplace transform and tilde ($\tilde U$)
 means the Fourier transform.
+
+Hilbert Transform
+-----------------
+
+The Hilbert transform is:
+
+.. math::
+
+    H[f(x)](t) \equiv \bar f(t)
+        = \mathrm{p.v.} {1\over\pi t} * f(t)
+        = {1\over\pi} \mathrm{p.v.}
+            \int_{-\infty}^{\infty} {f(x)\over t-x}\,\d x
+
+By applying the Fourier transform to both sides of the equation, we get:
+
+.. math::
+
+    F[H[f(x)](t)](\omega)
+        = F\left[\mathrm{p.v.} {1\over\pi t} * f(t)\right](\omega)
+        = F\left[\mathrm{p.v.} {1\over\pi t}\right](\omega) F[f(t)](\omega)
+        = -i\sign(\omega) F[f(t)](\omega)
+
+So the Hilbert transform can be calculated using a Fourier transform as:
+
+.. math::
+
+    H[f](t) = F^{-1}\left[-i\sign(\omega) F[f](\omega)\right](t)
+
+The inverse Hilbert transform can then be calculated by inverting:
+
+.. math::
+
+    F^{-1}\left[-i\sign(\omega) F[f(x)](\omega)\right](t)
+        = H[f](t) = \bar f(t)
+
+    -i\sign(\omega) F[f(x)](\omega) = F[\bar f(t)](\omega)
+
+    F[f(x)](\omega) = i \sign(\omega) F[\bar f(t)](\omega)
+
+    f(x) = F^{-1}\left[i \sign(\omega) F[\bar f(t)](\omega)\right](x)
+
+so we get:
+
+.. math::
+
+    H^{-1}[\bar f(t)](x) = f(x)
+        = F^{-1}\left[i \sign(\omega) F[\bar f(t)](\omega)\right](x)=
+
+        = - F^{-1}\left[-i \sign(\omega) F[\bar f(t)](\omega)\right](x) =
+
+        = - H[\bar f(t)](x) =
+
+        = - {1\over\pi} \mathrm{p.v.}
+            \int_{-\infty}^{\infty} {\bar f(t)\over x-t}\,\d t
+
+From this it also follows:
+
+.. math::
+
+    \bar f(t) = - H[H[\bar f(t)](x)](t)
+
+or
+
+.. math::
+
+    H[H[f(x)](t)](x) = -f(x)
+
+In other words, by applying the Hilbert transform twice, the result is the
+negative of a function.
