@@ -1392,25 +1392,25 @@ The kinetic energy is
 
 .. math::
 
-    E_{kin} = \int d^3 x \int 2 {\d^3p\over (2\pi)^3} {p^2\over 2}
+    E_{kin} = \int \d^3 x \int 2 {\d^3p\over (2\pi)^3} {p^2\over 2}
         {1\over e^{\beta(E-\mu)}+1}
     =
 
-    = \int d^3 x \int_0^\infty 2 {4\pi p^2 \d p\over (2\pi)^3} {p^2\over 2}
+    = \int \d^3 x \int_0^\infty 2 {4\pi p^2 \d p\over (2\pi)^3} {p^2\over 2}
         {1\over e^{\beta(E-\mu)}+1} =
 
-    = \int d^3 x \int_0^\infty 2 {4\pi \sqrt 2\sqrt \epsilon \d \epsilon \over
+    = \int \d^3 x \int_0^\infty 2 {4\pi \sqrt 2\sqrt \epsilon \d \epsilon \over
         (2\pi)^3} \epsilon {1\over e^{\beta(\epsilon + V({\bf x})-\mu)}+1} =
 
-    = {\sqrt 2 \over \pi^2} \int d^3 x \int_0^\infty
+    = {\sqrt 2 \over \pi^2} \int \d^3 x \int_0^\infty
         {\epsilon^{3\over2} \d \epsilon \over
         e^{\beta(\epsilon + V({\bf x})-\mu)}+1} =
 
-    = {\sqrt 2 \over \pi^2 \beta^{5\over2}} \int d^3 x \int_0^\infty
+    = {\sqrt 2 \over \pi^2 \beta^{5\over2}} \int \d^3 x \int_0^\infty
         {y^{3\over2} \d y \over e^{y - \beta(\mu -V({\bf x}))}+1} =
 
     = {\sqrt 2 \over \pi^2 \beta^{5\over2}}
-        \int I_{3\over2}\left(\beta(\mu - V({\bf x}))\right) d^3 x
+        \int I_{3\over2}\left(\beta(\mu - V({\bf x}))\right) \d^3 x
 
 From the last formula it can be shown that the kinetic energy is equal to
 
