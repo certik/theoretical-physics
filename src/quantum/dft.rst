@@ -1168,25 +1168,60 @@ the former.
 Top Down Approach
 ~~~~~~~~~~~~~~~~~
 
-We start with a grand potential:
+We start with a grand potential for fermions:
 
 .. math::
 
-    \Omega[\beta, \mu] = -{1\over \pi^2 \beta}
+    \Omega[\beta, \mu]
+    = -\sum_i {1\over\beta}
+        \log\left(\sum_{N=0}^1 e^{-\beta\left(N\epsilon_i - N\mu\right)}\right)
+            =
+
+    = -\sum_i {1\over\beta}
+        \log\left(1 + e^{-\beta\left(\epsilon_i - \mu\right)}\right)
+            =
+
+    = -{1\over\beta}
+        \int \int {2\d^3 x \d^3 p \over (2\pi)^3} \log\left(1 +
+            e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right)
+            -E_{ee} =
+
+    = -{2\over\beta}
+        \int \d^3 x \int_0^\infty{ 4\pi p^2 \d p \over (2\pi)^3} \log\left(1 +
+            e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right)
+            -E_{ee} =
+
+    = -{1\over \pi^2 \beta}
         \int \d^3 x \int_0^\infty p^2 \log\left(1 +
-            e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right) \d p =
+            e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right) \d p
+            -E_{ee} =
 
     = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
         \int \d^3 x \int_0^\infty {u^{3\over2} \over
-            1 + e^{u-\beta\left(\mu-V({\bf x})\right)}} \d u =
+            1 + e^{u-\beta\left(\mu-V({\bf x})\right)}} \d u -E_{ee} =
 
     = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
         \int I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right) \,\d^3 x
+        -E_{ee} =
+
+    = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        \int I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right) \,\d^3 x
+        -\half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,.
 
 The potential
 $V({\bf x}) = V_{en}({\bf x}) + V_{ee}({\bf x}) + V_{xc}({\bf x})$
 is the total potential that the electrons experience (it contains nuclear,
-Hartree, and XC terms) The density is a functional derivative with respect to
+Hartree, and XC terms) and $E_{ee}$ is the Hartree energy:
+
+.. math::
+
+    E_{ee}
+        = \half \int {n_e(\mathbf{x}) n_e(\mathbf{x}')\over
+            |\mathbf{x} - \mathbf{x}'|}\d^3 x\d^3 x'
+        = \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,.
+
+
+The density is a functional derivative with respect to
 $\mu$:
 
 .. math::
@@ -1218,33 +1253,61 @@ we can express the grand potential using $n_e$ as follows:
     \Omega[\beta, n_e]
         = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+          - \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,.
 
 Now we can calculate the free energy:
 
 .. math::
 
     F_e[\beta, n_e] = \Omega[\beta, n_e] + \mu N
-        = \Omega[\beta, n_e] + \mu \int n_e({\bf x}) \,\d^3 x
+        = \Omega[\beta, n_e] + \mu \int n_e({\bf x}) \,\d^3 x =
+
         = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
               I_{3\over2}(\Phi(n_e({\bf x})))
-            + \mu n_e({\bf x}) \right)\d^3 x =
+            + \mu n_e({\bf x})
+            - \half n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \right)\d^3 x =
 
         = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
               I_{3\over2}(\Phi(n_e({\bf x})))
             + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
-                + n_e({\bf x}) V({\bf x}) \right)\d^3 x
+                + n_e({\bf x}) V({\bf x})
+                - \half n_e(\mathbf{x}) V_{ee}(\mathbf{x})
+                \right)\d^3 x =
+
+        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+              I_{3\over2}(\Phi(n_e({\bf x})))
+            + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
+                + n_e({\bf x})\left( V_{en}({\bf x})
+                  +\half V_{ee}(\mathbf{x})
+                  + V_{xc}(\mathbf{x}) \right)
+                \right)\d^3 x\,,
 
 where we used the fact that $\mu = {1\over \beta} \Phi(n_e({\bf x})) + V({\bf
 x})$, i.e. the left hand side $\mu$ is a constant, thus the sum of the terms on
 the right hand side is also constant (even though the individual terms are
 not).
 
-We can calculate pressure (times volume):
+To determine the kinetic part of the free energy, we set all potentials equal
+to zero ($V({\bf x}) = V_{en}({\bf x}) = V_{ee}({\bf x}) = V_{xc}({\bf x}) =
+0$) and obtain:
+
+.. math::
+
+    F_{kin}[\beta, n_e]
+        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+              I_{3\over2}(\Phi(n_e({\bf x})))
+            + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
+                \right)\d^3 x\,.
+
+If the potentials are zero, then the pressure (times volume) can be calculated
+from:
 
 .. math::
 
     PV = -\Omega[\beta, n_e] = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \,\d^3 x
+    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\beta\mu) \,\d^3 x
 
 Bottom Up Approach
 ~~~~~~~~~~~~~~~~~~
@@ -1383,6 +1446,14 @@ The free energy is equal to:
     F = E - TS = -{2\over3}E_{kin} - E_{ee} + \mu N =
 
         = -PV + {1\over3}E_{en} - {2\over3}E_{ee} +\mu N
+
+The grand potential is equal to:
+
+.. math::
+
+    \Omega = F - \mu N = -{2\over3}E_{kin} - E_{ee} =
+
+        = -PV + {1\over3}E_{en} - {2\over3}E_{ee}
 
 We can now express the free energy functional $F_e[\beta, n_e]$ as a function
 of the density:
