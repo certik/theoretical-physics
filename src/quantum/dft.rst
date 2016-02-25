@@ -1287,6 +1287,53 @@ x})$, i.e. the left hand side $\mu$ is a constant, thus the sum of the terms on
 the right hand side is also constant (even though the individual terms are
 not).
 
+We can calculate the entropy
+$S=-\left(\partial\Omega\over\partial T\right)_{V,\mu}$ as follows:
+
+.. math::
+
+    TS
+        =-T \left(\partial\Omega\over\partial T\right)_{V,\mu} =
+
+        =\beta \left(\partial\Omega\over\partial \beta\right)_{V,\mu} =
+
+        =\beta {\partial\over\partial \beta}\left(
+            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            - E_{ee}
+        \right) =
+
+        =\beta {\partial\over\partial \beta}\left(
+            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+        \right) =
+
+        =\beta \left(
+            {5\over2}{2\sqrt2 \over 3 \pi^2 \beta^{7\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int {3\over2} I_{1\over2}(\Phi(n_e({\bf x})))
+                {\partial\Phi(n_e({\bf x}))\over\partial\beta}
+            \, \d^3 x
+        \right) =
+
+        =\beta \left(
+            {5\over2}{2\sqrt2 \over 3 \pi^2 \beta^{7\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int {3\over2} I_{1\over2}(\Phi(n_e({\bf x})))
+                (\mu-V({\bf x}))
+            \, \d^3 x
+        \right) =
+
+        = {5\over2}{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            - \int n_e({\bf x}) (\mu-V({\bf x})) \, \d^3 x =
+
+        = {5\over3}{\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            -\mu N + E_{en}+2E_{ee} + E_{xc}
+
 To determine the kinetic part of the free energy, we set all potentials equal
 to zero ($V({\bf x}) = V_{en}({\bf x}) = V_{ee}({\bf x}) = V_{xc}({\bf x}) =
 0$) and obtain:
