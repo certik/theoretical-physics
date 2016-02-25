@@ -1361,6 +1361,17 @@ From which we can see that the kinetic energy $E_{kin}$ is equal to:
         = {\sqrt2 \over \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
 
+The relation between the total energy and free energy can be also written as:
+
+.. math::
+
+    E = F + TS = F +
+        \beta \left(\partial\Omega\over\partial \beta\right)_{V,\mu} =
+
+        = F + \beta \left(\partial F\over\partial \beta\right)_{V,\mu}
+        = \left(\partial (\beta F)\over\partial \beta\right)_{V,\mu}
+
+But it gives the same result as we obtained above.
 
 To determine the kinetic part of the free energy, we set all potentials equal
 to zero ($V({\bf x}) = V_{en}({\bf x}) = V_{ee}({\bf x}) = V_{xc}({\bf x}) =
