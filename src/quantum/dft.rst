@@ -1387,6 +1387,55 @@ from:
             \int I_{3\over2}(\beta\mu) \,\d^3 x
     = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu) \,.
 
+Summary:
+
+.. math::
+
+    \Omega = -{2\over 3} E_{kin} - E_{ee}
+
+    F_e = \Omega + \mu N = -{2\over 3} E_{kin} - E_{ee} + \mu N
+
+    TS = {5\over3} E_{kin} + E_{en} + 2 E_{ee} + E_{xc} - \mu N
+
+    E = F + TS = \Omega + \mu N + TS = E_{kin} + E_{en} + E_{ee} + E_{xc}\,,
+
+where:
+
+.. math::
+
+    E_{kin} = {\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+
+    E_{en} = \int n_e({\bf x}) V_{en}({\bf x})\, \d^3 x
+
+    E_{ee} = \half \int n_e({\bf x}) V_{ee}({\bf x})\, \d^3 x
+
+    E_{xc} = \int n_e({\bf x}) V_{xc}({\bf x})\, \d^3 x
+
+    n_e({\bf x}) = {\sqrt2 \over \pi^2 \beta^{3\over2}}
+            I_{1\over2}\left( \beta\left(\mu-V({\bf x})\right) \right)
+
+    \Phi(n_e({\bf x})) = \beta\left(\mu-V({\bf x})\right)
+        = I_{1\over2}^{-1}\left(
+                {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e({\bf x})
+            \right)
+
+    N = \int n_e({\bf x})\, \d^3 x
+
+    \mu = {1\over \beta} \Phi(n_e({\bf x})) + V({\bf x})
+
+and $\mu N$ is calculated as follows:
+
+.. math::
+
+    \mu N = \int \mu n_e({\bf x})\, \d^3 x =
+
+        = {1\over \beta} \int \Phi(n_e({\bf x})) n_e({\bf x})\, \d^3 x
+            + \int V({\bf x}) n_e({\bf x})\, \d^3 x =
+
+        = {1\over \beta} \int \Phi(n_e({\bf x})) n_e({\bf x})\, \d^3 x
+            + E_{en} + 2 E_{ee} + E_{xc} \,.
+
 Bottom Up Approach
 ~~~~~~~~~~~~~~~~~~
 
