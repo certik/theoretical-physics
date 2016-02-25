@@ -1184,29 +1184,30 @@ We start with a grand potential for fermions:
     = -{1\over\beta}
         \int \int {2\d^3 x \d^3 p \over (2\pi)^3} \log\left(1 +
             e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right)
-            -E_{ee} =
+            -E_{ee} - {1\over3}E_{xc} =
 
     = -{2\over\beta}
         \int \d^3 x \int_0^\infty{ 4\pi p^2 \d p \over (2\pi)^3} \log\left(1 +
             e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right)
-            -E_{ee} =
+            -E_{ee} - {1\over3}E_{xc} =
 
     = -{1\over \pi^2 \beta}
         \int \d^3 x \int_0^\infty p^2 \log\left(1 +
             e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right) \d p
-            -E_{ee} =
+            -E_{ee} - {1\over3}E_{xc} =
 
     = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
         \int \d^3 x \int_0^\infty {u^{3\over2} \over
-            1 + e^{u-\beta\left(\mu-V({\bf x})\right)}} \d u -E_{ee} =
+            1 + e^{u-\beta\left(\mu-V({\bf x})\right)}} \d u
+                -E_{ee} - {1\over3}E_{xc} =
 
     = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
         \int I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right) \,\d^3 x
-        -E_{ee} =
+        -E_{ee} - {1\over3}E_{xc} =
 
     = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
         \int I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right) \,\d^3 x
-        -\half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,.
+        -E_{ee} - {1\over3}E_{xc}
 
 The potential
 $V({\bf x}) = V_{en}({\bf x}) + V_{ee}({\bf x}) + V_{xc}({\bf x})$
@@ -1215,11 +1216,25 @@ Hartree, and XC terms) and $E_{ee}$ is the Hartree energy:
 
 .. math::
 
-    E_{ee}
-        = \half \int {n_e(\mathbf{x}) n_e(\mathbf{x}')\over
-            |\mathbf{x} - \mathbf{x}'|}\d^3 x\d^3 x'
-        = \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,.
+    E_{en} = \int n_e({\bf x}) V_{en}({\bf x})\,\d^3 x\,,
 
+    E_{ee}
+        = \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,,
+
+    E_{xc} = {3\over 4}\int n_e({\bf x}) V_{xc}({\bf x})\,\d^3 x\,.
+
+For simplicity, we assume here that $V_{xc}$ only contains the exchange of the
+homogeneous electron gas. For a general XC functional, the relation is
+nonlinear and one must simply numerically calculate the XC energy density
+$e_{xc}({\bf x})$ and calculate the XC energy using:
+
+.. math::
+
+    E_{xc} = \int n_e({\bf x}) e_{xc}({\bf x})\,\d^3 x\,.
+
+In our case here, we have $e_{xc} = {3\over4}V_{xc}({\bf x})$, which is only
+true for the exchange in homogeneous electron gas. Otherwise the relation is
+nonlinear.
 
 The density is a functional derivative with respect to
 $\mu$:
@@ -1253,7 +1268,8 @@ we can express the grand potential using $n_e$ as follows:
     \Omega[\beta, n_e]
         = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-          - \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,.
+          - \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3
+          - {1\over 4} \int n_e(\mathbf{x}) V_{xc}(\mathbf{x}) \d^3 x\,.
 
 Now we can calculate the free energy:
 
@@ -1265,13 +1281,20 @@ Now we can calculate the free energy:
         = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
               I_{3\over2}(\Phi(n_e({\bf x})))
             + \mu n_e({\bf x})
-            - \half n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \right)\d^3 x =
+            - n_e(\mathbf{x}) \left(
+                \half V_{ee}(\mathbf{x})
+                +{1\over 4} V_{xc}(\mathbf{x})
+                \right)
+                \right)\d^3 x =
 
         = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
               I_{3\over2}(\Phi(n_e({\bf x})))
             + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
                 + n_e({\bf x}) V({\bf x})
-                - \half n_e(\mathbf{x}) V_{ee}(\mathbf{x})
+                - n_e(\mathbf{x}) \left(
+                    \half V_{ee}(\mathbf{x})
+                    +{1\over 4} V_{xc}(\mathbf{x})
+                    \right)
                 \right)\d^3 x =
 
         = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
@@ -1279,7 +1302,7 @@ Now we can calculate the free energy:
             + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
                 + n_e({\bf x})\left( V_{en}({\bf x})
                   +\half V_{ee}(\mathbf{x})
-                  + V_{xc}(\mathbf{x}) \right)
+                  + {3\over 4} V_{xc}(\mathbf{x}) \right)
                 \right)\d^3 x\,,
 
 where we used the fact that $\mu = {1\over \beta} \Phi(n_e({\bf x})) + V({\bf
@@ -1300,7 +1323,7 @@ $S=-\left(\partial\Omega\over\partial T\right)_{V,\mu}$ as follows:
         =\beta {\partial\over\partial \beta}\left(
             -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            - E_{ee}
+            - E_{ee} - {1\over3}E_{xc}
         \right) =
 
         =\beta {\partial\over\partial \beta}\left(
@@ -1332,7 +1355,8 @@ $S=-\left(\partial\Omega\over\partial T\right)_{V,\mu}$ as follows:
 
         = {5\over3}{\sqrt2 \over \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            -\mu N + E_{en}+2E_{ee} + E_{xc}
+            -\mu N + E_{en}+2E_{ee} + {4\over 3}E_{xc}
+
 
 The total energy is then equal to:
 
@@ -1342,11 +1366,11 @@ The total energy is then equal to:
 
         = \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            - E_{ee}\right)
+            - E_{ee} - {1\over3}E_{xc}\right)
             + \mu N
             +{5\over3}{\sqrt2 \over \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            -\mu N + E_{en}+2E_{ee} + E_{xc} =
+            -\mu N + E_{en}+2E_{ee} + {4\over 3}E_{xc} =
 
         = {\sqrt2 \over \pi^2 \beta^{5\over2}}
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
@@ -1402,11 +1426,12 @@ Summary:
 
 .. math::
 
-    \Omega = -{2\over 3} E_{kin} - E_{ee}
+    \Omega = -{2\over 3} E_{kin} - E_{ee} - {1\over3}E_{xc}
 
-    F_e = \Omega + \mu N = -{2\over 3} E_{kin} - E_{ee} + \mu N
+    F_e = \Omega + \mu N = -{2\over 3} E_{kin} - E_{ee} - {1\over3}E_{xc}
+        + \mu N
 
-    TS = {5\over3} E_{kin} + E_{en} + 2 E_{ee} + E_{xc} - \mu N
+    TS = {5\over3} E_{kin} + E_{en} + 2 E_{ee} + {4\over3}E_{xc} - \mu N
 
     E = F + TS = \Omega + \mu N + TS = E_{kin} + E_{en} + E_{ee} + E_{xc}\,,
 
@@ -1421,7 +1446,7 @@ where:
 
     E_{ee} = \half \int n_e({\bf x}) V_{ee}({\bf x})\, \d^3 x
 
-    E_{xc} = \int n_e({\bf x}) V_{xc}({\bf x})\, \d^3 x
+    E_{xc} = {3\over4}\int n_e({\bf x}) V_{xc}({\bf x})\, \d^3 x
 
     n_e({\bf x}) = {\sqrt2 \over \pi^2 \beta^{3\over2}}
             I_{1\over2}\left( \beta\left(\mu-V({\bf x})\right) \right)
@@ -1445,7 +1470,17 @@ and $\mu N$ is calculated as follows:
             + \int V({\bf x}) n_e({\bf x})\, \d^3 x =
 
         = {1\over \beta} \int \Phi(n_e({\bf x})) n_e({\bf x})\, \d^3 x
-            + E_{en} + 2 E_{ee} + E_{xc} \,.
+            + E_{en} + 2 E_{ee} + {4\over3} E_{xc} \,.
+
+So $F_e$ can also be expressed as:
+
+.. math::
+
+    F_e = -{2\over 3} E_{kin} - E_{ee} - {1\over3}E_{xc} + \mu N =
+
+        = -{2\over 3} E_{kin}
+           + {1\over \beta} \int \Phi(n_e({\bf x})) n_e({\bf x})\, \d^3 x
+            + E_{en} + E_{ee} + E_{xc} \,.
 
 Bottom Up Approach
 ~~~~~~~~~~~~~~~~~~
