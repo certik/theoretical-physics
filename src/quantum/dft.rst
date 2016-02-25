@@ -1287,6 +1287,81 @@ x})$, i.e. the left hand side $\mu$ is a constant, thus the sum of the terms on
 the right hand side is also constant (even though the individual terms are
 not).
 
+We can calculate the entropy
+$S=-\left(\partial\Omega\over\partial T\right)_{V,\mu}$ as follows:
+
+.. math::
+
+    TS
+        =-T \left(\partial\Omega\over\partial T\right)_{V,\mu} =
+
+        =\beta \left(\partial\Omega\over\partial \beta\right)_{V,\mu} =
+
+        =\beta {\partial\over\partial \beta}\left(
+            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            - E_{ee}
+        \right) =
+
+        =\beta {\partial\over\partial \beta}\left(
+            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+        \right) =
+
+        =\beta \left(
+            {5\over2}{2\sqrt2 \over 3 \pi^2 \beta^{7\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int {3\over2} I_{1\over2}(\Phi(n_e({\bf x})))
+                {\partial\Phi(n_e({\bf x}))\over\partial\beta}
+            \, \d^3 x
+        \right) =
+
+        =\beta \left(
+            {5\over2}{2\sqrt2 \over 3 \pi^2 \beta^{7\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int {3\over2} I_{1\over2}(\Phi(n_e({\bf x})))
+                (\mu-V({\bf x}))
+            \, \d^3 x
+        \right) =
+
+        = {5\over2}{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            - \int n_e({\bf x}) (\mu-V({\bf x})) \, \d^3 x =
+
+        = {5\over3}{\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            -\mu N + E_{en}+2E_{ee} + E_{xc}
+
+The total energy is then equal to:
+
+.. math::
+
+    E = \Omega + \mu N + TS =
+
+        = \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            - E_{ee}\right)
+            + \mu N
+            +{5\over3}{\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            -\mu N + E_{en}+2E_{ee} + E_{xc} =
+
+        = {\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            + E_{en} + E_{ee} + E_{xc}
+
+From which we can see that the kinetic energy $E_{kin}$ is equal to:
+
+.. math::
+
+    E_{kin} = E - (E_{en} + E_{ee} + E_{xc}) =
+
+        = {\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+
+
 To determine the kinetic part of the free energy, we set all potentials equal
 to zero ($V({\bf x}) = V_{en}({\bf x}) = V_{ee}({\bf x}) = V_{xc}({\bf x}) =
 0$) and obtain:
@@ -1311,6 +1386,55 @@ from:
     = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}V}
             \int I_{3\over2}(\beta\mu) \,\d^3 x
     = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu) \,.
+
+Summary:
+
+.. math::
+
+    \Omega = -{2\over 3} E_{kin} - E_{ee}
+
+    F_e = \Omega + \mu N = -{2\over 3} E_{kin} - E_{ee} + \mu N
+
+    TS = {5\over3} E_{kin} + E_{en} + 2 E_{ee} + E_{xc} - \mu N
+
+    E = F + TS = \Omega + \mu N + TS = E_{kin} + E_{en} + E_{ee} + E_{xc}\,,
+
+where:
+
+.. math::
+
+    E_{kin} = {\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+
+    E_{en} = \int n_e({\bf x}) V_{en}({\bf x})\, \d^3 x
+
+    E_{ee} = \half \int n_e({\bf x}) V_{ee}({\bf x})\, \d^3 x
+
+    E_{xc} = \int n_e({\bf x}) V_{xc}({\bf x})\, \d^3 x
+
+    n_e({\bf x}) = {\sqrt2 \over \pi^2 \beta^{3\over2}}
+            I_{1\over2}\left( \beta\left(\mu-V({\bf x})\right) \right)
+
+    \Phi(n_e({\bf x})) = \beta\left(\mu-V({\bf x})\right)
+        = I_{1\over2}^{-1}\left(
+                {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e({\bf x})
+            \right)
+
+    N = \int n_e({\bf x})\, \d^3 x
+
+    \mu = {1\over \beta} \Phi(n_e({\bf x})) + V({\bf x})
+
+and $\mu N$ is calculated as follows:
+
+.. math::
+
+    \mu N = \int \mu n_e({\bf x})\, \d^3 x =
+
+        = {1\over \beta} \int \Phi(n_e({\bf x})) n_e({\bf x})\, \d^3 x
+            + \int V({\bf x}) n_e({\bf x})\, \d^3 x =
+
+        = {1\over \beta} \int \Phi(n_e({\bf x})) n_e({\bf x})\, \d^3 x
+            + E_{en} + 2 E_{ee} + E_{xc} \,.
 
 Bottom Up Approach
 ~~~~~~~~~~~~~~~~~~
