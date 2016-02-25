@@ -1299,15 +1299,18 @@ to zero ($V({\bf x}) = V_{en}({\bf x}) = V_{ee}({\bf x}) = V_{xc}({\bf x}) =
             + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
                 \right)\d^3 x\,.
 
-If the potentials are zero, then the pressure (times volume) can be calculated
+If the potentials are zero, then the pressure can be calculated
 from:
 
 .. math::
 
-    PV = -\Omega[\beta, n_e] = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \,\d^3 x
-    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+    P = -{1\over V}\Omega[\beta, n_e]
+        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}V}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \,\d^3 x =
+
+    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}V}
             \int I_{3\over2}(\beta\mu) \,\d^3 x
+    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu) \,.
 
 Bottom Up Approach
 ~~~~~~~~~~~~~~~~~~
@@ -1389,25 +1392,25 @@ The kinetic energy is
 
 .. math::
 
-    E_{kin} = \int d^3 x \int 2 {\d^3p\over (2\pi)^3} {p^2\over 2}
+    E_{kin} = \int \d^3 x \int 2 {\d^3p\over (2\pi)^3} {p^2\over 2}
         {1\over e^{\beta(E-\mu)}+1}
     =
 
-    = \int d^3 x \int_0^\infty 2 {4\pi p^2 \d p\over (2\pi)^3} {p^2\over 2}
+    = \int \d^3 x \int_0^\infty 2 {4\pi p^2 \d p\over (2\pi)^3} {p^2\over 2}
         {1\over e^{\beta(E-\mu)}+1} =
 
-    = \int d^3 x \int_0^\infty 2 {4\pi \sqrt 2\sqrt \epsilon \d \epsilon \over
+    = \int \d^3 x \int_0^\infty 2 {4\pi \sqrt 2\sqrt \epsilon \d \epsilon \over
         (2\pi)^3} \epsilon {1\over e^{\beta(\epsilon + V({\bf x})-\mu)}+1} =
 
-    = {\sqrt 2 \over \pi^2} \int d^3 x \int_0^\infty
+    = {\sqrt 2 \over \pi^2} \int \d^3 x \int_0^\infty
         {\epsilon^{3\over2} \d \epsilon \over
         e^{\beta(\epsilon + V({\bf x})-\mu)}+1} =
 
-    = {\sqrt 2 \over \pi^2 \beta^{5\over2}} \int d^3 x \int_0^\infty
+    = {\sqrt 2 \over \pi^2 \beta^{5\over2}} \int \d^3 x \int_0^\infty
         {y^{3\over2} \d y \over e^{y - \beta(\mu -V({\bf x}))}+1} =
 
     = {\sqrt 2 \over \pi^2 \beta^{5\over2}}
-        \int I_{3\over2}\left(\beta(\mu - V({\bf x}))\right) d^3 x
+        \int I_{3\over2}\left(\beta(\mu - V({\bf x}))\right) \d^3 x
 
 From the last formula it can be shown that the kinetic energy is equal to
 
@@ -1435,9 +1438,57 @@ The entropy $S$ is equal to:
 
 .. math::
 
-    TS = {5\over3}E_{kin} + E_{en} + 2 E_{ee} -\mu N =
+    TS
+       = -{1\over\beta}
+         \sum_i [n_i\log n_i + (1-n_i)\log(1-n_i)] =
+
+       = -{1\over\beta}
+         \sum_i \left[n_i\log\left(n_i\over 1-n_i\right)
+            + \log(1-n_i)\right] =
+
+       =  \left[\sum_i n_i\epsilon_i\right]
+       +
+        \left[-\sum_i n_i \mu\right]
+       +
+            \left[-{1\over\beta} \sum_i\log(1-n_i)\right] =
+
+       = \left[E_{kin} + E_{en} + 2 E_{ee}\right]
+        +
+        \left[-\mu N\right]
+        +
+        \left[{2\over3}E_{kin}\right]
+        =
+
+       = {5\over3}E_{kin} + E_{en} + 2 E_{ee} -\mu N =
 
        = {5\over2}P V + {1\over6}E_{en} + {7\over6}E_{ee} -\mu N
+
+where $n_i={1\over1+e^{\beta(\epsilon_i-\mu)}}$ is the number of states at
+energy $\epsilon_i$. We used the following calculation expressing one of the
+sums in terms of the kinetic energy:
+
+.. math::
+
+    -{1\over\beta} \sum_i\log(1-n_i) =
+
+        = -{1\over\beta}\int {2\d^3 x \d^3 p\over (2\pi)^3}
+            \log {e^{\beta(E-\mu)}\over 1+e^{\beta(E-\mu)}} =
+
+        = -{\sqrt 2\over \pi^2 \beta^{5\over2}}\int \d^3 x \int_0^\infty
+            \sqrt{y}\, \d y
+            \log {e^{y-\beta(\mu-V({\bf x}))}\over
+                1+e^{y-\beta(\mu-V({\bf x}))}} =
+
+        = -{\sqrt 2\over \pi^2 \beta^{5\over2}}\int \d^3 x \left[
+            -{2\over3}\int_0^\infty {y^{3\over2} \d y \over
+                1+e^{y-\beta(\mu-V({\bf x}))}} \right] =
+
+        = {2\over 3}{\sqrt 2\over \pi^2 \beta^{5\over2}}\int
+            I_{3\over2}\left(\beta(\mu-V({\bf x}))\right) \d^3 x =
+
+        = {2\over 3} E_{kin} \,,
+
+where we used $E={p^2\over2}+V({\bf x})$.
 
 The free energy is equal to:
 
