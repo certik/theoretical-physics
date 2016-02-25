@@ -1334,6 +1334,34 @@ $S=-\left(\partial\Omega\over\partial T\right)_{V,\mu}$ as follows:
             \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
             -\mu N + E_{en}+2E_{ee} + E_{xc}
 
+The total energy is then equal to:
+
+.. math::
+
+    E = \Omega + \mu N + TS =
+
+        = \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            - E_{ee}\right)
+            + \mu N
+            +{5\over3}{\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            -\mu N + E_{en}+2E_{ee} + E_{xc} =
+
+        = {\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            + E_{en} + E_{ee} + E_{xc}
+
+From which we can see that the kinetic energy $E_{kin}$ is equal to:
+
+.. math::
+
+    E_{kin} = E - (E_{en} + E_{ee} + E_{xc}) =
+
+        = {\sqrt2 \over \pi^2 \beta^{5\over2}}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+
+
 To determine the kinetic part of the free energy, we set all potentials equal
 to zero ($V({\bf x}) = V_{en}({\bf x}) = V_{ee}({\bf x}) = V_{xc}({\bf x}) =
 0$) and obtain:
