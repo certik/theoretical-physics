@@ -1299,15 +1299,18 @@ to zero ($V({\bf x}) = V_{en}({\bf x}) = V_{ee}({\bf x}) = V_{xc}({\bf x}) =
             + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
                 \right)\d^3 x\,.
 
-If the potentials are zero, then the pressure (times volume) can be calculated
+If the potentials are zero, then the pressure can be calculated
 from:
 
 .. math::
 
-    PV = -\Omega[\beta, n_e] = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \,\d^3 x
-    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+    P = -{1\over V}\Omega[\beta, n_e]
+        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}V}
+            \int I_{3\over2}(\Phi(n_e({\bf x}))) \,\d^3 x =
+
+    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}V}
             \int I_{3\over2}(\beta\mu) \,\d^3 x
+    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu) \,.
 
 Bottom Up Approach
 ~~~~~~~~~~~~~~~~~~
