@@ -1422,6 +1422,56 @@ from:
             \int I_{3\over2}(\beta\mu) \,\d^3 x
     = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu) \,.
 
+If the potentials are not zero, then one can calculate the pressure using:
+
+.. math::
+
+    P = - \left(\partial\Omega\over\partial V\right)_{\mu,T}
+        = - \left(\partial F\over\partial V\right)_{T,N} =
+
+        = - {\partial \over\partial V} \int f \d^3 x =
+
+        = - \left[f+e_{ee}\right]_b
+            - \int {\partial f\over\partial n_e}
+              {\partial n_e\over\partial V}
+              \d^3 x =
+
+        = - \left[f+e_{ee}\right]_b
+            - \mu \int {\partial n_e\over\partial V} \d^3 x =
+
+        = - \left[f+e_{ee}\right]_b
+            + \mu [n_e]_b =
+
+        = \left[(-f)-e_{ee}+\mu n_e \right]_b =
+
+        = \left[\left({2\over3}e_{kin} + e_{ee} + {1\over3}e_{xc}-\mu n_e\right)
+            -e_{ee}+\mu n_e \right]_b =
+
+        = \left[{2\over3}e_{kin} + {1\over3}e_{xc}\right]_b =
+
+        = {1\over 3V} \int_b \left( {2\over3}e_{kin} + {1\over3}e_{xc}
+            \right) {\bf x}\cdot{\bf n}\,\d S =
+
+        = {1\over 3V} \int \left( {2\over3}e_{kin} + {1\over3}e_{xc}
+            \right) \nabla\cdot{\bf x}\,\d^3 x
+            +
+        {1\over 3V} \int {\bf x}\cdot\nabla \left(
+            {2\over3}e_{kin} + {1\over3}e_{xc}
+            \right) \,\d^3 x =
+
+        = {1\over 3V} (2E_{kin} + E_{xc})
+            +
+        {1\over 3V} \int {\bf x}\cdot \left(
+            -n_e({\bf x})\nabla V({\bf x})
+            + \nabla{1\over3}e_{xc}
+            \right) \,\d^3 x =
+
+        = {1\over 3V} (2E_{kin} + E_{xc})
+            +
+        {1\over 3V} (E_{en}+E_{ee}) =
+
+        = {1\over 3V}(2E_{kin} + E_{en} + E_{ee} + E_{xc})
+
 Summary:
 
 .. math::
