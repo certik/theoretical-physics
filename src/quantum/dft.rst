@@ -1234,7 +1234,33 @@ $e_{xc}({\bf x})$ and calculate the XC energy using:
 
 In our case here, we have $e_{xc} = {3\over4}V_{xc}({\bf x})$, which is only
 true for the exchange in homogeneous electron gas. Otherwise the relation is
-nonlinear.
+nonlinear. In the general case, the correction that must be applied is:
+
+.. math::
+
+    E_{en} + E_{ee} + E_{xc} - \int n_e({\bf x}) V({\bf x})\,\d^3 x =
+
+    = \int n_e({\bf x})\left(
+        (e_{en}-V_{en})
+        +(e_{ee}-V_{ee})
+        +(e_{xc}-V_{xc})
+        \right)\,\d^3 x =
+
+    = \int n_e({\bf x})\left(
+        0
+        +\left(\half V_{ee}-V_{ee}\right)
+        +\left({3\over 4}V_{xc}-V_{xc}\right)
+        \right)\,\d^3 x =
+
+    = \int n_e({\bf x})\left(
+        -\half V_{ee}
+        -{1\over 4}V_{xc}
+        \right)\,\d^3 x =
+
+    = -\half\int n_e({\bf x}) V_{ee} \d^3 x
+    - {1\over 3}{3\over 4}\int n_e({\bf x}) V_{xc} \d^3 x =
+
+    = -E_{ee} - {1\over 3} E_{xc}
 
 The density is a functional derivative with respect to
 $\mu$:
