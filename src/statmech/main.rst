@@ -5,3 +5,4 @@ Thermodynamics and Statistical Physics
     :maxdepth: 2
 
     thermodynamics.rst
+    statmech.rst
