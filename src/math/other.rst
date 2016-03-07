@@ -1160,8 +1160,11 @@ or written explicitly
 
 .. index:: homogeneous functions
 
-Homogeneous functions
----------------------
+.. _homogeneous-functions:
+
+Homogeneous Functions (Euler's Theorem)
+---------------------------------------
+
 
 A function of several variables $f(x_1, x_2, \dots) \equiv f(x_i)$ is
 homogeneous of degree $k$ if
