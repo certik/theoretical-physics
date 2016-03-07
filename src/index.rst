@@ -9,5 +9,6 @@ Theoretical Physics Reference
     math/main.rst
     relativity/main.rst
     elmag/main.rst
+    statmech/main.rst
     fluid-dynamics/main.rst
     quantum/main.rst
