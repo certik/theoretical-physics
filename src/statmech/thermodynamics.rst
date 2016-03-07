@@ -119,6 +119,8 @@ forms for large systems:
 Examples
 --------
 
+.. _ideal_gas:
+
 Ideal Gas
 ~~~~~~~~~
 
