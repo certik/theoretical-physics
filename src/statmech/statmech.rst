@@ -125,25 +125,32 @@ momentum $\mathbf{p}_i$. The canonical partition function is then equal to:
 
     Z_{can} = \sum_n e^{-\beta E_n} =
 
-    = \int {2\d^{3N} x\, \d^{3N} p \over N! (2\pi\hbar)^{3N}}
+    = \int {\d^{3N} x\, \d^{3N} p \over N! (2\pi\hbar)^{3N}}
         e^{-\beta H(\mathbf{x}_i, \mathbf{p}_i)} =
 
-    = \int {2\d^{3N} x\, \d^{3N} p \over N! (2\pi\hbar)^{3N}}
+    = \int {\d^{3N} x\, \d^{3N} p \over N! (2\pi\hbar)^{3N}}
         e^{-\beta \sum_{i=1}^N {p_i^2 \over 2 m}} =
 
-    = {1\over N!}\left( \int {2\d^3 x \d^3 p \over (2\pi\hbar)^3}
+    = {1\over N!}\left( \int {\d^3 x \d^3 p \over (2\pi\hbar)^3}
         e^{-\beta {p^2 \over 2 m}}\right)^N =
 
-    = {1\over N!}\left(V \int_0^\infty {2\cdot4\pi p^2 \d p
+    = {1\over N!}\left(V \int_0^\infty {4\pi p^2 \d p
         \over (2\pi\hbar)^3}
         e^{-\beta {p^2 \over 2 m}}\right)^N =
 
-    = {1\over N!}\left(V \int_0^\infty {p^2 \d p
-        \over \pi^2 \hbar^3}
-        e^{-\beta {p^2 \over 2 m}}\right)^N =
+    = {1\over N!}\left(V {4\pi \over (2\pi\hbar)^3}
+        {\sqrt\pi (2m)^{3\over 2}\over 4 \beta^{3\over2}}
+        \right)^N =
 
     = {1\over N!}\left(
-        \left(m\over2\pi\hbar^2\beta\right)^{3\over2} V\right)^N
+        \left(m\over2\pi\hbar^2\beta\right)^{3\over2} V\right)^N\,,
+
+where we used the following integral:
+
+.. math::
+
+    \int_0^\infty p^2 e^{-\alpha p^2} \d p =
+        {\sqrt\pi\over4\alpha^{3\over2}}\,.
 
 The Helmholtz free energy is then equal to:
 
