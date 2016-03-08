@@ -178,8 +178,7 @@ The Helmholtz free energy is then equal to:
 
       = N k_\mathrm{B} T \left({3\over2}
         - \log \left( {V T^{3\over2} \over N
-          {\left(2\pi\over m k_\mathrm{B}\right)^{3\over2}
-          {\hbar^3\over e^{5\over2}} }
+          \left(2\pi\hbar^2\over m k_\mathrm{B}e^{5\over3}\right)^{3\over2}
           }\right) + O\left(\log N\over N\right) \right)\,,
 
 where we used the Stirling's approximation for $N!$. For large $N$ this is
@@ -191,7 +190,9 @@ equal to the Helmholtz free energy of the ideal gas (see :ref:`ideal_gas`):
         = N k_\mathrm{B} T \left(c_V
             - \log \left({VT^{c_V}\over N\Phi}\right) \right)\,,
 
-with $c_V={3\over2}$ and $\Phi={\left(2\pi\over m k_\mathrm{B}\right)^{3\over2} {\hbar^3\over e^{5\over2}} }$. See that section where all other
+with $c_V={3\over2}$ and
+$\Phi=\left(2\pi\hbar^2\over m k_\mathrm{B}e^{5\over3}\right)^{3\over2}$.
+See that section where all other
 thermodynamic properties are derived from it.
 
 We can also start from the grand canonical partition function:
@@ -224,9 +225,8 @@ And the grand potential is:
         \left(m k_\mathrm{B} T\over2\pi\hbar^2\right)^{3\over2} V} =
 
         = - {k_\mathrm{B} V T^{5\over2} \over
-            \left( {\left(2\pi\over m k_\mathrm{B}\right)^{3\over2}
-                {\hbar^3\over e^{5\over2}} }
-            \right) e^{{5\over2}-{\mu\over k_\mathrm{B} T}}} \,.
+            \left(2\pi\hbar^2\over m k_\mathrm{B}e^{5\over3}\right)^{3\over2}
+            e^{{5\over2}-{\mu\over k_\mathrm{B} T}}} \,.
 
 This is equal to the grand potential of an ideal gas:
 
@@ -235,8 +235,8 @@ This is equal to the grand potential of an ideal gas:
     \Omega(T, V, \mu) = - {k_\mathrm{B} V T^{c_p} \over
             \Phi e^{c_p-{\mu\over k_\mathrm{B} T}}} \,,
 
-with
-$c_p={5\over2}$ and $\Phi={\left(2\pi\over m k_\mathrm{B}\right)^{3\over2} {\hbar^3\over e^{5\over2}} }$.
+with $c_p={5\over2}$ and
+$\Phi=\left(2\pi\hbar^2\over m k_\mathrm{B}e^{5\over3}\right)^{3\over2}$.
 The thermodynamics section then shows that the corresponding Helmholtz free
 energy is the same as we obtained above from the canonical ensemble. Note that
 we also obtained the same $\Phi$ as before.
