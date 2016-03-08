@@ -123,7 +123,7 @@ momentum $\mathbf{p}_i$. The canonical partition function is then equal to:
 
 .. math::
 
-    Z_{can} = \sum_n e^{-\beta E_n} =
+    Z_{can}(T, V, N) = \sum_n e^{-\beta E_n} =
 
     = \int {\d^{3N} x\, \d^{3N} p \over N! (2\pi\hbar)^{3N}}
         e^{-\beta H(\mathbf{x}_i, \mathbf{p}_i)} =
@@ -156,7 +156,7 @@ The Helmholtz free energy is then equal to:
 
 .. math::
 
-    F = -{1\over\beta} \log Z_{can} =
+    F(T, V, N) = -{1\over\beta} \log Z_{can}(T, V, N) =
 
       = -{1\over\beta} \log\left( {1\over N!} \left(
         \left(m\over2\pi\hbar^2\beta\right)^{3\over2} V\right)^N\right) =
@@ -193,3 +193,50 @@ equal to the Helmholtz free energy of the ideal gas (see :ref:`ideal_gas`):
 
 with $c_V={3\over2}$ and $\Phi={\left(2\pi\over m k_\mathrm{B}\right)^{3\over2} {\hbar^3\over e^{5\over2}} }$. See that section where all other
 thermodynamic properties are derived from it.
+
+We can also start from the grand canonical partition function:
+
+.. math::
+
+    Z_{gr}(T, V, \mu) = \sum_{N=0}^\infty e^{\beta \mu N} Z_{can}(T, V, N) =
+
+      = \sum_{N=0}^\infty e^{\beta \mu N}
+        {1\over N!}\left(
+        \left(m\over2\pi\hbar^2\beta\right)^{3\over2} V\right)^N =
+
+      = \sum_{N=0}^\infty
+        {1\over N!}\left(e^{\beta \mu}
+        \left(m\over2\pi\hbar^2\beta\right)^{3\over2} V\right)^N =
+
+      = e^{e^{\beta \mu}
+        \left(m\over2\pi\hbar^2\beta\right)^{3\over2} V}
+
+And the grand potential is:
+
+.. math::
+
+    \Omega(T, V, \mu) = -{1\over\beta} \log Z_{gr}(T, V, \mu) =
+
+           = -{1\over\beta} {e^{\beta \mu}
+        \left(m\over2\pi\hbar^2\beta\right)^{3\over2} V} =
+
+           = -{k_\mathrm{B} T} {e^{\mu\over k_\mathrm{B} T}
+        \left(m k_\mathrm{B} T\over2\pi\hbar^2\right)^{3\over2} V} =
+
+        = - {k_\mathrm{B} V T^{5\over2} \over
+            \left( {\left(2\pi\over m k_\mathrm{B}\right)^{3\over2}
+                {\hbar^3\over e^{5\over2}} }
+            \right) e^{{5\over2}-{\mu\over k_\mathrm{B} T}}} \,.
+
+This is equal to the grand potential of an ideal gas:
+
+.. math::
+
+    \Omega(T, V, \mu) = - {k_\mathrm{B} V T^{c_p} \over
+            \Phi e^{c_p-{\mu\over k_\mathrm{B} T}}} \,,
+
+with
+$c_p={5\over2}$ and $\Phi={\left(2\pi\over m k_\mathrm{B}\right)^{3\over2} {\hbar^3\over e^{5\over2}} }$.
+The thermodynamics section then shows that the corresponding Helmholtz free
+energy is the same as we obtained above from the canonical ensemble. Note that
+we also obtained the same $\Phi$ as before.
