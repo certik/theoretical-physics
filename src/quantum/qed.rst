@@ -574,12 +574,13 @@ Thus we get the correction to the $g$-factor of the electron:
 Code::
 
     >>> from math import pi
-    >>> alpha = 1/137.035999
+    >>> alpha = 1/137.035999049
     >>> a_e = alpha / (2*pi)
     >>> a_e
-    0.0011614097335977778
+    0.0011614097331824923
 
-Experiments give $a_e = 0.00115965218073\pm0.00000000000028$.
+Experiments give $a_e = 0.00115965218073\pm0.00000000000028$
+(`arXiv:1412.8284 <http://arxiv.org/abs/1412.8284>`_, eq. (1)).
 
 Higher order corrections from QED can also be calculated:
 
@@ -609,10 +610,7 @@ Code::
     -0.328478965579194
 
 
-
-
-See `hep-ph/9602417 <http://arxiv.org/abs/hep-ph/9602417>`_, where the author
-obtains the following expression for the coefficient $A_3$:
+See `hep-ph/9602417 <http://arxiv.org/abs/hep-ph/9602417>`_ for the $A_3$ term:
 
 .. math::
 
@@ -643,50 +641,73 @@ Code::
     >>> A_3.n()
     1.18124145658720
 
-Numerical approximation for $A_4$ can be found in
-`hep-ph/0507249 <http://arxiv.org/abs/hep-ph/0507249>`_:
+Higher terms are only known numerically. The $A_4$ and $A_5$ terms can be found
+in `arXiv:1412.8284 <http://arxiv.org/abs/1412.8284>`_:
 
 .. math::
 
-    A_4=-1.7283(35)
+    A_4 = -1.912 98 (84)
 
+    A_5 = 7.795 (336)
 
-So the total value of $a_e$ is:
+We can now sum $a_e$ up to a given order by the following script::
 
-.. math::
+	from sympy import pi, zeta, S, log, summation, var, oo
+	var("n")
+	a4 = summation(1/(2**n * n**4), (n, 1, oo))
+	A1 = S(1)/2
+	A2 = S(197)/144 + zeta(2)/2 + 3*zeta(3)/4 - 3*zeta(2) * log(2)
+	A3 = 83*pi**2*zeta(3)/72 - 215*zeta(5)/24 + 100*(a4 + log(2)**4/24 - \
+			pi**2*log(2)**2/24)/3 - \
+			239*pi**4/2160 + 139*zeta(3)/18 - 298 * pi**2 * log(2)/9 + \
+			17101 * pi**2 / 810 + S(28259)/5184
+	A4 = -1.91298
+	A5 = 7.795
+	alpha = 1/137.035999049
+	a_e_exp = 0.00115965218073
+	a_e_exp_err = 0.00000000000028
+	a_e_other = 0.00000000000448
+	A = [A1, A2, A3, A4, A5]
+	a_e= []
+	for i in range(len(A)):
+		a_e.append((A[i]*(alpha/pi)**(i+1)).n())
+	print "========== ================"
+	print "Order      $a_e$"
+	print "========== ================"
+	for i in range(len(A)):
+		print "%d          %16.14f" % (i+1, sum(a_e[:i+1]))
+	print "Other      %16.14f" % a_e_other
+	print "Total      %16.14f" % (sum(a_e) + a_e_other)
+	print "Experiment %16.14f" % a_e_exp
+	print "Difference %16.14f" % abs(sum(a_e) + a_e_other - a_e_exp)
+	print "Exp. err   %16.14f" % a_e_exp_err
+	print "========== ================"
 
-    a_e = 0.00115965223273643 + O(\alpha^4)
+and obtain the following table:
 
-    a_e = 0.00115965218242334 + O(\alpha^5)
+========== ================
+Order      $a_e$
+========== ================
+1          0.00116140973318
+2          0.00115963742812
+3          0.00115965223232
+4          0.00115965217663
+5          0.00115965217716
+Other      0.00000000000448
+Total      0.00115965218164
+Experiment 0.00115965218073
+Difference 0.00000000000091
+Exp. err   0.00000000000028
+========== ================
 
-Let's state the experimental value again for comparison (see above):
+The "Other" line are contributions from the dependence on the muon and tau
+particle masses, the hadronic vacuum-polarization, the hadronic
+light-by-light-scattering and the electroweak contribution
+(see `arXiv:1412.8284 <http://arxiv.org/abs/1412.8284>`_).
+The "Difference" line is the difference from the theory (the "Total" line) and
+experiment. The "Exp. err" line is the experimental error.
 
-.. math::
-
-    a_e = 0.00115965218073\pm0.00000000000028
-
-At this level of accuracy, the uncertainty of the exact value of $\alpha$ as
-well as other corrections coming from the Standar Model come into play, so one
-should not take the numbers above too seriously, but one can roughly say, that
-the agreement between the QED prediction and experiment is about 8 significant
-figures.
-
-Code::
-
-    >>> from sympy import pi, zeta, S, log, sum, var, oo
-    >>> var("n")
-    n
-    >>> a4 = sum(1/(2**n * n**4), (n, 1, oo))
-    >>> A_1 = S(1)/2
-    >>> A_2 = S(197)/144 + zeta(2)/2 + 3*zeta(3)/4 - 3*zeta(2) * log(2)
-    >>> A_3 = 83*pi**2*zeta(3)/72 - 215*zeta(5)/24 + 100*(a4 + log(2)**4/24 - \
-    ...         pi**2*log(2)**2/24)/3 - \
-    ...         239*pi**4/2160 + 139*zeta(3)/18 - 298 * pi**2 * log(2)/9 + \
-    ...         17101 * pi**2 / 810 + S(28259)/5184
-    >>> alpha = 1/137.035999
-    >>> a_e = A_1 * (alpha/pi) + A_2 * (alpha/pi)**2 + A_3 * (alpha/pi)**3
-    >>> a_e.n()
-    0.00115965223273643
-    >>> A_4 = -1.7283
-    >>> (a_e + A_4 * (alpha/pi)**4).n()
-    0.00115965218242334
+At this level of accuracy, the uncertainty of the exact value of $\alpha$ is
+the primary cause of the difference from experiment, and one can use this
+result to predict a more accurate value for $\alpha$, assuming that QED and the
+standard model are valid.
