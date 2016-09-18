@@ -93,7 +93,13 @@ set $m=0$. Here is the full Lagrangian:
 
 This is a Lagrangian for an electron and a massless vector boson (photon) of
 spin 1. For an electron, we set $q=-e$, where $e$ is the elementary charge ($e$
-is positive).
+is positive). We can introduce a current $j^\mu =\hbar c\bar\psi\gamma^\mu
+\psi$, then the Lagrangian density becomes:
+
+.. math::
+
+    \L= \bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
+        + q j^\mu  A_\mu -{1\over4}F_{\mu\nu}F^{\mu\nu}
 
 QED Lagrangian
 --------------
