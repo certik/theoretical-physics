@@ -34,7 +34,7 @@ it produces the following charge density:
 
 The interaction between the charged particle (or in general any charged body)
 with some charge density and the electromagnetic field is given by the
-Lagrangian density:
+Lagrangian density (this follows from :ref:`local-gauge-invariance`):
 
 .. math::
 
@@ -46,10 +46,6 @@ where:
 
     j^\mu = \rho v^\mu = \gamma \rho (c, {\bf v})
 
-There are several approaches how to obtain the above Lagrangians from some
-other assumptions, but ultimately the exact form of the Lagrangians has to be
-given by experiment. It is our only assumption and we derive everything else
-from it.
 All together, the Lagrangian of a charged particle and an electromagnetic field
 is:
 
@@ -77,6 +73,11 @@ Note that:
 .. math::
 
     v_\alpha A^\alpha = - \gamma \phi + \gamma {\bf v} \cdot {\bf A}
+
+There are several approaches how to obtain the above Lagrangian from some other
+assumptions, but ultimately the exact form of the Lagrangians has to be given
+by experiment. This Lagrangian is our only assumption and we derive everything
+else from it.
 
 The Euler-Lagrange equations for the electromagnetic field (in terms of $A^\mu$
 and $\partial_\nu A^\mu$) are:

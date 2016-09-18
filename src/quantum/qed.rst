@@ -3,6 +3,8 @@
 Quantum Electrodynamics (QED)
 =============================
 
+.. _local-gauge-invariance:
+
 Local Gauge Invariance
 ----------------------
 
