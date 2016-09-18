@@ -3,6 +3,91 @@
 Quantum Electrodynamics (QED)
 =============================
 
+Local Gauge Invariance
+----------------------
+
+The Dirac equation for an electron is:
+
+.. math::
+
+    \L=\bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
+
+The physical quantities are expressions like $\bar\psi\psi$ or
+$\bar\psi\gamma^\mu\psi$, which are all invariant if we add a local phase
+$\Lambda(x)$ to the field (U(1) gauge transformation):
+
+.. math::
+
+    \psi(x) \to e^{i\Lambda(x)} \psi(x)
+
+    \bar\psi(x) \to \bar \psi(x) e^{-i\Lambda(x)}
+
+And so we require that the Lagrangian is also invariant under the local gauge
+transformation, because there is no experiment that could reveal this phase. By
+putting this gauge transformation into the Lagrangian density, we otain:
+
+.. math::
+
+    \L \to \bar\psi e^{-i\Lambda(x)}
+        (i\hbar c\gamma^\mu \partial_\mu-mc^2)
+    e^{i\Lambda(x)} \psi =
+
+    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu + i\partial_\mu\Lambda(x))
+        -mc^2)\psi
+
+In order to make the Lagrangian gauge invariant, we have to introduce a gauge
+field, in this case a vector field $A_\mu(x)$, as follows:
+
+.. math::
+    :label: lag_inv
+
+    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iA_\mu)-mc^2)\psi
+
+and the field $A_\mu$ must transform as
+$A_\mu \to A_\mu + \partial_\mu\Lambda(x)$. Then the Lagrangian is gauge
+invariant:
+
+.. math::
+
+    \L \to \bar\psi e^{-i\Lambda(x)}
+        (i\hbar c\gamma^\mu (\partial_\mu-iA_\mu-i\partial_\mu\Lambda(x))-mc^2)
+    e^{i\Lambda(x)} \psi =
+
+    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iA_\mu-i\partial_\mu\Lambda(x)
+        + i\partial_\mu\Lambda(x))
+        -mc^2)\psi =
+
+    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iA_\mu) -mc^2)\psi
+
+The Lagrangian :eq:`lag_inv` can also be written as:
+
+.. math::
+
+    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iA_\mu)-mc^2)\psi =
+
+    = \bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
+        +\hbar c\bar\psi\gamma^\mu \psi  A_\mu
+
+We can see that the condition of a local gauge invariance requires an
+interaction with a vector field $A_\mu$. Now we need to add the kinetic term
+for the field $A_\mu$:
+
+.. math::
+
+    -{1\over4}F_{\mu\nu}F^{\mu\nu}
+
+The mass term $\half m^2 A_\mu A^\mu$ is not gauge invariant, and so we have to
+set $m=0$. Here is the full Lagrangian:
+
+.. math::
+
+    \L= \bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
+        +\hbar c\bar\psi\gamma^\mu \psi  A_\mu
+        -{1\over4}F_{\mu\nu}F^{\mu\nu}
+
+This is a Lagrangian for an electron and a massless vector boson (photon) of
+spin 1.
+
 QED Lagrangian
 --------------
 
