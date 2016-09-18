@@ -18,21 +18,23 @@ $\Lambda(x)$ to the field (U(1) gauge transformation):
 
 .. math::
 
-    \psi(x) \to e^{i\Lambda(x)} \psi(x)
+    \psi(x) \to e^{iq\Lambda(x)} \psi(x)
 
-    \bar\psi(x) \to \bar \psi(x) e^{-i\Lambda(x)}
+    \bar\psi(x) \to \bar \psi(x) e^{-iq\Lambda(x)}
 
-And so we require that the Lagrangian is also invariant under the local gauge
-transformation, because there is no experiment that could reveal this phase. By
-putting this gauge transformation into the Lagrangian density, we otain:
+Where $q$ is a parameter that measures the strength of the phase
+transformation. And so we require that the Lagrangian is also invariant under
+the local gauge transformation, because there is no experiment that could
+reveal this phase. By putting this gauge transformation into the Lagrangian
+density, we otain:
 
 .. math::
 
-    \L \to \bar\psi e^{-i\Lambda(x)}
+    \L \to \bar\psi e^{-iq\Lambda(x)}
         (i\hbar c\gamma^\mu \partial_\mu-mc^2)
-    e^{i\Lambda(x)} \psi =
+    e^{iq\Lambda(x)} \psi =
 
-    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu + i\partial_\mu\Lambda(x))
+    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu + iq\partial_\mu\Lambda(x))
         -mc^2)\psi
 
 In order to make the Lagrangian gauge invariant, we have to introduce a gauge
@@ -41,7 +43,7 @@ field, in this case a vector field $A_\mu(x)$, as follows:
 .. math::
     :label: lag_inv
 
-    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iA_\mu)-mc^2)\psi
+    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iqA_\mu)-mc^2)\psi
 
 and the field $A_\mu$ must transform as
 $A_\mu \to A_\mu + \partial_\mu\Lambda(x)$. Then the Lagrangian is gauge
@@ -49,24 +51,28 @@ invariant:
 
 .. math::
 
-    \L \to \bar\psi e^{-i\Lambda(x)}
-        (i\hbar c\gamma^\mu (\partial_\mu-iA_\mu-i\partial_\mu\Lambda(x))-mc^2)
-    e^{i\Lambda(x)} \psi =
+    \L \to \bar\psi e^{-iq\Lambda(x)}
+        (i\hbar c\gamma^\mu (\partial_\mu-iqA_\mu-iq\partial_\mu\Lambda(x))
+        -mc^2) e^{iq\Lambda(x)} \psi =
 
-    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iA_\mu-i\partial_\mu\Lambda(x)
-        + i\partial_\mu\Lambda(x))
+    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iqA_\mu
+        -iq\partial_\mu\Lambda(x) + iq\partial_\mu\Lambda(x))
         -mc^2)\psi =
 
-    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iA_\mu) -mc^2)\psi
+    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iqA_\mu) -mc^2)\psi
 
 The Lagrangian :eq:`lag_inv` can also be written as:
 
 .. math::
 
-    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iA_\mu)-mc^2)\psi =
+    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iqA_\mu)-mc^2)\psi =
 
     = \bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
-        +\hbar c\bar\psi\gamma^\mu \psi  A_\mu
+        +\hbar qc\bar\psi\gamma^\mu \psi  A_\mu
+
+The operator $D_\mu = \partial_\mu-iqA_\mu$ is called a covariant derivative,
+because it does not change a form (is invariant) under a local gauge
+transformation.
 
 We can see that the condition of a local gauge invariance requires an
 interaction with a vector field $A_\mu$. Now we need to add the kinetic term
@@ -82,11 +88,12 @@ set $m=0$. Here is the full Lagrangian:
 .. math::
 
     \L= \bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
-        +\hbar c\bar\psi\gamma^\mu \psi  A_\mu
+        +\hbar q c\bar\psi\gamma^\mu \psi  A_\mu
         -{1\over4}F_{\mu\nu}F^{\mu\nu}
 
 This is a Lagrangian for an electron and a massless vector boson (photon) of
-spin 1.
+spin 1. For an electron, we set $q=-e$, where $e$ is the elementary charge ($e$
+is positive).
 
 QED Lagrangian
 --------------
@@ -112,7 +119,8 @@ and
     D_\mu=\partial_\mu+{i\over \hbar}eA_\mu
 
 
-is the gauge covariant derivative and ($e$ is the elementary charge, which is $1$ in atomic units, i.e. the electron has a charge $-e$)
+is the gauge covariant derivative and ($e$ is the elementary charge, which is
+$1$ in atomic units, i.e. the electron has a charge $q=-e$)
 
 .. math::
 
