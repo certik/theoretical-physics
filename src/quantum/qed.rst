@@ -61,18 +61,20 @@ invariant:
 
     = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iqA_\mu) -mc^2)\psi
 
-The Lagrangian :eq:`lag_inv` can also be written as:
+The Lagrangian :eq:`lag_inv` can also be written as (after we introduce the
+Planck constant by $q\to{q \over \hbar}$):
 
 .. math::
 
-    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iqA_\mu)-mc^2)\psi =
+    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-{i \over \hbar} qA_\mu)
+        -mc^2)\psi =
 
     = \bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
-        +\hbar qc\bar\psi\gamma^\mu \psi  A_\mu
+        + qc\bar\psi\gamma^\mu \psi  A_\mu
 
-The operator $D_\mu = \partial_\mu-iqA_\mu$ is called a covariant derivative,
-because it does not change a form (is invariant) under a local gauge
-transformation.
+The operator $D_\mu = \partial_\mu-{i\over \hbar}qA_\mu$ is called a covariant
+derivative, because it does not change a form (is invariant) under a local
+gauge transformation.
 
 We can see that the condition of a local gauge invariance requires an
 interaction with a vector field $A_\mu$. Now we need to add the kinetic term
@@ -88,13 +90,12 @@ set $m=0$. Here is the full Lagrangian:
 .. math::
 
     \L= \bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
-        +\hbar q c\bar\psi\gamma^\mu \psi  A_\mu
-        -{1\over4}F_{\mu\nu}F^{\mu\nu}
+        + q c\bar\psi\gamma^\mu \psi  A_\mu -{1\over4}F_{\mu\nu}F^{\mu\nu}
 
 This is a Lagrangian for an electron and a massless vector boson (photon) of
 spin 1. For an electron, we set $q=-e$, where $e$ is the elementary charge ($e$
-is positive). We can introduce a current $j^\mu =\hbar c\bar\psi\gamma^\mu
-\psi$, then the Lagrangian density becomes:
+is positive). We can introduce a current $j^\mu = c\bar\psi\gamma^\mu \psi$,
+then the Lagrangian density becomes:
 
 .. math::
 
