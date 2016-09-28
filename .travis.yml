@@ -10,7 +10,7 @@ before_install:
   - sudo apt-get update
   - if [[ "${TEST_SPHINX}" == "yes" ]]; then
       sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng;
-      pip install "sphinx==1.2b3";
+      pip install "sphinx==1.4.6";
     fi
 script:
   - bin/test_travis.sh
