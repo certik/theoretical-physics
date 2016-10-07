@@ -843,7 +843,7 @@ As a special case:
 All last 3 expressions are used (but the last one is probably the most common).
 $g$ is the matrix of coefficients $g_{\mu\nu}$.  At the beginning we used the
 usual trick that $g^{\mu\sigma}$ is symmetric but $\partial_\mu
-g_{\sigma\beta}- \partial_\sigma g_{\mu\beta}$ is unsymmetric.  Later we used
+g_{\sigma\beta}- \partial_\sigma g_{\mu\beta}$ is antisymmetric.  Later we used
 the identity $\Tr\log g = \log|\det g|$, which follows from the well-known
 identity $\det\exp A = \exp\Tr A$ by substituting $A=\log g$ and taking the
 logarithm of both sides.
