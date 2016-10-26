@@ -20,24 +20,24 @@ $\Lambda(x)$ to the field (U(1) gauge transformation):
 
 .. math::
 
-    \psi(x) \to e^{iq\Lambda(x)} \psi(x)
+    \psi(x) \to e^{iq\Lambda(x)/\hbar} \psi(x)
 
-    \bar\psi(x) \to \bar \psi(x) e^{-iq\Lambda(x)}
+    \bar\psi(x) \to \bar \psi(x) e^{-iq\Lambda(x) / \hbar}
 
-Where $q$ is a parameter that measures the strength of the phase
-transformation. And so we require that the Lagrangian is also invariant under
-the local gauge transformation, because there is no experiment that could
-reveal this phase. By putting this gauge transformation into the Lagrangian
-density, we otain:
+Where $q$ is a parameter that measures the strength of the phase transformation
+and $\hbar$ is the Planck constant. And so we require that the Lagrangian is
+also invariant under the local gauge transformation, because there is no
+experiment that could reveal this phase. By putting this gauge transformation
+into the Lagrangian density, we otain:
 
 .. math::
 
-    \L \to \bar\psi e^{-iq\Lambda(x)}
+    \L \to \bar\psi e^{-iq\Lambda(x) / \hbar}
         (i\hbar c\gamma^\mu \partial_\mu-mc^2)
-    e^{iq\Lambda(x)} \psi =
+    e^{iq\Lambda(x) / \hbar} \psi =
 
-    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu + iq\partial_\mu\Lambda(x))
-        -mc^2)\psi
+    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu + iq\partial_\mu\Lambda(x) /
+        \hbar) -mc^2)\psi
 
 In order to make the Lagrangian gauge invariant, we have to introduce a gauge
 field, in this case a vector field $A_\mu(x)$, as follows:
@@ -45,7 +45,7 @@ field, in this case a vector field $A_\mu(x)$, as follows:
 .. math::
     :label: lag_inv
 
-    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iqA_\mu)-mc^2)\psi
+    \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iqA_\mu / \hbar)-mc^2)\psi
 
 and the field $A_\mu$ must transform as
 $A_\mu \to A_\mu + \partial_\mu\Lambda(x)$. Then the Lagrangian is gauge
@@ -53,18 +53,18 @@ invariant:
 
 .. math::
 
-    \L \to \bar\psi e^{-iq\Lambda(x)}
-        (i\hbar c\gamma^\mu (\partial_\mu-iqA_\mu-iq\partial_\mu\Lambda(x))
-        -mc^2) e^{iq\Lambda(x)} \psi =
+    \L \to \bar\psi e^{-iq\Lambda(x) / \hbar}
+        (i\hbar c\gamma^\mu (\partial_\mu-iqA_\mu / \hbar
+            -iq\partial_\mu\Lambda(x) / \hbar)
+        -mc^2) e^{iq\Lambda(x) / \hbar} \psi =
 
-    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iqA_\mu
-        -iq\partial_\mu\Lambda(x) + iq\partial_\mu\Lambda(x))
+    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iqA_\mu / \hbar
+        -iq\partial_\mu\Lambda(x) / \hbar + iq\partial_\mu\Lambda(x) / \hbar)
         -mc^2)\psi =
 
-    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iqA_\mu) -mc^2)\psi
+    = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu -iqA_\mu / \hbar) -mc^2)\psi
 
-The Lagrangian :eq:`lag_inv` can also be written as (after we introduce the
-Planck constant by $q\to{q \over \hbar}$):
+The Lagrangian :eq:`lag_inv` can also be written as:
 
 .. math::
 
