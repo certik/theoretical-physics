@@ -39,17 +39,50 @@ into the Lagrangian density, we otain:
     = \bar\psi(i\hbar c\gamma^\mu (\partial_\mu + iq\partial_\mu\Lambda(x) /
         \hbar) -mc^2)\psi
 
-In order to make the Lagrangian gauge invariant, we have to introduce a gauge
-field, in this case a vector field $A_\mu(x)$, as follows:
+The reason the Lagrangian is not invariant is due to the derivative, which does
+not transform covariantly under a local gauge transformation:
+
+.. math::
+
+    \partial_\mu e^{iq\Lambda(x) / \hbar} \psi
+    = (\partial_\mu + iq\partial_\mu\Lambda(x) / \hbar) \psi
+
+In order to make the derivative transform covariantly (and thus the Lagrangian
+gauge invariant), we have to introduce a gauge field, in this case a vector
+field $A_\mu(x)$, as follows:
+
+.. math::
+
+    D_\mu = \partial_\mu-{i\over \hbar}qA_\mu
+
+and the field $A_\mu$ must transform as $A_\mu \to A_\mu +
+\partial_\mu\Lambda(x)$. The operator $D_\mu = \partial_\mu-{i\over
+\hbar}qA_\mu$ is called a covariant derivative, because it does not change a
+form (is invariant) under a local gauge transformation:
+
+.. math::
+
+    \bar\psi D_\mu \psi = \bar\psi (\partial_\mu-{i\over \hbar}qA_\mu) \psi
+
+    \to
+    \bar\psi e^{-iq\Lambda(x) / \hbar} (\partial_\mu-{i\over \hbar}q(A_\mu
+        + \partial_\mu \Lambda(x))) e^{iq\Lambda(x) / \hbar} \psi =
+
+    = \bar\psi (\partial_\mu
+        - {i\over \hbar}q A_\mu - {i\over \hbar}q \partial_\mu \Lambda(x)
+        + iq\partial_\mu\Lambda(x) / \hbar) \psi =
+
+    = \bar\psi (\partial_\mu - {i\over \hbar}qA_\mu) \psi
+    = \bar\psi D_\mu \psi
+
+Then the Lagrangian
 
 .. math::
     :label: lag_inv
 
     \L=\bar\psi(i\hbar c\gamma^\mu (\partial_\mu-iqA_\mu / \hbar)-mc^2)\psi
 
-and the field $A_\mu$ must transform as
-$A_\mu \to A_\mu + \partial_\mu\Lambda(x)$. Then the Lagrangian is gauge
-invariant:
+is also gauge invariant:
 
 .. math::
 
@@ -73,10 +106,6 @@ The Lagrangian :eq:`lag_inv` can also be written as:
 
     = \bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
         + qc\bar\psi\gamma^\mu \psi  A_\mu
-
-The operator $D_\mu = \partial_\mu-{i\over \hbar}qA_\mu$ is called a covariant
-derivative, because it does not change a form (is invariant) under a local
-gauge transformation.
 
 We can see that the condition of a local gauge invariance requires an
 interaction with a vector field $A_\mu$. Now we need to add the kinetic term
