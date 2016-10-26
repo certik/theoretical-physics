@@ -232,7 +232,7 @@ The "$x_j$" term is missing in the sums above.
 Implicit Surface
 ~~~~~~~~~~~~~~~~
 
-For a surface given explicitly by
+For a surface given implicitly by
 
 .. math::
 
