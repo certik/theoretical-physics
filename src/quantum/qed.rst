@@ -138,7 +138,14 @@ then the Lagrangian density becomes:
         + q j^\mu  A_\mu -{1\over4}F_{\mu\nu}F^{\mu\nu}
 
 For an electron, we can set $q=-e$, where $e$ is the elementary charge ($e$ is
-positive).
+positive). For example, the momentum operator becomes:
+
+.. math::
+
+    p_\mu=-i\hbar\partial_\mu \to -i\hbar D_\mu
+    =-i\hbar(\partial_\mu-{i\over \hbar}qA_\mu)
+    =-i\hbar\partial_\mu-qA_\mu
+    =-i\hbar\partial_\mu+eA_\mu
 
 QED Lagrangian
 --------------
