@@ -44,8 +44,13 @@ not transform covariantly under a local gauge transformation:
 
 .. math::
 
-    \partial_\mu e^{iq\Lambda(x) / \hbar} \psi
-    = (\partial_\mu + iq\partial_\mu\Lambda(x) / \hbar) \psi
+    \bar\psi \partial_\mu \psi
+    \to
+    \bar\psi e^{-iq\Lambda(x) / \hbar} \partial_\mu
+        e^{iq\Lambda(x) / \hbar} \psi =
+
+    = \bar\psi (\partial_\mu
+        + iq\partial_\mu\Lambda(x) / \hbar) \psi \neq \bar\psi \partial_\mu \psi
 
 In order to make the derivative transform covariantly (and thus the Lagrangian
 gauge invariant), we have to introduce a gauge field, in this case a vector
