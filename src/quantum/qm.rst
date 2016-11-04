@@ -260,6 +260,7 @@ By doing the nonrelativistic approximation ${V-E\over c^2} \ll 2m$ we obtain
 the Pauli equation:
 
 .. math::
+    :label: pauli-equation1
 
     \left(
     {\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
@@ -321,14 +322,64 @@ that can be proven by:
 
         = -i\hbar((\nabla\times{\bf A})\psi)_i - ({\bf A}\times{\bf p} \psi)_i
 
-Putting this into the Pauli equation, we get:
+Putting this into the Pauli equation :eq:`pauli-equation1`, we get:
 
 .. math::
+    :label: pauli-equation2
 
     \left(
     {\left({\bf p}-e{\bf A}\right)^2 \over 2m} + V
     -{e\hbar\over 2m}{\boldsymbol\sigma}\cdot{\bf B}
     \right) \psi^L = E \psi^L
+
+We can expand $\left({\bf p}-e{\bf A}\right)^2$ as follows:
+
+.. math::
+
+    \left({\bf p}-e{\bf A}\right)^2
+    = p^2 - e({\bf p}\cdot{\bf A}+{\bf A}\cdot{\bf p}) + e^2 A^2 =
+
+    = p^2 - 2e {\bf A}\cdot{\bf p} + e^2 A^2 + ie\hbar(\nabla\cdot{\bf A})
+
+where we used:
+
+.. math::
+
+   {\bf p}\cdot{\bf A}\psi
+       = -i\hbar\partial_i A^i\psi
+       = -i\hbar A^i\partial_i \psi -i\hbar(\partial_i A^i)\psi
+       = {\bf A}\cdot{\bf p} \psi -i\hbar(\nabla\cdot{\bf A})\psi
+
+and :eq:`pauli-equation2` becomes:
+
+.. math::
+
+    \left(
+    {p^2 \over 2m}
+    - {e\over m} {\bf A}\cdot{\bf p}
+    + {e^2\over 2m} A^2
+    + {ie\hbar\over 2m}(\nabla\cdot{\bf A})
+    + V
+    -{e\hbar\over 2m}{\boldsymbol\sigma}\cdot{\bf B}
+    \right) \psi^L = E \psi^L
+
+Using ${\bf p} = -i\hbar\nabla$ we get:
+
+.. math::
+    :label: pauli-equation3
+
+    \left(
+    -{\hbar^2 \over 2m}\nabla^2
+    + {ie\hbar\over m} {\bf A}\cdot\nabla
+    + {e^2\over 2m} A^2
+    + {ie\hbar\over 2m}(\nabla\cdot{\bf A})
+    + V
+    -{e\hbar\over 2m}{\boldsymbol\sigma}\cdot{\bf B}
+    \right) \psi^L = E \psi^L
+
+Note that $V=e\phi$ and $e=-|e|$ is the (negative) electron charge.
+In the Coulomb gauge the term $\nabla\cdot{\bf A}=0$. Sometimes one can neglect
+the quadratic term $e^2A^2$.
 
 Nonrelativistic Limit in the Lagrangian
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
