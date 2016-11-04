@@ -8,15 +8,17 @@ Quantum Electrodynamics (QED)
 Local Gauge Invariance
 ----------------------
 
+We use a metric with signature +2 in this section.
+
 The Dirac equation for an electron is:
 
 .. math::
 
     \L=\bar\psi(i\hbar c\gamma^\mu \partial_\mu-mc^2)\psi
 
-The physical quantities are expressions like $\bar\psi\psi$ or
-$\bar\psi\gamma^\mu\psi$, which are all invariant if we add a local phase
-$\Lambda(x)$ to the field (U(1) gauge transformation):
+Physical quantities like a charge density ($\bar\psi\psi$) or a current
+($\bar\psi\gamma^\mu\psi$), are all invariant if we add a local phase
+$\Lambda(x)$ to the field (this is called a local U(1) gauge transformation):
 
 .. math::
 
@@ -25,10 +27,12 @@ $\Lambda(x)$ to the field (U(1) gauge transformation):
     \bar\psi(x) \to \bar \psi(x) e^{-iq\Lambda(x) / \hbar}
 
 Where $q$ is a parameter that measures the strength of the phase transformation
-and $\hbar$ is the Planck constant. And so we require that the Lagrangian is
-also invariant under the local gauge transformation, because there is no
-experiment that could reveal this phase. By putting this gauge transformation
-into the Lagrangian density, we otain:
+(this will be later interpreted as a charge, for example for electrons
+$q=-|e|$) and $\hbar$ is the Planck constant. And so we require that the
+Lagrangian is also invariant under the local gauge transformation, because
+there is no experiment that would change if this local gauge transformation is
+applied on the wave functions. By putting this gauge transformation into the
+Lagrangian density, we otain:
 
 .. math::
 
@@ -57,11 +61,61 @@ gauge invariant), we have to introduce a gauge field, in this case a vector
 field $A_\mu(x)$, as follows:
 
 .. math::
+    :label: covariant-derivative
 
     D_\mu = \partial_\mu-{i\over \hbar}qA_\mu
 
 and the field $A_\mu$ must transform as $A_\mu \to A_\mu +
-\partial_\mu\Lambda(x)$. The operator $D_\mu = \partial_\mu-{i\over
+\partial_\mu\Lambda(x)$. At this level, we are free to choose either plus or
+minus sign in :eq:`covariant-derivative`, since the sign change can be absorbed
+in the definition of the $A_\mu$ field without loss of generality (if we change
+the sign, the field transformation then changes to $A_\mu \to A_\mu -
+\partial_\mu\Lambda(x)$). In the +2 metric signature we chose a minus sign, so
+that $A_\mu$ coincides with the usual definition of the electromagnetic
+4-potential:
+
+.. math::
+
+    D_\mu = \partial_\mu-{i\over \hbar}qA_\mu
+
+    -i\hbar D_\mu = -i\hbar \partial_\mu - qA_\mu
+
+    m\hat v_\mu = \hat p_\mu - qA_\mu
+
+    m\hat{\bf v} = \hat {\bf p} - q{\bf A}
+
+With signature -2, we must choose a plus sign and the identification goes as
+follows:
+
+.. math::
+
+    D_\mu = \partial_\mu+{i\over \hbar}qA_\mu
+
+    i\hbar D_\mu = i\hbar \partial_\mu - qA_\mu
+
+    m\hat v_\mu = \hat p_\mu - qA_\mu
+
+    m\hat{\bf v} = \hat {\bf p} - q{\bf A}
+
+And we obtain the same final equation. So the kinematic momentum is equal to
+canonical momentum minus charge times the gauge field.  The last expression is
+independent of a metric signature, and that is what is e.g. in the kinetic term
+of a Schrödinger or Pauli equation (with the minus sign in $\hat {\bf p} -
+q{\bf A}$). We derive the non-relativistic limit rigorously later, but it gives
+the same result. At this level we just have to make sure we choose the correct
+sign in :eq:`covariant-derivative`, depending on the metric signature,
+otherwise we would get the electromagnetic 4-potential with the opposite sign
+(the sign of $A_\mu$ is ultimately just a convention, but later we want to get
+the same equations as everybody else).
+
+Another unrelated convention is in choosing the sign of the parameter $q$. We
+have choosen it to coincide with an electric charge (negative for electrons).
+Some authors choose $q$ to be positive for electrons, then one must flip the
+sign in :eq:`covariant-derivative`.
+
+We will continue using the +2 signature in the rest of the section.
+
+The operator $D_\mu = \partial_\mu-{i\over
 \hbar}qA_\mu$ is called a covariant derivative, because it does not change a
 form (is invariant) under a local gauge transformation:
 
@@ -143,6 +197,8 @@ positive).
 QED Lagrangian
 --------------
 
+We use a metric with signature -2 in this section.
+
 The QED Lagrangian density is
 
 .. math::
@@ -157,15 +213,14 @@ where
     \psi=\left( \begin{array}{c} \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4 \\ \end{array}\right)
 
 
-and
+and we must choose a plus sign in :eq:`covariant-derivative` since we use the
+-2 signature:
 
 .. math::
 
     D_\mu=\partial_\mu+{i\over \hbar}eA_\mu
 
-
-is the gauge covariant derivative and ($e$ is the elementary charge, which is
-$1$ in atomic units, i.e. the electron has a charge $q=-e$)
+$e$ is the charge (negative for electrons $e=-|e|$).
 
 .. math::
 

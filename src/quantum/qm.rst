@@ -5,6 +5,8 @@ Quantum Mechanics
 
 .. index:: QED, quantum electrodynamics
 
+We use a metric with signature -2 in this section.
+
 From QED to Quantum Mechanics
 -----------------------------
 
@@ -258,6 +260,7 @@ By doing the nonrelativistic approximation ${V-E\over c^2} \ll 2m$ we obtain
 the Pauli equation:
 
 .. math::
+    :label: pauli-equation1
 
     \left(
     {\left({\boldsymbol\sigma}\cdot({\bf p}-e{\bf A})\right)^2 \over
@@ -319,14 +322,125 @@ that can be proven by:
 
         = -i\hbar((\nabla\times{\bf A})\psi)_i - ({\bf A}\times{\bf p} \psi)_i
 
-Putting this into the Pauli equation, we get:
+Putting this into the Pauli equation :eq:`pauli-equation1`, we get:
 
 .. math::
+    :label: pauli-equation2
 
     \left(
     {\left({\bf p}-e{\bf A}\right)^2 \over 2m} + V
     -{e\hbar\over 2m}{\boldsymbol\sigma}\cdot{\bf B}
     \right) \psi^L = E \psi^L
+
+We can expand $\left({\bf p}-e{\bf A}\right)^2$ as follows:
+
+.. math::
+
+    \left({\bf p}-e{\bf A}\right)^2
+    = p^2 - e({\bf p}\cdot{\bf A}+{\bf A}\cdot{\bf p}) + e^2 A^2 =
+
+    = p^2 - 2e {\bf A}\cdot{\bf p} + e^2 A^2 + ie\hbar(\nabla\cdot{\bf A})
+
+where we used:
+
+.. math::
+
+   {\bf p}\cdot{\bf A}\psi
+       = -i\hbar\partial_i A^i\psi
+       = -i\hbar A^i\partial_i \psi -i\hbar(\partial_i A^i)\psi
+       = {\bf A}\cdot{\bf p} \psi -i\hbar(\nabla\cdot{\bf A})\psi
+
+and :eq:`pauli-equation2` becomes:
+
+.. math::
+
+    \left(
+    {p^2 \over 2m}
+    - {e\over m} {\bf A}\cdot{\bf p}
+    + {e^2\over 2m} A^2
+    + {ie\hbar\over 2m}(\nabla\cdot{\bf A})
+    + V
+    -{e\hbar\over 2m}{\boldsymbol\sigma}\cdot{\bf B}
+    \right) \psi^L = E \psi^L
+
+Using ${\bf p} = -i\hbar\nabla$ we get:
+
+.. math::
+    :label: pauli-equation3
+
+    \left(
+    -{\hbar^2 \over 2m}\nabla^2
+    + {ie\hbar\over m} {\bf A}\cdot\nabla
+    + {e^2\over 2m} A^2
+    + {ie\hbar\over 2m}(\nabla\cdot{\bf A})
+    + V
+    -{e\hbar\over 2m}{\boldsymbol\sigma}\cdot{\bf B}
+    \right) \psi^L = E \psi^L
+
+Note that $V=e\phi$ and $e=-|e|$ is the (negative) electron charge.
+In the Coulomb gauge the term $\nabla\cdot{\bf A}=0$. Sometimes one can neglect
+the quadratic term $e^2A^2$.
+
+Example: velocity and length gauges
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Let us assume a given spatially homogeneous time dependent electric field ${\bf
+E}(t)$ and no magnetic field ${\bf B}=0$. Then one choice (gauge) of the
+electromagnetic potentials is:
+
+.. math::
+
+    \phi = 0
+
+    {\bf A}(t) = -\int_0^t {\bf E}(t') \d t'
+
+The vector potential ${\bf A}$ is time dependent, but spatially homogeneous
+(constant). Let us first check that we are getting the correct ${\bf E}$ and
+${\bf B}$:
+
+.. math::
+
+    {\bf E} = -\nabla\phi-{\partial{\bf A}\over\partial t} = {\bf E}(t)
+
+    {\bf B} = \nabla\times{\bf A} = 0
+
+We also have $\nabla\cdot{\bf A}=0$, since ${\bf A}$ does not depend on
+coordinates. Substituting into :eq:`pauli-equation3` we get:
+
+.. math::
+    :label: ex1
+
+    \left(
+    -{\hbar^2 \over 2m}\nabla^2
+    + {ie\hbar\over m} {\bf A}\cdot\nabla
+    + {e^2\over 2m} A^2
+    \right) \psi = E \psi
+
+The $\nabla$ in the ${\bf A}\cdot\nabla$ term is a velocity, so this gauge is
+called a velocity gauge. We can apply a gauge transformation
+$\Lambda = -{\bf A}\cdot{\bf x}$ and we get:
+
+.. math::
+
+    \phi \to \phi - {\partial\Lambda\over\partial t}
+        = \phi + {\partial{\bf A}\over\partial t}\cdot{\bf x}
+        = \phi - {\bf E}\cdot{\bf x}
+
+    {\bf A} \to {\bf A} + \nabla\Lambda
+        = {\bf A} - {\bf A} = 0
+
+Substituting this into :eq:`ex1` (and using $V=e\phi$), we obtain:
+
+.. math::
+    :label: ex2
+
+    \left(
+    -{\hbar^2 \over 2m}\nabla^2
+    -e{\bf E}\cdot{\bf x}
+    \right) \psi = E \psi
+
+Due to the ${\bf x}$ term in ${\bf E}\cdot{\bf x}$, this gauge is called the
+length gauge. Note that $e=-|e|$ is negative for electrons.
 
 Nonrelativistic Limit in the Lagrangian
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
