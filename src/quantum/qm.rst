@@ -5,6 +5,8 @@ Quantum Mechanics
 
 .. index:: QED, quantum electrodynamics
 
+We use a metric with signature -2 in this section.
+
 From QED to Quantum Mechanics
 -----------------------------
 
