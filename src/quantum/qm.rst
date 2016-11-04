@@ -381,6 +381,67 @@ Note that $V=e\phi$ and $e=-|e|$ is the (negative) electron charge.
 In the Coulomb gauge the term $\nabla\cdot{\bf A}=0$. Sometimes one can neglect
 the quadratic term $e^2A^2$.
 
+Example: velocity and length gauges
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Let us assume a given spatially homogeneous time dependent electric field ${\bf
+E}(t)$ and no magnetic field ${\bf B}=0$. Then one choice (gauge) of the
+electromagnetic potentials is:
+
+.. math::
+
+    \phi = 0
+
+    {\bf A}(t) = -\int_0^t {\bf E}(t') \d t'
+
+The vector potential ${\bf A}$ is time dependent, but spatially homogeneous
+(constant). Let us first check that we are getting the correct ${\bf E}$ and
+${\bf B}$:
+
+.. math::
+
+    {\bf E} = -\nabla\phi-{\partial{\bf A}\over\partial t} = {\bf E}(t)
+
+    {\bf B} = \nabla\times{\bf A} = 0
+
+We also have $\nabla\cdot{\bf A}=0$, since ${\bf A}$ does not depend on
+coordinates. Substituting into :eq:`pauli-equation3` we get:
+
+.. math::
+    :label: ex1
+
+    \left(
+    -{\hbar^2 \over 2m}\nabla^2
+    + {ie\hbar\over m} {\bf A}\cdot\nabla
+    + {e^2\over 2m} A^2
+    \right) \psi = E \psi
+
+The $\nabla$ in the ${\bf A}\cdot\nabla$ term is a velocity, so this gauge is
+called a velocity gauge. We can apply a gauge transformation
+$\Lambda = -{\bf A}\cdot{\bf x}$ and we get:
+
+.. math::
+
+    \phi \to \phi - {\partial\Lambda\over\partial t}
+        = \phi + {\partial{\bf A}\over\partial t}\cdot{\bf x}
+        = \phi - {\bf E}\cdot{\bf x}
+
+    {\bf A} \to {\bf A} + \nabla\Lambda
+        = {\bf A} - {\bf A} = 0
+
+Substituting this into :eq:`ex1` (and using $V=e\phi$), we obtain:
+
+.. math::
+    :label: ex2
+
+    \left(
+    -{\hbar^2 \over 2m}\nabla^2
+    -e{\bf E}\cdot{\bf x}
+    \right) \psi = E \psi
+
+Due to the ${\bf x}$ term in ${\bf E}\cdot{\bf x}$, this gauge is called the
+length gauge. Note that $e=-|e|$ is negative for electrons.
+
 Nonrelativistic Limit in the Lagrangian
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
