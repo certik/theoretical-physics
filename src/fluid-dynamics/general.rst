@@ -747,31 +747,40 @@ Divergence Free Velocity
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Typically by propagating :eq:`incomp_euler_2`, we obtain a velocity ${\bf v}^*$
-that is not divergence free. To make it so, we minimize the following
-functional:
+that is not divergence free. To make it so, we want to find such a divergence
+free ${\bf v}$ that is closest to ${\bf v}^*$ in the $L^2$ norm $\|{\bf v} -
+{\bf v}^*\| = \sqrt{\int ({\bf v}-{\bf v}^*)^2 \, \d^3 x}$, in other words we
+want to find the $L^2$ projection onto the divergence free subspace, so we have
+to minimize the following functional:
 
 .. math::
 
-    R[{\bf v}, \lambda] = \int \half({\bf v}-{\bf v}^*)^2
+    R[{\bf v}, \lambda]
+        = \half \| {\bf v}-{\bf v}^* \|^2
+        - \int \lambda \nabla\cdot{\bf v}\, \d^3 x
+        = \int \half({\bf v}-{\bf v}^*)^2
         - \lambda \nabla\cdot{\bf v}\, \d^3 x\,,
 
 where we used a Langrange multiplier $\lambda=\lambda({\bf x})$ in the second
 term to impose the zero divergence on ${\bf v}={\bf v}({\bf x})$ for all points
 ${\bf x}$ (that is why $\lambda$ is a function of ${\bf x}$ and not a constant)
 and in the first term we ensure that ${\bf v}$ is as close as possible to the
-original field ${\bf v}^*$. Let's calculate the variation:
+original field ${\bf v}^*$ in the $L^2$ sense. Let's calculate the variation:
 
 .. math::
 
     \delta R[{\bf v}, \lambda] = \int ({\bf v}-{\bf v}^*)\cdot\delta {\bf v}
-            - \lambda \nabla\cdot \delta{\bf v}\, \d^3 x =
+            - \lambda \nabla\cdot \delta{\bf v}
+            - (\nabla\cdot{\bf v}) \delta\lambda \, \d^3 x =
 
         = \int ({\bf v}-{\bf v}^*)\cdot\delta {\bf v}
-            + (\nabla\lambda) \cdot \delta{\bf v}\, \d^3 x
+            + (\nabla\lambda) \cdot \delta{\bf v}
+            - (\nabla\cdot{\bf v}) \delta\lambda \, \d^3 x
          +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S =
 
-        = \int ({\bf v}-{\bf v}^* + \nabla\lambda)\cdot\delta {\bf v}\, \d^3 x
-         +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S\,.
+        = \int ({\bf v}-{\bf v}^* + \nabla\lambda)\cdot\delta {\bf v}
+            - (\nabla\cdot{\bf v}) \delta\lambda \, \d^3 x
+            +\int \lambda \delta{\bf v}\cdot{\bf n}\, \d S\,.
 
 From the condition $\delta R[{\bf v}, \lambda]=0$ and assuming the surface
 integral vanishes (i.e. either $\lambda=0$ or $\delta{\bf v}\cdot{\bf n}=0$
@@ -787,7 +796,7 @@ everywhere on the boundary) we obtain the two Euler-Lagrange equations:
     :label: lambda_eq1b
 
     {\delta R[{\bf v}, \lambda] \over \delta \lambda}
-        = \nabla\cdot{\bf v} = 0\,.
+        = -\nabla\cdot{\bf v} = 0\,.
 
 Applying divergence to :eq:`lambda_eq1a` and using :eq:`lambda_eq1b` we obtain:
 
@@ -803,6 +812,160 @@ divergence free ${\bf v}$ from :eq:`lambda_eq1a`:
     :label: lambda_eq3
 
     {\bf v} = {\bf v}^* - \nabla\lambda\,.
+
+Time Discretization
+~~~~~~~~~~~~~~~~~~~
+
+The incompressible Euler equations are:
+
+.. math::
+
+    \nabla\cdot{\bf v}=0\,,
+
+.. math::
+    :label: eul01
+
+    {\partial {\bf v}\over\partial t} =
+        -{\bf v}\cdot \nabla{\bf v} -{1\over\rho_0} \nabla p\,.
+
+We use first order time discretization:
+
+.. math::
+    :label: eul11
+
+    \nabla\cdot{\bf v}^{n}=0\,,
+
+.. math::
+    :label: eul12
+
+    \nabla\cdot{\bf v}^{n+1}=0\,,
+
+.. math::
+    :label: eul13
+
+    {{\bf v}^{n+1} - {\bf v}^n\over\Delta t} =
+        -{\bf v}^n\cdot \nabla{\bf v}^n -{1\over\rho_0} \nabla p^{n+1}\,.
+
+The velocity at time steps $n$ and $n+1$ must be divergence free, per
+:eq:`eul11` and :eq:`eul12`. The simplest discretization of :eq:`eul01` is to
+use an explicit scheme, so we evaluate the term ${\bf v}\cdot \nabla{\bf v}$ at
+the time step $n$. Regarding the pressure term $\nabla p$, if we evaluated it
+at the time step $n$, then from :eq:`eul13` we could calculate ${\bf v}^{n+1}$
+that would not be divergence free, per :eq:`eul12`. So we are led to evaluate
+the pressure term at the time step $n+1$, then all the equations
+:eq:`eul11`, :eq:`eul12` and :eq:`eul13` can be satisfied.
+
+To solve this system of equations, we use an operator splitting on :eq:`eul13`,
+the most natural is probably the following:
+
+.. math::
+    :label: eul21
+
+    {{\bf v}^* - {\bf v}^n\over\Delta t} =
+        -{\bf v}^n\cdot \nabla{\bf v}^n -{1\over\rho_0} \nabla p^n\,,
+
+.. math::
+    :label: eul22
+
+    {{\bf v}^{n+1} - {\bf v}^*\over\Delta t} =
+        -{1\over\rho_0} \nabla (p^{n+1}-p^n)\,.
+
+The first equation :eq:`eul21` is just like :eq:`eul13`, except that the
+pressure term is evaluated at the time step $n$, which forces us to change
+${\bf v}^{n+1}$ into ${\bf v}^*$, which is not divergence free. The second
+equation :eq:`eul22` is then uniquely given by the condition that the sum of
+:eq:`eul21` and :eq:`eul22` is equal to :eq:`eul13`.
+
+The equation :eq:`eul22` is equivalent to :eq:`lambda_eq3`, with $\lambda =
+{\Delta t \over\rho_0}(p^{n+1}-p^n)$, so this is an $L^2$ projection of ${\bf
+v}^*$ onto the divergence free subspace to obtain ${\bf v}^{n+1}$, also
+sometimes called a pressure projection. We use the same method as was used to
+obtain the Poisson equation :eq:`lambda_eq2` for $\lambda$, i.e. take a
+divergence and rearrange:
+
+.. math::
+    :label: eul23
+
+    \nabla^2 \lambda
+        = \nabla^2\left({\Delta t \over\rho_0}(p^{n+1}-p^n)\right)
+        = \nabla\cdot{\bf v}^*\,.
+
+
+One solves :eq:`eul21` for ${\bf v}^*$, then the Poisson equation :eq:`eul23`
+for $\lambda$ (i.e. the pressure update $p^{n+1}-p^n$), and then one computes
+${\bf v}^{n+1}$ using :eq:`eul22` (or equivalently :eq:`lambda_eq3`).
+
+These equations are derived from Euler equations :eq:`eul11` and :eq:`eul12`
+using a time discretization and an operator splitting technique. The theory of
+the $L^2$ projection onto the divergence free subspace is not needed to derive
+these equations, but it helps with understanding of what is going on.
+
+Note 1: the operator splitting of :eq:`eul13` into :eq:`eul21` and :eq:`eul22`
+is not unique. Another option is:
+
+.. math::
+    :label: eul31
+
+    {{\bf v}^* - {\bf v}^n\over\Delta t} =
+        -{\bf v}^n\cdot \nabla{\bf v}^n \,,
+
+.. math::
+    :label: eul32
+
+    {{\bf v}^{n+1} - {\bf v}^*\over\Delta t} =
+        -{1\over\rho_0} \nabla p^{n+1}\,.
+
+The sum of :eq:`eul31` and :eq:`eul32` is still :eq:`eul13` and the equation
+:eq:`eul32` is still equivalent to :eq:`lambda_eq3`, only this time with
+$\lambda = {\Delta t \over\rho_0}p^{n+1}$. The Poisson equation then becomes:
+
+.. math::
+    :label: eul33
+
+    \nabla^2 \lambda
+        = \nabla^2\left({\Delta t \over\rho_0}p^{n+1}\right)
+        = \nabla\cdot{\bf v}^*\,.
+
+The only difference to the previous scheme is that now the $L^2$ norm of $\|
+{\bf v}^{n+1} - {\bf v}^* \| = \| \nabla\lambda \|$ is larger, because
+$\lambda$ now depends on the full pressure instead of the pressure difference,
+so ${\bf v}^*$ is not as close to ${\bf v}^{n+1}$ as in the previous scheme.
+
+Note 2: By applying divergence to :eq:`eul31` we obtain:
+
+.. math::
+
+    {\nabla\cdot{\bf v}^*\over\Delta t}
+        = -\nabla\cdot({\bf v}^n\cdot \nabla{\bf v}^n)
+        = -\Tr (\nabla {\bf v}^n)^2\,,
+
+and substituting into :eq:`eul33` we obtain:
+
+.. math::
+
+    \nabla^2\left({\Delta t \over\rho_0}p^{n+1}\right)
+        = \nabla\cdot{\bf v}^*
+        = -\Delta t\Tr (\nabla {\bf v}^n)^2\,,
+
+or
+
+.. math::
+    :label: eul5
+
+    -\nabla^2 p^{n+1} = \rho_0 \Tr (\nabla {\bf v}^n)^2\,,
+
+which is the discrete analog of the equation :eq:`incomp_euler_3`. The same
+result is obtained by applying a divergence to :eq:`eul21` and substituting
+into :eq:`eul23`:
+
+.. math::
+
+    \nabla^2\left({\Delta t \over\rho_0}(p^{n+1}-p^n)\right)
+        = \nabla\cdot{\bf v}^*
+        = -\Delta t\Tr (\nabla {\bf v}^n)^2-{\Delta t\over\rho_0}\nabla^2 p^n
+
+Which simplifies to :eq:`eul5`.
+
 
 Bernoulli's Principle
 ---------------------
