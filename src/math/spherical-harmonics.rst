@@ -598,11 +598,11 @@ and we get:
 .. math::
 
     c^k(l, m, l', m') =
-        \sqrt{4\pi \over 4k+1}
+        \sqrt{4\pi \over 2k+1}
     \int Y_{lm}^*(\Omega) Y_{k, m-m'}(\Omega) Y_{l'm'}(\Omega) \d\Omega =
 
     = (-1)^{-m}
-        \sqrt{4\pi \over 4k+1}
+        \sqrt{4\pi \over 2k+1}
         \sqrt{(2l+1)(2k+1)(2l'+1)\over 4\pi}
         \begin{pmatrix} l & k & l' \\ 0 & 0 & 0 \end{pmatrix}
         \begin{pmatrix} l & k & l' \\ -m & m-m' & m' \end{pmatrix} =
@@ -641,19 +641,19 @@ Example II
 
     \sum_{m=-l}^l c^k(l, m, l, m)
         = \sum_m
-        \sqrt{4\pi \over 4k+1}
+        \sqrt{4\pi \over 2k+1}
         \int Y_{lm}^*(\Omega) Y_{k0}(\Omega) Y_{lm}(\Omega) \d\Omega =
 
         =
-        \sqrt{4\pi \over 4k+1}
+        \sqrt{4\pi \over 2k+1}
         \int \sum_m |Y_{lm}(\Omega)|^2 Y_{k0}(\Omega) \d\Omega =
 
         =
-        \sqrt{4\pi \over 4k+1}
+        \sqrt{4\pi \over 2k+1}
         {2l+1\over 4\pi} \int Y_{k0}(\Omega) \d\Omega =
 
         =
-        \sqrt{4\pi \over 4k+1}
+        \sqrt{4\pi \over 2k+1}
         {2l+1\over 4\pi}
         \sqrt{4\pi} \delta_{k0} =
 
@@ -666,28 +666,28 @@ Example III
 .. math::
 
     c^k(l, m, l', m') =
-        \sqrt{4\pi \over 4k+1}
+        \sqrt{4\pi \over 2k+1}
     \int Y_{lm}^*(\Omega) Y_{k, m-m'}(\Omega) Y_{l'm'}(\Omega) \d\Omega =
 
-    = \sqrt{4\pi \over 4k+1}
+    = \sqrt{4\pi \over 2k+1}
     \int \Theta_{lm}\Phi_m^* \Theta_{k, m-m'}\Phi_{m-m'} \Theta_{l'm'}\Phi_{m'}
         \sin\theta \d\theta \d\phi =
 
-    = \sqrt{4\pi \over 4k+1}
+    = \sqrt{4\pi \over 2k+1}
     \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
     \int_0^{2\pi} \Phi_m^* \Phi_{m-m'} \Phi_{m'} \d\phi =
 
-    = \sqrt{4\pi \over 4k+1}
+    = \sqrt{4\pi \over 2k+1}
     \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
     \left(1\over\sqrt{2\pi}\right)^3
     \int_0^{2\pi} e^{-im\phi} e^{i(m-m')\phi} e^{im'\phi} \d\phi =
 
-    = \sqrt{4\pi \over 4k+1}
+    = \sqrt{4\pi \over 2k+1}
     \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
     \left(1\over\sqrt{2\pi}\right)^3
     \int_0^{2\pi} \!\!\!\d\phi =
 
-    = \sqrt{2\over 4k+1}
+    = \sqrt{2\over 2k+1}
     \int_0^\pi \Theta_{lm} \Theta_{k, m-m'} \Theta_{l'm'} \sin\theta \d\theta
 
 Example IV
