@@ -527,7 +527,8 @@ follows $B = Z$. We finally obtain:
 
     V(r) = - Z \left({\alpha\over2} + {1\over r}\right) e^{-\alpha r}
         + {Z \over r}
-        = Z \left({1-e^{-\alpha r} \over r} - {\alpha/2}\right)
+        = Z \left({1-e^{-\alpha r} \over r} - {\alpha e^{-\alpha r}
+            \over 2}\right)
 
 Let us calculate the self-energy:
 
@@ -539,18 +540,20 @@ Let us calculate the self-energy:
 
     = 2\pi \int_0^\infty
     {Z\alpha^3 \over 8\pi} e^{-\alpha r}
-    Z \left({1-e^{-\alpha r} \over r} - {\alpha/2}\right)
+    Z \left({1-e^{-\alpha r} \over r} - {\alpha e^{-\alpha r}
+            \over 2}\right)
     r^2 \d r =
 
     = {Z^2 \alpha^3 \over 4}
         \int_0^\infty e^{-\alpha r}
-       \left({1-e^{-\alpha r} \over r} - {\alpha/2}\right)
+       \left({1-e^{-\alpha r} \over r} - {\alpha e^{-\alpha r}
+            \over 2}\right)
         r^2 \d r =
 
     = {Z^2 \alpha^3 \over 4}
-        \left(-{1\over 4\alpha^2}\right) =
+        \left({5\over 8\alpha^2}\right) =
 
-    = {Z^2 \alpha \over 16}
+    = {5Z^2 \alpha \over 32}
 
 Code::
 
@@ -568,8 +571,8 @@ Code::
     2))*exp(-alpha*r)/2
     >>> ((V+B/r).diff(r)*r**2).limit(r, 0)
     -B + Z
-    >>> integrate(exp(-alpha*r)*((1-exp(-alpha*r))/r-alpha/2)*r**2, (r, 0, oo))
-    -1/(4*alpha**2)
+    >>> integrate(exp(-alpha*r)*((1-exp(-alpha*r))/r-alpha*exp(-alpha*r)/2)*r**2, (r, 0, oo))
+    5/(8*alpha**2)
 
 Piecewise Polynomial Charge
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
