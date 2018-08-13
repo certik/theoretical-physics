@@ -29,7 +29,7 @@ extensions = ["math_dollar"]
 if os.path.exists("use_mathjax.cfg"):
     extensions += ['sphinx.ext.mathjax']
 else:
-    extensions += ['sphinx.ext.pngmath']
+    extensions += ['sphinx.ext.imgmath']
 
 # Point MathJax to a local installation:
 #mathjax_path="file:///path/to/MathJax/MathJax.js?config=TeX-AMS_HTML-full"
@@ -181,7 +181,7 @@ latex_preamble = r"""
 
 """
 
-pngmath_latex_preamble = latex_preamble
+imgmath_latex_preamble = latex_preamble
 latex_elements = {"preamble": latex_preamble}
 
 # Add any paths that contain templates here, relative to this directory.
@@ -358,3 +358,6 @@ latex_documents = [
 
 # If false, no module index is generated.
 #latex_use_modindex = True
+
+imgmath_image_format = 'svg'
+imgmath_dvisvgm_args = ['--no-fonts', '--exact']

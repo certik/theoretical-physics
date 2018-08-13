@@ -1778,10 +1778,10 @@ so the commutation relations for $\hat\psi$ and $\hat\psi^\dag$ are:
 
 .. math::
 
-    [\hat\psi({\bf x}), \hat\psi^\dag({\bf y})] = \delta^{(3)}({\bf x}-{\bf y})
+    [ \hat\psi({\bf x}), \hat\psi^\dag({\bf y}) ] = \delta^{(3)}({\bf x}-{\bf y})
 
-    [\hat\psi({\bf x}), \hat\psi({\bf y})] =
-    [\hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y})] = 0
+    [ \hat\psi({\bf x}), \hat\psi({\bf y}) ] =
+    [ \hat\psi^\dag({\bf x}), \hat\psi^\dag({\bf y}) ] = 0
 
 For fermions:
 
