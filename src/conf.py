@@ -360,3 +360,4 @@ latex_documents = [
 #latex_use_modindex = True
 
 imgmath_image_format = 'svg'
+imgmath_dvisvgm_args = ['--no-fonts', '--exact']
