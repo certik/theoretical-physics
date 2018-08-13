@@ -362,7 +362,7 @@ latex_documents = [
 imgmath_image_format = 'svg'
 imgmath_dvisvgm_args = ['--no-fonts', '--exact']
 
-math_number_all = True
+#math_number_all = True
 math_numfig = True
 numfig = True
 numfig_secnum_depth = 3
