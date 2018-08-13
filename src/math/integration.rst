@@ -70,19 +70,19 @@ Let's integrate a function $f(x, y, z)$ over the surface of a sphere in 3D
 
 .. math::
 
-    \mathbf{\varphi}(\theta, \phi) = \mat{
+    \mathbf{\varphi}(\theta, \phi) &= \mat{
         r\sin\theta\cos\phi \cr
         r\sin\theta\sin\phi \cr
         r\cos\theta \cr
     }
 
-    {\bf J} = \mat{
+    {\bf J} &= \mat{
         -r\sin\theta\sin\phi & r\cos\theta\cos\phi \cr
         r\sin\theta\cos\phi & r\cos\theta\sin\phi \cr
         0 & -r\sin\theta \cr
     }
 
-    {\bf G} = {\bf J}^T {\bf J} =
+    {\bf G} &= {\bf J}^T {\bf J} =
     \mat{
         -r\sin\theta\sin\phi & r\sin\theta\cos\phi & 0 \cr
         r\cos\theta\cos\phi & r\cos\theta\sin\phi & -r\sin\theta \cr
@@ -97,15 +97,15 @@ Let's integrate a function $f(x, y, z)$ over the surface of a sphere in 3D
         0 & r^2 \cr
     }
 
-    \det{\bf G} = r^4\sin^2\theta
+    \det{\bf G} &= r^4\sin^2\theta
 
-    \sqrt{\det{\bf G}} = r^2\sin\theta
+    \sqrt{\det{\bf G}} &= r^2\sin\theta
 
-    \int_M f(x, y, z) \d S = \int_{\R^n} f(r\sin\theta\cos\phi,
+    \int_M f(x, y, z) \d S &= \int_{\R^n} f(r\sin\theta\cos\phi,
     r\sin\theta\sin\phi, r\cos\theta)\, r^2\sin\theta\,\d\theta\,\d\phi
     =
 
-    = \int_0^\pi\d\theta \int_0^{2\pi}\d\phi\, f(r\sin\theta\cos\phi,
+    &= \int_0^\pi\d\theta \int_0^{2\pi}\d\phi\, f(r\sin\theta\cos\phi,
     r\sin\theta\sin\phi, r\cos\theta)\, r^2\sin\theta
 
 Let's say we want to calculate the surface area of a sphere, so we set $f(x, y,
