@@ -31,6 +31,19 @@ ACTUAL_TRAVIS_JOB_NUMBER=`echo $TRAVIS_JOB_NUMBER| cut -d'.' -f 2`
 if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] && [[ "$ACTUAL_TRAVIS_JOB_NUMBER" == "1" ]] && [[ "$TRAVIS_BRANCH" == "master" ]]; then
         git config --global user.email "ondrej.certik@gmail.com"
         git config --global user.name "Automatic Deployment (Travis CI)"
+
+        # New website:
+        git clone https://${GH_TOKEN}@github.com/certik/tfc-deploy
+        cd tfc-deploy
+        rm -rf dev/
+        cp -r ../_build/html/ dev/
+        cp -r ../_build/html_mathjax/ dev/
+        cp -r ../_build/latex/theoretical-physics.pdf dev/
+        git add dev
+        git commit -am "Deploy after building $TRAVIS_BUILD_NUMBER"
+        git push -q origin master # -q hides the GH_TOKEN
+
+        # Old website:
         git clone https://${GH_TOKEN}@github.com/certik/tfn-deploy
         cd tfn-deploy
         rm -rf dev/
