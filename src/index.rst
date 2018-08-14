@@ -3,6 +3,7 @@ Theoretical Physics Reference
 
 .. toctree::
     :maxdepth: 3
+    :numbered: 3
 
     intro.rst
     contributors.rst
