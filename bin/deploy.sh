@@ -41,7 +41,7 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] && [[ "$ACTUAL_TRAVIS_JOB_NUMBER" == 
         cp -r ../_build/latex/theoretical-physics.pdf dev/
         git add dev
         git commit -am "Deploy after building $TRAVIS_BUILD_NUMBER"
-        git push -q origin gh-pages # -q hides the GH_TOKEN
+        git push -q origin master # -q hides the GH_TOKEN
 
         # Old website:
         git clone https://${GH_TOKEN}@github.com/certik/tfn-deploy
