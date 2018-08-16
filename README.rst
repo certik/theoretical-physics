@@ -3,7 +3,7 @@ Theoretical Physics Reference
 
 This is an opensource book, available online at:
 
-https://www.theoretical-physics.net
+https://theoretical-physics.com
 
 All files in the repository are licensed under the MIT license. The source code
 of the repository is available at:
