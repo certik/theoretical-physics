@@ -19,3 +19,4 @@ Mathematics
     la.rst
     differential-geometry.rst
     operators.rst
+    variational-formulation.rst
