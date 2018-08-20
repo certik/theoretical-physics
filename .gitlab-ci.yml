@@ -1,0 +1,41 @@
+image: registry.gitlab.com/ftpum/ci-images:article-1.6.0
+
+stages:
+  - build
+  - deploy
+
+build html:
+  stage: build
+  script:
+    - sudo apt-get update
+    - sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng latexmk autotools-dev libkpathsea-dev libfreetype6-dev libgs-dev libz-dev g++ make python-lxml python-pip python-setuptools git autotools-dev automake autoconf libtool
+    - sudo pip install "sphinx==1.7.6"
+    - bin/test_travis.sh
+  artifacts:
+    untracked: true
+
+deploy review:
+  stage: deploy
+  script:
+    - sudo apt-get update
+    - sudo apt-get install -y --no-install-recommends git ssh
+    - bin/deploy.sh git@gitlab.com:certik/tpr-test public/$CI_COMMIT_REF_NAME
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: https://certik.gitlab.io/tpr-test/$CI_COMMIT_REF_NAME
+  only:
+    - branches
+  except:
+    - master
+
+deploy prod:
+  stage: deploy
+  script:
+    - sudo apt-get update
+    - sudo apt-get install -y --no-install-recommends git ssh
+    - bin/deploy.sh git@github.com:certik/tfc-deploy docs/dev
+  environment:
+    name: production
+    url: https://www.theoretical-physics.com/dev/
+  only:
+    - master
