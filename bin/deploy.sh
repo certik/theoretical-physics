@@ -19,6 +19,7 @@ fi
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+ssh-keyscan github.com >> ~/.ssh/known_hosts
 eval "$(ssh-agent -s)"
 set +x
 if [[ "${SSH_KEY}" == "" ]]; then
