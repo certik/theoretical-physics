@@ -23,10 +23,22 @@ deploy review:
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://certik.gitlab.io/tpr-test/$CI_COMMIT_REF_NAME
+    on_stop: stop deploy review
   only:
     - branches
   except:
     - master
+
+stop deploy review:
+  stage: deploy
+  script:
+    - sudo apt-get update
+    - sudo apt-get install -y --no-install-recommends git ssh
+    - bin/stop_deploy.sh git@gitlab.com:certik/tpr-test public/$CI_COMMIT_REF_NAME
+  when: manual
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    action: stop
 
 deploy prod:
   stage: deploy
