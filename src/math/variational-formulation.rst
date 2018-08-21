@@ -98,31 +98,193 @@ $\delta u(x)$ to be zero at the Dirichlet part of the boundary in
 :eq:`poisson3_boundary2` does not hold at the Dirichlet part of the boundary
 and we have to set the value $u(x)$ there directly.
 
+Example
+-------
+
 As a particular example, let $u(a) = u_0$ and $u'(b) = g$. Then the Lagrangian
 :eq:`poisson0` becomes:
+
+.. math::
+    :label: poisson_example_L
+
+    L[u] = \int_a^b \left[ \half u'^2(x) - f(x) u(x) \right] \d x - g u(b)\,.
+
+We can explicitly define the space $U$ of all trial functions $u \in U$ that
+one can choose (admissible) and substitute in :eq:`poisson_example_L` as
+follows. We have to impose the Dirichlet condition $u(a) = u_0$ on the space
+itself, and we also have to choose how smooth functions we want. For finite
+element applications one typically chooses $H^1$ (i.e., values and first
+derivatives are from $L^2$) and we obtain:
+
+.. math::
+    :label: poisson_example_UU
+
+    U := \{u : u \in H^1(a,b), u(a)=u_0\}
+
+Now we derive what space the variation $\delta u(x)$ belongs to. Let
+$u_\textrm{min}$ be the solution (the extremum of the functional
+:eq:`poisson_example_L`). Then from calculus of variations:
+
+.. math::
+    :label: poisson_example_u
+
+    u = u_\textrm{min} + \varepsilon \delta u(x)
+
+Here $u$ is called the trial function and $\delta u(x)$ is called the test
+function. Both $u$ and $u_\textrm{min}$ are from the space $U$. Thus we can
+compute:
+
+.. math::
+
+    \delta u(a) = {u(a) - u_\textrm{min}(a) \over \varepsilon}
+    = {u_0 - u_0 \over \varepsilon} = 0\,.
+
+In addition, both $u,u_\textrm{min}\in H^1(a,b)$, so also their difference
+$u(x) - u_\textrm{min}(x)$ and thus also $\delta u(x)={u(x) - u_\textrm{min}(x)
+\over \varepsilon}$ is from $H^1(a,b)$. There are no other conditions ($u(b)$
+and $u_\textrm{min}(b)$ are generally different, so in general $\delta u(b) \ne
+0$) and so $\delta u(x) \in U_0$ where the space $U_0$ is:
+
+.. math::
+    :label: poisson_example_U0
+
+    U_0 := \{w : w \in H^1(a,b), w(a)=0\}\,.
+
+The definition of the space $U_0$ in :eq:`poisson_example_U0` is derived from
+the definition of the space $U$ in :eq:`poisson_example_UU`.
+
+To compute the variation of $L$, we substitute :eq:`poisson_example_u` into
+:eq:`poisson_example_L`, differentiate with respect to $\varepsilon$ and then
+set $\varepsilon=0$ using :eq:`functional_deriv`:
+
+.. math::
+
+    \delta L[u] = \left.{\d\over\d\varepsilon}L[u_\textrm{min}+\varepsilon
+        \delta u] \right|_{\varepsilon=0}
+
+as was done in :eq:`poisson1` and one obtains the weak form (below we drop the
+label $\textrm{min}$ from $u_\textrm{min}$ and just use $u$):
+
+.. math::
+    :label: poisson_example_weak_form
+
+    \delta L[u] =
+    \int_a^b \left[ u'(x) \delta u'(x) - f(x) \delta u(x) \right] \d x
+        - g \delta u(b) = 0\,.
+
+The task is to find such function $u\in U$ so that
+:eq:`poisson_example_weak_form` holds for all $\delta u \in U_0$.  From
+:eq:`poisson_example_weak_form` one obtains (as in :eq:`poisson1`):
+
+.. math::
+    :label: poisson_example_2
+
+    \int_a^b \left[-u''(x) - f(x)\right] \delta u(x) \d x
+        + (u'(b) - g) \delta u(b) = 0\,.
+
+The governing equation :eq:`poisson3` is the same:
+
+.. math::
+    :label: poisson_example_strong
+
+    u''(x) + f(x) = 0\,.
+
+The boundary term :eq:`poisson3_boundary` becomes (see
+:eq:`poisson_example_2`):
+
+.. math::
+
+    (u'(b) - g) \delta u(b) = 0\,.
+
+Which implies $u'(b) = g$.
+
+The Dirichlet boundary condition is part of the definition of the function
+space :eq:`poisson_example_UU`, so all trial functions $u$ that one can choose
+(admissible) and substitute in $L[u]$ must lie in $U$. From the derivation of
+the space $U_0$ in :eq:`poisson_example_U0` we can see that since the value of
+$u(a)$ is fixed, we always have $\delta u(a) = 0$; on the other hand, since
+$u(b)$ is not fixed, in general we have $\delta u(b) \ne 0$.
+
+The Neumann boundary condition is imposed variationally due to the surface term
+in the weak form :eq:`poisson_example_weak_form`.
+
+Summary
+~~~~~~~
+
+We have shown above that there are three equivalent formulations which
+fully and uniquely determine the solution and boundary conditions (both
+Dirichlet and Neumann):
+
+1. Define the functional $L[u]$ in :eq:`poisson_example_L` and the space $U$
+   for the trial functions $u\in U$ in :eq:`poisson_example_UU`.
+2. Define the weak form :eq:`poisson_example_weak_form` and the two spaces $U$
+   and $U_0$, where $u\in U$ and $\delta u \in U_0$.
+3. Define the strong form :eq:`poisson_example_strong` and the boundary
+   conditions $u(a) = u_0$ and $u'(b) = g$.
+
+Let us write down the three formulations in detail.
+
+Variational Formulation
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The variational formulation is the formulation 1. above.
 
 .. math::
 
     L[u] = \int_a^b \left[ \half u'^2(x) - f(x) u(x) \right] \d x - g u(b)\,.
 
-The governing equation :eq:`poisson3` is the same:
+The task is to find such $u\in U$ that extremizes this functional
+($\delta L[u] = 0$), where:
 
 .. math::
 
-    u''(x) + f(x) = 0\,.
+    U := \{u : u \in H^1(a,b), u(a)=u_0\}\,.
 
-The boundary term :eq:`poisson3_boundary` becomes:
+Weak Formulation
+~~~~~~~~~~~~~~~~
+
+Weak formulation is the formulation 2. above, and it is customary to
+write $w(x) \equiv \delta u(x)$ in the weak form
+:eq:`poisson_example_weak_form`:
+
+.. math::
+    :label: poisson_example_weak_form2
+
+    \int_a^b \left[ u'(x) w'(x) - f(x) w(x) \right] \d x - g w(b) = 0\,.
+
+The task is to find such $u\in U$ so that :eq:`poisson_example_weak_form2`
+holds for all $w\in U_0$, where
 
 .. math::
 
-    (u'(b) - g(b)) \delta u(b) = 0\,.
+    U   & := \{u : u \in H^1(a,b), u(a)=u_0\}\,,
 
-Which implies $u'(b) = g(b)$.
-The Dirichlet boundary condition is part of the definition of the function
-space $U := \{u : u \in H^1(a,b), u(a)=u_0\}$, so all trial functions $u$ that
-one can choose (admissible) and substitute in $L[u]$ must lie in $U$. Since
-the value of $u(a)$ is fixed, we always have $\delta u(a) = 0$. On the other
-hand, since $u(b)$ is not fixed, in general we have $\delta u(b) \ne 0$.
+    U_0 & := \{w : w \in H^1(a,b), w(a)=0\}\,.
+
+We can also define:
+
+.. math::
+
+    a(u,w) &= \int_a^b u'(x) w'(x) \d x\,,
+
+    b(w)   &= \int_a^b f(x) w(x) \d x + g w(b)
+
+and write :eq:`poisson_example_weak_form2` as:
+
+.. math::
+
+    a(u,w) = b(w)\,.
+
+Strong Formulation
+~~~~~~~~~~~~~~~~~~
+
+Strong formulation is the formulation 3. above. We are solving the equation:
+
+.. math::
+
+    u''(x) + f(x) = 0
+
+subject to boundary conditions $u(a) = u_0$ and $u'(b) = g$.
 
 Radial Schrödinger Equation
 ===========================
