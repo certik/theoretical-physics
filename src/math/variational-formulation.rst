@@ -14,7 +14,7 @@ The Lagrangian for Poisson equation is:
 .. math::
     :label: poisson0
 
-    L[u] = \int_a^b \left[ \half u'^2(x) + f(x) u(x) \right] \d x
+    L[u] = \int_a^b \left[ \half u'^2(x) - f(x) u(x) \right] \d x
         - [g(x) u(x)]_a^b\,.
 
 Important note: technically, as we will see below, this imposes the Neumann
@@ -37,15 +37,15 @@ which yields:
     :label: poisson1
 
     \delta L &= \int_a^b \left[ u'(x) \delta u'(x)
-        + f(x) \delta u(x) \right] \d x
+        - f(x) \delta u(x) \right] \d x
         - [g(x) \delta u(x)]_a^b
 
              &= \int_a^b \left[-u''(x) \delta u(x)
-        + f(x) \delta u(x) \right] \d x
+        - f(x) \delta u(x) \right] \d x
         + [u'(x) \delta u(x)]_a^b
         - [g(x) \delta u(x)]_a^b
 
-             &= \int_a^b \left[-u''(x) + f(x)\right] \delta u(x) \d x
+             &= \int_a^b \left[-u''(x) - f(x)\right] \delta u(x) \d x
         + [(u'(x) - g(x)) \delta u(x)]_a^b
 
              &= 0\,,
@@ -59,7 +59,7 @@ obtain:
 .. math::
     :label: poisson2
 
-    \int_a^b \left[-u''(x) + f(x)\right] \delta u(x) \d x = 0\,,
+    \int_a^b \left[-u''(x) - f(x)\right] \delta u(x) \d x = 0\,,
 
 This equation holds for any $\delta u(x)$ that is zero at the boundary, and
 thus it implies:
@@ -67,7 +67,7 @@ thus it implies:
 .. math::
     :label: poisson3
 
-    -u''(x) + f(x) = 0\,.
+    u''(x) + f(x) = 0\,.
 
 Now we substitute :eq:`poisson3` into :eq:`poisson1` and obtain:
 
@@ -103,13 +103,13 @@ As a particular example, let $u(a) = u_0$ and $u'(b) = g$. Then the Lagrangian
 
 .. math::
 
-    L[u] = \int_a^b \left[ \half u'^2(x) + f(x) u(x) \right] \d x - g u(b)\,.
+    L[u] = \int_a^b \left[ \half u'^2(x) - f(x) u(x) \right] \d x - g u(b)\,.
 
 The governing equation :eq:`poisson3` is the same:
 
 .. math::
 
-    -u''(x) + f(x) = 0\,.
+    u''(x) + f(x) = 0\,.
 
 The boundary term :eq:`poisson3_boundary` becomes:
 
