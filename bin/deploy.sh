@@ -16,6 +16,12 @@ if [[ "${dest_dir}" == "" ]]; then
     exit 1
 fi
 
+if [[ "$3" == "stop" ]]; then
+    dest_start="0"
+else
+    dest_start="1"
+fi
+
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
@@ -45,12 +51,17 @@ git config --global user.name "Automatic Deployment (GitLab-CI)"
 
 git clone ${dest_repo} deploy
 cd deploy
-rm -rf $dest_dir
-mkdir -p $dest_dir
-cp -r ../_build/html/* $dest_dir/
-cp -r ../_build/html_mathjax/ $dest_dir/
-cp -r ../_build/latex/theoretical-physics.pdf $dest_dir/
-git add $dest_dir
-COMMIT_MESSAGE="Deploy on $(date "+%Y-%m-%d %H:%M:%S")"
-git commit -m "${COMMIT_MESSAGE}"
+if [[ "${dest_start}" == "1" ]]; then
+    rm -rf $dest_dir
+    mkdir -p $dest_dir
+    cp -r ../_build/html/* $dest_dir/
+    cp -r ../_build/html_mathjax/ $dest_dir/
+    cp -r ../_build/latex/theoretical-physics.pdf $dest_dir/
+    git add $dest_dir
+    COMMIT_MESSAGE="Deploy on $(date "+%Y-%m-%d %H:%M:%S")"
+else
+    git rm -r $dest_dir
+    COMMIT_MESSAGE="Stop Deploy on $(date "+%Y-%m-%d %H:%M:%S")"
+fi
+git commit --allow-empty -m "${COMMIT_MESSAGE}"
 git push origin master

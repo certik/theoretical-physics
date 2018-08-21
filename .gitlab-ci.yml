@@ -34,7 +34,7 @@ stop deploy review:
   script:
     - sudo apt-get update
     - sudo apt-get install -y --no-install-recommends git ssh
-    - bin/stop_deploy.sh git@gitlab.com:certik/tpr-test public/$CI_COMMIT_REF_NAME
+    - bin/deploy.sh git@gitlab.com:certik/tpr-test public/$CI_COMMIT_REF_NAME stop
   when: manual
   environment:
     name: review/$CI_COMMIT_REF_NAME
