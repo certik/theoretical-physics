@@ -63,5 +63,5 @@ else
     git rm -r $dest_dir
     COMMIT_MESSAGE="Stop Deploy on $(date "+%Y-%m-%d %H:%M:%S")"
 fi
-git commit -m "${COMMIT_MESSAGE}"
+git commit --allow-empty -m "${COMMIT_MESSAGE}"
 git push origin master
