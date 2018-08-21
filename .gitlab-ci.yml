@@ -23,7 +23,7 @@ deploy review:
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://certik.gitlab.io/tpr-test/$CI_COMMIT_REF_NAME
-    on_stop: stop review app
+    on_stop: stop deploy review
   only:
     - branches
   except:
