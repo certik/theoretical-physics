@@ -232,6 +232,37 @@ The coefficient of thermal expansion
     \alpha = {1\over V} \left(\partial V \over \partial T\right)_{p,N}
            = {1\over V} \left(\partial^2 G \over \partial T\partial p\right)_{N}
 
+Note: there are three possible second derivatives of the Gibbs free energy
+$G(T,p,N)$ with respect to $T$ and $p$:
+
+.. math::
+
+    \left(\partial^2 G \over \partial T^2\right)_{p, N}
+        = - {C_p \over T}
+
+.. math::
+
+    \left(\partial^2 G \over \partial T\partial p\right)_{N}
+        = \alpha V
+
+.. math::
+
+    \left(\partial^2 G \over \partial p^2\right)_{T,N}
+        = -\beta_T V
+
+Every other second derivative of other thermodynamic potentials can be
+expressed using these three derivatives (i.e., using $C_p$, $\alpha$ and
+$\beta_T$). For example:
+
+.. math::
+
+    C_V = C_p - {T V \alpha^2 \over \beta_T}
+
+.. math::
+
+    \beta_S = \beta_T - {T V \alpha^2 \over C_p}
+
+
 Examples
 --------
 
