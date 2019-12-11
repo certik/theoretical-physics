@@ -147,12 +147,16 @@ Other commonly used first derivatives are the heat capacity at constant volume:
 .. math::
 
     C_V = \left(\partial U \over \partial T\right)_{V, N}
+        = T \left(\partial S \over \partial T\right)_{V, N}
+        = -T \left(\partial^2 F \over \partial T^2\right)_{V, N}
 
 and the heat capacity at constant pressure
 
 .. math::
 
-    C_P = \left(\partial H \over \partial T\right)_{P, N}
+    C_p = \left(\partial H \over \partial T\right)_{p, N}
+        = T \left(\partial S \over \partial T\right)_{p, N}
+        = -T \left(\partial^2 G \over \partial T^2\right)_{p, N}
 
 Second derivatives
 ~~~~~~~~~~~~~~~~~~
@@ -187,9 +191,17 @@ The adiabatic bulk modulus:
 
 .. math::
 
-    B = \rho \left(\partial p \over \partial \rho\right)_{S,N}
+    B_S = \rho \left(\partial p \over \partial \rho\right)_{S,N}
           = \rho c^2
           = V \left(\partial^2 U \over \partial V^2\right)_{S,N}
+
+Adiabatic coefficient of compressibility:
+
+.. math::
+
+    \beta_S = {1 \over B_S}
+        = -{1\over V} \left(\partial V \over \partial p\right)_{S,N}
+        = -{1\over V} \left(\partial^2 H \over \partial p^2\right)_{S,N}
 
 The isothermal bulk modulus:
 
@@ -203,7 +215,8 @@ Isothermal coefficient of compressibility:
 
 .. math::
 
-    \beta_T = -{1\over V} \left(\partial V \over \partial p\right)_{T,N}
+    \beta_T = {1 \over B_T}
+        = -{1\over V} \left(\partial V \over \partial p\right)_{T,N}
         = -{1\over V} \left(\partial^2 G \over \partial p^2\right)_{T,N}
 
 The Grüneisen parameter:
