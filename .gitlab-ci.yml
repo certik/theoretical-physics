@@ -1,4 +1,4 @@
-image: registry.gitlab.com/ftpum/ci-images:article-1.6.0
+image: registry.gitlab.com/ftpum/ci-images:article-1.7.0
 
 stages:
   - build
