@@ -1,10 +1,33 @@
 Thermodynamics
 ==============
 
+Fundamental Thermodynamic Relation
+----------------------------------
+
+The first law of thermodynamics is $\d U = \d Q - \d W$, where $Q$ is the heat
+supplied to the system and $W$ is the work done by the system.
+The second law of thermodynamics is $\d S = {\d Q \over T}$. By substituting
+into the first law, and expressing the work $\d W = p \d V$ using pressure and
+volume, we obtain:
+
+.. math::
+
+    \d U = T\d S - p \d V
+
+This can then be generalized to:
+
+.. math::
+
+    \d U = T\d S - p \d V + \mu \d N
+
+where $\mu$ is the chemical potential and $N$ the number of particles in the
+system.
+
+
 Thermodynamic Potentials
 ------------------------
 
-We start by writing the internal energy
+We start by writing the internal energy (derived in the previous section)
 
 .. math::
 
@@ -115,6 +138,21 @@ forms for large systems:
     X_2(S, p, \mu) = U + pV-\mu N = TS
 
     X_3(T, p, \mu) = U-TS+pV-\mu N = 0
+
+Other first derivatives
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Other commonly used first derivatives are the heat capacity at constant volume:
+
+.. math::
+
+    C_V = \left(\partial U \over \partial T\right)_{V, N}
+
+and the heat capacity at constant pressure
+
+.. math::
+
+    C_P = \left(\partial H \over \partial T\right)_{P, N}
 
 Examples
 --------
