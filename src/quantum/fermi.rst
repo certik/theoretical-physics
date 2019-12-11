@@ -19,84 +19,30 @@ We start with a grand potential for fermions:
 
     = -{1\over\beta}
         \int \int {2\d^3 x \d^3 p \over (2\pi)^3} \log\left(1 +
-            e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right)
-            -E_{ee} - {1\over3}E_{xc} =
+            e^{-\beta\left({p^2\over 2} - \mu\right)}\right)
+            =
 
     = -{2\over\beta}
         \int \d^3 x \int_0^\infty{ 4\pi p^2 \d p \over (2\pi)^3} \log\left(1 +
-            e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right)
-            -E_{ee} - {1\over3}E_{xc} =
+            e^{-\beta\left({p^2\over 2} - \mu\right)}\right)
+            =
 
     = -{1\over \pi^2 \beta}
         \int \d^3 x \int_0^\infty p^2 \log\left(1 +
-            e^{-\beta\left({p^2\over 2} + V({\bf x}) - \mu\right)}\right) \d p
-            -E_{ee} - {1\over3}E_{xc} =
+            e^{-\beta\left({p^2\over 2} - \mu\right)}\right) \d p
+            =
 
     = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
         \int \d^3 x \int_0^\infty {u^{3\over2} \over
-            1 + e^{u-\beta\left(\mu-V({\bf x})\right)}} \d u
-                -E_{ee} - {1\over3}E_{xc} =
+            1 + e^{u-\beta\mu}} \d u
+                =
 
     = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-        \int I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right) \,\d^3 x
-        -E_{ee} - {1\over3}E_{xc} =
+        \int I_{3\over2}\left(\beta\mu\right) \,\d^3 x
+        =
 
-    = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-        \int I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right) \,\d^3 x
-        -E_{ee} - {1\over3}E_{xc}
-
-The potential
-$V({\bf x}) = V_{en}({\bf x}) + V_{ee}({\bf x}) + V_{xc}({\bf x})$
-is the total potential that the electrons experience (it contains nuclear,
-Hartree, and XC terms) and $E_{ee}$ is the Hartree energy:
-
-.. math::
-
-    E_{en} = \int n_e({\bf x}) V_{en}({\bf x})\,\d^3 x\,,
-
-    E_{ee}
-        = \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3 x\,,
-
-    E_{xc} = {3\over 4}\int n_e({\bf x}) V_{xc}({\bf x})\,\d^3 x\,.
-
-For simplicity, we assume here that $V_{xc}$ only contains the exchange of the
-homogeneous electron gas. For a general XC functional, the relation is
-nonlinear and one must simply numerically calculate the XC energy density
-$e_{xc}({\bf x})$ and calculate the XC energy using:
-
-.. math::
-
-    E_{xc} = \int n_e({\bf x}) e_{xc}({\bf x})\,\d^3 x\,.
-
-In our case here, we have $e_{xc} = {3\over4}V_{xc}({\bf x})$, which is only
-true for the exchange in homogeneous electron gas. Otherwise the relation is
-nonlinear. In the general case, the correction that must be applied is:
-
-.. math::
-
-    E_{en} + E_{ee} + E_{xc} - \int n_e({\bf x}) V({\bf x})\,\d^3 x =
-
-    = \int n_e({\bf x})\left(
-        (e_{en}-V_{en})
-        +(e_{ee}-V_{ee})
-        +(e_{xc}-V_{xc})
-        \right)\,\d^3 x =
-
-    = \int n_e({\bf x})\left(
-        0
-        +\left(\half V_{ee}-V_{ee}\right)
-        +\left({3\over 4}V_{xc}-V_{xc}\right)
-        \right)\,\d^3 x =
-
-    = \int n_e({\bf x})\left(
-        -\half V_{ee}
-        -{1\over 4}V_{xc}
-        \right)\,\d^3 x =
-
-    = -\half\int n_e({\bf x}) V_{ee} \d^3 x
-    - {1\over 3}{3\over 4}\int n_e({\bf x}) V_{xc} \d^3 x =
-
-    = -E_{ee} - {1\over 3} E_{xc}
+    = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
+        I_{3\over2}\left(\beta\mu\right)
 
 The density is a functional derivative with respect to
 $\mu$:
@@ -106,13 +52,13 @@ $\mu$:
     n_e({\bf x}) = - {\delta \Omega[\beta, \mu] \over \delta \mu}
         = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             {\partial \over \partial \mu}
-                I_{3\over2}\left(\beta\left(\mu-V({\bf x})\right)\right)
+                I_{3\over2}\left(\beta\mu\right)
         = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             \beta {3\over 2} I_{1\over2}
-                \left(\beta\left(\mu-V({\bf x})\right)\right) =
+                \left(\beta\mu\right) =
 
         = {\sqrt2 \over \pi^2 \beta^{3\over2}} I_{1\over2}
-                \left(\beta\left(\mu-V({\bf x})\right)\right)
+                \left(\beta\mu\right)
 
 By defining the function $\Phi(n_e({\bf x}))$:
 
