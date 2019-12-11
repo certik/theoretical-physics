@@ -158,6 +158,13 @@ and the heat capacity at constant pressure
         = T \left(\partial S \over \partial T\right)_{p, N}
         = -T \left(\partial^2 G \over \partial T^2\right)_{p, N}
 
+Note that these first derivatives are differentiating the thermodynamic
+potential that is not expressed in its canonical variables (the only canonical
+first derivatives are already enumerated in the previous section). In both
+cases the quantity can be expressed as a second derivative of a potential in
+its canonical variables.  As shown below, the canonical second derivatives can
+also be enumerated.
+
 Second derivatives
 ~~~~~~~~~~~~~~~~~~
 
