@@ -154,6 +154,71 @@ and the heat capacity at constant pressure
 
     C_P = \left(\partial H \over \partial T\right)_{P, N}
 
+Second derivatives
+~~~~~~~~~~~~~~~~~~
+
+Here are the most commonly used second derivatives. The particle density:
+
+.. math::
+
+    n = \left(\partial N \over \partial V\right)_{T, \mu}
+      = -\left(\partial^2 \Omega \over \partial V\partial\mu\right)_{T}
+      = \left(\partial p \over \partial \mu\right)_{T, V}
+
+The speed of sound:
+
+.. math::
+
+    c = \sqrt{\left(\partial p \over \partial \rho\right)_{S,N}}
+      = \sqrt{-{V^2\over m}\left(\partial p \over \partial V\right)_{S,N}}
+      = \sqrt{{V^2\over m}\left(\partial^2 U \over \partial V^2\right)_{S,N}}
+      = \sqrt{-v^2\left(\partial p \over \partial v\right)_{S,N}}
+
+where $\rho={m \over V}$ is the density and $v = {V \over m}$ is the specific
+volume.
+The isothermal speed of sound:
+
+.. math::
+
+    c_T = \sqrt{\left(\partial p \over \partial \rho\right)_{T,N}}
+      = \sqrt{{V^2\over m}\left(\partial^2 F \over \partial V^2\right)_{T,N}}
+
+The adiabatic bulk modulus:
+
+.. math::
+
+    B = \rho \left(\partial p \over \partial \rho\right)_{S,N}
+          = \rho c^2
+          = V \left(\partial^2 U \over \partial V^2\right)_{S,N}
+
+The isothermal bulk modulus:
+
+.. math::
+
+    B_T = \rho \left(\partial p \over \partial \rho\right)_{T,N}
+          = \rho c_T^2
+          = V \left(\partial^2 F \over \partial V^2\right)_{T,N}
+
+Isothermal coefficient of compressibility:
+
+.. math::
+
+    \beta_T = -{1\over V} \left(\partial V \over \partial p\right)_{T,N}
+        = -{1\over V} \left(\partial^2 G \over \partial p^2\right)_{T,N}
+
+The Grüneisen parameter:
+
+.. math::
+
+    \gamma = V \left(\partial p \over \partial U\right)_{V,N}
+
+The coefficient of thermal expansion
+
+.. math::
+
+    \alpha = {1\over V} \left(\partial V \over \partial T\right)_{p,N}
+           = {1\over V} \left(\partial^2 G \over \partial T\partial p\right)_{N}
+
 Examples
 --------
 
