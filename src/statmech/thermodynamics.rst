@@ -1,10 +1,33 @@
 Thermodynamics
 ==============
 
+Fundamental Thermodynamic Relation
+----------------------------------
+
+The first law of thermodynamics is $\d U = \d Q - \d W$, where $Q$ is the heat
+supplied to the system and $W$ is the work done by the system.
+The second law of thermodynamics is $\d S = {\d Q \over T}$. By substituting
+into the first law, and expressing the work $\d W = p \d V$ using pressure and
+volume, we obtain:
+
+.. math::
+
+    \d U = T\d S - p \d V
+
+This can then be generalized to:
+
+.. math::
+
+    \d U = T\d S - p \d V + \mu \d N
+
+where $\mu$ is the chemical potential and $N$ the number of particles in the
+system.
+
+
 Thermodynamic Potentials
 ------------------------
 
-We start by writing the internal energy
+We start by writing the internal energy (derived in the previous section)
 
 .. math::
 
@@ -115,6 +138,137 @@ forms for large systems:
     X_2(S, p, \mu) = U + pV-\mu N = TS
 
     X_3(T, p, \mu) = U-TS+pV-\mu N = 0
+
+Other first derivatives
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Other commonly used first derivatives are the heat capacity at constant volume:
+
+.. math::
+
+    C_V = \left(\partial U \over \partial T\right)_{V, N}
+        = T \left(\partial S \over \partial T\right)_{V, N}
+        = -T \left(\partial^2 F \over \partial T^2\right)_{V, N}
+
+and the heat capacity at constant pressure
+
+.. math::
+
+    C_p = \left(\partial H \over \partial T\right)_{p, N}
+        = T \left(\partial S \over \partial T\right)_{p, N}
+        = -T \left(\partial^2 G \over \partial T^2\right)_{p, N}
+
+Note that these first derivatives are differentiating the thermodynamic
+potential that is not expressed in its canonical variables (the only canonical
+first derivatives are already enumerated in the previous section). In both
+cases the quantity can be expressed as a second derivative of a potential in
+its canonical variables.  As shown below, the canonical second derivatives can
+also be enumerated.
+
+Second derivatives
+~~~~~~~~~~~~~~~~~~
+
+Here are the most commonly used second derivatives. The particle density:
+
+.. math::
+
+    n = \left(\partial N \over \partial V\right)_{T, \mu}
+      = -\left(\partial^2 \Omega \over \partial V\partial\mu\right)_{T}
+      = \left(\partial p \over \partial \mu\right)_{T, V}
+
+The speed of sound:
+
+.. math::
+
+    c = \sqrt{\left(\partial p \over \partial \rho\right)_{S,N}}
+      = \sqrt{-{V^2\over m}\left(\partial p \over \partial V\right)_{S,N}}
+      = \sqrt{{V^2\over m}\left(\partial^2 U \over \partial V^2\right)_{S,N}}
+      = \sqrt{-v^2\left(\partial p \over \partial v\right)_{S,N}}
+
+where $\rho={m \over V}$ is the density and $v = {V \over m}$ is the specific
+volume.
+The isothermal speed of sound:
+
+.. math::
+
+    c_T = \sqrt{\left(\partial p \over \partial \rho\right)_{T,N}}
+      = \sqrt{{V^2\over m}\left(\partial^2 F \over \partial V^2\right)_{T,N}}
+
+The adiabatic bulk modulus:
+
+.. math::
+
+    B_S = \rho \left(\partial p \over \partial \rho\right)_{S,N}
+          = \rho c^2
+          = V \left(\partial^2 U \over \partial V^2\right)_{S,N}
+
+Adiabatic coefficient of compressibility:
+
+.. math::
+
+    \beta_S = {1 \over B_S}
+        = -{1\over V} \left(\partial V \over \partial p\right)_{S,N}
+        = -{1\over V} \left(\partial^2 H \over \partial p^2\right)_{S,N}
+
+The isothermal bulk modulus:
+
+.. math::
+
+    B_T = \rho \left(\partial p \over \partial \rho\right)_{T,N}
+          = \rho c_T^2
+          = V \left(\partial^2 F \over \partial V^2\right)_{T,N}
+
+Isothermal coefficient of compressibility:
+
+.. math::
+
+    \beta_T = {1 \over B_T}
+        = -{1\over V} \left(\partial V \over \partial p\right)_{T,N}
+        = -{1\over V} \left(\partial^2 G \over \partial p^2\right)_{T,N}
+
+The Grüneisen parameter:
+
+.. math::
+
+    \gamma = V \left(\partial p \over \partial U\right)_{V,N}
+
+The coefficient of thermal expansion
+
+.. math::
+
+    \alpha = {1\over V} \left(\partial V \over \partial T\right)_{p,N}
+           = {1\over V} \left(\partial^2 G \over \partial T\partial p\right)_{N}
+
+Note: there are three possible second derivatives of the Gibbs free energy
+$G(T,p,N)$ with respect to $T$ and $p$:
+
+.. math::
+
+    \left(\partial^2 G \over \partial T^2\right)_{p, N}
+        = - {C_p \over T}
+
+.. math::
+
+    \left(\partial^2 G \over \partial T\partial p\right)_{N}
+        = \alpha V
+
+.. math::
+
+    \left(\partial^2 G \over \partial p^2\right)_{T,N}
+        = -\beta_T V
+
+Every other second derivative of other thermodynamic potentials can be
+expressed using these three derivatives (i.e., using $C_p$, $\alpha$ and
+$\beta_T$). For example:
+
+.. math::
+
+    C_V = C_p - {T V \alpha^2 \over \beta_T}
+
+.. math::
+
+    \beta_S = \beta_T - {T V \alpha^2 \over C_p}
+
 
 Examples
 --------
