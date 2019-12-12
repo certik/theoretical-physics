@@ -96,7 +96,12 @@ Now we can calculate the free energy:
 
 .. math::
 
-    F_e(\beta, V, n_e) = \Omega(\beta, V, n_e) + \mu N
+    F_e(\beta, V, n_e) = \Omega(\beta, V, n_e) + \mu N =
+
+        = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
+            I_{3\over2}\left(\beta\mu \right)
+            + \mu n_e V =
+
         = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
             I_{3\over2}\left(
             I_{1\over2}^{-1}\left(
@@ -137,216 +142,61 @@ $S=-\left(\partial\Omega\over\partial T\right)_{V,\mu}$ as follows:
         =\beta \left(\partial\Omega\over\partial \beta\right)_{V,\mu} =
 
         =\beta {\partial\over\partial \beta}\left(
-            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            - E_{ee} - {1\over3}E_{xc}
-        \right) =
-
-        =\beta {\partial\over\partial \beta}\left(
-            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
+            -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
+                I_{3\over2}\left(\beta\mu\right)
         \right) =
 
         =\beta \left(
-            {5\over2}{2\sqrt2 \over 3 \pi^2 \beta^{7\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \int {3\over2} I_{1\over2}(\Phi(n_e({\bf x})))
-                {\partial\Phi(n_e({\bf x}))\over\partial\beta}
-            \, \d^3 x
+            {5\over2}{2\sqrt2 V \over 3 \pi^2 \beta^{7\over2}}
+            I_{3\over2}(\beta\mu)
+            -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
+            {3\over2} I_{1\over2}(\beta\mu) \mu
         \right) =
 
-        =\beta \left(
-            {5\over2}{2\sqrt2 \over 3 \pi^2 \beta^{7\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \int {3\over2} I_{1\over2}(\Phi(n_e({\bf x})))
-                (\mu-V({\bf x}))
-            \, \d^3 x
-        \right) =
+        = {5\over3}{\sqrt2 V \over \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu)
+            -{\sqrt2\over \pi^2 \beta^{3\over2}} I_{1\over2}(\beta\mu) \mu V =
 
-        = {5\over2}{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            - \int n_e({\bf x}) (\mu-V({\bf x})) \, \d^3 x =
+        = {5\over3}{\sqrt2 V \over \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu)
+            -n_e \mu V =
 
-        = {5\over3}{\sqrt2 \over \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            -\mu N + E_{en}+2E_{ee} + {4\over 3}E_{xc}
+        = {5\over3}{\sqrt2 V \over \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu)
+            -\mu N \,.
 
 
-The total energy is then equal to:
+The total energy $U$ is then equal to:
 
 .. math::
 
-    E = \Omega + \mu N + TS =
+    U = \Omega + \mu N + TS =
 
-        = \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            - E_{ee} - {1\over3}E_{xc}\right)
-            + \mu N
-            +{5\over3}{\sqrt2 \over \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            -\mu N + E_{en}+2E_{ee} + {4\over 3}E_{xc} =
-
-        = {\sqrt2 \over \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-            + E_{en} + E_{ee} + E_{xc}
-
-From which we can see that the kinetic energy $E_{kin}$ is equal to:
-
-.. math::
-
-    E_{kin} = E - (E_{en} + E_{ee} + E_{xc}) =
-
-        = {\sqrt2 \over \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-
-The relation between the total energy and free energy can be also written as:
-
-.. math::
-
-    E = F + TS = F +
-        \beta \left(\partial\Omega\over\partial \beta\right)_{V,\mu} =
-
-        = F + \beta \left(\partial F\over\partial \beta\right)_{V,\mu}
-        = \left(\partial (\beta F)\over\partial \beta\right)_{V,\mu}
-
-But it gives the same result as we obtained above.
-
-To determine the kinetic part of the free energy, we set all potentials equal
-to zero ($V({\bf x}) = V_{en}({\bf x}) = V_{ee}({\bf x}) = V_{xc}({\bf x}) =
-0$) and obtain:
-
-.. math::
-
-    F_{kin}[\beta, n_e]
-        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-              I_{3\over2}(\Phi(n_e({\bf x})))
-            + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
-                \right)\d^3 x\,.
-
-If the potentials are zero, then the pressure can be calculated
-from:
-
-.. math::
-
-    P = -{1\over V}\Omega[\beta, n_e]
-        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}V}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \,\d^3 x =
-
-    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}V}
-            \int I_{3\over2}(\beta\mu) \,\d^3 x
-    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu) \,.
-
-If the potentials are not zero, then one can calculate the pressure using:
-
-.. math::
-
-    P = - \left(\partial\Omega\over\partial V\right)_{\mu,T}
-        = - \left(\partial F\over\partial V\right)_{T,N} =
-
-        = - {\partial \over\partial V} \int f \d^3 x =
-
-        = - \left[f+e_{ee}\right]_b
-            - \int {\partial f\over\partial n_e}
-              {\partial n_e\over\partial V}
-              \d^3 x =
-
-        = - \left[f+e_{ee}\right]_b
-            - \mu \int {\partial n_e\over\partial V} \d^3 x =
-
-        = - \left[f+e_{ee}\right]_b
-            + \mu [n_e]_b =
-
-        = \left[(-f)-e_{ee}+\mu n_e \right]_b =
-
-        = \left[\left({2\over3}e_{kin} + e_{ee} + {1\over3}e_{xc}-\mu n_e\right)
-            -e_{ee}+\mu n_e \right]_b =
-
-        = \left[{2\over3}e_{kin} + {1\over3}e_{xc}\right]_b =
-
-        = {1\over 3V} \int_b \left( {2\over3}e_{kin} + {1\over3}e_{xc}
-            \right) {\bf x}\cdot{\bf n}\,\d S =
-
-        = {1\over 3V} \int \left( {2\over3}e_{kin} + {1\over3}e_{xc}
-            \right) \nabla\cdot{\bf x}\,\d^3 x
-            +
-        {1\over 3V} \int {\bf x}\cdot\nabla \left(
-            {2\over3}e_{kin} + {1\over3}e_{xc}
-            \right) \,\d^3 x =
-
-        = {1\over 3V} (2E_{kin} + E_{xc})
-            +
-        {1\over 3V} \int {\bf x}\cdot \left(
-            -n_e({\bf x})\nabla V({\bf x})
-            + \nabla{1\over3}e_{xc}
-            \right) \,\d^3 x =
-
-        = {1\over 3V} (2E_{kin} + E_{xc})
-            +
-        {1\over 3V} (E_{en}+E_{ee}) =
-
-        = {1\over 3V}(2E_{kin} + E_{en} + E_{ee} + E_{xc})
-
-Summary:
-
-.. math::
-
-    \Omega = -{2\over 3} E_{kin} - E_{ee} - {1\over3}E_{xc}
-
-    F_e = \Omega + \mu N = -{2\over 3} E_{kin} - E_{ee} - {1\over3}E_{xc}
+        = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
+        I_{3\over2}\left(\beta\mu\right)
         + \mu N
+        + {5\over3}{\sqrt2 V \over \pi^2 \beta^{5\over2}} I_{3\over2}(\beta\mu)
+            -\mu N =
 
-    TS = {5\over3} E_{kin} + E_{en} + 2 E_{ee} + {4\over3}E_{xc} - \mu N
+        = {\sqrt2 V \over \pi^2 \beta^{5\over2}}
+        I_{3\over2}\left(\beta\mu\right) \,.
 
-    E = F + TS = \Omega + \mu N + TS = E_{kin} + E_{en} + E_{ee} + E_{xc}\,,
+Note: the kinetic energy $E_{kin} = U$ is equal to the total energy, as the gas
+is non-interacting.
 
-where:
-
-.. math::
-
-    E_{kin} = {\sqrt2 \over \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-
-    E_{en} = \int n_e({\bf x}) V_{en}({\bf x})\, \d^3 x
-
-    E_{ee} = \half \int n_e({\bf x}) V_{ee}({\bf x})\, \d^3 x
-
-    E_{xc} = {3\over4}\int n_e({\bf x}) V_{xc}({\bf x})\, \d^3 x
-
-    n_e({\bf x}) = {\sqrt2 \over \pi^2 \beta^{3\over2}}
-            I_{1\over2}\left( \beta\left(\mu-V({\bf x})\right) \right)
-
-    \Phi(n_e({\bf x})) = \beta\left(\mu-V({\bf x})\right)
-        = I_{1\over2}^{-1}\left(
-                {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e({\bf x})
-            \right)
-
-    N = \int n_e({\bf x})\, \d^3 x
-
-    \mu = {1\over \beta} \Phi(n_e({\bf x})) + V({\bf x})
-
-and $\mu N$ is calculated as follows:
+The pressure $p$ can be calculated from:
 
 .. math::
 
-    \mu N = \int \mu n_e({\bf x})\, \d^3 x =
+    p = - \left(\partial\Omega\over\partial V\right)_{\mu,\beta}
+    = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        I_{3\over2}\left(\beta\mu\right) =
 
-        = {1\over \beta} \int \Phi(n_e({\bf x})) n_e({\bf x})\, \d^3 x
-            + \int V({\bf x}) n_e({\bf x})\, \d^3 x =
+        = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+            I_{3\over2}\left(
+            I_{1\over2}^{-1}\left(
+                            {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e
+                        \right)
+            \right) \,.
 
-        = {1\over \beta} \int \Phi(n_e({\bf x})) n_e({\bf x})\, \d^3 x
-            + E_{en} + 2 E_{ee} + {4\over3} E_{xc} \,.
-
-So $F_e$ can also be expressed as:
-
-.. math::
-
-    F_e = -{2\over 3} E_{kin} - E_{ee} - {1\over3}E_{xc} + \mu N =
-
-        = -{2\over 3} E_{kin}
-           + {1\over \beta} \int \Phi(n_e({\bf x})) n_e({\bf x})\, \d^3 x
-            + E_{en} + E_{ee} + E_{xc} \,.
+Note that we got $p = {2 U \over 3 V}$.
 
 Bottom Up Approach
 ~~~~~~~~~~~~~~~~~~
