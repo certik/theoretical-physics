@@ -8,7 +8,7 @@ We start with a grand potential for fermions:
 
 .. math::
 
-    \Omega[\beta, \mu]
+    \Omega(\beta, V, \mu)
     = -\sum_i {1\over\beta}
         \log\left(\sum_{N=0}^1 e^{-\beta\left(N\epsilon_i - N\mu\right)}\right)
             =
@@ -44,12 +44,12 @@ We start with a grand potential for fermions:
     = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
         I_{3\over2}\left(\beta\mu\right)
 
-The density is a functional derivative with respect to
-$\mu$:
+Let us compute the particle density:
 
 .. math::
 
-    n_e({\bf x}) = - {\delta \Omega[\beta, \mu] \over \delta \mu}
+    n_e = - \left({\partial^2 \Omega(\beta, V, \mu) \over
+            \partial V \partial \mu}\right)_\beta
         = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             {\partial \over \partial \mu}
                 I_{3\over2}\left(\beta\mu\right)
@@ -60,24 +60,28 @@ $\mu$:
         = {\sqrt2 \over \pi^2 \beta^{3\over2}} I_{1\over2}
                 \left(\beta\mu\right)
 
-By defining the function $\Phi(n_e({\bf x}))$:
+By defining the function $\Phi(n_e)$:
 
 .. math::
 
-    \Phi(n_e({\bf x})) = \beta\left(\mu-V({\bf x})\right)
+    \Phi(n_e) = \beta \mu
         = I_{1\over2}^{-1}\left(
-                {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e({\bf x})
+                {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e
             \right)
 
 we can express the grand potential using $n_e$ as follows:
 
 .. math::
 
-    \Omega[\beta, n_e]
-        = -{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-            \int I_{3\over2}(\Phi(n_e({\bf x}))) \, \d^3 x
-          - \half \int n_e(\mathbf{x}) V_{ee}(\mathbf{x}) \d^3
-          - {1\over 4} \int n_e(\mathbf{x}) V_{xc}(\mathbf{x}) \d^3 x\,.
+    \Omega(\beta, V, n_e)
+        = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
+            I_{3\over2}(\Phi(n_e))
+        = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
+            I_{3\over2}\left(
+            I_{1\over2}^{-1}\left(
+                            {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e
+                        \right)
+            \right)\,.
 
 Now we can calculate the free energy:
 
