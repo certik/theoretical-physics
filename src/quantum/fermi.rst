@@ -42,7 +42,17 @@ We start with a grand potential for fermions:
         =
 
     = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
-        I_{3\over2}\left(\beta\mu\right)
+        I_{3\over2}\left(\beta\mu\right) \,.
+
+Note: to write this thermodynamic potential in the canonical form
+$\Omega=\Omega(T, V, \mu)$, we simply
+use the relation $\beta = {1 \over k_B T}$ and get:
+
+.. math::
+
+    \Omega(T, V, \mu)
+        = -{2\sqrt2 V (k_B T)^{5\over2} \over 3 \pi^2}
+            I_{3\over2}\left(\mu\over k_B T\right) \,.
 
 Let us compute the particle density:
 
@@ -55,27 +65,26 @@ Let us compute the particle density:
                 I_{3\over2}\left(\beta\mu\right)
         = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
             \beta {3\over 2} I_{1\over2}
-                \left(\beta\mu\right) =
-
+                \left(\beta\mu\right)
         = {\sqrt2 \over \pi^2 \beta^{3\over2}} I_{1\over2}
                 \left(\beta\mu\right)
 
-By defining the function $\Phi(n_e)$:
+and express the chemical potential $\mu=\mu(n_e)$ as a function of the particle
+density $n_e$:
 
 .. math::
+    :label: mu_ne
 
-    \Phi(n_e) = \beta \mu
-        = I_{1\over2}^{-1}\left(
+    \mu = {1\over\beta} I_{1\over2}^{-1}\left(
                 {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e
             \right)
 
-we can express the grand potential using $n_e$ as follows:
+We write the grand potential using $n_e$ as follows:
 
 .. math::
+    :label: Omega_ne
 
     \Omega(\beta, V, n_e)
-        = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
-            I_{3\over2}(\Phi(n_e))
         = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
             I_{3\over2}\left(
             I_{1\over2}^{-1}\left(
@@ -87,40 +96,35 @@ Now we can calculate the free energy:
 
 .. math::
 
-    F_e[\beta, n_e] = \Omega[\beta, n_e] + \mu N
-        = \Omega[\beta, n_e] + \mu \int n_e({\bf x}) \,\d^3 x =
+    F_e(\beta, V, n_e) = \Omega(\beta, V, n_e) + \mu N
+        = -{2\sqrt2 V \over 3 \pi^2 \beta^{5\over2}}
+            I_{3\over2}\left(
+            I_{1\over2}^{-1}\left(
+                            {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e
+                        \right)
+            \right)
+            +
+            {1\over\beta} I_{1\over2}^{-1}\left(
+                            {\pi^2 \beta^{3\over2} \over \sqrt 2} n_e
+                        \right) n_e V
 
-        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-              I_{3\over2}(\Phi(n_e({\bf x})))
-            + \mu n_e({\bf x})
-            - n_e(\mathbf{x}) \left(
-                \half V_{ee}(\mathbf{x})
-                +{1\over 4} V_{xc}(\mathbf{x})
-                \right)
-                \right)\d^3 x =
+where we used :eq:`Omega_ne`, :eq:`mu_ne` and the fact that $n_e = N / V$.
+Note: we can express the free energy in canonical form $F = F(T, V, N)$ using
+$\beta = {1 \over k_B T}$ and $n_e = N / V$:
 
-        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-              I_{3\over2}(\Phi(n_e({\bf x})))
-            + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
-                + n_e({\bf x}) V({\bf x})
-                - n_e(\mathbf{x}) \left(
-                    \half V_{ee}(\mathbf{x})
-                    +{1\over 4} V_{xc}(\mathbf{x})
-                    \right)
-                \right)\d^3 x =
+.. math::
 
-        = \int \left(-{2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
-              I_{3\over2}(\Phi(n_e({\bf x})))
-            + {1\over \beta} n_e({\bf x}) \Phi(n_e({\bf x}))
-                + n_e({\bf x})\left( V_{en}({\bf x})
-                  +\half V_{ee}(\mathbf{x})
-                  + {3\over 4} V_{xc}(\mathbf{x}) \right)
-                \right)\d^3 x\,,
-
-where we used the fact that $\mu = {1\over \beta} \Phi(n_e({\bf x})) + V({\bf
-x})$, i.e. the left hand side $\mu$ is a constant, thus the sum of the terms on
-the right hand side is also constant (even though the individual terms are
-not).
+    F_e(T, V, N)
+        = -{2\sqrt2 V (k_B T)^{5\over2} \over 3 \pi^2 }
+            I_{3\over2}\left(
+            I_{1\over2}^{-1}\left(
+                            {\pi^2 N \over \sqrt 2 (k_B T)^{3\over2} V}
+                        \right)
+            \right)
+            +
+            k_B T I_{1\over2}^{-1}\left(
+                            {\pi^2 N \over \sqrt 2 (k_B T)^{3\over2} V}
+                        \right) N \,.
 
 We can calculate the entropy
 $S=-\left(\partial\Omega\over\partial T\right)_{V,\mu}$ as follows:
