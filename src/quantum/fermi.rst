@@ -195,3 +195,39 @@ The pressure $p$ can be calculated from:
 
 Note that we got $p = {2 U \over 3 V}$, $\Omega=-{2\over3} U$,
 $F=-{2\over3} U + \mu N$ and $TS = {5\over 3} U -\mu N$.
+
+Low Temperature Limit
+---------------------
+
+At low temperature ($T\to0$) we have
+$\beta \to \infty$, $I_{1\over2}(x) \to {2\over3} x^{3\over 2}$
+(for $x\to\infty$) and we obtain:
+
+.. math::
+
+    n_e = {\sqrt2 \over \pi^2 \beta^{3\over2}} I_{1\over2}
+                \left(\beta\mu\right)
+        \to
+      {2\sqrt 2\over 3\pi^2 \beta^{3\over2}} (\beta\mu)^{3\over2}
+      ={(2\mu)^{3\over2} \over 3\pi^2}
+
+Identical with the zero temperature Thomas-Fermi equation where the chemical
+potential $\mu = E_f = {p_f^2\over 2}$ becomes the Fermi energy in the limit $T
+\to 0$. We now express $\mu$ in terms of $n_e$ at $T=0$:
+
+.. math::
+
+    \mu \to \half (3\pi^2 n_e)^{2\over 3}
+
+and compute pressure at $T=0$ using $I_{3\over2}(x) \to {2\over5} x^{5\over 2}$
+for $x\to\infty$:
+
+.. math::
+
+    p = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        I_{3\over2}\left(\beta\mu\right)
+      \to {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        I_{3\over2}\left(\beta \half (3\pi^2 n_e)^{2\over 3} \right)
+      \to {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        {2\over 5} \left(\beta \half (3\pi^2 n_e)^{2\over 3} \right)^{5\over 2}
+     = {3^{2\over 3} \pi^{4\over 3} \over 5} n_e^{5\over 3}
