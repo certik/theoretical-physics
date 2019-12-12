@@ -231,3 +231,49 @@ for $x\to\infty$:
       \to {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
         {2\over 5} \left(\beta \half (3\pi^2 n_e)^{2\over 3} \right)^{5\over 2}
      = {3^{2\over 3} \pi^{4\over 3} \over 5} n_e^{5\over 3}
+
+High Temperature Limit
+----------------------
+
+At high temperature ($T\to\infty$) we have
+$\beta \to 0$, $I_{1\over2}(x) \to {\sqrt\pi\over2} e^x$
+(for $x\to0$) and we obtain:
+
+.. math::
+
+    n_e = {\sqrt2 \over \pi^2 \beta^{3\over2}} I_{1\over2}
+                \left(\beta\mu\right)
+        \to
+      {\sqrt 2\over\pi^2 \beta^{3\over2}} {\sqrt\pi\over2} e^{\beta\mu}
+
+We now express $\mu$ in terms of $n_e$ at $T\to\infty$:
+
+.. math::
+
+    \mu \to {1\over\beta}\log\left( n_e
+        {2\pi^2 \beta^{3\over2} \over \sqrt 2 \sqrt\pi}
+    \right)
+
+In the limit $\beta\to0$ we get $\beta\mu\to-\infty$.
+Let us compute pressure at $T\to\infty$ using $I_{3\over2}(x) \to
+{3\sqrt\pi\over4} e^x$ for $x\to-\infty$:
+
+.. math::
+
+    p = {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        I_{3\over2}\left(\beta\mu\right)
+      \to {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        I_{3\over2}\left(
+            \log\left( n_e \over
+                  {\sqrt 2\over\pi^2 \beta^{3\over2}} {\sqrt\pi\over2}
+                \right)
+        \right) \to
+
+      \to {2\sqrt2 \over 3 \pi^2 \beta^{5\over2}}
+        {3\sqrt\pi\over 4} \exp\log\left( n_e \over
+                  {\sqrt 2\over\pi^2 \beta^{3\over2}} {\sqrt\pi\over2}
+                \right) =
+
+      = {n_e \over \beta} = n_e k_B T = {N k_B T \over V}\,.
+
+We obtained the ideal gas equation $pV = N k_B T$.
