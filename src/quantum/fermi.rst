@@ -1,5 +1,5 @@
-Quantum Ideal Gas
-=================
+Ideal Fermi Gas
+===============
 
 We start with a grand potential for fermions:
 
