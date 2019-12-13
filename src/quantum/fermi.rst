@@ -1,7 +1,9 @@
 Ideal Fermi Gas
 ===============
 
-We start with a grand potential for fermions:
+We start with a grand potential for fermions and use a Thomas-Fermi
+approximation (that allows us to change the discrete sum below into a
+continuous integral):
 
 .. math::
 
