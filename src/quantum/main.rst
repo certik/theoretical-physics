@@ -12,5 +12,6 @@ Quantum Field Theory and Quantum Mechanics
     examples.rst
     radial.rst
     dft.rst
+    fermi.rst
     hf.rst
     paw.rst
