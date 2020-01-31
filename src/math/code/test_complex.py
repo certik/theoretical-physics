@@ -111,6 +111,7 @@ test_zero2(lambda a,b: exp(a)**b, lambda a,b: exp(a*b)*exp(2*pi*I*b*floor((pi-a.
 test_zero2(lambda x,a: log(x**a), lambda x,a: a*log(x)+2*pi*I*floor((pi-(a*log(x)).imag)/(2*pi)))
 test_zero2(lambda a,b: log(a*b), lambda a,b: log(a)+log(b)+2*pi*I*floor((pi-arg(a)-arg(b))/(2*pi)))
 test_zero2(lambda a,b: arg(a*b), lambda a,b: arg(a)+arg(b)+2*pi*floor((pi-arg(a)-arg(b))/(2*pi)))
+test_zero2(lambda x,y: sqrt(x*y), lambda x,y: sqrt(x)*sqrt(y)*(-1)**floor((pi-arg(x)-arg(y))/(2*pi)))
 
 test_zero3(lambda x,a,b: (x**a)**b, lambda x,a,b: x**(a*b)*exp(2*pi*I*b*floor((pi-(a*log(x)).imag)/(2*pi))))
 test_zero3(lambda x,y,a: (x*y)**a, lambda x,y,a: (x**a)*(y**a)*exp(2*pi*I*a*floor((pi-arg(x)-arg(y))/(2*pi))))
