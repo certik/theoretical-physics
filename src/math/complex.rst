@@ -266,6 +266,7 @@ As a special case for $x=e$ one gets:
 Similarly:
 
 .. math::
+    :label: (xy)^a
 
     (xy)^a = e^{a\log xy}
         = e^{a\log x + a\log y + 2\pi i a
@@ -300,6 +301,26 @@ Using :eq:`(x^a)^b`:
             \pi i
             \left\lfloor \pi-2\arg x \over 2\pi \right\rfloor}
         = (-1)^{\left\lfloor \pi-2\arg x \over 2\pi \right\rfloor} x
+
+Using :eq:`(xy)^a`:
+
+.. math::
+
+    \sqrt{xy} = (xy)^{1\over2}
+        = x^{1\over2} y^{1\over2} e^{2\pi i {1\over2}
+                \left\lfloor \pi-\arg x-\arg y \over 2\pi \right\rfloor
+                }
+        = \sqrt{x} \sqrt{y}
+            (-1)^{\left\lfloor \pi-\arg x-\arg y \over 2\pi \right\rfloor}
+
+and as a special case:
+
+.. math::
+
+    1 = \sqrt 1 = \sqrt{(-1)(-1)}
+        = \sqrt{-1} \sqrt{-1}
+            (-1)^{\left\lfloor \pi-\pi-\pi \over 2\pi \right\rfloor}
+        = i \cdot i \cdot (-1) = 1
 
 Using :eq:`(e^a)^b`:
 
