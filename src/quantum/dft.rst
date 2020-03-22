@@ -38,7 +38,7 @@ is the electron-electron interaction term and
   v({\bf r_i})=\sum_k -{Z_k\over|{\bf r_i}-{\bf R_k}|}
 
 is the interaction term between electrons and nuclei, where $R_k$ are positions
-of nuclei and $Z_k$ the number of nucleons in each nucleus (we are using atomic
+of nuclei and $Z_k$ the atomic number of each nucleus (we are using atomic
 units). So for one atomic calculation with the atom nucleus in the origin, we
 have just $v({\bf r_i})=-{Z\over|{\bf r_i}|}$.
 
