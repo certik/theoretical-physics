@@ -31,6 +31,9 @@ Conda build::
 
     mamba env create -f environment.yml
     conda activate tprbook
+    make latex
+    cd build/latex/
+    tectonic *.tex
 
 How to Push to Github
 ---------------------
