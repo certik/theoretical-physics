@@ -24,6 +24,17 @@ To build the book, do::
 This builds both html and pdf versions, that you can find in the _build
 directory.
 
+Build Using Conda
+-----------------
+
+Conda build::
+
+    mamba env create -f environment.yml
+    conda activate tprbook
+    make latex
+    cd build/latex/
+    tectonic *.tex
+
 How to Push to Github
 ---------------------
 

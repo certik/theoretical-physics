@@ -1,0 +1,8 @@
+name: tprbook
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - myst-parser=0.18.0
+  - sphinx=4.5.0
+  - tectonic=0.12.0

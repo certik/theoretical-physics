@@ -591,3 +591,30 @@ Now we can calculate $\Omega(T, V, \mu)$:
 
         = - {k_\mathrm{B} V T^{c_p} \over
             \Phi e^{c_p-{\mu\over k_\mathrm{B} T}}} \,.
+
+To compute $X_3$, we can do:
+
+.. math::
+
+    X_3(T, p, \mu) = \Omega + pV =
+
+        = - {k_\mathrm{B} V T^{c_p} \over
+            \Phi e^{c_p-{\mu\over k_\mathrm{B} T}}} + pV =
+
+        = \left(p - {k_\mathrm{B} T^{c_p} \over
+            \Phi e^{c_p-{\mu\over k_\mathrm{B} T}}} \right)V =
+
+        = 0 \,,
+
+where we used:
+
+.. math::
+
+    p = -\left(\partial \Omega \over \partial V\right)_{T, \mu}
+        = {k_\mathrm{B} T^{c_p} \over
+            \Phi e^{c_p-{\mu\over k_\mathrm{B} T}}} \,.
+
+As we can see, the last equation cannot be used to compute $V$ as a function of
+$p$, and also the $X_3$ potential evaluates to zero, so it cannot be used as a
+thermodynamic potential, because we have cannot convert it back to the other
+potentials.
