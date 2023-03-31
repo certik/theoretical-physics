@@ -74,7 +74,7 @@ jobs:
       name: Testing
       url: https://www.theoretical-physics.com/
     steps:
-      - name: Deploy Testing
+      - name: Deploy Production
         id: deploy
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
