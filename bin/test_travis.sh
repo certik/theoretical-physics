@@ -5,6 +5,9 @@ set -e
 # Echo each command
 set -x
 
+make latex
+tectonic _build/latex/theoretical-physics.tex
+
 git clone https://github.com/mgieseki/dvisvgm
 cd dvisvgm
 git checkout 6001b3c0d5578f0647bf4cb9caaad0975a9e21d1
@@ -15,5 +18,3 @@ sudo make install
 cd ..
 
 make html
-make latex
-tectonic _build/latex/theoretical-physics.tex
