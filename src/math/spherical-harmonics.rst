@@ -438,7 +438,7 @@ where:
         (-1)^m \Theta_{l,-m}(\theta) & \mbox{for } m < 0 \\
         \end{cases}
 
-The spherical harmonics are ortonormal:
+The spherical harmonics are orthonormal:
 
 .. math::
     :label: Yorto
