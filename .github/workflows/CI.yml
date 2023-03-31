@@ -12,6 +12,7 @@ jobs:
   build:
     name: build html
     runs-on: ubuntu-latest
+    environment: Testing
     steps:
       - uses: actions/checkout@v3
         with:
@@ -45,3 +46,12 @@ jobs:
             sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng latexmk libkpathsea-dev libgs-dev
             sudo pip3 install "sphinx==1.7.6" lxml
             bin/test_travis.sh
+
+      - name: Deploy Testing
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        shell: bash -l {0}
+        run: |
+            bin/deploy.sh git@gitlab.com:certik/tpr-test public/$GITHUB_REF_NAME
+
+            #bin/deploy.sh git@github.com:certik/tfc-deploy docs/dev
