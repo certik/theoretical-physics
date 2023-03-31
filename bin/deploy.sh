@@ -63,3 +63,6 @@ else
 fi
 git commit --allow-empty -m "${COMMIT_MESSAGE}"
 git push origin master
+
+echo "Test is available at:"
+echo "https://certik.gitlab.io/tpr-test/${dest_dir:7}/theoretical-physics.pdf"
