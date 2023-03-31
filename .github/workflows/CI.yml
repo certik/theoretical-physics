@@ -47,6 +47,11 @@ jobs:
             sudo pip3 install "sphinx==1.7.6" lxml
             bin/test_travis.sh
 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: _build/
+
   deploy_testing:
     name: Deploy in Testing
     runs-on: ubuntu-latest
@@ -56,6 +61,12 @@ jobs:
       name: Testing
       url: ${{ steps.deploy.output.deploy_url }}
     steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
+
       - name: Deploy Testing
         id: deploy
         env:
@@ -74,6 +85,12 @@ jobs:
       name: Testing
       url: https://www.theoretical-physics.com/
     steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
+
       - name: Deploy Production
         id: deploy
         env:
