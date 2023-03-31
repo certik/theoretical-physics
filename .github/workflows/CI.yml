@@ -52,6 +52,6 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
         shell: bash -l {0}
         run: |
-            bin/deploy.sh git@gitlab.com:certik/tpr-test public/$GITHUB_REF
+            bin/deploy.sh git@gitlab.com:certik/tpr-test public/$GITHUB_REF_NAME
 
             #bin/deploy.sh git@github.com:certik/tfc-deploy docs/dev
