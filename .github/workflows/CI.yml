@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Testing
-      url: ${{ format('https://certik.gitlab.io/tpr-test/{0}/', env.GITHUB_REF_NAME) }}
+      url: ${{ steps.deploy.output.deploy_url }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -50,6 +50,7 @@ jobs:
             bin/test_travis.sh
 
       - name: Deploy Testing
+        id: deploy
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
         shell: bash -l {0}
@@ -57,3 +58,4 @@ jobs:
             bin/deploy.sh git@gitlab.com:certik/tpr-test public/$GITHUB_REF_NAME
 
             #bin/deploy.sh git@github.com:certik/tfc-deploy docs/dev
+            echo "deploy_url=https://certik.gitlab.io/tpr-test/${GITHUB_REF_NAME}/ >> $GITHUB_OUTPUT
