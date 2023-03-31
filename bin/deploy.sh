@@ -67,4 +67,4 @@ git push origin master
 
 echo "Testing deploy is available at:"
 echo "https://certik.gitlab.io/tpr-test/${dest_dir:7}/theoretical-physics.pdf"
-echo "https://certik.gitlab.io/tpr-test/${dest_dir:7}/html/"
+echo "https://certik.gitlab.io/tpr-test/${dest_dir:7}/"
