@@ -42,6 +42,6 @@ jobs:
         shell: bash -l {0}
         run: |
             sudo apt-get update
-            sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng latexmk autotools-dev libkpathsea-dev libfreetype6-dev libgs-dev libz-dev g++ make python-lxml python-pip python-setuptools git autotools-dev automake autoconf libtool
+            sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng latexmk autotools-dev libkpathsea-dev libfreetype6-dev libgs-dev libz-dev g++ make python-pip python-setuptools git autotools-dev automake autoconf libtool
             sudo pip install "sphinx==1.7.6"
             bin/test_travis.sh
