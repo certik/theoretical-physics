@@ -54,7 +54,6 @@ cd deploy
 if [[ "${dest_start}" == "1" ]]; then
     rm -rf $dest_dir
     mkdir -p $dest_dir
-    cp -r ../_build/html/* $dest_dir/
     cp -r ../_build/latex/theoretical-physics.pdf $dest_dir/
     git add $dest_dir
     COMMIT_MESSAGE="Deploy on $(date "+%Y-%m-%d %H:%M:%S")"
