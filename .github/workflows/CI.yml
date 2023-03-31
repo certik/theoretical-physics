@@ -68,6 +68,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: my-artifact
+          path: _build/
 
       - name: Deploy Testing
         id: deploy
