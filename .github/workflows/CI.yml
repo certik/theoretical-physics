@@ -1,0 +1,47 @@
+name: Theoretical Physics Reference
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: build html
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Cache conda
+        uses: actions/cache@v3
+        env:
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key:
+            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.yml') }}
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          environment-file: environment.yml
+          use-only-tar-bz2: true
+
+      - name: Conda info
+        shell: bash -l {0}
+        run: |
+            conda info
+            conda list
+
+      - name: Build html
+        shell: bash -l {0}
+        run: |
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng latexmk libkpathsea-dev libgs-dev
+            sudo pip3 install "sphinx==1.7.6" lxml
+            bin/test_travis.sh
