@@ -14,4 +14,6 @@ make
 sudo make install
 cd ..
 
-make web
+make html
+make latex
+tectonic _build/latex/theoretical-physics.tex
