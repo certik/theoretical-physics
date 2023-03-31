@@ -54,8 +54,8 @@ jobs:
           name: my-artifact
           path: _build/
 
-  deploy_testing:
-    name: Deploy in Testing
+  deploy:
+    name: Deploy in Testing/Production
     runs-on: ubuntu-latest
     needs: build
     if: github.ref != 'refs/heads/master'
@@ -77,31 +77,12 @@ jobs:
         shell: bash -l {0}
         run: |
             set -e
-            ls
-            ls _build
-            bin/deploy.sh git@gitlab.com:certik/tpr-test public/$GITHUB_REF_NAME
-            echo "deploy_url=https://certik.gitlab.io/tpr-test/${GITHUB_REF_NAME}/" >> $GITHUB_OUTPUT
-
-  deploy_production:
-    name: Deploy in Production
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/master'
-    environment:
-      name: Testing
-      url: https://www.theoretical-physics.com/
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/download-artifact@v3
-        with:
-          name: my-artifact
-
-      - name: Deploy Production
-        id: deploy
-        env:
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-        shell: bash -l {0}
-        run: |
-            set -e
-            bin/deploy.sh git@github.com:certik/tfc-deploy docs/dev
+            if [[ ${GITHUB_REF} == 'refs/heads/master' ]]; then
+                # Production
+                bin/deploy.sh git@github.com:certik/tfc-deploy docs/dev
+                echo "deploy_url=https://www.theoretical-physics.com/" >> $GITHUB_OUTPUT
+            else
+                # Testing
+                bin/deploy.sh git@gitlab.com:certik/tpr-test public/$GITHUB_REF_NAME
+                echo "deploy_url=https://certik.gitlab.io/tpr-test/${GITHUB_REF_NAME}/" >> $GITHUB_OUTPUT
+            fi
