@@ -12,9 +12,6 @@ jobs:
   build:
     name: build html
     runs-on: ubuntu-latest
-    environment:
-      name: Testing
-      url: ${{ steps.deploy.output.deploy_url }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -49,6 +46,16 @@ jobs:
             sudo pip3 install "sphinx==1.7.6" lxml
             bin/test_travis.sh
 
+
+  deploy_testing:
+    name: Deploy in Production
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref != 'refs/heads/master'
+    environment:
+      name: Testing
+      url: ${{ steps.deploy.output.deploy_url }}
+    steps:
       - name: Deploy Testing
         id: deploy
         env:
@@ -56,6 +63,21 @@ jobs:
         shell: bash -l {0}
         run: |
             bin/deploy.sh git@gitlab.com:certik/tpr-test public/$GITHUB_REF_NAME
+            echo "deploy_url=https://certik.gitlab.io/tpr-test/${GITHUB_REF_NAME}/" >> $GITHUB_OUTPUT
 
-            #bin/deploy.sh git@github.com:certik/tfc-deploy docs/dev
-            echo "deploy_url=https://certik.gitlab.io/tpr-test/${GITHUB_REF_NAME}/ >> $GITHUB_OUTPUT
+  deploy_production:
+    name: Deploy in Production
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    environment:
+      name: Testing
+      url: https://www.theoretical-physics.com/
+    steps:
+      - name: Deploy Testing
+        id: deploy
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        shell: bash -l {0}
+        run: |
+            bin/deploy.sh git@github.com:certik/tfc-deploy docs/dev
