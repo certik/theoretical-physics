@@ -12,7 +12,9 @@ jobs:
   build:
     name: build html
     runs-on: ubuntu-latest
-    environment: Testing
+    environment:
+      name: Testing
+      url: ${{ format("https://certik.gitlab.io/tpr-test/{0}/", ${GITHUB_REF_NAME}) }}
     steps:
       - uses: actions/checkout@v3
         with:
