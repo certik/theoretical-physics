@@ -77,6 +77,8 @@ jobs:
         shell: bash -l {0}
         run: |
             set -e
+            ls
+            ls _build
             bin/deploy.sh git@gitlab.com:certik/tpr-test public/$GITHUB_REF_NAME
             echo "deploy_url=https://certik.gitlab.io/tpr-test/${GITHUB_REF_NAME}/" >> $GITHUB_OUTPUT
 
