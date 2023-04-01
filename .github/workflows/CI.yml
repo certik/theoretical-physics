@@ -46,7 +46,8 @@ jobs:
             set -e
             sudo apt-get update
             sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng latexmk libkpathsea-dev libgs-dev
-            sudo tlmgr install tex-gyre
+            tlmgr init-usertree
+            tlmgr install tex-gyre
             sudo pip3 install "sphinx==1.7.6" lxml
             bin/test_travis.sh
 
