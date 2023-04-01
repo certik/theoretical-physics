@@ -61,7 +61,7 @@ jobs:
     if: github.ref != 'refs/heads/master'
     environment:
       name: Testing
-      url: ${{ steps.deploy.output.deploy_url }}
+      url: ${{ steps.deploy.outputs.deploy_url }}
     steps:
       - uses: actions/checkout@v3
 
