@@ -2472,11 +2472,11 @@ Which represents the following tensor equations:
 
    C_{a b} = A^i_a B_{i b}
 
-   C_{\mu\nu} = A^\alpha_\mu B_{\alpha\nu}
+   C_{\mu\nu} = {A^\alpha}_\mu B_{\alpha\nu}
 
-   C^\mu_\nu = A^{\alpha\mu} B_{\alpha\nu}
+   {C^\mu}_\nu = A^{\alpha\mu} B_{\alpha\nu}
 
-   C^{\mu\nu} = A^{\alpha\mu} B_{\alpha}{}^\nu
+   C^{\mu\nu} = A^{\alpha\mu} {B_{\alpha}}^\nu
 
 Etc. They are all equivalent. Notice that we do not need to specify which index
 is upper and lower. The LHS and RHS has to match, and we can convert one of
