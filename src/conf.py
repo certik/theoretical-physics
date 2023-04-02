@@ -181,8 +181,14 @@ latex_preamble = r"""
 
 """
 
+fontpkg = r"""\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+"""
+
 imgmath_latex_preamble = latex_preamble
-latex_elements = {"preamble": latex_preamble}
+latex_elements = {"preamble": latex_preamble, "fontpkg": fontpkg}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
