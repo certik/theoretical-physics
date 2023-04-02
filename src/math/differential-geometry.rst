@@ -1331,7 +1331,7 @@ is upper and lower. The LHS and RHS has to match, and we can convert one of
 these equations to another by raising the index using the metric tensor.
 
 It turns out the exact same representation can also be applied to arrays, so
-`Contraction(Product([Transpose(A), B]), [2, 3])` represents::
+:code:`Contraction(Product([Transpose(A), B]), [2, 3])` represents::
 
     matmul(tranpose(A), B)
 
