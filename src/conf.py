@@ -182,7 +182,7 @@ latex_preamble = r"""
 """
 
 imgmath_latex_preamble = latex_preamble
-latex_elements = {"preamble": latex_preamble}
+latex_elements = {"preamble": latex_preamble, "fontpkg": "", "fontenc": ""}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
