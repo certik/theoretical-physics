@@ -1269,6 +1269,86 @@ where $\partial\Omega$ is the boundary (surface) of $\Omega$ and $n_\nu$ is the
 normal vector to this surface.
 
 
+Difference Between Tensors and Arrays
+-------------------------------------
+
+Every array can be interpreted as coefficients against some tensor basis in
+some curvilinear space. Then n-n-n arrays are 3D tensors in that space. n-m
+array would be a tensor from one space to another (different dimension), that's
+a more generalized case, but I think it can be done.
+
+Now, if one applies a tensor operation and you feed it a tensor, the result is
+a tensor. Here are the most common operations: TensorContract, TensorProduct,
+TensorAdd, TensorTranspose. If you feed an array to it, it will still work, but
+you'll get an array out of course, not a tensor. But the operations can be done
+on arrays. So we can call these operations tensor operations. In fact the
+"tensor product" is a well known operations and called like that, and it is
+applied to all kinds of things which are not tensors.
+
+Now, ArrayItem (or ArrayIndex/ArrayElement) which indexes into an array is not
+a tensor operation, because an element of a tensor is not a scalar. So that
+must be called ArrayElement. Things like ArrayMaxVal are array operations, or
+ArraySection, since a section of a tensor is not a tensor.
+
+So operations with Tensor in front are "fundamental", and they accept tensors
+and return tensors. Operations with Array in front are just array operations,
+not as fundamental.
+
+Many operations in fortran, such as dot_product, matmul, transpose, +, -, *
+happen to be tensor operations. But other operations such as maxval, sum, etc.
+are not tensor operations.
+
+Tensors in the most common and strict definition require a differentiable
+manifold, a metric tensor (symmetric), Christoffel symbols are symmetric in their lower indices, etc., everything discussed in this chapter. All the
+operations are well defined and complete; such tensors provide a very useful
+and applicable tool. One can consider relaxing some of these requirements and
+generalize some of the tensor operations. For example, one can allow the metric
+tensor to not exist, one example of this would be Newtonean mechanics, casted
+into a 4D space. One can define Christoffel symbols, but it turns out there is
+no metric tensor that could generate them, so this prevents this theory to be
+as useful, but one can study it mathematically. When executing this line of
+thought, it turns out all the tensor operations also work on just regular
+arrays.
+
+One can represent tensor equations as follows::
+
+    Contraction(Product([Transpose(A), B]), [2, 3])
+
+Which represents the following tensor equations:
+
+.. math::
+
+    C_{a b} = A^i_a B_{i b}
+
+    C_{\mu\nu} = {A^\alpha}_\mu B_{\alpha\nu}
+
+    {C^\mu}_\nu = A^{\alpha\mu} B_{\alpha\nu}
+
+    C^{\mu\nu} = A^{\alpha\mu} {B_{\alpha}}^\nu
+
+Etc. They are all equivalent. Notice that we do not need to specify which index
+is upper and lower. The LHS and RHS has to match, and we can convert one of
+these equations to another by raising the index using the metric tensor.
+
+It turns out the exact same representation can also be applied to arrays, so
+`Contraction(Product([Transpose(A), B]), [2, 3])` represents::
+
+    matmul(tranpose(A), B)
+
+As well as::
+
+    C = 0
+    do a = 1, size(A,2)
+    do b = 1, size(B, 2)
+    do i = 1, size(A,1)
+        C(a,b) = C(a,b) + A(i,a)*B(i,b)
+    end do
+    end do
+    end do
+
+Here A and B are not tensors, they are arrays, but the tensor representation
+works just as well for them.
+
 Examples
 ========
 
@@ -2420,83 +2500,3 @@ for $i=1, 2, 3$ we get:
         2\partial_z u^z \partial_z v^z\right)
         \rho \,\d\rho\, \d \phi\, \d z
         = \int f^z v^z \rho \,\d\rho\, \d \phi\, \d z
-
-Difference Between Tensors and Arrays
--------------------------------------
-
-Every array can be interpreted as coefficients against some tensor basis in
-some curvilinear space. Then n-n-n arrays are 3D tensors in that space. n-m
-array would be a tensor from one space to another (different dimension), that's
-a more generalized case, but I think it can be done.
-
-Now, if one applies a tensor operation and you feed it a tensor, the result is
-a tensor. Here are the most common operations: TensorContract, TensorProduct,
-TensorAdd, TensorTranspose. If you feed an array to it, it will still work, but
-you'll get an array out of course, not a tensor. But the operations can be done
-on arrays. So we can call these operations tensor operations. In fact the
-"tensor product" is a well known operations and called like that, and it is
-applied to all kinds of things which are not tensors.
-
-Now, ArrayItem (or ArrayIndex/ArrayElement) which indexes into an array is not
-a tensor operation, because an element of a tensor is not a scalar. So that
-must be called ArrayElement. Things like ArrayMaxVal are array operations, or
-ArraySection, since a section of a tensor is not a tensor.
-
-So operations with Tensor in front are "fundamental", and they accept tensors
-and return tensors. Operations with Array in front are just array operations,
-not as fundamental.
-
-Many operations in fortran, such as dot_product, matmul, transpose, +, -, *
-happen to be tensor operations. But other operations such as maxval, sum, etc.
-are not tensor operations.
-
-Tensors in the most common and strict definition require a differentiable
-manifold, a metric tensor (symmetric), Christoffel symbols are symmetric in their lower indices, etc., everything discussed in this chapter. All the
-operations are well defined and complete; such tensors provide a very useful
-and applicable tool. One can consider relaxing some of these requirements and
-generalize some of the tensor operations. For example, one can allow the metric
-tensor to not exist, one example of this would be Newtonean mechanics, casted
-into a 4D space. One can define Christoffel symbols, but it turns out there is
-no metric tensor that could generate them, so this prevents this theory to be
-as useful, but one can study it mathematically. When executing this line of
-thought, it turns out all the tensor operations also work on just regular
-arrays.
-
-One can represent tensor equations as follows::
-
-    Contraction(Product([Transpose(A), B]), [2, 3])
-
-Which represents the following tensor equations:
-
-.. math::
-
-    C_{a b} = A^i_a B_{i b}
-
-    C_{\mu\nu} = {A^\alpha}_\mu B_{\alpha\nu}
-
-    {C^\mu}_\nu = A^{\alpha\mu} B_{\alpha\nu}
-
-    C^{\mu\nu} = A^{\alpha\mu} {B_{\alpha}}^\nu
-
-Etc. They are all equivalent. Notice that we do not need to specify which index
-is upper and lower. The LHS and RHS has to match, and we can convert one of
-these equations to another by raising the index using the metric tensor.
-
-It turns out the exact same representation can also be applied to arrays, so
-Contraction(Product([Transpose(A), B]), [2, 3]) represents::
-
-    matmul(tranpose(A), B)
-
-As well as::
-
-    C = 0
-    do a = 1, size(A,2)
-    do b = 1, size(B, 2)
-    do i = 1, size(A,1)
-        C(a,b) = C(a,b) + A(i,a)*B(i,b)
-    end do
-    end do
-    end do
-
-Here A and B are not tensors, they are arrays, but the tensor representation
-works just as well for them.
