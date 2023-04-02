@@ -182,9 +182,13 @@ latex_preamble = r"""
 """
 
 fontpkg = r"""\usepackage{fontspec}
-\setmainfont{Latin Modern Roman}
-\setsansfont{Latin Modern Sans}
-\setmonofont{Latin Modern Mono}
+\setmainfont{texgyrepagella}[
+  Extension = .otf,
+  UprightFont = *-regular,
+  BoldFont = *-bold,
+  ItalicFont = *-italic,
+  BoldItalicFont = *-bolditalic,
+]
 """
 
 imgmath_latex_preamble = latex_preamble
