@@ -802,3 +802,110 @@ codes. :download:`test_complex.py <code/test_complex.py>`:
 :download:`test_complex_diff.py <code/test_complex_diff.py>`:
 
 .. literalinclude:: code/test_complex_diff.py
+
+Multivalued Approach
+--------------------
+
+There is another approach to complex analysis. Instead of keeping all functions
+single valued, one defines $\arg(z)$ as multivalued function as follows:
+
+.. math::
+
+    \arg z = \atan2(\Im z, \Re z) + 2\pi n
+
+for all integer $n$. Then one builds all other function using it, absorbing the
+multivalues into $n$ if possible. For example, we get:
+
+.. math::
+
+    \arg e^z = \arg e^{\Re z} e^{i\Im z} = \arg e^{i\Im z} =
+
+        = \arg(\cos\Im z + i\sin\Im z) =
+
+        = \atan2(\sin\Im z, \cos\Im z) + 2\pi n =
+
+        = \Im z + 2\pi \left\lfloor \pi-\Im z \over 2\pi \right\rfloor
+            + 2\pi n
+
+        = \Im z + 2\pi n'
+
+where $n'=n+\left\lfloor \pi-\Im z \over 2\pi \right\rfloor$ is an integer. In
+a similar manner, we get the following identities:
+
+.. math::
+
+    \sqrt{x^2} = (-1)^n x
+
+    \log ab = \log a + \log b
+
+    \log ab - \log a - \log b = 2\pi i n
+
+    \log x^a = a \log x
+
+    \log x^a - a \log x = 2\pi i n
+
+    \overline{\log z} = \log \bar z
+
+    \overline{\log z} - \log \bar z = 2\pi i n
+
+The LHS is multivalued, and all those values can be assigned one to one to the
+multivalued RHS, i.e. all the multivalues are equivalent. If both sides contain
+functions that can absorb those $n$ terms, then we do not need to list them
+explicitly, but if the RHS is say, zero, then one has to list the $n$ term
+explicitly. All formulas hold for all $x$, $a$, $b$, but when evaluating
+numerically, one has to keep the $n$ dependence in them and treat them as a
+collection of (multi) values.
+
+For example, to numerically evaluate the identity:
+
+.. math::
+
+    \log x^a = a \log x
+
+Say for $a=2$, $x=-1$ we get for LHS:
+
+.. math::
+
+    \log x^a = \log (-1)^2 + 2\pi i n = 0 + 2\pi i n = 2\pi i n
+
+and RHS:
+
+.. math::
+
+    a \log x = 2 \log (-1) + 4\pi i m = 2\pi i + 4\pi i m =
+
+    = 2\pi i (2 m+1)
+
+And for $n=2 m+1$ the LHS is equal to RHS. $n$ is any integer, so it follows
+that $m$ is integer or half-integer. One can evaluate the value of $\log x$
+for $x=-1$ at any branch (we used the principal branch above), because the
+differences between branches are captures in the multivalued term $2\pi i n$,
+and so the result is identical for any branch we chose. The multivalued term
+can be absorbed in $\log x$, but once we put an actual number for $x$, we need
+to add the multivalued term $2\pi i n$ explicitly.
+
+Another example with $a=\half$, $x=-1$, LHS:
+
+.. math::
+
+    \log x^a = \log (-1)^\half + 2\pi i n = \log i + 2\pi i n =
+
+    = \half \pi i + 2\pi i n = \pi i (2 n+\half)
+
+and RHS:
+
+.. math::
+
+    a \log x = \half \log (-1) + \pi i m = \half \pi i + \pi i m =
+
+    = \pi i (m+\half)
+
+And we get $2n = m$. Here $n$ is integer, and $m$ is thus an even integer.
+This is a problem, since why couldn't we choose $m$ to be odd? Then LHS is not
+equal to RHS.
+
+The conclusion seems to be that when evaluating numerically, one **must** use
+the same branch when evaluating LHS and RHS, for example the principal branch.
+From the previous section we know that then the formula holds for all values of
+$x$ and $a$. The question is then how to add there the
+$2\pi i n$ factors so that LHS is still equal to RHS.
