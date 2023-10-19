@@ -23,7 +23,12 @@ sys.path.append(os.path.abspath('../exts'))
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ["math_dollar"]
+extensions = [
+    "math_dollar",
+    "sphinx_copybutton", # code-block copy button
+    # 'sphinx.ext.mathjax',
+    "sphinx_rtd_dark_mode",
+]
 
 # Select one of the two:
 if os.path.exists("use_mathjax.cfg"):
@@ -251,7 +256,8 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
-html_theme = 'default'
+# html_theme = 'pydata_sphinx_theme'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -281,6 +287,8 @@ html_theme = 'default'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+def setup(app):
+    app.add_css_file("css/no_width_limit_n_autowrap_code.css")
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.

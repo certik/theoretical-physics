@@ -24,12 +24,24 @@ To build the book, do::
 This builds both html and pdf versions, that you can find in the _build
 directory.
 
+For mac user
+------------
+
+prerequisites::
+
+- [port](https://www.macports.org/install.php) to install dvisvgm
+- [homebrew](https://brew.sh/) to install texlive
+- [conda](https://www.anaconda.com/download) to install sphinx and related extensions
+
+
+
 Build Using Conda
 -----------------
 
 Conda build::
 
-    mamba env create -f environment.yml
+    conda env create  -f environment.yml
+    # mamba env create -f environment.yml # only if you have mamba installed
     conda activate tprbook
     make latex
     tectonic _build/latex/theoretical-physics.tex
