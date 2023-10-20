@@ -26,8 +26,7 @@ sys.path.append(os.path.abspath('../exts'))
 extensions = [
     "math_dollar",
     "sphinx_copybutton", # code-block copy button
-    # 'sphinx.ext.mathjax',
-    "sphinx_rtd_dark_mode",
+    "sphinx_rtd_dark_mode", # must comment this to use pydata theme
 ]
 
 # Select one of the two:
@@ -256,8 +255,8 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
-# html_theme = 'pydata_sphinx_theme'
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'pydata_sphinx_theme'
+# html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -288,7 +287,9 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 def setup(app):
-    app.add_css_file("css/no_width_limit_n_autowrap_code.css")
+    app.add_css_file("css/autowrap_code.css")
+    app.add_css_file("css/no_width_limit.css")
+    app.add_css_file("css/equation_style.css") # uncomment this for html_mathjax when using rtd theme
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
