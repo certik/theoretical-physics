@@ -38,6 +38,11 @@ jobs:
             conda info
             conda list
 
+      - name: pip install requirements
+        shell : bash -l {0}
+        run: |
+            pip install -r requirements.txt
+
       - name: Build html
         shell: bash -l {0}
         run: |
