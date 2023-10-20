@@ -26,7 +26,7 @@ sys.path.append(os.path.abspath('../exts'))
 extensions = [
     "math_dollar",
     "sphinx_copybutton", # code-block copy button
-    "sphinx_rtd_dark_mode", # must comment this to use pydata theme
+    # "sphinx_rtd_dark_mode", # must comment this to use pydata theme
 ]
 
 # Select one of the two:
@@ -255,7 +255,8 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
-html_theme = 'pydata_sphinx_theme'
+# html_theme = 'pydata_sphinx_theme'
+html_theme = 'sphinx_book_theme'
 # html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme

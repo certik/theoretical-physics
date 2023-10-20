@@ -1,3 +1,4 @@
 sphinx-copybutton
 pydata-sphinx-theme
 sphinx-rtd-dark-mode
+sphinx-book-theme
