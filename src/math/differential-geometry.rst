@@ -1352,12 +1352,12 @@ As well as::
 Here A and B are not tensors, they are arrays, but the tensor representation
 works just as well for them.
 
-List of tensor operations::
+List of fundamental tensor operations::
 
     Product
     Add
     Transpose
-    Contraction
+    Contract / Contraction
     Assign
     Rank
 
@@ -1395,6 +1395,25 @@ Matrix multiplication :code:`matmul(A, B)` is represented by
 Dot proudct :code:`dot_product(A, B)` is represented by
 :code:`Contraction(Product([A, B]), [Rank(A), Rank(A)+1])`, typically
 :code:`Rank(A) == 1`.
+
+Rank 0 tensors are scalars. Their value can be used instead of their symbol,
+e.g., 1, 2, -1, $i$, etc. A subtraction of two tensors $A - B$ can thus be
+defined as :code:`Add(A, Product([-1, B]))`, where $-1$ is a scalar tensor of
+rank 0, or to be completely explicit::
+
+    MinusOne = Tensor("-1", 0)
+    Add(A, Product([MinusOne, B]))
+
+Using the fundamental tensor operations above we can then build/define many
+other tensor operations::
+
+    dot_product(A, B) = Contraction(Product([A, B]), [Rank(A), Rank(A)+1])
+    matmul(A, B) = Contraction(Product([A, B]), [Rank(A), Rank(A)+1])
+    Tr A = Contract(A, [1, 2])   # assuming Rank(A) = 2
+    |A| = sqrt(Contract(Product([A,A]), [1, Rank(A)+1], [2, Rank(A)+2], ...
+                [Rank(A), 2*Rank(A)]))
+    A^n = Product([A, A, ..., A])   # n-times
+    Exp(A) = sum_n^oo A^n/n!
 
 Examples
 ========
