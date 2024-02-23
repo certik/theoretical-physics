@@ -1312,7 +1312,7 @@ arrays.
 
 One can represent tensor equations as follows::
 
-    Contraction(Product([Transpose(A), B]), [2, 3])
+    Contract(Product([Transpose(A), B]), [2, 3])
 
 Which represents the following tensor equations:
 
@@ -1334,7 +1334,7 @@ always have to be one up one down, and they can be swapped via the metric
 tensor.
 
 It turns out the exact same representation can also be applied to arrays, so
-:code:`Contraction(Product([Transpose(A), B]), [2, 3])` represents::
+:code:`Contract(Product([Transpose(A), B]), [2, 3])` represents::
 
     matmul(tranpose(A), B)
 
@@ -1357,7 +1357,7 @@ List of fundamental tensor operations::
     Product
     Add
     Transpose
-    Contract / Contraction
+    Contract
     Assign
     Rank
 
@@ -1366,7 +1366,7 @@ We just need to know the rank, not the actual dimensions, so::
     A = Tensor("A", 2)
     B = Tensor("A", 2)
     C = Tensor("A", 2)
-    Assign(C, Contraction(Product([Transpose(A), B]), [2, 3]))
+    Assign(C, Contract(Product([Transpose(A), B]), [2, 3]))
 
 represents::
 
@@ -1389,11 +1389,11 @@ or::
     end do
 
 Matrix multiplication :code:`matmul(A, B)` is represented by
-:code:`Contraction(Product([A, B]), [Rank(A), Rank(A)+1])`, typically
+:code:`Contract(Product([A, B]), [Rank(A), Rank(A)+1])`, typically
 :code:`Rank(A) == 2`.
 
 Dot proudct :code:`dot_product(A, B)` is represented by
-:code:`Contraction(Product([A, B]), [Rank(A), Rank(A)+1])`, typically
+:code:`Contract(Product([A, B]), [Rank(A), Rank(A)+1])`, typically
 :code:`Rank(A) == 1`.
 
 Rank 0 tensors are scalars. Their value can be used instead of their symbol,
@@ -1407,12 +1407,12 @@ rank 0, or to be completely explicit::
 Using the fundamental tensor operations above we can then build/define many
 other tensor operations::
 
-    dot_product(A, B) = Contraction(Product([A, B]), [Rank(A), Rank(A)+1])
-    matmul(A, B) = Contraction(Product([A, B]), [Rank(A), Rank(A)+1])
+    dot_product(A, B) = Contract(Product([A, B]), [Rank(A), Rank(A)+1])
+    matmul(A, B) = Contract(Product([A, B]), [Rank(A), Rank(A)+1])
     Tr A = Contract(A, [1, 2])   # assuming Rank(A) = 2
     |A| = sqrt(Contract(Product([A,A]), [1, Rank(A)+1], [2, Rank(A)+2], ...
                 [Rank(A), 2*Rank(A)]))
-    A^n = Product([A, A, ..., A])   # n-times
+    A^n = matmul(matmul(matmul(A, A), A), ...)   # n-times
     Exp(A) = sum_n^oo A^n/n!
 
 Examples
