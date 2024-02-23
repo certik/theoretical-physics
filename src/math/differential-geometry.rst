@@ -1328,7 +1328,10 @@ Which represents the following tensor equations:
 
 Etc. They are all equivalent. Notice that we do not need to specify which index
 is upper and lower. The LHS and RHS has to match, and we can convert one of
-these equations to another by raising the index using the metric tensor.
+these equations to another by raising the index using the metric tensor. The
+free indices just have to match between LHS and RHS, and the contracted indices
+always have to be one up one down, and they can be swapped via the metric
+tensor.
 
 It turns out the exact same representation can also be applied to arrays, so
 :code:`Contraction(Product([Transpose(A), B]), [2, 3])` represents::
@@ -1339,7 +1342,7 @@ As well as::
 
     C = 0
     do a = 1, size(A,2)
-    do b = 1, size(B, 2)
+    do b = 1, size(B,2)
     do i = 1, size(A,1)
         C(a,b) = C(a,b) + A(i,a)*B(i,b)
     end do
@@ -1348,6 +1351,50 @@ As well as::
 
 Here A and B are not tensors, they are arrays, but the tensor representation
 works just as well for them.
+
+List of tensor operations::
+
+    Product
+    Add
+    Transpose
+    Contraction
+    Assign
+    Rank
+
+We just need to know the rank, not the actual dimensions, so::
+
+    A = Tensor("A", 2)
+    B = Tensor("A", 2)
+    C = Tensor("A", 2)
+    Assign(C, Contraction(Product([Transpose(A), B]), [2, 3]))
+
+represents::
+
+    real, intent(in) :: A(:,:), B(:,:)
+    real, intent(out) :: C(:,:)
+    C = matmul(transpose(A), B)
+
+or::
+
+    real, intent(in) :: A(:,:), B(:,:)
+    real, intent(out) :: C(:,:)
+    integer :: i, j, k
+    do j = 1, size(A,2)
+    do k = 1, size(B,2)
+        C(j,k) = 0
+        do i = 1, size(A,1)
+            C(j,k) = C(j,k) + A(i,j)*B(i,k)
+        end do
+    end do
+    end do
+
+Matrix multiplication :code:`matmul(A, B)` is represented by
+:code:`Contraction(Product([A, B]), [Rank(A), Rank(A)+1])`, typically
+:code:`Rank(A) == 2`.
+
+Dot proudct :code:`dot_product(A, B)` is represented by
+:code:`Contraction(Product([A, B]), [Rank(A), Rank(A)+1])`, typically
+:code:`Rank(A) == 1`.
 
 Examples
 ========
