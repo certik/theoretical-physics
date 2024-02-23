@@ -1358,7 +1358,7 @@ List of fundamental tensor operations::
     Add(A, B, C)                 A^{ij} + B^{ij} + C^{ij}
     Transpose(A, [2, 1])         A^{ij} -> A^{ji}
     Contract(A, [1,2], [4,5])    A^{i}_i^{jk}_k
-    Assign(A, B)                 A = B
+    Assign(A, B)                 A^{ij} = B^{ij}
     Rank(A)                      Rank(A^{ij}) == 2
 
 We just need to know the rank, not the actual dimensions, so::
