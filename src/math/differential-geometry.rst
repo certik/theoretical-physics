@@ -1354,12 +1354,12 @@ works just as well for them.
 
 List of fundamental tensor operations::
 
-    Product([A, B, C])             A^{ij} B_k C_{lmn}
-    Add([A, B, C])                 A^{ij} + B^{ij} + C^{ij}
-    Transpose(A, [2, 1])           A^{ij} -> A^{ji}
-    Contract(A, [[1,2], [4,5]])    A^{i}_i^{jk}_k
-    Assign(A, B)                   A = B
-    Rank(A)                        Rank(A^{ij}) == 2
+    Product(A, B, C)             A^{ij} B_k C_{lmn}
+    Add(A, B, C)                 A^{ij} + B^{ij} + C^{ij}
+    Transpose(A, [2, 1])         A^{ij} -> A^{ji}
+    Contract(A, [1,2], [4,5])    A^{i}_i^{jk}_k
+    Assign(A, B)                 A = B
+    Rank(A)                      Rank(A^{ij}) == 2
 
 We just need to know the rank, not the actual dimensions, so::
 
@@ -1410,15 +1410,28 @@ other tensor operations::
     dot_product(A, B) = A · B = Contract(Product(A, B), [Rank(A), Rank(A)+1])
     matmul(A, B) = Contract(Product(A, B), [Rank(A), Rank(A)+1])
     Tr A = Contract(A, [1, 2])   # assuming Rank(A) = 2
-    |A| = sqrt(Contract(Product([A,A]), [1, Rank(A)+1], [2, Rank(A)+2], ...
+    |A| = sqrt(Contract(Product(A, A), [1, Rank(A)+1], [2, Rank(A)+2], ...
                 [Rank(A), 2*Rank(A)]))
     A^n = matmul(matmul(matmul(A, A), A), ...)   # n-times
     Exp(A) = sum_n^oo A^n/n!
 
     eps = Tensor("\epsilon", 3)
+    A = Tensor(A, 3)
+    B = Tensor(B, 3)
     A x B = Contract(Product(eps, A, B), [2, 4], [3, 5])
     Curl(A) = ∇ x A = Contract(Product(eps, ∇, A), [2, 4], [3, 5])
     Div(A) = ∇ · A = Contract(Product(∇, A), [Rank(∇), Rank(∇)+1])
+
+In contrast to tensor operations above, the following are all array operations
+(if inputs are tensors, the outputs are arrays, not tensors)::
+
+    Shape
+    Size
+    Section
+    Reshape
+    Concat
+    Index (Item)
+    Sum, Maxval, Minval, Product, (general) Reduce
 
 Examples
 ========
