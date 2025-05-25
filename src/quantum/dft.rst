@@ -43,7 +43,7 @@ units). So for one atomic calculation with the atom nucleus in the origin, we
 have just $v({\bf r_i})=-{Z\over|{\bf r_i}|}$.
 
 $|\Psi|^2=\Psi^*\Psi$ gives the probability density of measuring the first
-electron at the position $\bf r_1$, the second at $\bf r_2$, \dots and the Nth
+electron at the position $\bf r_1$, the second at $\bf r_2$, $\dots$ and the Nth
 electron at the position ${\bf r}_N$. The normalization is such that
 $\int|\Phi|^2\d^3 r_1\d^3 r_2\dots\d^3 r_N=1$. The $\Psi$ is antisymmetric,
 i.e.  $\Psi({\bf r_1},{\bf r_2},\cdots,{\bf r}_N)= -\Psi({\bf r_2},{\bf
