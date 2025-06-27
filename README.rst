@@ -15,7 +15,8 @@ Build
 
 Install prerequisites::
 
-    sudo apt-get install python-sphinx texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng
+    sudo apt-get install texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng
+    pip install -r requirements.txt
 
 To build the book, do::
 
@@ -29,8 +30,10 @@ Build Using Conda
 
 Conda build::
 
-    mamba env create -f environment.yml
+    conda env create  -f environment.yml
+    # mamba env create -f environment.yml # only if you have mamba installed
     conda activate tprbook
+    pip install -r requirements.txt
     make latex
     tectonic _build/latex/theoretical-physics.tex
 
