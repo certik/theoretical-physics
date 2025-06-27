@@ -1269,6 +1269,170 @@ where $\partial\Omega$ is the boundary (surface) of $\Omega$ and $n_\nu$ is the
 normal vector to this surface.
 
 
+Difference Between Tensors and Arrays
+-------------------------------------
+
+Every array can be interpreted as coefficients against some tensor basis in
+some curvilinear space. Then n-n-n arrays are 3D tensors in that space. n-m
+array would be a tensor from one space to another (different dimension), that's
+a more generalized case, but I think it can be done.
+
+Now, if one applies a tensor operation and you feed it a tensor, the result is
+a tensor. Here are the most common operations: TensorContract, TensorProduct,
+TensorAdd, TensorTranspose. If you feed an array to it, it will still work, but
+you'll get an array out of course, not a tensor. But the operations can be done
+on arrays. So we can call these operations tensor operations. In fact the
+"tensor product" is a well known operations and called like that, and it is
+applied to all kinds of things which are not tensors.
+
+Now, ArrayItem (or ArrayIndex/ArrayElement) which indexes into an array is not
+a tensor operation, because an element of a tensor is not a scalar. So that
+must be called ArrayElement. Things like ArrayMaxVal are array operations, or
+ArraySection, since a section of a tensor is not a tensor.
+
+So operations with Tensor in front are "fundamental", and they accept tensors
+and return tensors. Operations with Array in front are just array operations,
+not as fundamental.
+
+Many operations in fortran, such as dot_product, matmul, transpose, +, -, *
+happen to be tensor operations. But other operations such as maxval, sum, etc.
+are not tensor operations.
+
+Tensors in the most common and strict definition require a differentiable
+manifold, a metric tensor (symmetric), Christoffel symbols are symmetric in their lower indices, etc., everything discussed in this chapter. All the
+operations are well defined and complete; such tensors provide a very useful
+and applicable tool. One can consider relaxing some of these requirements and
+generalize some of the tensor operations. For example, one can allow the metric
+tensor to not exist, one example of this would be Newtonean mechanics, casted
+into a 4D space. One can define Christoffel symbols, but it turns out there is
+no metric tensor that could generate them, so this prevents this theory to be
+as useful, but one can study it mathematically. When executing this line of
+thought, it turns out all the tensor operations also work on just regular
+arrays.
+
+One can represent tensor equations as follows::
+
+    Contract(Product([Transpose(A), B]), [2, 3])
+
+Which represents the following tensor equations:
+
+.. math::
+
+    C_{a b} = A^i_a B_{i b}
+
+    C_{\mu\nu} = {A^\alpha}_\mu B_{\alpha\nu}
+
+    {C^\mu}_\nu = A^{\alpha\mu} B_{\alpha\nu}
+
+    C^{\mu\nu} = A^{\alpha\mu} {B_{\alpha}}^\nu
+
+Etc. They are all equivalent. Notice that we do not need to specify which index
+is upper and lower. The LHS and RHS has to match, and we can convert one of
+these equations to another by raising the index using the metric tensor. The
+free indices just have to match between LHS and RHS, and the contracted indices
+always have to be one up one down, and they can be swapped via the metric
+tensor.
+
+It turns out the exact same representation can also be applied to arrays, so
+:code:`Contract(Product([Transpose(A), B]), [2, 3])` represents::
+
+    matmul(tranpose(A), B)
+
+As well as::
+
+    C = 0
+    do a = 1, size(A,2)
+    do b = 1, size(B,2)
+    do i = 1, size(A,1)
+        C(a,b) = C(a,b) + A(i,a)*B(i,b)
+    end do
+    end do
+    end do
+
+Here A and B are not tensors, they are arrays, but the tensor representation
+works just as well for them.
+
+List of fundamental tensor operations::
+
+    Product(A, B, C)             A^{ij} B_k C_{lmn}
+    Add(A, B, C)                 A^{ij} + B^{ij} + C^{ij}
+    Transpose(A, [2, 1])         A^{ij} -> A^{ji}
+    Contract(A, [1,2], [4,5])    A^{i}_i^{jk}_k
+    Assign(A, B)                 A^{ij} = B^{ij}
+    Rank(A)                      Rank(A^{ij}) == 2
+
+We just need to know the rank, not the actual dimensions, so::
+
+    A = Tensor("A", 2)
+    B = Tensor("A", 2)
+    C = Tensor("A", 2)
+    Assign(C, Contract(Product([Transpose(A), B]), [2, 3]))
+
+represents::
+
+    real, intent(in) :: A(:,:), B(:,:)
+    real, intent(out) :: C(:,:)
+    C = matmul(transpose(A), B)
+
+or::
+
+    real, intent(in) :: A(:,:), B(:,:)
+    real, intent(out) :: C(:,:)
+    integer :: i, j, k
+    do j = 1, size(A,2)
+    do k = 1, size(B,2)
+        C(j,k) = 0
+        do i = 1, size(A,1)
+            C(j,k) = C(j,k) + A(i,j)*B(i,k)
+        end do
+    end do
+    end do
+
+Matrix multiplication :code:`matmul(A, B)` is represented by
+:code:`Contract(Product([A, B]), [Rank(A), Rank(A)+1])`, typically
+:code:`Rank(A) == 2`.
+
+Dot proudct :code:`dot_product(A, B)` is represented by
+:code:`Contract(Product([A, B]), [Rank(A), Rank(A)+1])`, typically
+:code:`Rank(A) == 1`.
+
+Rank 0 tensors are scalars. Their value can be used instead of their symbol,
+e.g., 1, 2, -1, $i$, etc. A subtraction of two tensors $A - B$ can thus be
+defined as :code:`Add(A, Product([-1, B]))`, where $-1$ is a scalar tensor of
+rank 0, or to be completely explicit::
+
+    MinusOne = Tensor("-1", 0)
+    Add(A, Product([MinusOne, B]))
+
+Using the fundamental tensor operations above we can then build/define many
+other tensor operations::
+
+    dot_product(A, B) = A · B = Contract(Product(A, B), [Rank(A), Rank(A)+1])
+    matmul(A, B) = Contract(Product(A, B), [Rank(A), Rank(A)+1])
+    Tr A = Contract(A, [1, 2])   # assuming Rank(A) = 2
+    |A| = sqrt(Contract(Product(A, A), [1, Rank(A)+1], [2, Rank(A)+2], ...
+                [Rank(A), 2*Rank(A)]))
+    A^n = matmul(matmul(matmul(A, A), A), ...)   # n-times
+    Exp(A) = sum_n^oo A^n/n!
+
+    eps = Tensor("\epsilon", 3)
+    A = Tensor(A, 3)
+    B = Tensor(B, 3)
+    A x B = Contract(Product(eps, A, B), [2, 4], [3, 5])
+    Curl(A) = ∇ x A = Contract(Product(eps, ∇, A), [2, 4], [3, 5])
+    Div(A) = ∇ · A = Contract(Product(∇, A), [Rank(∇), Rank(∇)+1])
+
+In contrast to tensor operations above, the following are all array operations
+(if inputs are tensors, the outputs are arrays, not tensors)::
+
+    Shape
+    Size
+    Section
+    Reshape
+    Concat
+    Index (Item)
+    Sum, Maxval, Minval, Product, (general) Reduce
+
 Examples
 ========
 
